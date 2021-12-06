@@ -18,33 +18,49 @@
 #include "Framework/HistogramRegistry.h"
 #include "Framework/runDataProcessing.h"
 #include "DetectorsVertexing/DCAFitterN.h"
+#include "Common/Core/PID/PIDResponse.h"
 #include "Common/Core/trackUtilities.h"
 #include "Common/DataModel/TrackSelectionTables.h"
 
 #include <algorithm>
 
+
+// Skimming =====================================================================
+
+
 namespace o2::aod
 {
 namespace hf_seltrack
 {
+// Track selection columns
 DECLARE_SOA_COLUMN(IsSelProng, isSelProng, int); //!
 DECLARE_SOA_COLUMN(PxProng, pxProng, float);     //!
 DECLARE_SOA_COLUMN(PyProng, pyProng, float);     //!
 DECLARE_SOA_COLUMN(PzProng, pzProng, float);     //!
 } // namespace hf_seltrack
 
+// Track selection table
 DECLARE_SOA_TABLE(HFSelTrack, "AOD", "HFSELTRACK", //!
                   hf_seltrack::IsSelProng,
                   hf_seltrack::PxProng,
                   hf_seltrack::PyProng,
                   hf_seltrack::PzProng);
 
+using BigTracks = soa::Join<Tracks, TracksCov, TracksExtra, HFSelTrack>;
+using BigTracksExtended = soa::Join<BigTracks, aod::TracksExtended>;
+using BigTracksPID = soa::Join<BigTracks,
+                               aod::pidTPCFullEl, aod::pidTPCFullMu, aod::pidTPCFullPi, aod::pidTPCFullKa, aod::pidTPCFullPr,
+                               aod::pidTOFFullEl, aod::pidTOFFullMu, aod::pidTOFFullPi, aod::pidTOFFullKa, aod::pidTOFFullPr>;
+using BigTracksPIDExtended = soa::Join<BigTracksPID, aod::TracksExtended>;
+
 namespace hf_track_index
 {
+// Track index skim columns
 DECLARE_SOA_INDEX_COLUMN_FULL(Index0, index0, int, Tracks, "_0");          //!
 DECLARE_SOA_INDEX_COLUMN_FULL(Index1, index1, int, Tracks, "_1");          //!
 } // namespace hf_track_index
 
+// Track index skim table
 DECLARE_SOA_TABLE(HfTrackIndexProng2, "AOD", "HFTRACKIDXP2", //!
                   hf_track_index::Index0Id,
                   hf_track_index::Index1Id);
@@ -58,7 +74,8 @@ using namespace o2::aod;
 
 static const double massPi = RecoDecay::getMassPDG(kPiPlus);
 static const double massK = RecoDecay::getMassPDG(kKPlus);
-static const auto arrMass = std::array{massPi, massK};
+static const auto arrMassPiK = std::array{massPi, massK};
+static const auto arrMassKPi = std::array{massK, massPi};
 
 using TracksAll = soa::Join<aod::Tracks, aod::TracksCov, aod::TracksExtra, aod::TracksExtended>;
 
@@ -123,15 +140,16 @@ struct HfTagSelTracks {
   }
 };
 
-/// Pre-selection of 2-prong and secondary vertices
+/// Track index skim creator
+/// Pre-selection of 2-prong secondary vertices
 struct HfTrackIndexSkimsCreator {
   Produces<aod::HfTrackIndexProng2> rowTrackIndexProng2;
 
   // vertexing parameters
-  Configurable<double> bz{"bz", 5., "magnetic field kG"};
+  Configurable<double> magneticField{"magneticField", 5., "magnetic field [kG]"};
   Configurable<bool> propToDCA{"propToDCA", true, "create tracks version propagated to PCA"};
   Configurable<bool> useAbsDCA{"useAbsDCA", true, "Minimise abs. distance rather than chi2"};
-  Configurable<double> maxRad{"maxRad", 200., "reject PCA's above this radius"};
+  Configurable<double> maxR{"maxR", 200., "reject PCA's above this radius"};
   Configurable<double> maxDZIni{"maxDZIni", 4., "reject (if>0) PCA candidate if tracks DZ exceeds threshold"};
   Configurable<double> minParamChange{"minParamChange", 1.e-3, "stop iterations if largest change of any X is smaller than this"};
   Configurable<double> minRelChi2Change{"minRelChi2Change", 0.9, "stop iterations if chi2/chi2old > this"};
@@ -143,7 +161,6 @@ struct HfTrackIndexSkimsCreator {
      {"hVtx2ProngX", "2-prong candidates;#it{x}_{sec. vtx.} (cm);entries", {HistType::kTH1F, {{1000, -2., 2.}}}},
      {"hVtx2ProngY", "2-prong candidates;#it{y}_{sec. vtx.} (cm);entries", {HistType::kTH1F, {{1000, -2., 2.}}}},
      {"hVtx2ProngZ", "2-prong candidates;#it{z}_{sec. vtx.} (cm);entries", {HistType::kTH1F, {{1000, -20., 20.}}}},
-     {"hNCand2Prong", "2-prong candidates preselected;# of candidates;entries", {HistType::kTH1F, {{2000, 0., 200000.}}}},
      {"hmassD0ToPiK", "D^{0} candidates;inv. mass (#pi K) (GeV/#it{c}^{2});entries", {HistType::kTH1F, {{500, 0., 5.}}}}
      }
   };
@@ -159,9 +176,9 @@ struct HfTrackIndexSkimsCreator {
   {
     // 2-prong vertex fitter
     o2::vertexing::DCAFitterN<2> df2;
-    df2.setBz(bz);
+    df2.setBz(magneticField);
     df2.setPropagateToPCA(propToDCA);
-    df2.setMaxR(maxRad);
+    df2.setMaxR(maxR);
     df2.setMaxDZIni(maxDZIni);
     df2.setMinParamChange(minParamChange);
     df2.setMinRelChi2Change(minRelChi2Change);
@@ -195,7 +212,7 @@ struct HfTrackIndexSkimsCreator {
             std::array{trackNeg1.pxProng(), trackNeg1.pyProng(), trackNeg1.pzProng()}};
 
           auto pT = RecoDecay::Pt(arrMom[0], arrMom[1]);
-          auto massPiK = RecoDecay::M2(arrMom, arrMass);
+          auto massPiK = RecoDecay::M2(arrMom, arrMassPiK);
 
           // secondary vertex reconstruction and further 2-prong selections
           if (df2.process(trackParVarPos1, trackParVarNeg1) > 0) {
@@ -222,7 +239,7 @@ struct HfTrackIndexSkimsCreator {
                 registry.fill(HIST("hVtx2ProngX"), secondaryVertex[0]);
                 registry.fill(HIST("hVtx2ProngY"), secondaryVertex[1]);
                 registry.fill(HIST("hVtx2ProngZ"), secondaryVertex[2]);
-                auto mass2Prong = RecoDecay::M(arrMom, arrMass);
+                auto mass2Prong = RecoDecay::M(arrMom, arrMassPiK);
                 registry.fill(HIST("hmassD0ToPiK"), mass2Prong);
           }
       }
@@ -230,13 +247,17 @@ struct HfTrackIndexSkimsCreator {
   }
 };
 
-// Candidate creator
+
+// Candidate creation =====================================================================
+
 
 namespace o2::aod
 {
-// specific 2-prong decay properties
+// 2-prong decay properties
 namespace hf_cand_prong2
 {
+// Candidate columns
+
 // collision properties
 DECLARE_SOA_INDEX_COLUMN(Collision, collision); //!
 // secondary vertex
@@ -277,7 +298,7 @@ auto InvMassD0(const T& candidate)
 }
 } // namespace hf_cand_prong2
 
-// 2-prong decay candidate table
+// Candidate table
 DECLARE_SOA_TABLE(HfCandProng2Base, "AOD", "HFCANDP2BASE", //!
     hf_cand_prong2::CollisionId,
     collision::PosX, collision::PosY, collision::PosZ,
@@ -302,16 +323,101 @@ using HfCandProng2 = HfCandProng2Ext;
 
 } // namespace o2::aod
 
+/// Candidate creator
+/// Reconstruction of heavy-flavour 2-prong decay candidates
+struct HfCandidateCreator2Prong {
+  Produces<aod::HfCandProng2Base> rowCandidateBase;
+
+  Configurable<double> magneticField{"magneticField", 5., "magnetic field [kG]"};
+  Configurable<bool> propToDCA{"propToDCA", true, "create tracks version propagated to PCA"};
+  Configurable<bool> useAbsDCA{"useAbsDCA", true, "Minimise abs. distance rather than chi2"};
+  Configurable<double> maxR{"maxR", 200., "reject PCA's above this radius"};
+  Configurable<double> maxDZIni{"maxDZIni", 4., "reject (if>0) PCA candidate if tracks DZ exceeds threshold"};
+  Configurable<double> minParamChange{"minParamChange", 1.e-3, "stop iterations if largest change of any X is smaller than this"};
+  Configurable<double> minRelChi2Change{"minRelChi2Change", 0.9, "stop iterations if chi2/chi2old > this"};
+
+  OutputObj<TH1F> hMass{TH1F("hMass", "2-prong candidates;inv. mass (#pi K) (GeV/#it{c}^{2});entries", 500, 0., 5.)};
+
+  double massPiK{0.};
+  double massKPi{0.};
+
+  void process(aod::Collisions const& collisions,
+               aod::HfTrackIndexProng2 const& rowsTrackIndexProng2,
+               aod::BigTracks const& tracks)
+  {
+    // 2-prong vertex fitter
+    o2::vertexing::DCAFitterN<2> df;
+    df.setBz(magneticField);
+    df.setPropagateToPCA(propToDCA);
+    df.setMaxR(maxR);
+    df.setMaxDZIni(maxDZIni);
+    df.setMinParamChange(minParamChange);
+    df.setMinRelChi2Change(minRelChi2Change);
+    df.setUseAbsDCA(useAbsDCA);
+
+    // loop over pairs of track indices
+    for (const auto& rowTrackIndexProng2 : rowsTrackIndexProng2) {
+      auto track0 = rowTrackIndexProng2.index0_as<aod::BigTracks>();
+      auto track1 = rowTrackIndexProng2.index1_as<aod::BigTracks>();
+      auto trackParVarPos1 = getTrackParCov(track0);
+      auto trackParVarNeg1 = getTrackParCov(track1);
+      auto collision = track0.collision();
+
+      // reconstruct the 2-prong secondary vertex
+      if (df.process(trackParVarPos1, trackParVarNeg1) == 0) {
+        continue;
+      }
+      const auto& secondaryVertex = df.getPCACandidate();
+      auto trackParVar0 = df.getTrack(0);
+      auto trackParVar1 = df.getTrack(1);
+
+      // get track momenta
+      array<float, 3> pvec0;
+      array<float, 3> pvec1;
+      trackParVar0.getPxPyPzGlo(pvec0);
+      trackParVar1.getPxPyPzGlo(pvec1);
+
+      // fill candidate table rows
+      rowCandidateBase(collision.globalIndex(),
+                       collision.posX(), collision.posY(), collision.posZ(),
+                       secondaryVertex[0], secondaryVertex[1], secondaryVertex[2],
+                       pvec0[0], pvec0[1], pvec0[2],
+                       pvec1[0], pvec1[1], pvec1[2],
+                       rowTrackIndexProng2.index0Id(), rowTrackIndexProng2.index1Id());
+
+      // fill histograms
+      // calculate invariant masses
+      auto arrayMomenta = std::array{pvec0, pvec1};
+      massPiK = RecoDecay::M(arrayMomenta, arrMassPiK);
+      massKPi = RecoDecay::M(arrayMomenta, arrMassKPi);
+      hMass->Fill(massPiK);
+      //hMass->Fill(massKPi);
+    }
+  }
+};
+
+/// Helper extension task
+/// Extends the base table with expression columns.
+struct HfCandidateCreator2ProngExpressions {
+  Spawns<aod::HfCandProng2Ext> rowCandidateProng2;
+  void init(InitContext const&) {}
+};
+
+
+// Candidate selection =====================================================================
+
+
 namespace o2::aod
 {
 } // namespace o2::aod
 
 // Add all tasks in the workflow specification.
-
 WorkflowSpec defineDataProcessing(ConfigContext const& cfgc)
 {
-  WorkflowSpec workflow{};
-  workflow.push_back(adaptAnalysisTask<HfTagSelTracks>(cfgc));
-  workflow.push_back(adaptAnalysisTask<HfTrackIndexSkimsCreator>(cfgc));
-  return workflow;
+  return WorkflowSpec{
+    adaptAnalysisTask<HfTagSelTracks>(cfgc),
+    adaptAnalysisTask<HfTrackIndexSkimsCreator>(cfgc),
+    adaptAnalysisTask<HfCandidateCreator2Prong>(cfgc),
+    adaptAnalysisTask<HfCandidateCreator2ProngExpressions>(cfgc)
+  };
 }
