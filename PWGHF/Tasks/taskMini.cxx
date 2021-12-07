@@ -30,7 +30,6 @@ using namespace o2::analysis;
 
 // Skimming =====================================================================
 
-
 namespace o2::aod
 {
 namespace hf_seltrack
@@ -59,8 +58,8 @@ using BigTracksPIDExtended = soa::Join<BigTracksPID, aod::TracksExtended>;
 namespace hf_track_index
 {
 // Track index skim columns
-DECLARE_SOA_INDEX_COLUMN_FULL(Index0, index0, int, Tracks, "_0");          //!
-DECLARE_SOA_INDEX_COLUMN_FULL(Index1, index1, int, Tracks, "_1");          //!
+DECLARE_SOA_INDEX_COLUMN_FULL(Index0, index0, int, Tracks, "_0"); //!
+DECLARE_SOA_INDEX_COLUMN_FULL(Index1, index1, int, Tracks, "_1"); //!
 } // namespace hf_track_index
 
 // Track index skim table
@@ -93,14 +92,11 @@ struct HfTagSelTracks {
 
   HistogramRegistry registry{
     "registry",
-    {
-     {"hPtNoCuts", "all tracks;#it{p}_{T}^{track} (GeV/#it{c});entries", {HistType::kTH1F, {{100, 0., 10.}}}},
+    {{"hPtNoCuts", "all tracks;#it{p}_{T}^{track} (GeV/#it{c});entries", {HistType::kTH1F, {{100, 0., 10.}}}},
      // 2-prong histograms
      {"hPtCuts2Prong", "tracks selected for 2-prong vertexing;#it{p}_{T}^{track} (GeV/#it{c});entries", {HistType::kTH1F, {{100, 0., 10.}}}},
      {"hDCAToPrimXYVsPtCuts2Prong", "tracks selected for 2-prong vertexing;#it{p}_{T}^{track} (GeV/#it{c});DCAxy to prim. vtx. (cm);entries", {HistType::kTH2F, {{100, 0., 10.}, {400, -2., 2.}}}},
-     {"hEtaCuts2Prong", "tracks selected for 2-prong vertexing;#it{#eta};entries", {HistType::kTH1F, {{static_cast<int>(1.2 * etaTrackMax * 100), -1.2 * etaTrackMax, 1.2 * etaTrackMax}}}}
-    }
-  };
+     {"hEtaCuts2Prong", "tracks selected for 2-prong vertexing;#it{#eta};entries", {HistType::kTH1F, {{static_cast<int>(1.2 * etaTrackMax * 100), -1.2 * etaTrackMax, 1.2 * etaTrackMax}}}}}};
 
   void process(aod::Collisions const& collisions,
                TracksAll const& tracks)
@@ -131,11 +127,11 @@ struct HfTagSelTracks {
       }
 
       // fill histograms
-        if (statusProng > 0) {
-          registry.fill(HIST("hPtCuts2Prong"), trackPt);
-          registry.fill(HIST("hEtaCuts2Prong"), trackEta);
-          registry.fill(HIST("hDCAToPrimXYVsPtCuts2Prong"), trackPt, dcaXY);
-        }
+      if (statusProng > 0) {
+        registry.fill(HIST("hPtCuts2Prong"), trackPt);
+        registry.fill(HIST("hEtaCuts2Prong"), trackEta);
+        registry.fill(HIST("hDCAToPrimXYVsPtCuts2Prong"), trackPt, dcaXY);
+      }
 
       // fill table row
       rowSelectedTrack(statusProng, track.px(), track.py(), track.pz());
@@ -159,14 +155,11 @@ struct HfTrackIndexSkimsCreator {
 
   HistogramRegistry registry{
     "registry",
-    {
-     // 2-prong histograms
+    {// 2-prong histograms
      {"hVtx2ProngX", "2-prong candidates;#it{x}_{sec. vtx.} (cm);entries", {HistType::kTH1F, {{1000, -2., 2.}}}},
      {"hVtx2ProngY", "2-prong candidates;#it{y}_{sec. vtx.} (cm);entries", {HistType::kTH1F, {{1000, -2., 2.}}}},
      {"hVtx2ProngZ", "2-prong candidates;#it{z}_{sec. vtx.} (cm);entries", {HistType::kTH1F, {{1000, -20., 20.}}}},
-     {"hmassD0ToPiK", "D^{0} candidates;inv. mass (#pi K) (GeV/#it{c}^{2});entries", {HistType::kTH1F, {{500, 0., 5.}}}}
-     }
-  };
+     {"hmassD0ToPiK", "D^{0} candidates;inv. mass (#pi K) (GeV/#it{c}^{2});entries", {HistType::kTH1F, {{500, 0., 5.}}}}}};
 
   Filter filterSelectTracks = aod::hf_seltrack::isSelProng > 0;
 
@@ -209,51 +202,49 @@ struct HfTrackIndexSkimsCreator {
 
         auto trackParVarNeg1 = getTrackParCov(trackNeg1);
 
-          // 2-prong preselections
+        // 2-prong preselections
 
-          //auto arrMom = std::array{
-          //  std::array{trackPos1.pxProng(), trackPos1.pyProng(), trackPos1.pzProng()},
-          //  std::array{trackNeg1.pxProng(), trackNeg1.pyProng(), trackNeg1.pzProng()}};
+        // auto arrMom = std::array{
+        //   std::array{trackPos1.pxProng(), trackPos1.pyProng(), trackPos1.pzProng()},
+        //   std::array{trackNeg1.pxProng(), trackNeg1.pyProng(), trackNeg1.pzProng()}};
 
-          //auto pT = RecoDecay::Pt(arrMom[0], arrMom[1]);
-          //auto massPiK = RecoDecay::M2(arrMom, arrMassPiK);
+        // auto pT = RecoDecay::Pt(arrMom[0], arrMom[1]);
+        // auto massPiK = RecoDecay::M2(arrMom, arrMassPiK);
 
-          // secondary vertex reconstruction and further 2-prong selections
-          if (df2.process(trackParVarPos1, trackParVarNeg1) > 0) {
-            //auto primaryVertex = std::array{collision.posX(), collision.posY(), collision.posZ()};
-            // get secondary vertex
-            const auto& secondaryVertex = df2.getPCACandidate();
-            // get track momenta
-            array<float, 3> pvec0;
-            array<float, 3> pvec1;
-            df2.getTrack(0).getPxPyPzGlo(pvec0);
-            df2.getTrack(1).getPxPyPzGlo(pvec1);
+        // secondary vertex reconstruction and further 2-prong selections
+        if (df2.process(trackParVarPos1, trackParVarNeg1) > 0) {
+          // auto primaryVertex = std::array{collision.posX(), collision.posY(), collision.posZ()};
+          //  get secondary vertex
+          const auto& secondaryVertex = df2.getPCACandidate();
+          // get track momenta
+          array<float, 3> pvec0;
+          array<float, 3> pvec1;
+          df2.getTrack(0).getPxPyPzGlo(pvec0);
+          df2.getTrack(1).getPxPyPzGlo(pvec1);
 
-            //auto pVecCand = RecoDecay::PVec(pvec0, pvec1);
-            //auto pTCand = RecoDecay::Pt(pVecCand);
-            // 2-prong selections after secondary vertex
-            //auto cpa = RecoDecay::CPA(primaryVertex, secondaryVertex, pVecCand);
-            std::array<std::array<float, 3>, 2> arrMom = {pvec0, pvec1};
+          // auto pVecCand = RecoDecay::PVec(pvec0, pvec1);
+          // auto pTCand = RecoDecay::Pt(pVecCand);
+          //  2-prong selections after secondary vertex
+          // auto cpa = RecoDecay::CPA(primaryVertex, secondaryVertex, pVecCand);
+          std::array<std::array<float, 3>, 2> arrMom = {pvec0, pvec1};
 
-              // fill table row
-              rowTrackIndexProng2(trackPos1.globalIndex(),
-                                  trackNeg1.globalIndex());
+          // fill table row
+          rowTrackIndexProng2(trackPos1.globalIndex(),
+                              trackNeg1.globalIndex());
 
-              // fill histograms
-                registry.fill(HIST("hVtx2ProngX"), secondaryVertex[0]);
-                registry.fill(HIST("hVtx2ProngY"), secondaryVertex[1]);
-                registry.fill(HIST("hVtx2ProngZ"), secondaryVertex[2]);
-                auto mass2Prong = RecoDecay::M(arrMom, arrMassPiK);
-                registry.fill(HIST("hmassD0ToPiK"), mass2Prong);
-          }
+          // fill histograms
+          registry.fill(HIST("hVtx2ProngX"), secondaryVertex[0]);
+          registry.fill(HIST("hVtx2ProngY"), secondaryVertex[1]);
+          registry.fill(HIST("hVtx2ProngZ"), secondaryVertex[2]);
+          auto mass2Prong = RecoDecay::M(arrMom, arrMassPiK);
+          registry.fill(HIST("hmassD0ToPiK"), mass2Prong);
+        }
       }
     }
   }
 };
 
-
 // Candidate creation =====================================================================
-
 
 namespace o2::aod
 {
@@ -293,7 +284,7 @@ DECLARE_SOA_EXPRESSION_COLUMN(Pz, pz, //!
                               float, 1.f * pzProng0 + 1.f * pzProng1);
 DECLARE_SOA_DYNAMIC_COLUMN(M, m, //!
                            [](float px0, float py0, float pz0, float px1, float py1, float pz1, const array<double, 2>& m) -> float { return RecoDecay::M(array{array{px0, py0, pz0}, array{px1, py1, pz1}}, m); });
-DECLARE_SOA_DYNAMIC_COLUMN(CPA, cpa,                               //!
+DECLARE_SOA_DYNAMIC_COLUMN(CPA, cpa, //!
                            [](float xVtxP, float yVtxP, float zVtxP, float xVtxS, float yVtxS, float zVtxS, float px, float py, float pz) -> float { return RecoDecay::CPA(array{xVtxP, yVtxP, zVtxP}, array{xVtxS, yVtxS, zVtxS}, array{px, py, pz}); });
 
 template <typename T>
@@ -311,21 +302,21 @@ auto InvMassD0bar(const T& candidate)
 
 // Candidate table
 DECLARE_SOA_TABLE(HfCandProng2Base, "AOD", "HFCANDP2BASE", //!
-    hf_cand_prong2::CollisionId,
-    collision::PosX, collision::PosY, collision::PosZ,
-    hf_cand_prong2::XSecondaryVertex, hf_cand_prong2::YSecondaryVertex, hf_cand_prong2::ZSecondaryVertex,
-    /* dynamic columns */ hf_cand_prong2::RSecondaryVertex<hf_cand_prong2::XSecondaryVertex, hf_cand_prong2::YSecondaryVertex>,
-    hf_cand_prong2::DecayLength<collision::PosX, collision::PosY, collision::PosZ, hf_cand_prong2::XSecondaryVertex, hf_cand_prong2::YSecondaryVertex, hf_cand_prong2::ZSecondaryVertex>,
-    /* prong 0 */ hf_cand_prong2::PtProng0<hf_cand_prong2::PxProng0, hf_cand_prong2::PyProng0>,
-    hf_cand_prong2::PxProng0, hf_cand_prong2::PyProng0, hf_cand_prong2::PzProng0,
-    /* prong 1 */ hf_cand_prong2::PtProng1<hf_cand_prong2::PxProng1, hf_cand_prong2::PyProng1>,
-    hf_cand_prong2::PxProng1, hf_cand_prong2::PyProng1, hf_cand_prong2::PzProng1,
-    hf_track_index::Index0Id, hf_track_index::Index1Id,
-    /* dynamic columns */
-    hf_cand_prong2::M<hf_cand_prong2::PxProng0, hf_cand_prong2::PyProng0, hf_cand_prong2::PzProng0, hf_cand_prong2::PxProng1, hf_cand_prong2::PyProng1, hf_cand_prong2::PzProng1>,
-    /* dynamic columns that use candidate momentum components */
-    hf_cand_prong2::CPA<collision::PosX, collision::PosY, collision::PosZ, hf_cand_prong2::XSecondaryVertex, hf_cand_prong2::YSecondaryVertex, hf_cand_prong2::ZSecondaryVertex, hf_cand_prong2::Px, hf_cand_prong2::Py, hf_cand_prong2::Pz>,
-    hf_cand_prong2::Pt<hf_cand_prong2::Px, hf_cand_prong2::Py>);
+                  hf_cand_prong2::CollisionId,
+                  collision::PosX, collision::PosY, collision::PosZ,
+                  hf_cand_prong2::XSecondaryVertex, hf_cand_prong2::YSecondaryVertex, hf_cand_prong2::ZSecondaryVertex,
+                  /* dynamic columns */ hf_cand_prong2::RSecondaryVertex<hf_cand_prong2::XSecondaryVertex, hf_cand_prong2::YSecondaryVertex>,
+                  hf_cand_prong2::DecayLength<collision::PosX, collision::PosY, collision::PosZ, hf_cand_prong2::XSecondaryVertex, hf_cand_prong2::YSecondaryVertex, hf_cand_prong2::ZSecondaryVertex>,
+                  /* prong 0 */ hf_cand_prong2::PtProng0<hf_cand_prong2::PxProng0, hf_cand_prong2::PyProng0>,
+                  hf_cand_prong2::PxProng0, hf_cand_prong2::PyProng0, hf_cand_prong2::PzProng0,
+                  /* prong 1 */ hf_cand_prong2::PtProng1<hf_cand_prong2::PxProng1, hf_cand_prong2::PyProng1>,
+                  hf_cand_prong2::PxProng1, hf_cand_prong2::PyProng1, hf_cand_prong2::PzProng1,
+                  hf_track_index::Index0Id, hf_track_index::Index1Id,
+                  /* dynamic columns */
+                  hf_cand_prong2::M<hf_cand_prong2::PxProng0, hf_cand_prong2::PyProng0, hf_cand_prong2::PzProng0, hf_cand_prong2::PxProng1, hf_cand_prong2::PyProng1, hf_cand_prong2::PzProng1>,
+                  /* dynamic columns that use candidate momentum components */
+                  hf_cand_prong2::CPA<collision::PosX, collision::PosY, collision::PosZ, hf_cand_prong2::XSecondaryVertex, hf_cand_prong2::YSecondaryVertex, hf_cand_prong2::ZSecondaryVertex, hf_cand_prong2::Px, hf_cand_prong2::Py, hf_cand_prong2::Pz>,
+                  hf_cand_prong2::Pt<hf_cand_prong2::Px, hf_cand_prong2::Py>);
 
 // extended table with expression columns that can be used as arguments of dynamic columns
 DECLARE_SOA_EXTENDED_TABLE_USER(HfCandProng2Ext, HfCandProng2Base, "HFCANDP2EXT", //!
@@ -403,7 +394,7 @@ struct HfCandidateCreator2Prong {
       massPiK = RecoDecay::M(arrayMomenta, arrMassPiK);
       massKPi = RecoDecay::M(arrayMomenta, arrMassKPi);
       hMass->Fill(massPiK);
-      //hMass->Fill(massKPi);
+      // hMass->Fill(massKPi);
     }
   }
 };
@@ -415,17 +406,15 @@ struct HfCandidateCreator2ProngExpressions {
   void init(InitContext const&) {}
 };
 
-
 // Candidate selection =====================================================================
-
 
 namespace o2::aod
 {
 namespace hf_selcandidate_d0
 {
 // Candidate selection columns
-DECLARE_SOA_COLUMN(IsSelD0, isSelD0, int);           //!
-DECLARE_SOA_COLUMN(IsSelD0bar, isSelD0bar, int);     //!
+DECLARE_SOA_COLUMN(IsSelD0, isSelD0, int);       //!
+DECLARE_SOA_COLUMN(IsSelD0bar, isSelD0bar, int); //!
 } // namespace hf_selcandidate_d0
 
 // Candidate selection table
@@ -568,16 +557,13 @@ struct HfCandidateSelectorD0 {
   }
 };
 
-
 // Analysis task =====================================================================
-
 
 /// D0 analysis task
 struct HfTaskD0 {
   HistogramRegistry registry{
     "registry",
-    {}
-  };
+    {}};
 
   Configurable<int> flagSelCandD0{"flagSelCandD0", 1, "Selection flag for D0"};
   Configurable<int> flagSelCandD0bar{"flagSelCandD0bar", 1, "Selection flag for D0 bar"};
@@ -609,7 +595,6 @@ struct HfTaskD0 {
   }
 };
 
-
 // Add all tasks in the workflow specification.
 WorkflowSpec defineDataProcessing(ConfigContext const& cfgc)
 {
@@ -619,6 +604,5 @@ WorkflowSpec defineDataProcessing(ConfigContext const& cfgc)
     adaptAnalysisTask<HfCandidateCreator2Prong>(cfgc),
     adaptAnalysisTask<HfCandidateCreator2ProngExpressions>(cfgc),
     adaptAnalysisTask<HfCandidateSelectorD0>(cfgc),
-    adaptAnalysisTask<HfTaskD0>(cfgc)
-  };
+    adaptAnalysisTask<HfTaskD0>(cfgc)};
 }
