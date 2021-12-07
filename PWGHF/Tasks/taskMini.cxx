@@ -21,9 +21,12 @@
 #include "Common/Core/PID/PIDResponse.h"
 #include "Common/Core/trackUtilities.h"
 #include "Common/DataModel/TrackSelectionTables.h"
+#include "Common/Core/TrackSelectorPID.h"
+#include "PWGHF/Core/HFSelectorCuts.h"
 
 #include <algorithm>
 
+using namespace o2::analysis;
 
 // Skimming =====================================================================
 
@@ -207,16 +210,17 @@ struct HfTrackIndexSkimsCreator {
         auto trackParVarNeg1 = getTrackParCov(trackNeg1);
 
           // 2-prong preselections
-          auto arrMom = std::array{
-            std::array{trackPos1.pxProng(), trackPos1.pyProng(), trackPos1.pzProng()},
-            std::array{trackNeg1.pxProng(), trackNeg1.pyProng(), trackNeg1.pzProng()}};
 
-          auto pT = RecoDecay::Pt(arrMom[0], arrMom[1]);
-          auto massPiK = RecoDecay::M2(arrMom, arrMassPiK);
+          //auto arrMom = std::array{
+          //  std::array{trackPos1.pxProng(), trackPos1.pyProng(), trackPos1.pzProng()},
+          //  std::array{trackNeg1.pxProng(), trackNeg1.pyProng(), trackNeg1.pzProng()}};
+
+          //auto pT = RecoDecay::Pt(arrMom[0], arrMom[1]);
+          //auto massPiK = RecoDecay::M2(arrMom, arrMassPiK);
 
           // secondary vertex reconstruction and further 2-prong selections
           if (df2.process(trackParVarPos1, trackParVarNeg1) > 0) {
-            auto primaryVertex = std::array{collision.posX(), collision.posY(), collision.posZ()};
+            //auto primaryVertex = std::array{collision.posX(), collision.posY(), collision.posZ()};
             // get secondary vertex
             const auto& secondaryVertex = df2.getPCACandidate();
             // get track momenta
@@ -225,10 +229,10 @@ struct HfTrackIndexSkimsCreator {
             df2.getTrack(0).getPxPyPzGlo(pvec0);
             df2.getTrack(1).getPxPyPzGlo(pvec1);
 
-            auto pVecCand = RecoDecay::PVec(pvec0, pvec1);
-            auto pTCand = RecoDecay::Pt(pVecCand);
+            //auto pVecCand = RecoDecay::PVec(pvec0, pvec1);
+            //auto pTCand = RecoDecay::Pt(pVecCand);
             // 2-prong selections after secondary vertex
-            auto cpa = RecoDecay::CPA(primaryVertex, secondaryVertex, pVecCand);
+            //auto cpa = RecoDecay::CPA(primaryVertex, secondaryVertex, pVecCand);
             std::array<std::array<float, 3>, 2> arrMom = {pvec0, pvec1};
 
               // fill table row
@@ -257,7 +261,6 @@ namespace o2::aod
 namespace hf_cand_prong2
 {
 // Candidate columns
-
 // collision properties
 DECLARE_SOA_INDEX_COLUMN(Collision, collision); //!
 // secondary vertex
@@ -290,11 +293,19 @@ DECLARE_SOA_EXPRESSION_COLUMN(Pz, pz, //!
                               float, 1.f * pzProng0 + 1.f * pzProng1);
 DECLARE_SOA_DYNAMIC_COLUMN(M, m, //!
                            [](float px0, float py0, float pz0, float px1, float py1, float pz1, const array<double, 2>& m) -> float { return RecoDecay::M(array{array{px0, py0, pz0}, array{px1, py1, pz1}}, m); });
+DECLARE_SOA_DYNAMIC_COLUMN(CPA, cpa,                               //!
+                           [](float xVtxP, float yVtxP, float zVtxP, float xVtxS, float yVtxS, float zVtxS, float px, float py, float pz) -> float { return RecoDecay::CPA(array{xVtxP, yVtxP, zVtxP}, array{xVtxS, yVtxS, zVtxS}, array{px, py, pz}); });
 
 template <typename T>
 auto InvMassD0(const T& candidate)
 {
   return candidate.m(array{RecoDecay::getMassPDG(kPiPlus), RecoDecay::getMassPDG(kKPlus)});
+}
+
+template <typename T>
+auto InvMassD0bar(const T& candidate)
+{
+  return candidate.m(array{RecoDecay::getMassPDG(kKPlus), RecoDecay::getMassPDG(kPiPlus)});
 }
 } // namespace hf_cand_prong2
 
@@ -313,6 +324,7 @@ DECLARE_SOA_TABLE(HfCandProng2Base, "AOD", "HFCANDP2BASE", //!
     /* dynamic columns */
     hf_cand_prong2::M<hf_cand_prong2::PxProng0, hf_cand_prong2::PyProng0, hf_cand_prong2::PzProng0, hf_cand_prong2::PxProng1, hf_cand_prong2::PyProng1, hf_cand_prong2::PzProng1>,
     /* dynamic columns that use candidate momentum components */
+    hf_cand_prong2::CPA<collision::PosX, collision::PosY, collision::PosZ, hf_cand_prong2::XSecondaryVertex, hf_cand_prong2::YSecondaryVertex, hf_cand_prong2::ZSecondaryVertex, hf_cand_prong2::Px, hf_cand_prong2::Py, hf_cand_prong2::Pz>,
     hf_cand_prong2::Pt<hf_cand_prong2::Px, hf_cand_prong2::Py>);
 
 // extended table with expression columns that can be used as arguments of dynamic columns
@@ -409,7 +421,194 @@ struct HfCandidateCreator2ProngExpressions {
 
 namespace o2::aod
 {
+namespace hf_selcandidate_d0
+{
+// Candidate selection columns
+DECLARE_SOA_COLUMN(IsSelD0, isSelD0, int);           //!
+DECLARE_SOA_COLUMN(IsSelD0bar, isSelD0bar, int);     //!
+} // namespace hf_selcandidate_d0
+
+// Candidate selection table
+DECLARE_SOA_TABLE(HfSelCandidateD0, "AOD", "HFSELCANDD0", //!
+                  hf_selcandidate_d0::IsSelD0,
+                  hf_selcandidate_d0::IsSelD0bar);
 } // namespace o2::aod
+
+/// D0 candidate selector
+struct HfCandidateSelectorD0 {
+  Produces<aod::HfSelCandidateD0> hfSelD0Candidate;
+
+  Configurable<double> pTCandMin{"pTCandMin", 0., "Lower bound of candidate pT"};
+  Configurable<double> pTCandMax{"pTCandMax", 50., "Upper bound of candidate pT"};
+  // TPC
+  Configurable<double> pTPidTpcMin{"pTPidTpcMin", 0.15, "Lower bound of track pT for TPC PID"};
+  Configurable<double> pTPidTpcMax{"pTPidTpcMax", 5., "Upper bound of track pT for TPC PID"};
+  Configurable<double> nSigmaTpc{"nSigmaTpc", 3., "Nsigma cut on TPC only"};
+  // topological cuts
+  Configurable<double> cpaMin{"cpaMin", 0.98, "Min. cosine of pointing angle"};
+  Configurable<double> massWindow{"massWindow", 0.4, "Half-width of the invariant-mass window"};
+
+  /// Conjugate-independent topological cuts
+  /// \param candidate is candidate
+  /// \return true if candidate passes all cuts
+  template <typename T>
+  bool selectionTopol(const T& candidate)
+  {
+    // check that the candidate pT is within the analysis range
+    if (candidate.pt() < pTCandMin || candidate.pt() >= pTCandMax) {
+      return false;
+    }
+    // cosine of pointing angle
+    if (candidate.cpa() < cpaMin) {
+      return false;
+    }
+    return true;
+  }
+
+  /// Conjugate-dependent topological cuts
+  /// \param candidate is candidate
+  /// \param trackPion is the track with the pion hypothesis
+  /// \param trackKaon is the track with the kaon hypothesis
+  /// \note trackPion = positive and trackKaon = negative for D0 selection and inverse for D0bar
+  /// \return true if candidate passes all cuts for the given Conjugate
+  template <typename T1, typename T2>
+  bool selectionTopolConjugate(const T1& candidate, const T2& trackPion, const T2& trackKaon)
+  {
+    // invariant-mass cut
+    if (trackPion.sign() > 0) {
+      if (std::abs(InvMassD0(candidate) - RecoDecay::getMassPDG(pdg::Code::kD0)) > massWindow) {
+        return false;
+      }
+    } else {
+      if (std::abs(InvMassD0bar(candidate) - RecoDecay::getMassPDG(pdg::Code::kD0)) > massWindow) {
+        return false;
+      }
+    }
+    return true;
+  }
+
+  void process(aod::HfCandProng2 const& candidates, aod::BigTracksPIDExtended const&)
+  {
+    TrackSelectorPID selectorPion(kPiPlus);
+    selectorPion.setRangePtTPC(pTPidTpcMin, pTPidTpcMax);
+    selectorPion.setRangeNSigmaTPC(-nSigmaTpc, nSigmaTpc);
+
+    TrackSelectorPID selectorKaon(selectorPion);
+    selectorKaon.setPDG(kKPlus);
+
+    // looping over 2-prong candidates
+    for (auto& candidate : candidates) {
+
+      // final selection flag: 0 - rejected, 1 - accepted
+      int statusD0 = 0;
+      int statusD0bar = 0;
+
+      auto trackPos = candidate.index0_as<aod::BigTracksPIDExtended>(); // positive daughter
+      auto trackNeg = candidate.index1_as<aod::BigTracksPIDExtended>(); // negative daughter
+
+      // conjugate-independent topological selection
+      if (!selectionTopol(candidate)) {
+        hfSelD0Candidate(statusD0, statusD0bar);
+        continue;
+      }
+
+      // conjugate-dependent topological selection for D0
+      bool topolD0 = selectionTopolConjugate(candidate, trackPos, trackNeg);
+      // conjugate-dependent topological selection for D0bar
+      bool topolD0bar = selectionTopolConjugate(candidate, trackNeg, trackPos);
+
+      if (!topolD0 && !topolD0bar) {
+        hfSelD0Candidate(statusD0, statusD0bar);
+        continue;
+      }
+
+      // track-level PID selection
+      int pidTrackPosKaon = selectorKaon.getStatusTrackPIDAll(trackPos);
+      int pidTrackPosPion = selectorPion.getStatusTrackPIDAll(trackPos);
+      int pidTrackNegKaon = selectorKaon.getStatusTrackPIDAll(trackNeg);
+      int pidTrackNegPion = selectorPion.getStatusTrackPIDAll(trackNeg);
+
+      int pidD0 = -1;
+      int pidD0bar = -1;
+
+      if (pidTrackPosPion == TrackSelectorPID::Status::PIDAccepted &&
+          pidTrackNegKaon == TrackSelectorPID::Status::PIDAccepted) {
+        pidD0 = 1; // accept D0
+      } else if (pidTrackPosPion == TrackSelectorPID::Status::PIDRejected ||
+                 pidTrackNegKaon == TrackSelectorPID::Status::PIDRejected ||
+                 pidTrackNegPion == TrackSelectorPID::Status::PIDAccepted ||
+                 pidTrackPosKaon == TrackSelectorPID::Status::PIDAccepted) {
+        pidD0 = 0; // exclude D0
+      }
+
+      if (pidTrackNegPion == TrackSelectorPID::Status::PIDAccepted &&
+          pidTrackPosKaon == TrackSelectorPID::Status::PIDAccepted) {
+        pidD0bar = 1; // accept D0bar
+      } else if (pidTrackPosPion == TrackSelectorPID::Status::PIDAccepted ||
+                 pidTrackNegKaon == TrackSelectorPID::Status::PIDAccepted ||
+                 pidTrackNegPion == TrackSelectorPID::Status::PIDRejected ||
+                 pidTrackPosKaon == TrackSelectorPID::Status::PIDRejected) {
+        pidD0bar = 0; // exclude D0bar
+      }
+
+      if (pidD0 == 0 && pidD0bar == 0) {
+        hfSelD0Candidate(statusD0, statusD0bar);
+        continue;
+      }
+
+      if ((pidD0 == -1 || pidD0 == 1) && topolD0) {
+        statusD0 = 1; // identified as D0
+      }
+      if ((pidD0bar == -1 || pidD0bar == 1) && topolD0bar) {
+        statusD0bar = 1; // identified as D0bar
+      }
+
+      hfSelD0Candidate(statusD0, statusD0bar);
+    }
+  }
+};
+
+
+// Analysis task =====================================================================
+
+
+/// D0 analysis task
+struct HfTaskD0 {
+  HistogramRegistry registry{
+    "registry",
+    {}
+  };
+
+  Configurable<int> flagSelCandD0{"flagSelCandD0", 1, "Selection flag for D0"};
+  Configurable<int> flagSelCandD0bar{"flagSelCandD0bar", 1, "Selection flag for D0 bar"};
+
+  void init(o2::framework::InitContext&)
+  {
+    const TString strTitle = "D^{0} candidates";
+    const TString strPT = "#it{p}_{T} (GeV/#it{c})";
+    const TString strEntries = "entries";
+    registry.add("hPTCand", strTitle + ";" + strPT + ";" + strEntries, {HistType::kTH1F, {{100, 0., 10.}}});
+    registry.add("hMass", strTitle + ";" + "inv. mass (#pi K) (GeV/#it{c}^{2})" + ";" + strEntries, {HistType::kTH1F, {{500, 0., 5.}}});
+    registry.add("hCPA", strTitle + ";" + "cosine of pointing angle" + ";" + strPT + ";" + strEntries, {HistType::kTH2F, {{110, -1.1, 1.1}, {100, 0., 10.}}});
+  }
+
+  Partition<soa::Join<aod::HfCandProng2, aod::HfSelCandidateD0>> selectedD0Candidates = aod::hf_selcandidate_d0::isSelD0 >= flagSelCandD0 || aod::hf_selcandidate_d0::isSelD0bar >= flagSelCandD0bar;
+
+  void process(soa::Join<aod::HfCandProng2, aod::HfSelCandidateD0>& candidates)
+  {
+    for (auto& candidate : selectedD0Candidates) {
+      if (candidate.isSelD0() >= flagSelCandD0) {
+        registry.fill(HIST("hMass"), InvMassD0(candidate));
+      }
+      if (candidate.isSelD0bar() >= flagSelCandD0bar) {
+        registry.fill(HIST("hMass"), InvMassD0bar(candidate));
+      }
+      registry.fill(HIST("hPTCand"), candidate.pt());
+      registry.fill(HIST("hCPA"), candidate.cpa(), candidate.pt());
+    }
+  }
+};
+
 
 // Add all tasks in the workflow specification.
 WorkflowSpec defineDataProcessing(ConfigContext const& cfgc)
@@ -418,6 +617,8 @@ WorkflowSpec defineDataProcessing(ConfigContext const& cfgc)
     adaptAnalysisTask<HfTagSelTracks>(cfgc),
     adaptAnalysisTask<HfTrackIndexSkimsCreator>(cfgc),
     adaptAnalysisTask<HfCandidateCreator2Prong>(cfgc),
-    adaptAnalysisTask<HfCandidateCreator2ProngExpressions>(cfgc)
+    adaptAnalysisTask<HfCandidateCreator2ProngExpressions>(cfgc),
+    adaptAnalysisTask<HfCandidateSelectorD0>(cfgc),
+    adaptAnalysisTask<HfTaskD0>(cfgc)
   };
 }
