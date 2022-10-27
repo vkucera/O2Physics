@@ -550,7 +550,7 @@ class TrackSelectorPID
   }
 
  private:
-  uint mPdg = kPiPlus;              ///< PDG code of the expected particle
+  uint mPdg = kPiPlus;                  ///< PDG code of the expected particle
   uint mSpecies = o2::track::PID::Pion; ///< Expected species of the track
 
   // TPC
