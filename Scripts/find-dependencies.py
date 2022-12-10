@@ -201,7 +201,7 @@ def get_tree_for_table(
     producers = get_table_producers(tab, dic_wf_all, case_sensitive)
     if producers:
         print(f"{tab} <- {producers}")
-        if levels_max != 0: # Search for more dependencies only if needed.
+        if levels_max != 0:  # Search for more dependencies only if needed.
             print("\nWorkflow dependency tree:\n")
             for p in producers:
                 get_tree_for_workflow(
