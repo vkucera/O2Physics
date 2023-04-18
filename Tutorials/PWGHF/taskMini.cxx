@@ -264,6 +264,8 @@ DECLARE_SOA_DYNAMIC_COLUMN(M, m, //! invariant mass of candidate
                            [](float px0, float py0, float pz0, float px1, float py1, float pz1, const array<double, 2>& m) -> float { return RecoDecay::m(array{array{px0, py0, pz0}, array{px1, py1, pz1}}, m); });
 DECLARE_SOA_DYNAMIC_COLUMN(CPA, cpa, //! cosine of pointing angle of candidate
                            [](float xVtxP, float yVtxP, float zVtxP, float xVtxS, float yVtxS, float zVtxS, float px, float py, float pz) -> float { return RecoDecay::cpa(array{xVtxP, yVtxP, zVtxP}, array{xVtxS, yVtxS, zVtxS}, array{px, py, pz}); });
+DECLARE_SOA_DYNAMIC_COLUMN(Y, y, //! rapidity of candidate
+                           [](float px, float py, float pz, double m) -> float { return RecoDecay::y(array{px, py, pz}, m); });
 
 /// @brief Invariant mass of a D0 -> π K candidate
 /// @tparam T
@@ -284,6 +286,16 @@ auto invMassD0bar(const T& candidate)
 {
   return candidate.m(array{RecoDecay::getMassPDG(kKPlus), RecoDecay::getMassPDG(kPiPlus)});
 }
+
+/// @brief Rapidity of a D0 candidate
+/// @tparam T
+/// @param candidate
+/// @return rapidity
+template <typename T>
+auto yD0(const T& candidate)
+{
+  return candidate.y(RecoDecay::getMassPDG(pdg::Code::kD0));
+}
 } // namespace hf_cand_prong2
 
 // Candidate table
@@ -302,7 +314,8 @@ DECLARE_SOA_TABLE(HfCandProng2Base, "AOD", "HFCANDP2BASE", //! 2-prong candidate
                   hf_cand_prong2::M<hf_cand_prong2::PxProng0, hf_cand_prong2::PyProng0, hf_cand_prong2::PzProng0, hf_cand_prong2::PxProng1, hf_cand_prong2::PyProng1, hf_cand_prong2::PzProng1>,
                   /* dynamic columns that use candidate momentum components */
                   hf_cand_prong2::CPA<collision::PosX, collision::PosY, collision::PosZ, hf_cand_prong2::XSecondaryVertex, hf_cand_prong2::YSecondaryVertex, hf_cand_prong2::ZSecondaryVertex, hf_cand_prong2::Px, hf_cand_prong2::Py, hf_cand_prong2::Pz>,
-                  hf_cand_prong2::Pt<hf_cand_prong2::Px, hf_cand_prong2::Py>);
+                  hf_cand_prong2::Pt<hf_cand_prong2::Px, hf_cand_prong2::Py>,
+                  hf_cand_prong2::Y<hf_cand_prong2::Px, hf_cand_prong2::Py, hf_cand_prong2::Pz>);
 
 // Extended table with expression columns that can be used as arguments of dynamic columns
 DECLARE_SOA_EXTENDED_TABLE_USER(HfCandProng2Ext, HfCandProng2Base, "HFCANDP2EXT", //! extension table for the 2-prong candidate table
@@ -569,6 +582,7 @@ struct HfTaskD0 {
     const TString strPt = "#it{p}_{T} (GeV/#it{c})";
     const TString strEntries = "entries";
     registry.add("hPtCand", strTitle + ";" + strPt + ";" + strEntries, {HistType::kTH1F, {{100, 0., 10.}}});
+    registry.add("hYCand", strTitle + ";" + "#it{y}^{D^{0}}" + ";" + strEntries, {HistType::kTH1F, {{200, -2., 2.}}});
     registry.add("hMass", strTitle + ";" + "inv. mass (#pi K) (GeV/#it{c}^{2})" + ";" + strEntries, {HistType::kTH1F, {{500, 0., 5.}}});
     registry.add("hCpaVsPtCand", strTitle + ";" + "cosine of pointing angle" + ";" + strPt + ";" + strEntries, {HistType::kTH2F, {{110, -1.1, 1.1}, {100, 0., 10.}}});
   }
@@ -582,6 +596,7 @@ struct HfTaskD0 {
       if (candidate.isSelD0bar() >= selectionFlagD0bar) {
         registry.fill(HIST("hMass"), invMassD0bar(candidate));
       }
+      registry.fill(HIST("hYCand"), yD0(candidate));
       registry.fill(HIST("hPtCand"), candidate.pt());
       registry.fill(HIST("hCpaVsPtCand"), candidate.cpa(), candidate.pt());
     }
