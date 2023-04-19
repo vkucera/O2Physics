@@ -570,7 +570,7 @@ struct HfTaskD0 {
   Configurable<int> selectionFlagD0{"selectionFlagD0", 1, "Selection flag for D0"};
   Configurable<int> selectionFlagD0bar{"selectionFlagD0bar", 1, "Selection flag for D0 bar"};
 
-  Partition<soa::Join<aod::HfCandProng2, aod::HfSelCandidateD0>> selectedD0Candidates = aod::hf_selcandidate_d0::isSelD0 >= selectionFlagD0 || aod::hf_selcandidate_d0::isSelD0bar >= selectionFlagD0bar;
+  Filter filterSelectCandidates = aod::hf_selcandidate_d0::isSelD0 >= selectionFlagD0 || aod::hf_selcandidate_d0::isSelD0bar >= selectionFlagD0bar;
 
   HistogramRegistry registry{
     "registry",
@@ -587,9 +587,9 @@ struct HfTaskD0 {
     registry.add("hCpaVsPtCand", strTitle + ";" + "cosine of pointing angle" + ";" + strPt + ";" + strEntries, {HistType::kTH2F, {{110, -1.1, 1.1}, {100, 0., 10.}}});
   }
 
-  void process(soa::Join<aod::HfCandProng2, aod::HfSelCandidateD0> const& candidates)
+  void process(soa::Filtered<soa::Join<aod::HfCandProng2, aod::HfSelCandidateD0>> const& candidates)
   {
-    for (auto const& candidate : selectedD0Candidates) {
+    for (auto const& candidate : candidates) {
       if (candidate.isSelD0() >= selectionFlagD0) {
         registry.fill(HIST("hMass"), invMassD0(candidate));
       }
