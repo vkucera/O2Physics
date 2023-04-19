@@ -581,14 +581,18 @@ struct HfTaskD0 {
     const TString strTitle = "D^{0} candidates";
     const TString strPt = "#it{p}_{T} (GeV/#it{c})";
     const TString strEntries = "entries";
+    registry.add("hNTracks", "Tracks;# of tracks;entries", {HistType::kTH1F, {{200, 0., 200.}}});
+    registry.add("hNCandidates", strTitle + ";# of candidates;entries", {HistType::kTH1F, {{100, 0., 100.}}});
     registry.add("hPtCand", strTitle + ";" + strPt + ";" + strEntries, {HistType::kTH1F, {{100, 0., 10.}}});
     registry.add("hYCand", strTitle + ";" + "#it{y}^{D^{0}}" + ";" + strEntries, {HistType::kTH1F, {{200, -2., 2.}}});
     registry.add("hMass", strTitle + ";" + "inv. mass (#pi K) (GeV/#it{c}^{2})" + ";" + strEntries, {HistType::kTH1F, {{500, 0., 5.}}});
     registry.add("hCpaVsPtCand", strTitle + ";" + "cosine of pointing angle" + ";" + strPt + ";" + strEntries, {HistType::kTH2F, {{110, -1.1, 1.1}, {100, 0., 10.}}});
   }
 
-  void process(soa::Filtered<soa::Join<aod::HfCandProng2, aod::HfSelCandidateD0>> const& candidates)
+  void process(aod::Collision const&, aod::Tracks const& tracks, soa::Filtered<soa::Join<aod::HfCandProng2, aod::HfSelCandidateD0>> const& candidates)
   {
+    registry.fill(HIST("hNTracks"), tracks.size());
+    registry.fill(HIST("hNCandidates"), candidates.size());
     for (auto const& candidate : candidates) {
       if (candidate.isSelD0() >= selectionFlagD0) {
         registry.fill(HIST("hMass"), invMassD0(candidate));
