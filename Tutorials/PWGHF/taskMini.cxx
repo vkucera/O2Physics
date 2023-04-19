@@ -422,6 +422,34 @@ DECLARE_SOA_COLUMN(IsSelD0bar, isSelD0bar, int); //! selection flag for D0 bar
 DECLARE_SOA_TABLE(HfSelCandidateD0, "AOD", "HFSELCANDD0", //! table with D0 selection flags
                   hf_selcandidate_d0::IsSelD0,
                   hf_selcandidate_d0::IsSelD0bar);
+
+namespace hf_cuts_d0
+{
+static constexpr int nBinsPt = 3;
+static constexpr int nCutVars = 2;
+// default values for the pT bin edges (can be used to configure histogram axis)
+// offset by 1 from the bin numbers in cuts array
+constexpr double binsPt[nBinsPt + 1] = {
+  0.,
+  5.0,
+  10.0,
+  50.0};
+auto vecBinsPt = std::vector<double>{binsPt, binsPt + nBinsPt + 1};
+
+// default values for the cuts
+constexpr double cuts[nBinsPt][nCutVars] = {{0.4, 0.98},  /* 0  < pT < 5  */
+                                            {0.4, 0.98},  /* 5  < pT < 10 */
+                                            {0.4, 0.98}}; /* 10 < pT < 50 */
+
+// column labels
+static const std::vector<std::string> labelsCutVar = {"m", "cos pointing angle"};
+
+// row labels
+static const std::vector<std::string> labelsPt = {
+  "pT bin 0",
+  "pT bin 1",
+  "pT bin 2"};
+} // namespace hf_cuts_d0
 } // namespace o2::aod
 
 /// D0 candidate selector
@@ -435,8 +463,8 @@ struct HfCandidateSelectorD0 {
   Configurable<double> ptPidTpcMax{"ptPidTpcMax", 5., "Upper bound of track pT for TPC PID"};
   Configurable<double> nSigmaTpc{"nSigmaTpc", 3., "Nsigma cut on TPC only"};
   // topological cuts
-  Configurable<double> cpaMin{"cpaMin", 0.98, "Min. cosine of pointing angle"};
-  Configurable<double> massWindow{"massWindow", 0.4, "Half-width of the invariant-mass window"};
+  Configurable<std::vector<double>> binsPt{"binsPt", std::vector<double>{hf_cuts_d0::vecBinsPt}, "pT bin limits"};
+  Configurable<LabeledArray<double>> cuts{"cuts", {hf_cuts_d0::cuts[0], hf_cuts_d0::nBinsPt, hf_cuts_d0::nCutVars, hf_cuts_d0::labelsPt, hf_cuts_d0::labelsCutVar}, "D0 candidate selection per pT bin"};
 
   using TracksWithPid = soa::Join<Tracks,
                                   aod::pidTPCFullEl, aod::pidTPCFullMu, aod::pidTPCFullPi, aod::pidTPCFullKa, aod::pidTPCFullPr,
@@ -448,12 +476,17 @@ struct HfCandidateSelectorD0 {
   template <typename T>
   bool selectionTopol(const T& candidate)
   {
+    auto ptCand = candidate.pt();
+    auto binPt = findBin(binsPt, ptCand);
+    if (binPt == -1) {
+      return false;
+    }
     // check that the candidate pT is within the analysis range
     if (candidate.pt() < ptCandMin || candidate.pt() >= ptCandMax) {
       return false;
     }
     // cosine of pointing angle
-    if (candidate.cpa() < cpaMin) {
+    if (candidate.cpa() < cuts->get(binPt, "cos pointing angle")) {
       return false;
     }
     return true;
@@ -468,13 +501,18 @@ struct HfCandidateSelectorD0 {
   template <typename T1, typename T2>
   bool selectionTopolConjugate(const T1& candidate, const T2& trackPion, const T2& trackKaon)
   {
+    auto ptCand = candidate.pt();
+    auto binPt = findBin(binsPt, ptCand);
+    if (binPt == -1) {
+      return false;
+    }
     // invariant-mass cut
     if (trackPion.sign() > 0) {
-      if (std::abs(invMassD0(candidate) - RecoDecay::getMassPDG(pdg::Code::kD0)) > massWindow) {
+      if (std::abs(invMassD0(candidate) - RecoDecay::getMassPDG(pdg::Code::kD0)) > cuts->get(binPt, "m")) {
         return false;
       }
     } else {
-      if (std::abs(invMassD0bar(candidate) - RecoDecay::getMassPDG(pdg::Code::kD0)) > massWindow) {
+      if (std::abs(invMassD0bar(candidate) - RecoDecay::getMassPDG(pdg::Code::kD0)) > cuts->get(binPt, "m")) {
         return false;
       }
     }

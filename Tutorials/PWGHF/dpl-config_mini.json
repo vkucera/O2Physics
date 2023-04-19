@@ -120,8 +120,39 @@
         "ptPidTpcMin": "0.15",
         "ptPidTpcMax": "5",
         "nSigmaTpc": "3",
-        "cpaMin": "0.99",
-        "massWindow": "0.4"
+        "binsPt": {
+            "values": [
+                "0",
+                "5.0",
+                "10.0",
+                "50.0"
+            ]
+        },
+        "cuts": {
+            "labels_rows": [
+                "pT bin 0",
+                "pT bin 1",
+                "pT bin 2"
+            ],
+            "labels_cols": [
+                "m",
+                "cos pointing angle"
+            ],
+            "values": [
+                [
+                    "0.4",
+                    "0.99"
+                ],
+                [
+                    "0.4",
+                    "0.99"
+                ],
+                [
+                    "0.4",
+                    "0.99"
+                ]
+            ]
+        }
     },
     "hf-task-d0": {
         "selectionFlagD0": "1",
