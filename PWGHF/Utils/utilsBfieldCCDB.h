@@ -16,7 +16,6 @@
 #ifndef PWGHF_UTILS_UTILSBFIELDCCDB_H_
 #define PWGHF_UTILS_UTILSBFIELDCCDB_H_
 
-#include <string>
 
 #include "CCDB/BasicCCDBManager.h"
 #include "DataFormatsParameters/GRPMagField.h"

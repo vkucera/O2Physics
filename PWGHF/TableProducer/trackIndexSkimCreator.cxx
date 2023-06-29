@@ -19,8 +19,6 @@
 /// \author Jinjoo Seo <jseo@cern.ch>, Inha University
 /// \author Fabrizio Grosa <fgrosa@cern.ch>, CERN
 
-// #include <algorithm>
-
 #include "CCDB/BasicCCDBManager.h" // for PV refit
 #include "Common/Core/trackUtilities.h"
 #include "Common/DataModel/CollisionAssociationTables.h"
