@@ -19,13 +19,14 @@
 
 #if !defined(__CINT__) || defined(__CLING__)
 
+#include "HFInvMassFitter.h"
+
 #include <iostream>
 #include <string>
 #include <vector>
 
-#include "HFInvMassFitter.h"
-#include "Riostream.h"
-#include "TROOT.h"
+#include <Riostream.h>
+#include <TROOT.h>
 
 // if .h file not found, please include your local rapidjson/document.h and rapidjson/filereadstream.h here
 #include <rapidjson/document.h>
