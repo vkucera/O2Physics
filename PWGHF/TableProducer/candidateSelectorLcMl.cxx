@@ -80,8 +80,8 @@ struct HfCandidateSelectorLcMl {
   TrackSelectorPr selectorProton;
 
   using TracksSel = soa::Join<aod::TracksWDca,
-                            aod::TracksWPidPi, aod::TracksWPidKa, aod::TracksWPidPr,
-                            aod::pidBayesPi, aod::pidBayesKa, aod::pidBayesPr, aod::pidBayes>;
+                              aod::TracksWPidPi, aod::TracksWPidKa, aod::TracksWPidPr,
+                              aod::pidBayesPi, aod::pidBayesKa, aod::pidBayesPr, aod::pidBayes>;
 
   void init(InitContext&)
   {
