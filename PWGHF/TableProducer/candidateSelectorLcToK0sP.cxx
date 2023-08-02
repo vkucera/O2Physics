@@ -151,7 +151,7 @@ struct HfCandidateSelectorLcToK0sP {
   std::vector<std::shared_ptr<TH1>> hModelScore;
   std::vector<std::shared_ptr<TH2>> hModelScoreVsPtCand;
 
-  using TracksSel = soa::Join<aod::TracksWExtra, aod::TracksPidPr>;
+  using TracksSel = soa::Join<aod::TracksWExtra, aod::TracksWPidPr>;
   using TracksSelBayes = soa::Join<TracksSel, aod::pidBayesPr>;
 
   HistogramRegistry registry{"registry", {}};

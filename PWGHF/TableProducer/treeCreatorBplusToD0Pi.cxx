@@ -189,7 +189,7 @@ struct HfTreeCreatorBplusToD0Pi {
 
   Configurable<int> isSignal{"isSignal", 1, "save only MC matched candidates"};
 
-  using TracksPid = soa::Join<aod::Tracks, aod::TracksPidPi, aod::TracksPidKa>;
+  using TracksPid = soa::Join<aod::Tracks, aod::TracksWPidPi, aod::TracksWPidKa>;
 
   void init(InitContext const&)
   {

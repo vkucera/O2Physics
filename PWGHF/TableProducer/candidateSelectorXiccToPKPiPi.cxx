@@ -51,7 +51,7 @@ struct HfCandidateSelectorXiccToPKPiPi {
 
   TrackSelectorPi selectorPion;
 
-  using TracksSel = soa::Join<aod::Tracks, aod::TracksPidPi>;
+  using TracksSel = soa::Join<aod::Tracks, aod::TracksWPidPi>;
 
   void init(InitContext const&)
   {

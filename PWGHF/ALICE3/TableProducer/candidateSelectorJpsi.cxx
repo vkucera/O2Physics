@@ -86,7 +86,7 @@ struct HfCandidateSelectorJpsi {
   TrackSelectorEl selectorElectron;
   TrackSelectorMu selectorMuon;
 
-  using TracksSelAlice2 = soa::Join<aod::TracksWDca, aod::TracksPidEl>;
+  using TracksSelAlice2 = soa::Join<aod::TracksWDca, aod::TracksWPidEl>;
   using TracksSelAlice3 = soa::Join<aod::TracksWDca, aod::pidTOFFullEl, aod::pidTOFFullPi, aod::HfTrackIndexALICE3PID>;
 
   void init(InitContext const& initContext)

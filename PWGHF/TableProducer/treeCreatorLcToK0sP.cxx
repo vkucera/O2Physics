@@ -170,7 +170,7 @@ struct HfTreeCreatorLcToK0sP {
 
   Configurable<double> downSampleBkgFactor{"downSampleBkgFactor", 1., "Fraction of candidates to store in the tree"};
 
-  using TracksPid = soa::Join<aod::Tracks, aod::TracksPidPr>;
+  using TracksPid = soa::Join<aod::Tracks, aod::TracksWPidPr>;
 
   void init(InitContext const&)
   {

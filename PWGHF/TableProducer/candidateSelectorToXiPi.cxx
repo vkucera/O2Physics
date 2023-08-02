@@ -116,7 +116,7 @@ struct HfCandidateSelectorToXiPi {
   TrackSelectorPi selectorPion;
   TrackSelectorPr selectorProton;
 
-  using TracksSel = soa::Join<aod::TracksWDcaExtra, aod::TracksPidPi, aod::TracksPidPr>;
+  using TracksSel = soa::Join<aod::TracksWDcaExtra, aod::TracksWPidPi, aod::TracksWPidPr>;
 
   HistogramRegistry registry{"registry"}; // for QA of selections
 

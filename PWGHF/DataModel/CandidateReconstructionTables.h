@@ -90,11 +90,11 @@ using TracksWCovDcaExtra = soa::Join<Tracks, TracksCov, TracksDCA, TracksExtra>;
 
 using TracksWMc = soa::Join<Tracks, McTrackLabels>;
 
-using TracksPidEl = soa::Join<aod::pidTPCFullEl, aod::pidTOFFullEl>;
-using TracksPidMu = soa::Join<aod::pidTPCFullMu, aod::pidTOFFullMu>;
-using TracksPidPi = soa::Join<aod::pidTPCFullPi, aod::pidTOFFullPi>;
-using TracksPidKa = soa::Join<aod::pidTPCFullKa, aod::pidTOFFullKa>;
-using TracksPidPr = soa::Join<aod::pidTPCFullPr, aod::pidTOFFullPr>;
+using TracksWPidEl = soa::Join<aod::pidTPCFullEl, aod::pidTOFFullEl>;
+using TracksWPidMu = soa::Join<aod::pidTPCFullMu, aod::pidTOFFullMu>;
+using TracksWPidPi = soa::Join<aod::pidTPCFullPi, aod::pidTOFFullPi>;
+using TracksWPidKa = soa::Join<aod::pidTPCFullKa, aod::pidTOFFullKa>;
+using TracksWPidPr = soa::Join<aod::pidTPCFullPr, aod::pidTOFFullPr>;
 
 // FIXME: this is a workaround until we get the index columns to work with joins.
 
