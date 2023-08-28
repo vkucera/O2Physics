@@ -261,7 +261,7 @@ struct HfTaskLcToK0sP {
       auto ptCand = candidate.pt();
       auto eta = candidate.eta();
       auto phi = candidate.phi();
-      auto invMassLcToK0sP = o2::aod::hf_cand_casc::invMassLcToK0sP(candidate);
+      auto hfHelper.invMassLcToK0sP = o2::aod::hf_cand_casc::hfHelper.invMassLcToK0sP(candidate);
       auto ptProng0 = candidate.ptProng0();
       auto ptProng1 = candidate.ptProng1();
       auto impactParameter0 = candidate.impactParameter0();
@@ -277,21 +277,21 @@ struct HfTaskLcToK0sP {
       auto mLambda = candidate.mLambda();
       auto mAntiLambda = candidate.mAntiLambda();
       auto mGamma = candidate.mGamma();
-      auto ctV0K0Short = o2::aod::hf_cand_casc::ctV0K0s(candidate);
-      auto ctV0Lambda = o2::aod::hf_cand_casc::ctV0Lambda(candidate);
+      auto ctV0K0Short = o2::aod::hf_cand_casc::hfHelper.ctV0K0s(candidate);
+      auto hfHelper.ctV0Lambda = o2::aod::hf_cand_casc::hfHelper.ctV0Lambda(candidate);
       auto cpa = candidate.cpa();
       auto cpaXY = candidate.cpaXY();
       auto decayLength = candidate.decayLength();
       auto decayLengthXY = candidate.decayLengthXY();
-      auto ctLc = o2::aod::hf_cand_3prong::ctLc(candidate);
+      auto hfHelper.ctLc = o2::aod::hf_cand_3prong::hfHelper.ctLc(candidate);
 
       registry.fill(HIST("hPtCand"), ptCand);
       registry.fill(HIST("hEtaCand"), eta);
       registry.fill(HIST("hEtaCandVsPtCand"), eta, ptCand);
       registry.fill(HIST("hPhiCand"), phi);
       registry.fill(HIST("hPhiCandVsPtCand"), phi, ptCand);
-      registry.fill(HIST("hMass"), invMassLcToK0sP);
-      registry.fill(HIST("hMassVsPtCand"), invMassLcToK0sP, ptCand);
+      registry.fill(HIST("hMass"), hfHelper.invMassLcToK0sP);
+      registry.fill(HIST("hMassVsPtCand"), hfHelper.invMassLcToK0sP, ptCand);
       registry.fill(HIST("hPtBach"), ptProng0);
       registry.fill(HIST("hPtBachVsPtCand"), ptProng0, ptCand);
       registry.fill(HIST("hPtV0"), ptProng1);
@@ -324,8 +324,8 @@ struct HfTaskLcToK0sP {
       registry.fill(HIST("hV0MGammaVsPtCand"), mGamma, ptCand);
       registry.fill(HIST("hCtV0K0Short"), ctV0K0Short);
       registry.fill(HIST("hCtV0K0ShortVsPtCand"), ctV0K0Short, ptCand);
-      registry.fill(HIST("hCtV0Lambda"), ctV0Lambda);
-      registry.fill(HIST("hCtV0LambdaVsPtCand"), ctV0Lambda, ptCand);
+      registry.fill(HIST("hCtV0Lambda"), hfHelper.ctV0Lambda);
+      registry.fill(HIST("hCtV0LambdaVsPtCand"), hfHelper.ctV0Lambda, ptCand);
       registry.fill(HIST("hCPACand"), cpa);
       registry.fill(HIST("hCPACandVsPtCand"), cpa, ptCand);
       registry.fill(HIST("hCPAxyCand"), cpaXY);
@@ -334,8 +334,8 @@ struct HfTaskLcToK0sP {
       registry.fill(HIST("hDecLengthCandVsPtCand"), decayLength, ptCand);
       registry.fill(HIST("hDecLengthXYCand"), decayLengthXY);
       registry.fill(HIST("hDecLengthXYCandVsPtCand"), decayLengthXY, ptCand);
-      registry.fill(HIST("hCtCand"), ctLc);
-      registry.fill(HIST("hCtCandVsPtCand"), ctLc, ptCand);
+      registry.fill(HIST("hCtCand"), hfHelper.ctLc);
+      registry.fill(HIST("hCtCandVsPtCand"), hfHelper.ctLc, ptCand);
 
       const auto& bach = candidate.prong0_as<TracksWPid>(); // bachelor track
       auto tpcNSigmaPr = bach.tpcNSigmaPr();
@@ -366,7 +366,7 @@ struct HfTaskLcToK0sP {
       auto ptCand = candidate.pt();
       auto eta = candidate.eta();
       auto phi = candidate.phi();
-      auto invMassLcToK0sP = o2::aod::hf_cand_casc::invMassLcToK0sP(candidate);
+      auto hfHelper.invMassLcToK0sP = o2::aod::hf_cand_casc::hfHelper.invMassLcToK0sP(candidate);
       auto ptProng0 = candidate.ptProng0();
       auto ptProng1 = candidate.ptProng1();
       auto impactParameter0 = candidate.impactParameter0();
@@ -382,13 +382,13 @@ struct HfTaskLcToK0sP {
       auto mLambda = candidate.mLambda();
       auto mAntiLambda = candidate.mAntiLambda();
       auto mGamma = candidate.mGamma();
-      auto ctV0K0Short = o2::aod::hf_cand_casc::ctV0K0s(candidate);
-      auto ctV0Lambda = o2::aod::hf_cand_casc::ctV0Lambda(candidate);
+      auto ctV0K0Short = o2::aod::hf_cand_casc::hfHelper.ctV0K0s(candidate);
+      auto hfHelper.ctV0Lambda = o2::aod::hf_cand_casc::hfHelper.ctV0Lambda(candidate);
       auto cpa = candidate.cpa();
       auto cpaXY = candidate.cpaXY();
       auto decayLength = candidate.decayLength();
       auto decayLengthXY = candidate.decayLengthXY();
-      auto ctLc = o2::aod::hf_cand_3prong::ctLc(candidate);
+      auto hfHelper.ctLc = o2::aod::hf_cand_3prong::hfHelper.ctLc(candidate);
 
       const auto& bach = candidate.prong0_as<TracksWPid>(); // bachelor track
       auto tpcNSigmaPr = bach.tpcNSigmaPr();
@@ -400,8 +400,8 @@ struct HfTaskLcToK0sP {
         registry.fill(HIST("MC/Rec/hEtaCandVsPtCandRecSig"), eta, ptCand);
         registry.fill(HIST("MC/Rec/hPhiCandRecSig"), phi);
         registry.fill(HIST("MC/Rec/hPhiCandVsPtCandRecSig"), phi, ptCand);
-        registry.fill(HIST("MC/Rec/hMassRecSig"), invMassLcToK0sP);
-        registry.fill(HIST("MC/Rec/hMassVsPtCandRecSig"), invMassLcToK0sP, ptCand);
+        registry.fill(HIST("MC/Rec/hMassRecSig"), hfHelper.invMassLcToK0sP);
+        registry.fill(HIST("MC/Rec/hMassVsPtCandRecSig"), hfHelper.invMassLcToK0sP, ptCand);
         registry.fill(HIST("MC/Rec/hPtBachRecSig"), ptProng0);
         registry.fill(HIST("MC/Rec/hPtBachVsPtCandRecSig"), ptProng0, ptCand);
         registry.fill(HIST("MC/Rec/hPtV0RecSig"), ptProng1);
@@ -434,8 +434,8 @@ struct HfTaskLcToK0sP {
         registry.fill(HIST("MC/Rec/hV0MGammaVsPtCandRecSig"), mGamma, ptCand);
         registry.fill(HIST("MC/Rec/hCtV0K0ShortRecSig"), ctV0K0Short);
         registry.fill(HIST("MC/Rec/hCtV0K0ShortVsPtCandRecSig"), ctV0K0Short, ptCand);
-        registry.fill(HIST("MC/Rec/hCtV0LambdaRecSig"), ctV0Lambda);
-        registry.fill(HIST("MC/Rec/hCtV0LambdaVsPtCandRecSig"), ctV0Lambda, ptCand);
+        registry.fill(HIST("MC/Rec/hCtV0LambdaRecSig"), hfHelper.ctV0Lambda);
+        registry.fill(HIST("MC/Rec/hCtV0LambdaVsPtCandRecSig"), hfHelper.ctV0Lambda, ptCand);
         registry.fill(HIST("MC/Rec/hCPACandRecSig"), cpa);
         registry.fill(HIST("MC/Rec/hCPACandVsPtCandRecSig"), cpa, ptCand);
         registry.fill(HIST("MC/Rec/hCPAxyCandRecSig"), cpaXY);
@@ -444,8 +444,8 @@ struct HfTaskLcToK0sP {
         registry.fill(HIST("MC/Rec/hDecLengthCandVsPtCandRecSig"), decayLength, ptCand);
         registry.fill(HIST("MC/Rec/hDecLengthXYCandRecSig"), decayLengthXY);
         registry.fill(HIST("MC/Rec/hDecLengthXYCandVsPtCandRecSig"), decayLengthXY, ptCand);
-        registry.fill(HIST("MC/Rec/hCtCandRecSig"), ctLc);
-        registry.fill(HIST("MC/Rec/hCtCandVsPtCandRecSig"), ctLc, ptCand);
+        registry.fill(HIST("MC/Rec/hCtCandRecSig"), hfHelper.ctLc);
+        registry.fill(HIST("MC/Rec/hCtCandVsPtCandRecSig"), hfHelper.ctLc, ptCand);
         registry.fill(HIST("MC/Rec/hTPCNSigmaPrBachRecSig"), tpcNSigmaPr);
         registry.fill(HIST("MC/Rec/hPBachVsTPCNSigmaPrBachRecSig"), pBach, tpcNSigmaPr);
         if (bach.hasTOF()) {
@@ -459,8 +459,8 @@ struct HfTaskLcToK0sP {
         registry.fill(HIST("MC/Rec/hEtaCandVsPtCandRecBg"), eta, ptCand);
         registry.fill(HIST("MC/Rec/hPhiCandRecBg"), phi);
         registry.fill(HIST("MC/Rec/hPhiCandVsPtCandRecBg"), phi, ptCand);
-        registry.fill(HIST("MC/Rec/hMassRecBg"), invMassLcToK0sP);
-        registry.fill(HIST("MC/Rec/hMassVsPtCandRecBg"), invMassLcToK0sP, ptCand);
+        registry.fill(HIST("MC/Rec/hMassRecBg"), hfHelper.invMassLcToK0sP);
+        registry.fill(HIST("MC/Rec/hMassVsPtCandRecBg"), hfHelper.invMassLcToK0sP, ptCand);
         registry.fill(HIST("MC/Rec/hPtBachRecBg"), ptProng0);
         registry.fill(HIST("MC/Rec/hPtBachVsPtCandRecBg"), ptProng0, ptCand);
         registry.fill(HIST("MC/Rec/hPtV0RecBg"), ptProng1);
@@ -493,8 +493,8 @@ struct HfTaskLcToK0sP {
         registry.fill(HIST("MC/Rec/hV0MGammaVsPtCandRecBg"), mGamma, ptCand);
         registry.fill(HIST("MC/Rec/hCtV0K0ShortRecBg"), ctV0K0Short);
         registry.fill(HIST("MC/Rec/hCtV0K0ShortVsPtCandRecBg"), ctV0K0Short, ptCand);
-        registry.fill(HIST("MC/Rec/hCtV0LambdaRecBg"), ctV0Lambda);
-        registry.fill(HIST("MC/Rec/hCtV0LambdaVsPtCandRecBg"), ctV0Lambda, ptCand);
+        registry.fill(HIST("MC/Rec/hCtV0LambdaRecBg"), hfHelper.ctV0Lambda);
+        registry.fill(HIST("MC/Rec/hCtV0LambdaVsPtCandRecBg"), hfHelper.ctV0Lambda, ptCand);
         registry.fill(HIST("MC/Rec/hCPACandRecBg"), cpa);
         registry.fill(HIST("MC/Rec/hCPACandVsPtCandRecBg"), cpa, ptCand);
         registry.fill(HIST("MC/Rec/hCPAxyCandRecBg"), cpaXY);
@@ -503,8 +503,8 @@ struct HfTaskLcToK0sP {
         registry.fill(HIST("MC/Rec/hDecLengthCandVsPtCandRecBg"), decayLength, ptCand);
         registry.fill(HIST("MC/Rec/hDecLengthXYCandRecBg"), decayLengthXY);
         registry.fill(HIST("MC/Rec/hDecLengthXYCandVsPtCandRecBg"), decayLengthXY, ptCand);
-        registry.fill(HIST("MC/Rec/hCtCandRecBg"), ctLc);
-        registry.fill(HIST("MC/Rec/hCtCandVsPtCandRecBg"), ctLc, ptCand);
+        registry.fill(HIST("MC/Rec/hCtCandRecBg"), hfHelper.ctLc);
+        registry.fill(HIST("MC/Rec/hCtCandVsPtCandRecBg"), hfHelper.ctLc, ptCand);
         registry.fill(HIST("MC/Rec/hTPCNSigmaPrBachRecBg"), tpcNSigmaPr);
         registry.fill(HIST("MC/Rec/hPBachVsTPCNSigmaPrBachRecBg"), pBach, tpcNSigmaPr);
         if (bach.hasTOF()) {

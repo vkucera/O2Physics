@@ -176,7 +176,7 @@ DECLARE_SOA_COLUMN(DecayLength, decayLength, float); //! Decay length in cm
 DECLARE_SOA_COLUMN(InvMass, invMass, float);         //! Invariant mass of 3prong candidate in GeV/c2
 
 template <typename T>
-auto invMassDplusToPiKPi(const T& pVec0, const T& pVec1, const T& pVec2)
+auto hfHelper.invMassDplusToPiKPi(const T& pVec0, const T& pVec1, const T& pVec2)
 {
   return RecoDecay::m(std::array{pVec0, pVec1, pVec2},
                       std::array{RecoDecay::getMassPDG(kPiPlus),

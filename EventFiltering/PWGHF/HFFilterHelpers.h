@@ -637,20 +637,20 @@ int8_t isSelectedDsInMassRange(const T& pTrackSameChargeFirst, const T& pTrackSa
 {
   int8_t retValue = 0;
   if (TESTBIT(isSelected, 0)) {
-    auto invMassDsToKKPi = RecoDecay::m(std::array{pTrackSameChargeFirst, pTrackOppositeCharge, pTrackSameChargeSecond}, std::array{massK, massK, massPi});
+    auto hfHelper.invMassDsToKKPi = RecoDecay::m(std::array{pTrackSameChargeFirst, pTrackOppositeCharge, pTrackSameChargeSecond}, std::array{massK, massK, massPi});
     if (activateQA) {
-      hMassVsPt->Fill(ptD, invMassDsToKKPi);
+      hMassVsPt->Fill(ptD, hfHelper.invMassDsToKKPi);
     }
-    if (std::fabs(invMassDsToKKPi - massDs) < deltaMassCharmHadronForBeauty || ptD > 10) {
+    if (std::fabs(hfHelper.invMassDsToKKPi - massDs) < deltaMassCharmHadronForBeauty || ptD > 10) {
       retValue |= BIT(0);
     }
   }
   if (TESTBIT(isSelected, 1)) {
-    auto invMassDsToPiKK = RecoDecay::m(std::array{pTrackSameChargeFirst, pTrackOppositeCharge, pTrackSameChargeSecond}, std::array{massPi, massK, massK});
+    auto hfHelper.invMassDsToPiKK = RecoDecay::m(std::array{pTrackSameChargeFirst, pTrackOppositeCharge, pTrackSameChargeSecond}, std::array{massPi, massK, massK});
     if (activateQA) {
-      hMassVsPt->Fill(ptD, invMassDsToPiKK);
+      hMassVsPt->Fill(ptD, hfHelper.invMassDsToPiKK);
     }
-    if (std::fabs(invMassDsToPiKK - massDs) < deltaMassCharmHadronForBeauty || ptD > 10) {
+    if (std::fabs(hfHelper.invMassDsToPiKK - massDs) < deltaMassCharmHadronForBeauty || ptD > 10) {
       retValue |= BIT(1);
     }
   }
@@ -673,20 +673,20 @@ int8_t isSelectedLcInMassRange(const T& pTrackSameChargeFirst, const T& pTrackSa
 {
   int8_t retValue = 0;
   if (TESTBIT(isSelected, 0)) {
-    auto invMassLcToPKPi = RecoDecay::m(std::array{pTrackSameChargeFirst, pTrackOppositeCharge, pTrackSameChargeSecond}, std::array{massProton, massK, massPi});
+    auto hfHelper.invMassLcToPKPi = RecoDecay::m(std::array{pTrackSameChargeFirst, pTrackOppositeCharge, pTrackSameChargeSecond}, std::array{massProton, massK, massPi});
     if (activateQA) {
-      hMassVsPt->Fill(ptLc, invMassLcToPKPi);
+      hMassVsPt->Fill(ptLc, hfHelper.invMassLcToPKPi);
     }
-    if (std::fabs(invMassLcToPKPi - massLc) < deltaMassCharmHadronForBeauty || ptLc > 10) {
+    if (std::fabs(hfHelper.invMassLcToPKPi - massLc) < deltaMassCharmHadronForBeauty || ptLc > 10) {
       retValue |= BIT(0);
     }
   }
   if (TESTBIT(isSelected, 1)) {
-    auto invMassLcToPiKP = RecoDecay::m(std::array{pTrackSameChargeFirst, pTrackOppositeCharge, pTrackSameChargeSecond}, std::array{massPi, massK, massProton});
+    auto hfHelper.invMassLcToPiKP = RecoDecay::m(std::array{pTrackSameChargeFirst, pTrackOppositeCharge, pTrackSameChargeSecond}, std::array{massPi, massK, massProton});
     if (activateQA) {
-      hMassVsPt->Fill(ptLc, invMassLcToPiKP);
+      hMassVsPt->Fill(ptLc, hfHelper.invMassLcToPiKP);
     }
-    if (std::fabs(invMassLcToPiKP - massLc) < deltaMassCharmHadronForBeauty || ptLc > 10) {
+    if (std::fabs(hfHelper.invMassLcToPiKP - massLc) < deltaMassCharmHadronForBeauty || ptLc > 10) {
       retValue |= BIT(1);
     }
   }
@@ -709,20 +709,20 @@ int8_t isSelectedXicInMassRange(const T& pTrackSameChargeFirst, const T& pTrackS
 {
   int8_t retValue = 0;
   if (TESTBIT(isSelected, 0)) {
-    auto invMassXicToPKPi = RecoDecay::m(std::array{pTrackSameChargeFirst, pTrackOppositeCharge, pTrackSameChargeSecond}, std::array{massProton, massK, massPi});
+    auto hfHelper.invMassXicToPKPi = RecoDecay::m(std::array{pTrackSameChargeFirst, pTrackOppositeCharge, pTrackSameChargeSecond}, std::array{massProton, massK, massPi});
     if (activateQA) {
-      hMassVsPt->Fill(ptXic, invMassXicToPKPi);
+      hMassVsPt->Fill(ptXic, hfHelper.invMassXicToPKPi);
     }
-    if (std::fabs(invMassXicToPKPi - massXic) < deltaMassCharmHadronForBeauty || ptXic > 10) {
+    if (std::fabs(hfHelper.invMassXicToPKPi - massXic) < deltaMassCharmHadronForBeauty || ptXic > 10) {
       retValue |= BIT(0);
     }
   }
   if (TESTBIT(isSelected, 1)) {
-    auto invMassXicToPiKP = RecoDecay::m(std::array{pTrackSameChargeFirst, pTrackOppositeCharge, pTrackSameChargeSecond}, std::array{massPi, massK, massProton});
+    auto hfHelper.invMassXicToPiKP = RecoDecay::m(std::array{pTrackSameChargeFirst, pTrackOppositeCharge, pTrackSameChargeSecond}, std::array{massPi, massK, massProton});
     if (activateQA) {
-      hMassVsPt->Fill(ptXic, invMassXicToPiKP);
+      hMassVsPt->Fill(ptXic, hfHelper.invMassXicToPiKP);
     }
-    if (std::fabs(invMassXicToPiKP - massXic) < deltaMassCharmHadronForBeauty || ptXic > 10) {
+    if (std::fabs(hfHelper.invMassXicToPiKP - massXic) < deltaMassCharmHadronForBeauty || ptXic > 10) {
       retValue |= BIT(1);
     }
   }
@@ -1308,12 +1308,12 @@ namespace hftraining
 DECLARE_SOA_COLUMN(InvMassD0, invMassD0, float);                 //!
 DECLARE_SOA_COLUMN(InvMassD0bar, invMassD0bar, float);           //!
 DECLARE_SOA_COLUMN(InvMassDplus, invMassDplus, float);           //!
-DECLARE_SOA_COLUMN(InvMassDsToKKPi, invMassDsToKKPi, float);     //!
-DECLARE_SOA_COLUMN(InvMassDsToPiKK, invMassDsToPiKK, float);     //!
-DECLARE_SOA_COLUMN(InvMassLcToPKPi, invMassLcToPKPi, float);     //!
-DECLARE_SOA_COLUMN(InvMassLcToPiKP, invMassLcToPiKP, float);     //!
-DECLARE_SOA_COLUMN(InvMassXicToPKPi, invMassXicToPKPi, float);   //!
-DECLARE_SOA_COLUMN(InvMassXicToPiKP, invMassXicToPiKP, float);   //!
+DECLARE_SOA_COLUMN(InvMassDsToKKPi, hfHelper.invMassDsToKKPi, float);     //!
+DECLARE_SOA_COLUMN(InvMassDsToPiKK, hfHelper.invMassDsToPiKK, float);     //!
+DECLARE_SOA_COLUMN(InvMassLcToPKPi, hfHelper.invMassLcToPKPi, float);     //!
+DECLARE_SOA_COLUMN(InvMassLcToPiKP, hfHelper.invMassLcToPiKP, float);     //!
+DECLARE_SOA_COLUMN(InvMassXicToPKPi, hfHelper.invMassXicToPKPi, float);   //!
+DECLARE_SOA_COLUMN(InvMassXicToPiKP, hfHelper.invMassXicToPiKP, float);   //!
 DECLARE_SOA_COLUMN(PT2Prong, pT2Prong, float);                   //!
 DECLARE_SOA_COLUMN(PT3Prong, pT3Prong, float);                   //!
 DECLARE_SOA_COLUMN(DeltaMassKKFirst, deltaMassKKFirst, float);   //!
