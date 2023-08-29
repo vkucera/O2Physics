@@ -214,8 +214,8 @@ class HfHelper
   {
     return RecoDecay::m(std::array{pVec0, pVec1, pVec2},
                         std::array{mass(kPiPlus),
-                                  mass(kKPlus),
-                                  mass(kPiPlus)});
+                                   mass(kKPlus),
+                                   mass(kPiPlus)});
   }
 
   // Ds± → K± K∓ π±
