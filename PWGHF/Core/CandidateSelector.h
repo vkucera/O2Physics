@@ -82,7 +82,7 @@ private:
     o2::framework::LabeledArray<double> arrCuts;
     // array of pT bins
     std::vector<double> binsPt;
-    // bitmap of activated cuts
+    // bitmap of activated cuts (could be faster with a vector?)
     uint enabledCuts;
 
     /// set the cut array and pt bins and activate cuts
