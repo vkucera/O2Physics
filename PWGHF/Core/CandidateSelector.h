@@ -17,12 +17,17 @@
 #ifndef PWGHF_CORE_CANDIDATESELECTOR_H_
 #define PWGHF_CORE_CANDIDATESELECTOR_H_
 
-#include <array>
-#include <string>
+#include <array>     // std::array
+#include <iterator>  // std::distance
+#include <string>    // std::string
+#include <vector>    // std::vector
+
+#include "Framework/Array2D.h"
 
 class CutDefinition
 {
 public:
+  // types of cut condition
   enum Type : int {
     Min = 0,
     Max,
@@ -31,6 +36,7 @@ public:
     Bit
   };
 
+  // cut quantities
   enum Quantity : int {
     CpaMin = 0,
     DecayLengthMin,
@@ -39,19 +45,22 @@ public:
   };
 
   CutDefinition() {
+    // define names of supported cuts
     cutNames[CpaMin] = "cpa_min";
     cutNames[DecayLengthMin] = "declen_min";
   }
+
+  std::array<std::string, NQuantities> cutNames; // names of supported cuts (cut array column names)
 private:
-  std::array<std::string, NQuantities> cutNames; // list of cut labels in the cut array
 };
 
 template <typename CandTable>
-class CandidateSelector
+class CandidateSelector : CutDefinition
 {
 public:
   CandidateSelector();
 
+    /// applies all cuts for a given candidate
     template <typename Cand>
     bool applySelection(const Cand& candidate)
     {
@@ -69,17 +78,30 @@ public:
 
 private:
     // array of cuts
-    LabeledArray<double> arrCuts;
+    o2::framework::LabeledArray<double> arrCuts;
     // array of pT bins
     std::vector<double> binsPt;
     // bitmap of activated cuts
     uint enabledCuts;
 
     /// set the cut array and pt bins and activate cuts
-    void configure() {
+    void configure(const o2::framework::LabeledArray<double>& cuts, const std::vector<double>& bins) {
         /// set the cut array
+        arrCuts = cuts;
         /// set the pt bins
+        binsPt = bins;
         /// enable cuts by setting bits in enabledCuts
+        enabledCuts = 0;
+        for (const auto& label : arrCuts->getLabelsCols()) {
+            // debug print "enabling cut: label"
+            i = 0;
+            // i = find label in cutNames
+            // throw fatal if label not found
+            SETBIT(enabledCuts, i);
+        }
+        if (enabledCuts == 0) {
+            // throw a warning about empty selection
+        }
     }
 
     /// Finds pT bin in an array.
@@ -127,6 +149,7 @@ private:
                 break;
             default:
                 // undefined cut type
+                return false;
                 break;
         }
     }
@@ -135,9 +158,12 @@ private:
     template <typename Cand>
     bool applyCut(const Cand& candidate, const CutDefinition::Quantity& quantity)
     {
+        // debug print "Applying cut: CutDefinition::cutNames[quantity]"
         // get pt bin
         size_t binPt = findBin(binsPt, candidate.pt());
 
+        // This is where all the cuts have to be defined.
+        // "if constexpr" may be needed based on the candidate type.
         switch (quantity)
         {
         case CutDefinition::CpaMin:
@@ -145,6 +171,7 @@ private:
             break;
         default:
             // undefined cut quantity
+            return false;
             break;
         }
     }
