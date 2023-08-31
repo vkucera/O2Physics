@@ -46,6 +46,7 @@ public:
 
   CutDefinition() {
     // define names of supported cuts
+    // can we do this at compilation? std::map?
     cutNames[CpaMin] = "cpa_min";
     cutNames[DecayLengthMin] = "declen_min";
   }
