@@ -36,22 +36,22 @@ public:
     Bit
   };
 
-  // cut quantities
-  enum Quantity : int {
+  // cut names
+  enum Name : int {
     CpaMin = 0,
     DecayLengthMin,
     EtaMax,
-    NQuantities
+    NCutNames
   };
 
   CutDefinition() {
-    // define names of supported cuts
+    // define labels of supported cuts
     // can we do this at compilation? std::map?
-    cutNames[CpaMin] = "cpa_min";
-    cutNames[DecayLengthMin] = "declen_min";
+    cutLabels[CpaMin] = "cpa_min";
+    cutLabels[DecayLengthMin] = "declen_min";
   }
 
-  std::array<std::string, NQuantities> cutNames; // names of supported cuts (cut array column names)
+  std::array<std::string, NCutNames> cutLabels; // labels of supported cuts (cut array column names)
 private:
 };
 
@@ -65,12 +65,12 @@ public:
     template <typename Cand>
     bool applySelection(const Cand& candidate)
     {
-        for (size_t i = 0; i < CutDefinition::NQuantities; i++)
+        for (size_t cutName = 0; cutName < CutDefinition::NCutNames; cutName++)
         {
-            if (!TESTBIT(enabledCuts, i)) {
+            if (!TESTBIT(enabledCuts, cutName)) {
                 continue;
             }
-            if (!applyCut(candidate, i)) {
+            if (!applyCut(candidate, cutName)) {
                 return false;
             }
         }
@@ -95,10 +95,9 @@ private:
         enabledCuts = 0;
         for (const auto& label : arrCuts->getLabelsCols()) {
             // debug print "enabling cut: label"
-            i = 0;
-            // i = find label in cutNames
+            size_t cutName = 0; // cutName = position of label in cutLabels
             // throw fatal if label not found
-            SETBIT(enabledCuts, i);
+            SETBIT(enabledCuts, cutName);
         }
         if (enabledCuts == 0) {
             // throw a warning about empty selection
@@ -122,9 +121,9 @@ private:
         return std::distance(binsPt->begin(), std::upper_bound(binsPt->begin(), binsPt->end(), value)) - 1;
     }
 
-    /// get the cut value from the cut array based on the pt bin and the quantity
-    auto getCutValue(size_t binPt, const CutDefinition::Quantity& quantity) {
-        return arrCuts->get(binPt, CutDefinition::cutNames[quantity]);
+    /// get the cut value from the cut array based on the pt bin and the cut name
+    auto getCutValue(size_t binPt, const CutDefinition::Name& cutName) {
+        return arrCuts->get(binPt, CutDefinition::cutLabels[cutName]);
     }
 
     /// makes the decision whether a value passes a cut
@@ -155,23 +154,23 @@ private:
         }
     }
 
-    /// applies the cut for a given quantity of a given candidate
+    /// applies the cut for a given cut name of a given candidate
     template <typename Cand>
-    bool applyCut(const Cand& candidate, const CutDefinition::Quantity& quantity)
+    bool applyCut(const Cand& candidate, const CutDefinition::Name& cutName)
     {
-        // debug print "Applying cut: CutDefinition::cutNames[quantity]"
+        // debug print "Applying cut: CutDefinition::cutLabels[cutName]"
         // get pt bin
         size_t binPt = findBin(binsPt, candidate.pt());
 
         // This is where all the cuts have to be defined.
         // "if constexpr" may be needed based on the candidate type.
-        switch (quantity)
+        switch (cutName)
         {
         case CutDefinition::CpaMin:
-            return decide(candidate.cpa(), getCutValue(binPt, quantity), CutDefinition::Min);
+            return decide(candidate.cpa(), getCutValue(binPt, cutName), CutDefinition::Min);
             break;
         default:
-            // undefined cut quantity
+            // undefined cut cut name
             return false;
             break;
         }
