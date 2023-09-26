@@ -27,6 +27,7 @@
 #include "Common/Core/trackUtilities.h"
 #include "Common/DataModel/CollisionAssociationTables.h"
 
+#include "PWGHF/Core/HfHelper.h"
 #include "PWGHF/DataModel/CandidateReconstructionTables.h"
 #include "PWGHF/DataModel/CandidateSelectionTables.h"
 #include "PWGHF/Utils/utilsBfieldCCDB.h"
@@ -35,10 +36,6 @@ using namespace o2;
 using namespace o2::framework;
 using namespace o2::framework::expressions;
 using namespace o2::aod;
-using namespace o2::aod::hf_cand;
-using namespace o2::aod::hf_cand_2prong;
-using namespace o2::aod::hf_cand_3prong;
-using namespace o2::aod::hf_cand_bplus;
 
 /// Reconstruction of B± → D0bar(D0) π± → (K± π∓) π±
 struct HfCandidateCreatorBplus {
@@ -70,16 +67,17 @@ struct HfCandidateCreatorBplus {
   Configurable<std::string> ccdbPathGrp{"ccdbPathGrp", "GLO/GRP/GRP", "Path of the grp file (Run 2)"};
   Configurable<std::string> ccdbPathGrpMag{"ccdbPathGrpMag", "GLO/Config/GRPMagField", "CCDB path of the GRPMagField object (Run 3)"};
 
+  HfHelper hfHelper;
   Service<o2::ccdb::BasicCCDBManager> ccdb;
   o2::base::MatLayerCylSet* lut;
   o2::base::Propagator::MatCorrType matCorr = o2::base::Propagator::MatCorrType::USEMatCorrLUT;
-  int runNumber;
 
-  double massPi = RecoDecay::getMassPDG(kPiPlus);
-  double massD0 = RecoDecay::getMassPDG(pdg::Code::kD0);
-  double massBplus = RecoDecay::getMassPDG(pdg::Code::kBPlus);
-  double massD0Pi = 0.;
-  double bz = 0.;
+  int runNumber{0};
+  double massPi{0.};
+  double massD0{0.};
+  double massBplus{0.};
+  double massD0Pi{0.};
+  double bz{0.};
 
   using TracksWithSel = soa::Join<aod::TracksWCovDca, aod::TrackSelection>;
   using CandsDFiltered = soa::Filtered<soa::Join<aod::HfCand2Prong, aod::HfSelD0>>;
@@ -96,6 +94,9 @@ struct HfCandidateCreatorBplus {
 
   void init(InitContext const&)
   {
+    massPi = o2::analysis::pdg::MassPiPlus;
+    massD0 = o2::analysis::pdg::MassD0;
+    massBplus = o2::analysis::pdg::MassBPlus;
     ccdb->setURL(ccdbUrl);
     ccdb->setCaching(true);
     ccdb->setLocalObjectValidityChecking();
@@ -180,11 +181,11 @@ struct HfCandidateCreatorBplus {
         if (!TESTBIT(candD0.hfflag(), aod::hf_cand_2prong::DecayType::D0ToPiK)) {
           continue;
         }
-        if (yCandMax >= 0. && std::abs(yD0(candD0)) > yCandMax) {
+        if (yCandMax >= 0. && std::abs(hfHelper.yD0(candD0)) > yCandMax) {
           continue;
         }
 
-        hRapidityD0->Fill(yD0(candD0));
+        hRapidityD0->Fill(hfHelper.yD0(candD0));
 
         // track0 <-> pi, track1 <-> K
         auto prong0 = candD0.prong0_as<TracksWithSel>();

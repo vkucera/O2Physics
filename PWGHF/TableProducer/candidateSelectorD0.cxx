@@ -20,14 +20,13 @@
 
 #include "Common/Core/TrackSelectorPID.h"
 
+#include "PWGHF/Core/HfHelper.h"
 #include "PWGHF/Core/HfMlResponse.h"
 #include "PWGHF/DataModel/CandidateReconstructionTables.h"
 #include "PWGHF/DataModel/CandidateSelectionTables.h"
 
 using namespace o2;
 using namespace o2::framework;
-using namespace o2::aod::hf_cand_2prong;
-using namespace o2::analysis::hf_cuts_d0_to_pi_k;
 
 /// Struct for applying D0 selection cuts
 struct HfCandidateSelectorD0 {
@@ -53,7 +52,7 @@ struct HfCandidateSelectorD0 {
   Configurable<double> distanceFromD0MassForSidebands{"distanceFromD0MassForSidebands", 0.15, "Minimum distance from nominal D0 mass value for sideband region"};
   // topological cuts
   Configurable<std::vector<double>> binsPt{"binsPt", std::vector<double>{hf_cuts_d0_to_pi_k::vecBinsPt}, "pT bin limits"};
-  Configurable<LabeledArray<double>> cuts{"cuts", {hf_cuts_d0_to_pi_k::cuts[0], nBinsPt, nCutVars, labelsPt, labelsCutVar}, "D0 candidate selection per pT bin"};
+  Configurable<LabeledArray<double>> cuts{"cuts", {hf_cuts_d0_to_pi_k::cuts[0], hf_cuts_d0_to_pi_k::nBinsPt, hf_cuts_d0_to_pi_k::nCutVars, hf_cuts_d0_to_pi_k::labelsPt, hf_cuts_d0_to_pi_k::labelsCutVar}, "D0 candidate selection per pT bin"};
   // ML inference
   Configurable<bool> applyMl{"applyMl", false, "Flag to apply ML selections"};
   Configurable<std::vector<double>> binsPtMl{"binsPtMl", std::vector<double>{hf_cuts_ml::vecBinsPt}, "pT bin limits for ML application"};
@@ -69,11 +68,10 @@ struct HfCandidateSelectorD0 {
 
   o2::analysis::HfMlResponse<float> hfMlResponse;
   std::vector<float> outputMl = {};
-
   o2::ccdb::CcdbApi ccdbApi;
-
   TrackSelectorPi selectorPion;
   TrackSelectorKa selectorKaon;
+  HfHelper hfHelper;
 
   using TracksSel = soa::Join<aod::TracksWDcaExtra, aod::TracksPidPi, aod::TracksPidKa>;
 
@@ -186,11 +184,11 @@ struct HfCandidateSelectorD0 {
 
     // invariant-mass cut
     if (trackPion.sign() > 0) {
-      if (std::abs(invMassD0ToPiK(candidate) - RecoDecay::getMassPDG(pdg::Code::kD0)) > cuts->get(pTBin, "m")) {
+      if (std::abs(hfHelper.invMassD0ToPiK(candidate) - o2::analysis::pdg::MassD0) > cuts->get(pTBin, "m")) {
         return false;
       }
     } else {
-      if (std::abs(invMassD0barToKPi(candidate) - RecoDecay::getMassPDG(pdg::Code::kD0)) > cuts->get(pTBin, "m")) {
+      if (std::abs(hfHelper.invMassD0barToKPi(candidate) - o2::analysis::pdg::MassD0) > cuts->get(pTBin, "m")) {
         return false;
       }
     }
@@ -207,11 +205,11 @@ struct HfCandidateSelectorD0 {
 
     // cut on cos(theta*)
     if (trackPion.sign() > 0) {
-      if (std::abs(cosThetaStarD0(candidate)) > cuts->get(pTBin, "cos theta*")) {
+      if (std::abs(hfHelper.cosThetaStarD0(candidate)) > cuts->get(pTBin, "cos theta*")) {
         return false;
       }
     } else {
-      if (std::abs(cosThetaStarD0bar(candidate)) > cuts->get(pTBin, "cos theta*")) {
+      if (std::abs(hfHelper.cosThetaStarD0bar(candidate)) > cuts->get(pTBin, "cos theta*")) {
         return false;
       }
     }
@@ -219,11 +217,11 @@ struct HfCandidateSelectorD0 {
     // in case only sideband candidates have to be stored, additional invariant-mass cut
     if (keepOnlySidebandCandidates) {
       if (trackPion.sign() > 0) {
-        if (std::abs(invMassD0ToPiK(candidate) - RecoDecay::getMassPDG(pdg::Code::kD0)) < distanceFromD0MassForSidebands) {
+        if (std::abs(hfHelper.invMassD0ToPiK(candidate) - o2::analysis::pdg::MassD0) < distanceFromD0MassForSidebands) {
           return false;
         }
       } else {
-        if (std::abs(invMassD0barToKPi(candidate) - RecoDecay::getMassPDG(pdg::Code::kD0)) < distanceFromD0MassForSidebands) {
+        if (std::abs(hfHelper.invMassD0barToKPi(candidate) - o2::analysis::pdg::MassD0) < distanceFromD0MassForSidebands) {
           return false;
         }
       }
@@ -246,7 +244,7 @@ struct HfCandidateSelectorD0 {
       int statusCand = 0;
       int statusPID = 0;
 
-      if (!(candidate.hfflag() & 1 << DecayType::D0ToPiK)) {
+      if (!(candidate.hfflag() & 1 << aod::hf_cand_2prong::DecayType::D0ToPiK)) {
         hfSelD0Candidate(statusD0, statusD0bar, statusHFFlag, statusTopol, statusCand, statusPID);
         if (applyMl) {
           hfMlD0Candidate(outputMl);
@@ -366,7 +364,7 @@ struct HfCandidateSelectorD0 {
         registry.fill(HIST("DebugBdt/hBdtScore3VsStatus"), outputMl[2], statusD0);
         registry.fill(HIST("DebugBdt/hBdtScore3VsStatus"), outputMl[2], statusD0bar);
         if (statusD0 != 0 || statusD0bar != 0) {
-          registry.fill(HIST("DebugBdt/hMassDmesonSel"), invMassD0ToPiK(candidate));
+          registry.fill(HIST("DebugBdt/hMassDmesonSel"), hfHelper.invMassD0ToPiK(candidate));
         }
       }
       hfSelD0Candidate(statusD0, statusD0bar, statusHFFlag, statusTopol, statusCand, statusPID);

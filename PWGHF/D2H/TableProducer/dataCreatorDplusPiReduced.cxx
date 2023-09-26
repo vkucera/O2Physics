@@ -16,6 +16,7 @@
 
 #include "DCAFitter/DCAFitterN.h"
 #include "Framework/AnalysisTask.h"
+#include "Framework/O2DatabasePDGPlugin.h"
 #include "Framework/runDataProcessing.h"
 #include "ReconstructionDataFormats/DCA.h"
 #include "ReconstructionDataFormats/V0.h"
@@ -23,6 +24,7 @@
 #include "Common/Core/trackUtilities.h"
 #include "Common/DataModel/CollisionAssociationTables.h"
 
+#include "PWGHF/Core/HfHelper.h"
 #include "PWGHF/DataModel/CandidateReconstructionTables.h"
 #include "PWGHF/DataModel/CandidateSelectionTables.h"
 #include "PWGHF/Utils/utilsBfieldCCDB.h"
@@ -75,22 +77,21 @@ struct HfDataCreatorDplusPiReduced {
   Configurable<std::string> ccdbPathGrp{"ccdbPathGrp", "GLO/GRP/GRP", "Path of the grp file (Run 2)"};
   Configurable<std::string> ccdbPathGrpMag{"ccdbPathGrpMag", "GLO/Config/GRPMagField", "CCDB path of the GRPMagField object (Run 3)"};
 
+  HfHelper hfHelper;
   Service<o2::ccdb::BasicCCDBManager> ccdb;
   o2::base::MatLayerCylSet* lut;
   o2::base::Propagator::MatCorrType matCorr = o2::base::Propagator::MatCorrType::USEMatCorrLUT;
-  int runNumber;
+  // Fitter to redo D-vertex to get extrapolated daughter tracks (3-prong vertex filter)
+  o2::vertexing::DCAFitterN<3> df3;
 
-  double massPi = RecoDecay::getMassPDG(kPiPlus);
-  double massD = RecoDecay::getMassPDG(pdg::Code::kDMinus);
-  double massB0 = RecoDecay::getMassPDG(pdg::Code::kB0);
+  int runNumber{0};
+  double massPi{0.};
+  double massD{0.};
+  double massB0{0.};
   double massDPi{0.};
   double invMassD{0.};
   double bz{0.};
-
   bool isHfCandB0ConfigFilled = false;
-
-  // Fitter to redo D-vertex to get extrapolated daughter tracks (3-prong vertex filter)
-  o2::vertexing::DCAFitterN<3> df3;
 
   using TracksPidAll = soa::Join<aod::pidTPCFullEl, aod::pidTPCFullMu, aod::pidTPCFullPi, aod::pidTPCFullKa, aod::pidTPCFullPr,
                                  aod::pidTOFFullEl, aod::pidTOFFullMu, aod::pidTOFFullPi, aod::pidTOFFullKa, aod::pidTOFFullPr>;
@@ -106,6 +107,10 @@ struct HfDataCreatorDplusPiReduced {
 
   void init(InitContext const&)
   {
+    massPi = o2::analysis::pdg::MassPiPlus;
+    massD = o2::analysis::pdg::MassDMinus;
+    massB0 = o2::analysis::pdg::MassB0;
+
     // histograms
     constexpr int kNBinsEvents = kNEvent;
     std::string labels[kNBinsEvents];
@@ -239,7 +244,7 @@ struct HfDataCreatorDplusPiReduced {
         bool fillHfCand3Prong = false;
         float invMassD;
 
-        registry.fill(HIST("hMassDToPiKPi"), invMassDplusToPiKPi(candD));
+        registry.fill(HIST("hMassDToPiKPi"), hfHelper.invMassDplusToPiKPi(candD));
         registry.fill(HIST("hPtD"), candD.pt());
         registry.fill(HIST("hCPAD"), candD.cpa());
 
@@ -311,7 +316,7 @@ struct HfDataCreatorDplusPiReduced {
             continue;
           }
 
-          invMassD = hf_cand_3prong_reduced::invMassDplusToPiKPi(pVec0, pVec1, pVec2);
+          invMassD = hfHelper.invMassDplusToPiKPi(pVec0, pVec1, pVec2);
 
           // fill Pion tracks table
           // if information on track already stored, go to next track
@@ -376,6 +381,8 @@ struct HfDataCreatorDplusPiReduced {
 struct HfDataCreatorDplusPiReducedMc {
   Produces<aod::HfDPiMcRecReduced> rowHfDPiMcRecReduced;
   Produces<aod::HfB0McGenReduced> rowHfB0McGenReduced;
+
+  Service<o2::framework::O2DatabasePDG> pdg;
 
   void init(InitContext const&) {}
 
@@ -442,7 +449,7 @@ struct HfDataCreatorDplusPiReducedMc {
       }
 
       auto ptParticle = particle.pt();
-      auto yParticle = RecoDecay::y(std::array{particle.px(), particle.py(), particle.pz()}, RecoDecay::getMassPDG(pdg::Code::kB0));
+      auto yParticle = RecoDecay::y(std::array{particle.px(), particle.py(), particle.pz()}, o2::analysis::pdg::MassB0);
       auto etaParticle = particle.eta();
 
       std::array<float, 2> ptProngs;
@@ -452,7 +459,7 @@ struct HfDataCreatorDplusPiReducedMc {
       for (const auto& daught : particle.daughters_as<aod::McParticles>()) {
         ptProngs[counter] = daught.pt();
         etaProngs[counter] = daught.eta();
-        yProngs[counter] = RecoDecay::y(std::array{daught.px(), daught.py(), daught.pz()}, RecoDecay::getMassPDG(daught.pdgCode()));
+        yProngs[counter] = RecoDecay::y(std::array{daught.px(), daught.py(), daught.pz()}, pdg->Mass(daught.pdgCode()));
         counter++;
       }
       rowHfB0McGenReduced(flag, origin,
