@@ -19,6 +19,7 @@
         "isRun2MC": "false"
     },
     "tracks-extra-converter": "",
+    "tracks-extra-spawner": "",
     "zdc-converter": "",
     "track-propagation": {
         "ccdb-url": "http://alice-ccdb.cern.ch",
