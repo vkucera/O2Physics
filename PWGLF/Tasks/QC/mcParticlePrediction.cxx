@@ -150,7 +150,7 @@ struct mcParticlePrediction {
   int countZNA(const aod::McParticles& mcParticles) { return countInAcceptance(mcParticles, 8.8f, 100.f); }
   int countZNC(const aod::McParticles& mcParticles) { return countInAcceptance(mcParticles, -100.f, -8.8f); }
 
-  void process(aod::McCollision const& mcCollision,
+  void process(aod::McCollision const&  /*mcCollision*/,
                aod::McParticles const& mcParticles)
   {
     if (selectInelGt0.value && !o2::pwglf::isINELgt0mc(mcParticles, pdgDB)) {

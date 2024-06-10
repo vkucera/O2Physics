@@ -396,7 +396,7 @@ struct IdentifiedMeanPtFluctuations {
       ;
   }
 
-  void processMCReco(aod::MyMCRecoCollisions::iterator const& mccoll, aod::MyMCRecoTracks const& mcrectrack, aod::McParticles const& mcParticles)
+  void processMCReco(aod::MyMCRecoCollisions::iterator const& mccoll, aod::MyMCRecoTracks const& mcrectrack, aod::McParticles const&  /*mcParticles*/)
   {
     if (!mccoll.has_mcCollision()) {
       return;
