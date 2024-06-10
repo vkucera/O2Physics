@@ -17,7 +17,8 @@
 #include <algorithm>
 #include "JFFlucAnalysis.h"
 
-JFFlucAnalysis::JFFlucAnalysis() : fVertex(0),
+JFFlucAnalysis::JFFlucAnalysis() : TNamed(),
+                                   fVertex(0),
                                    fCent(0),
                                    fImpactParameter(-1),
                                    subeventMask(kSubEvent_A | kSubEvent_B),
@@ -29,7 +30,8 @@ JFFlucAnalysis::JFFlucAnalysis() : fVertex(0),
 }
 
 //________________________________________________________________________
-JFFlucAnalysis::JFFlucAnalysis(const char* /*name*/) : fVertex(0),
+JFFlucAnalysis::JFFlucAnalysis(const char* /*name*/) : TNamed(),
+                                                       fVertex(0),
                                                        fCent(0),
                                                        fImpactParameter(-1),
                                                        subeventMask(kSubEvent_A | kSubEvent_B),
@@ -41,7 +43,8 @@ JFFlucAnalysis::JFFlucAnalysis(const char* /*name*/) : fVertex(0),
 }
 
 //________________________________________________________________________
-JFFlucAnalysis::JFFlucAnalysis(const JFFlucAnalysis& a) : fVertex(a.fVertex),
+JFFlucAnalysis::JFFlucAnalysis(const JFFlucAnalysis& a) : TNamed(),
+                                                          fVertex(a.fVertex),
                                                           fCent(a.fCent),
                                                           fImpactParameter(a.fImpactParameter),
                                                           subeventMask(a.subeventMask),
