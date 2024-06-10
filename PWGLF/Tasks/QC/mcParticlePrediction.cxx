@@ -169,9 +169,9 @@ struct mcParticlePrediction {
     for (const auto& particle : mcParticles) {
       particle.pdgCode();
       const auto id = o2::pwglf::PIDExtended::pdgToId(particle);
-      if (id < 0) {
-        continue;
-      }
+      // if (id < 0) { // always false
+      //   continue;
+      // }
       if (!enabledArray[id]) {
         continue;
       }
