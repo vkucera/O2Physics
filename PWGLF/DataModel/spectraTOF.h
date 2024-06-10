@@ -19,6 +19,8 @@
 #ifndef PWGLF_DATAMODEL_SPECTRATOF_H_
 #define PWGLF_DATAMODEL_SPECTRATOF_H_
 
+#include <memory>
+
 // O2 includes
 #include "ReconstructionDataFormats/Track.h"
 #include "Framework/runDataProcessing.h"
@@ -44,13 +46,17 @@ using namespace o2::framework;
 using namespace o2::framework::expressions;
 
 static constexpr PID::ID Np = 9;
-static constexpr PID::ID NpCharge = Np * 2;
+static constexpr int NCharges = 2;
+static constexpr PID::ID NpCharge = Np * NCharges;
 static constexpr const char* pT[Np] = {"e", "#mu", "#pi", "K", "p", "d", "t", "{}^{3}He", "#alpha"};
+static constexpr const char* pN[Np] = {"el", "mu", "pi", "ka", "pr", "de", "tr", "he", "al"};
+static constexpr const char* cN[NCharges] = {"pos", "neg"};
 static constexpr const char* pTCharge[NpCharge] = {"e^{-}", "#mu^{-}", "#pi^{+}", "K^{+}", "p", "d", "t", "{}^{3}He", "#alpha",
                                                    "e^{+}", "#mu^{+}", "#pi^{-}", "K^{-}", "#bar{p}", "#bar{d}", "#bar{t}", "{}^{3}#bar{He}", "#bar{#alpha}"};
 static constexpr int PDGs[NpCharge] = {kElectron, kMuonMinus, kPiPlus, kKPlus, kProton, 1000010020, 1000010030, 1000020030, 1000020040,
                                        -kElectron, -kMuonMinus, -kPiPlus, -kKPlus, -kProton, -1000010020, -1000010030, -1000020030, -1000020040};
 
+std::shared_ptr<TH2> hMultiplicityvsPercentile;
 static constexpr std::string_view hnsigmatpctof[NpCharge] = {"nsigmatpctof/pos/el", "nsigmatpctof/pos/mu", "nsigmatpctof/pos/pi",
                                                              "nsigmatpctof/pos/ka", "nsigmatpctof/pos/pr", "nsigmatpctof/pos/de",
                                                              "nsigmatpctof/pos/tr", "nsigmatpctof/pos/he", "nsigmatpctof/pos/al",
@@ -136,6 +142,12 @@ static constexpr std::string_view hpt_numtof_prm[NpCharge] = {"MC/el/pos/prm/pt/
                                                               "MC/el/neg/prm/pt/numtof", "MC/mu/neg/prm/pt/numtof", "MC/pi/neg/prm/pt/numtof",
                                                               "MC/ka/neg/prm/pt/numtof", "MC/pr/neg/prm/pt/numtof", "MC/de/neg/prm/pt/numtof",
                                                               "MC/tr/neg/prm/pt/numtof", "MC/he/neg/prm/pt/numtof", "MC/al/neg/prm/pt/numtof"};
+static constexpr std::string_view hpt_numtofgoodmatch_prm[NpCharge] = {"MC/el/pos/prm/pt/numtofgoodmatch", "MC/mu/pos/prm/pt/numtofgoodmatch", "MC/pi/pos/prm/pt/numtofgoodmatch",
+                                                                       "MC/ka/pos/prm/pt/numtofgoodmatch", "MC/pr/pos/prm/pt/numtofgoodmatch", "MC/de/pos/prm/pt/numtofgoodmatch",
+                                                                       "MC/tr/pos/prm/pt/numtofgoodmatch", "MC/he/pos/prm/pt/numtofgoodmatch", "MC/al/pos/prm/pt/numtofgoodmatch",
+                                                                       "MC/el/neg/prm/pt/numtofgoodmatch", "MC/mu/neg/prm/pt/numtofgoodmatch", "MC/pi/neg/prm/pt/numtofgoodmatch",
+                                                                       "MC/ka/neg/prm/pt/numtofgoodmatch", "MC/pr/neg/prm/pt/numtofgoodmatch", "MC/de/neg/prm/pt/numtofgoodmatch",
+                                                                       "MC/tr/neg/prm/pt/numtofgoodmatch", "MC/he/neg/prm/pt/numtofgoodmatch", "MC/al/neg/prm/pt/numtofgoodmatch"};
 
 //********************************************RD**********************************************************************************************
 static constexpr std::string_view hpt_numtof_str[NpCharge] = {"MC/el/pos/str/pt/numtof", "MC/mu/pos/str/pt/numtof", "MC/pi/pos/str/pt/numtof",
