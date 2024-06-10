@@ -267,7 +267,7 @@ struct SecondaryVertexReconstruction {
     }
   }
 
-  void processDummy(JetCollisionwPIs::iterator const& collision)
+  void processDummy(JetCollisionwPIs::iterator const& /*collision*/)
   {
   }
   PROCESS_SWITCH(SecondaryVertexReconstruction, processDummy, "Dummy process", true);

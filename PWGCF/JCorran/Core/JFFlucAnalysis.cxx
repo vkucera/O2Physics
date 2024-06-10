@@ -305,7 +305,7 @@ void JFFlucAnalysis::UserExec(Option_t*  /*popt*/)
 }
 
 //________________________________________________________________________
-void JFFlucAnalysis::Terminate(Option_t* popt)
+void JFFlucAnalysis::Terminate(Option_t* /*popt*/)
 {
   //
 }
