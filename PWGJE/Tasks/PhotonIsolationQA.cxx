@@ -279,7 +279,7 @@ struct PhotonIsolationQA {
   }
 
   // process monte carlo data
-  void processMC(selectedCollisions::iterator const& theCollision, selectedMCClusters const& mcclusters, aod::StoredMcParticles_001 const&, myGlobTracks const& tracks, o2::aod::EMCALClusterCells const& emccluscells, o2::aod::EMCALMatchedTracks const& matchedtracks)
+  void processMC(selectedCollisions::iterator const& theCollision, selectedMCClusters const& mcclusters, aod::StoredMcParticles_001 const&, myGlobTracks const& tracks, o2::aod::EMCALClusterCells const&  /*emccluscells*/, o2::aod::EMCALMatchedTracks const& matchedtracks)
   {
     MC_Info.fill(HIST("hPosZ"), theCollision.posZ());
 
@@ -328,7 +328,7 @@ struct PhotonIsolationQA {
 
   PROCESS_SWITCH(PhotonIsolationQA, processMC, "proces MC data", true);
 
-  void processData(selectedCollisions::iterator const& theCollision, selectedClusters const& clusters, o2::aod::EMCALClusterCells const& emccluscells, o2::aod::EMCALMatchedTracks const& matchedtracks, myGlobTracks const& alltracks)
+  void processData(selectedCollisions::iterator const& theCollision, selectedClusters const& clusters, o2::aod::EMCALClusterCells const&  /*emccluscells*/, o2::aod::EMCALMatchedTracks const& matchedtracks, myGlobTracks const& alltracks)
   {
     Data_Info.fill(HIST("hPosZ"), theCollision.posZ());
 

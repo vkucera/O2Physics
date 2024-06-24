@@ -395,7 +395,7 @@ struct skimmerPrimaryMuon {
   // Partition<MyFilteredTracks> posTracks = o2::aod::fwdtrack::signed1Pt > 0.f;
   // Partition<MyFilteredTracks> negTracks = o2::aod::fwdtrack::signed1Pt < 0.f;
 
-  void processRec(aod::Collisions const& collisions, aod::BCsWithTimestamps const&, MyFilteredTracks const& tracks, aod::MFTTracks const& mfttracks)
+  void processRec(aod::Collisions const& collisions, aod::BCsWithTimestamps const&, MyFilteredTracks const& tracks, aod::MFTTracks const&  /*mfttracks*/)
   {
     for (auto& collision : collisions) {
       auto bc = collision.bc_as<aod::BCsWithTimestamps>();
