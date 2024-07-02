@@ -548,7 +548,7 @@ struct skimmerPrimaryMuon {
   Partition<MyTracksMC> global_muons_mc = o2::aod::fwdtrack::trackType == uint8_t(o2::aod::fwdtrack::ForwardTrackTypeEnum::GlobalMuonTrack); // MFT-MCH-MID
   Partition<MyTracksMC> sa_muons_mc = o2::aod::fwdtrack::trackType == uint8_t(o2::aod::fwdtrack::ForwardTrackTypeEnum::MuonStandaloneTrack); // MCH-MID
 
-  void processMC_SA(soa::Join<aod::McCollisionLabels, aod::Collisions> const& collisions, aod::BCsWithTimestamps const&, MyTracksMC const& tracks, MFTTracksMC const& mftsatracks)
+  void processMC_SA(soa::Join<aod::McCollisionLabels, aod::Collisions> const& collisions, aod::BCsWithTimestamps const&, MyTracksMC const& tracks, MFTTracksMC const&  /*mftsatracks*/)
   {
     for (auto& collision : collisions) {
       if (!collision.has_mcCollision()) {

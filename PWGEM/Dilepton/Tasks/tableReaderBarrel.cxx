@@ -701,7 +701,7 @@ struct AnalysisEventMixing {
 
   NoBinningPolicy<aod::dqanalysisflags::MixingHash> hashBin;
 
-  void init(o2::framework::InitContext& context)
+  void init(o2::framework::InitContext&  /*context*/)
   {
     fCurrentRun = 0;
 
@@ -919,7 +919,7 @@ struct AnalysisSameEventPairing {
     }
   }
 
-  void init(o2::framework::InitContext& context)
+  void init(o2::framework::InitContext&  /*context*/)
   {
     fCurrentRun = 0;
 
