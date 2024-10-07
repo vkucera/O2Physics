@@ -314,8 +314,8 @@ struct HfTaskMiniD0 {
 WorkflowSpec defineDataProcessing(ConfigContext const& cfgc)
 {
   return WorkflowSpec{
-    adaptAnalysisTask<HfTaskMiniCandidateCreator2Prong>(cfgc, TaskName{"hf-task-mini-candidate-creator-2prong"}),  // o2-linter: disable=name/o2-task
-    adaptAnalysisTask<HfTaskMiniCandidateCreator2ProngExpressions>(cfgc, TaskName{"hf-task-mini-candidate-creator-2prong-expressions"}),  // o2-linter: disable=name/o2-task
+    adaptAnalysisTask<HfTaskMiniCandidateCreator2Prong>(cfgc, TaskName{"hf-task-mini-candidate-creator-2prong"}),                        // o2-linter: disable=name/o2-task
+    adaptAnalysisTask<HfTaskMiniCandidateCreator2ProngExpressions>(cfgc, TaskName{"hf-task-mini-candidate-creator-2prong-expressions"}), // o2-linter: disable=name/o2-task
     adaptAnalysisTask<HfTaskMiniCandidateSelectorD0>(cfgc),
     adaptAnalysisTask<HfTaskMiniD0>(cfgc)};
 }
