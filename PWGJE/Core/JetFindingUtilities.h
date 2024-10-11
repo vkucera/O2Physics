@@ -54,6 +54,24 @@ namespace jetfindingutilities
 {
 
 /**
+ * returns true if the object is from the JDummys table
+ */
+template <typename T>
+constexpr bool isDummy()
+{
+  return std::is_same_v<std::decay_t<T>, o2::aod::JDummys::iterator> || std::is_same_v<std::decay_t<T>, o2::aod::JDummys::filtered_iterator>;
+}
+
+/**
+ * returns true if the table is a JDummys table
+ */
+template <typename T>
+constexpr bool isDummyTable()
+{
+  return isDummy<typename T::iterator>() || isDummy<typename T::filtered_iterator>();
+}
+
+/**
  * returns true if the cluster is from an EMCAL table
  */
 template <typename T>
@@ -66,7 +84,7 @@ constexpr bool isEMCALCluster()
  * returns true if the table is an EMCAL table
  */
 template <typename T>
-constexpr bool isEMCALTable()
+constexpr bool isEMCALClusterTable()
 {
   return isEMCALCluster<typename T::iterator>() || isEMCALCluster<typename T::filtered_iterator>();
 }
@@ -163,7 +181,7 @@ template <typename T>
 bool analyseCandidate(std::vector<fastjet::PseudoJet>& inputParticles, T const& candidate, float candPtMin, float candPtMax, float candYMin, float candYMax)
 {
   auto candMass = jetcandidateutilities::getCandidatePDGMass(candidate);
-  if (isnan(candidate.y())) {
+  if (std::isnan(candidate.y())) {
     return false;
   }
   if (candidate.y() < candYMin || candidate.y() > candYMax) {
@@ -227,7 +245,7 @@ bool analyseV0s(std::vector<fastjet::PseudoJet>& inputParticles, T const& v0s, f
       }
       v0Y = v0.rapidity(v0Index);
     }
-    if (isnan(v0Y)) {
+    if (std::isnan(v0Y)) {
       continue;
     }
     if (v0Y < v0YMin || v0Y > v0YMax) {
@@ -331,7 +349,7 @@ void analyseParticles(std::vector<fastjet::PseudoJet>& inputParticles, std::stri
     } else if (particleSelection == "PhysicalPrimaryAndHepMCStatus" && (!particle.isPhysicalPrimary() || particle.getHepMCStatusCode() != 1)) {
       continue;
     }
-    if (isinf(particle.eta())) {
+    if (std::isinf(particle.eta())) {
       continue;
     }
     auto pdgParticle = pdgDatabase->GetParticle(particle.pdgCode());
