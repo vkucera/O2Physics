@@ -38,7 +38,7 @@
 
 namespace o2::aod
 {
-// Table aliases
+// Table aliases///
 
 using TracksWCov = soa::Join<Tracks, TracksCov>;
 using TracksWDca = soa::Join<Tracks, TracksDCA>;
