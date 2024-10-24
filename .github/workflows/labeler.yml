@@ -62,7 +62,7 @@ jobs:
           prefix_good = ",".join(tags_relevant)
           prefix_good = f"[{prefix_good}] "
           print(f"Generated prefix: {prefix_good}")
-          replace_title = False
+          replace_title = 0
           title_new = title
           # If there is a prefix which contain a valid tag, check it for correct tags, and reformat it if needed.
           # If there is a prefix which does not contain any valid tag, prepend the tag prefix.
@@ -87,17 +87,17 @@ jobs:
                       prefix_good = f"[{prefix_good}] "
                       print(f"::notice::Reformatted prefix: {prefix_good}")
                       if match.group() != prefix_good:
-                          replace_title = True
+                          replace_title = 1
                           title_new = prefix_good + title_stripped
               else:
                   print("::warning::No known tags found in the prefix.")
                   if tags_relevant:
-                      replace_title = True
+                      replace_title = 1
                       title_new = prefix_good + title
           else:
               print("::warning::No valid prefix found in the PR title.")
               if tags_relevant:
-                  replace_title = True
+                  replace_title = 1
                   title_new = prefix_good + title
           if not passed:
               print("::error::Problems were found in the PR title prefix.")
