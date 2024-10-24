@@ -39,7 +39,7 @@ jobs:
           import sys
           title = os.environ['title']
           labels = os.environ['labels']
-          prefixes = {
+          tags = {
               "infrastructure": "Infrastructure",
               "common": "Common",
               "alice3": "ALICE3",
@@ -54,36 +54,63 @@ jobs:
               "trigger": "Trigger",
               "tutorial": "Tutorial",
           }
-          print(f'::notice::PR title: "{title}"')
-          print(f'::notice::PR labels: "{labels}"')
-          prefixes_relevant = [prefixes[label] for label in prefixes if label in labels.split(",")]
-          if not prefixes_relevant:
-              print("::notice::No relevant labels to check")
-              sys.exit(0)
-          print("::notice::Relevant title labels:", ",".join(prefixes_relevant))
+          print(f'PR title: "{title}"')
+          print(f'PR labels: "{labels}"')
+          tags_relevant = [tags[label] for label in tags if label in labels.split(",")]
+          print("Relevant title tags:", ",".join(tags_relevant))
           passed = True
-          if not (match := re.match(r"\[?([\w, /]+)[\]:] ", title)):
-              print("::error::No valid prefix found in the PR title.")
-              passed = False
-          if passed:
+          prefix_good = ",".join(tags_relevant)
+          prefix_good = f"[{prefix_good}] "
+          print(f"Generated prefix: {prefix_good}")
+          replace_title = False
+          title_new = title
+          # If there is a prefix which contain a valid tag, check it for correct tags, and reformat it if needed.
+          # If there is a prefix which does not contain any valid tag, prepend the tag prefix.
+          # If there is no prefix, prepend the tag prefix.
+          if match := re.match(r"\[?(\w[\w, /\+-]+)[\]:] ", title):
               prefix_title = match.group(1)
-              print(f'::notice::PR title prefix: "{prefix_title}"')
-              for prefix in prefixes.values():
-                  if prefix in prefixes_relevant and prefix not in prefix_title:
-                      print(f'::error::Label "{prefix}" not found in the prefix of the PR title.')
-                      passed = False
-                  if prefix not in prefixes_relevant and prefix in prefix_title:
-                      print(f'::error::Label "{prefix}" found in the prefix of the PR title.')
-                      passed = False
+              words_prefix_title = prefix_title.replace(",", " ").replace("/", " ").split()
+              title_stripped = title[len(match.group()) :]
+              print(f'PR title prefix: "{prefix_title}" -> tags: {words_prefix_title}')
+              print(f'Stripped PR title: "{title_stripped}"')
+              if any(tag in words_prefix_title for tag in tags.values()):
+                  for tag in tags.values():
+                      if tag in tags_relevant and tag not in words_prefix_title:
+                          print(f'::error::Relevant tag "{tag}" not found in the prefix of the PR title.')
+                          passed = False
+                      if tag not in tags_relevant and tag in words_prefix_title:
+                          print(f'::error::Irrelevant tag "{tag}" found in the prefix of the PR title.')
+                          passed = False
+                  # Format a valid prefix.
+                  if passed:
+                      prefix_good = ",".join(w for w in prefix_title.replace(",", " ").split() if w)
+                      prefix_good = f"[{prefix_good}] "
+                      print(f"::notice::Reformatted prefix: {prefix_good}")
+                      if match.group() != prefix_good:
+                          replace_title = True
+                          title_new = prefix_good + title_stripped
+              else:
+                  print("::warning::No known tags found in the prefix.")
+                  if tags_relevant:
+                      replace_title = True
+                      title_new = prefix_good + title
+          else:
+              print("::warning::No valid prefix found in the PR title.")
+              if tags_relevant:
+                  replace_title = True
+                  title_new = prefix_good + title
           if not passed:
               print("::error::Problems were found in the PR title prefix.")
-              print('::notice::Use the form "labels: title" or "[labels] title".')
-          print("::notice::The PR title prefix is fine.")
-          add_prefix = 1
-          prefix = "PR:"
-          with open(os.environ['GITHUB_OUTPUT'], 'a') as fh:
-            print(f'add_prefix={add_prefix}', file=fh)
-            print(f'prefix={prefix}', file=fh)
+              print('::notice::Use the form "tags: title" or "[tags] title".')
+              sys.exit(1)
+          if replace_title:
+              print(f'::warning::New title: "{title_new}".')
+              print("::warning::The PR title prefix with tags needs to be added or adjusted.")
+          else:
+              print("::notice::The PR title prefix is fine.")
+          with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as fh:
+              print(f"replace={replace_title}", file=fh)
+              print(f"title={title_new}", file=fh)
       - name: Fix the PR title prefix
         if: ${{ steps.check-prefix.outputs.replace == 1 }}
         uses: the-wright-jamie/Update-PR-Info-Action@v1.1.0
