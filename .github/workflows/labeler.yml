@@ -79,17 +79,16 @@ jobs:
               print("::error::Problems were found in the PR title prefix.")
               print('::notice::Use the form "labels: title" or "[labels] title".')
           print("::notice::The PR title prefix is fine.")
-          replace_title = 1
-          title = "PR: " + title
+          add_prefix = 1
+          prefix = "PR:"
           with open(os.environ['GITHUB_OUTPUT'], 'a') as fh:
-            print(f'replace_title={replace_title}', file=fh)
-            print(f'title={title}', file=fh)
+            print(f'add_prefix={add_prefix}', file=fh)
+            print(f'prefix={prefix}', file=fh)
       - name: Fix the PR title prefix
-        if: ${{ steps.check-prefix.outputs.replace_title == 1 }}
+        if: ${{ steps.check-prefix.outputs.add_prefix == 1 }}
         uses: the-wright-jamie/Update-PR-Info-Action@v1.1.0
         with:
           repo-token: "${{ secrets.GITHUB_TOKEN }}"
           base-branch-regex: labeler
-          # title-template: "${{ steps.check-prefix.outputs.title }}"
-          title-template: "PR: "
+          title-template: "${{ steps.check-prefix.outputs.prefix }}"
           title-update-action: prefix
