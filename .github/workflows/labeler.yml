@@ -76,3 +76,10 @@ jobs:
               print('::notice::Use the form "labels: title" or "[labels] title".')
               sys.exit(1)
           print("::notice::The PR title prefix is fine.")
+
+      - name: Fix the PR title prefix
+        if: success()
+        uses: juztcode/pr-updater@1.0.0
+        with:
+          title: Test fix
+          body: Test fix
