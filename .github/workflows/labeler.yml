@@ -86,7 +86,7 @@ jobs:
             print(f'title={title}', file=fh)
       - name: Fix the PR title prefix
         if: ${{ steps.check-prefix.outputs.replace_title == 1 }}
-        uses: tzkhan/pr-update-action@v2
+        uses: the-wright-jamie/Update-PR-Info-Action@v1.1.0
         with:
           repo-token: "${{ secrets.GITHUB_TOKEN }}"
           base-branch-regex: labeler
