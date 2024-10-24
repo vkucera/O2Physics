@@ -86,9 +86,5 @@ jobs:
           repo-token: "${{ secrets.GITHUB_TOKEN }}"
           base-branch-regex: 'labeler'
           head-branch-regex: '.+'
-          title-template: '[%headbranch%] '
-          body-template: |
-            Merging into '%basebranch%'
-            [Link to %headbranch%](https://url/to/browse/ticket/%headbranch%)
-          body-update-action: 'suffix'
-          body-uppercase-base-match: false
+          title-template: "New title"
+          title-update-action: replace
