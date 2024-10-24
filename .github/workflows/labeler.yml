@@ -90,5 +90,6 @@ jobs:
         with:
           repo-token: "${{ secrets.GITHUB_TOKEN }}"
           base-branch-regex: labeler
+          error-on-fail: false
           title-template: "${{ steps.check-prefix.outputs.prefix }}"
           title-update-action: prefix
