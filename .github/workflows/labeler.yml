@@ -85,11 +85,11 @@ jobs:
             print(f'add_prefix={add_prefix}', file=fh)
             print(f'prefix={prefix}', file=fh)
       - name: Fix the PR title prefix
-        if: ${{ steps.check-prefix.outputs.add_prefix == 1 }}
+        if: ${{ steps.check-prefix.outputs.replace == 1 }}
         uses: the-wright-jamie/Update-PR-Info-Action@v1.1.0
         with:
           repo-token: "${{ secrets.GITHUB_TOKEN }}"
           base-branch-regex: labeler
           error-on-fail: false
-          title-template: "${{ steps.check-prefix.outputs.prefix }}"
-          title-update-action: prefix
+          title-template: "${{ steps.check-prefix.outputs.title }}"
+          title-update-action: replace
