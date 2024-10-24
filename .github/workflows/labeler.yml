@@ -104,8 +104,8 @@ jobs:
               print('::notice::Use the form "tags: title" or "[tags] title".')
               sys.exit(1)
           if replace_title:
-              print(f'::warning::New title: "{title_new}".')
               print("::warning::The PR title prefix with tags needs to be added or adjusted.")
+              print(f'::warning::New title: "{title_new}".')
           else:
               print("::notice::The PR title prefix is fine.")
           with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as fh:
