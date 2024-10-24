@@ -67,7 +67,7 @@ jobs:
           # If there is a prefix which contain a valid tag, check it for correct tags, and reformat it if needed.
           # If there is a prefix which does not contain any valid tag, prepend the tag prefix.
           # If there is no prefix, prepend the tag prefix.
-          if match := re.match(r"\[?(\w[\w, /\+-]+)[\]:] ", title):
+          if match := re.match(r"\[?(\w[\w, /\+-]+)[\]:]+ ", title):
               prefix_title = match.group(1)
               words_prefix_title = prefix_title.replace(",", " ").replace("/", " ").split()
               title_stripped = title[len(match.group()) :]
