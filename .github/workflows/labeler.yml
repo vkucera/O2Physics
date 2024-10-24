@@ -83,5 +83,6 @@ jobs:
         if: success()
         uses: juztcode/pr-updater@1.0.0
         with:
+          repo-token: "${{ secrets.GITHUB_TOKEN }}"
           title: Test fix
           body: Test fix
