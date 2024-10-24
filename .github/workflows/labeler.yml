@@ -28,6 +28,7 @@ jobs:
     needs: labeler
     steps:
       - name: Check the PR title prefix
+        id: check-prefix
         env:
           title: ${{ github.event.pull_request.title }}
           labels: ${{ needs.labeler.outputs.labels }}
@@ -78,13 +79,15 @@ jobs:
               print("::error::Problems were found in the PR title prefix.")
               print('::notice::Use the form "labels: title" or "[labels] title".')
           print("::notice::The PR title prefix is fine.")
-
+          replace_title = 1
+          with open(os.environ['GITHUB_OUTPUT'], 'a') as fh:
+            print(f'replace_title={replace_title}', file=fh)
+            print(f'title={title}', file=fh)
       - name: Fix the PR title prefix
-        if: success()
+        if: ${{ steps.check-prefix.outputs.replace_title == 1 }}
         uses: tzkhan/pr-update-action@v2
         with:
           repo-token: "${{ secrets.GITHUB_TOKEN }}"
-          base-branch-regex: 'labeler'
-          head-branch-regex: '.+'
-          title-template: "New title"
+          base-branch-regex: labeler
+          title-template: "${{ steps.check-prefix.outputs.title }}"
           title-update-action: replace
