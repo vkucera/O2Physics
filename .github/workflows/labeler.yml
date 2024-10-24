@@ -80,6 +80,7 @@ jobs:
               print('::notice::Use the form "labels: title" or "[labels] title".')
           print("::notice::The PR title prefix is fine.")
           replace_title = 1
+          title = "PR: " + title
           with open(os.environ['GITHUB_OUTPUT'], 'a') as fh:
             print(f'replace_title={replace_title}', file=fh)
             print(f'title={title}', file=fh)
