@@ -22,7 +22,7 @@ struct bcFlagsCreator {
 
   void process(aod::BCs const& bcTable)
   {
-    for (auto& _ : bcTable) {
+    for (size_t i = 0; i < bcTable.size(); ++i) {
       bcFlags(0);
     }
   }

@@ -884,7 +884,6 @@ struct cascadeFlow {
       auto groupedCollisions = collisions.sliceBy(perMcCollision, mcCollision.globalIndex());
 
       int biggestNContribs = -1;
-      int bestCollisionIndex = -1;
       float centrality = 100.5f;
       int nCollisions = 0;
       for (auto const& collision : groupedCollisions) {
@@ -894,7 +893,6 @@ struct cascadeFlow {
         }
         if (biggestNContribs < collision.multPVTotalContributors()) {
           biggestNContribs = collision.multPVTotalContributors();
-          bestCollisionIndex = collision.globalIndex();
           centrality = collision.centFT0C();
         }
         nCollisions++;

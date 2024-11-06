@@ -504,7 +504,6 @@ struct kstarpbpb {
       return;
     }
     auto centrality = collision.centFT0C();
-    auto multTPC = collision.multNTracksPV();
     if (!collision.triggereventep()) {
       return;
     }

@@ -431,7 +431,7 @@ struct ZDCqvectors {
   double getCorrection(int iteration, int step, const char* objName)
   {
     T* hist = nullptr;
-    double calibConstant;
+    double calibConstant{0};
 
     hist = reinterpret_cast<T*>(cal.calibList[iteration][step]->FindObject(Form("%s", objName)));
     if (!hist) {
