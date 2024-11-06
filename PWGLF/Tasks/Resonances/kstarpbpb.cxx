@@ -295,7 +295,7 @@ struct kstarpbpb {
     return result;
   }
   template <typename T>
-  bool isFakeKaon(T const& track, int PID)
+  bool isFakeKaon(T const& track, int  /*PID*/)
   {
     const auto pglobal = track.p();
     const auto ptpc = track.tpcInnerParam();
@@ -311,7 +311,7 @@ struct kstarpbpb {
   using BinningTypeVertexContributor = ColumnBinningPolicy<aod::collision::PosZ, aod::cent::CentFT0C, aod::epcalibrationtable::PsiFT0C>;
   ROOT::Math::PxPyPzMVector KstarMother, daughter1, daughter2, kaonrot, kstarrot;
 
-  void processSameEvent(EventCandidates::iterator const& collision, TrackCandidates const& tracks, aod::BCs const&)
+  void processSameEvent(EventCandidates::iterator const& collision, TrackCandidates const&  /*tracks*/, aod::BCs const&)
   {
     if (!collision.sel8()) {
       return;
