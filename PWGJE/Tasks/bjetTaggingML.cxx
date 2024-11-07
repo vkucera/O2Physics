@@ -14,7 +14,19 @@
 ///
 /// \author Hadi Hassan <hadi.hassan@cern.ch>, University of Jyväskylä
 
-#include "Framework/AnalysisDataModel.h"
+#include <Framework/Configurable.h>
+#include <vector>
+#include <Framework/Array2D.h>
+#include <cstdint>
+#include <CCDB/CcdbApi.h>
+#include <Framework/InitContext.h>
+#include <cstdlib>
+#include <ctime>
+#include <Framework/HistogramSpec.h>
+#include <Framework/Expressions.h>
+#include <array>
+#include <cmath>
+#include <Framework/WorkflowSpec.h>
 #include "Framework/AnalysisTask.h"
 #include "Framework/ASoA.h"
 #include "Framework/HistogramRegistry.h"
@@ -22,14 +34,10 @@
 #include "PWGJE/Core/JetUtilities.h"
 #include "PWGJE/Core/JetDerivedDataUtilities.h"
 #include "PWGJE/Core/JetTaggingUtilities.h"
+#include "PWGJE/DataModel/JetReducedData.h"
 #include "PWGJE/DataModel/JetTagging.h"
 #include "PWGJE/DataModel/Jet.h"
 
-#include "Common/Core/trackUtilities.h"
-#include "Common/Core/TrackSelection.h"
-#include "Common/Core/TrackSelectionDefaults.h"
-#include "Common/DataModel/EventSelection.h"
-#include "Common/DataModel/TrackSelectionTables.h"
 #include "Common/Core/RecoDecay.h"
 #include "Tools/ML/MlResponse.h"
 

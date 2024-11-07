@@ -15,7 +15,11 @@
 /// \author Jochen Klein <jochen.klein@cern.ch>
 
 #include "PWGJE/Core/JetFinder.h"
-#include "Framework/Logger.h"
+#include <fastjet/JetDefinition.hh>
+#include <fastjet/Selector.hh>
+#include <fastjet/ClusterSequenceArea.hh>
+#include <vector>
+#include <fastjet/PseudoJet.hh>
 
 /// Sets the jet finding parameters
 void JetFinder::setParams()

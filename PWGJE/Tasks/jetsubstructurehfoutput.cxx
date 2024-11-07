@@ -14,24 +14,31 @@
 /// \author Nima Zardoshti <nima.zardoshti@cern.ch>
 //
 
+#include <Framework/AnalysisHelpers.h>
+#include <Framework/Configurable.h>
+#include <vector>
+#include <map>
+#include <cstdint>
+#include <Framework/InitContext.h>
+#include <iterator>
+#include <cmath>
+#include <algorithm>
+#include <Framework/WorkflowSpec.h>
+#include <Framework/DataProcessorSpec.h>
 #include "Framework/AnalysisTask.h"
-#include "Framework/AnalysisDataModel.h"
 #include "Framework/ASoA.h"
-#include "Framework/O2DatabasePDGPlugin.h"
-#include "TDatabasePDG.h"
+#include "PWGJE/DataModel/JetReducedData.h"
+#include "PWGJE/DataModel/JetReducedDataHF.h"
+#include "PWGJE/DataModel/JetReducedDataDQ.h"
+#include "PWGHF/DataModel/DerivedTables.h"
+#include "PWGJE/DataModel/JetSubtraction.h"
+#include "PWGDQ/DataModel/ReducedInfoTables.h"
 
-#include "Common/Core/TrackSelection.h"
-#include "Common/Core/TrackSelectionDefaults.h"
-#include "Common/DataModel/TrackSelectionTables.h"
 
-#include "PWGHF/DataModel/CandidateReconstructionTables.h"
-#include "PWGHF/DataModel/CandidateSelectionTables.h"
 
 #include "PWGJE/DataModel/Jet.h"
 #include "PWGJE/DataModel/JetSubstructure.h"
-#include "PWGJE/Core/JetFinder.h"
 #include "PWGJE/Core/JetFindingUtilities.h"
-#include "PWGJE/Core/JetDerivedDataUtilities.h"
 
 using namespace o2;
 using namespace o2::framework;

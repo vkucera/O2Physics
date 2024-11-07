@@ -13,10 +13,18 @@
 //
 /// \author Nicolas Strangmann <nicolas.strangmann@cern.ch>, Goethe University Frankfurt / Oak Ridge National Laoratory
 
-#include <unordered_map>
 #include <vector>
+#include <Framework/Configurable.h>
+#include <Framework/InitContext.h>
+#include <Framework/HistogramSpec.h>
+#include <TH1.h>
+#include <TH2.h>
+#include <TMath.h>
+#include <Framework/WorkflowSpec.h>
 #include <TRobustEstimator.h>
 
+#include "Common/CCDB/TriggerAliases.h"
+#include "Common/CCDB/EventSelectionParams.h"
 #include "Framework/runDataProcessing.h"
 #include "Framework/AnalysisTask.h"
 #include "Framework/AnalysisDataModel.h"

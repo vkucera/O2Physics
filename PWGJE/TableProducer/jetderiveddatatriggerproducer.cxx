@@ -13,20 +13,21 @@
 //
 /// \author Nima Zardoshti <nima.zardoshti@cern.ch>
 
-#include <vector>
+#include <Framework/AnalysisHelpers.h>
+#include <Framework/InitContext.h>
+#include <Framework/Configurable.h>
+#include <Framework/WorkflowSpec.h>
 #include <string>
 
 #include "Framework/runDataProcessing.h"
 #include "Framework/AnalysisTask.h"
 #include "Framework/AnalysisDataModel.h"
 #include "Framework/ASoA.h"
-#include "Framework/O2DatabasePDGPlugin.h"
 
 #include "EventFiltering/filterTables.h"
 
-#include "PWGJE/Core/JetFinder.h"
-#include "PWGJE/DataModel/Jet.h"
 #include "PWGJE/Core/JetDerivedDataUtilities.h"
+#include "PWGJE/DataModel/JetReducedData.h"
 
 using namespace o2;
 using namespace o2::framework;

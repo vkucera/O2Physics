@@ -15,30 +15,28 @@
 #include <cmath>
 #include <string>
 #include <vector>
+#include <Framework/Configurable.h>
+#include <Framework/InitContext.h>
+#include <Framework/HistogramSpec.h>
+#include <Framework/Expressions.h>
+#include <Framework/WorkflowSpec.h>
 #include <TMath.h>
-#include <TVector2.h>
-#include <TLorentzVector.h>
+#include <TMathBase.h>
 
+#include "Common/CCDB/EventSelectionParams.h"
 #include "Framework/ASoA.h"
 #include "Framework/AnalysisDataModel.h"
 #include "Framework/AnalysisTask.h"
 #include "Framework/runDataProcessing.h"
 
-#include "EventFiltering/filterTables.h"
 
-#include "Common/Core/TrackSelection.h"
-#include "Common/Core/TrackSelectionDefaults.h"
 #include "Common/DataModel/EventSelection.h"
-#include "Common/DataModel/TrackSelectionTables.h"
 
-#include "PWGJE/Core/JetFinder.h"
-#include "PWGJE/Core/FastJetUtilities.h"
-#include "PWGJE/Core/JetFindingUtilities.h"
 #include "PWGJE/Core/JetDerivedDataUtilities.h"
-#include "PWGJE/DataModel/EMCALClusters.h"
 #include "PWGJE/DataModel/Jet.h"
 
 #include "Framework/HistogramRegistry.h"
+#include "PWGJE/DataModel/JetReducedData.h"
 
 using namespace o2;
 using namespace o2::framework;

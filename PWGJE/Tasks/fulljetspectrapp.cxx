@@ -15,40 +15,40 @@
 // 1. implement HadCorr
 //
 /// \author Archita Rani Dash <archita.rani.dash@cern.ch>
+#include <Framework/Configurable.h>
+#include <Framework/AnalysisHelpers.h>
+#include <TH1.h>
+#include <Framework/InitContext.h>
+#include <cstddef>
+#include <TMathBase.h>
+#include <Framework/HistogramSpec.h>
+#include <Framework/Expressions.h>
+#include <math.h>
+#include <cmath>
+#include <type_traits>
+#include <Framework/WorkflowSpec.h>
 #include <vector>
-#include <iostream>
-#include <utility>
 
-#include "CommonConstants/PhysicsConstants.h"
+#include "Common/CCDB/TriggerAliases.h"
 #include "Framework/ASoA.h"
-#include "Framework/AnalysisDataModel.h"
 #include "Framework/AnalysisTask.h"
 #include "Framework/HistogramRegistry.h"
 #include "Framework/O2DatabasePDGPlugin.h"
 #include "Framework/runDataProcessing.h"
-#include "Framework/RunningWorkflowInfo.h"
 
-#include "Common/Core/TrackSelection.h"
-#include "Common/Core/TrackSelectionDefaults.h"
-#include "Common/DataModel/EventSelection.h"
-#include "Common/DataModel/PIDResponse.h"
-#include "Common/DataModel/TrackSelectionTables.h"
 
-#include "PWGHF/Core/HfHelper.h"
 
+#include "PWGJE/DataModel/EMCALClusterDefinition.h"
 #include "PWGJE/DataModel/Jet.h"
 #include "PWGJE/DataModel/EMCALClusters.h"
-#include "PWGJE/DataModel/EMCALMatchedCollisions.h"
-#include "PWGJE/Core/JetFinder.h"
 #include "PWGJE/Core/JetUtilities.h"
 #include "PWGJE/Core/JetDerivedDataUtilities.h"
 #include "PWGJE/Core/JetFindingUtilities.h"
 
-#include "EventFiltering/filterTables.h"
+#include "PWGJE/DataModel/JetReducedData.h"
 
 using namespace std;
 using namespace o2;
-using namespace o2::analysis;
 using namespace o2::framework;
 using namespace o2::framework::expressions;
 

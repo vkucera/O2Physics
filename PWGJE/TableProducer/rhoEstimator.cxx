@@ -13,17 +13,25 @@
 //
 /// \author Nima Zardoshti <nima.zardoshti@cern.ch>
 
+#include <Framework/AnalysisHelpers.h>
+#include <Framework/Configurable.h>
+#include <vector>
+#include <fastjet/PseudoJet.hh>
+#include <Framework/InitContext.h>
+#include <math.h>
+#include <Framework/Expressions.h>
+#include <optional>
+#include <Framework/WorkflowSpec.h>
 #include "Framework/AnalysisTask.h"
-#include "Framework/AnalysisDataModel.h"
 #include "Framework/ASoA.h"
-#include "Framework/O2DatabasePDGPlugin.h"
 
-#include "PWGJE/Core/FastJetUtilities.h"
 #include "PWGJE/Core/JetFindingUtilities.h"
 #include "PWGJE/Core/JetDerivedDataUtilities.h"
 #include "PWGJE/DataModel/Jet.h"
 #include "PWGJE/Core/JetBkgSubUtils.h"
 #include "Framework/runDataProcessing.h"
+#include "PWGJE/DataModel/JetSubtraction.h"
+#include "PWGJE/DataModel/JetReducedData.h"
 
 using namespace o2;
 using namespace o2::framework;

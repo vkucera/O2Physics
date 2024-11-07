@@ -14,22 +14,33 @@
 ///
 /// \author Hanseo Park <hanseo.park@cern.ch>
 
-#include "TF1.h"
+#include <Framework/Configurable.h>
+#include <TMath.h>
+#include <Framework/HistogramRegistry.h>
+#include <Framework/OutputObjHeader.h>
+#include <Framework/InitContext.h>
+#include <Framework/HistogramSpec.h>
+#include <Framework/Expressions.h>
+#include "PWGJE/DataModel/JetReducedData.h"
+#include <functional>
+#include <vector>
+#include <math.h>
+#include <cmath>
+#include <algorithm>
+#include <fairlogger/Logger.h>
+#include <Framework/WorkflowSpec.h>
+#include <Framework/DataProcessorSpec.h>
 
 #include "Framework/AnalysisTask.h"
 #include "Framework/AnalysisDataModel.h"
 #include "Framework/ASoA.h"
-#include "Framework/O2DatabasePDGPlugin.h"
 #include "Framework/runDataProcessing.h"
-#include "Common/Core/trackUtilities.h"
 
-#include "PWGHF/DataModel/CandidateReconstructionTables.h"
 
 #include "PWGJE/DataModel/Jet.h"
 #include "PWGJE/DataModel/JetTagging.h"
 #include "PWGJE/Core/JetFindingUtilities.h"
 #include "PWGJE/Core/JetDerivedDataUtilities.h"
-#include "PWGJE/Core/JetUtilities.h"
 #include "PWGJE/Core/JetTaggingUtilities.h"
 
 using namespace o2;

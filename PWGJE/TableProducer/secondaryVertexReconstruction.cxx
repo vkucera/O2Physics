@@ -13,26 +13,41 @@
 //
 /// \author Hadi Hassan <hadi.hassan@cern.ch>
 
-#include <type_traits>
+#include <cstddef>
+#include <array>
+#include <stdexcept>
+#include <vector>
 
-#include <TF1.h>
-#include <TH1.h>
+#include <Framework/AnalysisHelpers.h>
+#include <Framework/Configurable.h>
+#include <CCDB/BasicCCDBManager.h>
+#include <DetectorsBase/MatLayerCylSet.h>
+#include <Framework/HistogramRegistry.h>
+#include <Framework/InitContext.h>
+#include <Framework/HistogramSpec.h>
+#include <Framework/Expressions.h>
+#include <ReconstructionDataFormats/TrackParametrizationWithError.h>
+#include <DetectorsBase/Propagator.h>
+#include <ReconstructionDataFormats/Vertex.h>
+#include <GPUROOTCartesianFwd.h>
+#include <Framework/WorkflowSpec.h>
+#include <fairlogger/Logger.h>
 
+#include "Common/DataModel/TrackSelectionTables.h"
 #include "CommonConstants/PhysicsConstants.h"
 #include "DCAFitter/DCAFitterN.h"
 #include "Framework/AnalysisTask.h"
 #include "Framework/AnalysisDataModel.h"
 #include "Framework/ASoA.h"
-#include "Framework/O2DatabasePDGPlugin.h"
 #include "Framework/runDataProcessing.h"
 #include "Common/Core/trackUtilities.h"
 #include "Common/Core/RecoDecay.h"
 
+#include "PWGJE/DataModel/JetReducedData.h"
 #include "ReconstructionDataFormats/DCA.h"
 
 #include "PWGJE/DataModel/Jet.h"
 #include "PWGJE/DataModel/JetTagging.h"
-#include "PWGJE/Core/JetDerivedDataUtilities.h"
 
 #include "PWGHF/Utils/utilsBfieldCCDB.h"
 

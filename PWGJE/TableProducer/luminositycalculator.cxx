@@ -14,8 +14,15 @@
 ///
 /// \author Nima Zardoshti <nima.zardoshti@cern.ch>
 
+#include <Framework/InitContext.h>
+#include <vector>
+#include <string>
+#include <Framework/HistogramSpec.h>
+#include <TH1.h>
+#include <Framework/Configurable.h>
+#include <Framework/WorkflowSpec.h>
+#include <Framework/DataProcessorSpec.h>
 #include "Framework/AnalysisTask.h"
-#include "Framework/AnalysisDataModel.h"
 #include "Framework/ASoA.h"
 #include "Framework/runDataProcessing.h"
 #include "Framework/HistogramRegistry.h"

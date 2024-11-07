@@ -9,15 +9,27 @@
 // granted to it by virtue of its status as an Intergovernmental Organization
 // or submit itself to any jurisdiction.
 
+#include <array>
+#include <algorithm>
+#include <fairlogger/Logger.h>
+#include <TString.h>
+#include <Framework/Configurable.h>
+#include <Framework/Expressions.h>
+#include <Framework/InitContext.h>
+#include <Framework/HistogramSpec.h>
+#include <TH1.h>
+#include <TH3.h>
+#include <math.h>
+#include <Framework/WorkflowSpec.h>
 #include <climits>
 #include <cstdlib>
 #include <map>
 #include <memory>
-#include <sstream>
 #include <string>
 #include <vector>
 #include <cmath>
 
+#include "Common/CCDB/TriggerAliases.h"
 #include "Framework/runDataProcessing.h"
 #include "Framework/AnalysisTask.h"
 #include "Framework/AnalysisDataModel.h"
@@ -25,16 +37,11 @@
 #include "Framework/HistogramRegistry.h"
 
 #include "Common/DataModel/EventSelection.h"
-#include "Common/DataModel/Centrality.h"
 
 #include "EMCALBase/Geometry.h"
 #include "PWGJE/DataModel/EMCALClusters.h"
 #include "PWGJE/DataModel/EMCALMatchedCollisions.h"
-#include "DataFormatsEMCAL/Cell.h"
-#include "DataFormatsEMCAL/Constants.h"
-#include "DataFormatsEMCAL/AnalysisCluster.h"
 
-#include "CommonDataFormat/InteractionRecord.h"
 
 #include "TLorentzVector.h"
 #include "TVector3.h"

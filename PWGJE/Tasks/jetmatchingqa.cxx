@@ -15,12 +15,17 @@
 /// \author Jochen Klein <jochen.klein@cern.ch>
 /// \author Aimeric Lanodu <aimeric.landou@cern.ch>
 
+#include <Framework/HistogramRegistry.h>
+#include <Framework/HistogramSpec.h>
+#include <TMath.h>
+#include <Framework/InitContext.h>
+#include <Framework/Configurable.h>
+#include <Framework/WorkflowSpec.h>
+#include <vector>
+#include <Framework/DataProcessorSpec.h>
 #include "Framework/AnalysisTask.h"
-#include "Framework/AnalysisDataModel.h"
 #include "Framework/ASoA.h"
 #include "Framework/runDataProcessing.h"
-#include "Common/DataModel/EventSelection.h"
-#include "Common/DataModel/TrackSelectionTables.h"
 #include "PWGJE/DataModel/Jet.h"
 
 using namespace o2;

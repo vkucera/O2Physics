@@ -14,20 +14,25 @@
 /// \author Nima Zardoshti <nima.zardoshti@cern.ch>
 //
 
+#include <Framework/AnalysisHelpers.h>
+#include <Framework/Configurable.h>
+#include <vector>
+#include <Framework/InitContext.h>
+#include <Framework/HistogramSpec.h>
+#include <fastjet/JetDefinition.hh>
+#include <utility>
+#include <type_traits>
+#include "PWGJE/DataModel/JetSubtraction.h"
+#include <Framework/WorkflowSpec.h>
+#include <Framework/DataProcessorSpec.h>
 #include "fastjet/PseudoJet.hh"
 #include "fastjet/ClusterSequenceArea.hh"
 
-#include "CommonConstants/PhysicsConstants.h"
 #include "Framework/AnalysisTask.h"
-#include "Framework/AnalysisDataModel.h"
 #include "Framework/ASoA.h"
 #include "Framework/O2DatabasePDGPlugin.h"
 #include "Framework/HistogramRegistry.h"
 
-#include "Common/Core/TrackSelection.h"
-#include "Common/Core/TrackSelectionDefaults.h"
-#include "Common/DataModel/EventSelection.h"
-#include "Common/DataModel/TrackSelectionTables.h"
 
 #include "PWGJE/DataModel/Jet.h"
 #include "PWGJE/DataModel/JetSubstructure.h"

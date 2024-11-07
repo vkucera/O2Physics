@@ -9,14 +9,27 @@
 // granted to it by virtue of its status as an Intergovernmental Organization
 // or submit itself to any jurisdiction.
 
+#include <Framework/Configurable.h>
+#include <Framework/InitContext.h>
+#include <Framework/HistogramSpec.h>
+#include <fairlogger/Logger.h>
+#include <TMath.h>
+#include <TString.h>
+#include <Framework/Expressions.h>
+#include <TMathBase.h>
+#include <array>
+#include <algorithm>
+#include <EMCALBase/GeometryBase.h>
+#include <RtypesCore.h>
+#include <Framework/WorkflowSpec.h>
 #include <climits>
 #include <cstdlib>
-#include <map>
-#include <memory>
 #include <sstream>
 #include <string>
+#include <string_view>
 #include <vector>
 
+#include "Common/CCDB/TriggerAliases.h"
 #include "Framework/runDataProcessing.h"
 #include "Framework/AnalysisTask.h"
 #include "Framework/AnalysisDataModel.h"
@@ -24,15 +37,9 @@
 #include "Framework/HistogramRegistry.h"
 
 #include "Common/DataModel/EventSelection.h"
-#include "Common/DataModel/Centrality.h"
-#include "Common/DataModel/PIDResponse.h"
 
 #include "EMCALBase/Geometry.h"
-#include "EMCALCalib/BadChannelMap.h"
 #include "PWGJE/DataModel/EMCALClusters.h"
-#include "DataFormatsEMCAL/Cell.h"
-#include "DataFormatsEMCAL/Constants.h"
-#include "DataFormatsEMCAL/AnalysisCluster.h"
 
 #include "CommonDataFormat/InteractionRecord.h"
 

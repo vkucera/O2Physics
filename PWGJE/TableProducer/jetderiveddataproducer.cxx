@@ -13,25 +13,40 @@
 //
 /// \author Nima Zardoshti <nima.zardoshti@cern.ch>
 
+#include <Framework/AnalysisHelpers.h>
+#include <Framework/Configurable.h>
+#include <map>
+#include <utility>
+#include <cstdint>
+#include <DetectorsBase/MatLayerCylSet.h>
+#include <Framework/InitContext.h>
+#include <cmath>
+#include <ReconstructionDataFormats/DCA.h>
+#include <CommonConstants/MathConstants.h>
+#include <algorithm>
+#include <iterator>
+#include <Framework/WorkflowSpec.h>
 #include <vector>
 #include <string>
 
+#include "Common/DataModel/Multiplicity.h"
 #include "Framework/runDataProcessing.h"
 #include "Framework/AnalysisTask.h"
 #include "Framework/AnalysisDataModel.h"
 #include "Framework/ASoA.h"
 #include "Framework/O2DatabasePDGPlugin.h"
-#include "TDatabasePDG.h"
+#include "PWGJE/DataModel/JetReducedData.h"
+#include "PWGJE/DataModel/JetReducedDataHF.h"
+#include "PWGJE/DataModel/JetReducedDataV0.h"
+#include "PWGJE/DataModel/JetReducedDataDQ.h"
+#include "PWGHF/DataModel/DerivedTables.h"
+#include "PWGLF/DataModel/LFStrangenessTables.h"
+#include "PWGDQ/DataModel/ReducedInfoTables.h"
 
 #include "CCDB/BasicCCDBManager.h"
-#include "DataFormatsParameters/GRPMagField.h"
-#include "DataFormatsParameters/GRPObject.h"
 #include "DetectorsBase/Propagator.h"
-#include "DetectorsVertexing/PVertexer.h"
 #include "ReconstructionDataFormats/Vertex.h"
 
-#include "Common/Core/TrackSelection.h"
-#include "Common/Core/TrackSelectionDefaults.h"
 #include "Common/Core/trackUtilities.h"
 #include "Common/DataModel/EventSelection.h"
 #include "Common/DataModel/TrackSelectionTables.h"
@@ -40,14 +55,10 @@
 #include "Common/DataModel/CollisionAssociationTables.h"
 #include "PWGJE/DataModel/EMCALClusters.h"
 
-#include "EventFiltering/filterTables.h"
 #include "EventFiltering/Zorro.h"
 
-#include "PWGJE/Core/JetFinder.h"
-#include "PWGJE/DataModel/Jet.h"
 #include "PWGJE/DataModel/EMCALMatchedCollisions.h"
 #include "PWGJE/Core/JetDerivedDataUtilities.h"
-#include "PWGJE/Core/JetHFUtilities.h"
 #include "PWGJE/Core/JetV0Utilities.h"
 #include "PWGJE/Core/JetDQUtilities.h"
 

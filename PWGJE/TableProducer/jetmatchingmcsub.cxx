@@ -13,18 +13,19 @@
 /// \brief matching event-wise constituent subtracted detector level and unsubtracted generated level jets (this is usseful as a template for embedding  matching)
 /// \author Nima Zardoshti <nima.zardoshti@cern.ch>
 
+#include <Framework/Configurable.h>
+#include <Framework/AnalysisHelpers.h>
+#include <Framework/InitContext.h>
+#include <vector>
+#include <Framework/WorkflowSpec.h>
+#include <Framework/DataProcessorSpec.h>
 #include "Framework/AnalysisTask.h"
-#include "Framework/AnalysisDataModel.h"
 #include "Framework/ASoA.h"
 #include "Framework/runDataProcessing.h"
-#include "Common/DataModel/EventSelection.h"
-#include "Common/DataModel/TrackSelectionTables.h"
 
 #include "PWGJE/DataModel/Jet.h"
-#include "PWGJE/Core/JetUtilities.h"
-#include "PWGJE/Core/JetFindingUtilities.h"
 #include "PWGJE/Core/JetMatchingUtilities.h"
-#include "PWGHF/DataModel/CandidateSelectionTables.h"
+#include "PWGJE/DataModel/JetReducedData.h"
 
 using namespace o2;
 using namespace o2::framework;

@@ -15,8 +15,8 @@
 /// \since  2023-10-02
 ///  \brief Task producing jet tracking qa histograms
 ///
-#include <iostream>
 
+#include "Common/DataModel/EventSelection.h"
 #include "Framework/AnalysisDataModel.h"
 #include "Framework/AnalysisTask.h"
 #include "Framework/HistogramRegistry.h"
@@ -27,9 +27,14 @@
 #include "Common/Core/TrackSelection.h"
 #include "Common/Core/TrackSelectionDefaults.h"
 
-#include "PWGJE/DataModel/Jet.h"
 #include "PWGJE/DataModel/TrackJetQa.h"
-#include "PWGJE/Core/JetDerivedDataUtilities.h"
+#include <Framework/Configurable.h>
+#include <Framework/OutputObjHeader.h>
+#include <math.h>
+#include <Framework/InitContext.h>
+#include <fairlogger/Logger.h>
+#include <Framework/HistogramSpec.h>
+#include <Framework/WorkflowSpec.h>
 
 #include "Common/DataModel/Centrality.h"
 #include "Common/DataModel/Multiplicity.h"

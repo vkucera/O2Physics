@@ -14,22 +14,37 @@
 /// \author Gijs van Weelden <g.van.weelden@cern.ch>
 //
 
-#include "TH1F.h"
+#include "Common/DataModel/TrackSelectionTables.h"
+#include <Framework/HistogramRegistry.h>
+#include <Framework/Configurable.h>
+#include <string>
+#include <TMath.h>
+#include <Framework/Expressions.h>
+#include "PWGJE/DataModel/JetReducedData.h"
+#include <Framework/AnalysisHelpers.h>
+#include "PWGLF/DataModel/LFStrangenessTables.h"
+#include <Framework/InitContext.h>
+#include "PWGJE/Core/JetDerivedDataUtilities.h"
+#include <Framework/HistogramSpec.h>
+#include <vector>
+#include <cstdint>
+#include <cmath>
+#include <fairlogger/Logger.h>
+#include "RecoDecay.h"
+#include <math.h>
+#include <Framework/WorkflowSpec.h>
 #include "TTree.h"
 
 #include "Framework/runDataProcessing.h"
 #include "Framework/AnalysisTask.h"
 #include "Framework/AnalysisDataModel.h"
 #include "Framework/ASoA.h"
-#include "Framework/RunningWorkflowInfo.h"
 
 #include "Common/DataModel/EventSelection.h"
-#include "Common/DataModel/PIDResponse.h"
 
 #include "CommonConstants/PhysicsConstants.h"
 
 #include "PWGJE/DataModel/Jet.h"
-#include "PWGJE/Core/JetFinder.h"
 #include "PWGJE/Core/JetUtilities.h"
 #include "PWGJE/Core/JetFindingUtilities.h"
 

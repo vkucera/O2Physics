@@ -13,32 +13,34 @@
 //
 // Authors: Daniel Jones
 
+#include <Framework/Configurable.h>
+#include <string>
+#include <Framework/Expressions.h>
+#include <Framework/HistogramSpec.h>
+#include <Framework/AnalysisHelpers.h>
+#include <Framework/InitContext.h>
+#include <cmath>
+#include <type_traits>
+#include <cstdlib>
+#include <Framework/WorkflowSpec.h>
 #include <vector>
 
+#include "PWGJE/DataModel/JetReducedData.h"
 #include "TRandom3.h"
 
 #include "Framework/ASoA.h"
-#include "Framework/AnalysisDataModel.h"
 #include "Framework/AnalysisTask.h"
 #include "Framework/O2DatabasePDGPlugin.h"
 #include "Framework/HistogramRegistry.h"
 #include "Framework/runDataProcessing.h"
 
 #include "CommonConstants/MathConstants.h"
-#include "Common/Core/TrackSelection.h"
-#include "Common/Core/TrackSelectionDefaults.h"
 #include "Common/Core/RecoDecay.h"
-#include "Common/DataModel/EventSelection.h"
-#include "Common/DataModel/TrackSelectionTables.h"
 
-#include "PWGJE/Core/FastJetUtilities.h"
-#include "PWGJE/Core/JetFinder.h"
-#include "PWGJE/Core/JetFindingUtilities.h"
 #include "PWGJE/DataModel/Jet.h"
 
 #include "PWGJE/Core/JetDerivedDataUtilities.h"
 
-#include "EventFiltering/filterTables.h"
 
 using namespace o2;
 using namespace o2::framework;

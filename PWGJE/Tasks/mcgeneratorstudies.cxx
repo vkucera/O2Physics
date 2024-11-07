@@ -13,6 +13,17 @@
 //
 /// \author Nicolas Strangmann <nicolas.strangmann@cern.ch>, Goethe University Frankfurt / Oak Ridge National Laoratory
 
+#include <Framework/Configurable.h>
+#include <Framework/InitContext.h>
+#include <Framework/HistogramSpec.h>
+#include <TH1.h>
+#include <TString.h>
+#include <cmath>
+#include "Common/CCDB/EventSelectionParams.h"
+#include <cstdlib>
+#include "Common/CCDB/TriggerAliases.h"
+#include <EMCALBase/GeometryBase.h>
+#include <Framework/WorkflowSpec.h>
 #include "Framework/runDataProcessing.h"
 #include "Framework/AnalysisTask.h"
 #include "Framework/AnalysisDataModel.h"
@@ -21,10 +32,8 @@
 
 #include "PWGJE/DataModel/EMCALMatchedCollisions.h"
 
-#include "DetectorsBase/GeometryManager.h"
 #include "EMCALBase/Geometry.h"
 
-#include "Common/DataModel/TrackSelectionTables.h"
 #include "Common/DataModel/EventSelection.h"
 
 using namespace o2;

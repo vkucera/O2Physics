@@ -9,12 +9,20 @@
 // granted to it by virtue of its status as an Intergovernmental Organization
 // or submit itself to any jurisdiction.
 
+#include <Framework/Configurable.h>
+#include <Framework/Expressions.h>
+#include <Framework/InitContext.h>
+#include <Framework/HistogramSpec.h>
+#include <fairlogger/Logger.h>
+#include <TString.h>
+#include <algorithm>
+#include <Framework/WorkflowSpec.h>
 #include <climits>
 #include <cstdlib>
-#include <map>
 #include <memory>
 #include <sstream>
 #include <string>
+#include <string_view>
 #include <vector>
 
 #include "Framework/runDataProcessing.h"

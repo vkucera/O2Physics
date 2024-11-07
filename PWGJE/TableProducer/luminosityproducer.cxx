@@ -14,11 +14,21 @@
 ///
 /// \author Nima Zardoshti <nima.zardoshti@cern.ch>
 
+#include <Framework/AnalysisHelpers.h>
+#include <Framework/Configurable.h>
+#include <Framework/InitContext.h>
+#include "Common/CCDB/EventSelectionParams.h"
+#include <vector>
+#include <algorithm>
+#include <iterator>
+#include <cstdlib>
+#include <Framework/WorkflowSpec.h>
+#include <Framework/DataProcessorSpec.h>
 #include "Framework/AnalysisTask.h"
-#include "Framework/AnalysisDataModel.h"
 #include "Framework/ASoA.h"
 #include "Framework/runDataProcessing.h"
 
+#include "PWGJE/Core/JetDerivedDataUtilities.h"
 #include "PWGJE/DataModel/JetReducedData.h"
 
 using namespace o2;

@@ -15,31 +15,45 @@
 ///
 /// \author Adrian Fereydon Nassirpour <adrian.fereydon.nassirpour@cern.ch>
 
+#include <Framework/SliceCache.h>
+#include <Framework/OutputObjHeader.h>
+#include <Framework/Configurable.h>
+#include <Framework/InitContext.h>
+#include <Framework/HistogramSpec.h>
+#include <Framework/Expressions.h>
+#include <Framework/ASoAHelpers.h>
+#include <RtypesCore.h>
+#include <Framework/WorkflowSpec.h>
 #include <TLorentzVector.h>
+#include <TMath.h>
+#include <TMathBase.h>
 #include <TVector2.h>
+#include <string>
+#include <iostream>
+#include <ostream>
+#include <vector>
+#include <cmath>
+#include <cstdlib>
+#include <algorithm>
+#include <chrono>
+#include <stdlib.h>
 
 #include "Framework/ASoA.h"
 #include "Framework/AnalysisDataModel.h"
 #include "Framework/AnalysisTask.h"
 #include "Framework/HistogramRegistry.h"
 #include "Framework/runDataProcessing.h"
-#include "ReconstructionDataFormats/Track.h"
+#include "PWGJE/DataModel/JetReducedData.h"
 
-#include "Common/Core/RecoDecay.h"
-#include "Common/Core/TrackSelection.h"
-#include "Common/Core/TrackSelectionDefaults.h"
-#include "Common/Core/trackUtilities.h"
 #include "Common/DataModel/EventSelection.h"
 #include "Common/DataModel/TrackSelectionTables.h"
 #include "Common/DataModel/Multiplicity.h"
 #include "Common/DataModel/PIDResponse.h"
 #include "CommonConstants/PhysicsConstants.h"
 
-#include "PWGJE/Core/FastJetUtilities.h"
 #include "PWGJE/Core/JetDerivedDataUtilities.h"
 #include "PWGJE/DataModel/Jet.h"
 
-#include "PWGLF/DataModel/LFResonanceTables.h"
 
 using namespace o2;
 using namespace o2::framework;

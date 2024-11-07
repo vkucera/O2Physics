@@ -13,25 +13,43 @@
 //
 /// \author Gijs van Weelden <g.van.weelden@cern.ch>
 //
+#include <Framework/HistogramRegistry.h>
+#include <Framework/Configurable.h>
+#include <Framework/InitContext.h>
+#include <RtypesCore.h>
+#include <TMath.h>
+#include <Framework/HistogramSpec.h>
+#include <array>
+#include <TH2.h>
+#include <TString.h>
+#include <TH3.h>
+#include <Framework/Expressions.h>
+#include <THn.h>
+#include <algorithm>
+#include <Framework/WorkflowSpec.h>
 #include <bitset>
+#include <fastjet/PseudoJet.hh>
+#include <fastjet/JetDefinition.hh>
+#include <cstddef>
+#include <cmath>
 #include <utility>
+#include <vector>
 
-#include "TH1F.h"
+#include "PWGJE/DataModel/JetReducedData.h"
+#include "PWGJE/DataModel/EMCALClusterDefinition.h"
+#include "PWGJE/DataModel/EMCALClusters.h"
+#include "Common/CCDB/TriggerAliases.h"
 #include "TTree.h"
 
 #include "Framework/runDataProcessing.h"
 #include "Framework/AnalysisTask.h"
-#include "Framework/AnalysisDataModel.h"
 #include "Framework/ASoA.h"
-#include "Framework/RunningWorkflowInfo.h"
 
-#include "Common/DataModel/EventSelection.h"
 
 #include "PWGJE/DataModel/Jet.h"
 #include "PWGJE/Core/JetFinder.h"
 #include "PWGJE/Core/JetDerivedDataUtilities.h"
 
-#include "EventFiltering/filterTables.h"
 
 using namespace o2;
 using namespace o2::framework;

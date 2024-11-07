@@ -27,6 +27,8 @@
 #include <tuple>
 #include <algorithm>
 
+#include <TKDTree.h>
+
 #include "Framework/AnalysisTask.h"
 #include "Framework/AnalysisDataModel.h"
 #include "Framework/ASoA.h"
@@ -40,6 +42,7 @@
 #include "PWGJE/DataModel/EMCALClusters.h"
 #include "PWGJE/DataModel/Jet.h"
 #include "PWGJE/Core/JetCandidateUtilities.h"
+#include "PWGJE/Core/JetFindingUtilities.h"
 
 namespace jetmatchingutilities
 {

@@ -13,7 +13,13 @@
 //
 /// \author Nima Zardoshti <nima.zardoshti@cern.ch>
 
+#include <Framework/WorkflowSpec.h>
+#include <Framework/ConfigContext.h>
+#include <vector>
+#include <Framework/DataProcessorSpec.h>
+#include <Framework/AnalysisTask.h>
 #include "PWGJE/JetFinders/jetfinderhf.cxx"
+#include "PWGJE/DataModel/Jet.h"
 
 using JetFinderD0DataCharged = JetFinderHFTask<aod::CandidatesD0Data, aod::CandidatesD0MCD, aod::CandidatesD0MCP, aod::JetTracksSubD0, aod::D0ChargedJets, aod::D0ChargedJetConstituents, aod::D0ChargedEventWiseSubtractedJets, aod::D0ChargedEventWiseSubtractedJetConstituents>;
 

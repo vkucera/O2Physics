@@ -11,10 +11,24 @@
 
 // author: Arvind Khuntia (arvind.khuntia@cern.ch) INFN Bologna, Italy
 
+#include <array>
+#include <cmath>
 #include <string>
 #include <vector>
-#include <TLorentzVector.h>
+#include <Framework/Configurable.h>
+#include <Framework/HistogramSpec.h>
+#include <Framework/Expressions.h>
+#include <Framework/SliceCache.h>
+#include <Framework/OutputObjHeader.h>
+#include <Framework/InitContext.h>
+#include <TH1.h>
+#include <TH3.h>
+#include <TH2.h>
+#include <Framework/WorkflowSpec.h>
+#include <TMath.h>
 #include <TVector2.h>
+#include <math.h>
+#include <fairlogger/Logger.h>
 
 #include "Framework/ASoA.h"
 #include "Framework/AnalysisDataModel.h"
@@ -23,19 +37,14 @@
 #include "Framework/runDataProcessing.h"
 
 #include "Common/Core/RecoDecay.h"
-#include "Common/Core/TrackSelection.h"
-#include "Common/Core/TrackSelectionDefaults.h"
-#include "Common/Core/trackUtilities.h"
 #include "Common/DataModel/EventSelection.h"
 #include "Common/DataModel/TrackSelectionTables.h"
 #include "Common/DataModel/Multiplicity.h"
 #include "Common/DataModel/PIDResponse.h"
-#include "CommonConstants/PhysicsConstants.h"
-#include "ReconstructionDataFormats/Track.h"
+#include "PWGJE/DataModel/JetReducedData.h"
 
 #include "PWGLF/DataModel/LFParticleIdentification.h"
 
-#include "PWGJE/Core/FastJetUtilities.h"
 #include "PWGJE/Core/JetDerivedDataUtilities.h"
 #include "PWGJE/DataModel/Jet.h"
 

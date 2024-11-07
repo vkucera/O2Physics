@@ -15,38 +15,35 @@
 ///
 /// \author Adrian Fereydon Nassirpour <adrian.fereydon.nassirpour@cern.ch>
 
+#include <Framework/SliceCache.h>
+#include <Framework/OutputObjHeader.h>
+#include <Framework/Configurable.h>
+#include <Framework/InitContext.h>
+#include <Framework/HistogramSpec.h>
+#include <Framework/Expressions.h>
+#include <Framework/WorkflowSpec.h>
 #include <TLorentzVector.h>
+#include <TMath.h>
 #include <TVector2.h>
+#include <vector>
+#include <iostream>
+#include <ostream>
+#include <cmath>
 
+#include "Common/CCDB/TriggerAliases.h"
 #include "Framework/ASoA.h"
 #include "Framework/AnalysisDataModel.h"
 #include "Framework/AnalysisTask.h"
 #include "Framework/HistogramRegistry.h"
 #include "Framework/runDataProcessing.h"
-#include "ReconstructionDataFormats/Track.h"
+#include "PWGJE/DataModel/JetReducedData.h"
 
-#include "Common/Core/RecoDecay.h"
-#include "Common/Core/TrackSelection.h"
-#include "Common/Core/TrackSelectionDefaults.h"
-#include "Common/Core/trackUtilities.h"
 #include "Common/DataModel/EventSelection.h"
 #include "Common/DataModel/TrackSelectionTables.h"
-#include "Common/DataModel/Multiplicity.h"
-#include "Common/DataModel/PIDResponse.h"
-#include "CommonConstants/PhysicsConstants.h"
 
-#include "PWGJE/Core/FastJetUtilities.h"
-#include "PWGJE/Core/JetDerivedDataUtilities.h"
-#include "PWGJE/DataModel/Jet.h"
 #include "PWGJE/DataModel/EMCALClusters.h"
-#include "EMCALBase/Geometry.h"
-#include "EMCALCalib/BadChannelMap.h"
 
-#include "DataFormatsEMCAL/Cell.h"
-#include "DataFormatsEMCAL/Constants.h"
-#include "DataFormatsEMCAL/AnalysisCluster.h"
 
-#include "CommonDataFormat/InteractionRecord.h"
 
 using namespace o2;
 using namespace o2::framework;

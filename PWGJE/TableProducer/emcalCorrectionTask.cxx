@@ -14,11 +14,29 @@
 /// \author Raymond Ehlers <raymond.ehlers@cern.ch>, ORNL
 /// \author Florian Jonas <florian.jonas@cern.ch>
 
-#include <algorithm>
-#include <iostream>
+#include <Framework/AnalysisHelpers.h>
+#include <Framework/Configurable.h>
+#include <Framework/Expressions.h>
+#include <DataFormatsEMCAL/ClusterLabel.h>
+#include <Framework/HistogramRegistry.h>
+#include <Framework/InitContext.h>
+#include <fairlogger/Logger.h>
+#include <Framework/HistogramSpec.h>
+#include <TH1.h>
+#include <GPUROOTCartesianFwd.h>
+#include <Framework/WorkflowSpec.h>
+#include <cstdint>
+#include <cstddef>
+#include <gsl/span>
 #include <memory>
+#include <sstream>
+#include <string>
+#include <tuple>
+#include <optional>
 #include <unordered_map>
 #include <cmath>
+#include <vector>
+#include <utility>
 
 #include "CCDB/BasicCCDBManager.h"
 #include "Framework/runDataProcessing.h"
@@ -28,6 +46,7 @@
 
 #include "DetectorsBase/GeometryManager.h"
 
+#include "PWGJE/DataModel/EMCALClusterDefinition.h"
 #include "PWGJE/DataModel/EMCALClusters.h"
 #include "PWGJE/DataModel/EMCALMatchedCollisions.h"
 

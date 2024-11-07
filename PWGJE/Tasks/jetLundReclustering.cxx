@@ -17,32 +17,31 @@
 // Task performing jet reclustering and producing primary Lund Plane histograms
 //
 
-#include <iostream>
-#include <fstream>
-#include <sstream>
+#include <Framework/Configurable.h>
+#include <Framework/InitContext.h>
+#include <Framework/HistogramSpec.h>
+#include <math.h>
+#include <fastjet/JetDefinition.hh>
+#include <Framework/Expressions.h>
+#include <cmath>
+#include <Framework/WorkflowSpec.h>
 #include <string>
+#include <vector>
+#include <utility>
 
-#include "fastjet/contrib/LundGenerator.hh"
+#include "PWGJE/DataModel/JetReducedData.h"
 #include "fastjet/PseudoJet.hh"
 #include "fastjet/ClusterSequenceArea.hh"
 
 #include "Framework/AnalysisTask.h"
-#include "Framework/AnalysisDataModel.h"
 #include "Framework/ASoA.h"
 #include "Framework/runDataProcessing.h"
 #include "Framework/HistogramRegistry.h"
-#include "TDatabasePDG.h"
 
-#include "Common/Core/TrackSelection.h"
-#include "Common/Core/TrackSelectionDefaults.h"
-#include "Common/DataModel/EventSelection.h"
-#include "Common/DataModel/TrackSelectionTables.h"
 
-#include "Common/Core/RecoDecay.h"
 
 #include "PWGJE/DataModel/Jet.h"
 #include "PWGJE/Core/JetFinder.h"
-#include "PWGJE/DataModel/JetSubstructure.h"
 #include "PWGJE/Core/FastJetUtilities.h"
 #include "PWGJE/Core/JetDerivedDataUtilities.h"
 

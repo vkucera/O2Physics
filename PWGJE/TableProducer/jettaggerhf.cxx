@@ -14,20 +14,28 @@
 /// \author Nima Zardoshti <nima.zardoshti@cern.ch>
 /// \author Hanseo Park <hanseo.park@cern.ch>
 
+#include <Framework/AnalysisHelpers.h>
+#include <Framework/Configurable.h>
+#include <Framework/HistogramRegistry.h>
+#include <Framework/OutputObjHeader.h>
+#include <Framework/InitContext.h>
+#include <Framework/HistogramSpec.h>
+#include <Framework/WorkflowSpec.h>
+#include <Framework/DataProcessorSpec.h>
 #include <TF1.h>
 #include <TH1.h>
+#include <vector>
+#include <memory>
+#include <fairlogger/Logger.h>
 
 #include "Framework/AnalysisTask.h"
-#include "Framework/AnalysisDataModel.h"
 #include "Framework/ASoA.h"
-#include "Framework/O2DatabasePDGPlugin.h"
 #include "Framework/runDataProcessing.h"
-#include "Common/Core/trackUtilities.h"
 
 #include "PWGJE/DataModel/Jet.h"
+#include "PWGJE/DataModel/JetReducedData.h"
 #include "PWGJE/DataModel/JetTagging.h"
 #include "PWGJE/Core/JetTaggingUtilities.h"
-#include "PWGJE/Core/JetDerivedDataUtilities.h"
 
 using namespace o2;
 using namespace o2::framework;

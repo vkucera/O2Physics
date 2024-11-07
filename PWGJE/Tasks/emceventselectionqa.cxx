@@ -13,8 +13,17 @@
 //
 /// \author Markus Fasel <markus.fasel@cern.ch>, Oak Ridge National Laoratory
 
+#include <Framework/Expressions.h>
+#include <Framework/InitContext.h>
+#include <Framework/HistogramSpec.h>
+#include <TH1.h>
+#include <cstdint>
+#include <Framework/WorkflowSpec.h>
 #include <unordered_map>
+#include <utility>
 
+#include "Common/CCDB/TriggerAliases.h"
+#include "Common/CCDB/EventSelectionParams.h"
 #include "Framework/runDataProcessing.h"
 #include "Framework/AnalysisTask.h"
 #include "Framework/AnalysisDataModel.h"

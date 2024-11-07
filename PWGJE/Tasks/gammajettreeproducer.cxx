@@ -9,34 +9,33 @@
 // granted to it by virtue of its status as an Intergovernmental Organization
 // or submit itself to any jurisdiction.
 
+#include <Framework/AnalysisHelpers.h>
+#include <Framework/Configurable.h>
+#include <unordered_map>
+#include <cstdint>
+#include <vector>
+#include <Framework/InitContext.h>
+#include <Framework/HistogramSpec.h>
+#include <fairlogger/Logger.h>
+#include <TMath.h>
+#include <Framework/Expressions.h>
+#include <sys/types.h>
+#include <Framework/WorkflowSpec.h>
 #include "Framework/ASoA.h"
-#include "Framework/AnalysisDataModel.h"
 #include "Framework/AnalysisTask.h"
 #include "Framework/HistogramRegistry.h"
 
-#include "Common/Core/RecoDecay.h"
-#include "Common/Core/TrackSelection.h"
-#include "Common/Core/TrackSelectionDefaults.h"
-#include "Common/DataModel/EventSelection.h"
-#include "Common/DataModel/TrackSelectionTables.h"
 
-#include "PWGJE/Core/FastJetUtilities.h"
 #include "PWGJE/Core/JetDerivedDataUtilities.h"
 #include "PWGJE/Core/JetUtilities.h"
 #include "PWGJE/DataModel/Jet.h"
 #include "PWGJE/DataModel/GammaJetAnalysisTree.h"
 
-#include "EMCALBase/Geometry.h"
-#include "EMCALCalib/BadChannelMap.h"
-#include "PWGJE/DataModel/EMCALClusters.h"
-#include "DataFormatsEMCAL/Cell.h"
-#include "DataFormatsEMCAL/Constants.h"
-#include "DataFormatsEMCAL/AnalysisCluster.h"
+#include "PWGJE/DataModel/JetReducedData.h"
+#include "PWGJE/DataModel/JetSubtraction.h"
 #include "TVector2.h"
 
-#include "CommonDataFormat/InteractionRecord.h"
 
-#include "EventFiltering/filterTables.h"
 
 // \struct GammaJetTreeProducer
 /// \brief Task to produce a tree for gamma-jet analysis, including photons (and information of isolation) and charged and full jets

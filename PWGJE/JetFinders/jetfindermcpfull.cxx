@@ -13,6 +13,12 @@
 //
 /// \author Nima Zardoshti <nima.zardoshti@cern.ch>
 
+#include <Framework/WorkflowSpec.h>
+#include <Framework/ConfigContext.h>
+#include <vector>
+#include <Framework/DataProcessorSpec.h>
+#include <Framework/AnalysisTask.h>
+#include "PWGJE/DataModel/Jet.h"
 #include "PWGJE/JetFinders/jetfinder.cxx"
 
 using JetFinderMCParticleLevelFull = JetFinderTask<aod::FullMCParticleLevelJets, aod::FullMCParticleLevelJetConstituents, aod::FullMCParticleLevelEventWiseSubtractedJets, aod::FullMCParticleLevelEventWiseSubtractedJetConstituents>;

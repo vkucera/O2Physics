@@ -17,13 +17,20 @@
 ///
 
 // O2 includes
-#include "ReconstructionDataFormats/Track.h"
+#include <Framework/Configurable.h>
+#include <Framework/OutputObjHeader.h>
+#include <Framework/InitContext.h>
+#include <fairlogger/Logger.h>
+#include <Framework/HistogramSpec.h>
+#include <stdlib.h>
+#include <cstdlib>
+#include <Framework/ASoA.h>
+#include <Framework/AnalysisHelpers.h>
+#include <Framework/WorkflowSpec.h>
 #include "Framework/runDataProcessing.h"
 #include "Framework/AnalysisTask.h"
 #include "Framework/HistogramRegistry.h"
 #include "Framework/AnalysisDataModel.h"
-#include "PWGJE/DataModel/Jet.h"
-#include "Framework/StaticFor.h"
 #include "Common/DataModel/TrackSelectionTables.h"
 #include "Common/DataModel/EventSelection.h"
 #include "Common/Core/TrackSelection.h"

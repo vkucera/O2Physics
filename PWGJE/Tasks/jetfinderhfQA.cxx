@@ -13,23 +13,29 @@
 //
 /// \author Nima Zardoshti <nima.zardoshti@cern.ch>
 
+#include <Framework/Configurable.h>
+#include <Framework/InitContext.h>
+#include <TMathBase.h>
+#include <Framework/HistogramSpec.h>
+#include <Framework/Expressions.h>
+#include <TMath.h>
+#include <Framework/WorkflowSpec.h>
+#include <Framework/DataProcessorSpec.h>
 #include <TRandom3.h>
+#include <vector>
+#include <cstddef>
+#include <algorithm>
+#include <math.h>
+#include <cmath>
+#include <type_traits>
 
-#include "CommonConstants/PhysicsConstants.h"
 #include "Framework/ASoA.h"
-#include "Framework/AnalysisDataModel.h"
 #include "Framework/AnalysisTask.h"
 #include "Framework/HistogramRegistry.h"
 #include "Framework/runDataProcessing.h"
 
-#include "Common/Core/TrackSelection.h"
-#include "Common/Core/TrackSelectionDefaults.h"
-#include "Common/DataModel/EventSelection.h"
-#include "Common/DataModel/TrackSelectionTables.h"
 
 #include "PWGHF/Core/HfHelper.h"
-#include "PWGHF/DataModel/CandidateReconstructionTables.h"
-#include "PWGHF/DataModel/CandidateSelectionTables.h"
 
 #include "PWGJE/DataModel/Jet.h"
 
@@ -37,7 +43,9 @@
 #include "PWGJE/Core/JetHFUtilities.h"
 #include "PWGJE/Core/JetFindingUtilities.h"
 
-#include "EventFiltering/filterTables.h"
+#include "PWGJE/DataModel/JetReducedData.h"
+#include "PWGJE/DataModel/JetSubtraction.h"
+#include "RecoDecay.h"
 
 using namespace o2;
 using namespace o2::analysis;

@@ -13,28 +13,36 @@
 //
 /// \author Nima Zardoshti <nima.zardoshti@cern.ch>
 
-#include "CommonConstants/PhysicsConstants.h"
+#include <Framework/Configurable.h>
+#include <vector>
+#include <Framework/AnalysisHelpers.h>
+#include <Framework/O2DatabasePDGPlugin.h>
+#include <Framework/InitContext.h>
+#include <cstddef>
+#include <TMathBase.h>
+#include <Framework/HistogramSpec.h>
+#include <Framework/Expressions.h>
+#include <math.h>
+#include <cmath>
+#include <type_traits>
+#include <Framework/WorkflowSpec.h>
+#include <Framework/DataProcessorSpec.h>
 #include "Framework/ASoA.h"
-#include "Framework/AnalysisDataModel.h"
 #include "Framework/AnalysisTask.h"
 #include "Framework/HistogramRegistry.h"
 #include "Framework/runDataProcessing.h"
 
-#include "Common/Core/TrackSelection.h"
-#include "Common/Core/TrackSelectionDefaults.h"
-#include "Common/DataModel/EventSelection.h"
-#include "Common/DataModel/TrackSelectionTables.h"
 
-#include "PWGHF/Core/HfHelper.h"
 
+#include "PWGJE/DataModel/EMCALClusterDefinition.h"
+#include "PWGJE/DataModel/EMCALClusters.h"
 #include "PWGJE/DataModel/Jet.h"
 #include "PWGJE/Core/JetDerivedDataUtilities.h"
 #include "PWGJE/Core/JetFindingUtilities.h"
 
-#include "EventFiltering/filterTables.h"
+#include "PWGJE/DataModel/JetReducedData.h"
 
 using namespace o2;
-using namespace o2::analysis;
 using namespace o2::framework;
 using namespace o2::framework::expressions;
 

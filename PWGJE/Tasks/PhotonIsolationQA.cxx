@@ -9,12 +9,19 @@
 // granted to it by virtue of its status as an Intergovernmental Organization
 // or submit itself to any jurisdiction.
 
+#include <Framework/OutputObjHeader.h>
+#include <Framework/HistogramSpec.h>
+#include <Framework/Configurable.h>
+#include <Framework/Expressions.h>
+#include <Framework/InitContext.h>
+#include <math.h>
+#include <Framework/WorkflowSpec.h>
 #include <climits>
 #include <cstdlib>
-#include <map>
-#include <memory>
-#include <sstream>
+#include <set>
 #include <string>
+#include <utility>
+#include <unordered_set>
 #include <vector>
 #include <cmath>
 
@@ -25,20 +32,13 @@
 #include "Framework/HistogramRegistry.h"
 
 #include "Common/DataModel/EventSelection.h"
-#include "Common/DataModel/Centrality.h"
-#include "Common/DataModel/PIDResponse.h"
 #include "Common/DataModel/TrackSelectionTables.h"
 
 #include "EMCALBase/Geometry.h"
 #include "EMCALCalib/BadChannelMap.h"
-#include "PWGJE/DataModel/JetReducedData.h"
 #include "PWGJE/DataModel/EMCALClusters.h"
 #include "PWGJE/Core/JetDerivedDataUtilities.h"
 
-#include "DataFormatsEMCAL/Cell.h"
-#include "DataFormatsEMCAL/Constants.h"
-#include "DataFormatsEMCAL/AnalysisCluster.h"
-#include "CommonDataFormat/InteractionRecord.h"
 
 // \struct PhotonIsolationQA
 /// \brief Task to select emcal clusters originating from promt photons
