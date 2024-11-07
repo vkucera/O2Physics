@@ -13,13 +13,13 @@
 //
 /// \author Nima Zardoshti <nima.zardoshti@cern.ch>
 
-#include <Framework/WorkflowSpec.h>
-#include <Framework/ConfigContext.h>
-#include <vector>
-#include <Framework/DataProcessorSpec.h>
-#include <Framework/AnalysisTask.h>
 #include "PWGJE/DataModel/Jet.h"
 #include "PWGJE/JetFinders/jetfinder.cxx"
+#include <Framework/AnalysisTask.h>
+#include <Framework/ConfigContext.h>
+#include <Framework/DataProcessorSpec.h>
+#include <Framework/WorkflowSpec.h>
+#include <vector>
 
 using JetFinderMCDetectorLevelNeutral = JetFinderTask<aod::NeutralMCDetectorLevelJets, aod::NeutralMCDetectorLevelJetConstituents, aod::NeutralMCDetectorLevelEventWiseSubtractedJets, aod::NeutralMCDetectorLevelEventWiseSubtractedJetConstituents>;
 
