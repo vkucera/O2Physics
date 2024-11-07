@@ -17,6 +17,18 @@
 /// \author Stefano Politanò <stefano.politano@polito.it>, Politecnico & INFN, Torino
 /// \author Fabio Catalano <fabio.catalano@cern.ch>, CERN
 
+#include <cstdint>
+#include <Framework/AnalysisDataModel.h>
+#include <Framework/AnalysisHelpers.h>
+#include <Framework/Configurable.h>
+#include <Framework/ASoA.h>
+#include "Common/DataModel/EventSelection.h"
+#include "Common/DataModel/Centrality.h"
+#include <Framework/Expressions.h>
+#include <Rtypes.h>
+#include <Framework/InitContext.h>
+#include "Common/Core/RecoDecay.h"
+#include <Framework/WorkflowSpec.h>
 #include "CommonConstants/PhysicsConstants.h"
 #include "Framework/AnalysisTask.h"
 #include "Framework/runDataProcessing.h"

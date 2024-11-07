@@ -14,6 +14,13 @@
 ///
 /// \author Vít Kučera <vit.kucera@cern.ch>, Inha University
 
+#include <Framework/AnalysisHelpers.h>
+#include <Framework/InitContext.h>
+#include <string>
+#include <fairlogger/Logger.h>
+#include <Framework/AnalysisDataModel.h>
+#include <Framework/Configurable.h>
+#include <Framework/WorkflowSpec.h>
 #include "Framework/AnalysisTask.h"
 #include "Framework/runDataProcessing.h"
 

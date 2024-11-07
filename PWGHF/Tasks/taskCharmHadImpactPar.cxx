@@ -14,6 +14,17 @@
 ///
 /// \author Fabrizio Grosa <fabrizio.grosa@cern.ch>, CERN
 
+#include <cstdint>
+#include <Framework/Configurable.h>
+#include <Framework/ASoA.h>
+#include <Framework/Expressions.h>
+#include <Framework/InitContext.h>
+#include <array>
+#include <numeric>
+#include <fairlogger/Logger.h>
+#include <Framework/HistogramSpec.h>
+#include <vector>
+#include <Framework/WorkflowSpec.h>
 #include "Framework/AnalysisTask.h"
 #include "Framework/HistogramRegistry.h"
 #include "Framework/runDataProcessing.h"

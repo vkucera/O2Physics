@@ -17,31 +17,46 @@
 /// \author Zuzanna Chochulska, WUT Warsaw & CTU Prague, zchochul@cern.ch
 /// \author Katarzyna Gwiździel, WUT Warsaw, katarzyna.gwizdziel@cern.ch
 
+#include <string>
+#include <math.h>
 #include <vector>
-#include "Framework/AnalysisTask.h"
-#include "Framework/runDataProcessing.h"
-#include "Framework/HistogramRegistry.h"
-#include "Framework/ASoAHelpers.h"
-#include "Framework/RunningWorkflowInfo.h"
-#include "Framework/StepTHn.h"
-#include "Framework/O2DatabasePDGPlugin.h"
-#include "TDatabasePDG.h"
-#include "ReconstructionDataFormats/PID.h"
-#include "Common/DataModel/PIDResponse.h"
+#include <cstdint>
 
-#include "PWGCF/FemtoUniverse/DataModel/FemtoDerived.h"
-#include "PWGCF/FemtoUniverse/Core/FemtoUniverseParticleHisto.h"
-#include "PWGCF/FemtoUniverse/Core/FemtoUniverseEventHisto.h"
-#include "PWGCF/FemtoUniverse/Core/FemtoUniversePairCleaner.h"
-#include "PWGCF/FemtoUniverse/Core/FemtoUniverseFemtoContainer.h"
+#include <TMathBase.h>
+#include <TMath.h>
+
+#include <CommonConstants/MathConstants.h>
+#include <Framework/ASoA.h>
+#include <Framework/SliceCache.h>
+#include <Framework/Configurable.h>
+#include <Framework/Array2D.h>
+#include <Framework/AnalysisHelpers.h>
+#include <Framework/HistogramSpec.h>
+#include <Framework/BinningPolicy.h>
+#include <Framework/AnalysisDataModel.h>
+#include <Framework/OutputObjHeader.h>
+#include <Framework/InitContext.h>
+#include <Framework/WorkflowSpec.h>
+#include <Framework/AnalysisTask.h>
+#include <Framework/runDataProcessing.h>
+#include <Framework/HistogramRegistry.h>
+#include <Framework/ASoAHelpers.h>
+#include <ReconstructionDataFormats/PID.h>
+
+#include "Common/Core/RecoDecay.h"
+
+#include "PWGCF/FemtoUniverse/Core/FemtoUniverseContainer.h"
+
 #include "PWGCF/FemtoUniverse/Core/FemtoUniverseAngularContainer.h"
 #include "PWGCF/FemtoUniverse/Core/FemtoUniverseDetaDphiStar.h"
-#include "PWGCF/FemtoUniverse/Core/FemtoUtils.h"
+#include "PWGCF/FemtoUniverse/Core/FemtoUniverseEventHisto.h"
+#include "PWGCF/FemtoUniverse/Core/FemtoUniverseFemtoContainer.h"
+#include "PWGCF/FemtoUniverse/Core/FemtoUniversePairCleaner.h"
+#include "PWGCF/FemtoUniverse/Core/FemtoUniverseParticleHisto.h"
 #include "PWGCF/FemtoUniverse/Core/FemtoUniverseTrackSelection.h"
+#include "PWGCF/FemtoUniverse/DataModel/FemtoDerived.h"
 
-#include "PWGHF/Core/HfHelper.h"
-#include "PWGHF/DataModel/CandidateReconstructionTables.h"
-#include "PWGHF/DataModel/CandidateSelectionTables.h"
+#include "PWGHF/Core/SelectorCuts.h"
 
 using namespace o2;
 using namespace o2::analysis;

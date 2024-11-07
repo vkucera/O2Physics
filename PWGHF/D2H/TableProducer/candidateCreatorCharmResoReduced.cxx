@@ -13,18 +13,33 @@
 /// \brief Reconstruction of Resonance candidates
 ///
 /// \author Luca Aglietta <luca.aglietta@cern.ch>, Università degli Studi di Torino
+#include <cstdint>
+#include <Framework/AnalysisHelpers.h>
+#include <Framework/Configurable.h>
+#include <Framework/Array2D.h>
+#include <Framework/HistogramSpec.h>
+#include <Framework/ASoA.h>
+#include <Framework/SliceCache.h>
+#include <Framework/HistogramRegistry.h>
+#include <Framework/InitContext.h>
+#include <array>
+#include <numeric>
+#include <fairlogger/Logger.h>
+#include <TH1.h>
+#include <Rtypes.h>
+#include <Framework/BinningPolicy.h>
+#include <Framework/AnalysisDataModel.h>
+#include <Framework/GroupedCombinations.h>
+#include <Framework/ASoAHelpers.h>
+#include <Framework/WorkflowSpec.h>
 #include <vector>
 #include <string>
 
+#include "Common/Core/RecoDecay.h"
 #include "CommonConstants/PhysicsConstants.h"
 #include "Framework/AnalysisTask.h"
 #include "Framework/runDataProcessing.h"
-#include "ReconstructionDataFormats/DCA.h"
-#include "ReconstructionDataFormats/V0.h"
 
-#include "Common/Core/trackUtilities.h"
-#include "Common/DataModel/CollisionAssociationTables.h"
-#include "EventFiltering/PWGHF/HFFilterHelpers.h"
 
 #include "PWGHF/D2H/DataModel/ReducedDataModel.h"
 #include "PWGHF/D2H/Core/SelectorCutsRedDataFormat.h"

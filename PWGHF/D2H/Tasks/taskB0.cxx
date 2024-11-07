@@ -14,6 +14,22 @@
 ///
 /// \author Alexandre Bigot <alexandre.bigot@cern.ch>, IPHC Strasbourg
 
+#include <Framework/Configurable.h>
+#include <vector>
+#include <Framework/AnalysisHelpers.h>
+#include <Framework/ASoA.h>
+#include <Framework/AnalysisDataModel.h>
+#include "Common/DataModel/TrackSelectionTables.h"
+#include <Framework/Expressions.h>
+#include <Framework/HistogramSpec.h>
+#include <Framework/InitContext.h>
+#include <cstdint>
+#include <TString.h>
+#include <TH3.h>
+#include <Rtypes.h>
+#include "Common/Core/RecoDecay.h"
+#include <array>
+#include <Framework/WorkflowSpec.h>
 #include "CommonConstants/PhysicsConstants.h"
 #include "Framework/AnalysisTask.h"
 #include "Framework/HistogramRegistry.h"

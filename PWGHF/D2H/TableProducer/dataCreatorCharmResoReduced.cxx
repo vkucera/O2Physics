@@ -15,25 +15,47 @@
 /// \author Luca Aglietta <luca.aglietta@cern.ch>, UniTO Turin
 /// \author Fabrizio Grosa <fabrizio.grosa@cern.ch>, CERN
 
+#include <Framework/AnalysisHelpers.h>
+#include <CCDB/CcdbApi.h>
+#include <CCDB/BasicCCDBManager.h>
+#include <Framework/Configurable.h>
+#include <DetectorsBase/MatLayerCylSet.h>
+#include <Framework/ASoA.h>
+#include <Framework/AnalysisDataModel.h>
+#include <Framework/Expressions.h>
+#include <Framework/HistogramRegistry.h>
+#include <Framework/InitContext.h>
+#include <Framework/HistogramSpec.h>
+#include <TH1.h>
+#include <GPUCommonArray.h>
+#include <fairlogger/Logger.h>
+#include <Rtypes.h>
+#include <TPDGCode.h>
+#include <Framework/WorkflowSpec.h>
 #include <algorithm>
+#include <array>
+#include <chrono>
 #include <cmath>
+#include <cstdint>
 #include <map>
 #include <string>
 #include <vector>
 
+#include "Common/DataModel/PIDResponse.h"
+#include "Common/Core/RecoDecay.h"
+#include "Common/DataModel/EventSelection.h"
 #include "DetectorsBase/Propagator.h"
 #include "CommonConstants/PhysicsConstants.h"
 #include "DCAFitter/DCAFitterN.h"
 #include "Framework/AnalysisTask.h"
 #include "Framework/O2DatabasePDGPlugin.h"
 #include "Framework/runDataProcessing.h"
-#include "ReconstructionDataFormats/DCA.h"
+#include "PWGHF/Core/CentralityEstimation.h"
 
 #include "Common/Core/trackUtilities.h"
 #include "Common/DataModel/CollisionAssociationTables.h"
 #include "Common/DataModel/TrackSelectionTables.h"
 
-#include "PWGLF/DataModel/LFStrangenessTables.h"
 
 #include "PWGHF/Core/HfHelper.h"
 #include "PWGHF/DataModel/CandidateReconstructionTables.h"

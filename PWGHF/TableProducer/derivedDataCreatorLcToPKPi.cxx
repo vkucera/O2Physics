@@ -15,6 +15,23 @@
 ///
 /// \author Vít Kučera <vit.kucera@cern.ch>, Inha University
 
+#include <Framework/AnalysisHelpers.h>
+#include <Framework/Configurable.h>
+#include <Framework/SliceCache.h>
+#include <map>
+#include <vector>
+#include <Framework/ASoA.h>
+#include <Framework/AnalysisDataModel.h>
+#include <Framework/Expressions.h>
+#include <cstdint>
+#include <Rtypes.h>
+#include <Framework/InitContext.h>
+#include <array>
+#include <numeric>
+#include <fairlogger/Logger.h>
+#include <cstdlib>
+#include <iterator>
+#include <Framework/WorkflowSpec.h>
 #include "CommonConstants/PhysicsConstants.h"
 #include "Framework/AnalysisTask.h"
 #include "Framework/runDataProcessing.h"

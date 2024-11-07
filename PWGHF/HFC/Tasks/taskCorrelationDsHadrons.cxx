@@ -14,15 +14,38 @@
 /// \author Grazia Luparello <grazia.luparello@cern.ch>
 /// \author Samuele Cattaruzzi <samuele.cattaruzzi@cern.ch>
 
+#include <Framework/Configurable.h>
+#include <vector>
+#include <CommonConstants/MathConstants.h>
+#include <Framework/ASoA.h>
+#include <Framework/AnalysisDataModel.h>
+#include "Common/DataModel/TrackSelectionTables.h"
+#include <Framework/Expressions.h>
+#include <cstdint>
+#include <Framework/OutputObjHeader.h>
+#include <Framework/InitContext.h>
+#include <Framework/HistogramSpec.h>
+#include <THnSparse.h>
+#include <Framework/StepTHn.h>
+#include <Framework/SliceCache.h>
+#include "Common/DataModel/Multiplicity.h"
+#include "Common/DataModel/EventSelection.h"
+#include <cstdlib>
+#include "Common/CCDB/EventSelectionParams.h"
+#include <CommonConstants/PhysicsConstants.h>
+#include <TPDGCode.h>
+#include <Framework/WorkflowSpec.h>
 #include "Framework/AnalysisTask.h"
 #include "Framework/HistogramRegistry.h"
 #include "Framework/runDataProcessing.h"
 
 #include "PWGHF/Core/HfHelper.h"
+#include "PWGHF/Core/SelectorCuts.h"
 #include "PWGHF/DataModel/CandidateReconstructionTables.h"
 #include "PWGHF/DataModel/CandidateSelectionTables.h"
 #include "PWGHF/Utils/utilsAnalysis.h"
 #include "PWGHF/HFC/DataModel/CorrelationTables.h"
+#include "RecoDecay.h"
 
 using namespace o2;
 using namespace o2::constants::physics;

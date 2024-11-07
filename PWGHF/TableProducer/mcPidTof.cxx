@@ -16,18 +16,41 @@
 ///         It works only for MC and adds the possibility to apply postcalibrations for MC.
 ///
 
+#include <chrono>
+#include <cstdint>
+#include <cmath>
+#include <cstdlib>
+#include <array>
+#include <algorithm>
 #include <map>
-#include <utility>
+#include <memory>
 #include <vector>
 #include <string>
 
+#include <Framework/ASoA.h>
+#include <Framework/AnalysisDataModel.h>
+#include <Framework/InitContext.h>
+#include <DataFormatsTOF/ParameterContainers.h>
+#include <TGraph.h>
+#include <DataFormatsParameters/GRPLHCIFData.h>
+#include <Framework/AnalysisHelpers.h>
+#include <Framework/Configurable.h>
+#include <Framework/OutputObjHeader.h>
+#include <Framework/HistogramSpec.h>
+#include <Framework/DataTypes.h>
+#include <ReconstructionDataFormats/PID.h>
+#include <TH2.h>
+#include <Framework/WorkflowSpec.h>
 #include <TPDGCode.h>
+#include <fairlogger/Logger.h>
+#include <TString.h>
 
 // O2 includes
+#include "Common/DataModel/PIDResponse.h"
 #include "Framework/runDataProcessing.h"
 #include "Framework/AnalysisTask.h"
 #include "Framework/HistogramRegistry.h"
-#include "ReconstructionDataFormats/Track.h"
+#include "PID/PIDTOF.h"
 #include "CCDB/BasicCCDBManager.h"
 #include "TOFBase/EventTimeMaker.h"
 
@@ -35,10 +58,8 @@
 #include "TableHelper.h"
 #include "MetadataHelper.h"
 #include "CollisionTypeHelper.h"
-#include "Common/DataModel/TrackSelectionTables.h"
 #include "Common/DataModel/EventSelection.h"
 #include "Common/DataModel/FT0Corrected.h"
-#include "Common/DataModel/Multiplicity.h"
 #include "Common/TableProducer/PID/pidTOFBase.h"
 
 using namespace o2;

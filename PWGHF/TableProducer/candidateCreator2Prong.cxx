@@ -18,13 +18,33 @@
 
 #ifndef HomogeneousField
 #define HomogeneousField
+#include "Common/Core/RecoDecay.h"
+#include "Common/DataModel/Centrality.h"
+#include "Common/DataModel/EventSelection.h"
+#include <CCDB/BasicCCDBManager.h>
+#include <DetectorsBase/MatLayerCylSet.h>
+#include <DetectorsBase/Propagator.h>
+#include <Framework/ASoA.h>
+#include <Framework/AnalysisDataModel.h>
+#include <Framework/AnalysisHelpers.h>
+#include <Framework/Configurable.h>
+#include <Framework/DeviceSpec.h>
+#include <Framework/HistogramSpec.h>
+#include <Framework/InitContext.h>
+#include <Framework/WorkflowSpec.h>
+#include <TH1.h>
+#include <array>
+#include <cstdint>
+#include <fairlogger/Logger.h>
+#include <memory>
+#include <numeric>
+#include <stdexcept>
+#include <vector>
 #endif
 
-#include <KFParticleBase.h>
-#include <KFParticle.h>
 #include <KFPTrack.h>
 #include <KFPVertex.h>
-#include <KFVertex.h>
+#include <KFParticle.h>
 
 #include <TPDGCode.h>
 
@@ -32,8 +52,8 @@
 #include "DCAFitter/DCAFitterN.h"
 #include "Framework/AnalysisTask.h"
 #include "Framework/HistogramRegistry.h"
-#include "Framework/runDataProcessing.h"
 #include "Framework/RunningWorkflowInfo.h"
+#include "Framework/runDataProcessing.h"
 #include "ReconstructionDataFormats/DCA.h"
 
 #include "Common/Core/trackUtilities.h"
@@ -47,7 +67,6 @@
 #include "PWGHF/Utils/utilsTrkCandHf.h"
 
 using namespace o2;
-using namespace o2::analysis;
 using namespace o2::hf_evsel;
 using namespace o2::hf_trkcandsel;
 using namespace o2::aod::hf_cand_2prong;

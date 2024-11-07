@@ -18,10 +18,38 @@
 /// \author Fabrizio Grosa <fabrizio.grosa@cern.ch>, CERN
 /// \author Fabio Catalano <fabio.catalano@cern.ch>, CERN
 
+#include <array>
+#include <TPDGCode.h>
+#include <Framework/ASoA.h>
+#include <Framework/AnalysisDataModel.h>
+#include <Framework/Configurable.h>
+#include <Framework/HistogramSpec.h>
+#include <Framework/InitContext.h>
+#include <fairlogger/Logger.h>
+#include <cstddef>
+#include <TString.h>
+#include <TH2.h>
+#include <TH3.h>
+#include <Framework/DeviceSpec.h>
+#include <cstdint>
+#include <cstdlib>
+#include <Framework/SliceCache.h>
+#include <TH1.h>
+#include <THnSparse.h>
+#include <Framework/AnalysisHelpers.h>
+#include <Rtypes.h>
+#include <sys/types.h>
+#include <Framework/WorkflowSpec.h>
 #include <memory>
 #include <algorithm>
+#include <string_view>
+#include <numeric>
 #include <vector>
 
+#include "Common/DataModel/EventSelection.h"
+#include "Common/DataModel/Centrality.h"
+#include "Common/Core/RecoDecay.h"
+#include "Common/DataModel/TrackSelectionTables.h"
 #include "CommonConstants/PhysicsConstants.h"
 #include "Framework/AnalysisTask.h"
 #include "Framework/HistogramRegistry.h"
@@ -34,11 +62,9 @@
 
 #include "PWGHF/Core/CentralityEstimation.h"
 #include "PWGHF/DataModel/CandidateReconstructionTables.h"
-#include "PWGHF/DataModel/CandidateSelectionTables.h"
 #include "PWGHF/Utils/utilsEvSelHf.h"
 
 using namespace o2;
-using namespace o2::analysis;
 using namespace o2::aod;
 using namespace o2::framework;
 using namespace o2::framework::expressions;

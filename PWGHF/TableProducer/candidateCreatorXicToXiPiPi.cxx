@@ -18,13 +18,31 @@
 
 #ifndef HomogeneousField
 #define HomogeneousField
+#include <Framework/AnalysisHelpers.h>
+#include <Framework/Configurable.h>
+#include <CCDB/BasicCCDBManager.h>
+#include <DetectorsBase/MatLayerCylSet.h>
+#include <DetectorsBase/Propagator.h>
+#include <Framework/ASoA.h>
+#include <Framework/AnalysisDataModel.h>
+#include <Framework/InitContext.h>
+#include <fairlogger/Logger.h>
+#include <Framework/HistogramSpec.h>
+#include <cstdlib>
+#include <array>
+#include <ReconstructionDataFormats/Track.h>
+#include <stdexcept>
+#include "Common/Core/RecoDecay.h"
+#include <utility>
+#include <cmath>
+#include <cstdint>
+#include <vector>
+#include <Framework/WorkflowSpec.h>
 #endif
 
-#include <KFParticleBase.h>
 #include <KFParticle.h>
 #include <KFPTrack.h>
 #include <KFPVertex.h>
-#include <KFVertex.h>
 
 #include <TPDGCode.h>
 
@@ -36,7 +54,6 @@
 #include "ReconstructionDataFormats/DCA.h"
 
 #include "Common/Core/trackUtilities.h"
-#include "Common/DataModel/CollisionAssociationTables.h"
 #include "Tools/KFparticle/KFUtilities.h"
 
 #include "PWGLF/DataModel/LFStrangenessTables.h"
@@ -45,7 +62,6 @@
 #include "PWGHF/Utils/utilsBfieldCCDB.h"
 
 using namespace o2;
-using namespace o2::analysis;
 using namespace o2::aod::hf_cand_xic_to_xi_pi_pi;
 using namespace o2::constants::physics;
 using namespace o2::framework;

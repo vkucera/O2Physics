@@ -14,10 +14,15 @@
 /// \brief Task to estimate HF->mu in the forward direction and use DCA observable to separate b-> mu, c-> mu.
 /// \author Shreyasi Acharya <shreyasi.acharya@cern.ch>, LPC, France
 
+#include <Framework/HistogramRegistry.h>
+#include <Framework/InitContext.h>
+#include <Framework/HistogramSpec.h>
+#include <Framework/ASoA.h>
+#include <cmath>
+#include <Framework/WorkflowSpec.h>
 #include "Framework/AnalysisDataModel.h"
 #include "Framework/AnalysisTask.h"
 #include "Framework/runDataProcessing.h"
-#include "ReconstructionDataFormats/TrackFwd.h"
 
 #include "Common/DataModel/TrackSelectionTables.h"
 

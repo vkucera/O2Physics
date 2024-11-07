@@ -16,6 +16,8 @@
 #ifndef PWGHF_DATAMODEL_DERIVEDTABLES_H_
 #define PWGHF_DATAMODEL_DERIVEDTABLES_H_
 
+#include <cstdint>
+#include <sys/types.h>
 #include <vector>
 
 #include "Framework/AnalysisDataModel.h"
@@ -24,7 +26,6 @@
 #include "Common/Core/RecoDecay.h"
 
 #include "PWGHF/DataModel/CandidateReconstructionTables.h"
-#include "PWGHF/DataModel/CandidateSelectionTables.h"
 
 namespace o2::aod
 {

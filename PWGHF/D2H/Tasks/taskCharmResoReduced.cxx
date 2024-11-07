@@ -14,6 +14,15 @@
 ///
 /// \author Luca Aglietta <luca.aglietta@cern.ch>, University and INFN Torino
 
+#include <cstdint>
+#include <Framework/AnalysisHelpers.h>
+#include <Framework/Configurable.h>
+#include <Framework/HistogramSpec.h>
+#include <Framework/ASoA.h>
+#include <Framework/InitContext.h>
+#include <array>
+#include <Rtypes.h>
+#include <Framework/WorkflowSpec.h>
 #include "CommonConstants/PhysicsConstants.h"
 #include "Framework/AnalysisTask.h"
 #include "Framework/HistogramRegistry.h"
@@ -26,7 +35,6 @@
 
 using namespace o2;
 using namespace o2::soa;
-using namespace o2::analysis;
 using namespace o2::framework;
 using namespace o2::framework::expressions;
 using namespace o2::constants::physics;

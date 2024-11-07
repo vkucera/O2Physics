@@ -14,17 +14,30 @@
 /// \author Rashi Gupta <rashi.gupta@cern.ch>, IIT Indore
 /// \author Ravindra Singh <ravindra.singh@cern.ch>, IIT Indore
 
+#include <vector>
+#include <Framework/HistogramSpec.h>
+#include <Framework/BinningPolicy.h>
+#include <Framework/AnalysisDataModel.h>
+#include <Framework/SliceCache.h>
+#include <Framework/AnalysisHelpers.h>
+#include <Framework/Configurable.h>
+#include <Framework/ASoA.h>
+#include <Framework/Expressions.h>
+#include <cstdint>
+#include <CommonConstants/MathConstants.h>
+#include <Framework/InitContext.h>
+#include <THnSparse.h>
+#include "Common/CCDB/TriggerAliases.h"
+#include <Framework/ASoAHelpers.h>
+#include <Framework/GroupedCombinations.h>
+#include <Framework/WorkflowSpec.h>
 #include "Framework/AnalysisTask.h"
 #include "Framework/HistogramRegistry.h"
 #include "Framework/runDataProcessing.h"
 
-#include "Common/Core/PID/TPCPIDResponse.h"
 #include "Common/Core/RecoDecay.h"
-#include "Common/Core/TrackSelection.h"
-#include "Common/DataModel/Centrality.h"
 #include "Common/DataModel/EventSelection.h"
 #include "Common/DataModel/Multiplicity.h"
-#include "Common/DataModel/PIDResponse.h"
 #include "Common/DataModel/TrackSelectionTables.h"
 
 #include "PWGHF/HFC/DataModel/CorrelationTables.h"

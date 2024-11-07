@@ -15,7 +15,24 @@
 /// \author S. Politanò, INFN Torino, Italy
 /// \author Wu Chuntai, CUG, China
 
+#include <Framework/Configurable.h>
+#include <vector>
+#include <Framework/ASoA.h>
+#include <Framework/AnalysisDataModel.h>
+#include <Framework/Expressions.h>
+#include <Framework/AnalysisHelpers.h>
+#include <Framework/SliceCache.h>
+#include <Framework/InitContext.h>
+#include <Framework/HistogramSpec.h>
+#include <TString.h>
+#include <cmath>
+#include <cstdlib>
+#include <CommonConstants/MathConstants.h>
+#include <fairlogger/Logger.h>
+#include <Framework/WorkflowSpec.h>
 #include "CCDB/BasicCCDBManager.h"
+#include "Common/DataModel/EventSelection.h"
+#include "Common/DataModel/Centrality.h"
 #include "Framework/AnalysisTask.h"
 #include "Framework/HistogramRegistry.h"
 #include "Framework/runDataProcessing.h"

@@ -15,6 +15,17 @@
 /// \author Swapnesh Santosh Khade <swapnesh.santosh.khade@cern.ch>
 
 #include "DhCorrelationExtraction.h"
+#include <RtypesCore.h>
+#include <cstdio>
+#include <TH2.h>
+#include <TH1.h>
+#include <TCanvas.h>
+#include <TString.h>
+#include <TFile.h>
+#include <iostream>
+#include <TDirectoryFile.h>
+#include <ostream>
+#include <THnSparse.h>
 
 DhCorrelationExtraction::DhCorrelationExtraction() : // default constructor
                                                      fFileMass(0x0),

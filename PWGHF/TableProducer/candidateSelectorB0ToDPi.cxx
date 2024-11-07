@@ -14,6 +14,20 @@
 ///
 /// \author Alexandre Bigot <alexandre.bigot@cern.ch>, IPHC Strasbourg
 
+#include <Framework/AnalysisHelpers.h>
+#include <Framework/Configurable.h>
+#include <vector>
+#include <Framework/Array2D.h>
+#include <Framework/ASoA.h>
+#include "Common/DataModel/TrackSelectionTables.h"
+#include <Framework/HistogramRegistry.h>
+#include <Framework/InitContext.h>
+#include <Framework/HistogramSpec.h>
+#include <TH2.h>
+#include <Framework/DeviceSpec.h>
+#include <fairlogger/Logger.h>
+#include <Rtypes.h>
+#include <Framework/WorkflowSpec.h>
 #include "Framework/AnalysisTask.h"
 #include "Framework/runDataProcessing.h"
 #include "Framework/RunningWorkflowInfo.h"

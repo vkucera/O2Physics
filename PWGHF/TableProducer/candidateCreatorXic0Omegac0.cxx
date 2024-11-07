@@ -16,53 +16,63 @@
 
 #ifndef HomogeneousField
 #define HomogeneousField
+#include <Framework/AnalysisHelpers.h>
+#include <Framework/Configurable.h>
+#include <DetectorsBase/MatLayerCylSet.h>
+#include <Framework/ASoA.h>
+#include <TH1.h>
+#include <Framework/HistogramRegistry.h>
+#include <Framework/InitContext.h>
+#include <array>
+#include <numeric>
+#include <fairlogger/Logger.h>
+#include <Framework/HistogramSpec.h>
+#include <Rtypes.h>
+#include <TPDGCode.h>
+#include <stdexcept>
+#include <TMathBase.h>
+#include <cstdlib>
+#include <GPUCommonArray.h>
+#include "Common/DataModel/Centrality.h"
+#include <Framework/DeviceSpec.h>
+#include <cstdint>
+#include <Framework/WorkflowSpec.h>
 #endif
 
-#include <iterator>
 #include <memory>
 #include <string>
 #include <vector>
 
 /// includes KFParticle
 #include "KFParticle.h"
-#include "KFParticleBase.h"
 #include "KFPTrack.h"
 #include "KFPVertex.h"
-#include "KFVertex.h"
 
 #include "CCDB/BasicCCDBManager.h"
 #include "CommonConstants/PhysicsConstants.h"
-#include "DataFormatsParameters/GRPMagField.h"
-#include "DataFormatsParameters/GRPObject.h"
 #include "DCAFitter/DCAFitterN.h"
 #include "DetectorsBase/Propagator.h"
 #include "Framework/AnalysisDataModel.h"
 #include "Framework/AnalysisTask.h"
-#include "Framework/ASoAHelpers.h"
 #include "Framework/runDataProcessing.h"
 #include "Framework/RunningWorkflowInfo.h"
 #include "ReconstructionDataFormats/DCA.h"
 #include "ReconstructionDataFormats/Track.h"
-#include "ReconstructionDataFormats/V0.h"
 
 #include "Common/Core/RecoDecay.h"
 #include "Common/Core/trackUtilities.h"
-#include "Common/DataModel/CollisionAssociationTables.h"
 #include "Common/DataModel/EventSelection.h"
 #include "Tools/KFparticle/KFUtilities.h"
 
 #include "PWGLF/DataModel/LFStrangenessTables.h"
 
 #include "PWGHF/Core/CentralityEstimation.h"
-#include "PWGHF/Core/SelectorCuts.h"
 #include "PWGHF/DataModel/CandidateReconstructionTables.h"
-#include "PWGHF/DataModel/CandidateSelectionTables.h"
 #include "PWGHF/Utils/utilsBfieldCCDB.h"
 #include "PWGHF/Utils/utilsEvSelHf.h"
 
 using namespace o2;
 using namespace o2::track;
-using namespace o2::analysis;
 using namespace o2::aod;
 using namespace o2::aod::cascdata;
 using namespace o2::aod::v0data;

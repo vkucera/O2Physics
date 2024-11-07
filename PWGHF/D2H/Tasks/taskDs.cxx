@@ -17,6 +17,29 @@
 /// \author Stefano Politanò <stefano.politano@cern.ch>, Politecnico & INFN Torino
 /// \author Fabrizio Chinu <fabrizio.chinu@cern.ch>, Universita and INFN Torino
 
+#include <Framework/Configurable.h>
+#include <vector>
+#include <Framework/HistogramSpec.h>
+#include <memory>
+#include <TH1.h>
+#include <TH2.h>
+#include <THnSparse.h>
+#include <variant>
+#include <Framework/ASoA.h>
+#include <Framework/AnalysisDataModel.h>
+#include "Common/DataModel/EventSelection.h"
+#include "Common/DataModel/Centrality.h"
+#include <Framework/SliceCache.h>
+#include <Framework/Expressions.h>
+#include <cstdint>
+#include <Rtypes.h>
+#include <array>
+#include <unordered_map>
+#include <Framework/InitContext.h>
+#include <numeric>
+#include <fairlogger/Logger.h>
+#include "Common/Core/RecoDecay.h"
+#include <Framework/WorkflowSpec.h>
 #include "CommonConstants/PhysicsConstants.h"
 #include "Framework/AnalysisTask.h"
 #include "Framework/HistogramRegistry.h"

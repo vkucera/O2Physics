@@ -15,6 +15,22 @@
 /// \author Alexandre Bigot <alexandre.bigot@cern.ch>, IPHC Strasbourg
 /// \author Fabrizio Grosa <fabrizio.grosa@cern.ch>, CERN
 
+#include <Framework/AnalysisHelpers.h>
+#include <Framework/Configurable.h>
+#include <vector>
+#include <Framework/Array2D.h>
+#include <cstdint>
+#include <CCDB/CcdbApi.h>
+#include <Framework/ASoA.h>
+#include <Framework/HistogramRegistry.h>
+#include <Framework/InitContext.h>
+#include <array>
+#include <numeric>
+#include <fairlogger/Logger.h>
+#include <Framework/HistogramSpec.h>
+#include <TH2.h>
+#include <Rtypes.h>
+#include <Framework/WorkflowSpec.h>
 #include "Framework/AnalysisTask.h"
 #include "Framework/runDataProcessing.h"
 
@@ -23,7 +39,6 @@
 #include "PWGHF/Core/HfHelper.h"
 #include "PWGHF/Core/HfMlResponseB0ToDPi.h"
 #include "PWGHF/Core/SelectorCuts.h"
-#include "PWGHF/DataModel/CandidateReconstructionTables.h"
 #include "PWGHF/DataModel/CandidateSelectionTables.h"
 #include "PWGHF/D2H/DataModel/ReducedDataModel.h"
 

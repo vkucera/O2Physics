@@ -14,17 +14,26 @@
 /// \author Rashi Gupta <rashi.gupta@cern.ch>, IIT Indore
 /// \author Ravindra Singh <ravindra.singh@cern.ch>, IIT Indore
 
-#include <boost/move/detail/meta_utils_core.hpp>
+#include <CommonConstants/MathConstants.h>
+#include <Framework/AnalysisHelpers.h>
+#include <Framework/Configurable.h>
+#include <Framework/ASoA.h>
+#include <Framework/AnalysisDataModel.h>
+#include <Framework/Expressions.h>
+#include <Framework/HistogramSpec.h>
+#include <Framework/InitContext.h>
+#include <CommonConstants/PhysicsConstants.h>
+#include <Framework/WorkflowSpec.h>
+#include <cstdint>
+#include "Common/CCDB/TriggerAliases.h"
+#include <iostream>
+#include <ostream>
 #include "THnSparse.h"
 
-#include "DataFormatsEMCAL/AnalysisCluster.h"
 #include "Framework/AnalysisTask.h"
 #include "Framework/HistogramRegistry.h"
 #include "Framework/runDataProcessing.h"
 
-#include "Common/Core/PID/TPCPIDResponse.h"
-#include "Common/Core/TrackSelection.h"
-#include "Common/DataModel/Centrality.h"
 #include "Common/DataModel/EventSelection.h"
 #include "Common/DataModel/Multiplicity.h"
 #include "Common/DataModel/PIDResponse.h"

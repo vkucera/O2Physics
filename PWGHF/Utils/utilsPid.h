@@ -17,6 +17,9 @@
 #ifndef PWGHF_UTILS_UTILSPID_H_
 #define PWGHF_UTILS_UTILSPID_H_
 
+#include <Common/DataModel/PIDResponse.h>
+#include <fairlogger/Logger.h>
+
 namespace o2::aod
 {
 

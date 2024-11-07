@@ -17,6 +17,14 @@
 #ifndef PWGHF_CORE_HFMLRESPONSE_H_
 #define PWGHF_CORE_HFMLRESPONSE_H_
 
+#include <onnxruntime_c_api.h>
+
+#if __has_include(<onnxruntime/core/session/onnxruntime_cxx_api.h>)
+#include <onnxruntime/core/session/experimental_onnxruntime_cxx_api.h>
+#else
+#include <onnxruntime_cxx_api.h>
+#endif
+
 #include "Tools/ML/MlResponse.h"
 
 namespace o2::analysis

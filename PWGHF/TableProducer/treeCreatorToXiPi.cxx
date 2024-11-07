@@ -15,6 +15,16 @@
 ///
 /// \author Federica Zanone <federica.zanone@cern.ch>, Heidelberg University
 
+#include <cstdint>
+#include <Framework/AnalysisDataModel.h>
+#include <Framework/AnalysisHelpers.h>
+#include <Framework/Configurable.h>
+#include <Framework/ASoA.h>
+#include "Common/DataModel/TrackSelectionTables.h"
+#include "Common/DataModel/EventSelection.h"
+#include <Framework/InitContext.h>
+#include <fairlogger/Logger.h>
+#include <Framework/WorkflowSpec.h>
 #include "Framework/AnalysisTask.h"
 #include "Framework/runDataProcessing.h"
 

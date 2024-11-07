@@ -15,12 +15,28 @@
 /// \author Panos Christakoglou <panos.christakoglou@cern.ch>, Nikhef
 /// \author Martin Voelkl <martin.andreas.volkl@cern.ch>, University of Birmingham
 
+#include <Framework/Configurable.h>
+#include <vector>
+#include <Framework/AnalysisHelpers.h>
+#include <Framework/Expressions.h>
+#include <Framework/ASoA.h>
+#include <Framework/AnalysisDataModel.h>
+#include "Common/DataModel/TrackSelectionTables.h"
+#include <cmath>
+#include <TMath.h>
+#include <Framework/HistogramSpec.h>
+#include <Framework/InitContext.h>
+#include <TH2.h>
+#include "Common/Core/RecoDecay.h"
+#include <array>
+#include <cstdlib>
+#include <TH1.h>
+#include <Framework/WorkflowSpec.h>
 #include "CommonConstants/PhysicsConstants.h"
 #include "Framework/AnalysisTask.h"
 #include "Framework/HistogramRegistry.h"
 #include "Framework/O2DatabasePDGPlugin.h"
 
-#include "Common/DataModel/Centrality.h"
 
 #include "PWGHF/Core/HfHelper.h"
 #include "PWGHF/Core/SelectorCuts.h"

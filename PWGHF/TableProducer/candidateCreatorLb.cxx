@@ -15,6 +15,25 @@
 ///
 /// \author Panos Christakoglou <panos.christakoglou@cern.ch>, Nikhef
 
+#include <Framework/AnalysisHelpers.h>
+#include <Framework/Configurable.h>
+#include <Framework/Expressions.h>
+#include <TH1.h>
+#include <memory>
+#include <Framework/HistogramRegistry.h>
+#include <Framework/InitContext.h>
+#include <Framework/HistogramSpec.h>
+#include <Framework/AnalysisDataModel.h>
+#include <Framework/ASoA.h>
+#include <stdexcept>
+#include <fairlogger/Logger.h>
+#include <array>
+#include "Common/Core/RecoDecay.h"
+#include <cmath>
+#include <utility>
+#include <cstdint>
+#include <TPDGCode.h>
+#include <Framework/WorkflowSpec.h>
 #include "CommonConstants/PhysicsConstants.h"
 #include "DCAFitter/DCAFitterN.h"
 #include "Framework/AnalysisTask.h"

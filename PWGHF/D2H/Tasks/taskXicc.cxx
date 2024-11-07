@@ -16,11 +16,24 @@
 /// \author Gian Michele Innocenti <gian.michele.innocenti@cern.ch>, CERN
 /// \author Jinjoo Seo <jin.joo.seo@cern.ch>, Inha University
 
+#include <vector>
+#include <Framework/ConfigParamSpec.h>
+#include <Framework/Variant.h>
+#include <Framework/Configurable.h>
+#include <Framework/Expressions.h>
+#include <Framework/HistogramSpec.h>
+#include <Framework/InitContext.h>
+#include <Framework/ASoA.h>
+#include <cstdlib>
+#include <Framework/AnalysisDataModel.h>
+#include "Common/Core/RecoDecay.h"
+#include <Framework/WorkflowSpec.h>
 #include "CommonConstants/PhysicsConstants.h"
 #include "Framework/AnalysisTask.h"
 #include "Framework/HistogramRegistry.h"
 
 #include "PWGHF/Core/HfHelper.h"
+#include "PWGHF/Core/SelectorCuts.h"
 #include "PWGHF/DataModel/CandidateReconstructionTables.h"
 #include "PWGHF/DataModel/CandidateSelectionTables.h"
 

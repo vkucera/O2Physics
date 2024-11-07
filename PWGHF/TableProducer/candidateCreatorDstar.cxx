@@ -17,8 +17,32 @@
 /// \author Fabrizio Grosa <fabrizio.grosa@cern.ch>, CERN
 
 // ROOT
+#include <Framework/ASoA.h>
+#include <Framework/AnalysisHelpers.h>
+#include <Framework/Configurable.h>
+#include <CCDB/BasicCCDBManager.h>
+#include <DetectorsBase/Propagator.h>
+#include <Framework/HistogramSpec.h>
+#include <TH1.h>
+#include <Framework/HistogramRegistry.h>
+#include <Framework/InitContext.h>
+#include <DataFormatsParameters/GRPMagField.h>
+#include <ReconstructionDataFormats/DCA.h>
+#include <Framework/DeviceSpec.h>
+#include <Rtypes.h>
+#include <Framework/WorkflowSpec.h>
 #include <TPDGCode.h>
+#include <memory>
+#include <array>
+#include <numeric>
+#include <fairlogger/Logger.h>
+#include <stdexcept>
+#include <cstdint>
+#include <vector>
 // O2
+#include "Common/Core/RecoDecay.h"
+#include "Common/DataModel/EventSelection.h"
+#include "Common/DataModel/Centrality.h"
 #include "CommonConstants/PhysicsConstants.h"
 #include "DCAFitter/DCAFitterN.h"
 #include "Framework/AnalysisDataModel.h"
@@ -30,7 +54,6 @@
 // PWGHF
 #include "PWGHF/Core/CentralityEstimation.h"
 #include "PWGHF/DataModel/CandidateReconstructionTables.h"
-#include "PWGHF/Utils/utilsBfieldCCDB.h"
 #include "PWGHF/Utils/utilsEvSelHf.h"
 #include "PWGHF/Utils/utilsTrkCandHf.h"
 

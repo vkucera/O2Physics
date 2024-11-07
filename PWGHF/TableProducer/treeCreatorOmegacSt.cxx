@@ -14,8 +14,26 @@
 ///
 /// \author Jochen Klein
 
-#include <TDatabasePDG.h>
+#include <Framework/AnalysisHelpers.h>
+#include <Framework/Configurable.h>
+#include <Framework/SliceCache.h>
+#include <Framework/Expressions.h>
+#include <Framework/HistogramSpec.h>
+#include <Framework/InitContext.h>
+#include <DetectorsBase/MatLayerCylSet.h>
+#include <ReconstructionDataFormats/Track.h>
+#include <Framework/WorkflowSpec.h>
+#include <TH1.h>
 #include <TPDGCode.h>
+#include <cstdint>
+#include <map>
+#include <memory>
+#include <cstdlib>
+#include <array>
+#include <cmath>
+#include <fairlogger/Logger.h>
+#include <type_traits>
+#include <stdexcept>
 
 #include "CCDB/BasicCCDBManager.h"
 #include "CommonConstants/PhysicsConstants.h"
@@ -29,18 +47,15 @@
 #include "Framework/AnalysisTask.h"
 #include "Framework/ASoA.h"
 #include "Framework/HistogramRegistry.h"
-#include "Framework/O2DatabasePDGPlugin.h"
 #include "Framework/runDataProcessing.h"
 #include "ReconstructionDataFormats/DCA.h"
 #include "Common/DataModel/EventSelection.h"
 #include "Common/Core/RecoDecay.h"
 #include "Common/Core/trackUtilities.h"
 #include "Common/DataModel/PIDResponse.h"
-#include "Common/Core/TrackSelection.h"
 #include "Common/DataModel/TrackSelectionTables.h"
 #include "Common/DataModel/CollisionAssociationTables.h"
 #include "PWGLF/DataModel/LFStrangenessTables.h"
-#include "PWGHF/Core/SelectorCuts.h"
 #include "PWGHF/Utils/utilsTrkCandHf.h"
 
 using namespace o2;

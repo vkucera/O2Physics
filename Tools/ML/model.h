@@ -21,22 +21,26 @@
 #define TOOLS_ML_MODEL_H_
 
 // C++ and system includes
+#include <algorithm>
+#include <cassert>
+#include <cstddef>
+#include <cstdint>
+#include <map>
+#include <memory>
+#include <string>
+#include <vector>
+
+#include <fairlogger/Logger.h>
+#include <onnxruntime_c_api.h>
+
 #if __has_include(<onnxruntime/core/session/onnxruntime_cxx_api.h>)
 #include <onnxruntime/core/session/experimental_onnxruntime_cxx_api.h>
 #else
 #include <onnxruntime_cxx_api.h>
 #endif
-#include <vector>
-#include <string>
-#include <memory>
-#include <map>
-#include <algorithm>
 
 // ROOT includes
 #include "TSystem.h"
-
-// O2 includes
-#include "Framework/Logger.h"
 
 namespace o2
 {

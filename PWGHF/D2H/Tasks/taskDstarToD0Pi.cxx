@@ -15,10 +15,26 @@
 /// \author Deependra Sharma <deependra.sharma@cern.ch>, IITB
 /// \author Fabrizio Grosa <fabrizio.grosa@cern.ch>, CERN
 
+#include <Framework/Configurable.h>
+#include <Framework/ASoA.h>
+#include <Framework/AnalysisDataModel.h>
+#include <Framework/Expressions.h>
+#include <Framework/SliceCache.h>
+#include <Framework/AnalysisHelpers.h>
+#include <Framework/HistogramSpec.h>
+#include <Framework/HistogramRegistry.h>
+#include <Framework/InitContext.h>
+#include <fairlogger/Logger.h>
+#include <Rtypes.h>
+#include <Framework/WorkflowSpec.h>
 #include <algorithm>
+#include <cstdint>
+#include <cstdlib>
 #include <utility>
 #include <vector>
 
+#include "Common/DataModel/Centrality.h"
+#include "Common/Core/RecoDecay.h"
 #include "CommonConstants/PhysicsConstants.h"
 #include "Framework/AnalysisTask.h"
 #include "Framework/ASoAHelpers.h"

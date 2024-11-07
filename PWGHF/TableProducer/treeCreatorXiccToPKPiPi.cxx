@@ -17,6 +17,15 @@
 ///
 /// \author Jinjoo Seo <jin.joo.seo@cern.ch>, Inha University
 
+#include <cstdint>
+#include <Framework/AnalysisDataModel.h>
+#include <Framework/AnalysisHelpers.h>
+#include <Framework/ASoA.h>
+#include "Common/DataModel/PIDResponse.h"
+#include <Framework/InitContext.h>
+#include "Common/Core/RecoDecay.h"
+#include <cstdlib>
+#include <Framework/WorkflowSpec.h>
 #include "CommonConstants/PhysicsConstants.h"
 #include "Framework/AnalysisTask.h"
 #include "Framework/runDataProcessing.h"

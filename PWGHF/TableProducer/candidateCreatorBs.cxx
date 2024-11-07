@@ -15,10 +15,36 @@
 ///
 /// \author Phil Stahlhut <phil.lennart.stahlhut@cern.ch>
 
+#include <Framework/AnalysisHelpers.h>
+#include <Framework/Configurable.h>
+#include <vector>
+#include <Framework/Array2D.h>
+#include <CCDB/BasicCCDBManager.h>
+#include <DetectorsBase/MatLayerCylSet.h>
+#include <DetectorsBase/Propagator.h>
+#include <Framework/ASoA.h>
+#include "Common/DataModel/TrackSelectionTables.h"
+#include <Framework/Expressions.h>
+#include <TH1.h>
+#include <memory>
+#include <Framework/HistogramRegistry.h>
+#include <Framework/InitContext.h>
+#include <Framework/HistogramSpec.h>
+#include <Framework/AnalysisDataModel.h>
+#include <fairlogger/Logger.h>
+#include <array>
+#include <stdexcept>
+#include "Common/Core/RecoDecay.h"
+#include <cmath>
+#include <cstdint>
+#include <TPDGCode.h>
+#include <Rtypes.h>
+#include <Framework/WorkflowSpec.h>
 #include "CommonConstants/PhysicsConstants.h"
 #include "DCAFitter/DCAFitterN.h"
 #include "Framework/AnalysisTask.h"
 #include "Framework/runDataProcessing.h"
+#include "PWGHF/Core/SelectorCuts.h"
 #include "ReconstructionDataFormats/DCA.h"
 #include "ReconstructionDataFormats/V0.h"
 

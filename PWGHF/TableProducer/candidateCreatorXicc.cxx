@@ -17,6 +17,23 @@
 /// \author Luigi Dello Stritto <luigi.dello.stritto@cern.ch >, SALERNO
 /// \author Mattia Faggin <mattia.faggin@cern.ch>, University and INFN PADOVA
 
+#include <vector>
+#include <Framework/ConfigParamSpec.h>
+#include <Framework/Variant.h>
+#include <Framework/AnalysisHelpers.h>
+#include <Framework/Configurable.h>
+#include <Framework/Expressions.h>
+#include <TH1.h>
+#include <Framework/InitContext.h>
+#include <Framework/AnalysisDataModel.h>
+#include <Framework/ASoA.h>
+#include <array>
+#include "Common/Core/RecoDecay.h"
+#include <cmath>
+#include <cstdint>
+#include <TPDGCode.h>
+#include <fairlogger/Logger.h>
+#include <Framework/WorkflowSpec.h>
 #include "CommonConstants/PhysicsConstants.h"
 #include "DCAFitter/DCAFitterN.h"
 #include "Framework/AnalysisTask.h"

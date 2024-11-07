@@ -14,17 +14,26 @@
 /// \author Marianna Mazzilli <marianna.mazzilli@cern.ch>
 /// \author Zhen Zhang <zhenz@cern.ch>
 
+#include <CommonConstants/MathConstants.h>
+#include <TString.h>
+#include <Framework/HistogramSpec.h>
+#include <Framework/Configurable.h>
+#include <Framework/ASoA.h>
+#include <Framework/InitContext.h>
+#include <THnSparse.h>
+#include <CommonConstants/PhysicsConstants.h>
+#include <Framework/WorkflowSpec.h>
 #include <vector>
 
 #include "Framework/AnalysisTask.h"
 #include "Framework/HistogramRegistry.h"
 #include "Framework/runDataProcessing.h"
 
-#include "PWGHF/DataModel/CandidateReconstructionTables.h"
-#include "PWGHF/DataModel/CandidateSelectionTables.h"
+#include "PWGHF/Core/SelectorCuts.h"
 #include "PWGHF/Utils/utilsAnalysis.h"
 #include "PWGHF/HFC/DataModel/CorrelationTables.h"
 #include "PWGHF/HFC/Utils/utilsCorrelations.h"
+#include "RecoDecay.h"
 
 using namespace o2;
 using namespace o2::framework;

@@ -14,24 +14,30 @@
 /// \author Maja Kabus <maja.kabus@cern.ch>, CERN
 
 #include <string>
+#include <tuple>
 #include <vector>
 
-#include <TDirectory.h>
-#include <TH1F.h>
+#include <Framework/Configurable.h>
+#include <Framework/AnalysisHelpers.h>
+#include <Framework/SliceCache.h>
+#include <Framework/ASoA.h>
+#include <Framework/Expressions.h>
+#include <Framework/HistogramSpec.h>
+#include <Framework/InitContext.h>
+#include <MathUtils/Utils.h>
+#include <Framework/BinningPolicy.h>
+#include <Framework/GroupedCombinations.h>
+#include <Framework/WorkflowSpec.h>
 #include <THn.h>
+#include <TParticlePDG.h>
 
-#include "CCDB/BasicCCDBManager.h"
-#include "DataFormatsParameters/GRPObject.h"
 #include "Framework/AnalysisDataModel.h"
 #include "Framework/AnalysisTask.h"
-#include "Framework/ASoAHelpers.h"
 #include "Framework/HistogramRegistry.h"
-#include "Framework/Logger.h"
 #include "Framework/O2DatabasePDGPlugin.h"
 #include "Framework/runDataProcessing.h"
-#include "Framework/RunningWorkflowInfo.h"
-#include "Framework/StepTHn.h"
-#include "ReconstructionDataFormats/GlobalTrackID.h"
+#include "PWGHF/Core/SelectorCuts.h"
+#include "RecoDecay.h"
 
 #include "Common/DataModel/EventSelection.h"
 #include "Common/DataModel/Multiplicity.h"
@@ -39,7 +45,6 @@
 #include "CommonConstants/MathConstants.h"
 
 #include "PWGCF/Core/CorrelationContainer.h"
-#include "PWGCF/Core/PairCuts.h"
 
 #include "PWGHF/Core/HfHelper.h"
 #include "PWGHF/DataModel/CandidateReconstructionTables.h"

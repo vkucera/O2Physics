@@ -13,16 +13,20 @@
 /// \brief task for WeakBoson (W/Z) based on electron in mid-rapidity
 /// \author S. Sakai & S. Ito (Univ. of Tsukuba)
 
+#include <Framework/Configurable.h>
+#include <Framework/ASoA.h>
+#include <Framework/AnalysisDataModel.h>
+#include <Framework/Expressions.h>
+#include <Framework/HistogramRegistry.h>
+#include <Framework/InitContext.h>
+#include <Framework/HistogramSpec.h>
+#include <cstdlib>
+#include <CommonConstants/MathConstants.h>
+#include <Framework/WorkflowSpec.h>
 #include "Framework/runDataProcessing.h"
 #include "Framework/AnalysisTask.h"
-#include "Framework/ASoAHelpers.h"
 
-#include "EMCALBase/Geometry.h"
-#include "EMCALCalib/BadChannelMap.h"
 
-#include "DataFormatsEMCAL/Cell.h"
-#include "DataFormatsEMCAL/Constants.h"
-#include "DataFormatsEMCAL/AnalysisCluster.h"
 
 #include "Common/Core/RecoDecay.h"
 #include "Common/DataModel/EventSelection.h"

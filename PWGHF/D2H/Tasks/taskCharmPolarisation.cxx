@@ -16,9 +16,29 @@
 /// \author S. Kundu (CERN) sourav.kundu@cern.ch
 /// \author M. Faggin (CERN) mattia.faggin@cern.ch
 
+#include <cstdint>
+#include <Framework/AnalysisHelpers.h>
+#include <Framework/Configurable.h>
+#include <CommonConstants/MathConstants.h>
+#include <Framework/Expressions.h>
+#include <Framework/ASoA.h>
+#include <Framework/AnalysisDataModel.h>
+#include <Framework/SliceCache.h>
+#include <Framework/InitContext.h>
+#include <array>
+#include <numeric>
+#include <fairlogger/Logger.h>
+#include <CommonConstants/PhysicsConstants.h>
+#include <Framework/HistogramSpec.h>
+#include "Common/Core/RecoDecay.h"
+#include <vector>
+#include <Rtypes.h>
+#include <cmath>
+#include <Math/Vector4Dfwd.h>
+#include <Math/Vector3Dfwd.h>
+#include <TPDGCode.h>
+#include <Framework/WorkflowSpec.h>
 #include "TRandom3.h"
-#include "Math/Vector3D.h"
-#include "Math/Vector4D.h"
 #include "Math/GenVector/Boost.h"
 
 #include "Framework/AnalysisTask.h"

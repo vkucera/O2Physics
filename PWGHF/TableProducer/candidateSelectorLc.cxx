@@ -17,6 +17,22 @@
 /// \author Vít Kučera <vit.kucera@cern.ch>, CERN
 /// \author Grazia Luparello  <grazia.luparello@cern.ch>, INFN Trieste
 
+#include <Framework/AnalysisHelpers.h>
+#include <Framework/Configurable.h>
+#include <vector>
+#include <Framework/Array2D.h>
+#include <cstdint>
+#include <CCDB/CcdbApi.h>
+#include <Framework/ASoA.h>
+#include "Common/DataModel/PIDResponse.h"
+#include <Framework/HistogramRegistry.h>
+#include <Framework/InitContext.h>
+#include <array>
+#include <numeric>
+#include <fairlogger/Logger.h>
+#include <Framework/HistogramSpec.h>
+#include <TH2.h>
+#include <Framework/WorkflowSpec.h>
 #include "CommonConstants/PhysicsConstants.h"
 #include "Framework/AnalysisTask.h"
 #include "Framework/runDataProcessing.h"

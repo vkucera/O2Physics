@@ -14,6 +14,24 @@
 /// \author Fabrizio Grosa <fabrizio.grosa@cern.ch>, CERN
 
 // O2
+#include <Framework/AnalysisHelpers.h>
+#include <Framework/Configurable.h>
+#include <Framework/ASoA.h>
+#include <Framework/SliceCache.h>
+#include <Framework/Expressions.h>
+#include <Framework/AnalysisDataModel.h>
+#include <cstdlib>
+#include <Framework/HistogramSpec.h>
+#include <Framework/BinningPolicy.h>
+#include "Common/DataModel/TrackSelectionTables.h"
+#include <Framework/HistogramRegistry.h>
+#include <Framework/InitContext.h>
+#include <array>
+#include <numeric>
+#include <fairlogger/Logger.h>
+#include <tuple>
+#include <Framework/GroupedCombinations.h>
+#include <Framework/WorkflowSpec.h>
 #include "CommonConstants/PhysicsConstants.h"
 #include "Framework/ASoAHelpers.h"
 #include "Framework/AnalysisTask.h"

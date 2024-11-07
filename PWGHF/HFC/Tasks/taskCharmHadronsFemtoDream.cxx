@@ -14,6 +14,20 @@
 /// \author Ravindra SIngh, GSI, ravindra.singh@cern.ch
 /// \author Biao Zhang, Heidelberg University, biao.zhang@cern.ch
 
+#include <Framework/Configurable.h>
+#include <Framework/HistogramSpec.h>
+#include <cstdint>
+#include <Framework/BinningPolicy.h>
+#include <Framework/AnalysisDataModel.h>
+#include <Framework/ASoA.h>
+#include <Framework/OutputObjHeader.h>
+#include <Framework/AnalysisHelpers.h>
+#include <Framework/SliceCache.h>
+#include <Framework/InitContext.h>
+#include <array>
+#include <CommonConstants/PhysicsConstants.h>
+#include <fairlogger/Logger.h>
+#include <Framework/WorkflowSpec.h>
 #include <vector>
 
 #include "Framework/Expressions.h"
@@ -21,10 +35,9 @@
 #include "Framework/runDataProcessing.h"
 #include "Framework/HistogramRegistry.h"
 #include "Framework/ASoAHelpers.h"
-#include "Framework/RunningWorkflowInfo.h"
-#include "Framework/StepTHn.h"
 
 #include "PWGCF/DataModel/FemtoDerived.h"
+#include "PWGCF/FemtoDream/Core/femtoDreamMath.h"
 #include "PWGCF/FemtoDream/Core/femtoDreamParticleHisto.h"
 #include "PWGCF/FemtoDream/Core/femtoDreamEventHisto.h"
 #include "PWGCF/FemtoDream/Core/femtoDreamPairCleaner.h"

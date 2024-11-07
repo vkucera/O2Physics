@@ -14,6 +14,17 @@
 ///
 /// \author Federica Zanone, Heidelberg University
 
+#include <Framework/Configurable.h>
+#include <Framework/ASoA.h>
+#include <Framework/AnalysisDataModel.h>
+#include "Common/DataModel/EventSelection.h"
+#include <Framework/InitContext.h>
+#include <fairlogger/Logger.h>
+#include <Framework/StepTHn.h>
+#include <Framework/HistogramSpec.h>
+#include <vector>
+#include <TPDGCode.h>
+#include <Framework/WorkflowSpec.h>
 #include "TMCProcess.h" // for VMC Particle Production Process
 
 #include "CommonConstants/PhysicsConstants.h"
@@ -28,7 +39,6 @@
 #include "PWGHF/DataModel/CandidateSelectionTables.h"
 
 using namespace o2;
-using namespace o2::analysis;
 using namespace o2::constants::physics;
 using namespace o2::framework;
 using namespace o2::framework::expressions;

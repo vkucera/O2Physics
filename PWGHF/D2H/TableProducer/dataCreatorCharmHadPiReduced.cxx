@@ -17,13 +17,45 @@
 /// \author Fabrizio Grosa <fabrizio.grosa@cern.ch>, CERN
 /// \author Fabio Catalano <fabio.catalano@cern.ch>, CERN
 
+#include <cstdint>
+#include <Framework/AnalysisHelpers.h>
+#include <Framework/Configurable.h>
+#include <Framework/Array2D.h>
+#include <CCDB/BasicCCDBManager.h>
+#include <DetectorsBase/Propagator.h>
+#include <Framework/ASoA.h>
+#include <Framework/AnalysisDataModel.h>
+#include <Framework/Expressions.h>
+#include <TH1.h>
+#include <Framework/HistogramRegistry.h>
+#include <array>
+#include <TPDGCode.h>
+#include <Framework/InitContext.h>
+#include <fairlogger/Logger.h>
+#include <Framework/HistogramSpec.h>
+#include <TString.h>
+#include <Rtypes.h>
+#include <DataFormatsParameters/GRPMagField.h>
+#include <ReconstructionDataFormats/Track.h>
+#include <GPUCommonArray.h>
+#include <Framework/WorkflowSpec.h>
 #include <map>
+#include <vector>
+#include <memory>
+#include <numeric>
+#include <stdexcept>
 
+#include "Common/DataModel/PIDResponse.h"
+#include "Common/DataModel/TrackSelectionTables.h"
+#include "Common/DataModel/EventSelection.h"
+#include "Common/Core/RecoDecay.h"
 #include "CommonConstants/PhysicsConstants.h"
 #include "DCAFitter/DCAFitterN.h"
 #include "Framework/AnalysisTask.h"
 #include "Framework/O2DatabasePDGPlugin.h"
 #include "Framework/runDataProcessing.h"
+#include "PWGHF/Core/SelectorCuts.h"
+#include "PWGHF/Core/CentralityEstimation.h"
 #include "ReconstructionDataFormats/DCA.h"
 
 #include "Common/Core/trackUtilities.h"
@@ -32,7 +64,6 @@
 #include "PWGHF/Core/HfHelper.h"
 #include "PWGHF/DataModel/CandidateReconstructionTables.h"
 #include "PWGHF/DataModel/CandidateSelectionTables.h"
-#include "PWGHF/Utils/utilsBfieldCCDB.h"
 #include "PWGHF/Utils/utilsEvSelHf.h"
 #include "PWGHF/D2H/DataModel/ReducedDataModel.h"
 #include "PWGHF/Utils/utilsTrkCandHf.h"

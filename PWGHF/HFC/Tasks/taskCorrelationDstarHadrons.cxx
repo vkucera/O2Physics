@@ -15,6 +15,14 @@
 /// \author Shyam Kumar <shyam.kumar@cern.ch>
 
 // Framework
+#include <TString.h>
+#include <vector>
+#include <Framework/Configurable.h>
+#include <Framework/OutputObjHeader.h>
+#include <Framework/InitContext.h>
+#include <Framework/HistogramSpec.h>
+#include <CommonConstants/MathConstants.h>
+#include <Framework/WorkflowSpec.h>
 #include "Framework/AnalysisTask.h"
 #include "Framework/HistogramRegistry.h"
 #include "Framework/runDataProcessing.h"

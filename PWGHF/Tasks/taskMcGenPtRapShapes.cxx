@@ -14,7 +14,18 @@
 
 /// \author Fabrizio Grosa <fabrizio.grosa@cern.ch>, CERN
 
+#include <Framework/Configurable.h>
+#include <TH2.h>
+#include <Framework/InitContext.h>
+#include <TString.h>
+#include <Framework/HistogramSpec.h>
+#include <algorithm>
+#include <Framework/WorkflowSpec.h>
 #include <array>
+#include <memory>
+#include <cstdlib>
+#include <iterator>
+#include <vector>
 
 #include "Common/Core/RecoDecay.h"
 #include "CommonConstants/PhysicsConstants.h"

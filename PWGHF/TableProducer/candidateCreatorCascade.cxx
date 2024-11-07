@@ -15,8 +15,31 @@
 /// \author Chiara Zampolli, <Chiara.Zampolli@cern.ch>, CERN
 ///         Paul Buehler, <paul.buehler@oeaw.ac.at>, Vienna
 
+#include <Framework/AnalysisHelpers.h>
+#include <Framework/Configurable.h>
+#include <CCDB/BasicCCDBManager.h>
+#include <DetectorsBase/MatLayerCylSet.h>
+#include <DetectorsBase/Propagator.h>
+#include <TH1.h>
+#include <Framework/InitContext.h>
+#include <Framework/HistogramSpec.h>
+#include <Framework/ASoA.h>
+#include <Framework/AnalysisDataModel.h>
+#include <Framework/DeviceSpec.h>
+#include <Framework/WorkflowSpec.h>
 #include <TPDGCode.h>
+#include <memory>
+#include <array>
+#include <numeric>
+#include <fairlogger/Logger.h>
+#include <stdexcept>
+#include <cstdint>
+#include <vector>
+#include <cstdlib>
 
+#include "Common/Core/RecoDecay.h"
+#include "Common/DataModel/EventSelection.h"
+#include "Common/DataModel/Centrality.h"
 #include "CommonConstants/PhysicsConstants.h"
 #include "DCAFitter/DCAFitterN.h"
 #include "Framework/AnalysisTask.h"
@@ -24,7 +47,6 @@
 #include "Framework/runDataProcessing.h"
 #include "Framework/RunningWorkflowInfo.h"
 #include "ReconstructionDataFormats/DCA.h"
-#include "ReconstructionDataFormats/V0.h"
 #include "PWGLF/DataModel/LFStrangenessTables.h"
 
 #include "Common/Core/trackUtilities.h"
@@ -36,7 +58,6 @@
 #include "PWGHF/Utils/utilsTrkCandHf.h"
 
 using namespace o2;
-using namespace o2::analysis;
 using namespace o2::hf_evsel;
 using namespace o2::hf_trkcandsel;
 using namespace o2::hf_centrality;

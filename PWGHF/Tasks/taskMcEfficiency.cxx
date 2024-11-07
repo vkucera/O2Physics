@@ -14,6 +14,28 @@
 ///
 /// \author Jan Fiete Grosse-Oetringhaus, CERN
 
+#include <Framework/Configurable.h>
+#include <Framework/HistogramSpec.h>
+#include <Framework/AnalysisHelpers.h>
+#include <Framework/ASoA.h>
+#include <Framework/AnalysisDataModel.h>
+#include <Framework/InitContext.h>
+#include <array>
+#include <numeric>
+#include <fairlogger/Logger.h>
+#include <Framework/StepTHn.h>
+#include <vector>
+#include <type_traits>
+#include <map>
+#include <cstddef>
+#include <TPDGCode.h>
+#include <cstdint>
+#include <algorithm>
+#include <string>
+#include <functional>
+#include <TH1.h>
+#include <memory>
+#include <Framework/WorkflowSpec.h>
 #include "CommonConstants/PhysicsConstants.h"
 #include "Framework/AnalysisTask.h"
 #include "Framework/HistogramRegistry.h"

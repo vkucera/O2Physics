@@ -18,6 +18,17 @@
 /// \author Antonio Palasciano <antonio.palasciano@cern.ch>, Università degli Studi di Bari & INFN, Sezione di Bari
 /// \author Deepa Thomas <deepa.thomas@cern.ch>, UT Austin
 
+#include <TString.h>
+#include <Framework/Configurable.h>
+#include <vector>
+#include <Framework/AnalysisHelpers.h>
+#include <Framework/ASoA.h>
+#include <Framework/HistogramSpec.h>
+#include <Framework/InitContext.h>
+#include <Framework/AnalysisDataModel.h>
+#include <Rtypes.h>
+#include "Common/Core/RecoDecay.h"
+#include <Framework/WorkflowSpec.h>
 #include "CommonConstants/PhysicsConstants.h"
 #include "Framework/AnalysisTask.h"
 #include "Framework/HistogramRegistry.h"

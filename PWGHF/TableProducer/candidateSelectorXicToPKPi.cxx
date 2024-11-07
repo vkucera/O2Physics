@@ -17,6 +17,17 @@
 /// \author Vít Kučera <vit.kucera@cern.ch>, CERN
 /// \author Cristina Terrevoli <cristina.terrevoli@cern.ch>, INFN BARI
 
+#include <Framework/AnalysisHelpers.h>
+#include <Framework/Configurable.h>
+#include <vector>
+#include <Framework/Array2D.h>
+#include <cstdint>
+#include <CCDB/CcdbApi.h>
+#include <Framework/ASoA.h>
+#include <Framework/AnalysisDataModel.h>
+#include <Framework/InitContext.h>
+#include <Rtypes.h>
+#include <Framework/WorkflowSpec.h>
 #include "CommonConstants/PhysicsConstants.h"
 #include "Framework/AnalysisTask.h"
 #include "Framework/runDataProcessing.h"

@@ -18,10 +18,11 @@
 #ifndef PWGHF_DATAMODEL_CANDIDATERECONSTRUCTIONTABLES_H_
 #define PWGHF_DATAMODEL_CANDIDATERECONSTRUCTIONTABLES_H_
 
+#include <Framework/ASoA.h>
+#include <array>
+#include <cstdint>
 #include <vector>
 
-#include "Math/GenVector/Boost.h"
-#include "Math/Vector4D.h"
 
 #include "CommonConstants/PhysicsConstants.h"
 #include "Framework/AnalysisDataModel.h"
@@ -33,7 +34,6 @@
 
 #include "PWGLF/DataModel/LFStrangenessTables.h"
 
-#include "PWGHF/Core/SelectorCuts.h"
 #include "PWGHF/Utils/utilsPid.h"
 
 namespace o2::aod

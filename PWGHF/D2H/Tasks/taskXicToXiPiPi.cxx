@@ -16,6 +16,23 @@
 /// \author Phil Lennart Stahlhut <phil.lennart.stahlhut@cern.ch>, Heidelberg University
 /// \author Carolina Reetz <c.reetz@cern.ch>, Heidelberg University
 
+#include <Framework/Configurable.h>
+#include <vector>
+#include <Framework/AnalysisHelpers.h>
+#include <Framework/Expressions.h>
+#include <Framework/HistogramSpec.h>
+#include <Framework/InitContext.h>
+#include <fairlogger/Logger.h>
+#include <cstdint>
+#include <TString.h>
+#include <TH3.h>
+#include <Framework/ASoA.h>
+#include <Framework/AnalysisDataModel.h>
+#include <Rtypes.h>
+#include "Common/Core/RecoDecay.h"
+#include <array>
+#include <TPDGCode.h>
+#include <Framework/WorkflowSpec.h>
 #include "CommonConstants/PhysicsConstants.h"
 #include "Framework/AnalysisTask.h"
 #include "Framework/HistogramRegistry.h"

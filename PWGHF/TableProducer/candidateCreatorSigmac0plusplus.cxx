@@ -15,13 +15,32 @@
 ///
 /// \author Mattia Faggin <mfaggin@cern.ch>, University and INFN PADOVA
 
+#include <Framework/AnalysisHelpers.h>
+#include <Framework/Configurable.h>
+#include <vector>
+#include <Framework/Array2D.h>
+#include <DetectorsBase/MatLayerCylSet.h>
+#include <Framework/ASoA.h>
+#include <Framework/Expressions.h>
+#include <Framework/HistogramRegistry.h>
+#include <Framework/InitContext.h>
+#include <TH1.h>
+#include <Framework/HistogramSpec.h>
+#include <array>
+#include <numeric>
+#include <fairlogger/Logger.h>
+#include <set>
+#include <cstdint>
+#include <Rtypes.h>
+#include <Framework/AnalysisDataModel.h>
+#include <GPUCommonArray.h>
+#include <Framework/DeviceSpec.h>
+#include <TPDGCode.h>
+#include <Framework/WorkflowSpec.h>
 #include "CCDB/BasicCCDBManager.h" // for dca recalculation
+#include "Common/Core/RecoDecay.h"
 #include "CommonConstants/PhysicsConstants.h"
-#include "DataFormatsParameters/GRPMagField.h" // for dca recalculation
-#include "DataFormatsParameters/GRPObject.h"   // for dca recalculation
-#include "DetectorsBase/GeometryManager.h"     // for dca recalculation
 #include "DetectorsBase/Propagator.h"          // for dca recalculation
-#include "DetectorsVertexing/PVertexer.h"      // for dca recalculation
 #include "Framework/AnalysisTask.h"
 #include "Framework/runDataProcessing.h"
 #include "Framework/RunningWorkflowInfo.h"
@@ -32,6 +51,7 @@
 #include "Common/Core/TrackSelectionDefaults.h"
 
 #include "PWGHF/Core/HfHelper.h"
+#include "PWGHF/Core/SelectorCuts.h"
 #include "PWGHF/DataModel/CandidateReconstructionTables.h"
 #include "PWGHF/DataModel/CandidateSelectionTables.h"
 #include "PWGHF/Utils/utilsBfieldCCDB.h" // for dca recalculation

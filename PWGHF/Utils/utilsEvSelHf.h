@@ -18,13 +18,19 @@
 #ifndef PWGHF_UTILS_UTILSEVSELHF_H_
 #define PWGHF_UTILS_UTILSEVSELHF_H_
 
+#include <Rtypes.h>
+#include <TH1.h>
+#include <cstddef>
+#include <cstdint>
+#include <fairlogger/Logger.h>
 #include <memory> // std::shared_ptr
 #include <string> // std::string
 
+#include "Framework/AnalysisHelpers.h"
 #include "Framework/Configurable.h"
+#include "Framework/DeviceSpec.h"
 #include "Framework/HistogramRegistry.h"
 #include "Framework/HistogramSpec.h"
-#include "Framework/OutputObjHeader.h"
 
 #include "Common/CCDB/EventSelectionParams.h"
 #include "EventFiltering/Zorro.h"
