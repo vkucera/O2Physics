@@ -29,10 +29,8 @@
 #include <type_traits>
 #include <utility>
 #include <vector>
-
 #include <MathUtils/detail/TypeTruncation.h>
 #include <TRandom3.h>
-
 #include <Framework/ASoA.h>
 #include <Framework/AnalysisTask.h>
 #include <Framework/runDataProcessing.h>

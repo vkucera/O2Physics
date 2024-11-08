@@ -13,20 +13,20 @@
 //
 /// \author Nima Zardoshti <nima.zardoshti@cern.ch>
 
+#include <vector>
+
 #include <Framework/AnalysisHelpers.h>
 #include <Framework/AnalysisTask.h>
 #include <Framework/Configurable.h>
 #include <Framework/DataProcessorSpec.h>
 #include <Framework/WorkflowSpec.h>
-#include <vector>
+#include <Framework/runDataProcessing.h>
 
 #include "PWGJE/DataModel/Jet.h"
 
 using namespace o2;
 using namespace o2::framework;
 using namespace o2::framework::expressions;
-
-#include <Framework/runDataProcessing.h>
 
 template <typename MCParticleLevelJetTable, typename MCParticleLevelWeightsTable>
 

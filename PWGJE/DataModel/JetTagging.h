@@ -17,13 +17,16 @@
 #ifndef PWGJE_DATAMODEL_JETTAGGING_H_
 #define PWGJE_DATAMODEL_JETTAGGING_H_
 
-#include "Common/Core/RecoDecay.h"
-#include "PWGJE/DataModel/Jet.h"
-#include <Framework/ASoA.h>
-#include <Framework/AnalysisDataModel.h>
 #include <array>
 #include <cmath>
 #include <vector>
+
+#include <Framework/ASoA.h>
+#include <Framework/AnalysisDataModel.h>
+
+#include "Common/Core/RecoDecay.h"
+
+#include "PWGJE/DataModel/Jet.h"
 
 namespace o2::aod
 {

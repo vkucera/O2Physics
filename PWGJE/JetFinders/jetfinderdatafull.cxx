@@ -13,13 +13,15 @@
 //
 /// \author Nima Zardoshti <nima.zardoshti@cern.ch>
 
-#include "PWGJE/DataModel/Jet.h"
-#include "PWGJE/JetFinders/jetfinder.cxx"
+#include <vector>
+
 #include <Framework/AnalysisTask.h>
 #include <Framework/ConfigContext.h>
 #include <Framework/DataProcessorSpec.h>
 #include <Framework/WorkflowSpec.h>
-#include <vector>
+
+#include "PWGJE/DataModel/Jet.h"
+#include "PWGJE/JetFinders/jetfinder.cxx"
 
 using JetFinderDataFull = JetFinderTask<aod::FullJets, aod::FullJetConstituents, aod::FullEventWiseSubtractedJets, aod::FullEventWiseSubtractedJetConstituents>;
 

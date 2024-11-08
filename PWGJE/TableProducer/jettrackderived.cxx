@@ -16,14 +16,11 @@
 /// \brief  Header for the trackJetQa task for the analysis of the tracks for jets..
 ///
 
-// O2 includes
-#include "Common/Core/TrackSelection.h"
-#include "Common/Core/TrackSelectionDefaults.h"
-#include "Common/DataModel/Centrality.h"
-#include "Common/DataModel/EventSelection.h"
-#include "Common/DataModel/Multiplicity.h"
-#include "Common/DataModel/TrackSelectionTables.h"
-#include "PWGJE/DataModel/TrackJetQa.h"
+#include <cstdlib>
+#include <stdlib.h>
+
+#include <fairlogger/Logger.h>
+
 #include <Framework/ASoA.h>
 #include <Framework/AnalysisDataModel.h>
 #include <Framework/AnalysisHelpers.h>
@@ -35,9 +32,15 @@
 #include <Framework/OutputObjHeader.h>
 #include <Framework/WorkflowSpec.h>
 #include <Framework/runDataProcessing.h>
-#include <cstdlib>
-#include <fairlogger/Logger.h>
-#include <stdlib.h>
+
+#include "Common/Core/TrackSelection.h"
+#include "Common/Core/TrackSelectionDefaults.h"
+#include "Common/DataModel/Centrality.h"
+#include "Common/DataModel/EventSelection.h"
+#include "Common/DataModel/Multiplicity.h"
+#include "Common/DataModel/TrackSelectionTables.h"
+
+#include "PWGJE/DataModel/TrackJetQa.h"
 
 using namespace o2;
 using namespace o2::framework;

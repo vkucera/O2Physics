@@ -16,12 +16,14 @@
 #ifndef PWGJE_DATAMODEL_EMCALCLUSTERS_H_
 #define PWGJE_DATAMODEL_EMCALCLUSTERS_H_
 
-#include "EMCALClusterDefinition.h"
-#include <Framework/ASoA.h>
-#include <Framework/AnalysisDataModel.h>
 #include <stdexcept>
 #include <string>
 #include <vector>
+
+#include <Framework/ASoA.h>
+#include <Framework/AnalysisDataModel.h>
+
+#include "EMCALClusterDefinition.h"
 
 namespace o2::aod
 {

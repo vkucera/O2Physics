@@ -31,12 +31,12 @@
 #include <Framework/OutputObjHeader.h>
 #include <Framework/WorkflowSpec.h>
 #include <Framework/runDataProcessing.h>
+#include <EMCALBase/Geometry.h>
 
 #include "Common/CCDB/TriggerAliases.h"
 #include "Common/DataModel/EventSelection.h"
 #include "Common/DataModel/PIDResponse.h"
 #include "Common/DataModel/TrackSelectionTables.h"
-#include <EMCALBase/Geometry.h>
 
 #include "PWGJE/DataModel/EMCALClusters.h"
 #include "PWGJE/DataModel/EMCALMatchedTracks.h"

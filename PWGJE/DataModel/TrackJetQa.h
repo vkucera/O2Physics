@@ -19,11 +19,12 @@
 #ifndef PWGJE_DATAMODEL_TRACKJETQA_H_
 #define PWGJE_DATAMODEL_TRACKJETQA_H_
 
-// O2 includes
-#include "Common/DataModel/TrackSelectionTables.h"
+#include <cstdint>
+
 #include <Framework/ASoA.h>
 #include <Framework/AnalysisDataModel.h>
-#include <cstdint>
+
+#include "Common/DataModel/TrackSelectionTables.h"
 
 // Derived data model for track optimization (and cut variation)
 namespace o2::aod

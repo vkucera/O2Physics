@@ -18,12 +18,11 @@
 #include <stdexcept>
 #include <vector>
 
-#include "Common/Core/RecoDecay.h"
-#include "Common/Core/trackUtilities.h"
-#include "Common/DataModel/TrackSelectionTables.h"
-#include "DCAFitter/DCAFitterN.h"
+#include <fairlogger/Logger.h>
+
 #include <CCDB/BasicCCDBManager.h>
 #include <CommonConstants/PhysicsConstants.h>
+#include <DCAFitter/DCAFitterN.h>
 #include <DetectorsBase/MatLayerCylSet.h>
 #include <DetectorsBase/Propagator.h>
 #include <Framework/ASoA.h>
@@ -41,7 +40,10 @@
 #include <ReconstructionDataFormats/DCA.h>
 #include <ReconstructionDataFormats/TrackParametrizationWithError.h>
 #include <ReconstructionDataFormats/Vertex.h>
-#include <fairlogger/Logger.h>
+
+#include "Common/Core/RecoDecay.h"
+#include "Common/Core/trackUtilities.h"
+#include "Common/DataModel/TrackSelectionTables.h"
 
 #include "PWGHF/Utils/utilsBfieldCCDB.h"
 

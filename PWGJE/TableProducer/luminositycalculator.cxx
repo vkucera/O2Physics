@@ -14,6 +14,11 @@
 ///
 /// \author Nima Zardoshti <nima.zardoshti@cern.ch>
 
+#include <string>
+#include <vector>
+
+#include <TH1.h>
+
 #include <Framework/ASoA.h>
 #include <Framework/AnalysisTask.h>
 #include <Framework/Configurable.h>
@@ -23,9 +28,6 @@
 #include <Framework/InitContext.h>
 #include <Framework/WorkflowSpec.h>
 #include <Framework/runDataProcessing.h>
-#include <TH1.h>
-#include <string>
-#include <vector>
 
 #include "PWGJE/DataModel/JetReducedData.h"
 

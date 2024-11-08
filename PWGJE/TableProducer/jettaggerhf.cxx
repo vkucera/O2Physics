@@ -14,6 +14,14 @@
 /// \author Nima Zardoshti <nima.zardoshti@cern.ch>
 /// \author Hanseo Park <hanseo.park@cern.ch>
 
+#include <memory>
+#include <vector>
+
+#include <TF1.h>
+#include <TH1.h>
+
+#include <fairlogger/Logger.h>
+
 #include <Framework/ASoA.h>
 #include <Framework/AnalysisHelpers.h>
 #include <Framework/AnalysisTask.h>
@@ -25,11 +33,6 @@
 #include <Framework/OutputObjHeader.h>
 #include <Framework/WorkflowSpec.h>
 #include <Framework/runDataProcessing.h>
-#include <TF1.h>
-#include <TH1.h>
-#include <fairlogger/Logger.h>
-#include <memory>
-#include <vector>
 
 #include "PWGJE/Core/JetTaggingUtilities.h"
 #include "PWGJE/DataModel/Jet.h"

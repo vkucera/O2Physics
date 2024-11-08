@@ -14,7 +14,11 @@
 ///
 /// \author Nima Zardoshti <nima.zardoshti@cern.ch>
 
-#include "Common/CCDB/EventSelectionParams.h"
+#include <algorithm>
+#include <cstdlib>
+#include <iterator>
+#include <vector>
+
 #include <Framework/ASoA.h>
 #include <Framework/AnalysisHelpers.h>
 #include <Framework/AnalysisTask.h>
@@ -23,10 +27,8 @@
 #include <Framework/InitContext.h>
 #include <Framework/WorkflowSpec.h>
 #include <Framework/runDataProcessing.h>
-#include <algorithm>
-#include <cstdlib>
-#include <iterator>
-#include <vector>
+
+#include "Common/CCDB/EventSelectionParams.h"
 
 #include "PWGJE/Core/JetDerivedDataUtilities.h"
 #include "PWGJE/DataModel/JetReducedData.h"
