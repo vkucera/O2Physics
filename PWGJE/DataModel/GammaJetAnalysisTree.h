@@ -17,10 +17,9 @@
 #ifndef PWGJE_DATAMODEL_GAMMAJETANALYSISTREE_H_
 #define PWGJE_DATAMODEL_GAMMAJETANALYSISTREE_H_
 
-#include "Framework/AnalysisDataModel.h"
-#include "PWGJE/DataModel/EMCALClusters.h"
-#include "PWGJE/Core/JetDerivedDataUtilities.h"
-#include "PWGJE/DataModel/Jet.h"
+#include <Framework/ASoA.h>
+#include <cstdint>
+#include <sys/types.h>
 
 namespace o2::aod
 {

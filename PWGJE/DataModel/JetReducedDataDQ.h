@@ -17,10 +17,9 @@
 #ifndef PWGJE_DATAMODEL_JETREDUCEDDATADQ_H_
 #define PWGJE_DATAMODEL_JETREDUCEDDATADQ_H_
 
+#include <Framework/ASoA.h>
 #include <cmath>
-#include <vector>
-#include "Framework/AnalysisDataModel.h"
-#include "PWGDQ/DataModel/ReducedInfoTables.h"
+#include <cstdint>
 #include "PWGJE/DataModel/JetReducedData.h"
 
 namespace o2::aod

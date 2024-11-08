@@ -11,25 +11,22 @@
 
 // jet finder task
 //
-// Authors: Nima Zardoshti, Jochen Klein
 /// \author Nima Zardoshti <nima.zardoshti@cern.ch>
 /// \author Jochen Klein <jochen.klein@cern.ch>
 
 #ifndef PWGJE_CORE_JETFINDER_H_
 #define PWGJE_CORE_JETFINDER_H_
 
-#include <memory>
+#include <math.h>
+#include <Rtypes.h>
 #include <vector>
 
-#include <TDatabasePDG.h>
-#include <TPDGCode.h>
-#include <TMath.h>
-
-#include "fastjet/PseudoJet.hh"
-#include "fastjet/ClusterSequenceArea.hh"
-#include "fastjet/AreaDefinition.hh"
-#include "fastjet/JetDefinition.hh"
-#include "fastjet/tools/Subtractor.hh"
+#include <fastjet/GhostedAreaSpec.hh>
+#include <fastjet/Selector.hh>
+#include <fastjet/AreaDefinition.hh>
+#include <fastjet/ClusterSequenceArea.hh>
+#include <fastjet/JetDefinition.hh>
+#include <fastjet/PseudoJet.hh>
 
 enum class JetType {
   full = 0,

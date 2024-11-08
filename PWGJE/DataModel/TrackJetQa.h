@@ -20,17 +20,10 @@
 #define PWGJE_DATAMODEL_TRACKJETQA_H_
 
 // O2 includes
-#include "ReconstructionDataFormats/Track.h"
-#include "Framework/runDataProcessing.h"
-#include "Framework/AnalysisTask.h"
-#include "Framework/HistogramRegistry.h"
-#include "Framework/AnalysisDataModel.h"
-#include "PWGJE/DataModel/Jet.h"
-#include "Framework/StaticFor.h"
 #include "Common/DataModel/TrackSelectionTables.h"
-#include "Common/DataModel/EventSelection.h"
-#include "Common/Core/TrackSelection.h"
-#include "Common/Core/TrackSelectionDefaults.h"
+#include "Framework/AnalysisDataModel.h"
+#include <Framework/ASoA.h>
+#include <cstdint>
 
 // Derived data model for track optimization (and cut variation)
 namespace o2::aod

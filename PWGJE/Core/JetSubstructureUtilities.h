@@ -17,28 +17,22 @@
 #ifndef PWGJE_CORE_JETSUBSTRUCTUREUTILITIES_H_
 #define PWGJE_CORE_JETSUBSTRUCTUREUTILITIES_H_
 
+#include <type_traits>
 #include <vector>
 #include <cmath>
 
-#include "Framework/AnalysisTask.h"
-#include "Framework/AnalysisDataModel.h"
-#include "Framework/ASoA.h"
-#include "Framework/O2DatabasePDGPlugin.h"
+#include <fastjet/ClusterSequenceArea.hh>
+#include <fastjet/contrib/MeasureDefinition.hh>
+#include <fastjet/contrib/Nsubjettiness.hh>
+#include <fastjet/contrib/SoftDrop.hh>
+#include <fastjet/PseudoJet.hh>
 
-#include "Framework/Logger.h"
-#include "PWGJE/DataModel/EMCALClusters.h"
-
-#include "PWGHF/DataModel/CandidateReconstructionTables.h"
+#include <Framework/ASoA.h>
 
 #include "PWGJE/Core/FastJetUtilities.h"
-#include "PWGJE/Core/JetDerivedDataUtilities.h"
 #include "PWGJE/Core/JetFinder.h"
 #include "PWGJE/Core/JetCandidateUtilities.h"
 #include "PWGJE/DataModel/Jet.h"
-#include "fastjet/contrib/Nsubjettiness.hh"
-#include "fastjet/contrib/AxesDefinition.hh"
-#include "fastjet/contrib/MeasureDefinition.hh"
-#include "fastjet/contrib/SoftDrop.hh"
 
 namespace jetsubstructureutilities
 {

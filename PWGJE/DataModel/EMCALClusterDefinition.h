@@ -19,7 +19,6 @@
 #define PWGJE_DATAMODEL_EMCALCLUSTERDEFINITION_H_
 
 #include <string>
-#include "Framework/AnalysisDataModel.h"
 
 namespace o2::aod
 {

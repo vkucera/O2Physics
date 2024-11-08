@@ -18,14 +18,9 @@
 #define PWGJE_CORE_FASTJETUTILITIES_H_
 
 #include <cmath>
-#include <limits>
-#include <numeric>
-#include <tuple>
 #include <vector>
-#include <string>
 
-#include "fastjet/PseudoJet.hh"
-#include "fastjet/Selector.hh"
+#include <fastjet/PseudoJet.hh>
 
 enum class JetConstituentStatus {
   track = 0,

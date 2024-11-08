@@ -9,7 +9,7 @@
 // granted to it by virtue of its status as an Intergovernmental Organization
 // or submit itself to any jurisdiction.
 
-/// \file JetDetivedDataUtilities.h
+/// \file JetDerivedDataUtilities.h
 /// \brief Jet derived data related utilities
 ///
 /// \author Nima Zardoshti <nima.zardoshti@cern.ch>
@@ -17,10 +17,16 @@
 #ifndef PWGJE_CORE_JETDERIVEDDATAUTILITIES_H_
 #define PWGJE_CORE_JETDERIVEDDATAUTILITIES_H_
 
-#include <vector>
+#include <array>
+#include <cstddef>
+#include <cstdint>
+#include <cstdlib>
+#include <Rtypes.h>
 #include <string>
-#include "Common/CCDB/TriggerAliases.h"
+#include <vector>
+
 #include "Common/CCDB/EventSelectionParams.h"
+#include "Common/CCDB/TriggerAliases.h"
 
 namespace jetderiveddatautilities
 {

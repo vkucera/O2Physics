@@ -18,19 +18,21 @@
 #ifndef PWGJE_CORE_JETTAGGINGUTILITIES_H_
 #define PWGJE_CORE_JETTAGGINGUTILITIES_H_
 
-#include <cmath>
-#include <limits>
-#include <numeric>
-#include <tuple>
-#include <vector>
 #include <algorithm>
+#include <cmath>
+#include <cstdint>
 #include <functional>
 #include <memory>
+#include <vector>
 
-#include "TF1.h"
-#include "Framework/Logger.h"
+#include <TMath.h>
+#include <TMathBase.h>
+#include <TF1.h>
+
+#include <fairlogger/Logger.h>
+
 #include "Common/Core/RecoDecay.h"
-#include "Common/Core/trackUtilities.h"
+
 #include "PWGJE/Core/JetUtilities.h"
 
 enum JetTaggingSpecies {

@@ -18,15 +18,17 @@
 #ifndef PWGJE_CORE_JETUTILITIES_H_
 #define PWGJE_CORE_JETUTILITIES_H_
 
+#include <algorithm>
 #include <cmath>
+#include <cstddef>
 #include <limits>
-#include <numeric>
+#include <stdexcept>
 #include <tuple>
 #include <vector>
 
 #include <TKDTree.h>
+#include <math.h>
 
-#include "Framework/Logger.h"
 #include "Common/Core/RecoDecay.h"
 
 namespace jetutilities

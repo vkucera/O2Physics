@@ -23,9 +23,10 @@
 #ifndef PWGJE_DATAMODEL_JET_H_
 #define PWGJE_DATAMODEL_JET_H_
 
+#include <Framework/ASoA.h>
 #include <cmath>
-#include "Framework/AnalysisDataModel.h"
-#include "PWGJE/DataModel/EMCALClusters.h"
+#include <cstdint>
+#include "PWGHF/DataModel/CandidateReconstructionTables.h"
 #include "PWGJE/DataModel/JetReducedData.h"
 #include "PWGJE/DataModel/JetReducedDataHF.h"
 #include "PWGJE/DataModel/JetReducedDataV0.h"

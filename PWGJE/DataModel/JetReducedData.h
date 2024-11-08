@@ -17,11 +17,13 @@
 #ifndef PWGJE_DATAMODEL_JETREDUCEDDATA_H_
 #define PWGJE_DATAMODEL_JETREDUCEDDATA_H_
 
-#include <cmath>
-#include <vector>
 #include "Framework/AnalysisDataModel.h"
-#include "PWGJE/DataModel/EMCALClusters.h"
 #include "PWGJE/Core/JetDerivedDataUtilities.h"
+#include "PWGJE/DataModel/EMCALClusters.h"
+#include <Framework/ASoA.h>
+#include <cmath>
+#include <cstdint>
+#include <vector>
 
 namespace o2::aod
 {

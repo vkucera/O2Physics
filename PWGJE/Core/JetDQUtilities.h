@@ -18,30 +18,20 @@
 #define PWGJE_CORE_JETDQUTILITIES_H_
 
 #include <array>
-#include <vector>
+#include <type_traits>
+#include <cstdint>
 #include <string>
-#include <optional>
 
+#include <Rtypes.h>
 #include <TPDGCode.h>
 
 #include "CommonConstants/PhysicsConstants.h"
-#include "Framework/AnalysisTask.h"
-#include "Framework/AnalysisDataModel.h"
 #include "Framework/ASoA.h"
-#include "Framework/O2DatabasePDGPlugin.h"
 
-#include "Framework/Logger.h"
-#include "Common/Core/TrackSelection.h"
-#include "Common/Core/TrackSelectionDefaults.h"
-#include "Common/DataModel/EventSelection.h"
-#include "Common/DataModel/TrackSelectionTables.h"
 
-#include "PWGDQ/DataModel/ReducedInfoTables.h"
 
-#include "PWGJE/Core/FastJetUtilities.h"
-#include "PWGJE/Core/JetDerivedDataUtilities.h"
-#include "PWGJE/Core/JetFinder.h"
 #include "PWGJE/DataModel/Jet.h"
+#include "RecoDecay.h"
 
 namespace jetdqutilities
 {
