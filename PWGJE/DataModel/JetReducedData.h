@@ -17,10 +17,10 @@
 #ifndef PWGJE_DATAMODEL_JETREDUCEDDATA_H_
 #define PWGJE_DATAMODEL_JETREDUCEDDATA_H_
 
-#include <Framework/AnalysisDataModel.h>
 #include "PWGJE/Core/JetDerivedDataUtilities.h"
 #include "PWGJE/DataModel/EMCALClusters.h"
 #include <Framework/ASoA.h>
+#include <Framework/AnalysisDataModel.h>
 #include <cmath>
 #include <cstdint>
 #include <vector>

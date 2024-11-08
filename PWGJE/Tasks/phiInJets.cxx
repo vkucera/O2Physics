@@ -15,14 +15,21 @@
 ///
 /// \author Adrian Fereydon Nassirpour <adrian.fereydon.nassirpour@cern.ch>
 
+#include "PWGJE/DataModel/JetReducedData.h"
+#include <CommonConstants/PhysicsConstants.h>
+#include <Framework/ASoA.h>
 #include <Framework/ASoAHelpers.h>
+#include <Framework/AnalysisDataModel.h>
+#include <Framework/AnalysisTask.h>
 #include <Framework/Configurable.h>
 #include <Framework/Expressions.h>
+#include <Framework/HistogramRegistry.h>
 #include <Framework/HistogramSpec.h>
 #include <Framework/InitContext.h>
 #include <Framework/OutputObjHeader.h>
 #include <Framework/SliceCache.h>
 #include <Framework/WorkflowSpec.h>
+#include <Framework/runDataProcessing.h>
 #include <RtypesCore.h>
 #include <TLorentzVector.h>
 #include <TMath.h>
@@ -37,13 +44,6 @@
 #include <stdlib.h>
 #include <string>
 #include <vector>
-#include <Framework/ASoA.h>
-#include <Framework/AnalysisDataModel.h>
-#include <Framework/AnalysisTask.h>
-#include <Framework/HistogramRegistry.h>
-#include <Framework/runDataProcessing.h>
-#include "PWGJE/DataModel/JetReducedData.h"
-#include <CommonConstants/PhysicsConstants.h>
 
 #include "Common/DataModel/EventSelection.h"
 #include "Common/DataModel/Multiplicity.h"

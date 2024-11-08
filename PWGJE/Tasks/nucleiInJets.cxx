@@ -11,13 +11,18 @@
 
 // author: Arvind Khuntia (arvind.khuntia@cern.ch) INFN Bologna, Italy
 
+#include <Framework/ASoA.h>
+#include <Framework/AnalysisDataModel.h>
+#include <Framework/AnalysisTask.h>
 #include <Framework/Configurable.h>
 #include <Framework/Expressions.h>
+#include <Framework/HistogramRegistry.h>
 #include <Framework/HistogramSpec.h>
 #include <Framework/InitContext.h>
 #include <Framework/OutputObjHeader.h>
 #include <Framework/SliceCache.h>
 #include <Framework/WorkflowSpec.h>
+#include <Framework/runDataProcessing.h>
 #include <TH1.h>
 #include <TH2.h>
 #include <TH3.h>
@@ -29,11 +34,6 @@
 #include <math.h>
 #include <string>
 #include <vector>
-#include <Framework/ASoA.h>
-#include <Framework/AnalysisDataModel.h>
-#include <Framework/AnalysisTask.h>
-#include <Framework/HistogramRegistry.h>
-#include <Framework/runDataProcessing.h>
 
 #include "Common/Core/RecoDecay.h"
 #include "Common/DataModel/EventSelection.h"
@@ -41,10 +41,10 @@
 #include "Common/DataModel/PIDResponse.h"
 #include "Common/DataModel/TrackSelectionTables.h"
 
-#include "PWGJE/DataModel/JetReducedData.h"
-#include "PWGLF/DataModel/LFParticleIdentification.h"
 #include "PWGJE/Core/JetDerivedDataUtilities.h"
 #include "PWGJE/DataModel/Jet.h"
+#include "PWGJE/DataModel/JetReducedData.h"
+#include "PWGLF/DataModel/LFParticleIdentification.h"
 
 using namespace o2;
 using namespace o2::framework;

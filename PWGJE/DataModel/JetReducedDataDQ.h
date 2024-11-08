@@ -17,9 +17,9 @@
 #ifndef PWGJE_DATAMODEL_JETREDUCEDDATADQ_H_
 #define PWGJE_DATAMODEL_JETREDUCEDDATADQ_H_
 
+#include <Framework/ASoA.h>
 #include <cmath>
 #include <cstdint>
-#include <Framework/ASoA.h>
 
 #include "PWGJE/DataModel/JetReducedData.h"
 

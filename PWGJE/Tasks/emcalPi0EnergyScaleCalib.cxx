@@ -9,14 +9,22 @@
 // granted to it by virtue of its status as an Intergovernmental Organization
 // or submit itself to any jurisdiction.
 
+#include <EMCALBase/Geometry.h>
+#include <Framework/ASoA.h>
+#include <Framework/AnalysisDataModel.h>
+#include <Framework/AnalysisTask.h>
 #include <Framework/Configurable.h>
 #include <Framework/Expressions.h>
+#include <Framework/HistogramRegistry.h>
 #include <Framework/HistogramSpec.h>
 #include <Framework/InitContext.h>
 #include <Framework/WorkflowSpec.h>
+#include <Framework/runDataProcessing.h>
 #include <TH1.h>
 #include <TH3.h>
+#include <TLorentzVector.h>
 #include <TString.h>
+#include <TVector3.h>
 #include <algorithm>
 #include <array>
 #include <climits>
@@ -28,14 +36,6 @@
 #include <memory>
 #include <string>
 #include <vector>
-#include <EMCALBase/Geometry.h>
-#include <Framework/ASoA.h>
-#include <Framework/AnalysisDataModel.h>
-#include <Framework/AnalysisTask.h>
-#include <Framework/HistogramRegistry.h>
-#include <Framework/runDataProcessing.h>
-#include <TLorentzVector.h>
-#include <TVector3.h>
 
 #include "Common/CCDB/TriggerAliases.h"
 #include "Common/DataModel/EventSelection.h"

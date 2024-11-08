@@ -21,8 +21,8 @@
 
 // O2 includes
 #include "Common/DataModel/TrackSelectionTables.h"
-#include <Framework/AnalysisDataModel.h>
 #include <Framework/ASoA.h>
+#include <Framework/AnalysisDataModel.h>
 #include <cstdint>
 
 // Derived data model for track optimization (and cut variation)

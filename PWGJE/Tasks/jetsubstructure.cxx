@@ -14,18 +14,18 @@
 /// \author Nima Zardoshti <nima.zardoshti@cern.ch>
 //
 
-#include <fastjet/PseudoJet.hh>
-#include <fastjet/ClusterSequenceArea.hh>
 #include <Framework/ASoA.h>
-#include <Framework/AnalysisTask.h>
-#include <Framework/HistogramRegistry.h>
-#include <Framework/O2DatabasePDGPlugin.h>
 #include <Framework/AnalysisHelpers.h>
+#include <Framework/AnalysisTask.h>
 #include <Framework/Configurable.h>
+#include <Framework/HistogramRegistry.h>
 #include <Framework/HistogramSpec.h>
 #include <Framework/InitContext.h>
+#include <Framework/O2DatabasePDGPlugin.h>
 #include <Framework/WorkflowSpec.h>
+#include <fastjet/ClusterSequenceArea.hh>
 #include <fastjet/JetDefinition.hh>
+#include <fastjet/PseudoJet.hh>
 #include <utility>
 #include <vector>
 
