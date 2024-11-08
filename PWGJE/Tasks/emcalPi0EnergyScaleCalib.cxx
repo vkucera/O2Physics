@@ -28,23 +28,21 @@
 #include <memory>
 #include <string>
 #include <vector>
+#include <EMCALBase/Geometry.h>
+#include <Framework/ASoA.h>
+#include <Framework/AnalysisDataModel.h>
+#include <Framework/AnalysisTask.h>
+#include <Framework/HistogramRegistry.h>
+#include <Framework/runDataProcessing.h>
+#include <TLorentzVector.h>
+#include <TVector3.h>
 
 #include "Common/CCDB/TriggerAliases.h"
-#include "Framework/ASoA.h"
-#include "Framework/AnalysisDataModel.h"
-#include "Framework/AnalysisTask.h"
-#include "Framework/HistogramRegistry.h"
-#include "Framework/runDataProcessing.h"
-
 #include "Common/DataModel/EventSelection.h"
 
-#include "EMCALBase/Geometry.h"
 #include "PWGJE/DataModel/EMCALClusters.h"
 #include "PWGJE/DataModel/EMCALMatchedCollisions.h"
 
-
-#include "TLorentzVector.h"
-#include "TVector3.h"
 
 /// \brief Simple pi0 reconstruction task used to scale the cell energy based on the difference in mass position in data and MC
 /// \author Nicolas Strangmann <nicolas.strangmann@cern.ch>, Goethe University Frankfurt / Oak Ridge National Laoratory

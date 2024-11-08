@@ -14,9 +14,8 @@
 /// \author Nima Zardoshti <nima.zardoshti@cern.ch>
 //
 
-#include "PWGJE/DataModel/JetSubtraction.h"
-#include "fastjet/ClusterSequenceArea.hh"
-#include "fastjet/PseudoJet.hh"
+#include <fastjet/ClusterSequenceArea.hh>
+#include <fastjet/PseudoJet.hh>
 #include <Framework/AnalysisHelpers.h>
 #include <Framework/Configurable.h>
 #include <Framework/DataProcessorSpec.h>
@@ -27,13 +26,12 @@
 #include <type_traits>
 #include <utility>
 #include <vector>
+#include <Framework/ASoA.h>
+#include <Framework/AnalysisTask.h>
+#include <Framework/HistogramRegistry.h>
+#include <Framework/O2DatabasePDGPlugin.h>
 
-#include "Framework/ASoA.h"
-#include "Framework/AnalysisTask.h"
-#include "Framework/HistogramRegistry.h"
-#include "Framework/O2DatabasePDGPlugin.h"
-
-
+#include "PWGJE/DataModel/JetSubtraction.h"
 #include "PWGJE/Core/FastJetUtilities.h"
 #include "PWGJE/Core/JetFinder.h"
 #include "PWGJE/Core/JetSubstructureUtilities.h"
@@ -46,7 +44,7 @@ using namespace o2::framework;
 using namespace o2::framework::expressions;
 
 // NB: runDataProcessing.h must be included after customize!
-#include "Framework/runDataProcessing.h"
+#include <Framework/runDataProcessing.h>
 
 template <typename JetTableData, typename JetTableMCD, typename JetTableMCP, typename JetTableDataSub, typename CandidateTable, typename CandidateTableMCP, typename SubstructureTableData, typename SubstructureTableMCD, typename SubstructureTableMCP, typename SubstructureTableDataSub, typename TracksSub>
 struct JetSubstructureHFTask {

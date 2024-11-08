@@ -37,7 +37,7 @@
 #include "Framework/O2DatabasePDGPlugin.h"
 #include "Framework/runDataProcessing.h"
 #include "PWGHF/Core/SelectorCuts.h"
-#include "RecoDecay.h"
+#include "Common/Core/RecoDecay.h"
 
 #include "Common/DataModel/EventSelection.h"
 #include "Common/DataModel/Multiplicity.h"

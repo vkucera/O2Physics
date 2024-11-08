@@ -13,7 +13,7 @@
 //
 /// \author Nima Zardoshti <nima.zardoshti@cern.ch>
 
-#include "Framework/AnalysisTask.h"
+#include <Framework/AnalysisTask.h>
 #include <Framework/AnalysisHelpers.h>
 #include <Framework/Configurable.h>
 #include <Framework/DataProcessorSpec.h>
@@ -26,7 +26,7 @@ using namespace o2;
 using namespace o2::framework;
 using namespace o2::framework::expressions;
 
-#include "Framework/runDataProcessing.h"
+#include <Framework/runDataProcessing.h>
 
 template <typename MCParticleLevelJetTable, typename MCParticleLevelWeightsTable>
 

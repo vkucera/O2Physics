@@ -32,24 +32,22 @@
 #include <ReconstructionDataFormats/TrackParametrizationWithError.h>
 #include <ReconstructionDataFormats/Vertex.h>
 #include <fairlogger/Logger.h>
-
 #include "Common/Core/RecoDecay.h"
 #include "Common/Core/trackUtilities.h"
 #include "Common/DataModel/TrackSelectionTables.h"
-#include "CommonConstants/PhysicsConstants.h"
+#include <CommonConstants/PhysicsConstants.h>
 #include "DCAFitter/DCAFitterN.h"
-#include "Framework/ASoA.h"
-#include "Framework/AnalysisDataModel.h"
-#include "Framework/AnalysisTask.h"
-#include "Framework/runDataProcessing.h"
-
-#include "PWGJE/DataModel/JetReducedData.h"
-#include "ReconstructionDataFormats/DCA.h"
-
-#include "PWGJE/DataModel/Jet.h"
-#include "PWGJE/DataModel/JetTagging.h"
+#include <Framework/ASoA.h>
+#include <Framework/AnalysisDataModel.h>
+#include <Framework/AnalysisTask.h>
+#include <Framework/runDataProcessing.h>
+#include <ReconstructionDataFormats/DCA.h>
 
 #include "PWGHF/Utils/utilsBfieldCCDB.h"
+
+#include "PWGJE/DataModel/JetReducedData.h"
+#include "PWGJE/DataModel/Jet.h"
+#include "PWGJE/DataModel/JetTagging.h"
 
 using namespace o2;
 using namespace o2::framework;

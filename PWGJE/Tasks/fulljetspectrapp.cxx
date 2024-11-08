@@ -28,15 +28,13 @@
 #include <math.h>
 #include <type_traits>
 #include <vector>
+#include <Framework/ASoA.h>
+#include <Framework/AnalysisTask.h>
+#include <Framework/HistogramRegistry.h>
+#include <Framework/O2DatabasePDGPlugin.h>
+#include <Framework/runDataProcessing.h>
 
 #include "Common/CCDB/TriggerAliases.h"
-#include "Framework/ASoA.h"
-#include "Framework/AnalysisTask.h"
-#include "Framework/HistogramRegistry.h"
-#include "Framework/O2DatabasePDGPlugin.h"
-#include "Framework/runDataProcessing.h"
-
-
 
 #include "PWGJE/Core/JetDerivedDataUtilities.h"
 #include "PWGJE/Core/JetFindingUtilities.h"
@@ -44,7 +42,6 @@
 #include "PWGJE/DataModel/EMCALClusterDefinition.h"
 #include "PWGJE/DataModel/EMCALClusters.h"
 #include "PWGJE/DataModel/Jet.h"
-
 #include "PWGJE/DataModel/JetReducedData.h"
 
 using namespace std;

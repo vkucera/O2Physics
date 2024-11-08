@@ -13,13 +13,6 @@
 //
 /// \author Nima Zardoshti <nima.zardoshti@cern.ch>
 
-#include <CommonConstants/MathConstants.h>
-#include <DetectorsBase/MatLayerCylSet.h>
-#include <Framework/AnalysisHelpers.h>
-#include <Framework/Configurable.h>
-#include <Framework/InitContext.h>
-#include <Framework/WorkflowSpec.h>
-#include <ReconstructionDataFormats/DCA.h>
 #include <algorithm>
 #include <cmath>
 #include <cstdint>
@@ -29,40 +22,45 @@
 #include <utility>
 #include <vector>
 
-#include "Common/DataModel/Multiplicity.h"
-#include "Framework/ASoA.h"
-#include "Framework/AnalysisDataModel.h"
-#include "Framework/AnalysisTask.h"
-#include "Framework/O2DatabasePDGPlugin.h"
-#include "Framework/runDataProcessing.h"
-#include "PWGDQ/DataModel/ReducedInfoTables.h"
-#include "PWGHF/DataModel/DerivedTables.h"
-#include "PWGJE/DataModel/JetReducedData.h"
-#include "PWGJE/DataModel/JetReducedDataDQ.h"
-#include "PWGJE/DataModel/JetReducedDataHF.h"
-#include "PWGJE/DataModel/JetReducedDataV0.h"
-#include "PWGLF/DataModel/LFStrangenessTables.h"
-
-#include "CCDB/BasicCCDBManager.h"
-#include "DetectorsBase/Propagator.h"
-#include "ReconstructionDataFormats/Vertex.h"
+#include <CCDB/BasicCCDBManager.h>
+#include <CommonConstants/MathConstants.h>
+#include <DetectorsBase/MatLayerCylSet.h>
+#include <DetectorsBase/Propagator.h>
+#include <Framework/ASoA.h>
+#include <Framework/AnalysisDataModel.h>
+#include <Framework/AnalysisHelpers.h>
+#include <Framework/AnalysisTask.h>
+#include <Framework/Configurable.h>
+#include <Framework/InitContext.h>
+#include <Framework/O2DatabasePDGPlugin.h>
+#include <Framework/WorkflowSpec.h>
+#include <Framework/runDataProcessing.h>
+#include <ReconstructionDataFormats/DCA.h>
+#include <ReconstructionDataFormats/Vertex.h>
 
 #include "Common/Core/RecoDecay.h"
 #include "Common/Core/trackUtilities.h"
 #include "Common/DataModel/Centrality.h"
 #include "Common/DataModel/CollisionAssociationTables.h"
 #include "Common/DataModel/EventSelection.h"
+#include "Common/DataModel/Multiplicity.h"
 #include "Common/DataModel/TrackSelectionTables.h"
-#include "PWGJE/DataModel/EMCALClusters.h"
-
 #include "EventFiltering/Zorro.h"
+
+#include "PWGDQ/DataModel/ReducedInfoTables.h"
+#include "PWGHF/DataModel/DerivedTables.h"
+#include "PWGHF/Utils/utilsBfieldCCDB.h"
+#include "PWGLF/DataModel/LFStrangenessTables.h"
 
 #include "PWGJE/Core/JetDQUtilities.h"
 #include "PWGJE/Core/JetDerivedDataUtilities.h"
 #include "PWGJE/Core/JetV0Utilities.h"
+#include "PWGJE/DataModel/EMCALClusters.h"
 #include "PWGJE/DataModel/EMCALMatchedCollisions.h"
-
-#include "PWGHF/Utils/utilsBfieldCCDB.h"
+#include "PWGJE/DataModel/JetReducedData.h"
+#include "PWGJE/DataModel/JetReducedDataDQ.h"
+#include "PWGJE/DataModel/JetReducedDataHF.h"
+#include "PWGJE/DataModel/JetReducedDataV0.h"
 
 using namespace o2;
 using namespace o2::framework;

@@ -25,19 +25,18 @@
 #include <sstream>
 #include <string>
 #include <vector>
+#include <Framework/ASoA.h>
+#include <Framework/AnalysisDataModel.h>
+#include <Framework/AnalysisTask.h>
+#include <Framework/HistogramRegistry.h>
+#include <Framework/runDataProcessing.h>
+#include <EMCALBase/Geometry.h>
 
 #include "Common/CCDB/TriggerAliases.h"
-#include "Framework/ASoA.h"
-#include "Framework/AnalysisDataModel.h"
-#include "Framework/AnalysisTask.h"
-#include "Framework/HistogramRegistry.h"
-#include "Framework/runDataProcessing.h"
-
 #include "Common/DataModel/EventSelection.h"
 #include "Common/DataModel/PIDResponse.h"
 #include "Common/DataModel/TrackSelectionTables.h"
 
-#include "EMCALBase/Geometry.h"
 #include "PWGJE/DataModel/EMCALClusters.h"
 
 

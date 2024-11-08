@@ -15,10 +15,10 @@
 /// \author Aimeric Landou <aimeric.landou@cern.ch>
 /// \author Nima Zardoshti <nima.zardoshti@cern.ch>
 
-#include "Framework/ASoA.h"
-#include "Framework/AnalysisTask.h"
-#include "Framework/HistogramRegistry.h"
-#include "Framework/runDataProcessing.h"
+#include <Framework/ASoA.h>
+#include <Framework/AnalysisTask.h>
+#include <Framework/HistogramRegistry.h>
+#include <Framework/runDataProcessing.h>
 #include <Framework/AnalysisHelpers.h>
 #include <Framework/Configurable.h>
 #include <Framework/Expressions.h>
@@ -28,13 +28,13 @@
 #include <TH1.h>
 #include <TH2.h>
 #include <fastjet/JetDefinition.hh>
+#include <fastjet/contrib/AxesDefinition.hh>
 #include <vector>
 
 #include "PWGJE/Core/JetFinder.h"
 #include "PWGJE/Core/JetSubstructureUtilities.h"
 #include "PWGJE/DataModel/Jet.h"
 #include "PWGJE/DataModel/JetReducedData.h"
-#include "fastjet/contrib/AxesDefinition.hh"
 
 using namespace o2;
 using namespace o2::framework;

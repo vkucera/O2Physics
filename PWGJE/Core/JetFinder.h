@@ -17,7 +17,6 @@
 #ifndef PWGJE_CORE_JETFINDER_H_
 #define PWGJE_CORE_JETFINDER_H_
 
-#include <Rtypes.h>
 #include <math.h>
 #include <vector>
 
@@ -27,6 +26,8 @@
 #include <fastjet/JetDefinition.hh>
 #include <fastjet/PseudoJet.hh>
 #include <fastjet/Selector.hh>
+
+#include <Rtypes.h>
 
 enum class JetType {
   full = 0,

@@ -25,7 +25,7 @@
 #include <Rtypes.h>
 #include <TPDGCode.h>
 
-#include "Framework/ASoA.h"
+#include <Framework/ASoA.h>
 
 #include "Common/Core/RecoDecay.h"
 

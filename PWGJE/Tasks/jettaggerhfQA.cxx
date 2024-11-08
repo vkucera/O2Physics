@@ -14,7 +14,6 @@
 ///
 /// \author Hanseo Park <hanseo.park@cern.ch>
 
-#include "PWGJE/DataModel/JetReducedData.h"
 #include <Framework/Configurable.h>
 #include <Framework/DataProcessorSpec.h>
 #include <Framework/Expressions.h>
@@ -30,13 +29,12 @@
 #include <functional>
 #include <math.h>
 #include <vector>
+#include <Framework/ASoA.h>
+#include <Framework/AnalysisDataModel.h>
+#include <Framework/AnalysisTask.h>
+#include <Framework/runDataProcessing.h>
 
-#include "Framework/ASoA.h"
-#include "Framework/AnalysisDataModel.h"
-#include "Framework/AnalysisTask.h"
-#include "Framework/runDataProcessing.h"
-
-
+#include "PWGJE/DataModel/JetReducedData.h"
 #include "PWGJE/Core/JetDerivedDataUtilities.h"
 #include "PWGJE/Core/JetFindingUtilities.h"
 #include "PWGJE/Core/JetTaggingUtilities.h"

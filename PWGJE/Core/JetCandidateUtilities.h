@@ -20,9 +20,6 @@
 #include <cstdint>
 #include <type_traits>
 
-
-
-
 #include "PWGJE/Core/JetHFUtilities.h"
 #include "PWGJE/Core/JetDQUtilities.h"
 #include "PWGJE/Core/JetV0Utilities.h"

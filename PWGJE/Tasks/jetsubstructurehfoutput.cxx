@@ -14,14 +14,8 @@
 /// \author Nima Zardoshti <nima.zardoshti@cern.ch>
 //
 
-#include "Framework/ASoA.h"
-#include "Framework/AnalysisTask.h"
-#include "PWGDQ/DataModel/ReducedInfoTables.h"
-#include "PWGHF/DataModel/DerivedTables.h"
-#include "PWGJE/DataModel/JetReducedData.h"
-#include "PWGJE/DataModel/JetReducedDataDQ.h"
-#include "PWGJE/DataModel/JetReducedDataHF.h"
-#include "PWGJE/DataModel/JetSubtraction.h"
+#include <Framework/ASoA.h>
+#include <Framework/AnalysisTask.h>
 #include <Framework/AnalysisHelpers.h>
 #include <Framework/Configurable.h>
 #include <Framework/DataProcessorSpec.h>
@@ -34,8 +28,12 @@
 #include <map>
 #include <vector>
 
-
-
+#include "PWGDQ/DataModel/ReducedInfoTables.h"
+#include "PWGHF/DataModel/DerivedTables.h"
+#include "PWGJE/DataModel/JetReducedData.h"
+#include "PWGJE/DataModel/JetReducedDataDQ.h"
+#include "PWGJE/DataModel/JetReducedDataHF.h"
+#include "PWGJE/DataModel/JetSubtraction.h"
 #include "PWGJE/Core/JetFindingUtilities.h"
 #include "PWGJE/DataModel/Jet.h"
 #include "PWGJE/DataModel/JetSubstructure.h"
@@ -45,7 +43,7 @@ using namespace o2::framework;
 using namespace o2::framework::expressions;
 
 // NB: runDataProcessing.h must be included after customize!
-#include "Framework/runDataProcessing.h"
+#include <Framework/runDataProcessing.h>
 
 template <typename CandidateCollisionTable, typename CandidateMcCollisionTable, typename CandidateTable, typename CandidateTableMCD, typename CandidateTableMCP, typename TracksSub, typename JetTableData, typename JetMatchedTableData, typename OutputCollisionTableData, typename OutputTableData, typename SubstructureOutputTableData, typename MatchingOutputTableData, typename JetTableMCD, typename OutputCollisionTableMCD, typename OutputTableMCD, typename SubstructureOutputTableMCD, typename MatchingOutputTableMCD, typename JetTableMCP, typename OutputCollisionTableMCP, typename OutputTableMCP, typename SubstructureOutputTableMCP, typename MatchingOutputTableMCP, typename JetTableDataSub, typename OutputCollisionTableDataSub, typename OutputTableDataSub, typename SubstructureOutputTableDataSub, typename MatchingOutputTableDataSub, typename CandidateCollisionOutputTable, typename CandidateOutputTable, typename CandidateParOutputTable, typename CandidateParExtraOutputTable, typename CandidateSelOutputTable, typename CandidateMlOutputTable, typename CandidateMCDOutputTable, typename CandidateMcCollisionOutputTable, typename CandidateMcCollisionMatchingOutputTable, typename CandidateMCPOutputTable>
 struct JetSubstructureHFOutputTask {

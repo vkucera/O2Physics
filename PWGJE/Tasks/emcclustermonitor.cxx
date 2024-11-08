@@ -28,20 +28,18 @@
 #include <string>
 #include <string_view>
 #include <vector>
+#include <Framework/ASoA.h>
+#include <Framework/AnalysisDataModel.h>
+#include <Framework/AnalysisTask.h>
+#include <Framework/HistogramRegistry.h>
+#include <Framework/runDataProcessing.h>
+#include <EMCALBase/Geometry.h>
+#include <CommonDataFormat/InteractionRecord.h>
 
 #include "Common/CCDB/TriggerAliases.h"
-#include "Framework/ASoA.h"
-#include "Framework/AnalysisDataModel.h"
-#include "Framework/AnalysisTask.h"
-#include "Framework/HistogramRegistry.h"
-#include "Framework/runDataProcessing.h"
-
 #include "Common/DataModel/EventSelection.h"
 
-#include "EMCALBase/Geometry.h"
 #include "PWGJE/DataModel/EMCALClusters.h"
-
-#include "CommonDataFormat/InteractionRecord.h"
 
 // \struct ClusterMonitor
 /// \brief Simple monitoring task for EMCal clusters

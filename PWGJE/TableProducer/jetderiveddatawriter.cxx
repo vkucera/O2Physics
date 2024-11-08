@@ -33,9 +33,9 @@
 #include <MathUtils/detail/TypeTruncation.h>
 #include <TRandom3.h>
 
-#include "Framework/ASoA.h"
-#include "Framework/AnalysisTask.h"
-#include "Framework/runDataProcessing.h"
+#include <Framework/ASoA.h>
+#include <Framework/AnalysisTask.h>
+#include <Framework/runDataProcessing.h>
 
 #include "PWGDQ/DataModel/ReducedInfoTables.h"
 #include "PWGHF/DataModel/DerivedTables.h"

@@ -14,21 +14,9 @@
 /// \author Raymond Ehlers <raymond.ehlers@cern.ch>, ORNL
 /// \author Florian Jonas <florian.jonas@cern.ch>
 
-#include <DataFormatsEMCAL/ClusterLabel.h>
-#include <Framework/AnalysisHelpers.h>
-#include <Framework/Configurable.h>
-#include <Framework/Expressions.h>
-#include <Framework/HistogramRegistry.h>
-#include <Framework/HistogramSpec.h>
-#include <Framework/InitContext.h>
-#include <Framework/WorkflowSpec.h>
-#include <GPUROOTCartesianFwd.h>
-#include <TH1.h>
 #include <cmath>
 #include <cstddef>
 #include <cstdint>
-#include <fairlogger/Logger.h>
-#include <gsl/span>
 #include <memory>
 #include <optional>
 #include <sstream>
@@ -38,30 +26,42 @@
 #include <utility>
 #include <vector>
 
-#include "CCDB/BasicCCDBManager.h"
-#include "Framework/ASoA.h"
-#include "Framework/AnalysisDataModel.h"
-#include "Framework/AnalysisTask.h"
-#include "Framework/runDataProcessing.h"
+#include <fairlogger/Logger.h>
+#include <gsl/span>
 
-#include "DetectorsBase/GeometryManager.h"
+#include <GPUROOTCartesianFwd.h>
+#include <TH1.h>
+#include <TVector2.h>
 
+#include <CCDB/BasicCCDBManager.h>
+#include <Common/DataModel/EventSelection.h>
+#include <Common/DataModel/TrackSelectionTables.h>
+#include <DataFormatsEMCAL/AnalysisCluster.h>
+#include <DataFormatsEMCAL/Cell.h>
+#include <DataFormatsEMCAL/CellLabel.h>
+#include <DataFormatsEMCAL/ClusterLabel.h>
+#include <DataFormatsEMCAL/Constants.h>
+#include <DetectorsBase/GeometryManager.h>
+#include <EMCALBase/ClusterFactory.h>
+#include <EMCALBase/Geometry.h>
+#include <EMCALBase/NonlinearityHandler.h>
+#include <EMCALReconstruction/Clusterizer.h>
+#include <Framework/ASoA.h>
+#include <Framework/AnalysisDataModel.h>
+#include <Framework/AnalysisHelpers.h>
+#include <Framework/AnalysisTask.h>
+#include <Framework/Configurable.h>
+#include <Framework/Expressions.h>
+#include <Framework/HistogramRegistry.h>
+#include <Framework/HistogramSpec.h>
+#include <Framework/InitContext.h>
+#include <Framework/WorkflowSpec.h>
+#include <Framework/runDataProcessing.h>
+
+#include "PWGJE/Core/JetUtilities.h"
 #include "PWGJE/DataModel/EMCALClusterDefinition.h"
 #include "PWGJE/DataModel/EMCALClusters.h"
 #include "PWGJE/DataModel/EMCALMatchedCollisions.h"
-
-#include "Common/DataModel/EventSelection.h"
-#include "Common/DataModel/TrackSelectionTables.h"
-#include "DataFormatsEMCAL/AnalysisCluster.h"
-#include "DataFormatsEMCAL/Cell.h"
-#include "DataFormatsEMCAL/CellLabel.h"
-#include "DataFormatsEMCAL/Constants.h"
-#include "EMCALBase/ClusterFactory.h"
-#include "EMCALBase/Geometry.h"
-#include "EMCALBase/NonlinearityHandler.h"
-#include "EMCALReconstruction/Clusterizer.h"
-#include "PWGJE/Core/JetUtilities.h"
-#include "TVector2.h"
 
 using namespace o2;
 using namespace o2::framework;

@@ -31,7 +31,7 @@
 #include "PWGHF/Core/SelectorCuts.h"
 #include "PWGHF/Utils/utilsAnalysis.h"
 #include "PWGHF/HFC/DataModel/CorrelationTables.h"
-#include "RecoDecay.h"
+#include "Common/Core/RecoDecay.h"
 
 using namespace o2;
 using namespace o2::framework;

@@ -17,9 +17,9 @@
 /// \author Aimeric Lanodu <aimeric.landou@cern.ch>
 /// \author Nima Zardoshti <nima.zardoshti@cern.ch>
 
-#include "Framework/ASoA.h"
-#include "Framework/AnalysisTask.h"
-#include "Framework/runDataProcessing.h"
+#include <Framework/ASoA.h>
+#include <Framework/AnalysisTask.h>
+#include <Framework/runDataProcessing.h>
 #include <Framework/AnalysisHelpers.h>
 #include <Framework/Configurable.h>
 #include <Framework/DataProcessorSpec.h>

@@ -14,21 +14,12 @@
 /// \author Nima Zardoshti <nima.zardoshti@cern.ch>
 //
 
-#include "fastjet/PseudoJet.hh"
-#include "fastjet/ClusterSequenceArea.hh"
-
-#include "Framework/ASoA.h"
-#include "Framework/AnalysisTask.h"
-#include "Framework/HistogramRegistry.h"
-#include "Framework/O2DatabasePDGPlugin.h"
-
-
-#include "PWGJE/Core/FastJetUtilities.h"
-#include "PWGJE/Core/JetFinder.h"
-#include "PWGJE/Core/JetSubstructureUtilities.h"
-#include "PWGJE/Core/JetUtilities.h"
-#include "PWGJE/DataModel/Jet.h"
-#include "PWGJE/DataModel/JetSubstructure.h"
+#include <fastjet/PseudoJet.hh>
+#include <fastjet/ClusterSequenceArea.hh>
+#include <Framework/ASoA.h>
+#include <Framework/AnalysisTask.h>
+#include <Framework/HistogramRegistry.h>
+#include <Framework/O2DatabasePDGPlugin.h>
 #include <Framework/AnalysisHelpers.h>
 #include <Framework/Configurable.h>
 #include <Framework/HistogramSpec.h>
@@ -38,11 +29,18 @@
 #include <utility>
 #include <vector>
 
+#include "PWGJE/Core/FastJetUtilities.h"
+#include "PWGJE/Core/JetFinder.h"
+#include "PWGJE/Core/JetSubstructureUtilities.h"
+#include "PWGJE/Core/JetUtilities.h"
+#include "PWGJE/DataModel/Jet.h"
+#include "PWGJE/DataModel/JetSubstructure.h"
+
 using namespace o2;
 using namespace o2::framework;
 using namespace o2::framework::expressions;
 
-#include "Framework/runDataProcessing.h"
+#include <Framework/runDataProcessing.h>
 
 struct JetSubstructureTask {
   Produces<aod::CJetSSs> jetSubstructureDataTable;

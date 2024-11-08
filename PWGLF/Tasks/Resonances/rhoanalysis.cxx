@@ -31,7 +31,7 @@
 #include "Common/DataModel/PIDResponse.h"
 #include "Common/Core/RecoDecay.h"
 #include "Framework/O2DatabasePDGPlugin.h"
-#include "RecoDecay.h"
+#include "Common/Core/RecoDecay.h"
 
 using namespace o2;
 using namespace o2::framework;

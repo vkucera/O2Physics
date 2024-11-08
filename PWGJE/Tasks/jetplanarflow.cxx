@@ -23,10 +23,10 @@
 #include <TMath.h>
 #include <cstdint>
 #include <vector>
-
-#include "Framework/ASoA.h"
-#include "Framework/AnalysisTask.h"
-#include "Framework/runDataProcessing.h"
+#include <Framework/ASoA.h>
+#include <Framework/AnalysisTask.h>
+#include <Framework/runDataProcessing.h>
+#include <fastjet/contrib/AxesDefinition.hh>
 
 #include "PWGJE/Core/JetDerivedDataUtilities.h"
 #include "PWGJE/Core/JetFindingUtilities.h"
@@ -35,7 +35,6 @@
 #include "PWGJE/DataModel/Jet.h"
 #include "PWGJE/DataModel/JetReducedData.h"
 #include "PWGJE/DataModel/JetSubtraction.h"
-#include "fastjet/contrib/AxesDefinition.hh"
 
 using namespace o2;
 using namespace o2::framework;

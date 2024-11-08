@@ -14,11 +14,10 @@
 ///
 /// \author Joachim C. K. B. Hansen, Lund University
 
-#include "Common/DataModel/Centrality.h"
-#include "Framework/ASoA.h"
-#include "Framework/AnalysisDataModel.h"
-#include "Framework/AnalysisTask.h"
-#include "Framework/HistogramRegistry.h"
+#include <Framework/ASoA.h>
+#include <Framework/AnalysisDataModel.h>
+#include <Framework/AnalysisTask.h>
+#include <Framework/HistogramRegistry.h>
 #include <CommonConstants/MathConstants.h>
 #include <Framework/Configurable.h>
 #include <Framework/Expressions.h>
@@ -29,22 +28,21 @@
 #include <TMath.h>
 #include <fairlogger/Logger.h>
 #include <vector>
+#include <Framework/runDataProcessing.h>
 
+#include "Common/DataModel/Centrality.h"
 #include "Common/Core/RecoDecay.h"
+#include "Common/DataModel/EseTable.h"
+#include "Common/DataModel/Qvectors.h"
 
 #include "PWGJE/Core/JetDerivedDataUtilities.h"
 #include "PWGJE/DataModel/Jet.h"
-
-#include "Common/DataModel/EseTable.h"
-#include "Common/DataModel/Qvectors.h"
 #include "PWGJE/DataModel/JetReducedData.h"
 #include "PWGJE/DataModel/JetSubtraction.h"
 
 using namespace o2;
 using namespace o2::framework;
 using namespace o2::framework::expressions;
-
-#include "Framework/runDataProcessing.h"
 
 struct JetSpectraEseTask {
   ConfigurableAxis binJetPt{"binJetPt", {200, 0., 200.}, ""};

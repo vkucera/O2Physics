@@ -15,12 +15,12 @@
 #include <cmath>
 #include <string>
 
-#include "Framework/ASoA.h"
-#include "Framework/ASoAHelpers.h"
-#include "Framework/AnalysisDataModel.h"
-#include "Framework/AnalysisTask.h"
-#include "Framework/runDataProcessing.h"
-#include "ReconstructionDataFormats/Track.h"
+#include <Framework/ASoA.h>
+#include <Framework/ASoAHelpers.h>
+#include <Framework/AnalysisDataModel.h>
+#include <Framework/AnalysisTask.h>
+#include <Framework/runDataProcessing.h>
+#include <ReconstructionDataFormats/Track.h>
 
 #include "Common/Core/TrackSelection.h"
 #include "Common/Core/TrackSelectionDefaults.h"
@@ -35,7 +35,7 @@
 
 #include "../filterTables.h"
 
-#include "Framework/HistogramRegistry.h"
+#include <Framework/HistogramRegistry.h>
 
 using namespace o2;
 using namespace o2::framework;

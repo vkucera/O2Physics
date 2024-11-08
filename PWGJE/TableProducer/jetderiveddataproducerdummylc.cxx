@@ -13,8 +13,8 @@
 //
 /// \author Nima Zardoshti <nima.zardoshti@cern.ch>
 
-#include "Framework/AnalysisTask.h"
-#include "Framework/runDataProcessing.h"
+#include <Framework/AnalysisTask.h>
+#include <Framework/runDataProcessing.h>
 #include "PWGDQ/DataModel/ReducedInfoTables.h"
 #include "PWGHF/DataModel/DerivedTables.h"
 #include "PWGJE/DataModel/JetReducedData.h"

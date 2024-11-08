@@ -15,10 +15,9 @@
 /// \author Jochen Klein <jochen.klein@cern.ch>
 /// \author Aimeric Lanodu <aimeric.landou@cern.ch>
 
-#include "Framework/ASoA.h"
-#include "Framework/AnalysisTask.h"
-#include "Framework/runDataProcessing.h"
-#include "PWGJE/DataModel/Jet.h"
+#include <Framework/ASoA.h>
+#include <Framework/AnalysisTask.h>
+#include <Framework/runDataProcessing.h>
 #include <Framework/Configurable.h>
 #include <Framework/DataProcessorSpec.h>
 #include <Framework/HistogramRegistry.h>
@@ -27,6 +26,8 @@
 #include <Framework/WorkflowSpec.h>
 #include <TMath.h>
 #include <vector>
+
+#include "PWGJE/DataModel/Jet.h"
 
 using namespace o2;
 using namespace o2::framework;

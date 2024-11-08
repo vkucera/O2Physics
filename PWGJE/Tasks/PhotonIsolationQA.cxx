@@ -24,18 +24,17 @@
 #include <unordered_set>
 #include <utility>
 #include <vector>
-
-#include "Framework/ASoA.h"
-#include "Framework/AnalysisDataModel.h"
-#include "Framework/AnalysisTask.h"
-#include "Framework/HistogramRegistry.h"
-#include "Framework/runDataProcessing.h"
+#include <Framework/ASoA.h>
+#include <Framework/AnalysisDataModel.h>
+#include <Framework/AnalysisTask.h>
+#include <Framework/HistogramRegistry.h>
+#include <Framework/runDataProcessing.h>
+#include <EMCALBase/Geometry.h>
+#include <EMCALCalib/BadChannelMap.h>
 
 #include "Common/DataModel/EventSelection.h"
 #include "Common/DataModel/TrackSelectionTables.h"
 
-#include "EMCALBase/Geometry.h"
-#include "EMCALCalib/BadChannelMap.h"
 #include "PWGJE/Core/JetDerivedDataUtilities.h"
 #include "PWGJE/DataModel/EMCALClusters.h"
 

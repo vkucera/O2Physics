@@ -18,14 +18,13 @@
 #ifndef PWGHF_DATAMODEL_CANDIDATERECONSTRUCTIONTABLES_H_
 #define PWGHF_DATAMODEL_CANDIDATERECONSTRUCTIONTABLES_H_
 
-#include <Framework/ASoA.h>
 #include <array>
 #include <cstdint>
 #include <vector>
 
-
-#include "CommonConstants/PhysicsConstants.h"
-#include "Framework/AnalysisDataModel.h"
+#include <CommonConstants/PhysicsConstants.h>
+#include <Framework/AnalysisDataModel.h>
+#include <Framework/ASoA.h>
 
 #include "ALICE3/DataModel/ECAL.h"
 #include "Common/Core/RecoDecay.h"

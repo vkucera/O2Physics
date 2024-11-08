@@ -20,11 +20,9 @@
 #include <TH2.h>
 #include <string>
 #include <vector>
-
-#include "Framework/ASoA.h"
-#include "Framework/AnalysisTask.h"
-#include "Framework/HistogramRegistry.h"
-
+#include <Framework/ASoA.h>
+#include <Framework/AnalysisTask.h>
+#include <Framework/HistogramRegistry.h>
 
 #include "PWGJE/Core/JetDerivedDataUtilities.h"
 #include "PWGJE/DataModel/JetReducedData.h"
@@ -33,7 +31,7 @@ using namespace o2;
 using namespace o2::framework;
 using namespace o2::framework::expressions;
 
-#include "Framework/runDataProcessing.h"
+#include <Framework/runDataProcessing.h>
 
 struct TriggerCorrelationsTask {
 

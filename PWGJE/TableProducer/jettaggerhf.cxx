@@ -27,10 +27,9 @@
 #include <fairlogger/Logger.h>
 #include <memory>
 #include <vector>
-
-#include "Framework/ASoA.h"
-#include "Framework/AnalysisTask.h"
-#include "Framework/runDataProcessing.h"
+#include <Framework/ASoA.h>
+#include <Framework/AnalysisTask.h>
+#include <Framework/runDataProcessing.h>
 
 #include "PWGJE/Core/JetTaggingUtilities.h"
 #include "PWGJE/DataModel/Jet.h"

@@ -25,13 +25,12 @@
 #include <Rtypes.h>
 #include <TPDGCode.h>
 
-#include "CommonConstants/PhysicsConstants.h"
-#include "Framework/ASoA.h"
+#include <CommonConstants/PhysicsConstants.h>
+#include <Framework/ASoA.h>
 
-
+#include "Common/Core/RecoDecay.h"
 
 #include "PWGJE/DataModel/Jet.h"
-#include "RecoDecay.h"
 
 namespace jetdqutilities
 {

@@ -34,18 +34,16 @@
 #include <fastjet/PseudoJet.hh>
 #include <utility>
 #include <vector>
+#include <TTree.h>
+#include <Framework/ASoA.h>
+#include <Framework/AnalysisTask.h>
+#include <Framework/runDataProcessing.h>
 
 #include "Common/CCDB/TriggerAliases.h"
+
 #include "PWGJE/DataModel/EMCALClusterDefinition.h"
 #include "PWGJE/DataModel/EMCALClusters.h"
 #include "PWGJE/DataModel/JetReducedData.h"
-#include "TTree.h"
-
-#include "Framework/ASoA.h"
-#include "Framework/AnalysisTask.h"
-#include "Framework/runDataProcessing.h"
-
-
 #include "PWGJE/Core/JetDerivedDataUtilities.h"
 #include "PWGJE/Core/JetFinder.h"
 #include "PWGJE/DataModel/Jet.h"

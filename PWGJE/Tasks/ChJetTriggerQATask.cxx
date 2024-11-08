@@ -12,30 +12,28 @@
 // jet Trigger QA Task
 //
 /// \author Filip Krizek <Filip.Krizek@cern.ch>
+
+#include <cmath>
+#include <Framework/AnalysisDataModel.h>
+#include <Framework/AnalysisTask.h>
+#include <Framework/ASoA.h>
 #include <Framework/Configurable.h>
 #include <Framework/Expressions.h>
+#include <Framework/HistogramRegistry.h>
 #include <Framework/HistogramSpec.h>
 #include <Framework/InitContext.h>
+#include <Framework/runDataProcessing.h>
 #include <Framework/WorkflowSpec.h>
+#include <string>
 #include <TMath.h>
 #include <TMathBase.h>
-#include <cmath>
-#include <string>
 #include <vector>
 
 #include "Common/CCDB/EventSelectionParams.h"
-#include "Framework/ASoA.h"
-#include "Framework/AnalysisDataModel.h"
-#include "Framework/AnalysisTask.h"
-#include "Framework/runDataProcessing.h"
-
-
 #include "Common/DataModel/EventSelection.h"
 
 #include "PWGJE/Core/JetDerivedDataUtilities.h"
 #include "PWGJE/DataModel/Jet.h"
-
-#include "Framework/HistogramRegistry.h"
 #include "PWGJE/DataModel/JetReducedData.h"
 
 using namespace o2;

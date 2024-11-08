@@ -29,18 +29,17 @@
 #include <iostream>
 #include <ostream>
 #include <vector>
+#include <Framework/ASoA.h>
+#include <Framework/AnalysisDataModel.h>
+#include <Framework/AnalysisTask.h>
+#include <Framework/HistogramRegistry.h>
+#include <Framework/runDataProcessing.h>
 
 #include "Common/CCDB/TriggerAliases.h"
-#include "Framework/ASoA.h"
-#include "Framework/AnalysisDataModel.h"
-#include "Framework/AnalysisTask.h"
-#include "Framework/HistogramRegistry.h"
-#include "Framework/runDataProcessing.h"
-#include "PWGJE/DataModel/JetReducedData.h"
-
 #include "Common/DataModel/EventSelection.h"
 #include "Common/DataModel/TrackSelectionTables.h"
 
+#include "PWGJE/DataModel/JetReducedData.h"
 #include "PWGJE/DataModel/EMCALClusters.h"
 
 

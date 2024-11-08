@@ -20,16 +20,16 @@
 
 #include <boost/algorithm/string/case_conv.hpp>
 
-#include "CCDB/BasicCCDBManager.h"
-#include "DataFormatsCTP/Configuration.h"
-#include "EMCALBase/Geometry.h"
-#include "ReconstructionDataFormats/Track.h"
-#include "Framework/runDataProcessing.h"
-#include "Framework/AnalysisTask.h"
-#include "Framework/AnalysisDataModel.h"
-#include "Framework/ASoA.h"
-#include "Framework/ASoAHelpers.h"
-#include "Framework/HistogramRegistry.h"
+#include <CCDB/BasicCCDBManager.h>
+#include <DataFormatsCTP/Configuration.h>
+#include <EMCALBase/Geometry.h>
+#include <ReconstructionDataFormats/Track.h>
+#include <Framework/runDataProcessing.h>
+#include <Framework/AnalysisTask.h>
+#include <Framework/AnalysisDataModel.h>
+#include <Framework/ASoA.h>
+#include <Framework/ASoAHelpers.h>
+#include <Framework/HistogramRegistry.h>
 
 #include "Common/DataModel/EventSelection.h"
 #include "Common/DataModel/TrackSelectionTables.h"

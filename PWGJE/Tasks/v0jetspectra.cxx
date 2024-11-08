@@ -14,8 +14,6 @@
 /// \author Gijs van Weelden <g.van.weelden@cern.ch>
 //
 
-#include "PWGJE/Core/JetDerivedDataUtilities.h"
-#include "PWGJE/DataModel/JetReducedData.h"
 #include <Framework/Configurable.h>
 #include <Framework/Expressions.h>
 #include <Framework/HistogramRegistry.h>
@@ -24,13 +22,12 @@
 #include <Framework/WorkflowSpec.h>
 #include <TMath.h>
 #include <string>
+#include <Framework/ASoA.h>
+#include <Framework/AnalysisTask.h>
+#include <Framework/runDataProcessing.h>
 
-#include "Framework/ASoA.h"
-#include "Framework/AnalysisTask.h"
-#include "Framework/runDataProcessing.h"
-
-
-
+#include "PWGJE/Core/JetDerivedDataUtilities.h"
+#include "PWGJE/DataModel/JetReducedData.h"
 #include "PWGJE/DataModel/Jet.h"
 
 using namespace o2;

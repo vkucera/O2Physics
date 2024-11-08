@@ -15,9 +15,8 @@
 ///
 /// The task store data relevant to the calculation of hadronization observables radial
 /// profile and/or jet momentum fraction for charmed hadrons
-#include "RecoDecay.h"
-#include "PWGJE/DataModel/JetReducedData.h"
-#include "TVector3.h"
+
+#include <TVector3.h>
 #include <CommonConstants/MathConstants.h>
 #include <Framework/AnalysisHelpers.h>
 #include <Framework/Configurable.h>
@@ -26,16 +25,15 @@
 #include <Framework/OutputObjHeader.h>
 #include <Framework/WorkflowSpec.h>
 #include <cstdlib>
+#include <Framework/ASoA.h>
+#include <Framework/AnalysisDataModel.h>
+#include <Framework/AnalysisTask.h>
+#include <Framework/HistogramRegistry.h>
+#include <Framework/runDataProcessing.h>
 
+#include "Common/Core/RecoDecay.h"
 
-#include "Framework/ASoA.h"
-#include "Framework/AnalysisDataModel.h"
-#include "Framework/AnalysisTask.h"
-#include "Framework/HistogramRegistry.h"
-#include "Framework/runDataProcessing.h"
-
-
-
+#include "PWGJE/DataModel/JetReducedData.h"
 #include "PWGJE/DataModel/Jet.h"
 
 using namespace o2;

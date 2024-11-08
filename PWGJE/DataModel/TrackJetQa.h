@@ -21,7 +21,7 @@
 
 // O2 includes
 #include "Common/DataModel/TrackSelectionTables.h"
-#include "Framework/AnalysisDataModel.h"
+#include <Framework/AnalysisDataModel.h>
 #include <Framework/ASoA.h>
 #include <cstdint>
 

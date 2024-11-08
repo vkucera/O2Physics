@@ -14,8 +14,8 @@
 /// \author Nima Zardoshti <nima.zardoshti@cern.ch>
 //
 
-#include "Framework/ASoA.h"
-#include "Framework/AnalysisTask.h"
+#include <Framework/ASoA.h>
+#include <Framework/AnalysisTask.h>
 #include <Framework/AnalysisHelpers.h>
 #include <Framework/Configurable.h>
 #include <Framework/InitContext.h>
@@ -26,7 +26,6 @@
 #include <map>
 #include <vector>
 
-
 #include "PWGJE/Core/JetFindingUtilities.h"
 #include "PWGJE/DataModel/Jet.h"
 #include "PWGJE/DataModel/JetSubstructure.h"
@@ -36,7 +35,7 @@ using namespace o2::framework;
 using namespace o2::framework::expressions;
 
 // NB: runDataProcessing.h must be included after customize!
-#include "Framework/runDataProcessing.h"
+#include <Framework/runDataProcessing.h>
 
 struct JetSubstructureOutputTask {
 

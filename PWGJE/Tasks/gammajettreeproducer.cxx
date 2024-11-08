@@ -9,9 +9,9 @@
 // granted to it by virtue of its status as an Intergovernmental Organization
 // or submit itself to any jurisdiction.
 
-#include "Framework/ASoA.h"
-#include "Framework/AnalysisTask.h"
-#include "Framework/HistogramRegistry.h"
+#include <Framework/ASoA.h>
+#include <Framework/AnalysisTask.h>
+#include <Framework/HistogramRegistry.h>
 #include <Framework/AnalysisHelpers.h>
 #include <Framework/Configurable.h>
 #include <Framework/Expressions.h>
@@ -24,17 +24,14 @@
 #include <sys/types.h>
 #include <unordered_map>
 #include <vector>
-
+#include <TVector2.h>
 
 #include "PWGJE/Core/JetDerivedDataUtilities.h"
 #include "PWGJE/Core/JetUtilities.h"
 #include "PWGJE/DataModel/GammaJetAnalysisTree.h"
 #include "PWGJE/DataModel/Jet.h"
-
 #include "PWGJE/DataModel/JetReducedData.h"
 #include "PWGJE/DataModel/JetSubtraction.h"
-#include "TVector2.h"
-
 
 
 // \struct GammaJetTreeProducer
@@ -47,7 +44,7 @@ using namespace o2::framework;
 using namespace o2::framework::expressions;
 using selectedClusters = o2::soa::Filtered<o2::aod::JClusters>;
 
-#include "Framework/runDataProcessing.h"
+#include <Framework/runDataProcessing.h>
 
 struct GammaJetTreeProducer {
   // analysis tree

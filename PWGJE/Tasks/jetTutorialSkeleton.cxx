@@ -14,16 +14,15 @@
 /// \author Nima Zardoshti <nima.zardoshti@cern.ch>
 //
 
-#include "Framework/ASoA.h"
-#include "Framework/AnalysisTask.h"
-#include "Framework/HistogramRegistry.h"
+#include <Framework/ASoA.h>
+#include <Framework/AnalysisTask.h>
+#include <Framework/HistogramRegistry.h>
 #include <Framework/Configurable.h>
 #include <Framework/Expressions.h>
 #include <Framework/HistogramSpec.h>
 #include <Framework/InitContext.h>
 #include <Framework/WorkflowSpec.h>
 #include <vector>
-
 
 #include "PWGJE/Core/JetDerivedDataUtilities.h"
 #include "PWGJE/DataModel/Jet.h"
@@ -33,7 +32,7 @@ using namespace o2;
 using namespace o2::framework;
 using namespace o2::framework::expressions;
 
-#include "Framework/runDataProcessing.h"
+#include <Framework/runDataProcessing.h>
 
 struct JetTutorialSkeletonTask {
   HistogramRegistry registry{"registry",

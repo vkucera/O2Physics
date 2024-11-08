@@ -17,7 +17,7 @@
 #define PWGJE_DATAMODEL_EMCALCLUSTERS_H_
 
 #include "EMCALClusterDefinition.h"
-#include "Framework/AnalysisDataModel.h"
+#include <Framework/AnalysisDataModel.h>
 #include <Framework/ASoA.h>
 #include <stdexcept>
 #include <string>
