@@ -14,35 +14,35 @@
 /// \author Raymond Ehlers <raymond.ehlers@cern.ch>, ORNL
 /// \author Florian Jonas <florian.jonas@cern.ch>
 
+#include <DataFormatsEMCAL/ClusterLabel.h>
 #include <Framework/AnalysisHelpers.h>
 #include <Framework/Configurable.h>
 #include <Framework/Expressions.h>
-#include <DataFormatsEMCAL/ClusterLabel.h>
 #include <Framework/HistogramRegistry.h>
-#include <Framework/InitContext.h>
-#include <fairlogger/Logger.h>
 #include <Framework/HistogramSpec.h>
-#include <TH1.h>
-#include <GPUROOTCartesianFwd.h>
+#include <Framework/InitContext.h>
 #include <Framework/WorkflowSpec.h>
-#include <cstdint>
+#include <GPUROOTCartesianFwd.h>
+#include <TH1.h>
+#include <cmath>
 #include <cstddef>
+#include <cstdint>
+#include <fairlogger/Logger.h>
 #include <gsl/span>
 #include <memory>
+#include <optional>
 #include <sstream>
 #include <string>
 #include <tuple>
-#include <optional>
 #include <unordered_map>
-#include <cmath>
-#include <vector>
 #include <utility>
+#include <vector>
 
 #include "CCDB/BasicCCDBManager.h"
-#include "Framework/runDataProcessing.h"
-#include "Framework/AnalysisTask.h"
-#include "Framework/AnalysisDataModel.h"
 #include "Framework/ASoA.h"
+#include "Framework/AnalysisDataModel.h"
+#include "Framework/AnalysisTask.h"
+#include "Framework/runDataProcessing.h"
 
 #include "DetectorsBase/GeometryManager.h"
 
@@ -52,12 +52,12 @@
 
 #include "Common/DataModel/EventSelection.h"
 #include "Common/DataModel/TrackSelectionTables.h"
+#include "DataFormatsEMCAL/AnalysisCluster.h"
 #include "DataFormatsEMCAL/Cell.h"
 #include "DataFormatsEMCAL/CellLabel.h"
 #include "DataFormatsEMCAL/Constants.h"
-#include "DataFormatsEMCAL/AnalysisCluster.h"
-#include "EMCALBase/Geometry.h"
 #include "EMCALBase/ClusterFactory.h"
+#include "EMCALBase/Geometry.h"
 #include "EMCALBase/NonlinearityHandler.h"
 #include "EMCALReconstruction/Clusterizer.h"
 #include "PWGJE/Core/JetUtilities.h"

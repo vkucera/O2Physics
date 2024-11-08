@@ -13,15 +13,15 @@
 //
 /// \author Nima Zardoshti <nima.zardoshti@cern.ch>
 
-#include <Framework/AnalysisHelpers.h>
-#include <Framework/InitContext.h>
-#include <Framework/Configurable.h>
-#include <Framework/WorkflowSpec.h>
 #include "Framework/AnalysisTask.h"
 #include "Framework/runDataProcessing.h"
-#include "PWGJE/DataModel/JetReducedData.h"
-#include "PWGHF/DataModel/DerivedTables.h"
 #include "PWGDQ/DataModel/ReducedInfoTables.h"
+#include "PWGHF/DataModel/DerivedTables.h"
+#include "PWGJE/DataModel/JetReducedData.h"
+#include <Framework/AnalysisHelpers.h>
+#include <Framework/Configurable.h>
+#include <Framework/InitContext.h>
+#include <Framework/WorkflowSpec.h>
 
 using namespace o2;
 using namespace o2::framework;

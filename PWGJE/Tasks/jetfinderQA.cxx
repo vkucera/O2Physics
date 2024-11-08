@@ -13,20 +13,20 @@
 //
 /// \author Nima Zardoshti <nima.zardoshti@cern.ch>
 
+#include <Framework/Configurable.h>
+#include <Framework/Expressions.h>
+#include <Framework/HistogramSpec.h>
+#include <Framework/InitContext.h>
+#include <Framework/WorkflowSpec.h>
+#include <TMath.h>
+#include <TMathBase.h>
+#include <TRandom3.h>
 #include <algorithm>
 #include <cmath>
-#include <Framework/Configurable.h>
-#include <vector>
-#include <Framework/InitContext.h>
 #include <cstddef>
-#include <TMathBase.h>
-#include <Framework/HistogramSpec.h>
-#include <Framework/Expressions.h>
-#include <type_traits>
-#include <TMath.h>
-#include <Framework/WorkflowSpec.h>
-#include <TRandom3.h>
 #include <math.h>
+#include <type_traits>
+#include <vector>
 
 #include "Framework/ASoA.h"
 #include "Framework/AnalysisTask.h"

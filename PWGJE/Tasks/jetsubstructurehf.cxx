@@ -14,32 +14,32 @@
 /// \author Nima Zardoshti <nima.zardoshti@cern.ch>
 //
 
+#include "PWGJE/DataModel/JetSubtraction.h"
+#include "fastjet/ClusterSequenceArea.hh"
+#include "fastjet/PseudoJet.hh"
 #include <Framework/AnalysisHelpers.h>
 #include <Framework/Configurable.h>
-#include <vector>
-#include <Framework/InitContext.h>
-#include <Framework/HistogramSpec.h>
-#include <fastjet/JetDefinition.hh>
-#include <utility>
-#include <type_traits>
-#include "PWGJE/DataModel/JetSubtraction.h"
-#include <Framework/WorkflowSpec.h>
 #include <Framework/DataProcessorSpec.h>
-#include "fastjet/PseudoJet.hh"
-#include "fastjet/ClusterSequenceArea.hh"
+#include <Framework/HistogramSpec.h>
+#include <Framework/InitContext.h>
+#include <Framework/WorkflowSpec.h>
+#include <fastjet/JetDefinition.hh>
+#include <type_traits>
+#include <utility>
+#include <vector>
 
-#include "Framework/AnalysisTask.h"
 #include "Framework/ASoA.h"
-#include "Framework/O2DatabasePDGPlugin.h"
+#include "Framework/AnalysisTask.h"
 #include "Framework/HistogramRegistry.h"
+#include "Framework/O2DatabasePDGPlugin.h"
 
 
+#include "PWGJE/Core/FastJetUtilities.h"
+#include "PWGJE/Core/JetFinder.h"
+#include "PWGJE/Core/JetSubstructureUtilities.h"
+#include "PWGJE/Core/JetUtilities.h"
 #include "PWGJE/DataModel/Jet.h"
 #include "PWGJE/DataModel/JetSubstructure.h"
-#include "PWGJE/Core/JetFinder.h"
-#include "PWGJE/Core/FastJetUtilities.h"
-#include "PWGJE/Core/JetUtilities.h"
-#include "PWGJE/Core/JetSubstructureUtilities.h"
 
 using namespace o2;
 using namespace o2::framework;

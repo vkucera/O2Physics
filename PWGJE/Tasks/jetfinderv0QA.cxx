@@ -14,16 +14,16 @@
 /// \author Nima Zardoshti <nima.zardoshti@cern.ch>
 
 #include <Framework/Configurable.h>
-#include <Framework/InitContext.h>
-#include <TMathBase.h>
-#include <Framework/HistogramSpec.h>
-#include <Framework/Expressions.h>
-#include <Framework/WorkflowSpec.h>
 #include <Framework/DataProcessorSpec.h>
-#include <vector>
-#include <math.h>
+#include <Framework/Expressions.h>
+#include <Framework/HistogramSpec.h>
+#include <Framework/InitContext.h>
+#include <Framework/WorkflowSpec.h>
+#include <TMathBase.h>
 #include <cmath>
+#include <math.h>
 #include <type_traits>
+#include <vector>
 
 #include "Framework/ASoA.h"
 #include "Framework/AnalysisTask.h"

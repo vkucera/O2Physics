@@ -25,15 +25,15 @@
 #include <type_traits>
 #include <vector>
 
-#include <fastjet/PseudoJet.hh>
 #include <fastjet/ClusterSequenceArea.hh>
+#include <fastjet/PseudoJet.hh>
 
 #include <THn.h>
 #include <TRandom3.h>
 
 #include <CommonConstants/PhysicsConstants.h>
-#include <Framework/AnalysisHelpers.h>
 #include <Framework/ASoA.h>
+#include <Framework/AnalysisHelpers.h>
 #include <Framework/O2DatabasePDGPlugin.h>
 
 #include "PWGJE/Core/FastJetUtilities.h"

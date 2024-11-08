@@ -23,20 +23,20 @@
 #ifndef PWGJE_DATAMODEL_JET_H_
 #define PWGJE_DATAMODEL_JET_H_
 
+#include "PWGHF/DataModel/CandidateReconstructionTables.h"
+#include "PWGJE/DataModel/JetReducedData.h"
+#include "PWGJE/DataModel/JetReducedDataDQ.h"
+#include "PWGJE/DataModel/JetReducedDataHF.h"
+#include "PWGJE/DataModel/JetReducedDataV0.h"
+#include "PWGJE/DataModel/JetSubtraction.h"
 #include <Framework/ASoA.h>
 #include <cmath>
 #include <cstdint>
-#include "PWGHF/DataModel/CandidateReconstructionTables.h"
-#include "PWGJE/DataModel/JetReducedData.h"
-#include "PWGJE/DataModel/JetReducedDataHF.h"
-#include "PWGJE/DataModel/JetReducedDataV0.h"
-#include "PWGJE/DataModel/JetReducedDataDQ.h"
-#include "PWGJE/DataModel/JetSubtraction.h"
 
-#include "PWGHF/DataModel/DerivedTables.h"
-#include "PWGHF/DataModel/CandidateSelectionTables.h"
-#include "PWGLF/DataModel/LFStrangenessTables.h"
 #include "PWGDQ/DataModel/ReducedInfoTables.h"
+#include "PWGHF/DataModel/CandidateSelectionTables.h"
+#include "PWGHF/DataModel/DerivedTables.h"
+#include "PWGLF/DataModel/LFStrangenessTables.h"
 
 namespace o2::aod
 {

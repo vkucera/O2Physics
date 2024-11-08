@@ -14,21 +14,21 @@
 /// \author Markus Fasel <markus.fasel@cern.ch>, Oak Ridge National Laoratory
 
 #include <Framework/Expressions.h>
-#include <Framework/InitContext.h>
 #include <Framework/HistogramSpec.h>
+#include <Framework/InitContext.h>
+#include <Framework/WorkflowSpec.h>
 #include <TH1.h>
 #include <cstdint>
-#include <Framework/WorkflowSpec.h>
 #include <unordered_map>
 #include <utility>
 
-#include "Common/CCDB/TriggerAliases.h"
 #include "Common/CCDB/EventSelectionParams.h"
-#include "Framework/runDataProcessing.h"
-#include "Framework/AnalysisTask.h"
-#include "Framework/AnalysisDataModel.h"
+#include "Common/CCDB/TriggerAliases.h"
 #include "Framework/ASoA.h"
+#include "Framework/AnalysisDataModel.h"
+#include "Framework/AnalysisTask.h"
 #include "Framework/HistogramRegistry.h"
+#include "Framework/runDataProcessing.h"
 
 #include "Common/DataModel/EventSelection.h"
 

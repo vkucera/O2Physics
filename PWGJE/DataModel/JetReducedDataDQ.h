@@ -17,10 +17,10 @@
 #ifndef PWGJE_DATAMODEL_JETREDUCEDDATADQ_H_
 #define PWGJE_DATAMODEL_JETREDUCEDDATADQ_H_
 
+#include "PWGJE/DataModel/JetReducedData.h"
 #include <Framework/ASoA.h>
 #include <cmath>
 #include <cstdint>
-#include "PWGJE/DataModel/JetReducedData.h"
 
 namespace o2::aod
 {

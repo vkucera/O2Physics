@@ -13,42 +13,42 @@
 //
 /// \author Gijs van Weelden <g.van.weelden@cern.ch>
 //
-#include <Framework/HistogramRegistry.h>
 #include <Framework/Configurable.h>
-#include <Framework/InitContext.h>
-#include <RtypesCore.h>
-#include <TMath.h>
-#include <Framework/HistogramSpec.h>
-#include <array>
-#include <TH2.h>
-#include <TString.h>
-#include <TH3.h>
 #include <Framework/Expressions.h>
-#include <THn.h>
-#include <algorithm>
+#include <Framework/HistogramRegistry.h>
+#include <Framework/HistogramSpec.h>
+#include <Framework/InitContext.h>
 #include <Framework/WorkflowSpec.h>
+#include <RtypesCore.h>
+#include <TH2.h>
+#include <TH3.h>
+#include <THn.h>
+#include <TMath.h>
+#include <TString.h>
+#include <algorithm>
+#include <array>
 #include <bitset>
-#include <fastjet/PseudoJet.hh>
-#include <fastjet/JetDefinition.hh>
-#include <cstddef>
 #include <cmath>
+#include <cstddef>
+#include <fastjet/JetDefinition.hh>
+#include <fastjet/PseudoJet.hh>
 #include <utility>
 #include <vector>
 
-#include "PWGJE/DataModel/JetReducedData.h"
+#include "Common/CCDB/TriggerAliases.h"
 #include "PWGJE/DataModel/EMCALClusterDefinition.h"
 #include "PWGJE/DataModel/EMCALClusters.h"
-#include "Common/CCDB/TriggerAliases.h"
+#include "PWGJE/DataModel/JetReducedData.h"
 #include "TTree.h"
 
-#include "Framework/runDataProcessing.h"
-#include "Framework/AnalysisTask.h"
 #include "Framework/ASoA.h"
+#include "Framework/AnalysisTask.h"
+#include "Framework/runDataProcessing.h"
 
 
-#include "PWGJE/DataModel/Jet.h"
-#include "PWGJE/Core/JetFinder.h"
 #include "PWGJE/Core/JetDerivedDataUtilities.h"
+#include "PWGJE/Core/JetFinder.h"
+#include "PWGJE/DataModel/Jet.h"
 
 
 using namespace o2;

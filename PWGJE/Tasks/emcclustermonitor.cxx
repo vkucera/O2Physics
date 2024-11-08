@@ -9,32 +9,32 @@
 // granted to it by virtue of its status as an Intergovernmental Organization
 // or submit itself to any jurisdiction.
 
-#include <Framework/Configurable.h>
-#include <Framework/InitContext.h>
-#include <Framework/HistogramSpec.h>
-#include <fairlogger/Logger.h>
-#include <TMath.h>
-#include <TString.h>
-#include <Framework/Expressions.h>
-#include <TMathBase.h>
-#include <array>
-#include <algorithm>
 #include <EMCALBase/GeometryBase.h>
-#include <RtypesCore.h>
+#include <Framework/Configurable.h>
+#include <Framework/Expressions.h>
+#include <Framework/HistogramSpec.h>
+#include <Framework/InitContext.h>
 #include <Framework/WorkflowSpec.h>
+#include <RtypesCore.h>
+#include <TMath.h>
+#include <TMathBase.h>
+#include <TString.h>
+#include <algorithm>
+#include <array>
 #include <climits>
 #include <cstdlib>
+#include <fairlogger/Logger.h>
 #include <sstream>
 #include <string>
 #include <string_view>
 #include <vector>
 
 #include "Common/CCDB/TriggerAliases.h"
-#include "Framework/runDataProcessing.h"
-#include "Framework/AnalysisTask.h"
-#include "Framework/AnalysisDataModel.h"
 #include "Framework/ASoA.h"
+#include "Framework/AnalysisDataModel.h"
+#include "Framework/AnalysisTask.h"
 #include "Framework/HistogramRegistry.h"
+#include "Framework/runDataProcessing.h"
 
 #include "Common/DataModel/EventSelection.h"
 

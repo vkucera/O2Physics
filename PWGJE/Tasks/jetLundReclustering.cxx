@@ -18,32 +18,32 @@
 //
 
 #include <Framework/Configurable.h>
-#include <Framework/InitContext.h>
-#include <Framework/HistogramSpec.h>
-#include <math.h>
-#include <fastjet/JetDefinition.hh>
 #include <Framework/Expressions.h>
-#include <cmath>
+#include <Framework/HistogramSpec.h>
+#include <Framework/InitContext.h>
 #include <Framework/WorkflowSpec.h>
+#include <cmath>
+#include <fastjet/JetDefinition.hh>
+#include <math.h>
 #include <string>
-#include <vector>
 #include <utility>
+#include <vector>
 
 #include "PWGJE/DataModel/JetReducedData.h"
-#include "fastjet/PseudoJet.hh"
 #include "fastjet/ClusterSequenceArea.hh"
+#include "fastjet/PseudoJet.hh"
 
-#include "Framework/AnalysisTask.h"
 #include "Framework/ASoA.h"
-#include "Framework/runDataProcessing.h"
+#include "Framework/AnalysisTask.h"
 #include "Framework/HistogramRegistry.h"
+#include "Framework/runDataProcessing.h"
 
 
 
-#include "PWGJE/DataModel/Jet.h"
-#include "PWGJE/Core/JetFinder.h"
 #include "PWGJE/Core/FastJetUtilities.h"
 #include "PWGJE/Core/JetDerivedDataUtilities.h"
+#include "PWGJE/Core/JetFinder.h"
+#include "PWGJE/DataModel/Jet.h"
 
 using namespace o2;
 using namespace o2::track;

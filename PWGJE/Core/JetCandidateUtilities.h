@@ -17,8 +17,8 @@
 #ifndef PWGJE_CORE_JETCANDIDATEUTILITIES_H_
 #define PWGJE_CORE_JETCANDIDATEUTILITIES_H_
 
-#include <type_traits>
 #include <cstdint>
+#include <type_traits>
 
 
 

@@ -18,9 +18,9 @@
 #define PWGJE_CORE_JETV0UTILITIES_H_
 
 #include <array>
-#include <type_traits>
 #include <cstdint>
 #include <string>
+#include <type_traits>
 
 #include <Rtypes.h>
 #include <TPDGCode.h>

@@ -12,16 +12,16 @@
 // jet Trigger QA Task
 //
 /// \author Filip Krizek <Filip.Krizek@cern.ch>
-#include <cmath>
-#include <string>
-#include <vector>
 #include <Framework/Configurable.h>
-#include <Framework/InitContext.h>
-#include <Framework/HistogramSpec.h>
 #include <Framework/Expressions.h>
+#include <Framework/HistogramSpec.h>
+#include <Framework/InitContext.h>
 #include <Framework/WorkflowSpec.h>
 #include <TMath.h>
 #include <TMathBase.h>
+#include <cmath>
+#include <string>
+#include <vector>
 
 #include "Common/CCDB/EventSelectionParams.h"
 #include "Framework/ASoA.h"

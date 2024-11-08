@@ -20,14 +20,14 @@
 #ifndef PWGJE_CORE_JETMATCHINGUTILITIES_H_
 #define PWGJE_CORE_JETMATCHINGUTILITIES_H_
 
-#include <cstddef>
-#include <numeric>
-#include <stdexcept>
-#include <ostream>
-#include <vector>
-#include <tuple>
 #include <algorithm>
+#include <cstddef>
 #include <math.h>
+#include <numeric>
+#include <ostream>
+#include <stdexcept>
+#include <tuple>
+#include <vector>
 
 #include <RtypesCore.h>
 #include <TKDTree.h>

@@ -17,11 +17,11 @@
 #ifndef PWGJE_CORE_JETHFUTILITIES_H_
 #define PWGJE_CORE_JETHFUTILITIES_H_
 
-#include <type_traits>
+#include <algorithm>
 #include <cstdint>
 #include <iterator>
+#include <type_traits>
 #include <vector>
-#include <algorithm>
 
 #include <CommonConstants/PhysicsConstants.h>
 #include <Framework/ASoA.h>

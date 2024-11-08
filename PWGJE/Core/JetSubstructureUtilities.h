@@ -17,21 +17,21 @@
 #ifndef PWGJE_CORE_JETSUBSTRUCTUREUTILITIES_H_
 #define PWGJE_CORE_JETSUBSTRUCTUREUTILITIES_H_
 
+#include <cmath>
 #include <type_traits>
 #include <vector>
-#include <cmath>
 
 #include <fastjet/ClusterSequenceArea.hh>
+#include <fastjet/PseudoJet.hh>
 #include <fastjet/contrib/MeasureDefinition.hh>
 #include <fastjet/contrib/Nsubjettiness.hh>
 #include <fastjet/contrib/SoftDrop.hh>
-#include <fastjet/PseudoJet.hh>
 
 #include <Framework/ASoA.h>
 
 #include "PWGJE/Core/FastJetUtilities.h"
-#include "PWGJE/Core/JetFinder.h"
 #include "PWGJE/Core/JetCandidateUtilities.h"
+#include "PWGJE/Core/JetFinder.h"
 #include "PWGJE/DataModel/Jet.h"
 
 namespace jetsubstructureutilities

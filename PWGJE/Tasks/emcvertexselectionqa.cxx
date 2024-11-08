@@ -13,26 +13,26 @@
 //
 /// \author Nicolas Strangmann <nicolas.strangmann@cern.ch>, Goethe University Frankfurt / Oak Ridge National Laoratory
 
-#include <vector>
 #include <Framework/Configurable.h>
-#include <Framework/InitContext.h>
 #include <Framework/HistogramSpec.h>
+#include <Framework/InitContext.h>
+#include <Framework/WorkflowSpec.h>
 #include <TH1.h>
 #include <TH2.h>
 #include <TMath.h>
-#include <Framework/WorkflowSpec.h>
 #include <TRobustEstimator.h>
+#include <vector>
 
-#include "Common/CCDB/TriggerAliases.h"
 #include "Common/CCDB/EventSelectionParams.h"
-#include "Framework/runDataProcessing.h"
-#include "Framework/AnalysisTask.h"
-#include "Framework/AnalysisDataModel.h"
+#include "Common/CCDB/TriggerAliases.h"
 #include "Framework/ASoA.h"
+#include "Framework/AnalysisDataModel.h"
+#include "Framework/AnalysisTask.h"
 #include "Framework/HistogramRegistry.h"
+#include "Framework/runDataProcessing.h"
 
-#include "Common/DataModel/TrackSelectionTables.h"
 #include "Common/DataModel/EventSelection.h"
+#include "Common/DataModel/TrackSelectionTables.h"
 
 using namespace o2;
 using namespace o2::framework;

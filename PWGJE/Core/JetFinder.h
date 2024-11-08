@@ -17,16 +17,16 @@
 #ifndef PWGJE_CORE_JETFINDER_H_
 #define PWGJE_CORE_JETFINDER_H_
 
-#include <math.h>
 #include <Rtypes.h>
+#include <math.h>
 #include <vector>
 
-#include <fastjet/GhostedAreaSpec.hh>
-#include <fastjet/Selector.hh>
 #include <fastjet/AreaDefinition.hh>
 #include <fastjet/ClusterSequenceArea.hh>
+#include <fastjet/GhostedAreaSpec.hh>
 #include <fastjet/JetDefinition.hh>
 #include <fastjet/PseudoJet.hh>
+#include <fastjet/Selector.hh>
 
 enum class JetType {
   full = 0,

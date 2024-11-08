@@ -14,31 +14,31 @@
 /// \author Nima Zardoshti <nima.zardoshti@cern.ch>
 //
 
+#include "Framework/ASoA.h"
+#include "Framework/AnalysisTask.h"
+#include "PWGDQ/DataModel/ReducedInfoTables.h"
+#include "PWGHF/DataModel/DerivedTables.h"
+#include "PWGJE/DataModel/JetReducedData.h"
+#include "PWGJE/DataModel/JetReducedDataDQ.h"
+#include "PWGJE/DataModel/JetReducedDataHF.h"
+#include "PWGJE/DataModel/JetSubtraction.h"
 #include <Framework/AnalysisHelpers.h>
 #include <Framework/Configurable.h>
-#include <vector>
-#include <map>
-#include <cstdint>
-#include <Framework/InitContext.h>
-#include <iterator>
-#include <cmath>
-#include <algorithm>
-#include <Framework/WorkflowSpec.h>
 #include <Framework/DataProcessorSpec.h>
-#include "Framework/AnalysisTask.h"
-#include "Framework/ASoA.h"
-#include "PWGJE/DataModel/JetReducedData.h"
-#include "PWGJE/DataModel/JetReducedDataHF.h"
-#include "PWGJE/DataModel/JetReducedDataDQ.h"
-#include "PWGHF/DataModel/DerivedTables.h"
-#include "PWGJE/DataModel/JetSubtraction.h"
-#include "PWGDQ/DataModel/ReducedInfoTables.h"
+#include <Framework/InitContext.h>
+#include <Framework/WorkflowSpec.h>
+#include <algorithm>
+#include <cmath>
+#include <cstdint>
+#include <iterator>
+#include <map>
+#include <vector>
 
 
 
+#include "PWGJE/Core/JetFindingUtilities.h"
 #include "PWGJE/DataModel/Jet.h"
 #include "PWGJE/DataModel/JetSubstructure.h"
-#include "PWGJE/Core/JetFindingUtilities.h"
 
 using namespace o2;
 using namespace o2::framework;

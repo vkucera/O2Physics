@@ -13,16 +13,16 @@
 //
 // Authors: Daniel Jones
 
+#include <Framework/AnalysisHelpers.h>
 #include <Framework/Configurable.h>
-#include <string>
 #include <Framework/Expressions.h>
 #include <Framework/HistogramSpec.h>
-#include <Framework/AnalysisHelpers.h>
 #include <Framework/InitContext.h>
-#include <cmath>
-#include <type_traits>
-#include <cstdlib>
 #include <Framework/WorkflowSpec.h>
+#include <cmath>
+#include <cstdlib>
+#include <string>
+#include <type_traits>
 #include <vector>
 
 #include "PWGJE/DataModel/JetReducedData.h"
@@ -30,12 +30,12 @@
 
 #include "Framework/ASoA.h"
 #include "Framework/AnalysisTask.h"
-#include "Framework/O2DatabasePDGPlugin.h"
 #include "Framework/HistogramRegistry.h"
+#include "Framework/O2DatabasePDGPlugin.h"
 #include "Framework/runDataProcessing.h"
 
-#include "CommonConstants/MathConstants.h"
 #include "Common/Core/RecoDecay.h"
+#include "CommonConstants/MathConstants.h"
 
 #include "PWGJE/DataModel/Jet.h"
 

@@ -14,24 +14,24 @@
 /// \author Gijs van Weelden <g.van.weelden@cern.ch>
 //
 
-#include <Framework/HistogramRegistry.h>
-#include <Framework/Configurable.h>
-#include <string>
-#include <Framework/Expressions.h>
-#include "PWGJE/DataModel/JetReducedData.h"
-#include <TMath.h>
-#include <Framework/InitContext.h>
-#include "PWGJE/Core/JetDerivedDataUtilities.h"
-#include <Framework/HistogramSpec.h>
-#include <TMathBase.h>
-#include "PWGLF/DataModel/LFStrangenessTables.h"
 #include "Common/DataModel/TrackSelectionTables.h"
+#include "PWGJE/Core/JetDerivedDataUtilities.h"
+#include "PWGJE/DataModel/JetReducedData.h"
+#include "PWGLF/DataModel/LFStrangenessTables.h"
+#include <Framework/Configurable.h>
+#include <Framework/Expressions.h>
+#include <Framework/HistogramRegistry.h>
+#include <Framework/HistogramSpec.h>
+#include <Framework/InitContext.h>
 #include <Framework/WorkflowSpec.h>
+#include <TMath.h>
+#include <TMathBase.h>
+#include <string>
 
-#include "Framework/runDataProcessing.h"
-#include "Framework/AnalysisTask.h"
-#include "Framework/AnalysisDataModel.h"
 #include "Framework/ASoA.h"
+#include "Framework/AnalysisDataModel.h"
+#include "Framework/AnalysisTask.h"
+#include "Framework/runDataProcessing.h"
 
 
 #include "CommonConstants/PhysicsConstants.h"

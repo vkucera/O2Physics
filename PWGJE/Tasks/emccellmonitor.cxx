@@ -11,30 +11,30 @@
 
 #include <Framework/Configurable.h>
 #include <Framework/Expressions.h>
-#include <Framework/InitContext.h>
 #include <Framework/HistogramSpec.h>
-#include <fairlogger/Logger.h>
+#include <Framework/InitContext.h>
+#include <Framework/WorkflowSpec.h>
 #include <TString.h>
 #include <algorithm>
-#include <Framework/WorkflowSpec.h>
 #include <climits>
 #include <cstdlib>
+#include <fairlogger/Logger.h>
 #include <memory>
 #include <sstream>
 #include <string>
 #include <string_view>
 #include <vector>
 
-#include "Framework/runDataProcessing.h"
-#include "Framework/AnalysisTask.h"
-#include "Framework/AnalysisDataModel.h"
 #include "Framework/ASoA.h"
+#include "Framework/AnalysisDataModel.h"
+#include "Framework/AnalysisTask.h"
 #include "Framework/HistogramRegistry.h"
+#include "Framework/runDataProcessing.h"
 
+#include "CommonDataFormat/InteractionRecord.h"
 #include "DataFormatsEMCAL/Constants.h"
 #include "EMCALBase/Geometry.h"
 #include "EMCALCalib/BadChannelMap.h"
-#include "CommonDataFormat/InteractionRecord.h"
 
 /// \struct CellMonitor
 /// \brief Simple monitoring task for cell related quantities

@@ -16,23 +16,23 @@
 
 #include <Framework/AnalysisHelpers.h>
 #include <Framework/Configurable.h>
-#include <Framework/InitContext.h>
 #include <Framework/Expressions.h>
+#include <Framework/InitContext.h>
 #include <Framework/WorkflowSpec.h>
-#include <vector>
-#include <cstdint>
-#include <TMath.h>
 #include <MathUtils/detail/TypeTruncation.h>
+#include <TMath.h>
+#include <cstdint>
+#include <vector>
 
-#include "Framework/AnalysisTask.h"
 #include "Framework/ASoA.h"
+#include "Framework/AnalysisTask.h"
 #include "Framework/runDataProcessing.h"
 
 #include "PWGJE/Core/JetDerivedDataUtilities.h"
-#include "PWGJE/DataModel/Jet.h"
-#include "PWGJE/Core/JetUtilities.h"
 #include "PWGJE/Core/JetFindingUtilities.h"
 #include "PWGJE/Core/JetSubstructureUtilities.h"
+#include "PWGJE/Core/JetUtilities.h"
+#include "PWGJE/DataModel/Jet.h"
 #include "PWGJE/DataModel/JetReducedData.h"
 #include "PWGJE/DataModel/JetSubtraction.h"
 #include "fastjet/contrib/AxesDefinition.hh"

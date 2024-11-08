@@ -14,15 +14,15 @@
 /// \author Nima Zardoshti <nima.zardoshti@cern.ch>
 
 #include <Framework/AnalysisHelpers.h>
-#include <Framework/InitContext.h>
 #include <Framework/Configurable.h>
+#include <Framework/InitContext.h>
 #include <Framework/WorkflowSpec.h>
 #include <string>
 
-#include "Framework/runDataProcessing.h"
-#include "Framework/AnalysisTask.h"
-#include "Framework/AnalysisDataModel.h"
 #include "Framework/ASoA.h"
+#include "Framework/AnalysisDataModel.h"
+#include "Framework/AnalysisTask.h"
+#include "Framework/runDataProcessing.h"
 
 #include "EventFiltering/filterTables.h"
 

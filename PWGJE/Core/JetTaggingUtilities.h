@@ -25,9 +25,9 @@
 #include <memory>
 #include <vector>
 
+#include <TF1.h>
 #include <TMath.h>
 #include <TMathBase.h>
-#include <TF1.h>
 
 #include <fairlogger/Logger.h>
 

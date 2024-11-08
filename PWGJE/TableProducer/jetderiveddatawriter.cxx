@@ -16,36 +16,36 @@
 /// \author Jochen Klein <jochen.klein@cern.ch>
 /// \author Nima Zardoshti <nima.zardoshti@cern.ch>
 
-#include <Framework/Configurable.h>
 #include <Framework/AnalysisHelpers.h>
+#include <Framework/Configurable.h>
+#include <Framework/DataProcessorSpec.h>
 #include <Framework/InitContext.h>
 #include <Framework/WorkflowSpec.h>
-#include <Framework/DataProcessorSpec.h>
 #include <algorithm>
-#include <vector>
 #include <cstdint>
-#include <type_traits>
 #include <cstdlib>
-#include <map>
-#include <utility>
 #include <iterator>
+#include <map>
+#include <type_traits>
+#include <utility>
+#include <vector>
 
 #include <MathUtils/detail/TypeTruncation.h>
 #include <TRandom3.h>
 
-#include "Framework/AnalysisTask.h"
 #include "Framework/ASoA.h"
+#include "Framework/AnalysisTask.h"
 #include "Framework/runDataProcessing.h"
 
-#include "PWGHF/DataModel/DerivedTables.h"
 #include "PWGDQ/DataModel/ReducedInfoTables.h"
+#include "PWGHF/DataModel/DerivedTables.h"
+#include "PWGJE/Core/JetDQUtilities.h"
 #include "PWGJE/Core/JetDerivedDataUtilities.h"
 #include "PWGJE/Core/JetHFUtilities.h"
-#include "PWGJE/Core/JetDQUtilities.h"
 #include "PWGJE/DataModel/Jet.h"
 #include "PWGJE/DataModel/JetReducedData.h"
-#include "PWGJE/DataModel/JetReducedDataHF.h"
 #include "PWGJE/DataModel/JetReducedDataDQ.h"
+#include "PWGJE/DataModel/JetReducedDataHF.h"
 
 using namespace o2;
 using namespace o2::framework;

@@ -14,21 +14,21 @@
 ///
 /// \author Joachim C. K. B. Hansen, Lund University
 
-#include <Framework/Configurable.h>
-#include <TMath.h>
-#include <vector>
-#include <Framework/HistogramSpec.h>
-#include <Framework/OutputObjHeader.h>
-#include <Framework/InitContext.h>
-#include <fairlogger/Logger.h>
-#include <Framework/Expressions.h>
 #include "Common/DataModel/Centrality.h"
-#include <CommonConstants/MathConstants.h>
-#include <Framework/WorkflowSpec.h>
 #include "Framework/ASoA.h"
 #include "Framework/AnalysisDataModel.h"
 #include "Framework/AnalysisTask.h"
 #include "Framework/HistogramRegistry.h"
+#include <CommonConstants/MathConstants.h>
+#include <Framework/Configurable.h>
+#include <Framework/Expressions.h>
+#include <Framework/HistogramSpec.h>
+#include <Framework/InitContext.h>
+#include <Framework/OutputObjHeader.h>
+#include <Framework/WorkflowSpec.h>
+#include <TMath.h>
+#include <fairlogger/Logger.h>
+#include <vector>
 
 #include "Common/Core/RecoDecay.h"
 

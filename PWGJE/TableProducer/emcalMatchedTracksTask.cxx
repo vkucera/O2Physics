@@ -10,26 +10,26 @@
 // or submit itself to any jurisdiction.
 
 #include <Framework/AnalysisHelpers.h>
-#include <Framework/OutputObjHeader.h>
 #include <Framework/Configurable.h>
-#include <Framework/InitContext.h>
-#include <Framework/HistogramSpec.h>
 #include <Framework/Expressions.h>
-#include <fairlogger/Logger.h>
-#include <TMathBase.h>
+#include <Framework/HistogramSpec.h>
+#include <Framework/InitContext.h>
+#include <Framework/OutputObjHeader.h>
 #include <Framework/WorkflowSpec.h>
+#include <TMathBase.h>
 #include <climits>
 #include <cmath>
 #include <cstdlib>
+#include <fairlogger/Logger.h>
 #include <string>
 #include <vector>
 
 #include "Common/CCDB/TriggerAliases.h"
-#include "Framework/runDataProcessing.h"
-#include "Framework/AnalysisTask.h"
-#include "Framework/AnalysisDataModel.h"
 #include "Framework/ASoA.h"
+#include "Framework/AnalysisDataModel.h"
+#include "Framework/AnalysisTask.h"
 #include "Framework/HistogramRegistry.h"
+#include "Framework/runDataProcessing.h"
 
 #include "Common/DataModel/EventSelection.h"
 #include "Common/DataModel/PIDResponse.h"

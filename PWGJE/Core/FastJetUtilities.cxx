@@ -10,7 +10,9 @@
 // or submit itself to any jurisdiction.
 
 #include "FastJetUtilities.h"
+
 #include <vector>
+
 #include <fastjet/PseudoJet.hh>
 
 void fastjetutilities::setFastJetUserInfo(std::vector<fastjet::PseudoJet>& constituents, int index, int status)

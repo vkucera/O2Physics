@@ -9,35 +9,35 @@
 // granted to it by virtue of its status as an Intergovernmental Organization
 // or submit itself to any jurisdiction.
 
-#include <Framework/OutputObjHeader.h>
-#include <Framework/HistogramSpec.h>
 #include <Framework/Configurable.h>
 #include <Framework/Expressions.h>
+#include <Framework/HistogramSpec.h>
 #include <Framework/InitContext.h>
-#include <math.h>
+#include <Framework/OutputObjHeader.h>
 #include <Framework/WorkflowSpec.h>
 #include <climits>
+#include <cmath>
 #include <cstdlib>
+#include <math.h>
 #include <set>
 #include <string>
-#include <utility>
 #include <unordered_set>
+#include <utility>
 #include <vector>
-#include <cmath>
 
-#include "Framework/runDataProcessing.h"
-#include "Framework/AnalysisTask.h"
-#include "Framework/AnalysisDataModel.h"
 #include "Framework/ASoA.h"
+#include "Framework/AnalysisDataModel.h"
+#include "Framework/AnalysisTask.h"
 #include "Framework/HistogramRegistry.h"
+#include "Framework/runDataProcessing.h"
 
 #include "Common/DataModel/EventSelection.h"
 #include "Common/DataModel/TrackSelectionTables.h"
 
 #include "EMCALBase/Geometry.h"
 #include "EMCALCalib/BadChannelMap.h"
-#include "PWGJE/DataModel/EMCALClusters.h"
 #include "PWGJE/Core/JetDerivedDataUtilities.h"
+#include "PWGJE/DataModel/EMCALClusters.h"
 
 
 // \struct PhotonIsolationQA

@@ -17,11 +17,11 @@
 #ifndef PWGJE_CORE_JETDERIVEDDATAUTILITIES_H_
 #define PWGJE_CORE_JETDERIVEDDATAUTILITIES_H_
 
+#include <Rtypes.h>
 #include <array>
 #include <cstddef>
 #include <cstdint>
 #include <cstdlib>
-#include <Rtypes.h>
 #include <string>
 #include <vector>
 
