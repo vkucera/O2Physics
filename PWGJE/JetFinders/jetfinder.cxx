@@ -42,7 +42,7 @@
 #include "PWGJE/DataModel/JetReducedData.h"
 #include "PWGJE/DataModel/JetSubtraction.h"
 
-#include "Framework/runDataProcessing.h"
+#include "Framework/runDataProcessing.h" // IWYU pragma: keep
 
 using namespace o2;
 using namespace o2::framework;

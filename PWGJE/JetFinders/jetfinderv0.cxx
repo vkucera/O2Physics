@@ -37,13 +37,11 @@
 #include "PWGJE/DataModel/Jet.h"
 #include "PWGJE/DataModel/JetReducedData.h"
 
-#include "Framework/runDataProcessing.h"
+#include "Framework/runDataProcessing.h" // IWYU pragma: keep
 
 using namespace o2;
 using namespace o2::framework;
 using namespace o2::framework::expressions;
-
-// NB: runDataProcessing.h must be included after customize!
 
 template <typename CandidateTableData, typename CandidateTableMCD, typename CandidateTableMCP, typename JetTable, typename ConstituentTable>
 struct JetFinderV0Task {
