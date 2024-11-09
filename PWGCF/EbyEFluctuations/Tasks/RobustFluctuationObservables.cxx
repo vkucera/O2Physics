@@ -101,7 +101,7 @@ struct RobustFluctuationObservables {
   int64_t orbitSOR = -1;
   // int64_t bcSORbis = -1; // global bc of the start of the first orbit - try alternative
   int64_t nBCsPerTF = 1; // 128*3564; // duration of TF in bcs
-  int64_t TFid = -1;     // count time frames in a given run
+  uint64_t TFid = 0;     // count time frames in a given run
   bool flagWaitForNewTF = false;
   uint32_t nOrbitsPerTF = 0;
 

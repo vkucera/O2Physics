@@ -1501,7 +1501,7 @@ struct correlateStrangeness {
     associatedIndices.emplace_back(omegaPlusIndices);
     associatedIndices.emplace_back(piIndices);
 
-    for (Int_t iTrigger = 0; iTrigger < triggerIndices.size(); iTrigger++) {
+    for (std::size_t iTrigger = 0; iTrigger < triggerIndices.size(); iTrigger++) {
       auto triggerParticle = mcParticles.iteratorAt(triggerIndices[iTrigger]);
       // check range of trigger particle
       if (triggerParticle.pt() > axisRanges[3][1] || triggerParticle.pt() < axisRanges[3][0]) {
@@ -1511,10 +1511,10 @@ struct correlateStrangeness {
       Double_t gphitrigger = triggerParticle.phi();
       Double_t pttrigger = triggerParticle.pt();
       auto const& mother = triggerParticle.mothers_first_as<aod::McParticles>();
-      Int_t globalIndex = mother.globalIndex();
+      auto globalIndex = mother.globalIndex();
       static_for<0, 7>([&](auto i) { // associated loop
         constexpr int index = i.value;
-        for (Int_t iassoc = 0; iassoc < associatedIndices[index].size(); iassoc++) {
+        for (std::size_t iassoc = 0; iassoc < associatedIndices[index].size(); iassoc++) {
           auto assocParticle = mcParticles.iteratorAt(associatedIndices[index][iassoc]);
           if (triggerIndices[iTrigger] != associatedIndices[index][iassoc] && globalIndex != assocParticle.globalIndex()) { // avoid self
             Double_t getaassoc = assocParticle.eta();
