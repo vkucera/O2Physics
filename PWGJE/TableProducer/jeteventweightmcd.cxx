@@ -21,6 +21,7 @@
 #include <Framework/Configurable.h>
 #include <Framework/DataProcessorSpec.h>
 #include <Framework/WorkflowSpec.h>
+#include <Framework/runDataProcessing.h>
 
 #include "PWGJE/DataModel/Jet.h"
 #include "PWGJE/DataModel/JetReducedData.h"
@@ -28,8 +29,6 @@
 using namespace o2;
 using namespace o2::framework;
 using namespace o2::framework::expressions;
-
-#include <Framework/runDataProcessing.h>
 
 template <typename MCDetectorLevelJetTable, typename MCDetectorLevelWeightsTable, typename MCDetectorLevelEventWiseSubtractedJetTable, typename MCDetectorLevelEventWiseSubtractedWeightsTable>
 

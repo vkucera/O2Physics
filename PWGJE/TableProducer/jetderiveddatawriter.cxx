@@ -16,11 +16,6 @@
 /// \author Jochen Klein <jochen.klein@cern.ch>
 /// \author Nima Zardoshti <nima.zardoshti@cern.ch>
 
-#include <Framework/AnalysisHelpers.h>
-#include <Framework/Configurable.h>
-#include <Framework/DataProcessorSpec.h>
-#include <Framework/InitContext.h>
-#include <Framework/WorkflowSpec.h>
 #include <algorithm>
 #include <cstdint>
 #include <cstdlib>
@@ -29,10 +24,17 @@
 #include <type_traits>
 #include <utility>
 #include <vector>
+
 #include <MathUtils/detail/TypeTruncation.h>
 #include <TRandom3.h>
+
 #include <Framework/ASoA.h>
+#include <Framework/AnalysisHelpers.h>
 #include <Framework/AnalysisTask.h>
+#include <Framework/Configurable.h>
+#include <Framework/DataProcessorSpec.h>
+#include <Framework/InitContext.h>
+#include <Framework/WorkflowSpec.h>
 #include <Framework/runDataProcessing.h>
 
 #include "PWGDQ/DataModel/ReducedInfoTables.h"

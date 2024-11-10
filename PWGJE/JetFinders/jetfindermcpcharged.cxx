@@ -20,8 +20,8 @@
 #include <Framework/DataProcessorSpec.h>
 #include <Framework/WorkflowSpec.h>
 
-#include "PWGJE/JetFinders/jetfinder.cxx"
 #include "PWGJE/DataModel/Jet.h"
+#include "PWGJE/JetFinders/jetfinder.cxx"
 
 using JetFinderMCParticleLevelCharged = JetFinderTask<aod::ChargedMCParticleLevelJets, aod::ChargedMCParticleLevelJetConstituents, aod::ChargedMCParticleLevelEventWiseSubtractedJets, aod::ChargedMCParticleLevelEventWiseSubtractedJetConstituents>;
 
