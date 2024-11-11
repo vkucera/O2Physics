@@ -16,27 +16,27 @@
 
 #ifndef HomogeneousField
 #define HomogeneousField
-#include <Framework/AnalysisHelpers.h>
-#include <Framework/Configurable.h>
+#include "Common/DataModel/Centrality.h"
 #include <DetectorsBase/MatLayerCylSet.h>
 #include <Framework/ASoA.h>
-#include <TH1.h>
-#include <Framework/HistogramRegistry.h>
-#include <Framework/InitContext.h>
-#include <array>
-#include <numeric>
-#include <fairlogger/Logger.h>
-#include <Framework/HistogramSpec.h>
-#include <Rtypes.h>
-#include <TPDGCode.h>
-#include <stdexcept>
-#include <TMathBase.h>
-#include <cstdlib>
-#include <GPUCommonArray.h>
-#include "Common/DataModel/Centrality.h"
+#include <Framework/AnalysisHelpers.h>
+#include <Framework/Configurable.h>
 #include <Framework/DeviceSpec.h>
-#include <cstdint>
+#include <Framework/HistogramRegistry.h>
+#include <Framework/HistogramSpec.h>
+#include <Framework/InitContext.h>
 #include <Framework/WorkflowSpec.h>
+#include <GPUCommonArray.h>
+#include <Rtypes.h>
+#include <TH1.h>
+#include <TMathBase.h>
+#include <TPDGCode.h>
+#include <array>
+#include <cstdint>
+#include <cstdlib>
+#include <fairlogger/Logger.h>
+#include <numeric>
+#include <stdexcept>
 #endif
 
 #include <memory>
@@ -44,20 +44,20 @@
 #include <vector>
 
 /// includes KFParticle
-#include "KFParticle.h"
 #include "KFPTrack.h"
 #include "KFPVertex.h"
+#include "KFParticle.h"
 
-#include "CCDB/BasicCCDBManager.h"
-#include "CommonConstants/PhysicsConstants.h"
-#include "DCAFitter/DCAFitterN.h"
-#include "DetectorsBase/Propagator.h"
-#include "Framework/AnalysisDataModel.h"
-#include "Framework/AnalysisTask.h"
-#include "Framework/runDataProcessing.h"
-#include "Framework/RunningWorkflowInfo.h"
-#include "ReconstructionDataFormats/DCA.h"
-#include "ReconstructionDataFormats/Track.h"
+#include <CCDB/BasicCCDBManager.h>
+#include <CommonConstants/PhysicsConstants.h>
+#include <DCAFitter/DCAFitterN.h>
+#include <DetectorsBase/Propagator.h>
+#include <Framework/AnalysisDataModel.h>
+#include <Framework/AnalysisTask.h>
+#include <Framework/RunningWorkflowInfo.h>
+#include <Framework/runDataProcessing.h>
+#include <ReconstructionDataFormats/DCA.h>
+#include <ReconstructionDataFormats/Track.h>
 
 #include "Common/Core/RecoDecay.h"
 #include "Common/Core/trackUtilities.h"

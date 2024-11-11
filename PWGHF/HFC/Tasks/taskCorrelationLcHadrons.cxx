@@ -25,9 +25,9 @@
 #include <Framework/WorkflowSpec.h>
 #include <vector>
 
-#include "Framework/AnalysisTask.h"
-#include "Framework/HistogramRegistry.h"
-#include "Framework/runDataProcessing.h"
+#include <Framework/AnalysisTask.h>
+#include <Framework/HistogramRegistry.h>
+#include <Framework/runDataProcessing.h>
 
 #include "PWGHF/Core/SelectorCuts.h"
 #include "PWGHF/Utils/utilsAnalysis.h"

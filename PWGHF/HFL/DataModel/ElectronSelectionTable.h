@@ -18,7 +18,7 @@
 #ifndef PWGHF_HFL_DATAMODEL_ELECTRONSELECTIONTABLE_H_
 #define PWGHF_HFL_DATAMODEL_ELECTRONSELECTIONTABLE_H_
 
-#include "Framework/AnalysisDataModel.h"
+#include <Framework/AnalysisDataModel.h>
 
 namespace o2::aod
 {

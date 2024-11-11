@@ -13,23 +13,23 @@
 /// \brief Omegac0 → Omega Ka selection task
 /// \author Federica Zanone <federica.zanone@cern.ch>, Heidelberg University
 
-#include <Framework/AnalysisHelpers.h>
-#include <Framework/Configurable.h>
+#include "Common/Core/RecoDecay.h"
+#include <CommonConstants/PhysicsConstants.h>
 #include <Framework/ASoA.h>
 #include <Framework/AnalysisDataModel.h>
+#include <Framework/AnalysisHelpers.h>
+#include <Framework/AnalysisTask.h>
+#include <Framework/Configurable.h>
 #include <Framework/HistogramRegistry.h>
-#include <TH1.h>
-#include <Framework/InitContext.h>
 #include <Framework/HistogramSpec.h>
+#include <Framework/InitContext.h>
+#include <Framework/WorkflowSpec.h>
+#include <Framework/runDataProcessing.h>
+#include <Rtypes.h>
+#include <TH1.h>
 #include <cstdint>
 #include <cstdlib>
-#include "Common/Core/RecoDecay.h"
 #include <fairlogger/Logger.h>
-#include <Rtypes.h>
-#include <Framework/WorkflowSpec.h>
-#include "CommonConstants/PhysicsConstants.h"
-#include "Framework/AnalysisTask.h"
-#include "Framework/runDataProcessing.h"
 
 #include "Common/Core/TrackSelectorPID.h"
 

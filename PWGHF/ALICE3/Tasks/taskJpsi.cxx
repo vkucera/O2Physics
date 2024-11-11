@@ -16,9 +16,9 @@
 /// \author Vít Kučera <vit.kucera@cern.ch>, CERN
 /// \author Biao Zhang <biao.zhang@cern.ch>, CCNU
 
-#include "CommonConstants/PhysicsConstants.h"
-#include "Framework/AnalysisTask.h"
-#include "Framework/HistogramRegistry.h"
+#include <CommonConstants/PhysicsConstants.h>
+#include <Framework/AnalysisTask.h>
+#include <Framework/HistogramRegistry.h>
 
 #include "PWGHF/Core/HfHelper.h"
 #include "PWGHF/DataModel/CandidateReconstructionTables.h"
@@ -35,7 +35,7 @@ void customize(std::vector<o2::framework::ConfigParamSpec>& workflowOptions)
   workflowOptions.push_back(optionDoMC);
 }
 
-#include "Framework/runDataProcessing.h"
+#include <Framework/runDataProcessing.h>
 
 /// jpsitoee analysis task
 struct HfTaskJpsi {

@@ -45,19 +45,18 @@
 #include <string_view>
 #include <numeric>
 #include <vector>
-
 #include "Common/DataModel/EventSelection.h"
 #include "Common/DataModel/Centrality.h"
 #include "Common/Core/RecoDecay.h"
 #include "Common/DataModel/TrackSelectionTables.h"
-#include "CommonConstants/PhysicsConstants.h"
-#include "Framework/AnalysisTask.h"
-#include "Framework/HistogramRegistry.h"
-#include "Framework/runDataProcessing.h"
-#include "Framework/RunningWorkflowInfo.h"
-#include "Framework/StaticFor.h"
+#include <CommonConstants/PhysicsConstants.h>
+#include <Framework/AnalysisTask.h>
+#include <Framework/HistogramRegistry.h>
+#include <Framework/runDataProcessing.h>
+#include <Framework/RunningWorkflowInfo.h>
+#include <Framework/StaticFor.h>
+#include <CCDB/BasicCCDBManager.h>
 
-#include "CCDB/BasicCCDBManager.h"
 #include "Common/DataModel/CollisionAssociationTables.h"
 
 #include "PWGHF/Core/CentralityEstimation.h"

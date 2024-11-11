@@ -14,15 +14,15 @@
 ///
 /// \author Vít Kučera <vit.kucera@cern.ch>, Inha University
 
-#include <Framework/AnalysisHelpers.h>
-#include <Framework/InitContext.h>
-#include <string>
-#include <fairlogger/Logger.h>
 #include <Framework/AnalysisDataModel.h>
+#include <Framework/AnalysisHelpers.h>
+#include <Framework/AnalysisTask.h>
 #include <Framework/Configurable.h>
+#include <Framework/InitContext.h>
 #include <Framework/WorkflowSpec.h>
-#include "Framework/AnalysisTask.h"
-#include "Framework/runDataProcessing.h"
+#include <Framework/runDataProcessing.h>
+#include <fairlogger/Logger.h>
+#include <string>
 
 #include "Common/Core/TableHelper.h"
 #include "Common/DataModel/PIDResponse.h"

@@ -24,9 +24,9 @@
 #include <THnSparse.h>
 #include <cstdlib>
 #include <Framework/WorkflowSpec.h>
-#include "Framework/AnalysisTask.h"
-#include "Framework/HistogramRegistry.h"
-#include "Framework/runDataProcessing.h"
+#include <Framework/AnalysisTask.h>
+#include <Framework/HistogramRegistry.h>
+#include <Framework/runDataProcessing.h>
 
 #include "PWGHF/Core/SelectorCuts.h"
 #include "PWGHF/Utils/utilsAnalysis.h"

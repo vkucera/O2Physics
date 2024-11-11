@@ -15,22 +15,22 @@
 /// \author Fabio Catalano <fabio.catalano@cern.ch>, Universita and INFN Torino
 /// \author Stefano Politano <stefano.politano@cern.ch>, Politecnico and INFN Torino
 
-#include <Framework/AnalysisHelpers.h>
-#include <Framework/Configurable.h>
-#include <vector>
-#include <Framework/Array2D.h>
-#include <cstdint>
 #include <CCDB/CcdbApi.h>
+#include <CommonConstants/PhysicsConstants.h>
 #include <Framework/ASoA.h>
+#include <Framework/AnalysisHelpers.h>
+#include <Framework/AnalysisTask.h>
+#include <Framework/Array2D.h>
+#include <Framework/Configurable.h>
 #include <Framework/HistogramRegistry.h>
-#include <Framework/InitContext.h>
 #include <Framework/HistogramSpec.h>
-#include <TH2.h>
-#include <Rtypes.h>
+#include <Framework/InitContext.h>
 #include <Framework/WorkflowSpec.h>
-#include "CommonConstants/PhysicsConstants.h"
-#include "Framework/AnalysisTask.h"
-#include "Framework/runDataProcessing.h"
+#include <Framework/runDataProcessing.h>
+#include <Rtypes.h>
+#include <TH2.h>
+#include <cstdint>
+#include <vector>
 
 #include "Common/Core/TrackSelectorPID.h"
 

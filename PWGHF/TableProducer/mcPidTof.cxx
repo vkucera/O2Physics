@@ -16,51 +16,51 @@
 ///         It works only for MC and adds the possibility to apply postcalibrations for MC.
 ///
 
-#include <chrono>
-#include <cstdint>
-#include <cmath>
-#include <cstdlib>
-#include <array>
 #include <algorithm>
+#include <array>
+#include <chrono>
+#include <cmath>
+#include <cstdint>
+#include <cstdlib>
 #include <map>
 #include <memory>
-#include <vector>
 #include <string>
+#include <vector>
 
+#include <DataFormatsParameters/GRPLHCIFData.h>
+#include <DataFormatsTOF/ParameterContainers.h>
 #include <Framework/ASoA.h>
 #include <Framework/AnalysisDataModel.h>
-#include <Framework/InitContext.h>
-#include <DataFormatsTOF/ParameterContainers.h>
-#include <TGraph.h>
-#include <DataFormatsParameters/GRPLHCIFData.h>
 #include <Framework/AnalysisHelpers.h>
 #include <Framework/Configurable.h>
-#include <Framework/OutputObjHeader.h>
-#include <Framework/HistogramSpec.h>
 #include <Framework/DataTypes.h>
-#include <ReconstructionDataFormats/PID.h>
-#include <TH2.h>
+#include <Framework/HistogramSpec.h>
+#include <Framework/InitContext.h>
+#include <Framework/OutputObjHeader.h>
 #include <Framework/WorkflowSpec.h>
+#include <ReconstructionDataFormats/PID.h>
+#include <TGraph.h>
+#include <TH2.h>
 #include <TPDGCode.h>
-#include <fairlogger/Logger.h>
 #include <TString.h>
+#include <fairlogger/Logger.h>
 
 // O2 includes
 #include "Common/DataModel/PIDResponse.h"
-#include "Framework/runDataProcessing.h"
-#include "Framework/AnalysisTask.h"
-#include "Framework/HistogramRegistry.h"
 #include "PID/PIDTOF.h"
-#include "CCDB/BasicCCDBManager.h"
 #include "TOFBase/EventTimeMaker.h"
+#include <CCDB/BasicCCDBManager.h>
+#include <Framework/AnalysisTask.h>
+#include <Framework/HistogramRegistry.h>
+#include <Framework/runDataProcessing.h>
 
 // O2Physics includes
-#include "TableHelper.h"
-#include "MetadataHelper.h"
 #include "CollisionTypeHelper.h"
 #include "Common/DataModel/EventSelection.h"
 #include "Common/DataModel/FT0Corrected.h"
 #include "Common/TableProducer/PID/pidTOFBase.h"
+#include "MetadataHelper.h"
+#include "TableHelper.h"
 
 using namespace o2;
 using namespace o2::framework;

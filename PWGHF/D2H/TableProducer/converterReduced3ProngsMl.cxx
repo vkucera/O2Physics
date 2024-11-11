@@ -16,8 +16,8 @@
 
 #include <Framework/AnalysisHelpers.h>
 #include <Framework/WorkflowSpec.h>
-#include "Framework/runDataProcessing.h"
-#include "Framework/AnalysisTask.h"
+#include <Framework/runDataProcessing.h>
+#include <Framework/AnalysisTask.h>
 
 #include "PWGHF/D2H/DataModel/ReducedDataModel.h"
 

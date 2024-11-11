@@ -17,7 +17,7 @@
 #ifndef TUTORIALS_PWGHF_DATAMODELMINI_H_
 #define TUTORIALS_PWGHF_DATAMODELMINI_H_
 
-#include "Framework/AnalysisDataModel.h"
+#include <Framework/AnalysisDataModel.h>
 
 namespace o2::aod
 {

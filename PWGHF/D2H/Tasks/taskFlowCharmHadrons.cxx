@@ -30,12 +30,12 @@
 #include <CommonConstants/MathConstants.h>
 #include <fairlogger/Logger.h>
 #include <Framework/WorkflowSpec.h>
-#include "CCDB/BasicCCDBManager.h"
+#include <CCDB/BasicCCDBManager.h>
 #include "Common/DataModel/EventSelection.h"
 #include "Common/DataModel/Centrality.h"
-#include "Framework/AnalysisTask.h"
-#include "Framework/HistogramRegistry.h"
-#include "Framework/runDataProcessing.h"
+#include <Framework/AnalysisTask.h>
+#include <Framework/HistogramRegistry.h>
+#include <Framework/runDataProcessing.h>
 
 #include "Common/Core/EventPlaneHelper.h"
 #include "Common/DataModel/Qvectors.h"

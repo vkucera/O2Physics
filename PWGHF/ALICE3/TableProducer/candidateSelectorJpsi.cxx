@@ -16,8 +16,8 @@
 /// \author Nima Zardoshti <nima.zardoshti@cern.ch>, CERN
 /// \author Vít Kučera <vit.kucera@cern.ch>, CERN
 
-#include "CommonConstants/PhysicsConstants.h"
-#include "Framework/AnalysisTask.h"
+#include <CommonConstants/PhysicsConstants.h>
+#include <Framework/AnalysisTask.h>
 
 #include "ALICE3/DataModel/MID.h"
 #include "ALICE3/DataModel/RICH.h"
@@ -57,7 +57,7 @@ void customize(std::vector<o2::framework::ConfigParamSpec>& workflowOptions)
   workflowOptions.push_back(isAlice3);
 }
 
-#include "Framework/runDataProcessing.h"
+#include <Framework/runDataProcessing.h>
 
 /// Struct for applying J/ψ → e+ e−, μ+ μ− selection cuts
 struct HfCandidateSelectorJpsi {

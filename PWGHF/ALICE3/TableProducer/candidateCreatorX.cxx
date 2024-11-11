@@ -16,11 +16,11 @@
 /// \author Rik Spijkers <r.spijkers@students.uu.nl>, Utrecht University
 /// \author Luca Micheletti <luca.micheletti@to.infn.it>, INFN
 
-#include "CommonConstants/PhysicsConstants.h"
-#include "DCAFitter/DCAFitterN.h"
-#include "Framework/AnalysisTask.h"
-#include "ReconstructionDataFormats/DCA.h"
-#include "ReconstructionDataFormats/V0.h"
+#include <CommonConstants/PhysicsConstants.h>
+#include <DCAFitter/DCAFitterN.h>
+#include <Framework/AnalysisTask.h>
+#include <ReconstructionDataFormats/DCA.h>
+#include <ReconstructionDataFormats/V0.h>
 
 #include "Common/Core/trackUtilities.h"
 
@@ -41,7 +41,7 @@ void customize(std::vector<o2::framework::ConfigParamSpec>& workflowOptions)
   workflowOptions.push_back(optionDoMC);
 }
 
-#include "Framework/runDataProcessing.h"
+#include <Framework/runDataProcessing.h>
 
 /// Reconstruction of X candidates
 struct HfCandidateCreatorX {

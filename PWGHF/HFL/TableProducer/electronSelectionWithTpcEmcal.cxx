@@ -30,9 +30,9 @@
 #include <ostream>
 #include "THnSparse.h"
 
-#include "Framework/AnalysisTask.h"
-#include "Framework/HistogramRegistry.h"
-#include "Framework/runDataProcessing.h"
+#include <Framework/AnalysisTask.h>
+#include <Framework/HistogramRegistry.h>
+#include <Framework/runDataProcessing.h>
 
 #include "Common/DataModel/EventSelection.h"
 #include "Common/DataModel/Multiplicity.h"

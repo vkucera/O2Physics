@@ -18,21 +18,34 @@
 
 #ifndef HomogeneousField
 #define HomogeneousField
+#endif
+
 #include "Common/Core/RecoDecay.h"
 #include "Common/DataModel/Centrality.h"
 #include "Common/DataModel/EventSelection.h"
 #include <CCDB/BasicCCDBManager.h>
+#include <CommonConstants/PhysicsConstants.h>
+#include <DCAFitter/DCAFitterN.h>
 #include <DetectorsBase/MatLayerCylSet.h>
 #include <DetectorsBase/Propagator.h>
 #include <Framework/ASoA.h>
 #include <Framework/AnalysisDataModel.h>
 #include <Framework/AnalysisHelpers.h>
+#include <Framework/AnalysisTask.h>
 #include <Framework/Configurable.h>
 #include <Framework/DeviceSpec.h>
+#include <Framework/HistogramRegistry.h>
 #include <Framework/HistogramSpec.h>
 #include <Framework/InitContext.h>
+#include <Framework/RunningWorkflowInfo.h>
 #include <Framework/WorkflowSpec.h>
+#include <Framework/runDataProcessing.h>
+#include <KFPTrack.h>
+#include <KFPVertex.h>
+#include <KFParticle.h>
+#include <ReconstructionDataFormats/DCA.h>
 #include <TH1.h>
+#include <TPDGCode.h>
 #include <array>
 #include <cstdint>
 #include <fairlogger/Logger.h>
@@ -40,21 +53,6 @@
 #include <numeric>
 #include <stdexcept>
 #include <vector>
-#endif
-
-#include <KFPTrack.h>
-#include <KFPVertex.h>
-#include <KFParticle.h>
-
-#include <TPDGCode.h>
-
-#include "CommonConstants/PhysicsConstants.h"
-#include "DCAFitter/DCAFitterN.h"
-#include "Framework/AnalysisTask.h"
-#include "Framework/HistogramRegistry.h"
-#include "Framework/RunningWorkflowInfo.h"
-#include "Framework/runDataProcessing.h"
-#include "ReconstructionDataFormats/DCA.h"
 
 #include "Common/Core/trackUtilities.h"
 #include "Tools/KFparticle/KFUtilities.h"

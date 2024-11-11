@@ -15,40 +15,40 @@
 ///
 /// \author Mattia Faggin <mfaggin@cern.ch>, University and INFN PADOVA
 
-#include <Framework/AnalysisHelpers.h>
-#include <Framework/Configurable.h>
-#include <vector>
-#include <Framework/Array2D.h>
+#include "Common/Core/RecoDecay.h"
+#include <CCDB/BasicCCDBManager.h> // for dca recalculation
+#include <CommonConstants/PhysicsConstants.h>
 #include <DetectorsBase/MatLayerCylSet.h>
+#include <DetectorsBase/Propagator.h>          // for dca recalculation
 #include <Framework/ASoA.h>
+#include <Framework/AnalysisDataModel.h>
+#include <Framework/AnalysisHelpers.h>
+#include <Framework/AnalysisTask.h>
+#include <Framework/Array2D.h>
+#include <Framework/Configurable.h>
+#include <Framework/DeviceSpec.h>
 #include <Framework/Expressions.h>
 #include <Framework/HistogramRegistry.h>
-#include <Framework/InitContext.h>
-#include <TH1.h>
 #include <Framework/HistogramSpec.h>
-#include <array>
-#include <numeric>
-#include <fairlogger/Logger.h>
-#include <set>
-#include <cstdint>
-#include <Rtypes.h>
-#include <Framework/AnalysisDataModel.h>
-#include <GPUCommonArray.h>
-#include <Framework/DeviceSpec.h>
-#include <TPDGCode.h>
+#include <Framework/InitContext.h>
+#include <Framework/RunningWorkflowInfo.h>
 #include <Framework/WorkflowSpec.h>
-#include "CCDB/BasicCCDBManager.h" // for dca recalculation
-#include "Common/Core/RecoDecay.h"
-#include "CommonConstants/PhysicsConstants.h"
-#include "DetectorsBase/Propagator.h"          // for dca recalculation
-#include "Framework/AnalysisTask.h"
-#include "Framework/runDataProcessing.h"
-#include "Framework/RunningWorkflowInfo.h"
+#include <Framework/runDataProcessing.h>
+#include <GPUCommonArray.h>
+#include <Rtypes.h>
+#include <TH1.h>
+#include <TPDGCode.h>
+#include <array>
+#include <cstdint>
+#include <fairlogger/Logger.h>
+#include <numeric>
+#include <set>
+#include <vector>
 
 #include "Common/Core/TrackSelection.h"
+#include "Common/Core/TrackSelectionDefaults.h"
 #include "Common/Core/trackUtilities.h"
 #include "Common/DataModel/CollisionAssociationTables.h"
-#include "Common/Core/TrackSelectionDefaults.h"
 
 #include "PWGHF/Core/HfHelper.h"
 #include "PWGHF/Core/SelectorCuts.h"

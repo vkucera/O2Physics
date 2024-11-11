@@ -18,16 +18,16 @@
 /// \author Panos Christakoglou <Panos.Christakoglou@cern.ch>, Nikhef
 /// \author Maurice Jongerhuis <m.v.jongerhuis@students.uu.nl>, University Utrecht
 
-#include <cstdint>
+#include "Common/Core/RecoDecay.h"
+#include "Common/DataModel/PIDResponse.h"
+#include <Framework/ASoA.h>
 #include <Framework/AnalysisDataModel.h>
 #include <Framework/AnalysisHelpers.h>
+#include <Framework/AnalysisTask.h>
 #include <Framework/InitContext.h>
-#include <Framework/ASoA.h>
-#include "Common/DataModel/PIDResponse.h"
-#include "Common/Core/RecoDecay.h"
 #include <Framework/WorkflowSpec.h>
-#include "Framework/AnalysisTask.h"
-#include "Framework/runDataProcessing.h"
+#include <Framework/runDataProcessing.h>
+#include <cstdint>
 
 #include "ALICE3/DataModel/RICH.h"
 

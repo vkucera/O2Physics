@@ -32,10 +32,10 @@
 #include <tuple>
 #include <Framework/GroupedCombinations.h>
 #include <Framework/WorkflowSpec.h>
-#include "CommonConstants/PhysicsConstants.h"
-#include "Framework/ASoAHelpers.h"
-#include "Framework/AnalysisTask.h"
-#include "Framework/runDataProcessing.h"
+#include <CommonConstants/PhysicsConstants.h>
+#include <Framework/ASoAHelpers.h>
+#include <Framework/AnalysisTask.h>
+#include <Framework/runDataProcessing.h>
 
 // O2Physics
 #include "Common/DataModel/Multiplicity.h"

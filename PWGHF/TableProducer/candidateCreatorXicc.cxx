@@ -17,28 +17,28 @@
 /// \author Luigi Dello Stritto <luigi.dello.stritto@cern.ch >, SALERNO
 /// \author Mattia Faggin <mattia.faggin@cern.ch>, University and INFN PADOVA
 
-#include <vector>
-#include <Framework/ConfigParamSpec.h>
-#include <Framework/Variant.h>
+#include "Common/Core/RecoDecay.h"
+#include <CommonConstants/PhysicsConstants.h>
+#include <DCAFitter/DCAFitterN.h>
+#include <Framework/ASoA.h>
+#include <Framework/AnalysisDataModel.h>
 #include <Framework/AnalysisHelpers.h>
+#include <Framework/AnalysisTask.h>
+#include <Framework/ConfigParamSpec.h>
 #include <Framework/Configurable.h>
 #include <Framework/Expressions.h>
-#include <TH1.h>
 #include <Framework/InitContext.h>
-#include <Framework/AnalysisDataModel.h>
-#include <Framework/ASoA.h>
+#include <Framework/Variant.h>
+#include <Framework/WorkflowSpec.h>
+#include <ReconstructionDataFormats/DCA.h>
+#include <ReconstructionDataFormats/V0.h>
+#include <TH1.h>
+#include <TPDGCode.h>
 #include <array>
-#include "Common/Core/RecoDecay.h"
 #include <cmath>
 #include <cstdint>
-#include <TPDGCode.h>
 #include <fairlogger/Logger.h>
-#include <Framework/WorkflowSpec.h>
-#include "CommonConstants/PhysicsConstants.h"
-#include "DCAFitter/DCAFitterN.h"
-#include "Framework/AnalysisTask.h"
-#include "ReconstructionDataFormats/DCA.h"
-#include "ReconstructionDataFormats/V0.h"
+#include <vector>
 
 #include "Common/Core/trackUtilities.h"
 
@@ -58,7 +58,7 @@ void customize(std::vector<o2::framework::ConfigParamSpec>& workflowOptions)
   workflowOptions.push_back(optionDoMC);
 }
 
-#include "Framework/runDataProcessing.h"
+#include <Framework/runDataProcessing.h>
 
 /// Reconstruction of xicc candidates
 struct HfCandidateCreatorXicc {

@@ -16,7 +16,7 @@
 #ifndef PWGHF_UTILS_UTILSTRKCANDHF_H_
 #define PWGHF_UTILS_UTILSTRKCANDHF_H_
 
-#include "Framework/HistogramSpec.h"
+#include <Framework/HistogramSpec.h>
 
 namespace o2::hf_trkcandsel
 {

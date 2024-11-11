@@ -16,8 +16,8 @@
 #ifndef PWGHF_HFC_DATAMODEL_CORRELATIONTABLES_H_
 #define PWGHF_HFC_DATAMODEL_CORRELATIONTABLES_H_
 
-#include "CommonConstants/PhysicsConstants.h"
-#include "Framework/AnalysisDataModel.h"
+#include <CommonConstants/PhysicsConstants.h>
+#include <Framework/AnalysisDataModel.h>
 
 #include "Common/Core/RecoDecay.h"
 

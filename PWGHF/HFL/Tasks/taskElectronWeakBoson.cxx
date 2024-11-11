@@ -23,8 +23,8 @@
 #include <cstdlib>
 #include <CommonConstants/MathConstants.h>
 #include <Framework/WorkflowSpec.h>
-#include "Framework/runDataProcessing.h"
-#include "Framework/AnalysisTask.h"
+#include <Framework/runDataProcessing.h>
+#include <Framework/AnalysisTask.h>
 
 
 

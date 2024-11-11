@@ -28,9 +28,9 @@
 #include <TH3.h>
 #include <Rtypes.h>
 #include <Framework/WorkflowSpec.h>
-#include "Framework/AnalysisTask.h"
-#include "Framework/HistogramRegistry.h"
-#include "Framework/runDataProcessing.h"
+#include <Framework/AnalysisTask.h>
+#include <Framework/HistogramRegistry.h>
+#include <Framework/runDataProcessing.h>
 #include "Common/Core/RecoDecay.h"
 
 #include "PWGHF/Core/HfHelper.h"

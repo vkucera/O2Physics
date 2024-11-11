@@ -15,41 +15,41 @@
 ///
 /// \author Vít Kučera <vit.kucera@cern.ch>, CERN
 
-#include <Framework/AnalysisHelpers.h>
-#include <Framework/Configurable.h>
 #include <CCDB/BasicCCDBManager.h>
 #include <DetectorsBase/MatLayerCylSet.h>
 #include <DetectorsBase/Propagator.h>
 #include <Framework/ASoA.h>
+#include <Framework/AnalysisDataModel.h>
+#include <Framework/AnalysisHelpers.h>
+#include <Framework/Configurable.h>
+#include <Framework/DeviceSpec.h>
 #include <Framework/Expressions.h>
+#include <Framework/HistogramSpec.h>
+#include <Framework/InitContext.h>
+#include <Framework/WorkflowSpec.h>
 #include <Rtypes.h>
 #include <TH1.h>
-#include <Framework/InitContext.h>
-#include <Framework/HistogramSpec.h>
-#include <Framework/AnalysisDataModel.h>
-#include <Framework/DeviceSpec.h>
-#include <Framework/WorkflowSpec.h>
 #include <TPDGCode.h>
-#include <cstdint>
-#include <memory>
 #include <array>
-#include <numeric>
+#include <cstdint>
+#include <cstdlib>
 #include <fairlogger/Logger.h>
+#include <memory>
+#include <numeric>
 #include <stdexcept>
 #include <utility>
 #include <vector>
-#include <cstdlib>
 
 #include "Common/Core/RecoDecay.h"
-#include "Common/DataModel/EventSelection.h"
 #include "Common/DataModel/Centrality.h"
-#include "CommonConstants/PhysicsConstants.h"
-#include "DCAFitter/DCAFitterN.h"
-#include "Framework/AnalysisTask.h"
-#include "Framework/HistogramRegistry.h"
-#include "Framework/runDataProcessing.h"
-#include "Framework/RunningWorkflowInfo.h"
-#include "ReconstructionDataFormats/DCA.h"
+#include "Common/DataModel/EventSelection.h"
+#include <CommonConstants/PhysicsConstants.h>
+#include <DCAFitter/DCAFitterN.h>
+#include <Framework/AnalysisTask.h>
+#include <Framework/HistogramRegistry.h>
+#include <Framework/RunningWorkflowInfo.h>
+#include <Framework/runDataProcessing.h>
+#include <ReconstructionDataFormats/DCA.h>
 
 #include "Common/Core/trackUtilities.h"
 

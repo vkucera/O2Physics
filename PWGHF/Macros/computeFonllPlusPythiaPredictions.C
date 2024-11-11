@@ -29,14 +29,12 @@
 #include <TROOT.h>
 #include <TH1.h>
 #include <TF1.h>
+#include <Math/Vector3D.h>
+#include <Math/Vector4D.h>
+#include <Pythia8/Pythia.h>
 
-#include "Math/Vector3D.h"
-#include "Math/Vector4D.h"
-
-#include "CommonConstants/MathConstants.h"
-#include "Framework/Logger.h"
-
-#include "Pythia8/Pythia.h"
+#include <CommonConstants/MathConstants.h>
+#include <Framework/Logger.h>
 
 #endif
 

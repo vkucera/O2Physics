@@ -20,8 +20,8 @@
 #include <sys/types.h>
 #include <vector>
 
-#include "Framework/AnalysisDataModel.h"
-#include "Framework/ASoA.h"
+#include <Framework/AnalysisDataModel.h>
+#include <Framework/ASoA.h>
 
 #include "Common/Core/RecoDecay.h"
 

@@ -17,9 +17,10 @@
 #define PWGHF_HFC_UTILS_UTILSCORRELATIONS_H_
 
 #include <cmath>
+
 #include <TPDGCode.h>
 
-#include "CommonConstants/PhysicsConstants.h"
+#include <CommonConstants/MathConstants.h>
 
 namespace o2::analysis::hf_correlations
 {

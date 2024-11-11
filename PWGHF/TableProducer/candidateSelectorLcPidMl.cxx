@@ -17,30 +17,30 @@
 /// \author Vít Kučera <vit.kucera@cern.ch>, CERN
 /// \author Maja Kabus <maja.kabus@cern.ch>, CERN, Warsaw University of Technology
 
-#include <Framework/AnalysisHelpers.h>
-#include <Framework/Configurable.h>
-#include <Framework/Array2D.h>
-#include <cstdint>
-#include <Framework/ASoA.h>
-#include "Common/DataModel/PIDResponse.h"
-#include <Framework/HistogramRegistry.h>
-#include <Framework/OutputObjHeader.h>
-#include <Framework/InitContext.h>
-#include <Framework/HistogramSpec.h>
-#include <TH1.h>
-#include <map>
-#include <fairlogger/Logger.h>
-#include <cstdlib>
-#include <vector>
-#include <onnxruntime_cxx_api.h>
-#include <cstddef>
-#include <array>
 #include "Common/Core/RecoDecay.h"
+#include "Common/DataModel/PIDResponse.h"
+#include <CCDB/CcdbApi.h>
+#include <CommonConstants/PhysicsConstants.h>
+#include <Framework/ASoA.h>
+#include <Framework/AnalysisHelpers.h>
+#include <Framework/AnalysisTask.h>
+#include <Framework/Array2D.h>
+#include <Framework/Configurable.h>
+#include <Framework/HistogramRegistry.h>
+#include <Framework/HistogramSpec.h>
+#include <Framework/InitContext.h>
+#include <Framework/OutputObjHeader.h>
 #include <Framework/WorkflowSpec.h>
-#include "CommonConstants/PhysicsConstants.h"
-#include "CCDB/CcdbApi.h"
-#include "Framework/AnalysisTask.h"
-#include "Framework/runDataProcessing.h"
+#include <Framework/runDataProcessing.h>
+#include <TH1.h>
+#include <array>
+#include <cstddef>
+#include <cstdint>
+#include <cstdlib>
+#include <fairlogger/Logger.h>
+#include <map>
+#include <onnxruntime_cxx_api.h>
+#include <vector>
 
 #include "Common/Core/TrackSelectorPID.h"
 #include "Common/Core/trackUtilities.h"

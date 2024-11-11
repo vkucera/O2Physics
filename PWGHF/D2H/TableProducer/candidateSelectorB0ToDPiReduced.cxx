@@ -31,8 +31,8 @@
 #include <TH2.h>
 #include <Rtypes.h>
 #include <Framework/WorkflowSpec.h>
-#include "Framework/AnalysisTask.h"
-#include "Framework/runDataProcessing.h"
+#include <Framework/AnalysisTask.h>
+#include <Framework/runDataProcessing.h>
 
 #include "Common/Core/TrackSelectorPID.h"
 

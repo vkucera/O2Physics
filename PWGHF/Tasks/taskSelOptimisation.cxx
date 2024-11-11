@@ -30,9 +30,9 @@
 #include <Rtypes.h>
 #include "Common/Core/RecoDecay.h"
 #include <Framework/WorkflowSpec.h>
-#include "Framework/AnalysisTask.h"
-#include "Framework/HistogramRegistry.h"
-#include "Framework/runDataProcessing.h"
+#include <Framework/AnalysisTask.h>
+#include <Framework/HistogramRegistry.h>
+#include <Framework/runDataProcessing.h>
 
 #include "PWGHF/DataModel/CandidateReconstructionTables.h"
 

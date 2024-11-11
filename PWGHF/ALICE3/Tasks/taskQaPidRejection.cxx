@@ -20,9 +20,9 @@
 #include <TList.h>
 #include <TPDGCode.h>
 
-#include "Framework/AnalysisTask.h"
-#include "Framework/HistogramRegistry.h"
-#include "ReconstructionDataFormats/DCA.h"
+#include <Framework/AnalysisTask.h>
+#include <Framework/HistogramRegistry.h>
+#include <ReconstructionDataFormats/DCA.h>
 
 #include "ALICE3/DataModel/MID.h"
 #include "ALICE3/DataModel/RICH.h"
@@ -66,7 +66,7 @@ void customize(std::vector<ConfigParamSpec>& workflowOptions)
   std::swap(workflowOptions, options);
 }
 
-#include "Framework/runDataProcessing.h"
+#include <Framework/runDataProcessing.h>
 
 /// Task to QA the efficiency of a particular particle defined by particlePDG
 template <track::pid_constants::ID particle>

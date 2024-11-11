@@ -31,7 +31,7 @@
 #include <cstdint>
 #include <chrono>
 #include <Framework/WorkflowSpec.h>
-#include "CCDB/BasicCCDBManager.h"
+#include <CCDB/BasicCCDBManager.h>
 
 #include "Common/CCDB/TriggerAliases.h"
 #include "Common/DataModel/EventSelection.h"
@@ -41,9 +41,9 @@
 #include "Common/DataModel/TrackSelectionTables.h"
 #include "Common/DataModel/PIDResponse.h"
 
-#include "Framework/AnalysisTask.h"
-#include "Framework/HistogramRegistry.h"
-#include "Framework/runDataProcessing.h"
+#include <Framework/AnalysisTask.h>
+#include <Framework/HistogramRegistry.h>
+#include <Framework/runDataProcessing.h>
 
 #include "PWGCF/DataModel/FemtoDerived.h"
 #include "PWGCF/FemtoDream/Core/femtoDreamCollisionSelection.h"

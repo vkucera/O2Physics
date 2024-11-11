@@ -22,10 +22,10 @@
 #include <Framework/OutputObjHeader.h>
 #include <Framework/HistogramSpec.h>
 #include <Framework/WorkflowSpec.h>
-#include "Framework/AnalysisDataModel.h"
-#include "Framework/AnalysisTask.h"
-#include "Framework/HistogramRegistry.h"
-#include "Framework/runDataProcessing.h"
+#include <Framework/AnalysisDataModel.h>
+#include <Framework/AnalysisTask.h>
+#include <Framework/HistogramRegistry.h>
+#include <Framework/runDataProcessing.h>
 
 #include "Common/Core/RecoDecay.h"
 #include "Common/DataModel/EventSelection.h"

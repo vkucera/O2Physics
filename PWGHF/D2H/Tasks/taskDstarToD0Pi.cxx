@@ -35,10 +35,10 @@
 
 #include "Common/DataModel/Centrality.h"
 #include "Common/Core/RecoDecay.h"
-#include "CommonConstants/PhysicsConstants.h"
-#include "Framework/AnalysisTask.h"
-#include "Framework/ASoAHelpers.h"
-#include "Framework/runDataProcessing.h"
+#include <CommonConstants/PhysicsConstants.h>
+#include <Framework/AnalysisTask.h>
+#include <Framework/ASoAHelpers.h>
+#include <Framework/runDataProcessing.h>
 
 #include "PWGHF/Core/SelectorCuts.h"
 #include "PWGHF/DataModel/CandidateReconstructionTables.h"

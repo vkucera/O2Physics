@@ -27,10 +27,10 @@
 #include <Framework/WorkflowSpec.h>
 #include "TMCProcess.h" // for VMC Particle Production Process
 
-#include "CommonConstants/PhysicsConstants.h"
-#include "Framework/AnalysisTask.h"
-#include "Framework/HistogramRegistry.h"
-#include "Framework/runDataProcessing.h"
+#include <CommonConstants/PhysicsConstants.h>
+#include <Framework/AnalysisTask.h>
+#include <Framework/HistogramRegistry.h>
+#include <Framework/runDataProcessing.h>
 
 #include "Common/Core/RecoDecay.h"
 #include "Common/DataModel/TrackSelectionTables.h"

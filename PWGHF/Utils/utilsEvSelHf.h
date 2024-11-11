@@ -25,12 +25,11 @@
 #include <fairlogger/Logger.h>
 #include <memory> // std::shared_ptr
 #include <string> // std::string
-
-#include "Framework/AnalysisHelpers.h"
-#include "Framework/Configurable.h"
-#include "Framework/DeviceSpec.h"
-#include "Framework/HistogramRegistry.h"
-#include "Framework/HistogramSpec.h"
+#include <Framework/AnalysisHelpers.h>
+#include <Framework/Configurable.h>
+#include <Framework/DeviceSpec.h>
+#include <Framework/HistogramRegistry.h>
+#include <Framework/HistogramSpec.h>
 
 #include "Common/CCDB/EventSelectionParams.h"
 #include "EventFiltering/Zorro.h"

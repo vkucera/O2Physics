@@ -14,49 +14,49 @@
 ///
 /// \author Jochen Klein
 
+#include <DetectorsBase/MatLayerCylSet.h>
 #include <Framework/AnalysisHelpers.h>
 #include <Framework/Configurable.h>
-#include <Framework/SliceCache.h>
 #include <Framework/Expressions.h>
 #include <Framework/HistogramSpec.h>
 #include <Framework/InitContext.h>
-#include <DetectorsBase/MatLayerCylSet.h>
-#include <ReconstructionDataFormats/Track.h>
+#include <Framework/SliceCache.h>
 #include <Framework/WorkflowSpec.h>
+#include <ReconstructionDataFormats/Track.h>
 #include <TH1.h>
 #include <TPDGCode.h>
-#include <cstdint>
-#include <map>
-#include <memory>
-#include <cstdlib>
 #include <array>
 #include <cmath>
+#include <cstdint>
+#include <cstdlib>
 #include <fairlogger/Logger.h>
-#include <type_traits>
+#include <map>
+#include <memory>
 #include <stdexcept>
+#include <type_traits>
 
-#include "CCDB/BasicCCDBManager.h"
-#include "CommonConstants/PhysicsConstants.h"
-#include "DataFormatsParameters/GRPMagField.h"
-#include "DataFormatsParameters/GRPObject.h"
-#include "DCAFitter/DCAFitterN.h"
-#include "DetectorsBase/Propagator.h"
-#include "EventFiltering/Zorro.h"
-#include "EventFiltering/ZorroSummary.h"
-#include "Framework/AnalysisDataModel.h"
-#include "Framework/AnalysisTask.h"
-#include "Framework/ASoA.h"
-#include "Framework/HistogramRegistry.h"
-#include "Framework/runDataProcessing.h"
-#include "ReconstructionDataFormats/DCA.h"
-#include "Common/DataModel/EventSelection.h"
 #include "Common/Core/RecoDecay.h"
 #include "Common/Core/trackUtilities.h"
+#include "Common/DataModel/CollisionAssociationTables.h"
+#include "Common/DataModel/EventSelection.h"
 #include "Common/DataModel/PIDResponse.h"
 #include "Common/DataModel/TrackSelectionTables.h"
-#include "Common/DataModel/CollisionAssociationTables.h"
-#include "PWGLF/DataModel/LFStrangenessTables.h"
+#include "EventFiltering/Zorro.h"
+#include "EventFiltering/ZorroSummary.h"
 #include "PWGHF/Utils/utilsTrkCandHf.h"
+#include "PWGLF/DataModel/LFStrangenessTables.h"
+#include <CCDB/BasicCCDBManager.h>
+#include <CommonConstants/PhysicsConstants.h>
+#include <DCAFitter/DCAFitterN.h>
+#include <DataFormatsParameters/GRPMagField.h>
+#include <DataFormatsParameters/GRPObject.h>
+#include <DetectorsBase/Propagator.h>
+#include <Framework/ASoA.h>
+#include <Framework/AnalysisDataModel.h>
+#include <Framework/AnalysisTask.h>
+#include <Framework/HistogramRegistry.h>
+#include <Framework/runDataProcessing.h>
+#include <ReconstructionDataFormats/DCA.h>
 
 using namespace o2;
 using namespace o2::framework;

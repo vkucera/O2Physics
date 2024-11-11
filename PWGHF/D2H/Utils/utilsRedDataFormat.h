@@ -16,9 +16,9 @@
 #ifndef PWGHF_D2H_UTILS_UTILSREDDATAFORMAT_H_
 #define PWGHF_D2H_UTILS_UTILSREDDATAFORMAT_H_
 
-#include "Framework/HistogramRegistry.h"
+#include <Framework/HistogramRegistry.h>
 
-#include "CCDB/BasicCCDBManager.h"
+#include <CCDB/BasicCCDBManager.h>
 #include "PWGHF/Core/CentralityEstimation.h"
 #include "PWGHF/Utils/utilsEvSelHf.h"
 

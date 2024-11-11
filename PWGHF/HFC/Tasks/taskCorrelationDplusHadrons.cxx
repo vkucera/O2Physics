@@ -35,14 +35,14 @@
 #include <memory> // std::shared_ptr
 #include <string>
 #include <vector>
-#include "CCDB/BasicCCDBManager.h"
+#include <CCDB/BasicCCDBManager.h>
 #include "Common/DataModel/TrackSelectionTables.h"
 #include "Common/DataModel/Multiplicity.h"
 #include "Common/DataModel/EventSelection.h"
 #include "Common/CCDB/EventSelectionParams.h"
-#include "Framework/AnalysisTask.h"
-#include "Framework/HistogramRegistry.h"
-#include "Framework/runDataProcessing.h"
+#include <Framework/AnalysisTask.h>
+#include <Framework/HistogramRegistry.h>
+#include <Framework/runDataProcessing.h>
 
 #include "PWGHF/Core/HfHelper.h"
 #include "PWGHF/Core/SelectorCuts.h"

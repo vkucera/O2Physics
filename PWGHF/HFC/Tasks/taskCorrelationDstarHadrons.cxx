@@ -23,9 +23,9 @@
 #include <Framework/HistogramSpec.h>
 #include <CommonConstants/MathConstants.h>
 #include <Framework/WorkflowSpec.h>
-#include "Framework/AnalysisTask.h"
-#include "Framework/HistogramRegistry.h"
-#include "Framework/runDataProcessing.h"
+#include <Framework/AnalysisTask.h>
+#include <Framework/HistogramRegistry.h>
+#include <Framework/runDataProcessing.h>
 
 // PWGHF
 #include "PWGHF/Core/SelectorCuts.h"

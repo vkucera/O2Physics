@@ -23,8 +23,8 @@
 #include <Math/GenVector/Boost.h>
 #include <Math/Vector4D.h> // IWYU pragma: keep
 
-#include "CommonConstants/MathConstants.h"
-#include "CommonConstants/PhysicsConstants.h"
+#include <CommonConstants/MathConstants.h>
+#include <CommonConstants/PhysicsConstants.h>
 
 #include "Common/Core/RecoDecay.h"
 #include "Common/Core/TrackSelectorPID.h"

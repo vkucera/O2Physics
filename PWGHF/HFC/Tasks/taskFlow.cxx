@@ -31,18 +31,18 @@
 #include <THn.h>
 #include <TParticlePDG.h>
 
-#include "Framework/AnalysisDataModel.h"
-#include "Framework/AnalysisTask.h"
-#include "Framework/HistogramRegistry.h"
-#include "Framework/O2DatabasePDGPlugin.h"
-#include "Framework/runDataProcessing.h"
+#include <Framework/AnalysisDataModel.h>
+#include <Framework/AnalysisTask.h>
+#include <Framework/HistogramRegistry.h>
+#include <Framework/O2DatabasePDGPlugin.h>
+#include <Framework/runDataProcessing.h>
 #include "PWGHF/Core/SelectorCuts.h"
 #include "Common/Core/RecoDecay.h"
 
 #include "Common/DataModel/EventSelection.h"
 #include "Common/DataModel/Multiplicity.h"
 #include "Common/DataModel/TrackSelectionTables.h"
-#include "CommonConstants/MathConstants.h"
+#include <CommonConstants/MathConstants.h>
 
 #include "PWGCF/Core/CorrelationContainer.h"
 
