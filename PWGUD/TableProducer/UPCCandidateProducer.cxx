@@ -1520,7 +1520,6 @@ struct UpcCandProducer {
     auto nFT0s = mapGlobalBcWithT0A.size();
     auto nFV0As = mapGlobalBcWithV0A.size();
     auto nZdcs = mapGlobalBcWithZdc.size();
-    auto nBcsWithMID = bcsMatchedTrIdsMID.size();
 
     // todo: calculate position of UD collision?
     float dummyX = 0.;
@@ -1541,7 +1540,6 @@ struct UpcCandProducer {
       if (nMFTs > fNFwdProngs) // too many tracks
         continue;
       std::vector<int64_t> trkCandIDs{};
-      auto midBC = static_cast<int64_t>(midIt->first);
       const auto& midTrackIDs = midIt->second;
       if (nMFTs == fNFwdProngs) {
         for (auto iMft : fwdTrackIDs) {
