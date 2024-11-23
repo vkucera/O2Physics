@@ -1416,7 +1416,7 @@ def main():
     test_names = [t.name for t in tests]  # short names of activated tests
     suffixes = tuple({s for test in tests for s in test.suffixes})  # all suffixes from all enabled tests
     passed = True  # global result of all tests
-    n_files_bad = {name : 0 for name in test_names}  # counter of files with issues
+    n_files_bad = {name: 0 for name in test_names}  # counter of files with issues
 
     # Report overview before running.
     print(f"Testing {len(args.paths)} files.")
