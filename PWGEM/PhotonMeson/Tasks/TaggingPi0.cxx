@@ -93,7 +93,7 @@ struct TaggingPi0 {
   Configurable<bool> EMC_UseExoticCut{"EMC_UseExoticCut", true, "FLag to use the EMCal exotic cluster cut"};
 
   Configurable<std::string> fConfigEMEventCut{"cfgEMEventCut", "minbias", "em event cut"}; // only 1 event cut per wagon
-  EMEventCut fEMEventCut;
+  EMPhotonEventCut fEMEventCut;
   static constexpr std::string_view event_types[2] = {"before", "after"};
 
   OutputObj<THashList> fOutputEvent{"Event"};
@@ -313,10 +313,10 @@ struct TaggingPi0 {
           custom_cut->SetM02Range(EMC_minM02, EMC_maxM02);
           custom_cut->SetTimeRange(EMC_minTime, EMC_maxTime);
 
-          custom_cut->SetTrackMatchingEta([&a, &b, &c](float pT) {
+          custom_cut->SetTrackMatchingEta([a, b, c](float pT) {
             return a + pow(pT + b, c);
           });
-          custom_cut->SetTrackMatchingPhi([&d, &e, &f](float pT) {
+          custom_cut->SetTrackMatchingPhi([d, e, f](float pT) {
             return d + pow(pT + e, f);
           });
 
