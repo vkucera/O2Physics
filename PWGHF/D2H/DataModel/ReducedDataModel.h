@@ -19,6 +19,7 @@
 /// \author Fabio Catalano <fabio.catalano@cern.ch>, CERN
 /// \author Fabrizio Grosa <fabrizio.grosa@cern.ch>, CERN
 /// \author Luca Aglietta <luca.aglietta@cern.ch>, Università degli Studi di Torino (UniTO)
+///
 
 #ifndef PWGHF_D2H_DATAMODEL_REDUCEDDATAMODEL_H_
 #define PWGHF_D2H_DATAMODEL_REDUCEDDATAMODEL_H_
@@ -40,10 +41,10 @@ namespace aod
 {
 namespace hf_reduced_collision
 {
-DECLARE_SOA_COLUMN(Bz, bz, float); //! Magnetic field in z-direction
+DECLARE_SOA_COLUMN(Bz, bz, float);                                              //! Magnetic field in z-direction
 DECLARE_SOA_COLUMN(HfCollisionRejectionMap, hfCollisionRejectionMap, uint16_t); //! Bitmask with failed selection criteria
 // keep track of the number of studied events (for normalization purposes)
-DECLARE_SOA_COLUMN(OriginalCollisionCount, originalCollisionCount, int); //! Size of COLLISION table processed
+DECLARE_SOA_COLUMN(OriginalCollisionCount, originalCollisionCount, int);                                                         //! Size of COLLISION table processed
 DECLARE_SOA_COLUMN(ZvtxSelectedCollisionCount, zvtxSelectedCollisionCount, int);                                                 //! Number of COLLISIONS with |zvtx| < zvtxMax
 DECLARE_SOA_COLUMN(TriggerSelectedCollisionCount, triggerSelectedCollisionCount, int);                                           //! Number of COLLISIONS with sel8
 DECLARE_SOA_COLUMN(ZvtxAndTriggerSelectedCollisionCount, zvtxAndTriggerSelectedCollisionCount, int);                             //! Number of COLLISIONS with |zvtx| < zvtxMax and sel8
@@ -687,7 +688,7 @@ DECLARE_SOA_COLUMN(Dca, dca, float);         //! DCA of V0 candidate
 DECLARE_SOA_COLUMN(Radius, radius, float);   //! Radius of V0 candidate
 DECLARE_SOA_COLUMN(V0Type, v0Type, uint8_t); //! Bitmap with mass hypothesis of the V0
 
-DECLARE_SOA_DYNAMIC_COLUMN(Px, px,           //!
+DECLARE_SOA_DYNAMIC_COLUMN(Px, px, //!
                            [](float pxProng0, float pxProng1) -> float { return 1.f * pxProng0 + 1.f * pxProng1; });
 DECLARE_SOA_DYNAMIC_COLUMN(Py, py, //!
                            [](float pyProng0, float pyProng1) -> float { return 1.f * pyProng0 + 1.f * pyProng1; });
@@ -799,10 +800,10 @@ DECLARE_SOA_TABLE(HfRed3PrNoTrks, "AOD", "HFRED3PRNOTRK", //! Table with 3 prong
 
 namespace hf_reso_cand_reduced
 {
-DECLARE_SOA_COLUMN(InvMass, invMass, float);                               //! Invariant mass in GeV/c2
-DECLARE_SOA_COLUMN(InvMassProng0, invMassProng0, float);                   //! Invariant Mass of D daughter in GeV/c
-DECLARE_SOA_COLUMN(InvMassProng1, invMassProng1, float);                   //! Invariant Mass of V0 daughter in GeV/c
-DECLARE_SOA_COLUMN(InvMassD0, invMassD0, float);                           //! Invariant Mass of potential D0 daughter
+DECLARE_SOA_COLUMN(InvMass, invMass, float);             //! Invariant mass in GeV/c2
+DECLARE_SOA_COLUMN(InvMassProng0, invMassProng0, float); //! Invariant Mass of D daughter in GeV/c
+DECLARE_SOA_COLUMN(InvMassProng1, invMassProng1, float); //! Invariant Mass of V0 daughter in GeV/c
+DECLARE_SOA_COLUMN(InvMassD0, invMassD0, float);         //! Invariant Mass of potential D0 daughter
 
 DECLARE_SOA_COLUMN(MlScoreBkgProng0, mlScoreBkgProng0, float);             //! Bkg ML score of the D daughter
 DECLARE_SOA_COLUMN(MlScorePromptProng0, mlScorePromptProng0, float);       //! Prompt ML score of the D daughter
