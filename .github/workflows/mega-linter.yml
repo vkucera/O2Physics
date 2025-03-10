@@ -3,7 +3,7 @@
 # More info at https://megalinter.io
 name: MegaLinter
 
-'on': [pull_request_target]
+'on': [pull_request]
 
 permissions: {}
 
