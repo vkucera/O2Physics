@@ -183,7 +183,7 @@ class RCTFlagsChecker : public o2::utils::EnumFlags<RCTSelectionFlags>
       set(kZDCBad);
     }
   }
-
+  //
   // Check the RCT column of a given event selection table.
   // The function returns true if none of the checked flags is set in the RCT column.
   bool checkTable(const HasRCTFlags auto& table)
