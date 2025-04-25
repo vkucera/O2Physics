@@ -208,7 +208,7 @@ def get_tolerated_tests(path: str) -> "list[str]":
         if path_tests.is_file():
             with path_tests.open() as content:
                 tests = [line.strip() for line in content.readlines() if line.strip()]
-                print(f"{path}:0: info: Tolerating tests from {path_tests}. {tests}")
+                print(f"{path}:1: info: Tolerating tests from {path_tests}. {tests}")
             break
     return tests
 
