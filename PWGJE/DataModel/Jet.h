@@ -36,7 +36,7 @@
 #include "PWGHF/DataModel/CandidateSelectionTables.h"
 #include "PWGLF/DataModel/LFStrangenessTables.h"
 #include "PWGDQ/DataModel/ReducedInfoTables.h"
-////
+
 namespace o2::aod
 {
 

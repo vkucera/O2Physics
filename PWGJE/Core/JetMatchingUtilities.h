@@ -256,7 +256,6 @@ std::tuple<std::vector<int>, std::vector<int>> MatchJetsGeometricallyImpl(
  *
  * @returns (Base to tag index map, tag to base index map) for uniquely matched jets.
  */
-//
 template <typename T>
 std::tuple<std::vector<int>, std::vector<int>> MatchJetsGeometrically(
   std::vector<T> jetsBasePhi,
@@ -743,5 +742,5 @@ void doPairMatching(T const& pairsBase, U const& pairsTag, std::vector<std::vect
   }
 }
 
-}; // namespace jetmatchingutilities
+};     // namespace jetmatchingutilities
 #endif // PWGJE_CORE_JETMATCHINGUTILITIES_H_
