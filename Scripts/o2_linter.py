@@ -249,7 +249,7 @@ class TestSpec:
     def print_error(self, path: str, line: Union[int, None], message: str):
         """Format and print error message."""
         # return # Use to suppress error messages.
-        line = line or 0
+        line = line or 1
         # terminal format
         print(f"{path}:{line}: {message_levels[self.severity_current]}: {message} [{self.name}]")
         if github_mode and not self.tolerated:  # Annotate only not tolerated issues.
@@ -907,6 +907,7 @@ class TestNameFunctionVariable(TestSpec):
             "class",
             "explicit",
             "concept",
+            "throw",
         ):
             return True
         if len(words) > 2 and words[1] in ("typename", "class", "struct"):
