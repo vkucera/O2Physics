@@ -25,15 +25,12 @@
 #include <RooPlot.h>
 #include <RooRealVar.h>
 #include <RooWorkspace.h>
-#include <TCanvas.h>
-#include <TDatabasePDG.h>
+#include <RtypesCore.h>
+#include <Rtypes.h>
 #include <TF1.h>
-#include <TFitResult.h>
 #include <TH1.h>
 #include <TNamed.h>
-#include <TPaveText.h>
-#include <TStyle.h>
-#include <TVirtualFitter.h>
+#include <TVirtualPad.h>
 
 class HFInvMassFitter : public TNamed
 {
