@@ -21,7 +21,7 @@
 #include <Framework/HistogramSpec.h>
 #include <Framework/InitContext.h>
 #include <Framework/O2DatabasePDGPlugin.h>
-#include <Framework/runDataProcessing.h> // NOLINT (needed in tasks)
+#include <Framework/runDataProcessing.h> // IWYU pragma: keep (needed in tasks)
 
 #include <string>
 #include <vector>

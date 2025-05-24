@@ -18,7 +18,7 @@
 #define PWGHF_CORE_HFHELPER_H_
 
 #include <Math/GenVector/Boost.h>
-#include <Math/Vector4D.h> // NOLINT (do not replace with Math/Vector4Dfwd.h)
+#include <Math/Vector4D.h> // IWYU pragma: keep (do not replace with Math/Vector4Dfwd.h)
 
 #include <CommonConstants/MathConstants.h>
 #include <CommonConstants/PhysicsConstants.h>
