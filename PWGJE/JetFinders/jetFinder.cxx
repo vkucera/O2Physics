@@ -15,8 +15,8 @@
 /// \author Jochen Klein <jochen.klein@cern.ch>
 /// \author Raymond Ehlers <raymond.ehlers@cern.ch>, ORNL
 
-#include <Framework/AnalysisHelpers.h>
 #include <Framework/ASoA.h>
+#include <Framework/AnalysisHelpers.h>
 #include <Framework/Configurable.h>
 #include <Framework/Expressions.h>
 #include <Framework/HistogramRegistry.h>
