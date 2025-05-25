@@ -21,6 +21,8 @@
 
 #include <TDatabasePDG.h>
 #include <TLine.h>
+#include <TPaveText.h>
+#include <TStyle.h>
 
 #include <RooRealVar.h>
 #include <RooWorkspace.h>
