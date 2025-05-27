@@ -17,7 +17,6 @@
 #define PWGJE_DATAMODEL_EMCALCLUSTERDEFINITION_H_
 
 #include <string>
-#include "Framework/AnalysisDataModel.h"
 
 namespace o2::aod
 {
@@ -31,16 +30,16 @@ enum class ClusterAlgorithm_t {
 /// cell energy, gradient as well as timing cut
 struct EMCALClusterDefinition {
   ClusterAlgorithm_t algorithm;
-  int storageID = -1;              // integer ID used to store cluster definition in a flat table
-  int selectedCellType = 1;        // EMCal cell type (CURRENTLY NOT USED TO AVOID MULTIPLE CELL LOOPS)
-  std::string name = "kUndefined"; // name of the cluster definition
-  double seedEnergy = 0.1;         // seed threshold (GeV)
-  double minCellEnergy = 0.05;     // minimum cell energy (GeV)
-  double timeMin = -10000.;        // minimum time (ns)
-  double timeMax = 10000.;         // maximum time (ns)
-  double timeDiff = 20000.;        // maximum time difference (ns) between seed cell and aggregation cell
-  bool doGradientCut = true;       // apply gradient cut if true
-  double gradientCut = -1;         // gradient cut
+  int storageID = -1;                // integer ID used to store cluster definition in a flat table
+  int selectedCellType = 1;          // EMCal cell type (CURRENTLY NOT USED TO AVOID MULTIPLE CELL LOOPS)
+  std::string name = "kUndefined";   // name of the cluster definition
+  double seedEnergy = 0.1;           // seed threshold (GeV)
+  double minCellEnergy = 0.05;       // minimum cell energy (GeV)
+  double timeMin = -10000.;          // minimum time (ns)
+  double timeMax = 10000.;           // maximum time (ns)
+  double timeDiff = 20000.;          // maximum time difference (ns) between seed cell and aggregation cell
+  bool doGradientCut = true;         // apply gradient cut if true
+  double gradientCut = -1;           // gradient cut
   bool recalcShowerShape5x5 = false; // recalculate shower shape using 5x5 cells
 
   // default constructor
@@ -63,11 +62,11 @@ struct EMCALClusterDefinition {
   }
 
   // implement comparison operators for int std::string and ClusterAlgorithm_t
-  bool operator==(const EMCALClusterDefinition& rhs) const
+  bool operator==(const EMCALClusterDefinition &rhs) const
   {
     return (algorithm == rhs.algorithm && storageID == rhs.storageID && name == rhs.name && seedEnergy == rhs.seedEnergy && minCellEnergy == rhs.minCellEnergy && timeMin == rhs.timeMin && timeMax == rhs.timeMax && timeDiff == rhs.timeDiff && gradientCut == rhs.gradientCut && doGradientCut == rhs.doGradientCut && recalcShowerShape5x5 == rhs.recalcShowerShape5x5);
   }
-  bool operator!=(const EMCALClusterDefinition& rhs) const
+  bool operator!=(const EMCALClusterDefinition &rhs) const
   {
     return !(*this == rhs);
   }
@@ -79,11 +78,11 @@ struct EMCALClusterDefinition {
   {
     return !(storageID == rhs);
   }
-  bool operator==(const std::string& rhs) const
+  bool operator==(const std::string &rhs) const
   {
     return (name == rhs);
   }
-  bool operator!=(const std::string& rhs) const
+  bool operator!=(const std::string &rhs) const
   {
     return !(name == rhs);
   }

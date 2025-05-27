@@ -16,10 +16,14 @@
 #ifndef PWGJE_DATAMODEL_EMCALCLUSTERS_H_
 #define PWGJE_DATAMODEL_EMCALCLUSTERS_H_
 
+#include "EMCALClusterDefinition.h"
+
+#include <Framework/ASoA.h>
+#include <Framework/AnalysisDataModel.h> // IWYU pragma: keep
+
+#include <stdexcept>
 #include <string>
 #include <vector>
-#include "Framework/AnalysisDataModel.h"
-#include "EMCALClusterDefinition.h"
 
 namespace o2::aod
 {
@@ -49,7 +53,7 @@ const EMCALClusterDefinition kV3MostSplitSmallestTimeDiff(ClusterAlgorithm_t::kV
 /// \brief function returns EMCALClusterDefinition for the given name
 /// \param name name of the cluster definition
 /// \return EMCALClusterDefinition for the given name
-const EMCALClusterDefinition getClusterDefinitionFromString(const std::string& clusterDefinitionName)
+const EMCALClusterDefinition getClusterDefinitionFromString(const std::string &clusterDefinitionName)
 {
   if (clusterDefinitionName == "kV3NoSplit") {
     return kV3NoSplit;
