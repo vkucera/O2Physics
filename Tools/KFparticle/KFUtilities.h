@@ -22,17 +22,24 @@
 #define HomogeneousField
 #endif
 
+#include <KFPTrack.h>
+#include <KFPVertex.h>
+#include <KFParticle.h>
+#include <KFParticleBase.h>
+#include <ReconstructionDataFormats/PID.h>
+#include <ReconstructionDataFormats/Track.h>
+#include <ReconstructionDataFormats/TrackParametrizationWithError.h>
+#include <TDatabasePDG.h> // FIXME
+#include <fairlogger/Logger.h>
+
+#include <array>
+#include <cmath>
+#include <cstdint>
+#include <stdexcept>
 #include <utility>
 
-#include <TDatabasePDG.h> // FIXME
-
-#include "KFParticle.h"
-#include "KFPTrack.h"
-#include "KFPVertex.h"
-#include "KFParticleBase.h"
-#include "KFVertex.h"
-
 #include "Common/Core/RecoDecay.h"
+#include "Common/Core/trackUtilities.h"
 
 /// @brief Function to create a KFPVertex from the collision table in the AO2Ds.
 /// The Multiplicity table is required to set the number of real PV Contributors
