@@ -1,4 +1,4 @@
-BasedOnStyle: LLVM
+BasedOnStyle: Google
 AccessModifierOffset: -1
 AlignEscapedNewlinesLeft: true
 AlignTrailingComments: true
