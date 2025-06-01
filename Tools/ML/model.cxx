@@ -20,6 +20,18 @@
 // ONNX includes
 #include "Tools/ML/model.h"
 
+#include <TSystem.h>
+
+#include <fairlogger/Logger.h>
+
+#include <cassert>
+#include <cstddef>
+#include <cstdint>
+#include <memory>
+#include <sstream>
+#include <string>
+#include <vector>
+
 namespace o2
 {
 

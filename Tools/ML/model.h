@@ -26,17 +26,17 @@
 #else
 #include <onnxruntime_cxx_api.h>
 #endif
-#include <vector>
-#include <string>
-#include <memory>
-#include <map>
+
+#include <fairlogger/Logger.h>
+
 #include <algorithm>
-
-// ROOT includes
-#include "TSystem.h"
-
-// O2 includes
-#include "Framework/Logger.h"
+#include <cassert>
+#include <cstddef>
+#include <cstdint>
+#include <map>
+#include <memory>
+#include <string>
+#include <vector>
 
 namespace o2
 {
