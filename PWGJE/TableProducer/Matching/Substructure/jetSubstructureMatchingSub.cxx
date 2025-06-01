@@ -23,7 +23,7 @@
 #include <Framework/AnalysisHelpers.h>
 #include <Framework/Configurable.h>
 #include <Framework/InitContext.h>
-#include <Framework/runDataProcessing.h>
+#include <Framework/runDataProcessing.h> // IWYU pragma: export
 
 #include <vector>
 
