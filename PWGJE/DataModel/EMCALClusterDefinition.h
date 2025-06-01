@@ -62,11 +62,11 @@ struct EMCALClusterDefinition {
   }
 
   // implement comparison operators for int std::string and ClusterAlgorithm_t
-  bool operator==(const EMCALClusterDefinition &rhs) const
+  bool operator==(const EMCALClusterDefinition& rhs) const
   {
     return (algorithm == rhs.algorithm && storageID == rhs.storageID && name == rhs.name && seedEnergy == rhs.seedEnergy && minCellEnergy == rhs.minCellEnergy && timeMin == rhs.timeMin && timeMax == rhs.timeMax && timeDiff == rhs.timeDiff && gradientCut == rhs.gradientCut && doGradientCut == rhs.doGradientCut && recalcShowerShape5x5 == rhs.recalcShowerShape5x5);
   }
-  bool operator!=(const EMCALClusterDefinition &rhs) const
+  bool operator!=(const EMCALClusterDefinition& rhs) const
   {
     return !(*this == rhs);
   }
@@ -78,11 +78,11 @@ struct EMCALClusterDefinition {
   {
     return !(storageID == rhs);
   }
-  bool operator==(const std::string &rhs) const
+  bool operator==(const std::string& rhs) const
   {
     return (name == rhs);
   }
-  bool operator!=(const std::string &rhs) const
+  bool operator!=(const std::string& rhs) const
   {
     return !(name == rhs);
   }

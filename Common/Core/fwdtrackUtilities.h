@@ -24,10 +24,10 @@
 #include <MCHTracking/TrackExtrap.h>
 #include <ReconstructionDataFormats/GlobalFwdTrack.h>
 #include <ReconstructionDataFormats/TrackFwd.h>
-#include <TGeoGlobalMagField.h>
 
 #include <Math/MatrixRepresentationsStatic.h>
 #include <Math/SMatrix.h>
+#include <TGeoGlobalMagField.h>
 
 #include <vector>
 
@@ -46,7 +46,7 @@ using SMatrix5 = ROOT::Math::SVector<double, 5>;
 
 /// propagate fwdtrack to a certain point.
 template <typename TFwdTrack, typename TCollision>
-o2::dataformats::GlobalFwdTrack propagateMuon(TFwdTrack const &muon, TCollision const &collision, const propagationPoint endPoint)
+o2::dataformats::GlobalFwdTrack propagateMuon(TFwdTrack const& muon, TCollision const& collision, const propagationPoint endPoint)
 {
   double chi2 = muon.chi2();
   SMatrix5 tpars(muon.x(), muon.y(), muon.phi(), muon.tgl(), muon.signed1Pt());
@@ -79,7 +79,7 @@ o2::dataformats::GlobalFwdTrack propagateMuon(TFwdTrack const &muon, TCollision 
     propmuon.setCovariances(proptrack.getCovariances());
   } else if (static_cast<int>(muon.trackType()) < 2) { // MFT-MCH-MID
     const double centerMFT[3] = {0, 0, -61.4};
-    o2::field::MagneticField *field = static_cast<o2::field::MagneticField *>(TGeoGlobalMagField::Instance()->GetField());
+    o2::field::MagneticField* field = static_cast<o2::field::MagneticField*>(TGeoGlobalMagField::Instance()->GetField());
     auto Bz = field->getBz(centerMFT); // Get field at centre of MFT
     auto geoMan = o2::base::GeometryManager::meanMaterialBudget(muon.x(), muon.y(), muon.z(), collision.posX(), collision.posY(), collision.posZ());
     auto x2x0 = static_cast<float>(geoMan.meanX2X0);

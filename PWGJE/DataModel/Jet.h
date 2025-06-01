@@ -30,7 +30,6 @@
 #include "PWGJE/DataModel/JetReducedDataHF.h"
 #include "PWGJE/DataModel/JetReducedDataV0.h"
 #include "PWGJE/DataModel/JetSubtraction.h"
-
 #include "PWGLF/DataModel/LFStrangenessTables.h"
 
 #include <Framework/ASoA.h>

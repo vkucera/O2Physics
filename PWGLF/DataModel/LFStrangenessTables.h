@@ -14,7 +14,6 @@
 
 #include "PWGLF/DataModel/EPCalibrationTables.h"
 #include "PWGLF/DataModel/SPCalibrationTables.h"
-
 #include "PWGUD/DataModel/UDTables.h"
 
 #include "Common/Core/RecoDecay.h"
@@ -1356,10 +1355,10 @@ DECLARE_SOA_EXPRESSION_COLUMN(PyLambda, pylambda, //!
 DECLARE_SOA_EXPRESSION_COLUMN(PzLambda, pzlambda, //!
                               float, 1.f * aod::cascdata::pzpos + 1.f * aod::cascdata::pzneg);
 DECLARE_SOA_EXPRESSION_COLUMN(Pt, pt, float, //! Transverse momentum in GeV/c
-                              nsqrt(aod::cascdata::px *aod::cascdata::px +
+                              nsqrt(aod::cascdata::px* aod::cascdata::px +
                                     aod::cascdata::py * aod::cascdata::py));
 DECLARE_SOA_EXPRESSION_COLUMN(P, p, float, //! Total momentum in GeV/c
-                              nsqrt(aod::cascdata::px *aod::cascdata::px +
+                              nsqrt(aod::cascdata::px* aod::cascdata::px +
                                     aod::cascdata::py * aod::cascdata::py +
                                     aod::cascdata::pz * aod::cascdata::pz));
 DECLARE_SOA_EXPRESSION_COLUMN(Phi, phi, float, //! Phi in the range [0, 2pi)

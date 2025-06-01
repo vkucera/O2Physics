@@ -18,11 +18,10 @@
 #ifndef PWGJE_DATAMODEL_JETSUBTRACTION_H_
 #define PWGJE_DATAMODEL_JETSUBTRACTION_H_
 
-#include "PWGJE/DataModel/JetReducedData.h"
-#include "PWGJE/DataModel/JetReducedDataDQ.h"
-
 #include "PWGDQ/DataModel/ReducedInfoTables.h"
 #include "PWGHF/DataModel/DerivedTables.h"
+#include "PWGJE/DataModel/JetReducedData.h"
+#include "PWGJE/DataModel/JetReducedDataDQ.h"
 
 #include <Framework/ASoA.h>
 

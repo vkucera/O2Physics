@@ -17,12 +17,11 @@
 #ifndef PWGJE_DATAMODEL_JETSUBSTRUCTURE_H_
 #define PWGJE_DATAMODEL_JETSUBSTRUCTURE_H_
 
+#include "PWGDQ/DataModel/ReducedInfoTables.h"
+#include "PWGHF/DataModel/DerivedTables.h"
 #include "PWGJE/DataModel/Jet.h" // IWYU pragma: keep
 #include "PWGJE/DataModel/JetReducedData.h"
 #include "PWGJE/DataModel/JetReducedDataDQ.h"
-
-#include "PWGDQ/DataModel/ReducedInfoTables.h"
-#include "PWGHF/DataModel/DerivedTables.h"
 
 #include <Framework/ASoA.h>
 
