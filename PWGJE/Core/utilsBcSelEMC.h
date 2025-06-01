@@ -16,15 +16,16 @@
 #ifndef PWGJE_CORE_UTILSBCSELEMC_H_
 #define PWGJE_CORE_UTILSBCSELEMC_H_
 
-#include <memory> // std::shared_ptr
-#include <string> // std::string
+#include "Common/CCDB/EventSelectionParams.h"
 
 #include "Framework/Configurable.h"
+#include "Framework/DeviceSpec.h"
 #include "Framework/HistogramRegistry.h"
 #include "Framework/HistogramSpec.h"
 #include "Framework/OutputObjHeader.h"
 
-#include "Common/CCDB/EventSelectionParams.h"
+#include <memory> // std::shared_ptr
+#include <string> // std::string
 
 namespace o2::emc_evsel
 {
