@@ -16,9 +16,31 @@
 /// \brief Correlator for D* and hadrons. This task is used to produce table for D* and hadron pairs.
 
 // c++
+#include <CommonConstants/MathConstants.h>
+#include <Framework/ASoA.h>
+#include <Framework/AnalysisDataModel.h>
+#include <Framework/AnalysisHelpers.h>
+#include <Framework/BinningPolicy.h>
+#include <Framework/Configurable.h>
+#include <Framework/Expressions.h>
+#include <Framework/GroupedCombinations.h>
+#include <Framework/HistogramRegistry.h>
+#include <Framework/HistogramSpec.h>
+#include <Framework/InitContext.h>
+#include <Framework/SliceCache.h>
+#include <Framework/WorkflowSpec.h>
+
+#include <fairlogger/Logger.h>
+
+#include <array>
+#include <cstdlib>
+#include <numeric>
+#include <tuple>
 #include <vector>
 
 // O2
+#include "Common/DataModel/TrackSelectionTables.h"
+
 #include "CommonConstants/PhysicsConstants.h"
 #include "Framework/ASoAHelpers.h"
 #include "Framework/AnalysisTask.h"

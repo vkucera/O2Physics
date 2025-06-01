@@ -16,22 +16,17 @@
 #ifndef PWGHF_CORE_HFMLRESPONSEOMEGACTOOMEGAPI_H_
 #define PWGHF_CORE_HFMLRESPONSEOMEGACTOOMEGAPI_H_
 
-#include <map>
-#include <string>
-#include <vector>
-
-#include "CommonConstants/PhysicsConstants.h"
-
 #include "PWGHF/Core/HfHelper.h"
 #include "PWGHF/Core/HfMlResponse.h"
+
+#include <vector>
 
 // Fill the map of available input features
 // the key is the feature's name (std::string)
 // the value is the corresponding value in EnumInputFeatures
-#define FILL_MAP_OMEGAC0(FEATURE)                                         \
-  {                                                                       \
-    #FEATURE, static_cast<uint8_t>(InputFeaturesOmegacToOmegaPi::FEATURE) \
-  }
+#define FILL_MAP_OMEGAC0(FEATURE) \
+  {                               \
+    #FEATURE, static_cast<uint8_t>(InputFeaturesOmegacToOmegaPi::FEATURE)}
 
 // Check if the index of mCachedIndices (index associated to a FEATURE)
 // matches the entry in EnumInputFeatures associated to this FEATURE

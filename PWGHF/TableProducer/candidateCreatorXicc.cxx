@@ -17,17 +17,37 @@
 /// \author Luigi Dello Stritto <luigi.dello.stritto@cern.ch >, SALERNO
 /// \author Mattia Faggin <mattia.faggin@cern.ch>, University and INFN PADOVA
 
+#include "RecoDecay.h"
+
+#include "PWGHF/Core/HfHelper.h"
+#include "PWGHF/DataModel/CandidateReconstructionTables.h"
+#include "PWGHF/DataModel/CandidateSelectionTables.h"
+
+#include "Common/Core/trackUtilities.h"
+
 #include "CommonConstants/PhysicsConstants.h"
 #include "DCAFitter/DCAFitterN.h"
 #include "Framework/AnalysisTask.h"
 #include "ReconstructionDataFormats/DCA.h"
 #include "ReconstructionDataFormats/V0.h"
+#include <Framework/ASoA.h>
+#include <Framework/AnalysisDataModel.h>
+#include <Framework/AnalysisHelpers.h>
+#include <Framework/Configurable.h>
+#include <Framework/Expressions.h>
+#include <Framework/InitContext.h>
+#include <Framework/Variant.h>
+#include <Framework/WorkflowSpec.h>
 
-#include "Common/Core/trackUtilities.h"
+#include <TH1.h>
+#include <TPDGCode.h>
 
-#include "PWGHF/Core/HfHelper.h"
-#include "PWGHF/DataModel/CandidateReconstructionTables.h"
-#include "PWGHF/DataModel/CandidateSelectionTables.h"
+#include <fairlogger/Logger.h>
+
+#include <array>
+#include <cmath>
+#include <cstdint>
+#include <vector>
 
 using namespace o2;
 using namespace o2::analysis;
@@ -195,9 +215,9 @@ struct HfCandidateCreatorXicc {
                          xicCand.globalIndex(), trackpion.globalIndex(),
                          hfFlag);
       } // if on selected Xicc
-    }   // loop over candidates
-  }     // end of process
-};      // end of struct
+    } // loop over candidates
+  } // end of process
+}; // end of struct
 
 /// Extends the base table with expression columns.
 struct HfCandidateCreatorXiccExpressions {
