@@ -12,4 +12,5 @@
 // jet derived data utilities
 //
 /// \author Nima Zardoshti <nima.zardoshti@cern.ch>
-#include "PWGJE/Core/JetDerivedDataUtilities.h"
+
+#include "JetDerivedDataUtilities.h" // IWYU pragma: keep
