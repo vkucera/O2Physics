@@ -18,11 +18,12 @@
 #ifndef PWGHF_UTILS_UTILSEVSELHF_H_
 #define PWGHF_UTILS_UTILSEVSELHF_H_
 
-#include <fairlogger/Logger.h>
+#include "PWGHF/Core/CentralityEstimation.h"
 
-#include <Rtypes.h>
-#include <TH1.h>
-#include <TH2.h>
+#include "Common/CCDB/EventSelectionParams.h"
+#include "Common/CCDB/RCTSelectionFlags.h"
+#include "EventFiltering/Zorro.h"
+#include "EventFiltering/ZorroSummary.h"
 
 #include <Framework/AnalysisHelpers.h>
 #include <Framework/Configurable.h>
@@ -30,17 +31,17 @@
 #include <Framework/HistogramRegistry.h>
 #include <Framework/HistogramSpec.h>
 
-#include <cstdint>
+#include <TH1.h>
+#include <TH2.h>
+
+#include <fairlogger/Logger.h>
+
+#include <Rtypes.h>
+
 #include <cstddef>
+#include <cstdint>
 #include <memory> // std::shared_ptr
 #include <string> // std::string
-
-#include "Common/CCDB/EventSelectionParams.h"
-#include "Common/CCDB/RCTSelectionFlags.h"
-#include "EventFiltering/Zorro.h"
-#include "EventFiltering/ZorroSummary.h"
-
-#include "PWGHF/Core/CentralityEstimation.h"
 
 namespace o2::hf_occupancy
 {

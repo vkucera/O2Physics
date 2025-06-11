@@ -16,17 +16,16 @@
 #ifndef PWGHF_CORE_HFMLRESPONSEXIC0TOXIPIKF_H_
 #define PWGHF_CORE_HFMLRESPONSEXIC0TOXIPIKF_H_
 
-#include <vector>
-
 #include "PWGHF/Core/HfMlResponse.h"
+
+#include <vector>
 
 // Fill the map of available input features
 // the key is the feature's name (std::string)
 // the value is the corresponding value in EnumInputFeatures
-#define FILL_MAP_XIC0TOXIPIKF(FEATURE)                                 \
-  {                                                                    \
-    #FEATURE, static_cast<uint8_t>(InputFeaturesXic0ToXiPiKf::FEATURE) \
-  }
+#define FILL_MAP_XIC0TOXIPIKF(FEATURE) \
+  {                                    \
+    #FEATURE, static_cast<uint8_t>(InputFeaturesXic0ToXiPiKf::FEATURE)}
 
 // Check if the index of mCachedIndices (index associated to a FEATURE)
 // matches the entry in EnumInputFeatures associated to this FEATURE

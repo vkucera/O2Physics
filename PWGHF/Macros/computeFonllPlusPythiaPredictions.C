@@ -16,27 +16,26 @@
 
 #if !defined(__CINT__) || defined(__CLING__)
 
+#include "Framework/Logger.h"
+#include <CommonConstants/MathConstants.h>
+
+#include "Math/Vector3D.h"
+#include "Math/Vector4D.h"
+#include <TDatabasePDG.h>
+#include <TF1.h>
+#include <TFile.h>
+#include <TH1.h>
+#include <TNtuple.h>
+#include <TROOT.h>
+#include <TRandom3.h>
+
+#include "Pythia8/Pythia.h"
+
 #include <array>
 #include <fstream>
 #include <iostream>
 #include <map>
 #include <string>
-
-#include <TFile.h>
-#include <TNtuple.h>
-#include <TRandom3.h>
-#include <TDatabasePDG.h>
-#include <TROOT.h>
-#include <TH1.h>
-#include <TF1.h>
-
-#include "Math/Vector3D.h"
-#include "Math/Vector4D.h"
-
-#include "CommonConstants/MathConstants.h"
-#include "Framework/Logger.h"
-
-#include "Pythia8/Pythia.h"
 
 #endif
 

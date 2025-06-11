@@ -16,20 +16,17 @@
 #ifndef PWGHF_CORE_HFMLRESPONSELBTOLCPI_H_
 #define PWGHF_CORE_HFMLRESPONSELBTOLCPI_H_
 
-#include <map>
-#include <string>
-#include <vector>
-
 #include "PWGHF/Core/HfMlResponse.h"
 #include "PWGHF/D2H/Utils/utilsRedDataFormat.h"
+
+#include <vector>
 
 // Fill the map of available input features
 // the key is the feature's name (std::string)
 // the value is the corresponding value in EnumInputFeatures
-#define FILL_MAP_LB(FEATURE)                                       \
-  {                                                                \
-    #FEATURE, static_cast<uint8_t>(InputFeaturesLbToLcPi::FEATURE) \
-  }
+#define FILL_MAP_LB(FEATURE) \
+  {                          \
+    #FEATURE, static_cast<uint8_t>(InputFeaturesLbToLcPi::FEATURE)}
 
 // Check if the index of mCachedIndices (index associated to a FEATURE)
 // matches the entry in EnumInputFeatures associated to this FEATURE
