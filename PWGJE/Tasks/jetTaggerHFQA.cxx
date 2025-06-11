@@ -14,28 +14,33 @@
 ///
 /// \author Hanseo Park <hanseo.park@cern.ch>
 
-#include <string>
-#include <functional>
-#include <algorithm>
-#include <vector>
-
-#include "TF1.h"
-
-#include "Framework/AnalysisTask.h"
-#include "Framework/AnalysisDataModel.h"
-#include "Framework/ASoA.h"
-#include "Framework/O2DatabasePDGPlugin.h"
-#include "Framework/runDataProcessing.h"
-#include "Common/Core/trackUtilities.h"
-
-#include "PWGHF/DataModel/CandidateReconstructionTables.h"
-
-#include "PWGJE/DataModel/Jet.h"
-#include "PWGJE/DataModel/JetTagging.h"
-#include "PWGJE/Core/JetFindingUtilities.h"
 #include "PWGJE/Core/JetDerivedDataUtilities.h"
-#include "PWGJE/Core/JetUtilities.h"
+#include "PWGJE/Core/JetFindingUtilities.h"
 #include "PWGJE/Core/JetTaggingUtilities.h"
+#include "PWGJE/DataModel/Jet.h"
+#include "PWGJE/DataModel/JetReducedData.h"
+#include "PWGJE/DataModel/JetTagging.h"
+
+#include "Framework/ASoA.h"
+#include "Framework/AnalysisDataModel.h"
+#include "Framework/AnalysisTask.h"
+#include "Framework/runDataProcessing.h"
+#include <CommonConstants/MathConstants.h>
+#include <Framework/Configurable.h>
+#include <Framework/Expressions.h>
+#include <Framework/HistogramRegistry.h>
+#include <Framework/HistogramSpec.h>
+#include <Framework/InitContext.h>
+#include <Framework/OutputObjHeader.h>
+#include <Framework/WorkflowSpec.h>
+
+#include <fairlogger/Logger.h>
+
+#include <algorithm>
+#include <cmath>
+#include <functional>
+#include <string>
+#include <vector>
 
 using namespace o2;
 using namespace o2::framework;
