@@ -16,7 +16,7 @@
 #ifndef PWGHF_UTILS_UTILSTRKCANDHF_H_
 #define PWGHF_UTILS_UTILSTRKCANDHF_H_
 
-#include "PWGHF/Utils/utilsAnalysis.h"
+#include "utilsAnalysis.h"
 
 #include <Framework/HistogramSpec.h>
 

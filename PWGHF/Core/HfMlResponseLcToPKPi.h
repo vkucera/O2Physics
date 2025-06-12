@@ -16,21 +16,22 @@
 #ifndef PWGHF_CORE_HFMLRESPONSELCTOPKPI_H_
 #define PWGHF_CORE_HFMLRESPONSELCTOPKPI_H_
 
+#include "PWGHF/Core/HfMlResponse.h"
+#include "PWGHF/DataModel/CandidateReconstructionTables.h"
+
+#include "Tools/ML/MlResponse.h"
+
+#include <cstdint>
 #include <map>
 #include <string>
 #include <vector>
 
-#include "PWGHF/DataModel/CandidateReconstructionTables.h"
-
-#include "PWGHF/Core/HfMlResponse.h"
-
 // Fill the map of available input features
 // the key is the feature's name (std::string)
 // the value is the corresponding value in EnumInputFeatures
-#define FILL_MAP_LCTOPKPI(FEATURE)                                 \
-  {                                                                \
-    #FEATURE, static_cast<uint8_t>(InputFeaturesLcToPKPi::FEATURE) \
-  }
+#define FILL_MAP_LCTOPKPI(FEATURE) \
+  {                                \
+    #FEATURE, static_cast<uint8_t>(InputFeaturesLcToPKPi::FEATURE)}
 
 // Check if the index of mCachedIndices (index associated to a FEATURE)
 // matches the entry in EnumInputFeatures associated to this FEATURE
