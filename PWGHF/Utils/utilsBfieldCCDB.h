@@ -22,8 +22,7 @@
 #include <DetectorsBase/MatLayerCylSet.h>
 #include <DetectorsBase/Propagator.h>
 #include <Framework/AnalysisHelpers.h>
-
-#include <fairlogger/Logger.h>
+#include <Framework/Logger.h>
 
 #include <string> // std::string
 

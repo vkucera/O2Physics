@@ -20,7 +20,7 @@
 #include "Common/DataModel/PIDResponseTOF.h"
 #include "Common/DataModel/PIDResponseTPC.h"
 
-#include <fairlogger/Logger.h>
+#include <Framework/Logger.h>
 
 #include <cstdint>
 

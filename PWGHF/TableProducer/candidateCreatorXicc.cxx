@@ -31,17 +31,14 @@
 #include <Framework/AnalysisHelpers.h>
 #include <Framework/AnalysisTask.h>
 #include <Framework/Configurable.h>
-#include <Framework/Expressions.h>
 #include <Framework/InitContext.h>
+#include <Framework/Logger.h>
 #include <Framework/Variant.h>
-#include <Framework/WorkflowSpec.h>
 #include <ReconstructionDataFormats/DCA.h>
 #include <ReconstructionDataFormats/V0.h>
 
 #include <TH1.h>
 #include <TPDGCode.h>
-
-#include <fairlogger/Logger.h>
 
 #include <array>
 #include <cmath>

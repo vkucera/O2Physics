@@ -27,8 +27,7 @@
 
 #include <CCDB/CcdbApi.h>
 #include <Framework/Array2D.h>
-
-#include <fairlogger/Logger.h>
+#include <Framework/Logger.h>
 
 #include <cstddef>
 #include <cstdint>

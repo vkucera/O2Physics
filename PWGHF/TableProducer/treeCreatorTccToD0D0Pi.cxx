@@ -40,18 +40,15 @@
 #include <Framework/AnalysisHelpers.h>
 #include <Framework/AnalysisTask.h>
 #include <Framework/Configurable.h>
-#include <Framework/Expressions.h>
 #include <Framework/HistogramRegistry.h>
 #include <Framework/HistogramSpec.h>
 #include <Framework/InitContext.h>
-#include <Framework/WorkflowSpec.h>
+#include <Framework/Logger.h>
 #include <Framework/runDataProcessing.h>
 #include <ReconstructionDataFormats/DCA.h>
 #include <ReconstructionDataFormats/V0.h>
 
 #include <TH1.h>
-
-#include <fairlogger/Logger.h>
 
 #include <algorithm>
 #include <array>

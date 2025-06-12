@@ -24,10 +24,8 @@
 #include "Common/DataModel/Qvectors.h"
 
 #include <CommonConstants/PhysicsConstants.h>
-#include <Framework/ASoA.h>
 #include <Framework/AnalysisDataModel.h>
 #include <Framework/DataTypes.h>
-#include <Framework/Expressions.h>
 
 #include <array>
 #include <cmath>

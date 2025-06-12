@@ -25,16 +25,15 @@
 #include "Framework/AnalysisTask.h"
 #include "Framework/HistogramRegistry.h"
 #include "Framework/O2DatabasePDGPlugin.h"
-#include "Framework/runDataProcessing.h"
 #include <Framework/AnalysisHelpers.h>
 #include <Framework/Configurable.h>
-#include <Framework/Expressions.h>
 #include <Framework/HistogramSpec.h>
 #include <Framework/InitContext.h>
-#include <Framework/WorkflowSpec.h>
+#include <Framework/runDataProcessing.h>
 
 #include "TRandom3.h"
 #include <TH1.h>
+#include <TString.h>
 
 #include <cmath>
 #include <cstdint>

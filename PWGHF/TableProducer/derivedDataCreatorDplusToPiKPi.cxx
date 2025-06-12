@@ -33,13 +33,9 @@
 #include <Framework/AnalysisHelpers.h>
 #include <Framework/AnalysisTask.h>
 #include <Framework/Configurable.h>
-#include <Framework/Expressions.h>
 #include <Framework/InitContext.h>
-#include <Framework/SliceCache.h>
-#include <Framework/WorkflowSpec.h>
+#include <Framework/Logger.h>
 #include <Framework/runDataProcessing.h>
-
-#include <fairlogger/Logger.h>
 
 #include <Rtypes.h>
 

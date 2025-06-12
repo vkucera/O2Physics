@@ -25,7 +25,6 @@
 #include <Framework/HistogramSpec.h>
 #include <Framework/InitContext.h>
 #include <Framework/OutputObjHeader.h>
-#include <Framework/WorkflowSpec.h>
 #include <Framework/runDataProcessing.h>
 
 #include <TString.h>

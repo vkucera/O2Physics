@@ -30,7 +30,6 @@
 #include <Framework/AnalysisHelpers.h>
 #include <Framework/AnalysisTask.h>
 #include <Framework/InitContext.h>
-#include <Framework/WorkflowSpec.h>
 #include <Framework/runDataProcessing.h>
 
 #include <cstdint>

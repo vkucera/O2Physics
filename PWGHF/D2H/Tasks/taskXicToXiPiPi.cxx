@@ -29,20 +29,17 @@
 #include <Framework/AnalysisHelpers.h>
 #include <Framework/AnalysisTask.h>
 #include <Framework/Configurable.h>
-#include <Framework/Expressions.h>
 #include <Framework/HistogramRegistry.h>
 #include <Framework/HistogramSpec.h>
 #include <Framework/InitContext.h>
+#include <Framework/Logger.h>
 #include <Framework/O2DatabasePDGPlugin.h>
-#include <Framework/WorkflowSpec.h>
 #include <Framework/runDataProcessing.h>
 
 #include <TH3.h>
 #include <THnSparse.h>
 #include <TPDGCode.h>
 #include <TString.h>
-
-#include <fairlogger/Logger.h>
 
 #include <Rtypes.h>
 

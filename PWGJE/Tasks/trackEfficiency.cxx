@@ -21,17 +21,14 @@
 #include "Framework/AnalysisTask.h"
 #include "Framework/HistogramRegistry.h"
 #include "Framework/O2DatabasePDGPlugin.h"
-#include "Framework/runDataProcessing.h"
 #include <Framework/AnalysisHelpers.h>
 #include <Framework/Configurable.h>
-#include <Framework/Expressions.h>
 #include <Framework/HistogramSpec.h>
 #include <Framework/InitContext.h>
-#include <Framework/WorkflowSpec.h>
+#include <Framework/Logger.h>
+#include <Framework/runDataProcessing.h>
 
 #include <TH1.h>
-
-#include <fairlogger/Logger.h>
 
 #include <algorithm>
 #include <cmath>

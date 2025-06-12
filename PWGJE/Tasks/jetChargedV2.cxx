@@ -13,7 +13,26 @@
 /// \file jetChargedV2.cxx
 /// \brief This file contains the implementation for the Charged Jet v2 analysis in the ALICE experiment
 
-#include "RecoDecay.h"
+#include "PWGJE/Core/JetDerivedDataUtilities.h"
+#include "PWGJE/Core/JetFindingUtilities.h"
+#include "PWGJE/DataModel/Jet.h"
+#include "PWGJE/DataModel/JetReducedData.h"
+#include "PWGJE/DataModel/JetSubtraction.h"
+
+#include "Common/Core/EventPlaneHelper.h"
+#include "Common/Core/RecoDecay.h"
+#include "Common/DataModel/Qvectors.h"
+
+#include <CommonConstants/MathConstants.h>
+#include <Framework/ASoA.h>
+#include <Framework/AnalysisTask.h>
+#include <Framework/Configurable.h>
+#include <Framework/HistogramRegistry.h>
+#include <Framework/HistogramSpec.h>
+#include <Framework/InitContext.h>
+#include <Framework/Logger.h>
+#include <Framework/OutputObjHeader.h>
+#include <Framework/runDataProcessing.h>
 
 #include <TF1.h>
 #include <TH1.h>
@@ -21,40 +40,12 @@
 #include <TRandom3.h>
 #include <TString.h>
 
-#include <fairlogger/Logger.h>
 #include <sys/types.h>
 
 #include <algorithm>
 #include <cmath>
 #include <string>
 #include <vector>
-// o2Physics includes.
-#include "CommonConstants/MathConstants.h"
-#include "Framework/runDataProcessing.h"
-
-//< evt pln .h >//
-
-#include "Common/Core/EventPlaneHelper.h"
-#include "Common/DataModel/Qvectors.h"
-//< evt pln .h | end >//
-
-// o2 includes.
-
-#include "PWGJE/Core/JetDerivedDataUtilities.h"
-#include "PWGJE/Core/JetFindingUtilities.h"
-#include "PWGJE/DataModel/Jet.h"
-#include "PWGJE/DataModel/JetReducedData.h"
-#include "PWGJE/DataModel/JetSubtraction.h"
-
-#include "Framework/ASoA.h"
-#include "Framework/AnalysisTask.h"
-#include "Framework/HistogramRegistry.h"
-#include <Framework/Configurable.h>
-#include <Framework/Expressions.h>
-#include <Framework/HistogramSpec.h>
-#include <Framework/InitContext.h>
-#include <Framework/OutputObjHeader.h>
-#include <Framework/WorkflowSpec.h>
 
 using namespace o2;
 using namespace o2::framework;

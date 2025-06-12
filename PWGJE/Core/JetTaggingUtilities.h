@@ -23,11 +23,10 @@
 #include "Common/Core/RecoDecay.h"
 
 #include <CommonConstants/PhysicsConstants.h>
+#include <Framework/Logger.h>
 
 #include <TF1.h>
 #include <TMath.h>
-
-#include <fairlogger/Logger.h>
 
 #include <Rtypes.h>
 

@@ -26,9 +26,9 @@
 #include <onnxruntime_cxx_api.h>
 #endif
 
-#include <TSystem.h>
+#include <Framework/Logger.h>
 
-#include <fairlogger/Logger.h>
+#include <TSystem.h>
 
 #include <cassert>
 #include <cstddef>

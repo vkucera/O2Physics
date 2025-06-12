@@ -29,14 +29,12 @@
 #include <Framework/HistogramRegistry.h>
 #include <Framework/HistogramSpec.h>
 #include <Framework/InitContext.h>
+#include <Framework/Logger.h>
 #include <Framework/StepTHn.h>
-#include <Framework/WorkflowSpec.h>
 #include <Framework/runDataProcessing.h>
 
 #include <TMCProcess.h> // for VMC Particle Production Process
 #include <TPDGCode.h>
-
-#include <fairlogger/Logger.h>
 
 #include <vector>
 

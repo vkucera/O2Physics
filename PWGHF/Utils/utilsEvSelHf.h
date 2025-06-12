@@ -30,11 +30,10 @@
 #include <Framework/DeviceSpec.h>
 #include <Framework/HistogramRegistry.h>
 #include <Framework/HistogramSpec.h>
+#include <Framework/Logger.h>
 
 #include <TH1.h>
 #include <TH2.h>
-
-#include <fairlogger/Logger.h>
 
 #include <Rtypes.h>
 

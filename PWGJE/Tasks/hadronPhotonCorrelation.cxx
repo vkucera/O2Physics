@@ -35,10 +35,9 @@
 #include "Framework/HistogramRegistry.h"
 #include "Framework/HistogramSpec.h"
 #include "Framework/O2DatabasePDGPlugin.h"
-#include "Framework/runDataProcessing.h"
 #include <Framework/AnalysisHelpers.h>
 #include <Framework/InitContext.h>
-#include <Framework/WorkflowSpec.h>
+#include <Framework/runDataProcessing.h>
 
 #include <TPDGCode.h>
 

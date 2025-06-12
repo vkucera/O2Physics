@@ -20,10 +20,9 @@
 #include "Common/DataModel/PIDResponseTPC.h"
 
 #include <CommonConstants/MathConstants.h>
+#include <Framework/Logger.h>
 
 #include <TPDGCode.h>
-
-#include <fairlogger/Logger.h>
 
 #include <cmath>
 #include <cstddef>

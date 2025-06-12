@@ -37,8 +37,8 @@
 #include <Framework/HistogramRegistry.h>
 #include <Framework/HistogramSpec.h>
 #include <Framework/InitContext.h>
+#include <Framework/Logger.h>
 #include <Framework/OutputObjHeader.h>
-#include <Framework/WorkflowSpec.h>
 #include <Framework/runDataProcessing.h>
 #include <PID/PIDTOF.h>
 #include <ReconstructionDataFormats/PID.h>
@@ -48,8 +48,6 @@
 #include <TH2.h>
 #include <TPDGCode.h>
 #include <TString.h>
-
-#include <fairlogger/Logger.h>
 
 #include <algorithm>
 #include <array>

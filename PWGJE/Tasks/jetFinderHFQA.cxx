@@ -26,7 +26,6 @@
 #include "Framework/ASoA.h"
 #include "Framework/HistogramRegistry.h"
 #include <Framework/Configurable.h>
-#include <Framework/Expressions.h>
 #include <Framework/HistogramSpec.h>
 #include <Framework/InitContext.h>
 

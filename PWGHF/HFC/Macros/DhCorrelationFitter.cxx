@@ -23,6 +23,7 @@
 #include <TMath.h>
 #include <TMathBase.h>
 #include <TMatrixD.h> // IWYU pragma: keep (do not replace with TMatrixDfwd.h)
+#include <TMatrixDfwd.h>
 #include <TMinuit.h>
 #include <TPaveText.h>
 #include <TString.h>

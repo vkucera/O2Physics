@@ -37,13 +37,12 @@
 #include <Framework/HistogramRegistry.h>
 #include <Framework/HistogramSpec.h>
 #include <Framework/InitContext.h>
+#include <Framework/Logger.h>
 #include <Framework/OutputObjHeader.h>
-#include <Framework/WorkflowSpec.h>
 #include <Framework/runDataProcessing.h>
 
 #include <TH1.h>
 
-#include <fairlogger/Logger.h>
 #include <onnxruntime_cxx_api.h>
 
 #include <array>

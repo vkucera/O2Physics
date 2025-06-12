@@ -27,22 +27,19 @@
 #include "Framework/ASoA.h"
 #include "Framework/AnalysisDataModel.h"
 #include "Framework/AnalysisTask.h"
-#include "Framework/runDataProcessing.h"
 #include "ReconstructionDataFormats/DCA.h"
 #include <CCDB/BasicCCDBManager.h>
 #include <DetectorsBase/MatLayerCylSet.h>
 #include <DetectorsBase/Propagator.h>
 #include <Framework/AnalysisHelpers.h>
 #include <Framework/Configurable.h>
-#include <Framework/Expressions.h>
 #include <Framework/HistogramRegistry.h>
 #include <Framework/HistogramSpec.h>
 #include <Framework/InitContext.h>
-#include <Framework/WorkflowSpec.h>
+#include <Framework/Logger.h>
+#include <Framework/runDataProcessing.h>
 #include <ReconstructionDataFormats/TrackParametrizationWithError.h>
 #include <ReconstructionDataFormats/Vertex.h>
-
-#include <fairlogger/Logger.h>
 
 #include <GPUROOTCartesianFwd.h>
 

@@ -30,12 +30,10 @@
 #include <Framework/AnalysisDataModel.h>
 #include <Framework/AnalysisTask.h>
 #include <Framework/Configurable.h>
-#include <Framework/Expressions.h>
 #include <Framework/HistogramRegistry.h>
 #include <Framework/HistogramSpec.h>
 #include <Framework/InitContext.h>
 #include <Framework/Variant.h>
-#include <Framework/WorkflowSpec.h>
 
 #include <cstdlib>
 #include <vector>

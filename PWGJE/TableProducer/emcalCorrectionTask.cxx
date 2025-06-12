@@ -39,27 +39,23 @@
 #include "Framework/ASoA.h"
 #include "Framework/AnalysisDataModel.h"
 #include "Framework/AnalysisTask.h"
-#include "Framework/runDataProcessing.h"
 #include <DataFormatsEMCAL/ClusterLabel.h>
 #include <Framework/AnalysisHelpers.h>
 #include <Framework/Configurable.h>
-#include <Framework/Expressions.h>
 #include <Framework/HistogramRegistry.h>
 #include <Framework/HistogramSpec.h>
 #include <Framework/InitContext.h>
-#include <Framework/WorkflowSpec.h>
+#include <Framework/Logger.h>
+#include <Framework/runDataProcessing.h>
 
 #include "TVector2.h"
 #include <TH1.h>
-
-#include <fairlogger/Logger.h>
 
 #include <GPUROOTCartesianFwd.h>
 
 #include <cmath>
 #include <cstddef>
 #include <cstdint>
-#include <gsl/span>
 #include <memory>
 #include <random>
 #include <sstream>

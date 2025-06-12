@@ -42,14 +42,14 @@
 #include <Framework/Array2D.h>
 #include <Framework/HistogramRegistry.h>
 #include <Framework/HistogramSpec.h>
+#include <Framework/Logger.h>
 
 #include <Math/GenVector/Boost.h>
 #include <Math/Vector4D.h> // IWYU pragma: keep (do not replace with Math/Vector4Dfwd.h)
+#include <Math/Vector4Dfwd.h>
 #include <TAxis.h>
 #include <TH1.h>
 #include <TH3.h>
-
-#include <fairlogger/Logger.h>
 
 #include <Rtypes.h>
 

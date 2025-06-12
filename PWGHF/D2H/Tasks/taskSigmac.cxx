@@ -31,13 +31,11 @@
 #include <Framework/HistogramRegistry.h>
 #include <Framework/HistogramSpec.h>
 #include <Framework/InitContext.h>
-#include <Framework/WorkflowSpec.h>
+#include <Framework/Logger.h>
 #include <Framework/runDataProcessing.h>
 
 #include <THnSparse.h>
 #include <TPDGCode.h>
-
-#include <fairlogger/Logger.h>
 
 #include <Rtypes.h>
 

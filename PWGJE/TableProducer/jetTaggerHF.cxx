@@ -29,7 +29,6 @@
 #include "Framework/ASoA.h"
 #include "Framework/AnalysisDataModel.h"
 #include "Framework/AnalysisTask.h"
-#include "Framework/runDataProcessing.h"
 #include <CCDB/CcdbApi.h>
 #include <Framework/AnalysisHelpers.h>
 #include <Framework/Array2D.h>
@@ -37,13 +36,13 @@
 #include <Framework/HistogramRegistry.h>
 #include <Framework/HistogramSpec.h>
 #include <Framework/InitContext.h>
+#include <Framework/Logger.h>
 #include <Framework/OutputObjHeader.h>
-#include <Framework/WorkflowSpec.h>
+#include <Framework/runDataProcessing.h>
 
 #include <TF1.h>
 #include <TH1.h>
 
-#include <fairlogger/Logger.h>
 #include <onnxruntime_cxx_api.h>
 
 #include <cmath>

@@ -25,6 +25,7 @@
 #include "Common/Core/RecoDecay.h"
 #include "Common/Core/trackUtilities.h"
 
+#include <Framework/Logger.h>
 #include <ReconstructionDataFormats/PID.h>
 #include <ReconstructionDataFormats/Track.h>
 #include <ReconstructionDataFormats/TrackParametrizationWithError.h>
@@ -35,7 +36,6 @@
 #include <KFPVertex.h>
 #include <KFParticle.h>
 #include <KFParticleBase.h>
-#include <fairlogger/Logger.h>
 
 #include <array>
 #include <cmath>

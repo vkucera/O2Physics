@@ -43,14 +43,13 @@
 #include "Framework/AnalysisDataModel.h"
 #include "Framework/AnalysisTask.h"
 #include "Framework/O2DatabasePDGPlugin.h"
-#include "Framework/runDataProcessing.h"
 #include "ReconstructionDataFormats/Vertex.h"
 #include <CommonConstants/MathConstants.h>
 #include <DetectorsBase/MatLayerCylSet.h>
 #include <Framework/AnalysisHelpers.h>
 #include <Framework/Configurable.h>
 #include <Framework/InitContext.h>
-#include <Framework/WorkflowSpec.h>
+#include <Framework/runDataProcessing.h>
 #include <ReconstructionDataFormats/DCA.h>
 
 #include <algorithm>

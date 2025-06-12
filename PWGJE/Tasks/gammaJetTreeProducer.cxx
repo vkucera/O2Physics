@@ -9,15 +9,12 @@
 // granted to it by virtue of its status as an Intergovernmental Organization
 // or submit itself to any jurisdiction.
 
-// C++ system headers first
-#include <cstdint>
-#include <string>
-#include <unordered_map>
-#include <vector>
+/// \struct GammaJetTreeProducer
+/// \brief Task to produce a tree for gamma-jet analysis, including photons (and information of isolation) and charged and full jets
+/// \author Florian Jonas <florian.jonas@cern.ch>, UC Berkeley/LBNL
+/// \since 02.08.2024
+///
 
-#include <math.h>
-
-// Framework and other headers after
 #include "PWGJE/Core/JetDerivedDataUtilities.h"
 #include "PWGJE/Core/JetUtilities.h"
 #include "PWGJE/DataModel/GammaJetAnalysisTree.h"
@@ -27,34 +24,33 @@
 
 #include "Common/Core/RecoDecay.h"
 
-#include "Framework/ASoA.h"
-#include "Framework/AnalysisTask.h"
-#include "Framework/HistogramRegistry.h"
+#include <Framework/ASoA.h>
 #include <Framework/AnalysisHelpers.h>
+#include <Framework/AnalysisTask.h>
 #include <Framework/Configurable.h>
-#include <Framework/Expressions.h>
+#include <Framework/HistogramRegistry.h>
 #include <Framework/HistogramSpec.h>
 #include <Framework/InitContext.h>
-#include <Framework/WorkflowSpec.h>
+#include <Framework/Logger.h>
+#include <Framework/runDataProcessing.h>
 
 #include "TVector2.h"
 #include <TMath.h>
 
-#include <fairlogger/Logger.h>
 #include <sys/types.h>
 
-// \struct GammaJetTreeProducer
-/// \brief Task to produce a tree for gamma-jet analysis, including photons (and information of isolation) and charged and full jets
-/// \author Florian Jonas <florian.jonas@cern.ch>, UC Berkeley/LBNL
-/// \since 02.08.2024
-///
+#include <cstdint>
+#include <string>
+#include <unordered_map>
+#include <vector>
+
+#include <math.h>
+
 using namespace o2;
 using namespace o2::aod;
 using namespace o2::framework;
 using namespace o2::framework::expressions;
 using emcClusters = o2::soa::Join<o2::aod::JClusters, o2::aod::JClusterTracks>;
-
-#include "Framework/runDataProcessing.h"
 
 struct GammaJetTreeProducer {
   // analysis tree

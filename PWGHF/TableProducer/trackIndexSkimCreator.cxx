@@ -56,20 +56,16 @@
 #include <Framework/Array2D.h>
 #include <Framework/Configurable.h>
 #include <Framework/DataTypes.h>
-#include <Framework/Expressions.h>
 #include <Framework/HistogramRegistry.h>
 #include <Framework/HistogramSpec.h>
 #include <Framework/InitContext.h>
-#include <Framework/SliceCache.h>
-#include <Framework/WorkflowSpec.h>
+#include <Framework/Logger.h>
 #include <Framework/runDataProcessing.h>
 #include <ReconstructionDataFormats/Track.h>
 #include <ReconstructionDataFormats/Vertex.h> // for PV refit
 
 #include <TH1.h>
 #include <TString.h>
-
-#include <fairlogger/Logger.h>
 
 #include <Rtypes.h>
 #include <RtypesCore.h>

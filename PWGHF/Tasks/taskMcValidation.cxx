@@ -41,10 +41,9 @@
 #include <Framework/HistogramRegistry.h>
 #include <Framework/HistogramSpec.h>
 #include <Framework/InitContext.h>
+#include <Framework/Logger.h>
 #include <Framework/RunningWorkflowInfo.h>
-#include <Framework/SliceCache.h>
 #include <Framework/StaticFor.h>
-#include <Framework/WorkflowSpec.h>
 #include <Framework/runDataProcessing.h>
 
 #include <TH1.h>
@@ -54,7 +53,6 @@
 #include <TPDGCode.h>
 #include <TString.h>
 
-#include <fairlogger/Logger.h>
 #include <sys/types.h>
 
 #include <Rtypes.h>

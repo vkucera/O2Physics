@@ -17,6 +17,7 @@
 #if !defined(__CINT__) || defined(__CLING__)
 
 #include <CommonConstants/MathConstants.h>
+#include <Framework/Logger.h>
 
 #include <TDatabasePDG.h>
 #include <TDirectoryFile.h>
@@ -28,7 +29,6 @@
 #include <TString.h>
 
 #include <Pythia8/Pythia.h>
-#include <fairlogger/Logger.h>
 
 #include <array>
 #include <cmath>
