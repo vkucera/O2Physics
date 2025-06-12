@@ -13,58 +13,39 @@
 /// \file jetChargedV2.cxx
 /// \brief This file contains the implementation for the Charged Jet v2 analysis in the ALICE experiment
 
-#include <chrono>
-#include <string>
-#include <vector>
-#include <TComplex.h>
-#include <TH3F.h>
-#include <cmath>
-#include <TRandom3.h>
-#include <TF1.h>
-#include <algorithm>
-// o2Physics includes.
-#include "CommonConstants/MathConstants.h"
-#include "CCDB/BasicCCDBManager.h"
-#include "DataFormatsParameters/GRPMagField.h"
-
-#include "Framework/runDataProcessing.h"
-
-#include "Common/DataModel/FT0Corrected.h"
-#include "Common/DataModel/Multiplicity.h"
-#include "Common/DataModel/Centrality.h"
-#include "Common/CCDB/ctpRateFetcher.h"
-
-//< evt pln .h >//
-#include "Framework/ASoAHelpers.h"
-#include "Framework/RunningWorkflowInfo.h"
-#include "Framework/StaticFor.h"
-
-#include "Common/DataModel/Qvectors.h"
-#include "Common/Core/EventPlaneHelper.h"
-//< evt pln .h | end >//
-
-// o2 includes.
-#include "DetectorsCommonDataFormats/AlignParam.h"
-
-#include "Framework/ASoA.h"
-#include "Framework/AnalysisDataModel.h"
-#include "Framework/AnalysisTask.h"
-#include "Framework/O2DatabasePDGPlugin.h"
-#include "Framework/HistogramRegistry.h"
-
-#include "Common/Core/TrackSelection.h"
-#include "Common/Core/TrackSelectionDefaults.h"
-
-#include "Common/DataModel/EventSelection.h"
-#include "Common/DataModel/TrackSelectionTables.h"
-
-#include "PWGJE/Core/FastJetUtilities.h"
-#include "PWGJE/Core/JetFinder.h"
+#include "PWGJE/Core/JetDerivedDataUtilities.h"
 #include "PWGJE/Core/JetFindingUtilities.h"
 #include "PWGJE/DataModel/Jet.h"
+#include "PWGJE/DataModel/JetReducedData.h"
+#include "PWGJE/DataModel/JetSubtraction.h"
 
-#include "PWGJE/Core/JetDerivedDataUtilities.h"
-#include "EventFiltering/filterTables.h"
+#include "Common/Core/EventPlaneHelper.h"
+#include "Common/Core/RecoDecay.h"
+#include "Common/DataModel/Qvectors.h"
+
+#include <CommonConstants/MathConstants.h>
+#include <Framework/ASoA.h>
+#include <Framework/AnalysisTask.h>
+#include <Framework/Configurable.h>
+#include <Framework/HistogramRegistry.h>
+#include <Framework/HistogramSpec.h>
+#include <Framework/InitContext.h>
+#include <Framework/Logger.h>
+#include <Framework/OutputObjHeader.h>
+#include <Framework/runDataProcessing.h>
+
+#include <TF1.h>
+#include <TH1.h>
+#include <TMath.h>
+#include <TRandom3.h>
+#include <TString.h>
+
+#include <sys/types.h>
+
+#include <algorithm>
+#include <cmath>
+#include <string>
+#include <vector>
 
 using namespace o2;
 using namespace o2::framework;
