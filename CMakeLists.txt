@@ -117,8 +117,10 @@ foreach(header_file ${_headers})
 endforeach()
 
 # Create a build target.
-add_library(test_headers MODULE ${_generated_source_files})
+# add_library(test_headers MODULE ${_generated_source_files})
+# target_include_directories(test_headers PUBLIC PUBLIC $<BUILD_INTERFACE:${CMAKE_SOURCE_DIR}>)
 
+# o2physics_add_header_only_library(test_headers HEADERS ${_headers})
 
 # Builds a source file and an executable that does nothing other than
 # compile the given header files.
