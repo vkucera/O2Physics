@@ -13,13 +13,16 @@
 // \author Paul Buehler, paul.buehler@oeaw.ac.at
 // \since  October 2023
 
-#include "Framework/runDataProcessing.h"
-#include "Framework/AnalysisTask.h"
-
-#include "TDatabasePDG.h"
-#include "TLorentzVector.h"
-#include "PWGUD/DataModel/UDTables.h"
 #include "PWGUD/Core/UDHelpers.h"
+#include "PWGUD/DataModel/UDTables.h"
+
+#include "Framework/AnalysisTask.h"
+#include "Framework/runDataProcessing.h"
+
+#include "TDatabasePDG.h"   // FIXME
+#include "TLorentzVector.h" // FIXME
+
+#include <vector>
 
 using namespace o2;
 using namespace o2::framework;
@@ -122,7 +125,7 @@ struct UDTutorial04 {
 
   // find the McParticles belongin to given tracks
   template <typename MCTrack>
-  std::vector<int64_t> getDaughterParts_rec(TCs const& tracks, std::vector<int64_t> trackIds, MCTrack const& /*parts*/)
+  std::vector<int64_t> getDaughterParts_rec(TCs const& tracks, std::vector<int64_t> const& trackIds, MCTrack const& /*parts*/)
   {
     std::vector<int64_t> emptySelection;
     std::vector<int64_t> selectedParts;
@@ -140,7 +143,7 @@ struct UDTutorial04 {
 
   // retrieve the reconstructed tracks which are associated with the given McParticles
   template <typename McPart>
-  std::vector<int64_t> getDaughterTracks_gen(McPart const& parts, std::vector<int64_t> partIds, TCs const& tracks)
+  std::vector<int64_t> getDaughterTracks_gen(McPart const& parts, std::vector<int64_t> const& partIds, TCs const& tracks)
   {
     // return a vector of track indices
     std::vector<int64_t> emptySelection;

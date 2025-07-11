@@ -9,16 +9,20 @@
 // granted to it by virtue of its status as an Intergovernmental Organization
 // or submit itself to any jurisdiction.
 //
-#include <iostream>
-#include <TString.h>
-#include <TTree.h>
-#include "Framework/runDataProcessing.h"
-#include "Framework/AnalysisTask.h"
-#include "Framework/AnalysisDataModel.h"
-#include "PWGUD/DataModel/UDTables.h"
-#include "TLorentzVector.h"
 #include "PWGUD/Core/SGSelector.h"
 #include "PWGUD/Core/SGTrackSelector.h"
+#include "PWGUD/DataModel/UDTables.h"
+
+#include "Framework/AnalysisDataModel.h"
+#include "Framework/AnalysisTask.h"
+#include "Framework/runDataProcessing.h"
+
+#include "TLorentzVector.h"
+#include <TString.h>
+#include <TTree.h>
+
+#include <iostream>
+#include <vector>
 
 using namespace std;
 using namespace o2;
@@ -133,7 +137,7 @@ struct UDTutorial07 {
     registry.fill(HIST("hSelectionCounter"), 1);
 
     // Accessing FIT information for further exclusivity and/or inclusivity
-    float FIT_cut[5] = {FV0_cut, FT0A_cut, FT0C_cut, FDDA_cut, FDDC_cut};
+    const float FIT_cut[5] = {FV0_cut, FT0A_cut, FT0C_cut, FDDA_cut, FDDC_cut};
     int truegapSide = sgSelector.trueGap(collision, FIT_cut[0], FIT_cut[1], FIT_cut[2], ZDC_cut);
 
     // Intiating track parameters to select good tracks, values to be optimized in the configurables, parameters will be taken from SGtrackselector.h task included in the header

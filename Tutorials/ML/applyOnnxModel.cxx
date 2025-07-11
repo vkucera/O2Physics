@@ -14,10 +14,14 @@
 ///
 /// \author Christian Sonnabend <christian.sonnabend@cern.ch>, GSI
 
-#include "Framework/runDataProcessing.h"
+#include "Tools/ML/model.h"
+
 #include "Framework/AnalysisTask.h"
 #include "Framework/Logger.h"
-#include "Tools/ML/model.h"
+#include "Framework/runDataProcessing.h"
+
+#include <string>
+#include <vector>
 
 using namespace o2;
 using namespace o2::framework;
@@ -44,7 +48,7 @@ struct applyModel {
   {
 
     // Here we evaluate the model
-    float* modelOutput = network.evalModel(modelInput);
+    const float* modelOutput = network.evalModel(modelInput);
 
     // And now we print the output
     for (int i = 0; i < 5; i++) {

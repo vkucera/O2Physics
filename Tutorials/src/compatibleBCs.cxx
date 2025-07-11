@@ -15,9 +15,9 @@
 /// \author
 /// \since
 
-#include "Framework/runDataProcessing.h"
-#include "Framework/AnalysisTask.h"
 #include "CommonConstants/LHCConstants.h"
+#include "Framework/AnalysisTask.h"
+#include "Framework/runDataProcessing.h"
 
 using namespace o2;
 using namespace o2::framework;
@@ -55,7 +55,7 @@ T getCompatibleBCs(aod::Collision const& collision, T const& bcs)
 
   LOGF(info, "Will consider BC entries from %d to %d", minBCId, maxBCId);
 
-  T slice{{bcs.asArrowTable()->Slice(minBCId, maxBCId - minBCId + 1)}, (uint64_t)minBCId};
+  T slice{{bcs.asArrowTable()->Slice(minBCId, maxBCId - minBCId + 1)}, static_cast<uint64_t>(minBCId)};
   bcs.copyIndexBindings(slice);
   return slice;
 }
@@ -81,7 +81,10 @@ struct CompatibleBCs {
 // Note that one has to subscribe to aod::FT0s and aod::FV0As to load
 // the relevant data even if you access the data itself through m.ft0() and m.fv0a()
 struct CompatibleT0V0A {
-  void process(aod::Collision const& collision, soa::Join<aod::BCs, aod::Run3MatchedToBCSparse> const& bct0s, aod::FT0s& /*ft0s*/, aod::FV0As& /*fv0as*/)
+  void process(aod::Collision const& collision,
+               soa::Join<aod::BCs, aod::Run3MatchedToBCSparse> const& bct0s,
+               aod::FT0s const& /*ft0s*/,
+               aod::FV0As const& /*fv0as*/)
   {
     // NOTE collision.bc() causes SEGV here because we have only subscribed to BCs joined, therefore:
     auto bc = collision.bc_as<soa::Join<aod::BCs, aod::Run3MatchedToBCSparse>>();
@@ -89,9 +92,9 @@ struct CompatibleT0V0A {
 
     auto bcSlice = getCompatibleBCs(collision, bct0s);
 
-    for (auto& bc : bcSlice) {
-      if (bc.has_ft0() && bc.has_fv0a()) {
-        LOGF(info, "This collision may belong to BC %lld and has T0 timeA: %f and V0A time: %f", bc.globalBC(), bc.ft0().timeA(), bc.fv0a().time());
+    for (auto const& bcInSlice : bcSlice) {
+      if (bcInSlice.has_ft0() && bcInSlice.has_fv0a()) {
+        LOGF(info, "This collision may belong to BC %lld and has T0 timeA: %f and V0A time: %f", bcInSlice.globalBC(), bcInSlice.ft0().timeA(), bcInSlice.fv0a().time());
       }
     }
   }

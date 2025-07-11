@@ -15,20 +15,22 @@
 /// \author
 /// \since
 
-#include <TF1.h>
-#include <TH3.h>
-#include <Framework/runDataProcessing.h>
-#include <Framework/AnalysisTask.h>
-#include <Framework/HistogramRegistry.h>
-#include <Framework/AnalysisDataModel.h>
-#include <Common/DataModel/EventSelection.h>
 #include <Common/CCDB/TriggerAliases.h>
 #include <Common/DataModel/Centrality.h>
+#include <Common/DataModel/EventSelection.h>
 #include <Common/DataModel/Multiplicity.h>
-#include <Common/DataModel/TrackSelectionTables.h>
 #include <Common/DataModel/PIDResponse.h>
+#include <Common/DataModel/TrackSelectionTables.h>
+
 #include <CCDB/BasicCCDBManager.h>
 #include <DataFormatsParameters/GRPObject.h>
+#include <Framework/AnalysisDataModel.h>
+#include <Framework/AnalysisTask.h>
+#include <Framework/HistogramRegistry.h>
+#include <Framework/runDataProcessing.h>
+
+#include <TF1.h>
+#include <TH3.h>
 
 using namespace o2;
 using namespace o2::framework;
@@ -67,12 +69,10 @@ struct flow_base {
 
   Service<o2::ccdb::BasicCCDBManager> ccdb;
 
-  static constexpr int ncent_bins = 10;
-
   HistogramRegistry histos{"Histos", {}, OutputObjHandlingPolicy::AnalysisObject};
 
-  Filter collisionFilter = (aod::collision::flags & (uint16_t)aod::collision::CollisionFlagsRun2::Run2VertexerTracks) == (uint16_t)aod::collision::CollisionFlagsRun2::Run2VertexerTracks;
-  Filter trackFilter = ((requireGlobalTrackInFilter()) || (aod::track::isGlobalTrackSDD == (uint8_t) true));
+  Filter collisionFilter = (aod::collision::flags & static_cast<uint16_t>(aod::collision::CollisionFlagsRun2::Run2VertexerTracks)) == static_cast<uint16_t>(aod::collision::CollisionFlagsRun2::Run2VertexerTracks);
+  Filter trackFilter = ((requireGlobalTrackInFilter()) || (aod::track::isGlobalTrackSDD == static_cast<uint8_t>(1)));
 
   void fillAPt(double trackpt, double cent, double vn, double sinHarm, double cosHarm)
   {
@@ -270,7 +270,7 @@ struct flow_base {
     ccdb->setCaching(true);
     ccdb->setLocalObjectValidityChecking();
 
-    long now = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
+    int64_t now = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
     ccdb->setCreatedNotAfter(now); // TODO must become global parameter from the train creation time
   }
 
