@@ -29,9 +29,9 @@
 #include <Framework/OutputObjHeader.h>
 
 // ROOT headers
-#include "TMath.h"
 #include <TH1.h>
 #include <TLorentzVector.h> // FIXME
+#include <TMath.h>
 #include <TString.h>
 
 #include <cstdint>

@@ -25,9 +25,9 @@
 #include <Framework/InitContext.h>
 #include <Framework/runDataProcessing.h>
 
-#include "TVector3.h"
 #include <TH1.h>
 #include <TH2.h>
+#include <TVector3.h>
 
 #include <Rtypes.h>
 
