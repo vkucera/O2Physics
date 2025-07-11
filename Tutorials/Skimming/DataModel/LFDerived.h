@@ -10,8 +10,8 @@
 // or submit itself to any jurisdiction.
 /// \author Nima Zardoshti <nima.zardoshti@cern.ch>, CERN
 
-#ifndef O2_ANALYSIS_LFDERIVED_H
-#define O2_ANALYSIS_LFDERIVED_H
+#ifndef TUTORIALS_SKIMMING_DATAMODEL_LFDERIVED_H_
+#define TUTORIALS_SKIMMING_DATAMODEL_LFDERIVED_H_
 
 #include "Framework/ASoA.h"
 #include "Framework/AnalysisDataModel.h"
@@ -28,7 +28,7 @@ DECLARE_SOA_INDEX_COLUMN(LFCollision, lfCollision);
 DECLARE_SOA_COLUMN(Pt, pt, float);
 DECLARE_SOA_COLUMN(Eta, eta, float);
 DECLARE_SOA_COLUMN(Phi, phi, float);
-DECLARE_SOA_DYNAMIC_COLUMN(P, p, [](float pt, float eta) { return pt * TMath::CosH(eta); });
+DECLARE_SOA_DYNAMIC_COLUMN(P, p, [](float pt, float eta) { return pt * std::cosh(eta); });
 DECLARE_SOA_COLUMN(TpcNSigmaEl, tpcNSigmaEl, float);
 DECLARE_SOA_COLUMN(TpcNSigmaMu, tpcNSigmaMu, float);
 DECLARE_SOA_COLUMN(TpcNSigmaPi, tpcNSigmaPi, float);
@@ -92,4 +92,4 @@ using LFNucleiTrack = LFNucleiTracks::iterator;
 
 } // namespace o2::aod
 
-#endif // O2_ANALYSIS_LFDERIVED_H
+#endif // TUTORIALS_SKIMMING_DATAMODEL_LFDERIVED_H_

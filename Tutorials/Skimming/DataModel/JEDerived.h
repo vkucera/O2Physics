@@ -10,8 +10,8 @@
 // or submit itself to any jurisdiction.
 /// \author Nima Zardoshti <nima.zardoshti@cern.ch>, CERN
 
-#ifndef O2_ANALYSIS_JEDERIVED_H
-#define O2_ANALYSIS_JEDERIVED_H
+#ifndef TUTORIALS_SKIMMING_DATAMODEL_JEDERIVED_H_
+#define TUTORIALS_SKIMMING_DATAMODEL_JEDERIVED_H_
 
 #include "Framework/ASoA.h"
 #include "Framework/AnalysisDataModel.h"
@@ -26,10 +26,10 @@ DECLARE_SOA_COLUMN(Phi, phi, float);
 DECLARE_SOA_COLUMN(Energy, energy, float);
 DECLARE_SOA_COLUMN(Mass, mass, float);
 DECLARE_SOA_COLUMN(Area, area, float);
-DECLARE_SOA_DYNAMIC_COLUMN(Px, px, [](float pt, float phi) { return pt * TMath::Cos(phi); });
-DECLARE_SOA_DYNAMIC_COLUMN(Py, py, [](float pt, float phi) { return pt * TMath::Sin(phi); });
-DECLARE_SOA_DYNAMIC_COLUMN(Pz, pz, [](float pt, float eta) { return pt * TMath::SinH(eta); });
-DECLARE_SOA_DYNAMIC_COLUMN(P, p, [](float pt, float eta) { return pt * TMath::CosH(eta); }); //absolute p
+DECLARE_SOA_DYNAMIC_COLUMN(Px, px, [](float pt, float phi) { return pt * std::cos(phi); });
+DECLARE_SOA_DYNAMIC_COLUMN(Py, py, [](float pt, float phi) { return pt * std::sin(phi); });
+DECLARE_SOA_DYNAMIC_COLUMN(Pz, pz, [](float pt, float eta) { return pt * std::sinh(eta); });
+DECLARE_SOA_DYNAMIC_COLUMN(P, p, [](float pt, float eta) { return pt * std::cosh(eta); }); // absolute p
 } // namespace jejet
 
 DECLARE_SOA_TABLE(JEJets, "AOD", "JEJET",
@@ -53,10 +53,10 @@ DECLARE_SOA_INDEX_COLUMN(JEJet, jejet);
 DECLARE_SOA_COLUMN(Pt, pt, float);
 DECLARE_SOA_COLUMN(Eta, eta, float);
 DECLARE_SOA_COLUMN(Phi, phi, float);
-DECLARE_SOA_DYNAMIC_COLUMN(Px, px, [](float pt, float phi) { return pt * TMath::Cos(phi); });
-DECLARE_SOA_DYNAMIC_COLUMN(Py, py, [](float pt, float phi) { return pt * TMath::Sin(phi); });
-DECLARE_SOA_DYNAMIC_COLUMN(Pz, pz, [](float pt, float eta) { return pt * TMath::SinH(eta); });
-DECLARE_SOA_DYNAMIC_COLUMN(P, p, [](float pt, float eta) { return pt * TMath::CosH(eta); }); //absolute p
+DECLARE_SOA_DYNAMIC_COLUMN(Px, px, [](float pt, float phi) { return pt * std::cos(phi); });
+DECLARE_SOA_DYNAMIC_COLUMN(Py, py, [](float pt, float phi) { return pt * std::sin(phi); });
+DECLARE_SOA_DYNAMIC_COLUMN(Pz, pz, [](float pt, float eta) { return pt * std::sinh(eta); });
+DECLARE_SOA_DYNAMIC_COLUMN(P, p, [](float pt, float eta) { return pt * std::cosh(eta); }); // absolute p
 } // namespace jeconstituent
 
 DECLARE_SOA_TABLE(JEConstituents, "AOD", "JECONSTITUENT", o2::soa::Index<>,
@@ -69,4 +69,4 @@ DECLARE_SOA_TABLE(JEConstituents, "AOD", "JECONSTITUENT", o2::soa::Index<>,
 using JEConstituent = JEConstituents::iterator;
 } // namespace o2::aod
 
-#endif // O2_ANALYSIS_JEDERIVED_H
+#endif // TUTORIALS_SKIMMING_DATAMODEL_JEDERIVED_H_
