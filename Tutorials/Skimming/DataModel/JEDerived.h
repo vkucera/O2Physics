@@ -16,6 +16,8 @@
 #include "Framework/ASoA.h"
 #include "Framework/AnalysisDataModel.h"
 
+#include <cmath>
+
 namespace o2::aod
 {
 namespace jejet

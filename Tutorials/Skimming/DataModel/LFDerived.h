@@ -16,6 +16,8 @@
 #include "Framework/ASoA.h"
 #include "Framework/AnalysisDataModel.h"
 
+#include <cmath>
+
 namespace o2::aod
 {
 DECLARE_SOA_TABLE(LFCollisions, "AOD", "LFCOLLISION", o2::soa::Index<>,
