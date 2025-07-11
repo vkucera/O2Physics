@@ -16,13 +16,22 @@
 /// \since
 
 #include "Framework/AnalysisTask.h"
+#include "Framework/runDataProcessing.h"
+#include <Framework/ASoA.h>
+#include <Framework/AnalysisDataModel.h>
+#include <Framework/Configurable.h>
+#include <Framework/Expressions.h>
+#include <Framework/HistogramRegistry.h>
+#include <Framework/HistogramSpec.h>
+#include <Framework/InitContext.h>
 
 #include <cmath>
+
+#include <math.h>
 
 using namespace o2;
 using namespace o2::framework;
 using namespace o2::framework::expressions;
-#include "Framework/runDataProcessing.h"
 
 namespace
 {

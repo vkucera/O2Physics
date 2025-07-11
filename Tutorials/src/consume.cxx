@@ -14,8 +14,12 @@
 /// \since
 
 #include "IntermediateTables.h"
-#include "Framework/runDataProcessing.h"
+
 #include "Framework/AnalysisTask.h"
+#include "Framework/runDataProcessing.h"
+#include <Framework/ASoA.h>
+#include <Framework/AnalysisDataModel.h>
+#include <Framework/Configurable.h>
 
 using namespace o2;
 using namespace o2::framework;

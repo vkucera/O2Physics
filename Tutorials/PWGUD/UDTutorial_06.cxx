@@ -14,23 +14,30 @@
 /// \date 10.10.2024
 
 // O2 headers
-#include "Framework/runDataProcessing.h"
-#include "Framework/AnalysisTask.h"
 #include "Framework/AnalysisDataModel.h"
+#include "Framework/AnalysisTask.h"
+#include "Framework/runDataProcessing.h"
 
 // O2Physics headers
 #include "PWGUD/DataModel/UDTables.h"
-#include "PWGUD/Core/UDHelpers.h"
-#include "CCDB/BasicCCDBManager.h"
-#include "DataFormatsParameters/GRPLHCIFData.h"
-#include "DataFormatsParameters/GRPECSObject.h"
+
+#include <CommonConstants/PhysicsConstants.h>
+#include <Framework/Configurable.h>
+#include <Framework/HistogramRegistry.h>
+#include <Framework/HistogramSpec.h>
+#include <Framework/InitContext.h>
+#include <Framework/OutputObjHeader.h>
 
 // ROOT headers
-#include "TSystem.h"
-#include "TDatabasePDG.h"
-#include "TLorentzVector.h"
-#include "TLorentzVector.h"
 #include "TMath.h"
+#include <TH1.h>
+#include <TLorentzVector.h> // FIXME
+#include <TString.h>
+
+#include <cstdint>
+#include <cstdlib>
+#include <unordered_map>
+#include <vector>
 
 using namespace o2;
 using namespace o2::framework;

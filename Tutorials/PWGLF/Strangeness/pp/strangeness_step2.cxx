@@ -13,11 +13,23 @@
 /// \author Nepeivoda Roman (roman.nepeivoda@cern.ch)
 /// \author Chiara De Martin (chiara.de.martin@cern.ch)
 
-#include "Framework/runDataProcessing.h"
-#include "Framework/AnalysisTask.h"
-#include "Common/DataModel/EventSelection.h"
 #include "PWGLF/DataModel/LFStrangenessTables.h"
-#include "Common/DataModel/PIDResponse.h"
+
+#include "Common/DataModel/EventSelection.h"
+#include "Common/DataModel/PIDResponseTPC.h"
+
+#include "Framework/AnalysisTask.h"
+#include "Framework/runDataProcessing.h"
+#include <Framework/ASoA.h>
+#include <Framework/AnalysisDataModel.h>
+#include <Framework/Configurable.h>
+#include <Framework/Expressions.h>
+#include <Framework/HistogramRegistry.h>
+#include <Framework/HistogramSpec.h>
+#include <Framework/InitContext.h>
+#include <Framework/OutputObjHeader.h>
+
+#include <TMathBase.h>
 
 using namespace o2;
 using namespace o2::framework;

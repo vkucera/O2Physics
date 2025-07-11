@@ -13,8 +13,13 @@
 /// \author
 /// \since
 
-#include "Framework/runDataProcessing.h"
 #include "Framework/AnalysisTask.h"
+#include "Framework/runDataProcessing.h"
+#include <Framework/ASoA.h>
+#include <Framework/AnalysisDataModel.h>
+#include <Framework/AnalysisHelpers.h>
+#include <Framework/Configurable.h>
+#include <Framework/InitContext.h>
 
 namespace o2::aod
 {
@@ -116,7 +121,7 @@ struct SpawnDynamicColumns {
 
   void init(InitContext&)
   {
-    cextable.projectors[0] = (float)factor * aod::track::p * aod::track::p;
+    cextable.projectors[0] = static_cast<float>(factor) * aod::track::p * aod::track::p;
   }
 
   void process(aod::Tracks const& tracks)

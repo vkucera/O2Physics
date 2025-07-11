@@ -11,19 +11,28 @@
 
 /// \author Anton Riedel
 
-/// O2 includes
+/// FemtoDream includes
+#include "PWGCF/DataModel/FemtoDerived.h"
+
 #include "Framework/AnalysisTask.h"
 #include "Framework/runDataProcessing.h"
+#include <Framework/ASoA.h>
+#include <Framework/AnalysisDataModel.h>
+#include <Framework/AnalysisHelpers.h>
+#include <Framework/Configurable.h>
+#include <Framework/Expressions.h>
+#include <Framework/HistogramRegistry.h>
+#include <Framework/HistogramSpec.h>
+#include <Framework/InitContext.h>
+#include <Framework/OutputObjHeader.h>
+#include <Framework/SliceCache.h>
 
-/// FemtoDream includes
-#include "PWGCF/FemtoDream/Core/femtoDreamMath.h"
-#include "PWGCF/FemtoDream/Core/femtoDreamUtils.h"
-#include "PWGCF/DataModel/FemtoDerived.h"
+#include <cstdint>
 
 using namespace o2;
 using namespace o2::framework;
 using namespace o2::framework::expressions;
-using namespace o2::analysis::femtoDream;
+// using namespace o2::analysis::femtoDream;
 
 struct CFTutorialTask3 {
 

@@ -15,6 +15,7 @@
 
 #include "Framework/AnalysisTask.h"
 #include "Framework/runDataProcessing.h"
+#include <Framework/ASoA.h>
 
 namespace o2::aod
 {
