@@ -11,7 +11,7 @@
 #ifndef TUTORIALS_SRC_TRAININGTREE_H_
 #define TUTORIALS_SRC_TRAININGTREE_H_
 
-#include "Framework/AnalysisDataModel.h"
+#include <Framework/AnalysisDataModel.h>
 
 /// Definition of output table to store the flat tree for re-weighting model
 /// training

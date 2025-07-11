@@ -16,12 +16,12 @@
 
 #include "configurableCut.h"
 
-#include "Framework/AnalysisTask.h"
-#include "Framework/runDataProcessing.h"
 #include <Framework/AnalysisDataModel.h>
+#include <Framework/AnalysisTask.h>
 #include <Framework/Array2D.h>
 #include <Framework/Configurable.h>
 #include <Framework/InitContext.h>
+#include <Framework/runDataProcessing.h>
 
 #include <cstdint>
 #include <cstdlib>
