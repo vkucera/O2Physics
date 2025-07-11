@@ -19,7 +19,7 @@
 #include "Common/Core/EventPlaneHelper.h"
 #include "Common/DataModel/Qvectors.h"
 
-#include "CommonConstants/PhysicsConstants.h"
+#include <CommonConstants/PhysicsConstants.h>
 #include <Framework/ASoA.h>
 #include <Framework/AnalysisTask.h>
 #include <Framework/Configurable.h>

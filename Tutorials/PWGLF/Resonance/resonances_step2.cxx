@@ -15,7 +15,7 @@
 
 #include "PWGLF/DataModel/LFResonanceTables.h"
 
-#include "CommonConstants/PhysicsConstants.h"
+#include <CommonConstants/PhysicsConstants.h>
 #include <Framework/AnalysisDataModel.h>
 #include <Framework/AnalysisTask.h>
 #include <Framework/BinningPolicy.h>

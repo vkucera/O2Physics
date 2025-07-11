@@ -16,7 +16,7 @@
 
 #include "PWGLF/DataModel/LFResonanceTables.h"
 
-#include "CommonConstants/MathConstants.h"
+#include <CommonConstants/MathConstants.h>
 #include <Framework/AnalysisTask.h>
 #include <Framework/Configurable.h>
 #include <Framework/HistogramRegistry.h>
