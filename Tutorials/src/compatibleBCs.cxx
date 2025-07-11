@@ -69,7 +69,7 @@ struct CompatibleBCs {
 
     auto bcSlice = getCompatibleBCs(collision, bcs);
 
-    for (auto& bc : bcSlice) {
+    for (auto const& bc : bcSlice) {
       LOGF(info, "This collision may belong to BC %lld", bc.globalBC());
     }
   }
