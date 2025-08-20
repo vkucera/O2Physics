@@ -20,27 +20,26 @@
 //
 //===============================================================
 
+#include "MetadataHelper.h"
+
+#include "PWGMM/Mult/DataModel/bestCollisionTable.h"
+
+#include "Common/DataModel/EventSelection.h"
+#include "Common/DataModel/TrackSelectionTables.h"
+#include "Common/Tools/MultModule.h"
+
+#include "CCDB/BasicCCDBManager.h"
 #include "Framework/AnalysisDataModel.h"
 #include "Framework/AnalysisTask.h"
-#include "Framework/runDataProcessing.h"
-#include "Framework/RunningWorkflowInfo.h"
-#include "Common/DataModel/TrackSelectionTables.h"
-#include "Common/Core/trackUtilities.h"
-#include "ReconstructionDataFormats/DCA.h"
-#include "DetectorsBase/Propagator.h"
-#include "DetectorsBase/GeometryManager.h"
-#include "CommonUtils/NameConf.h"
-#include "CCDB/CcdbApi.h"
-#include "DataFormatsParameters/GRPMagField.h"
-#include "CCDB/BasicCCDBManager.h"
-#include "Framework/HistogramRegistry.h"
-#include "DataFormatsCalibration/MeanVertexObject.h"
-#include "CommonConstants/GeomConstants.h"
-#include "Common/Tools/TrackPropagationModule.h"
-#include "Common/Tools/StandardCCDBLoader.h"
 #include "Framework/O2DatabasePDGPlugin.h"
-#include "MetadataHelper.h"
-#include "Common/Tools/MultModule.h"
+#include "Framework/runDataProcessing.h"
+#include <Framework/AnalysisHelpers.h>
+#include <Framework/Configurable.h>
+#include <Framework/InitContext.h>
+
+#include <cstdint>
+#include <string>
+#include <vector>
 
 using namespace o2;
 using namespace o2::framework;

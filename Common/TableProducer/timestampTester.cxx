@@ -21,12 +21,16 @@
 #include "Common/Tools/timestampModule.h"
 
 #include "CCDB/BasicCCDBManager.h"
-#include "CommonDataFormat/InteractionRecord.h"
-#include "DetectorsRaw/HBFUtils.h"
 #include "Framework/AnalysisTask.h"
 #include "Framework/runDataProcessing.h"
+#include <CCDB/CcdbApi.h>
+#include <Framework/AnalysisDataModel.h>
+#include <Framework/AnalysisHelpers.h>
+#include <Framework/Configurable.h>
+#include <Framework/InitContext.h>
 
-#include <map>
+#include <cstdint>
+#include <string>
 #include <vector>
 
 using namespace o2::framework;

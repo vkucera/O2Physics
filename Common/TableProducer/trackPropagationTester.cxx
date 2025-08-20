@@ -23,26 +23,18 @@
 //
 //===============================================================
 
-#include "Common/Core/trackUtilities.h"
-#include "Common/DataModel/TrackSelectionTables.h"
 #include "Common/Tools/StandardCCDBLoader.h"
 #include "Common/Tools/TrackPropagationModule.h"
 #include "Common/Tools/TrackTuner.h"
 
 #include "CCDB/BasicCCDBManager.h"
-#include "CCDB/CcdbApi.h"
-#include "CommonConstants/GeomConstants.h"
-#include "CommonUtils/NameConf.h"
-#include "DataFormatsCalibration/MeanVertexObject.h"
-#include "DataFormatsParameters/GRPMagField.h"
-#include "DetectorsBase/GeometryManager.h"
-#include "DetectorsBase/Propagator.h"
 #include "Framework/AnalysisDataModel.h"
 #include "Framework/AnalysisTask.h"
 #include "Framework/HistogramRegistry.h"
-#include "Framework/RunningWorkflowInfo.h"
 #include "Framework/runDataProcessing.h"
-#include "ReconstructionDataFormats/DCA.h"
+#include <Framework/AnalysisHelpers.h>
+#include <Framework/Configurable.h>
+#include <Framework/InitContext.h>
 
 #include <string>
 
