@@ -33,7 +33,7 @@
 #include <TPDGCode.h>   // for PDG codes
 
 // O2 includes
-#include "CommonConstants/MathConstants.h"
+#include <CommonConstants/MathConstants.h>
 
 /// Base class for calculating properties of reconstructed decays
 ///
