@@ -21,10 +21,8 @@
 
 #include <chrono>
 #include <string>
-// ROOT includes
 #include <TObject.h>
 
-// O2 includes
 #include "MetadataHelper.h"
 #include "pidTPCModule.h"
 
