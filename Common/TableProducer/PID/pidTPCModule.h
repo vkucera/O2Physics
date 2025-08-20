@@ -21,15 +21,6 @@
 #ifndef COMMON_TOOLS_PIDTPCMODULE_H_
 #define COMMON_TOOLS_PIDTPCMODULE_H_
 
-#include <map>
-#include <memory>
-#include <string>
-#include <utility>
-#include <vector>
-#include "TFile.h"
-#include "TRandom.h"
-#include "TSystem.h"
-
 #include "MetadataHelper.h"
 #include "TableHelper.h"
 #include "pidTPCBase.h"
@@ -48,6 +39,16 @@
 #include "Framework/AnalysisTask.h"
 #include "Framework/runDataProcessing.h"
 #include "ReconstructionDataFormats/Track.h"
+
+#include "TFile.h"
+#include "TRandom.h"
+#include "TSystem.h"
+
+#include <map>
+#include <memory>
+#include <string>
+#include <utility>
+#include <vector>
 
 namespace o2::aod
 {
