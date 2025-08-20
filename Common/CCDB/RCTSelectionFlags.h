@@ -18,13 +18,13 @@
 #define COMMON_CCDB_RCTSELECTIONFLAGS_H_
 
 #include <CommonUtils/EnumFlags.h>
-#include <Rtypes.h>
-#include <TMath.h>
 
-#include <stdexcept>
 #include <algorithm>
+#include <concepts>
+#include <cstdint>
+#include <initializer_list>
+#include <stdexcept>
 #include <string>
-#include <vector>
 
 namespace o2::aod::rctsel
 {

@@ -21,8 +21,10 @@
 #include <algorithm> // std::find
 #include <array>     // std::array
 #include <cmath>     // std::abs, std::sqrt
+#include <cstdint>
 #include <cstdio>
-#include <tuple>   // std::apply
+#include <tuple> // std::apply
+#include <type_traits>
 #include <utility> // std::move
 #include <vector>  // std::vector
 
