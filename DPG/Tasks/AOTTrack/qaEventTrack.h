@@ -17,6 +17,9 @@
 /// \brief  Header file for QA tasks for the track and the event properties.
 ///
 
+#ifndef DPG_TASKS_AOTTRACK_QAEVENTTRACK_H_
+#define DPG_TASKS_AOTTRACK_QAEVENTTRACK_H_
+
 #include "Common/DataModel/PIDResponse.h"
 #include "Common/DataModel/TrackSelectionTables.h"
 
@@ -166,3 +169,4 @@ DECLARE_SOA_TABLE(DPGNonRecoParticles, "AOD", "DPGNonRecoPart", //! Table of the
                   dpgparticles::IsFromMaterial<dpgparticles::ProductionMode>,
                   mcparticle::Vx, mcparticle::Vy, mcparticle::Vz);
 } // namespace o2::aod
+#endif // DPG_TASKS_AOTTRACK_QAEVENTTRACK_H_
