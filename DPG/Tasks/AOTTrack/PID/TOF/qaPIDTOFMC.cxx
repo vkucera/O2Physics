@@ -15,12 +15,13 @@
 /// \brief  Task to produce QA output of the PID with TOF running on the MC e.g. to compute purity.
 ///
 
-// O2 includes
+#include "Common/DataModel/EventSelection.h"
+#include "Common/DataModel/PIDResponse.h"
+#include "Common/DataModel/PIDResponseTOF.h"
+
 #include "Framework/AnalysisTask.h"
 #include "Framework/HistogramRegistry.h"
 #include "Framework/StaticFor.h"
-#include "Common/DataModel/EventSelection.h"
-#include "Common/DataModel/PIDResponse.h"
 #include "Framework/runDataProcessing.h"
 
 using namespace o2;

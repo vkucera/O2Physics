@@ -10,23 +10,26 @@
 // or submit itself to any jurisdiction.
 
 // O2 includes
-#include "ReconstructionDataFormats/Track.h"
-#include "Framework/runDataProcessing.h"
-#include "Framework/AnalysisTask.h"
+#include "Common/Core/PID/PIDTOF.h"
+#include "Common/Core/trackUtilities.h"
+#include "Common/DataModel/EventSelection.h"
+#include "Common/DataModel/PIDResponse.h"
+#include "Common/DataModel/PIDResponseTOF.h"
+#include "Common/DataModel/PIDResponseTPC.h"
+#include "Common/DataModel/TrackSelectionTables.h"
+#include "Common/TableProducer/PID/pidTOFBase.h"
+
+#include "Framework/ASoA.h"
+#include "Framework/ASoAHelpers.h"
 #include "Framework/AnalysisDataModel.h"
+#include "Framework/AnalysisTask.h"
 #include "Framework/HistogramRegistry.h"
 #include "Framework/RunningWorkflowInfo.h"
-#include "ReconstructionDataFormats/TrackParametrization.h"
-#include "Common/DataModel/PIDResponse.h"
-#include "Common/Core/PID/PIDTOF.h"
-#include "Common/TableProducer/PID/pidTOFBase.h"
-#include "ReconstructionDataFormats/PID.h"
-#include "Common/Core/trackUtilities.h"
+#include "Framework/runDataProcessing.h"
 #include "ReconstructionDataFormats/DCA.h"
-#include "Framework/ASoAHelpers.h"
-#include "Framework/ASoA.h"
-#include "Common/DataModel/EventSelection.h"
-#include "Common/DataModel/TrackSelectionTables.h"
+#include "ReconstructionDataFormats/PID.h"
+#include "ReconstructionDataFormats/Track.h"
+#include "ReconstructionDataFormats/TrackParametrization.h"
 
 #include <TTree.h>
 
@@ -106,7 +109,7 @@ struct pidHmpidAnalysis {
   {
 
     for (const auto& t : hmpids) {
-      if (t.track_as<TrackCandidates>().isGlobalTrack() != (uint8_t) true) {
+      if (t.track_as<TrackCandidates>().isGlobalTrack() != (uint8_t)true) {
         continue;
       }
 

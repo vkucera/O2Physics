@@ -11,7 +11,6 @@
 
 /// \author Luca Barioglio
 
-// O2 includes
 #include "Framework/AnalysisTask.h"
 #include "Framework/runDataProcessing.h"
 
