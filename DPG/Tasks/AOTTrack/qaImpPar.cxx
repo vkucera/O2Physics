@@ -10,10 +10,13 @@
 // or submit itself to any jurisdiction.
 /// \author Mattia Faggin <mattia.faggin@cern.ch>, Padova University and INFN
 
+#include "Common/CCDB/TriggerAliases.h"
 #include "Common/Core/TrackSelection.h"
 #include "Common/Core/trackUtilities.h" // for propagation to primary vertex
 #include "Common/DataModel/EventSelection.h"
 #include "Common/DataModel/PIDResponse.h"
+#include "Common/DataModel/PIDResponseTOF.h"
+#include "Common/DataModel/PIDResponseTPC.h"
 #include "Common/DataModel/TrackSelectionTables.h"
 
 #include "CCDB/BasicCCDBManager.h"
@@ -29,6 +32,7 @@
 #include "Framework/AnalysisTask.h"
 #include "Framework/HistogramRegistry.h"
 #include "Framework/RunningWorkflowInfo.h"
+#include "Framework/runDataProcessing.h"
 #include "ReconstructionDataFormats/DCA.h"
 #include "ReconstructionDataFormats/Vertex.h"
 
@@ -39,14 +43,6 @@
 
 using namespace o2::framework;
 using namespace o2::framework::expressions;
-
-// void customize(std::vector<o2::framework::ConfigParamSpec>& workflowOptions)
-//{
-//   ConfigParamSpec optionDoMC{"doMC", VariantType::Bool, false, {"Fill MC histograms."}};
-//   workflowOptions.push_back(optionDoMC);
-// }
-
-#include "Framework/runDataProcessing.h"
 
 /// QA task for impact parameter distribution monitoring
 struct QaImpactPar {
