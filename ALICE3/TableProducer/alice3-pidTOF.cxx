@@ -16,16 +16,21 @@
 ///         Only the tables for the mass hypotheses requested are filled, the others are sent empty.
 ///
 
-// O2 includes
-#include "Framework/AnalysisTask.h"
-#include "Framework/HistogramRegistry.h"
-#include "ReconstructionDataFormats/Track.h"
-#include "CCDB/BasicCCDBManager.h"
-#include "Common/DataModel/PIDResponse.h"
 #include "ALICE3/Core/TOFResoALICE3.h"
+#include "Common/DataModel/PIDResponse.h"
+#include "Common/DataModel/PIDResponseTOF.h"
 #include "Common/DataModel/TrackSelectionTables.h"
-#include "Framework/RunningWorkflowInfo.h"
-#include "Framework/StaticFor.h"
+
+#include <CCDB/BasicCCDBManager.h>
+#include <Framework/AnalysisTask.h>
+#include <Framework/HistogramRegistry.h>
+#include <Framework/RunningWorkflowInfo.h>
+#include <Framework/StaticFor.h>
+#include <ReconstructionDataFormats/Track.h>
+
+#include <string>
+#include <utility>
+#include <vector>
 
 using namespace o2;
 using namespace o2::framework;
@@ -39,7 +44,7 @@ void customize(std::vector<o2::framework::ConfigParamSpec>& workflowOptions)
   std::swap(workflowOptions, options);
 }
 
-#include "Framework/runDataProcessing.h"
+#include <Framework/runDataProcessing.h>
 
 struct ALICE3tofSignal { /// Task that produces the TOF signal from the trackTime
   Produces<o2::aod::TOFSignal> table;
