@@ -29,7 +29,7 @@ include_guard()
 function(o2physics_add_dpl_workflow baseTargetName)
 
   cmake_parse_arguments(PARSE_ARGV 1 A "" "COMPONENT_NAME;TARGETVARNAME"
-                        "SOURCES;PUBLIC_LINK_LIBRARIES")
+                        "SOURCES;PUBLIC_LINK_LIBRARIES;JOB_POOL")
 
   if(A_UNPARSED_ARGUMENTS)
     message(FATAL_ERROR "Got trailing arguments ${A_UNPARSED_ARGUMENTS}")
@@ -45,8 +45,14 @@ function(o2physics_add_dpl_workflow baseTargetName)
         ${targetExeName}
         PARENT_SCOPE)
   endif()
-  set_property(TARGET ${targetExeName} PROPERTY JOB_POOL_COMPILE analysis)
-  set_property(TARGET ${targetExeName} PROPERTY JOB_POOL_LINK analysis)
+
+  if(A_JOB_POOL)
+    set_property(TARGET ${targetExeName} PROPERTY JOB_POOL_COMPILE ${A_JOB_POOL})
+    set_property(TARGET ${targetExeName} PROPERTY JOB_POOL_LINK ${A_JOB_POOL})
+  else()
+    set_property(TARGET ${targetExeName} PROPERTY JOB_POOL_COMPILE analysis)
+    set_property(TARGET ${targetExeName} PROPERTY JOB_POOL_LINK analysis)
+  endif()
 
   set(jsonFile $<TARGET_FILE_BASE_NAME:${targetExeName}>.json)
 
