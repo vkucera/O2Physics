@@ -22,13 +22,18 @@ set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
 set_property(GLOBAL PROPERTY REPORT_UNDEFINED_PROPERTIES)
 
 cmake_host_system_information(RESULT _totalmem QUERY TOTAL_PHYSICAL_MEMORY)
+# Overwrite the total memory value
+math(EXPR _totalmem "96*2048")
 math(EXPR _total_analysis_jobs "(${_totalmem}-2048)/2048")
+math(EXPR _total_analysis_jobs_pwgje "(${_totalmem}-2048)/2048/4")
 if(_total_analysis_jobs LESS_EQUAL 0)
+  # This means that the system has < 2 GB memory. Therefore the compilation should not even start!
   set(_total_analysis_jobs 1)
 endif()
 set(ANALYSIS_COMPILE_POOL ${_total_analysis_jobs} CACHE STRING "How many parallel analysis compilation jobs")
-set_property(GLOBAL PROPERTY JOB_POOLS analysis=${ANALYSIS_COMPILE_POOL})
+set_property(GLOBAL PROPERTY JOB_POOLS analysis=${ANALYSIS_COMPILE_POOL} pwgje=${_total_analysis_jobs_pwgje})
 message(STATUS "Limiting workflow compilations in parallel to: ${ANALYSIS_COMPILE_POOL}")
+message(STATUS "Limiting workflow compilations in parallel for PWGJE to: ${_total_analysis_jobs_pwgje}")
 
 # C++ standard
 if(NOT DEFINED CMAKE_CXX_STANDARD)
