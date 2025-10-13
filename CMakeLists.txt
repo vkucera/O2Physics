@@ -21,16 +21,30 @@ cmake_policy(SET CMP0144 NEW)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
 set_property(GLOBAL PROPERTY REPORT_UNDEFINED_PROPERTIES)
 
-cmake_host_system_information(RESULT _totalmem QUERY TOTAL_PHYSICAL_MEMORY)
-# Overwrite the total memory value
-math(EXPR _totalmem "96*2048")
-math(EXPR _total_analysis_jobs "(${_totalmem}-2048)/2048")
-math(EXPR _total_analysis_jobs_pwgje "(${_totalmem}-2048)/2048/4")
+cmake_host_system_information(RESULT _totalmem QUERY TOTAL_PHYSICAL_MEMORY) # should this be AVAILABLE_PHYSICAL_MEMORY instead?
+
+# test setup: Overwrite the total memory value. Laptop with 32 GB.
+math(EXPR _totalmem "32*1024")
+
+# test setup: JE job pool with less jobs based on total memory and max memory of one JE job
+# math(EXPR _total_analysis_jobs "(${_totalmem}-2048)/3072") # 3 GB per normal job
+# math(EXPR _total_analysis_jobs_pwgje "(${_totalmem}-2048)/5120") # 5 GB per JE job
+
+# test setup: 1 parallel job for JE, the rest for normal jobs. Too many JE jobs, takes too long.
+# set(_total_analysis_jobs_pwgje 1) # overwrite the calculation for JE with the most conservative limit, i.e. 1 parallel JE job
+# math(EXPR _total_analysis_jobs "(${_totalmem}-2048-${_total_analysis_jobs_pwgje}*5120)/3072") # 3 GB per normal job
+
+# test setup: max 8 jobs (ninja -j 8), max 8 normal jobs, max 3 JE jobs.
+# The total memory of n normal jobs + (8-n) JE jobs should never exceed 30 GB.
+set(_total_analysis_jobs 8)
+set(_total_analysis_jobs_pwgje 3)
+
 if(_total_analysis_jobs LESS_EQUAL 0)
   # This means that the system has < 2 GB memory. Therefore the compilation should not even start!
   set(_total_analysis_jobs 1)
 endif()
 set(ANALYSIS_COMPILE_POOL ${_total_analysis_jobs} CACHE STRING "How many parallel analysis compilation jobs")
+# set(ANALYSIS_COMPILE_POOL ${_total_analysis_jobs_pwgje} CACHE STRING "How many parallel JE analysis compilation jobs") # This breaks compilation. Why?
 set_property(GLOBAL PROPERTY JOB_POOLS analysis=${ANALYSIS_COMPILE_POOL} pwgje=${_total_analysis_jobs_pwgje})
 message(STATUS "Limiting workflow compilations in parallel to: ${ANALYSIS_COMPILE_POOL}")
 message(STATUS "Limiting workflow compilations in parallel for PWGJE to: ${_total_analysis_jobs_pwgje}")
