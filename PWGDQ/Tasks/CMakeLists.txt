@@ -12,22 +12,26 @@
 o2physics_add_dpl_workflow(table-reader
                     SOURCES tableReader.cxx
                     PUBLIC_LINK_LIBRARIES O2::Framework O2Physics::AnalysisCore O2Physics::PWGDQCore O2Physics::MLCore
-                    COMPONENT_NAME Analysis)
+                    COMPONENT_NAME Analysis
+                    JOB_POOL huge)
 
 o2physics_add_dpl_workflow(table-reader-with-assoc
                     SOURCES tableReader_withAssoc.cxx
                     PUBLIC_LINK_LIBRARIES O2::Framework O2::DetectorsBase O2Physics::AnalysisCore O2Physics::AnalysisCCDB O2Physics::PWGDQCore O2Physics::MLCore
-                    COMPONENT_NAME Analysis)
+                    COMPONENT_NAME Analysis
+                    JOB_POOL huge)
 
 o2physics_add_dpl_workflow(efficiency
                     SOURCES dqEfficiency.cxx
                     PUBLIC_LINK_LIBRARIES O2::Framework O2Physics::AnalysisCore O2Physics::PWGDQCore
-                    COMPONENT_NAME Analysis)
+                    COMPONENT_NAME Analysis
+                    JOB_POOL big)
 
 o2physics_add_dpl_workflow(efficiency-with-assoc
                     SOURCES dqEfficiency_withAssoc.cxx
                     PUBLIC_LINK_LIBRARIES O2::Framework O2Physics::AnalysisCore O2Physics::PWGDQCore
-                    COMPONENT_NAME Analysis)
+                    COMPONENT_NAME Analysis
+                    JOB_POOL huge)
 
 o2physics_add_dpl_workflow(filter-pp
                     SOURCES filterPP.cxx
@@ -112,7 +116,8 @@ o2physics_add_dpl_workflow(task-fwd-track-pid
 o2physics_add_dpl_workflow(quarkonia-to-hyperons
                     SOURCES quarkoniaToHyperons.cxx
                     PUBLIC_LINK_LIBRARIES O2Physics::AnalysisCore O2Physics::MLCore
-                    COMPONENT_NAME Analysis)
+                    COMPONENT_NAME Analysis
+                    JOB_POOL big)
 
 o2physics_add_dpl_workflow(model-converter-mult-pv
                     SOURCES ModelConverterMultPv.cxx
