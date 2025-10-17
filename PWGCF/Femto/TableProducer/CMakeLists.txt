@@ -12,7 +12,8 @@
 o2physics_add_dpl_workflow(femto-producer
           SOURCES femtoProducer.cxx
           PUBLIC_LINK_LIBRARIES O2Physics::AnalysisCore
-          COMPONENT_NAME Analysis)
+          COMPONENT_NAME Analysis
+          JOB_POOL big)
 
 o2physics_add_dpl_workflow(femto-producer-derived-to-derived
           SOURCES ./femtoProducerDerivedToDerived.cxx
