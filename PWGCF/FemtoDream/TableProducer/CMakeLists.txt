@@ -12,17 +12,20 @@
 o2physics_add_dpl_workflow(femtodream-producer
           SOURCES femtoDreamProducerTask.cxx
           PUBLIC_LINK_LIBRARIES O2::Framework O2Physics::AnalysisCore
-          COMPONENT_NAME Analysis)
+          COMPONENT_NAME Analysis
+          JOB_POOL huge)
 
 o2physics_add_dpl_workflow(femto-dream-producer-task-reso
           SOURCES femtoDreamProducerTaskReso.cxx
           PUBLIC_LINK_LIBRARIES O2::Framework O2Physics::AnalysisCore
-          COMPONENT_NAME Analysis)
+          COMPONENT_NAME Analysis
+          JOB_POOL huge)
 
 o2physics_add_dpl_workflow(femtodream-producer-reduced
           SOURCES femtoDreamProducerReducedTask.cxx
           PUBLIC_LINK_LIBRARIES O2::Framework O2Physics::AnalysisCore
-          COMPONENT_NAME Analysis)
+          COMPONENT_NAME Analysis
+          JOB_POOL big)
 
 o2physics_add_dpl_workflow(femtodream-producer-for-specific-analysis
           SOURCES femtoDreamProducerTaskForSpecificAnalysis.cxx

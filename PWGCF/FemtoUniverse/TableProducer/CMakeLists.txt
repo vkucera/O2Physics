@@ -11,10 +11,11 @@
 
 o2physics_add_dpl_workflow(femtouniverse-producer
           SOURCES femtoUniverseProducerTask.cxx
-          PUBLIC_LINK_LIBRARIES O2::Framework O2Physics::AnalysisCore O2Physics::AnalysisCCDB
-          COMPONENT_NAME Analysis)
+          PUBLIC_LINK_LIBRARIES O2::Framework O2Physics::AnalysisCore O2Physics::AnalysisCCDB O2Physics::EventFilteringUtils
+          COMPONENT_NAME Analysis
+          JOB_POOL huge)
 
-          o2physics_add_dpl_workflow(femtouniverse-mctruth-producer
+o2physics_add_dpl_workflow(femtouniverse-mctruth-producer
           SOURCES femtoUniverseProducerMCTruthTask.cxx
           PUBLIC_LINK_LIBRARIES O2::Framework O2Physics::AnalysisCore
           COMPONENT_NAME Analysis)
