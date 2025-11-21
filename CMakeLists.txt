@@ -36,6 +36,8 @@ if(NOT DEFINED CMAKE_CXX_STANDARD)
   set(CMAKE_CXX_STANDARD_REQUIRED TRUE)
 endif()
 
+set(CMAKE_VERIFY_INTERFACE_HEADER_SETS ON)
+
 include(O2PhysicsDefineOptions)
 o2physics_define_options()
 
@@ -94,27 +96,27 @@ configure_file(${CMAKE_CURRENT_SOURCE_DIR}/cmake/ClangBuildAnalyzer.ini.in
 # From https://stackoverflow.com/questions/77879338/check-if-c-headers-are-self-contained
 
 # Get a list of '*.h' files.
-file(
-  GLOB_RECURSE _headers
-  LIST_DIRECTORIES false
-  ${CMAKE_SOURCE_DIR}/*.h)
+# file(
+#   GLOB_RECURSE _headers
+#   LIST_DIRECTORIES false
+#   ${CMAKE_SOURCE_DIR}/*.h)
 
-# Generate a project in '/header_test/' in the build folder and
-# for every header file:
-#  * generate a source file which includes only the header file
-#  * copy the header file
-set(_generated_source_files "")
-foreach(header_file ${_headers})
-  string(REPLACE "${CMAKE_CURRENT_BINARY_DIR}" "" header_file "${header_file}")
-  get_filename_component(_name ${header_file} NAME_WLE)
-  get_filename_component(_directory ${header_file} DIRECTORY)
-  file(WRITE "${CMAKE_CURRENT_BINARY_DIR}/header_test/${_name}.cpp"
-       "#include \"${header_file}\"")
-  file(COPY "${header_file}"
-       DESTINATION "${CMAKE_CURRENT_BINARY_DIR}/header_test/")
-  list(APPEND _generated_source_files
-       "${CMAKE_CURRENT_BINARY_DIR}/header_test/${_name}.cpp")
-endforeach()
+# # Generate a project in '/header_test/' in the build folder and
+# # for every header file:
+# #  * generate a source file which includes only the header file
+# #  * copy the header file
+# set(_generated_source_files "")
+# foreach(header_file ${_headers})
+#   string(REPLACE "${CMAKE_CURRENT_BINARY_DIR}" "" header_file "${header_file}")
+#   get_filename_component(_name ${header_file} NAME_WLE)
+#   get_filename_component(_directory ${header_file} DIRECTORY)
+#   file(WRITE "${CMAKE_CURRENT_BINARY_DIR}/header_test/${_name}.cpp"
+#        "#include \"${header_file}\"")
+#   file(COPY "${header_file}"
+#        DESTINATION "${CMAKE_CURRENT_BINARY_DIR}/header_test/")
+#   list(APPEND _generated_source_files
+#        "${CMAKE_CURRENT_BINARY_DIR}/header_test/${_name}.cpp")
+# endforeach()
 
 # Create a build target.
 # add_library(test_headers MODULE ${_generated_source_files})
@@ -122,23 +124,24 @@ endforeach()
 
 # o2physics_add_header_only_library(test_headers HEADERS ${_headers})
 
+# From https://gitlab.kitware.com/3viecontesgu/smtk/-/blob/v22.02.0/CMake/SMTKMacros.cmake?ref_type=tags
 # Builds a source file and an executable that does nothing other than
 # compile the given header files.
-function(add_header_test name)
-  set(hfiles ${ARGN})
-  set(suffix ".cpp")
-  set(cxxfiles)
-  foreach (header ${ARGN})
-    string(REPLACE "${CMAKE_CURRENT_BINARY_DIR}" "" header "${header}")
-    get_filename_component(headername ${header} NAME_WE)
-    set(src ${CMAKE_CURRENT_BINARY_DIR}/TestBuild_${name}_${headername}${suffix})
-    configure_file(${SMTK_SOURCE_DIR}/CMake/TestBuild.cxx.in ${src} @ONLY)
-    set(cxxfiles ${cxxfiles} ${src})
-  endforeach (header)
+# function(add_header_test name)
+#   set(hfiles ${ARGN})
+#   set(suffix ".cpp")
+#   set(cxxfiles)
+#   foreach (header ${ARGN})
+#     string(REPLACE "${CMAKE_CURRENT_BINARY_DIR}" "" header "${header}")
+#     get_filename_component(headername ${header} NAME_WE)
+#     set(src ${CMAKE_CURRENT_BINARY_DIR}/TestBuild_${name}_${headername}${suffix})
+#     configure_file(${SMTK_SOURCE_DIR}/CMake/TestBuild.cxx.in ${src} @ONLY)
+#     set(cxxfiles ${cxxfiles} ${src})
+#   endforeach (header)
 
-  add_library(TestBuild_${name} ${cxxfiles} ${hfiles})
-  target_include_directories(TestBuild_${name} ${CMAKE_CURRENT_BINARY_DIR})
-  set_source_files_properties(${hfiles} PROPERTIES HEADER_FILE_ONLY TRUE)
-endfunction(add_header_test)
+#   add_library(TestBuild_${name} ${cxxfiles} ${hfiles})
+#   target_include_directories(TestBuild_${name} ${CMAKE_CURRENT_BINARY_DIR})
+#   set_source_files_properties(${hfiles} PROPERTIES HEADER_FILE_ONLY TRUE)
+# endfunction(add_header_test)
 
 # add_header_test(compile_headers ${_headers})
