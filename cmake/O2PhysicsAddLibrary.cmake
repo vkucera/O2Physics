@@ -121,7 +121,7 @@ function(o2physics_add_library baseTargetName)
       if(${NS} EQUAL -1)
         message(FATAL_ERROR "Trying to use a non-namespaced target ${L}")
       endif()
-      target_link_libraries(${target} PRIVATE ${L})
+      target_link_libraries(${target} PUBLIC ${L})
     endforeach()
   endif()
   # set the public include directories if available
@@ -154,18 +154,18 @@ function(o2physics_add_library baseTargetName)
         message(
           FATAL_ERROR "Trying to append non existing include directory ${d}")
       endif()
-      target_include_directories(${target} PRIVATE $<BUILD_INTERFACE:${d}>)
+      target_include_directories(${target} PUBLIC $<BUILD_INTERFACE:${d}>)
     endforeach()
   else()
     # use sane(?) default
     target_include_directories(
       ${target}
-      PRIVATE $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}>)
+      PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}>)
     get_filename_component(adir ${CMAKE_CURRENT_LIST_DIR}/src ABSOLUTE)
     if(EXISTS ${adir})
       target_include_directories(
         ${target}
-        PRIVATE $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}/src>)
+        PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}/src>)
     endif()
   endif()
 

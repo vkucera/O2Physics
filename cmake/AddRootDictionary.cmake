@@ -43,7 +43,7 @@ configure_file(${CMAKE_CURRENT_LIST_DIR}/rootcling_wrapper.sh.in
 #   able to compute the list of include directories needed to _compile_ the
 #   dictionary
 #
-# Note also that the generated dictionary is added to PRIVATE SOURCES list of
+# Note also that the generated dictionary is added to PUBLIC SOURCES list of
 # the target.
 #
 function(add_root_dictionary target)
@@ -112,7 +112,7 @@ function(add_root_dictionary target)
   set(pcmBase ${dictionary}_rdict.pcm)
   set(pcmFile ${lib_output_dir}/${pcmBase})
   set(rootmapFile ${lib_output_dir}/lib${basename}.rootmap)
-  
+
   set(o2physics_targetPCMMAP_TARGET "${o2physics_targetPCMMAP_TARGET};${target}" CACHE INTERNAL "target/PCM map (target)")
   set(o2physics_targetPCMMAP_PCM "${o2physics_targetPCMMAP_PCM};${pcmFile}" CACHE INTERNAL "target/PCM map (pcm)")
 
@@ -153,7 +153,7 @@ function(add_root_dictionary target)
   # cmake-format: on
 
   # add dictionary source to the target sources
-  target_sources(${target} PRIVATE ${dictionaryFile})
+  target_sources(${target} PUBLIC ${dictionaryFile})
 
   get_property(libs TARGET ${target} PROPERTY INTERFACE_LINK_LIBRARIES)
   if(NOT ROOT::RIO IN_LIST libs)
@@ -173,7 +173,7 @@ function(add_root_dictionary target)
     list(APPEND dirs ${d})
   endforeach()
   list(REMOVE_DUPLICATES dirs)
-  target_include_directories(${target} PRIVATE ${dirs})
+  target_include_directories(${target} PUBLIC ${dirs})
 
   # will install the rootmap and pcm files alongside the target's lib
   get_filename_component(dict ${dictionaryFile} NAME_WE)

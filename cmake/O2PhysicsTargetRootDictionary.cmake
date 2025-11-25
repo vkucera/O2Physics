@@ -46,7 +46,7 @@ include(AddRootDictionary)
 # file and a pcm file. Those two will be installed alongside the target's
 # library file
 #
-# Note also that the generated dictionary is added to PRIVATE SOURCES list of
+# Note also that the generated dictionary is added to PUBLIC SOURCES list of
 # the target.
 #
 

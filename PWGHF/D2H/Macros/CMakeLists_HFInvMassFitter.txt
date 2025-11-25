@@ -20,4 +20,4 @@ ROOT_GENERATE_DICTIONARY(G__HFInvMassFitter
   MODULE runMassFitter
 )
 
-target_link_libraries(runMassFitter PRIVATE ${ROOT_LIBRARIES} ROOT::EG ROOT::RooFit ROOT::RooFitCore)
+target_link_libraries(runMassFitter PUBLIC ${ROOT_LIBRARIES} ROOT::EG ROOT::RooFit ROOT::RooFitCore)
