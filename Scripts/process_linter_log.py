@@ -21,7 +21,6 @@
 import argparse
 from enum import Enum
 import re
-import sys
 
 
 def main():
@@ -119,11 +118,15 @@ def main():
     parser.add_argument("-p", dest="path", type=str, required=True, help="linter log file path")
     parser.add_argument("-l", dest="linter", type=str, required=True, choices=names_linters.keys(), help="linter")
     parser.add_argument("-r", dest="repo", type=str, required=True, choices=names_repos.keys(), help="repository")
+    parser.add_argument(
+        "-n", dest="n_lines", type=str, required=True, help="file with number of code lines per directory"
+    )
     args = parser.parse_args()
 
     linter = names_linters[args.linter]
     repo = names_repos[args.repo]
     path_logfile = args.path
+    path_n_lines = args.n_lines
     config_linter = config[linter]
     if repo == Repo.O2:
         if linter == Linter.O2Linter:
@@ -153,7 +156,17 @@ def main():
     except OSError as exc:
         raise OSError(f'Failed to open file "{path_logfile}".') from exc
 
+    try:
+        with open(path_n_lines, encoding="utf-8") as file:
+            n_lines_code_per_dir = {}
+            for line in file:
+                key, val = line.strip().split()
+                n_lines_code_per_dir[key] = int(val)
+    except OSError as exc:
+        raise OSError(f'Failed to open file "{path_n_lines}".') from exc
+
     counter_category: dict[str, int] = {}
+    counter_directory: dict[str, int] = {}
     dic_issues: dict[str, dict[str, dict[str, int]]] = {}
 
     n_line_max = 0
@@ -161,8 +174,7 @@ def main():
     for line in content:
         if n_line_max > 0 and i_line == n_line_max:
             break
-        line = line.strip()
-        if not (match := re.match(regex_message, line)):
+        if not (match := re.match(regex_message, line.strip())):
             continue
         line_out = match.group(config_linter[LinterSpec.GroupLineOut])
         path_file_code = match.group(config_linter[LinterSpec.GroupPath])
@@ -181,11 +193,13 @@ def main():
 
         # print(line_out)
         counter_category.setdefault(category, 0)
+        counter_directory.setdefault(dir_file_code, 0)
         dic_issues.setdefault(dir_file_code, {})
         dic_issues[dir_file_code].setdefault(path_file_code, {})
         if line_out not in dic_issues[dir_file_code][path_file_code]:
             dic_issues[dir_file_code][path_file_code].setdefault(line_out, 1)
             counter_category[category] += 1
+            counter_directory[dir_file_code] += 1
         # print(f"path: {path_file_code}")
         # print(f"category: {category}")
         # print(f"line out: {line_out}")
@@ -195,16 +209,35 @@ def main():
     n_issues_total = sum(counter_category.values())
     if n_issues_total == 0:
         print("\nNo issues found")
-        sys.exit()
-    print("\n## Summary\n")
-    print("| category | issues |")
+        return
+    print("\n## Summary")
+
+    # Counts per category
+    print("\n### Per category")
+    print("\n| category | issues |")
     print("|---|---|")
-    len_gap = 2
+    len_gap = 0
     len_column = max(len(key) for key in counter_category) + len_gap
     for cat in sorted(counter_category.keys()):
-        print(f"| `{cat}` |{(len_column - len(cat)) * ' '}{counter_category[cat]} |")
+        print(f"| `{cat}`{(len_column - len(cat)) * ' '} | {counter_category[cat]} |")
     cat_total = "total"
-    print(f"| {cat_total} |{(len_column - len(cat_total) + 2) * ' '}{n_issues_total} |")
+    print(f"| {cat_total}{(len_column - len(cat_total) + 2) * ' '} | {n_issues_total} |")
+
+    # Counts per directory
+    n_lines_norm = 1000
+    print("\n### Per directory, per line")
+    print(f"\n| directory | issues | issues per {n_lines_norm} lines |")
+    print("|---|---|---|")
+    len_column = max(len(key) for key in counter_directory) + len_gap
+    n_lines_code_total = sum(n_lines_code_per_dir.values())
+    for directory in sorted(counter_directory.keys()):
+        n_lines_code = n_lines_code_per_dir[directory]
+        print(
+            f"| `{directory}`{(len_column - len(directory)) * ' '} | {counter_directory[directory]} | {counter_directory[directory] / n_lines_code * n_lines_norm:.3g} |"
+        )
+    print(
+        f"| {cat_total}{(len_column - len(cat_total) + 2) * ' '} | {n_issues_total} | {n_issues_total / n_lines_code_total * n_lines_norm:.3g} |"
+    )
 
     print("\n## Issues")
     for directory in sorted(dic_issues.keys()):
