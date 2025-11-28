@@ -2,8 +2,8 @@
 
 # Run all C++ linters and produce Markdown reports.
 
-# repo="O2Physics"
-repo="O2"
+repo="O2Physics"
+# repo="O2"
 
 path="." # Do not change
 
