@@ -228,20 +228,24 @@ def main():
     print("\n### Per directory, per line")
     print(f"\n| directory | issues | issues per {n_lines_norm} lines |")
     print("|---|---|---|")
-    len_column = max(len(key) for key in counter_directory) + len_gap
+    hyperlinks = {
+        # key: {"heading": f"{key} {{#{key.lower()}}}", "link": f"[`{key}`](#{key.lower()})"} for key in counter_directory # custom anchors not supported on GitHub Wiki
+        key: {"heading": key, "link": f"[`{key}`](#{key.lower()})"} for key in counter_directory
+    }
+    len_column = max(len(hyperlinks[key]["link"]) for key in counter_directory) + len_gap
     n_lines_code_total = sum(n_lines_code_per_dir.values())
     for directory in sorted(counter_directory.keys()):
         n_lines_code = n_lines_code_per_dir[directory]
         print(
-            f"| `{directory}`{(len_column - len(directory)) * ' '} | {counter_directory[directory]} | {counter_directory[directory] / n_lines_code * n_lines_norm:.3g} |"
+            f"| {hyperlinks[directory]["link"]}{(len_column - len(hyperlinks[directory]["link"])) * ' '} | {counter_directory[directory]} | {counter_directory[directory] / n_lines_code * n_lines_norm:.3g} |"
         )
     print(
-        f"| {cat_total}{(len_column - len(cat_total) + 2) * ' '} | {n_issues_total} | {n_issues_total / n_lines_code_total * n_lines_norm:.3g} |"
+        f"| {cat_total}{(len_column - len(cat_total)) * ' '} | {n_issues_total} | {n_issues_total / n_lines_code_total * n_lines_norm:.3g} |"
     )
 
     print("\n## Issues")
     for directory in sorted(dic_issues.keys()):
-        print(f"\n### {directory}")
+        print(f"\n### {hyperlinks[directory]["heading"]}")
         for file in sorted(dic_issues[directory].keys()):
             print(f"\n#### `{file}`\n")
             print("```text")
