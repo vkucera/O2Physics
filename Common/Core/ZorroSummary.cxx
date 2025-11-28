@@ -12,14 +12,18 @@
 #include "ZorroSummary.h"
 
 #include <TCollection.h>
+#include <TNamed.h>
 #include <TObject.h>
 
 #include <RtypesCore.h>
 
 #include <cstddef>
+#include <string>
+#include <vector>
 
 void ZorroSummary::Copy(TObject& c) const
 {
+  TNamed::Copy(c);
   static_cast<ZorroSummary&>(c) = *this;
 }
 
@@ -56,6 +60,30 @@ Long64_t ZorroSummary::Merge(TCollection* list)
   return n;
 }
 
+void ZorroSummary::setupTOIs(int ntois, const std::vector<std::string>& toinames)
+{
+  mNtois = ntois;
+  if (toinames.size() == 0) {
+    return;
+  }
+  mTOInames = toinames[0];
+  for (size_t i = 1; i < toinames.size(); i++) {
+    mTOInames += "," + toinames[i];
+  }
+}
+
+void ZorroSummary::setupRun(int runNumber, double tvxCountes, const std::vector<double>& toiCounters)
+{
+  if (mRunNumber == runNumber) {
+    return;
+  }
+  mRunNumber = runNumber;
+  mTVXcounters[runNumber] = tvxCountes;
+  mTOIcounters[runNumber] = toiCounters;
+  mAnalysedTOIcounters.try_emplace(runNumber, std::vector<ULong64_t>(mNtois, 0ull));
+  mCurrentAnalysedTOIcounters = &mAnalysedTOIcounters[runNumber];
+}
+
 double ZorroSummary::getNormalisationFactor(int toiId) const
 {
   double totalTOI{0.}, totalTVX{0.};
@@ -71,4 +99,12 @@ double ZorroSummary::getNormalisationFactor(int toiId) const
   }
 
   return totalTVX * totalAnalysedTOI / totalTOI;
+}
+
+void ZorroSummary::increaseTOIcounter(int runNumber, int toiId)
+{
+  if (runNumber != mRunNumber) {
+    return;
+  }
+  mCurrentAnalysedTOIcounters->at(toiId)++;
 }
