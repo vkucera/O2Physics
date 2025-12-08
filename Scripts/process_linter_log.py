@@ -36,6 +36,7 @@ def main():
         Cpplint = 3
         O2Linter = 4
         GCC = 5
+        UnusedFiles = 6
 
     class LinterSpec(Enum):
         Name = 1
@@ -97,6 +98,14 @@ def main():
             LinterSpec.IgnoredCategories: [],
             LinterSpec.IgnoredSeverities: ["info", "warning"],
         },
+        Linter.UnusedFiles: {
+            LinterSpec.Name: "Unused files",
+            LinterSpec.Regex: r".+",
+            LinterSpec.GroupLineOut: 0,
+            LinterSpec.GroupPath: 0,
+            LinterSpec.GroupCategory: -1,
+            LinterSpec.IgnoredCategories: [],
+        },
     }
 
     names_repos: dict[str, Repo] = {
@@ -110,6 +119,7 @@ def main():
         "cppcheck": Linter.Cppcheck,
         "cpplint": Linter.Cpplint,
         "o2-linter": Linter.O2Linter,
+        "unused-files": Linter.UnusedFiles,
     }
 
     paths_ignored = [r"^PWGHF/ALICE3/", r"LinkDef\.h$"]
@@ -181,7 +191,7 @@ def main():
         severity = (
             match.group(config_linter[LinterSpec.GroupSeverity]) if LinterSpec.GroupSeverity in config_linter else ""
         )
-        category = match.group(config_linter[LinterSpec.GroupCategory])
+        category = match.group(config_linter[LinterSpec.GroupCategory]) if config_linter[LinterSpec.GroupCategory] >= 0 else "none"
         dir_file_code = path_file_code.split("/")[0]
         if severity and severities_ignored and severity in severities_ignored:
             continue
