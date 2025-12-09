@@ -29,9 +29,10 @@ dir_base = Path(sys.argv[1])
 if not dir_base.is_dir():
     raise IOError("Provided path does not exist.")
 
-headers = dict.fromkeys(sorted(dir_base.rglob("*.h")), 0)
 path_dir_base = str(dir_base) + "/"
-headers_local = dict.fromkeys([str(p).removeprefix(path_dir_base) for p in headers if not p.name.endswith("LinkDef.h")], 0)
+headers_local = dict.fromkeys(
+    [str(path).removeprefix(path_dir_base) for path in dir_base.rglob("*.h") if not path.name.endswith("LinkDef.h")], 0
+)
 
 for path in dir_base.rglob("*"):
     if not re.search(r"^.+\.(h|cxx|cu)$", str(path)):
@@ -63,7 +64,7 @@ for path in dir_base.rglob("*"):
             if is_local and style == "<":
                 print(f"{location}: Wrong include style for project header {header} [wrong-style-local]")
                 continue
-            if not is_local and style == "\"":
+            if not is_local and style == '"':
                 print(f"{location}: Wrong include style for external header {header} [wrong-style-external]")
 
 for header, count in headers_local.items():
