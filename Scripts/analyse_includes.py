@@ -58,7 +58,7 @@ for path in dir_base.rglob("*"):
                     if h_local.endswith(f"/{header_stripped}"):
                         is_local = True
                         headers_local[h_local] += 1
-                        if str(path.parent / header).removeprefix(path_dir_base) != h_local:
+                        if str(path.parent / header).removeprefix(path_dir_base) != h_local and not h_local.endswith(f"/include/{header_stripped}"):
                             print(f"{location}: Incomplete path {header} to {h_local} [incomplete-path]")
                         break
             if is_local and style == "<":
