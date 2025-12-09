@@ -34,7 +34,7 @@ path_dir_base = str(dir_base) + "/"
 headers_local = dict.fromkeys([str(p).removeprefix(path_dir_base) for p in headers if not p.name.endswith("LinkDef.h")], 0)
 
 for path in dir_base.rglob("*"):
-    if not re.search(r"^.+\.(h|cxx)$", str(path)):
+    if not re.search(r"^.+\.(h|cxx|cu)$", str(path)):
         continue
     with path.open() as file:
         for i_line, line in enumerate(file.readlines()):
@@ -49,8 +49,12 @@ for path in dir_base.rglob("*"):
                 headers_local[header] += 1
                 is_local = True
             else:
+                header_stripped = header
+                if header.startswith("."):
+                    print(f"{location}: Non-trivial relative path {header} [relative-path]")
+                    header_stripped = header.lstrip("./")
                 for h_local in headers_local:
-                    if h_local.endswith(f"/{header}"):
+                    if h_local.endswith(f"/{header_stripped}"):
                         is_local = True
                         headers_local[h_local] += 1
                         if str(path.parent / header).removeprefix(path_dir_base) != h_local:
