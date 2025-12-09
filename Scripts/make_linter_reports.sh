@@ -14,12 +14,12 @@ run_linters=1
 make_reports=1
 
 # Analyser switches
-do_gcc=0
-do_clang_tidy=0
-do_cppcheck=0
-do_cpplint=0
-do_o2_linter=0
-do_unused_files=0
+do_gcc=1
+do_clang_tidy=1
+do_cppcheck=1
+do_cpplint=1
+do_o2_linter=1
+do_unused_files=1
 do_includes=1
 
 # File with number of C++ lines per directory
