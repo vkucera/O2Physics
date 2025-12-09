@@ -53,11 +53,14 @@ for path in dir_base.rglob("*"):
                 header_stripped = header
                 if header.startswith("."):
                     print(f"{location}: Non-trivial relative path {header} [relative-path]")
+                    # Strip any relative path made of "." and "/".
                     header_stripped = header.lstrip("./")
+                # Try to find a full header path matching the partial header path.
                 for h_local in headers_local:
                     if h_local.endswith(f"/{header_stripped}"):
                         is_local = True
                         headers_local[h_local] += 1
+                        # Report path as incomplete, if the header is neither in the same directory nor in a special "include" directory.
                         if str(path.parent / header).removeprefix(path_dir_base) != h_local and not h_local.endswith(f"/include/{header_stripped}"):
                             print(f"{location}: Incomplete path {header} to {h_local} [incomplete-path]")
                         break
