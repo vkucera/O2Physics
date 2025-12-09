@@ -14,12 +14,13 @@ run_linters=1
 make_reports=1
 
 # Analyser switches
-do_gcc=1
-do_clang_tidy=1
-do_cppcheck=1
-do_cpplint=1
-do_o2_linter=1
-do_unused_files=1
+do_gcc=0
+do_clang_tidy=0
+do_cppcheck=0
+do_cpplint=0
+do_o2_linter=0
+do_unused_files=0
+do_includes=1
 
 # File with number of C++ lines per directory
 file_n_lines="n_lines.txt"
@@ -32,6 +33,7 @@ cmd_cppcheck="cppcheck {} --language=c++ --std=c++20 --check-level=exhaustive --
 cmd_cpplint="cpplint --extensions=h,cxx,C {}"
 cmd_o2_linter="python3 $HOME/alice/O2Physics/Scripts/o2_linter.py {}"
 cmd_unused_files="python3 $HOME/alice/O2Physics/Scripts/find_unused_sources.py $path"
+cmd_includes="python3 $HOME/alice/O2Physics/Scripts/analyse_includes.py $path"
 
 # Call the script to convert the log file into a Markdown report.
 make_report() {
@@ -115,6 +117,18 @@ if [[ $do_unused_files -eq 1 ]]; then
     if [[ $run_linters -eq 1 ]]; then
         echo "Running $linter"
         $cmd_unused_files 1> "${linter}.log" 2> "${linter}_err.log"
+        grep_logs "${linter}.log" "${linter}_err.log"
+    fi
+    [[ $make_reports -eq 1 ]] && make_report "$linter"
+fi
+
+# includes
+if [[ $do_includes -eq 1 ]]; then
+    linter="includes"
+    print_date "$linter"
+    if [[ $run_linters -eq 1 ]]; then
+        echo "Running $linter"
+        $cmd_includes 1> "${linter}.log" 2> "${linter}_err.log"
         grep_logs "${linter}.log" "${linter}_err.log"
     fi
     [[ $make_reports -eq 1 ]] && make_report "$linter"
