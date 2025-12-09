@@ -37,6 +37,7 @@ def main():
         O2Linter = 4
         GCC = 5
         UnusedFiles = 6
+        Includes = 7
 
     class LinterSpec(Enum):
         Name = 1
@@ -86,7 +87,6 @@ def main():
             LinterSpec.GroupPath: 2,
             LinterSpec.GroupCategory: 3,
             LinterSpec.IgnoredCategories: [],
-            LinterSpec.IgnoredSeverities: [],
         },
         Linter.O2Linter: {
             LinterSpec.Name: "O2 linter",
@@ -106,6 +106,14 @@ def main():
             LinterSpec.GroupCategory: -1,
             LinterSpec.IgnoredCategories: [],
         },
+        Linter.Includes: {
+            LinterSpec.Name: "Include analyser",
+            LinterSpec.Regex: r"((.+):\d+: .+ \[(.+)\])",
+            LinterSpec.GroupLineOut: 1,
+            LinterSpec.GroupPath: 2,
+            LinterSpec.GroupCategory: 3,
+            LinterSpec.IgnoredCategories: [],
+        },
     }
 
     names_repos: dict[str, Repo] = {
@@ -120,6 +128,7 @@ def main():
         "cpplint": Linter.Cpplint,
         "o2-linter": Linter.O2Linter,
         "unused-files": Linter.UnusedFiles,
+        "includes": Linter.Includes,
     }
 
     paths_ignored = [r"^PWGHF/ALICE3/", r"LinkDef\.h$"]
