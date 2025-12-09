@@ -224,6 +224,7 @@ def main():
         # print(f"line out: {line_out}")
 
     print(f"# Report from {config_linter[LinterSpec.Name]}")
+    print("\nTo access the full raw file, add `.md` in the URL.")
 
     n_issues_total = sum(counter_category.values())
     if n_issues_total == 0:
