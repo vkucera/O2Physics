@@ -68,7 +68,7 @@ if [[ $do_clang_tidy -eq 1 ]]; then
     print_date "$linter"
     if [[ $run_linters -eq 1 ]]; then
         echo "Running $linter"
-        find "$path" -type f -name "*.h" -o -name "*.cxx" -o -name "*.C" | parallel --timeout "1h" "$cmd_clang_tidy" 1> "${linter}.log" 2> "${linter}_err.log"
+        find "$path" -type f -name "*.h" -o -name "*.cxx" -o -name "*.C" | parallel --timeout "2h" "$cmd_clang_tidy" 1> "${linter}.log" 2> "${linter}_err.log"
         grep_logs "${linter}.log" "${linter}_err.log"
     fi
     [[ $make_reports -eq 1 ]] && make_report "$linter"
