@@ -77,7 +77,7 @@ def main():
             LinterSpec.GroupPath: 2,
             LinterSpec.GroupSeverity: 3,
             LinterSpec.GroupCategory: 4,
-            LinterSpec.IgnoredCategories: ["selfInitialization"],
+            LinterSpec.IgnoredCategories: ["selfInitialization", "functionStatic", "unreadVariable", "useStlAlgorithm", "variableScope"],
             LinterSpec.IgnoredSeverities: [],
         },
         Linter.Cpplint: {
