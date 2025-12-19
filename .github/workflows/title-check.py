@@ -68,6 +68,7 @@ passed = True
 prefix_good = ",".join(tags_relevant)
 prefix_good = f"[{prefix_good}] "
 print(f"Generated prefix: {prefix_good}")
+found_tags = False
 replace_title = 0
 title_new = title
 # If there is a prefix which contains a known tag, check it for correct tags, and reformat it if needed.
@@ -80,6 +81,7 @@ if match := re.match(r" *\[?(\w[\w, /\+-]+)[\]:]+ ", title):
     print(f'PR title prefix: "{prefix_title}" -> tags: {words_prefix_title}')
     print(f'Stripped PR title: "{title_stripped}"')
     if any(tag in words_prefix_title for tag in tags.values()):
+        found_tags = True
         for tag in tags.values():
             if tag in tags_relevant and tag not in words_prefix_title:
                 print(f'::error::Relevant tag "{tag}" not found in the prefix of the PR title.')
@@ -97,14 +99,9 @@ if match := re.match(r" *\[?(\w[\w, /\+-]+)[\]:]+ ", title):
                 title_new = prefix_good + title_stripped
     else:
         print("::warning::No known tags found in the prefix.")
-        if tags_relevant:
-            replace_title = 1
-            title_new = prefix_good + title.strip()
-        elif title.strip() != title:
-            replace_title = 1
-            title_new = title.strip()
 else:
     print("::warning::No valid prefix found in the PR title.")
+if not found_tags:
     if tags_relevant:
         replace_title = 1
         title_new = prefix_good + title.strip()
