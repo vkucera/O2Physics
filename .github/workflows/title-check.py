@@ -10,13 +10,13 @@ cases = {
         "title": "D2H, Cmake: Add centrality (FT0C as default) bin to the ThnSparse",
         "labels": "pwgje,pwghf,infra,trigger",
     },
-    5: {"title": "PWGHF/D2H, Cmake: Add centrality (FT0C as default) bin to the ThnSparse", "labels": "pwghf"},
+    5: {"title": "PWGHF/D2H: Cmake: Add centrality (FT0C as default) bin to the ThnSparse", "labels": "pwghf"},
     6: {"title": " Add centrality (FT0C as default) bin to the ThnSparse", "labels": ""},
     7: {"title": "[PWGCF]: Add centrality (FT0C as default) bin to the ThnSparse", "labels": "pwgcf"},
     8: {"title": "[Cmake/C++] Add centrality (FT0C as default) bin to the ThnSparse", "labels": ""},
     9: {"title": " [Cmake/C--]: Add centrality (FT0C as default) bin to the ThnSparse", "labels": "common"},
     10: {"title": "[Cmake/C--]: Add centrality (FT0C as default) bin to the ThnSparse", "labels": ""},
-    11: {"title": " [Cmake/C--]: Add centrality (FT0C as default) bin to the ThnSparse", "labels": ""},
+    11: {"title": " [Cmake/C--]:  Add centrality (FT0C as default) bin to the ThnSparse ", "labels": ""},
     12: {
         "title": "PWGHF, Cmake Add centrality (FT0C as default) bin to the ThnSparse",
         "labels": "pwgje,pwghf,trigger",
@@ -26,7 +26,7 @@ cases = {
         "title": " PWGHF, Cmake Add centrality (FT0C as default) bin to the ThnSparse",
         "labels": "pwgje,pwghf,trigger",
     },
-    15: {"title": "[PWGJE,Trigger] :  Fix scope of tables in Jet.h", "labels": "pwgje,trigger"},
+    15: {"title": "[PWGJE,Trigger] :  Fix scope of tables in Jet.h ", "labels": "pwgje,trigger"},
 }
 
 case = 15
@@ -64,12 +64,11 @@ print(f'PR title: "{title}"')
 print(f'PR labels: "{labels}"')
 tags_relevant = [tags[label] for label in tags if label in labels.split(",")]
 print("Relevant title tags:", ",".join(tags_relevant))
-prefix_good = ",".join(tags_relevant)
-prefix_good = f"[{prefix_good}] "
-print(f"Generated prefix: {prefix_good}")
+prefix_generated = ",".join(tags_relevant)
+prefix_generated = f"[{prefix_generated}] "
+print(f"Generated prefix: {prefix_generated}")
 found_tags = False
-replace_title = 0
-title_new = title
+title_new = title.strip()
 # If there is a prefix which contains a known tag, check it for correct tags, and reformat it if needed.
 # If there is a prefix which does not contain any known tag, add the tag prefix.
 # If there is no prefix, add the tag prefix.
@@ -93,29 +92,24 @@ if match := re.match(r" *\[?(\w[\w, /\+-]+)[\]:]+ ", title):
             print("::error::Problems were found in the PR title prefix.")
             print('::notice::Use the form "tags: title" or "[tags] title".')
             sys.exit(1)
-        # Format a valid prefix.
+        # Form a valid title with the existing prefix.
         prefix_good = ",".join(w for w in prefix_title.replace(",", " ").split() if w)
         prefix_good = f"[{prefix_good}] "
         print(f'::notice::Reformatted prefix: "{prefix_good}"')
-        if match.group() != prefix_good or title[len(match.group()) :] != title_stripped:
-            replace_title = 1
-            title_new = prefix_good + title_stripped
+        title_new = prefix_good + title_stripped
     else:
         print("::warning::No known tags found in the prefix.")
 else:
     print("::warning::No valid prefix found in the PR title.")
-if not found_tags:
-    if tags_relevant:
-        replace_title = 1
-        title_new = prefix_good + title.strip()
-    elif title.strip() != title:
-        replace_title = 1
-        title_new = title.strip()
-if replace_title:
+if not found_tags and tags_relevant:
+    title_new = prefix_generated + title_new.strip()
+replace_title = 0
+if title_new == title:
+    print("::notice::The PR title is fine.")
+else:
+    replace_title = 1
     print("::warning::The PR title needs to be adjusted.")
     print(f'::warning::New title: "{title_new}".')
-else:
-    print("::notice::The PR title is fine.")
 # with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as fh:
 #     print(f"replace={replace_title}", file=fh)
 #     print(f"title={title_new}", file=fh)
