@@ -64,7 +64,6 @@ print(f'PR title: "{title}"')
 print(f'PR labels: "{labels}"')
 tags_relevant = [tags[label] for label in tags if label in labels.split(",")]
 print("Relevant title tags:", ",".join(tags_relevant))
-passed = True
 prefix_good = ",".join(tags_relevant)
 prefix_good = f"[{prefix_good}] "
 print(f"Generated prefix: {prefix_good}")
@@ -82,6 +81,7 @@ if match := re.match(r" *\[?(\w[\w, /\+-]+)[\]:]+ ", title):
     print(f'Stripped PR title: "{title_stripped}"')
     if any(tag in words_prefix_title for tag in tags.values()):
         found_tags = True
+        passed = True
         for tag in tags.values():
             if tag in tags_relevant and tag not in words_prefix_title:
                 print(f'::error::Relevant tag "{tag}" not found in the prefix of the PR title.')
@@ -89,14 +89,17 @@ if match := re.match(r" *\[?(\w[\w, /\+-]+)[\]:]+ ", title):
             if tag not in tags_relevant and tag in words_prefix_title:
                 print(f'::error::Irrelevant tag "{tag}" found in the prefix of the PR title.')
                 passed = False
+        if not passed:
+            print("::error::Problems were found in the PR title prefix.")
+            print('::notice::Use the form "tags: title" or "[tags] title".')
+            sys.exit(1)
         # Format a valid prefix.
-        if passed:
-            prefix_good = ",".join(w for w in prefix_title.replace(",", " ").split() if w)
-            prefix_good = f"[{prefix_good}] "
-            print(f'::notice::Reformatted prefix: "{prefix_good}"')
-            if match.group() != prefix_good or title[len(match.group()) :] != title_stripped:
-                replace_title = 1
-                title_new = prefix_good + title_stripped
+        prefix_good = ",".join(w for w in prefix_title.replace(",", " ").split() if w)
+        prefix_good = f"[{prefix_good}] "
+        print(f'::notice::Reformatted prefix: "{prefix_good}"')
+        if match.group() != prefix_good or title[len(match.group()) :] != title_stripped:
+            replace_title = 1
+            title_new = prefix_good + title_stripped
     else:
         print("::warning::No known tags found in the prefix.")
 else:
@@ -108,10 +111,6 @@ if not found_tags:
     elif title.strip() != title:
         replace_title = 1
         title_new = title.strip()
-if not passed:
-    print("::error::Problems were found in the PR title prefix.")
-    print('::notice::Use the form "tags: title" or "[tags] title".')
-    sys.exit(1)
 if replace_title:
     print("::warning::The PR title needs to be adjusted.")
     print(f'::warning::New title: "{title_new}".')
