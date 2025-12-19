@@ -1,13 +1,13 @@
 cases = {
     0: {"title": "PWGJE Trigger ALICE3: Fix scope of tables in Jet.h", "labels": "pwgje,trigger"},
-    1: {"title": "PWGHFF: Add centrality: (FT0C as default) bin to the ThnSparse", "labels": "pwghf"},
+    1: {"title": "PWGHFF : Add centrality: (FT0C as default) bin to the ThnSparse", "labels": "pwghf"},
     2: {
         "title": "[PWGHF, Common] Add centrality (FT0C as default) bin to the ThnSparse",
         "labels": "pwgje,pwghf,trigger",
     },
     3: {"title": "PWGHF, Cmake Add centrality (FT0C as default) bin to the ThnSparse", "labels": "pwgje,pwghf,trigger"},
     4: {
-        "title": "D2H, Cmake: Add centrality (FT0C as default) bin to the ThnSparse",
+        "title": "D2H,  Cmake:  Add centrality (FT0C as default) bin to the ThnSparse",
         "labels": "pwgje,pwghf,infra,trigger",
     },
     5: {"title": "PWGHF/D2H: Cmake: Add centrality (FT0C as default) bin to the ThnSparse", "labels": "pwghf"},
@@ -72,7 +72,7 @@ title_new = title.strip()
 # If there is a prefix which contains a known tag, check it for correct tags, and reformat it if needed.
 # If there is a prefix which does not contain any known tag, add the tag prefix.
 # If there is no prefix, add the tag prefix.
-if match := re.match(r" *\[?(\w[\w, /\+-]+)[\]:]+ ", title):
+if match := re.match(r" *\[?(\w[\w,/\+\- ]+)[\]: ]+ ", title):
     prefix_title = match.group(1)
     words_prefix_title = prefix_title.replace(",", " ").replace("/", " ").split()
     title_stripped = title[len(match.group()) :].strip()
@@ -99,6 +99,7 @@ if match := re.match(r" *\[?(\w[\w, /\+-]+)[\]:]+ ", title):
         title_new = prefix_good + title_stripped
     else:
         print("::warning::No known tags found in the prefix.")
+        title_new = " ".join((*match.group().split(), title_stripped))
 else:
     print("::warning::No valid prefix found in the PR title.")
 if not found_tags and tags_relevant:
