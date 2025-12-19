@@ -29,9 +29,10 @@ cases = {
     15: {"title": "[PWGJE, Trigger] :  Fix scope of tables in Jet.h ", "labels": "pwgje,trigger"},
     16: {"title": "[PWGJE, Trigger] Fix scope of tables in Jet.h ", "labels": "pwgje,trigger"},
     17: {"title": "[Cmake  C--]: Add centrality (FT0C as default) bin to the ThnSparse", "labels": ""},
+    18: {"title": "[Infrastructure]   title-prefix-checker : Add new tags. Simplify. Handle spaces.", "labels": "infrastructure"},
 }
 
-case = 17
+case = 18
 
 labels = cases[case]["labels"]
 title = cases[case]["title"]
