@@ -26,10 +26,12 @@ cases = {
         "title": " PWGHF, Cmake Add centrality (FT0C as default) bin to the ThnSparse",
         "labels": "pwgje,pwghf,trigger",
     },
-    15: {"title": "[PWGJE,Trigger] :  Fix scope of tables in Jet.h ", "labels": "pwgje,trigger"},
+    15: {"title": "[PWGJE, Trigger] :  Fix scope of tables in Jet.h ", "labels": "pwgje,trigger"},
+    16: {"title": "[PWGJE, Trigger] Fix scope of tables in Jet.h ", "labels": "pwgje,trigger"},
+    17: {"title": "[Cmake  C--]: Add centrality (FT0C as default) bin to the ThnSparse", "labels": ""},
 }
 
-case = 15
+case = 17
 
 labels = cases[case]["labels"]
 title = cases[case]["title"]
