@@ -67,7 +67,7 @@ def main():
             LinterSpec.GroupPath: 4,
             LinterSpec.GroupSeverity: 5,
             LinterSpec.GroupCategory: 6,
-            LinterSpec.IgnoredCategories: ["clang-diagnostic-unknown-pragmas"],
+            LinterSpec.IgnoredCategories: ["clang-diagnostic-unknown-pragmas", "cppcoreguidelines-special-member-functions"],
             LinterSpec.IgnoredSeverities: ["note"],
         },
         Linter.Cppcheck: {
@@ -77,7 +77,8 @@ def main():
             LinterSpec.GroupPath: 2,
             LinterSpec.GroupSeverity: 3,
             LinterSpec.GroupCategory: 4,
-            LinterSpec.IgnoredCategories: ["selfInitialization", "functionStatic", "unreadVariable", "useStlAlgorithm", "variableScope"],
+            # LinterSpec.IgnoredCategories: ["selfInitialization", "functionStatic", "unreadVariable", "useStlAlgorithm", "variableScope"],
+            LinterSpec.IgnoredCategories: ["selfInitialization"],
             LinterSpec.IgnoredSeverities: [],
         },
         Linter.Cpplint: {
