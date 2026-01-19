@@ -35,7 +35,7 @@ headers_local = dict.fromkeys(
 )
 
 for path in dir_base.rglob("*"):
-    if not re.search(r"^.+\.(h|cxx|cu)$", str(path)):
+    if not re.search(r"^.+\.(h|cxx|cu|c|C)$", str(path)):
         continue
     with path.open() as file:
         for i_line, line in enumerate(file.readlines()):
