@@ -65,10 +65,10 @@ for path in dir_base.rglob("*"):
                             print(f"{location}: Incomplete path {header} to {h_local} [incomplete-path]")
                         break
             if is_local and style == "<":
-                print(f"{location}: Wrong include style for project header {header} [wrong-style-local]")
+                print(f"{location}: Wrong include format for project header {header} [wrong-format-local]")
                 continue
             if not is_local and style == '"':
-                print(f"{location}: Wrong include style for external header {header} [wrong-style-external]")
+                print(f"{location}: Wrong include format for external header {header} [wrong-format-external]")
 
 for header, count in headers_local.items():
     if count == 0:
