@@ -66,7 +66,6 @@ class Resolver:
         self.header: str = ""
         self.style: str = ""
         self.is_local: bool = False
-        self.is_found: bool = False
         self.verbose: bool = False
 
     def __check_format(self) -> None:
@@ -139,7 +138,6 @@ class Resolver:
             if self.verbose:
                 print(f"{self.location}: Valid absolute path {self.header} [ok-absolute")
             self.headers_local[self.header] += 1
-            self.is_found = True
             return
 
         # Check the relative path w.r.t. the same directory.
@@ -151,7 +149,6 @@ class Resolver:
             if self.verbose:
                 print(f"{self.location}: Valid relative path {self.header} to {h_local} [ok-relative]")
             self.headers_local[h_local] += 1
-            self.is_found = True
             return
 
         # Check for a path in a special "include" directory.
@@ -166,7 +163,6 @@ class Resolver:
                         f"{self.location}: Valid relative path {self.header} to {h_local} in a special directory [ok-special]"
                     )
                 self.headers_local[h_local] += 1
-                self.is_found = True
                 return
 
         # Check the relative path w.r.t. parent directories.
@@ -182,7 +178,6 @@ class Resolver:
                     f"{self.location}: Incomplete relative path {self.header} to {h_local} [incomplete-relative-path]"
                 )
                 self.headers_local[h_local] += 1
-                self.is_found = True
                 return
         if is_explicit_relative:
             print(f"{self.location}: Wrong relative path {self.header} to {h_local} [wrong-relative-path]")
@@ -193,7 +188,6 @@ class Resolver:
             h_local = candidates_h_local[0]
             print(f"{self.location}: Incomplete absolute path {self.header} to {h_local} [incomplete-absolute-path]")
             self.headers_local[h_local] += 1
-            self.is_found = True
             return
 
         # Handle multiple path candidates.
@@ -222,7 +216,6 @@ class Resolver:
                 print(f"{self.location}: Best candidate for {self.header}: {h_local} [best-candidate]")
             print(f"{self.location}: Incomplete absolute path {self.header} to {h_local} [incomplete-absolute-path]")
             self.headers_local[h_local] += 1
-            self.is_found = True
             return
 
         print(f"{self.location}: Unhandled case {self.header} [error-exception]")
@@ -241,7 +234,6 @@ class Resolver:
                     self.header = match.group(2)
                     self.style = match.group(1)
                     self.is_local = False
-                    self.is_found = False
                     self.__process_include()
                     self.__check_format()
         self.__check_compiled()
