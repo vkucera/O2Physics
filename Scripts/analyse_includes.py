@@ -110,7 +110,7 @@ class Resolver:
         header_stripped = self.header
         is_explicit_relative = False
         if self.header.startswith("."):
-            print(f"{self.location}: Explicit relative path {self.header} [explicit-relative]")
+            print(f"{self.location}: Explicit relative path {self.header} [explicit-relative-path]")
             if not self.header.endswith(".h"):
                 print(f"{self.location}: Not a header suffix in {self.header} [suspicious-suffix]")
                 return
