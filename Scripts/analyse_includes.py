@@ -80,6 +80,29 @@ class Resolver:
             if count == 0:
                 print(f"{header}:0: Unused header [unused]")
 
+    def __check_compiled(self) -> None:
+        for path_cmake_lists in sorted(self.dir_base.rglob("*CMakeLists.txt")):
+            print(f"Checking {path_cmake_lists}")
+            with path_cmake_lists.open() as file_cmake_lists:
+                for i_line, line in enumerate(file_cmake_lists.readlines()):
+                    if not (iterators := re.finditer(r" ([\w/\-\.]+\.h)", line)):
+                        continue
+                    matches = [it.group(1) for it in iterators]
+                    if not matches:
+                        continue
+                    for match in matches:
+                        self.header = match
+                        print(f"Found header {self.header}")
+                        if self.header.startswith("."):
+                            h_local = str((path_cmake_lists.parent / self.header).resolve()).removeprefix(self.path_dir_base_absolute)
+                        else:
+                            h_local = str(path_cmake_lists.parent / self.header).removeprefix(self.path_dir_base)
+                        if h_local in self.headers_local:
+                            self.location = f"{path_cmake_lists}:{i_line + 1}"
+                            print(f"{self.location}: Compiled header {self.header} [compiled]")
+                            self.headers_local[h_local] += 1
+
+
     def __process_include(self) -> None:
         # Check the explicit relative path.
         header_stripped = self.header
@@ -213,6 +236,7 @@ class Resolver:
                     self.is_found = False
                     self.__process_include()
                     self.__check_format()
+        self.__check_compiled()
         self.__check_unused()
 
 
