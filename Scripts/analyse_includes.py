@@ -67,6 +67,7 @@ class Resolver:
         self.style: str = ""
         self.is_local: bool = False
         self.is_found: bool = False
+        self.verbose: bool = True
 
     def __check_format(self) -> None:
         if self.is_local and self.style == "<":
@@ -82,7 +83,7 @@ class Resolver:
 
     def __check_compiled(self) -> None:
         for path_cmake_lists in sorted(self.dir_base.rglob("*CMakeLists.txt")):
-            print(f"Checking {path_cmake_lists}")
+            # print(f"Checking {path_cmake_lists}")
             with path_cmake_lists.open() as file_cmake_lists:
                 for i_line, line in enumerate(file_cmake_lists.readlines()):
                     if not (iterators := re.finditer(r" ([\w/\-\.]+\.h)", line)):
@@ -92,16 +93,18 @@ class Resolver:
                         continue
                     for match in matches:
                         self.header = match
-                        print(f"Found header {self.header}")
+                        # print(f"Found header {self.header}")
                         if self.header.startswith("."):
-                            h_local = str((path_cmake_lists.parent / self.header).resolve()).removeprefix(self.path_dir_base_absolute)
+                            h_local = str((path_cmake_lists.parent / self.header).resolve()).removeprefix(
+                                self.path_dir_base_absolute
+                            )
                         else:
                             h_local = str(path_cmake_lists.parent / self.header).removeprefix(self.path_dir_base)
                         if h_local in self.headers_local:
                             self.location = f"{path_cmake_lists}:{i_line + 1}"
-                            print(f"{self.location}: Compiled header {self.header} [compiled]")
+                            if self.verbose:
+                                print(f"{self.location}: Compiled header {self.header} [compiled]")
                             self.headers_local[h_local] += 1
-
 
     def __process_include(self) -> None:
         # Check the explicit relative path.
@@ -124,17 +127,18 @@ class Resolver:
         if n_candidates == 0:
             if is_explicit_relative:
                 print(f"{self.location}: Failed to find {self.header} [not-found]")
-            # else:
-            #     print(f"{self.location}: External header {self.header} [ok-external]")
+            else:
+                if self.verbose:
+                    print(f"{self.location}: External header {self.header} [ok-external]")
             return
 
         self.is_local = True
 
         # Check the absolute path.
         if self.header in self.headers_local:
-            # print(f"{self.location}: Known header: {self.header}")
+            if self.verbose:
+                print(f"{self.location}: Valid absolute path {self.header} [ok-absolute")
             self.headers_local[self.header] += 1
-            print(f"{self.location}: Valid absolute path {self.header} [ok-absolute")
             self.is_found = True
             return
 
@@ -144,8 +148,9 @@ class Resolver:
         else:
             h_local = str(self.path.parent / self.header).removeprefix(self.path_dir_base)
         if h_local in self.headers_local:
+            if self.verbose:
+                print(f"{self.location}: Valid relative path {self.header} to {h_local} [ok-relative]")
             self.headers_local[h_local] += 1
-            print(f"{self.location}: Valid relative path {self.header} to {h_local} [ok-relative]")
             self.is_found = True
             return
 
@@ -156,9 +161,10 @@ class Resolver:
             ]
             if len(candidates_h_local_special) == 1:
                 h_local = candidates_h_local_special[0]
-                print(
-                    f"{self.location}: Valid relative path {self.header} to {h_local} in a special directory [ok-special]"
-                )
+                if self.verbose:
+                    print(
+                        f"{self.location}: Valid relative path {self.header} to {h_local} in a special directory [ok-special]"
+                    )
                 self.headers_local[h_local] += 1
                 self.is_found = True
                 return
@@ -192,9 +198,10 @@ class Resolver:
 
         # Handle multiple path candidates.
         if n_candidates > 1:
-            print(
-                f"{self.location}: Found multiple candidates for {self.header}: {candidates_h_local} [multiple-candidates]"
-            )
+            if self.verbose:
+                print(
+                    f"{self.location}: Found multiple candidates for {self.header}: {candidates_h_local} [multiple-candidates]"
+                )
             # Find the header with the longest common path.
             len_prefix_max = 0
             len_prefix_all = []
@@ -211,7 +218,8 @@ class Resolver:
                 print(f"{self.location}: Ambiguous path {self.header} [ambiguous]")
                 return
             h_local = candidates_h_local[index_prefix_max]
-            print(f"{self.location}: Best candidate for {self.header}: {h_local} [best-candidate]")
+            if self.verbose:
+                print(f"{self.location}: Best candidate for {self.header}: {h_local} [best-candidate]")
             print(f"{self.location}: Incomplete absolute path {self.header} to {h_local} [incomplete-absolute-path]")
             self.headers_local[h_local] += 1
             self.is_found = True
