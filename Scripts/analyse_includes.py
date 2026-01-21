@@ -121,7 +121,7 @@ class Resolver:
             header_stripped = self.header.lstrip("./")
 
         # Find all matching headers.
-        candidates_h_local = [h_local for h_local in self.headers_local if h_local.endswith(f"/{header_stripped}")]
+        candidates_h_local = [h_local for h_local in self.headers_local if h_local.endswith(f"/{header_stripped}") or h_local == header_stripped]
         n_candidates = len(candidates_h_local)
 
         if n_candidates == 0:
