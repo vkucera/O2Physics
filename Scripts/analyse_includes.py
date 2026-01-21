@@ -67,7 +67,7 @@ class Resolver:
         self.style: str = ""
         self.is_local: bool = False
         self.is_found: bool = False
-        self.verbose: bool = True
+        self.verbose: bool = False
 
     def __check_format(self) -> None:
         if self.is_local and self.style == "<":
