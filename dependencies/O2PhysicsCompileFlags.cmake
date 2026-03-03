@@ -85,7 +85,7 @@ IF(ENABLE_CASSERT) #For the CI, we want to have <cassert> assertions enabled
     set(CMAKE_CXX_FLAGS_RELWITHDEBINFO "-O2 -g -pipe")
 ELSE()
     set(CMAKE_CXX_FLAGS_RELEASE "-O2 -DNDEBUG -pipe")
-    set(CMAKE_CXX_FLAGS_RELWITHDEBINFO "-O2 -g -DNDEBUG -pipe")
+    set(CMAKE_CXX_FLAGS_RELWITHDEBINFO "-O2 -gsplit-dwarf -DNDEBUG -pipe")
     if (CMAKE_BUILD_TYPE STREQUAL "RELEASE" OR CMAKE_BUILD_TYPE STREQUAL "RELWITHDEBINFO")
       set(FAIR_MIN_SEVERITY "info")
     endif()
