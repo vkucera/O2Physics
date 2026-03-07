@@ -11,7 +11,13 @@
 // O2 includes
 
 #include <TFile.h>
+#include <TH1.h>
+#include <TString.h>
 #include <TTree.h>
+
+#include <RtypesCore.h>
+
+#include <string>
 
 void cefpOutputChecker(std::string histoFile = "AnalysisResults.root", std::string treeFile = "AO2D.root")
 {
