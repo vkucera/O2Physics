@@ -26,8 +26,7 @@
 #include "CommonConstants/MathConstants.h"
 #include "Framework/AnalysisHelpers.h"
 #include "Framework/Configurable.h"
-
-#include "fairlogger/Logger.h"
+#include "Framework/Logger.h"
 
 #include <algorithm>
 #include <array>

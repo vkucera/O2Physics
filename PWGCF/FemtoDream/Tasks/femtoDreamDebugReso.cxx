@@ -21,13 +21,12 @@
 #include "Framework/ASoAHelpers.h"
 #include "Framework/AnalysisTask.h"
 #include "Framework/HistogramRegistry.h"
+#include "Framework/Logger.h"
 #include "Framework/RunningWorkflowInfo.h"
 #include "Framework/StepTHn.h"
 #include "Framework/runDataProcessing.h"
 
 #include "TVector3.h"
-
-#include "fairlogger/Logger.h"
 
 #include <cstdint>
 #include <string>

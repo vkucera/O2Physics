@@ -34,11 +34,10 @@
 #include "Framework/AnalysisTask.h"
 #include "Framework/Configurable.h"
 #include "Framework/HistogramRegistry.h"
+#include "Framework/Logger.h"
 #include "Framework/runDataProcessing.h"
 
 #include "TPDGCode.h"
-
-#include "fairlogger/Logger.h"
 
 #include <algorithm>
 #include <string>

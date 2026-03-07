@@ -30,8 +30,7 @@
 #include "Framework/StepTHn.h"
 #include "Framework/runDataProcessing.h"
 #include "ReconstructionDataFormats/PID.h"
-
-#include <fairlogger/Logger.h>
+#include <Framework/Logger.h>
 
 #include <cstdint>
 #include <vector>

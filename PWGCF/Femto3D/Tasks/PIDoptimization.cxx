@@ -32,6 +32,7 @@
 #include "Framework/AnalysisTask.h"
 #include "Framework/Configurable.h"
 #include "Framework/HistogramRegistry.h"
+#include "Framework/Logger.h"
 #include "Framework/StaticFor.h"
 #include "Framework/runDataProcessing.h"
 
@@ -40,8 +41,6 @@
 #include "TMath.h"
 #include "TRandom3.h"
 #include <TParameter.h>
-
-#include "fairlogger/Logger.h"
 
 #include <iostream>
 #include <iterator>

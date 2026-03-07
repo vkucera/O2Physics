@@ -27,8 +27,7 @@
 
 #include "Framework/HistogramRegistry.h"
 #include "Framework/HistogramSpec.h"
-
-#include "fairlogger/Logger.h"
+#include "Framework/Logger.h"
 
 #include <chrono>
 #include <cstdint>

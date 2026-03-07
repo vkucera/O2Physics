@@ -37,10 +37,10 @@
 // #include "Framework/OutputObjHeader.h"
 
 // #include "Common/CCDB/EventSelectionParams.h"
+#include <Framework/Logger.h>
+
 #include <TH1.h>
 #include <TRandom3.h>
-
-#include <fairlogger/Logger.h>
 
 using namespace o2;
 using namespace o2::emccrosstalk;

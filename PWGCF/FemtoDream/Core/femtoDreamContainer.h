@@ -24,11 +24,10 @@
 #include "PWGCF/FemtoDream/Core/femtoDreamUtils.h"
 
 #include "Framework/HistogramRegistry.h"
+#include <Framework/Logger.h>
 
 #include "Math/Vector4D.h"
 #include "TMath.h"
-
-#include <fairlogger/Logger.h>
 
 #include <string>
 #include <vector>

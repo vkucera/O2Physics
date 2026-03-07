@@ -28,19 +28,18 @@
 #include "CCDB/CcdbApi.h"
 #include "CommonConstants/MathConstants.h"
 #include "CommonConstants/PhysicsConstants.h"
-#include "MathUtils/BetheBlochAleph.h"
 #include "Framework/ASoAHelpers.h"
 #include "Framework/AnalysisDataModel.h"
 #include "Framework/AnalysisTask.h"
 #include "Framework/HistogramRegistry.h"
 #include "Framework/runDataProcessing.h"
+#include "MathUtils/BetheBlochAleph.h"
 #include <Framework/Configurable.h>
+#include <Framework/Logger.h>
 
 #include <Math/GenVector/Boost.h>
 #include <Math/Vector4D.h>
 #include <TMath.h>
-
-#include <fairlogger/Logger.h>
 
 #include <iostream>
 #include <iterator>

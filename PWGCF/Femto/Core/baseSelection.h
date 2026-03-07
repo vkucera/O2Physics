@@ -19,8 +19,7 @@
 #include "PWGCF/Femto/Core/selectionContainer.h"
 
 #include "Framework/HistogramRegistry.h"
-
-#include "fairlogger/Logger.h"
+#include "Framework/Logger.h"
 
 #include <climits>
 #include <cstddef>

@@ -11,15 +11,17 @@
 #ifndef TRACKSELECTIONFILTERANDANALYSIS_H
 #define TRACKSELECTIONFILTERANDANALYSIS_H
 
-#include <Rtypes.h>
-#include <TString.h>
-#include <TObject.h>
-#include <TNamed.h>
-#include <TList.h>
-
-#include <fairlogger/Logger.h>
-#include "SkimmingConfigurableCuts.h"
 #include "SelectionFilterAndAnalysis.h"
+#include "SkimmingConfigurableCuts.h"
+
+#include <Framework/Logger.h>
+
+#include <TList.h>
+#include <TNamed.h>
+#include <TObject.h>
+#include <TString.h>
+
+#include <Rtypes.h>
 
 namespace o2
 {

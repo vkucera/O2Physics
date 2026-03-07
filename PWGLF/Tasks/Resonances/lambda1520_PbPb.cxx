@@ -28,8 +28,7 @@
 #include <Framework/AnalysisDataModel.h>
 #include <Framework/HistogramRegistry.h>
 #include <Framework/HistogramSpec.h>
-
-#include <fairlogger/Logger.h>
+#include <Framework/Logger.h>
 
 using namespace o2;
 using namespace o2::framework;

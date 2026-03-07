@@ -26,11 +26,10 @@
 #include <Framework/ASoA.h>
 #include <Framework/Array2D.h>
 #include <Framework/HistogramRegistry.h>
+#include <Framework/Logger.h>
 
 #include <TMath.h>
 #include <TNamed.h>
-
-#include <fairlogger/Logger.h>
 
 #include <Rtypes.h>
 

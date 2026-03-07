@@ -37,14 +37,13 @@
 #include "Framework/runDataProcessing.h"
 #include "MathUtils/BetheBlochAleph.h"
 #include <Framework/Configurable.h>
+#include <Framework/Logger.h>
 
 #include <Math/GenVector/Boost.h>
 #include <Math/Vector4D.h>
 #include <TDatabasePDG.h> // FIXME
 #include <TMath.h>
 #include <TPDGCode.h> // FIXME
-
-#include <fairlogger/Logger.h>
 
 #include <iostream>
 #include <iterator>

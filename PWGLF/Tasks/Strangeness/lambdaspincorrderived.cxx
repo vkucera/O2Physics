@@ -26,6 +26,7 @@
 #include "Framework/StepTHn.h"
 #include "Framework/runDataProcessing.h"
 #include <Framework/Configurable.h>
+#include <Framework/Logger.h>
 
 #include <Math/GenVector/Boost.h>
 #include <Math/Vector3D.h>
@@ -33,8 +34,6 @@
 #include <TLorentzVector.h>
 #include <TMath.h>
 #include <TRandom3.h>
-
-#include <fairlogger/Logger.h>
 
 #include <algorithm>
 #include <cmath> // for std::fabs

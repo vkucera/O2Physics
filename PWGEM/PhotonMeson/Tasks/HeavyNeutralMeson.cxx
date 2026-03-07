@@ -33,14 +33,13 @@
 #include "Framework/AnalysisTask.h"
 #include "Framework/Configurable.h"
 #include "Framework/HistogramRegistry.h"
+#include "Framework/Logger.h"
 #include "Framework/runDataProcessing.h"
 
 #include "Math/GenVector/Boost.h"
 #include "Math/Vector4D.h"
 #include "TMath.h"
 #include "TRandom3.h"
-
-#include "fairlogger/Logger.h"
 
 #include <iterator>
 #include <string>

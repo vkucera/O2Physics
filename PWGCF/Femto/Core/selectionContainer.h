@@ -17,10 +17,9 @@
 #define PWGCF_FEMTO_CORE_SELECTIONCONTAINER_H_
 
 #include "CommonConstants/MathConstants.h"
+#include "Framework/Logger.h"
 
 #include "TF1.h"
-
-#include "fairlogger/Logger.h"
 
 #include <algorithm>
 #include <bitset>

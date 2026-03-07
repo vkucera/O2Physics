@@ -43,11 +43,10 @@
 #include "Framework/runDataProcessing.h"
 #include "ReconstructionDataFormats/Track.h"
 #include <CCDB/BasicCCDBManager.h>
+#include <Framework/Logger.h>
 
 #include "Math/Vector4D.h"
 #include "TMath.h"
-
-#include <fairlogger/Logger.h>
 
 #include <string>
 #include <vector>
