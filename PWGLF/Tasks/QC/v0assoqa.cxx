@@ -51,7 +51,6 @@
 using namespace o2;
 using namespace o2::framework;
 using namespace o2::framework::expressions;
-using std::array;
 
 // using MyTracks = soa::Join<aod::Tracks, aod::TracksExtra, aod::pidTPCPr>;
 using TracksCompleteIU = soa::Join<aod::TracksIU, aod::TracksExtra, aod::TracksCovIU, aod::TracksDCA>;

@@ -61,7 +61,6 @@
 using namespace o2;
 using namespace o2::framework;
 using namespace o2::framework::expressions;
-using std::array;
 
 using dauTracks = soa::Join<aod::DauTrackExtras, aod::DauTrackTPCPIDs>;
 using v0Candidates = soa::Join<aod::V0CollRefs, aod::V0Cores, aod::V0Extras>;

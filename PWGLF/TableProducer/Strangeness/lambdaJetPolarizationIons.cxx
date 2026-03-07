@@ -97,7 +97,6 @@
 using namespace o2;
 using namespace o2::framework;
 using namespace o2::framework::expressions;
-using std::array;
 using namespace o2::aod::rctsel;
 
 ///// Aliases for joined tables

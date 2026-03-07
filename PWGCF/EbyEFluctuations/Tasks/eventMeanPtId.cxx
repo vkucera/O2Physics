@@ -56,7 +56,6 @@ using namespace o2;
 using namespace o2::framework;
 using namespace o2::framework::expressions;
 using namespace std;
-using o2::constants::physics::Pdg;
 
 struct EventMeanPtId {
 

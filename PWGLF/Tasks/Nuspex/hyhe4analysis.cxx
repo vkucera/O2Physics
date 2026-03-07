@@ -50,7 +50,6 @@ using namespace std;
 using namespace o2;
 using namespace o2::framework;
 using namespace o2::framework::expressions;
-using std::array;
 
 // use parameters + cov mat non-propagated, aux info + (extension propagated)
 using FullTracksExt = soa::Join<aod::Tracks, aod::TracksExtra, aod::TracksCov>;

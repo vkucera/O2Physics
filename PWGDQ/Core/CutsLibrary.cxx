@@ -25,9 +25,6 @@
 #include <string>
 #include <vector>
 
-using std::cout;
-using std::endl;
-
 AnalysisCompositeCut* o2::aod::dqcuts::GetCompositeCut(const char* cutName)
 {
   //

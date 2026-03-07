@@ -39,7 +39,6 @@ using namespace o2;
 using namespace o2::framework;
 using namespace o2::framework::expressions;
 using namespace std;
-using std::array;
 
 struct strangederivedqa {
   HistogramRegistry histos{"Histos", {}, OutputObjHandlingPolicy::AnalysisObject};

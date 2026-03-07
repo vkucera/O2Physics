@@ -41,8 +41,6 @@
 #include <string>
 #include <vector>
 
-using std::cout;
-using std::endl;
 using std::string;
 
 using namespace o2;

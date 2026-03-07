@@ -56,7 +56,6 @@ using namespace o2::framework;
 using namespace o2::framework::expressions;
 using namespace o2::constants::physics;
 using namespace o2::constants::math;
-using std::array;
 
 // Define type aliases for joined tables
 using SelectedCollisions = soa::Join<aod::Collisions, aod::EvSels>;

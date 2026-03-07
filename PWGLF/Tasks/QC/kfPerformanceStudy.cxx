@@ -34,7 +34,6 @@
 using namespace o2;
 using namespace o2::framework;
 using namespace o2::framework::expressions;
-using std::array;
 
 // allows for candidate-by-candidate comparison using Cascade to []CascData link table
 using CascadesCrossLinked = soa::Join<aod::Cascades, aod::CascDataLink, aod::KFCascDataLink>;

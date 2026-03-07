@@ -49,7 +49,6 @@ using namespace o2::framework;
 using namespace o2::framework::expressions;
 using namespace o2::constants::physics;
 using namespace o2::constants::math;
-using std::array;
 
 using SelCollisions = soa::Join<aod::Collisions, aod::EvSels, aod::CentFT0Ms>;
 using SimCollisions = soa::Join<aod::Collisions, aod::EvSels, aod::CentFT0Ms, aod::McCollisionLabels>;

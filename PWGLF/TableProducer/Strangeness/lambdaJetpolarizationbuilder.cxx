@@ -37,8 +37,6 @@
 #include <string>
 #include <vector>
 
-using std::cout;
-using std::endl;
 using namespace o2;
 using namespace o2::framework;
 using namespace o2::framework::expressions;

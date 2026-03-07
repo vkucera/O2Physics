@@ -33,7 +33,6 @@ using namespace o2::framework;
 using namespace std;
 using namespace o2::framework::expressions;
 using namespace o2::soa;
-using std::array;
 using namespace o2::track;
 
 double eta2y(double pt, double m, double eta)

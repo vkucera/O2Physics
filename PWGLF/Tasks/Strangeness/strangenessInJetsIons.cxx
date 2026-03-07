@@ -73,7 +73,6 @@ using namespace o2::aod;
 using namespace o2::framework;
 using namespace o2::framework::expressions;
 using namespace o2::constants::math;
-using std::array;
 
 // Define convenient aliases for joined AOD tables
 using SelCollisions = soa::Join<aod::Collisions,

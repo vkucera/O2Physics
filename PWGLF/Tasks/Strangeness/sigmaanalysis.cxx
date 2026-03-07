@@ -59,7 +59,6 @@ using namespace o2;
 using namespace o2::framework;
 using namespace o2::framework::expressions;
 
-using std::array;
 using MCSigma0s = soa::Join<aod::Sigma0Cores, aod::Sigma0PhotonExtras, aod::Sigma0LambdaExtras, aod::Sigma0MCCores, aod::SigmaCollRef>;
 using Sigma0s = soa::Join<aod::Sigma0Cores, aod::Sigma0PhotonExtras, aod::Sigma0LambdaExtras, aod::SigmaCollRef>;
 

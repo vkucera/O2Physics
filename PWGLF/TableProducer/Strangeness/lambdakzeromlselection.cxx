@@ -59,9 +59,6 @@ using namespace o2::analysis;
 using namespace o2::framework;
 using namespace o2::framework::expressions;
 using namespace o2::ml;
-using std::array;
-using std::cout;
-using std::endl;
 
 // For original data loops
 using V0OriginalDatas = soa::Join<aod::V0Indices, aod::V0Cores>;

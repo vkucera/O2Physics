@@ -21,7 +21,6 @@
 #include <iostream>
 #include <vector>
 
-using std::array;
 using namespace std;
 using namespace o2;
 using namespace o2::aod;

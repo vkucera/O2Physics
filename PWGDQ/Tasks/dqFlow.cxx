@@ -50,8 +50,6 @@
 #include "Common/DataModel/Qvectors.h"
 
 using std::complex;
-using std::cout;
-using std::endl;
 using std::pow;
 using std::string;
 

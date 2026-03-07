@@ -69,7 +69,6 @@ const float ctauOmegaPDG = 2.461; // Omega PDG lifetime
 using namespace o2;
 using namespace o2::framework;
 using namespace o2::framework::expressions;
-using std::array;
 
 using namespace o2::aod::rctsel;
 

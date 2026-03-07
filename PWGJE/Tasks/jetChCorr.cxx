@@ -48,7 +48,6 @@ using namespace std;
 using namespace o2;
 using namespace o2::framework;
 using namespace o2::framework::expressions;
-using std::array;
 
 int trackSelection = -1;
 int trackL = -1;

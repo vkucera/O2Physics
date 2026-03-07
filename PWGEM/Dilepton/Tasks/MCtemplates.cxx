@@ -34,8 +34,6 @@
 #include "PWGDQ/Core/MCSignalLibrary.h"
 #include "Common/DataModel/TrackSelectionTables.h"
 
-using std::cout;
-using std::endl;
 using std::string;
 
 using namespace o2;

@@ -19,7 +19,7 @@
 #include <TString.h>
 
 #include <iostream>
-using std::array;
+
 using namespace std;
 using namespace o2;
 using namespace o2::aod;

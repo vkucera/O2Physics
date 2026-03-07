@@ -54,7 +54,6 @@ using namespace o2::framework::expressions;
 using namespace o2::soa;
 using namespace o2::constants::physics;
 
-using std::array;
 struct K892analysispbpb {
   SliceCache cache;
 

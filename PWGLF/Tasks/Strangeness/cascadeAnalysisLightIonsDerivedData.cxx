@@ -51,7 +51,6 @@ using namespace o2::framework;
 using namespace o2::framework::expressions;
 using namespace o2::constants::math;
 using namespace o2::constants::physics;
-using std::array;
 
 using SelCollisions = soa::Join<aod::StraCollisions, aod::StraEvSels, aod::StraCents, aod::StraStamps>;
 using SimCollisions = soa::Join<aod::StraCollisions, aod::StraEvSels, aod::StraCents, aod::StraStamps, aod::StraCollLabels>;

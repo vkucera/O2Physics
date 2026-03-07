@@ -76,8 +76,6 @@ using namespace o2::framework::expressions;
 using namespace o2::aod;
 
 using namespace std;
-using std::cout;
-using std::endl;
 
 const int fgNCh = 10;
 const int fgNDetElemCh[fgNCh] = {4, 4, 4, 4, 18, 18, 26, 26, 26, 26};

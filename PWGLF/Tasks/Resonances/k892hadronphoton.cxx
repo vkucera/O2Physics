@@ -58,7 +58,6 @@ using namespace o2;
 using namespace o2::framework;
 using namespace o2::framework::expressions;
 
-using std::array;
 using KStars = soa::Join<aod::KStarCores, aod::KStarPhotonExtras, aod::KShortExtras, aod::KStarCollRef>;
 using MCKStars = soa::Join<aod::KStarCores, aod::KStarPhotonExtras, aod::KShortExtras, aod::KStarMCCores, aod::KStarCollRef>;
 
