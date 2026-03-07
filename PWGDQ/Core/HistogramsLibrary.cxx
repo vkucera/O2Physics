@@ -13,11 +13,24 @@
 //
 #include "PWGDQ/Core/HistogramsLibrary.h"
 
+#include "HistogramManager.h"
 #include "VarManager.h"
 
 #include "CommonConstants/MathConstants.h"
 
+#include <TArrayD.h>
+#include <TMath.h>
+#include <TString.h>
+
+#include <fairlogger/Logger.h>
+#include <rapidjson/document.h>
+#include <rapidjson/error/error.h>
+
+#include <RtypesCore.h>
+
 #include <algorithm>
+#include <array>
+#include <cstring>
 #include <vector>
 
 void o2::aod::dqhistograms::DefineHistograms(HistogramManager* hm, const char* histClass, const char* groupName, const char* subGroupName)

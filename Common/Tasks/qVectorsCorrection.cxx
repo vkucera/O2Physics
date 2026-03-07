@@ -18,6 +18,7 @@
 ///
 
 // C++/ROOT includes.
+#include <TMath.h>
 #include <TString.h>
 #include <TVector2.h>
 

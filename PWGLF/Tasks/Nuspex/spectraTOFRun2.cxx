@@ -18,12 +18,8 @@
 ///
 
 // O2 includes
-#include "PWGLF/DataModel/LFParticleIdentification.h"
 #include "PWGLF/DataModel/spectraTOF.h"
 
-#include "Common/Core/TrackSelection.h"
-#include "Common/Core/TrackSelectionDefaults.h"
-#include "Common/DataModel/Centrality.h"
 #include "Common/DataModel/EventSelection.h"
 #include "Common/DataModel/Multiplicity.h"
 #include "Common/DataModel/PIDResponseTOF.h"
@@ -33,9 +29,18 @@
 #include "Framework/HistogramRegistry.h"
 #include "Framework/StaticFor.h"
 #include "Framework/runDataProcessing.h"
-#include "ReconstructionDataFormats/Track.h"
+#include <Framework/ASoA.h>
+#include <Framework/AnalysisDataModel.h>
+#include <Framework/Configurable.h>
+#include <Framework/HistogramSpec.h>
+#include <Framework/InitContext.h>
+#include <Framework/OutputObjHeader.h>
+#include <ReconstructionDataFormats/PID.h>
 
-#include "TPDGCode.h"
+#include <TH1.h>
+#include <TString.h>
+
+#include <cstddef>
 
 using namespace o2;
 using namespace o2::track;

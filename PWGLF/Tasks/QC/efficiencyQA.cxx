@@ -9,7 +9,6 @@
 // granted to it by virtue of its status as an Intergovernmental Organization
 // or submit itself to any jurisdiction.
 
-#include "Common/Core/PID/TPCPIDResponse.h"
 #include "Common/Core/RecoDecay.h"
 #include "Common/Core/trackUtilities.h"
 #include "Common/DataModel/EventSelection.h"
@@ -19,16 +18,33 @@
 #include "DCAFitter/DCAFitterN.h"
 #include "DataFormatsParameters/GRPMagField.h"
 #include "DataFormatsParameters/GRPObject.h"
-#include "DetectorsBase/GeometryManager.h"
 #include "DetectorsBase/Propagator.h"
-#include "Framework/ASoAHelpers.h"
 #include "Framework/AnalysisDataModel.h"
 #include "Framework/AnalysisTask.h"
 #include "Framework/runDataProcessing.h"
-#include "ReconstructionDataFormats/Track.h"
+#include <CommonConstants/PhysicsConstants.h>
+#include <Framework/AnalysisHelpers.h>
+#include <Framework/Array2D.h>
+#include <Framework/Configurable.h>
+#include <Framework/DataTypes.h>
+#include <Framework/HistogramRegistry.h>
+#include <Framework/HistogramSpec.h>
+#include <Framework/InitContext.h>
+#include <Framework/OutputObjHeader.h>
+
+#include <TH1.h>
+#include <TH2.h>
+#include <TH3.h>
+#include <THnBase.h>
+#include <THnSparse.h>
 
 #include <array>
+#include <chrono>
+#include <cmath>
+#include <cstdint>
+#include <memory>
 #include <random>
+#include <string>
 #include <vector>
 
 using namespace o2;

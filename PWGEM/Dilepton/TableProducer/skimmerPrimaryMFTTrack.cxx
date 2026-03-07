@@ -15,28 +15,37 @@
 #include "PWGEM/Dilepton/DataModel/dileptonTables.h"
 #include "PWGEM/Dilepton/Utils/EMTrackUtilities.h"
 
-#include "Common/Core/TableHelper.h"
 #include "Common/Core/fwdtrackUtilities.h"
+#include "Common/DataModel/EventSelection.h"
 // #include "Common/DataModel/CollisionAssociationTables.h"
 
 #include "CCDB/BasicCCDBManager.h"
-#include "CommonConstants/PhysicsConstants.h"
 #include "DataFormatsParameters/GRPMagField.h"
-#include "DataFormatsParameters/GRPObject.h"
 #include "DetectorsBase/GeometryManager.h"
 #include "DetectorsBase/Propagator.h"
 #include "Framework/AnalysisDataModel.h"
 #include "Framework/AnalysisTask.h"
 #include "Framework/runDataProcessing.h"
-#include "GlobalTracking/MatchGlobalFwd.h"
 #include "MCHTracking/TrackExtrap.h"
-#include "MCHTracking/TrackParam.h"
 #include "ReconstructionDataFormats/TrackFwd.h"
+#include <CCDB/CcdbApi.h>
+#include <Framework/AnalysisHelpers.h>
+#include <Framework/Configurable.h>
+#include <Framework/HistogramRegistry.h>
+#include <Framework/HistogramSpec.h>
+#include <Framework/InitContext.h>
+#include <Framework/OutputObjHeader.h>
+#include <MathUtils/Utils.h>
 
+#include <array>
+#include <cmath>
+#include <cstdint>
 #include <map>
 #include <string>
 #include <utility>
 #include <vector>
+
+#include <math.h>
 
 using namespace o2;
 using namespace o2::soa;

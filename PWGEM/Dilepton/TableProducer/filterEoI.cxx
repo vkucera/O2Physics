@@ -14,13 +14,23 @@
 // This code filters events that are interesting for dilepton analyses.
 //    Please write to: daiki.sekihata@cern.ch
 
+#include "TableHelper.h"
+
 #include "PWGEM/Dilepton/DataModel/dileptonTables.h"
 #include "PWGEM/PhotonMeson/DataModel/gammaTables.h"
 
-#include "Framework/ASoAHelpers.h"
 #include "Framework/AnalysisDataModel.h"
 #include "Framework/AnalysisTask.h"
 #include "Framework/runDataProcessing.h"
+#include <Framework/AnalysisHelpers.h>
+#include <Framework/Configurable.h>
+#include <Framework/HistogramRegistry.h>
+#include <Framework/HistogramSpec.h>
+#include <Framework/InitContext.h>
+
+#include <TH1.h>
+
+#include <cstdint>
 
 using namespace o2;
 using namespace o2::framework;

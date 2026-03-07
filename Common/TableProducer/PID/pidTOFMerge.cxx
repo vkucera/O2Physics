@@ -28,8 +28,6 @@
 #include "Common/DataModel/PIDResponseTOF.h"
 
 #include <CCDB/BasicCCDBManager.h>
-#include <DataFormatsParameters/GRPLHCIFData.h>
-#include <DataFormatsTOF/ParameterContainers.h>
 #include <Framework/ASoA.h>
 #include <Framework/AnalysisDataModel.h>
 #include <Framework/AnalysisHelpers.h>
@@ -46,16 +44,13 @@
 #include <ReconstructionDataFormats/PID.h>
 #include <TOFBase/EventTimeMaker.h>
 
-#include <TGraph.h>
 #include <TH2.h>
 #include <TString.h>
 
 #include <array>
-#include <chrono>
 #include <cmath>
 #include <cstdint>
 #include <cstdlib>
-#include <map>
 #include <memory>
 #include <string>
 #include <vector>

@@ -32,7 +32,6 @@
 #include "Framework/OutputObjHeader.h"
 #include "Framework/runDataProcessing.h"
 
-#include <map>
 #include <string>
 #include <vector>
 

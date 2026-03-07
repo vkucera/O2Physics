@@ -14,11 +14,22 @@
 #include "Framework/AnalysisDataModel.h"
 #include "Framework/AnalysisTask.h"
 #include "Framework/runDataProcessing.h"
+#include <CommonConstants/PhysicsConstants.h>
+#include <Framework/HistogramRegistry.h>
+#include <Framework/HistogramSpec.h>
+#include <Framework/InitContext.h>
+#include <Framework/OutputObjHeader.h>
 
 #include "TLorentzVector.h"
+#include <TH1.h>
+#include <TMath.h>
 #include <TString.h>
+#include <TVector3.h>
 
-#include <iostream>
+#include <RtypesCore.h>
+
+#include <cmath>
+#include <cstddef>
 #include <vector>
 
 using namespace std;

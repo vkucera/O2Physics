@@ -13,26 +13,31 @@
 /// \author Sofia Tomassini, Gleb Romanenko, Nicolò Jacazio
 /// \since 31 May 2023
 
-#include <vector>
-#include <memory>
-#include <utility>
+#include "PWGCF/Femto3D/Core/femto3dPairTask.h"
+#include "PWGCF/Femto3D/DataModel/singletrackselector.h"
 
-#include "Framework/runDataProcessing.h"
-#include "Framework/AnalysisTask.h"
-#include "Framework/HistogramRegistry.h"
-#include <TParameter.h>
-#include <TH1F.h>
+#include "Common/DataModel/PIDResponseITS.h"
 
 #include "Framework/ASoA.h"
-#include "MathUtils/Utils.h"
-#include "Framework/DataTypes.h"
-#include "Common/DataModel/Multiplicity.h"
 #include "Framework/AnalysisDataModel.h"
+#include "Framework/AnalysisTask.h"
 #include "Framework/Expressions.h"
+#include "Framework/HistogramRegistry.h"
+#include "Framework/runDataProcessing.h"
+#include <Framework/Configurable.h>
+#include <Framework/HistogramSpec.h>
+#include <Framework/InitContext.h>
+#include <Framework/OutputObjHeader.h>
 
-#include "Framework/StaticFor.h"
-#include "PWGCF/Femto3D/DataModel/singletrackselector.h"
-#include "PWGCF/Femto3D/Core/femto3dPairTask.h"
+#include <TH2.h>
+#include <TString.h>
+
+#include <cstdint>
+#include <memory>
+#include <utility>
+#include <vector>
+
+#include <math.h>
 
 using namespace o2;
 using namespace o2::soa;

@@ -9,16 +9,27 @@
 // granted to it by virtue of its status as an Intergovernmental Organization
 // or submit itself to any jurisdiction.
 //
+#include "SGCutParHolder.h"
+#include "UDHelpers.h"
+#include "UPCHelpers.h"
+
 #include "PWGDQ/Core/VarManager.h"
 #include "PWGDQ/DataModel/ReducedInfoTables.h"
 #include "PWGUD/Core/SGSelector.h"
 
-#include "CommonConstants/LHCConstants.h"
+#include "Common/DataModel/EventSelection.h"
+
 #include "Framework/AnalysisTask.h"
 #include "Framework/runDataProcessing.h"
 #include "ReconstructionDataFormats/Vertex.h"
+#include <CommonDataFormat/TimeStamp.h>
 #include <Framework/AnalysisDataModel.h>
-#include <Framework/Logger.h>
+#include <Framework/AnalysisHelpers.h>
+#include <Framework/Configurable.h>
+#include <Framework/InitContext.h>
+
+#include <TH1.h>
+#include <TString.h>
 
 #include <cstdint>
 #include <string>

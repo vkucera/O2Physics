@@ -15,35 +15,41 @@
 
 // Standard headers.
 #include <TFormula.h>
-#include <TRandom3.h>
 
-#include <chrono>
+#include <sys/types.h>
+
+#include <algorithm>
+#include <array>
+#include <bit>
+#include <cstdint>
+#include <experimental/type_traits>
+#include <iterator>
 #include <memory>
 #include <string>
 #include <vector>
 
 // O2 headers. //
 // The first two are mandatory.
-#include "Framework/runDataProcessing.h"
-#include "Framework/AnalysisTask.h"
-
 #include "Framework/AnalysisDataModel.h"
-#include "Framework/ASoAHelpers.h"
+#include "Framework/AnalysisTask.h"
 #include "Framework/HistogramRegistry.h"
+#include "Framework/runDataProcessing.h"
+#include <Framework/Configurable.h>
+#include <Framework/InitContext.h>
+#include <Framework/OutputObjHeader.h>
 
 // O2 Physics headers. //
+#include "PWGCF/DataModel/CorrelationsDerived.h"
+#include "PWGCF/JCorran/Core/FlowJHistManager.h"
+#include "PWGCF/JCorran/Core/FlowJSPCAnalysis.h"
+#include "PWGCF/JCorran/Core/FlowJSPCObservables.h"
+#include "PWGCF/JCorran/DataModel/JCatalyst.h"
+
+#include "Common/DataModel/Centrality.h"
 #include "Common/DataModel/EventSelection.h"
 #include "Common/DataModel/FT0Corrected.h"
 #include "Common/DataModel/Multiplicity.h"
-#include "Common/DataModel/Centrality.h"
-#include "Common/Core/TrackSelection.h"
 #include "Common/DataModel/TrackSelectionTables.h"
-
-#include "PWGCF/DataModel/CorrelationsDerived.h"
-#include "PWGCF/JCorran/DataModel/JCatalyst.h"
-#include "PWGCF/JCorran/Core/FlowJSPCAnalysis.h"
-#include "PWGCF/JCorran/Core/FlowJSPCObservables.h"
-#include "PWGCF/JCorran/Core/FlowJHistManager.h"
 
 // Namespaces and definitions.
 using namespace o2;

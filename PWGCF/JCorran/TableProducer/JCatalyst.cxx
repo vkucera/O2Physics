@@ -12,30 +12,26 @@
 /// \author Dong Jo Kim (djkim@jyu.fi)
 /// \since Sep 2022
 
-#include <CCDB/BasicCCDBManager.h>
-#include <Math/Vector4D.h>
-#include <Math/LorentzVector.h>
-#include <TRandom.h>
-
-#include "Framework/runDataProcessing.h"
 #include "Framework/AnalysisTask.h"
-#include "Framework/RunningWorkflowInfo.h"
-#include "Framework/ASoAHelpers.h"
+#include "Framework/runDataProcessing.h"
+
+#include <cstdint>
 
 // centrality
-#include "Common/DataModel/Multiplicity.h"
+#include "Common/CCDB/TriggerAliases.h"
+#include "Common/DataModel/Centrality.h"
 #include "Common/DataModel/EventSelection.h"
 #include "Common/DataModel/TrackSelectionTables.h"
-#include "Common/DataModel/Centrality.h"
 
 ////TODO: remove redundant:
-#include "Framework/HistogramRegistry.h"
 
-#include "DCAFitter/DCAFitterN.h"
-#include "PWGHF/DataModel/CandidateReconstructionTables.h"
-#include "Common/Core/trackUtilities.h"
-#include "ReconstructionDataFormats/DCA.h"
-#include "ReconstructionDataFormats/V0.h"
+#include <Framework/ASoA.h>
+#include <Framework/AnalysisDataModel.h>
+#include <Framework/AnalysisHelpers.h>
+#include <Framework/Configurable.h>
+#include <Framework/DataTypes.h>
+#include <Framework/Expressions.h>
+#include <Framework/InitContext.h>
 ////
 
 #include "PWGCF/JCorran/DataModel/JCatalyst.h"
@@ -45,7 +41,6 @@ using namespace o2::framework;
 using namespace o2::framework::expressions;
 
 using namespace ROOT;
-using namespace ROOT::Math;
 
 #define O2_DEFINE_CONFIGURABLE(NAME, TYPE, DEFAULT, HELP) Configurable<TYPE> NAME{#NAME, DEFAULT, HELP};
 
@@ -75,7 +70,7 @@ struct JCatalyst {
   Filter collisionVertexTypeFilter = (collisionFlags == 0) || ((aod::collision::flags & collisionFlags) == collisionFlags);
 
   Filter trackFilter = (nabs(aod::track::eta) < etamax) && (aod::track::pt > ptmin) && (aod::track::pt < ptmax);
-  Filter trackSelection = (requireGlobalTrackInFilter()) || (aod::track::isGlobalTrackSDD == (uint8_t) true);
+  Filter trackSelection = (requireGlobalTrackInFilter()) || (aod::track::isGlobalTrackSDD == (uint8_t)true);
 
   Produces<aod::JTracks> particleTrack;
   Produces<aod::JCollisions> collisionData;
@@ -116,7 +111,7 @@ struct JMultiplicitySelector {
   O2_DEFINE_CONFIGURABLE(etamax, float, 0.9f, "Eta range for tracks")
 
   Filter trackFilter = (nabs(aod::track::eta) < etamax) && (aod::track::pt > ptmin);
-  Filter trackSelection = (requireGlobalTrackInFilter()) || (aod::track::isGlobalTrackSDD == (uint8_t) true);
+  Filter trackSelection = (requireGlobalTrackInFilter()) || (aod::track::isGlobalTrackSDD == (uint8_t)true);
 
   void processTracks(aod::Collision const&, soa::Filtered<soa::Join<aod::Tracks, aod::TrackSelection>> const& tracks)
   {

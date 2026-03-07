@@ -27,11 +27,12 @@
 #include <Framework/Configurable.h>
 #include <Framework/DataTypes.h>
 #include <Framework/InitContext.h>
-#include <Framework/Logger.h>
 #include <Framework/runDataProcessing.h>
 
+#include <fastjet/GhostedAreaSpec.hh>
 #include <fastjet/PseudoJet.hh>
 
+#include <cstdint>
 #include <string>
 #include <vector>
 

@@ -14,9 +14,10 @@
 ///
 /// \author Nicolas Strangmann (nicolas.strangmann@cern.ch) - Goethe University Frankfurt, Stefanie Mrozinski (stefanie.mrozinski@cern.ch) - Goethe University Frankfurt
 
+#include "EventSelectionParams.h"
+
 #include "Common/CCDB/ctpRateFetcher.h"
 #include "Common/Core/MetadataHelper.h"
-#include "Common/DataModel/Centrality.h"
 #include "Common/DataModel/EventSelection.h"
 
 #include "CCDB/BasicCCDBManager.h"
@@ -26,10 +27,23 @@
 #include "Framework/AnalysisDataModel.h"
 #include "Framework/AnalysisTask.h"
 #include "Framework/runDataProcessing.h"
+#include <CommonConstants/LHCConstants.h>
+#include <Framework/AnalysisHelpers.h>
+#include <Framework/Configurable.h>
+#include <Framework/HistogramRegistry.h>
+#include <Framework/HistogramSpec.h>
+#include <Framework/InitContext.h>
+#include <Framework/OutputObjHeader.h>
 
-#include <limits>
+#include <TH2.h>
+#include <TString.h>
+
+#include <bitset>
+#include <cstdint>
+#include <cstdlib>
 #include <map>
 #include <string>
+#include <string_view>
 #include <vector>
 
 using namespace o2;

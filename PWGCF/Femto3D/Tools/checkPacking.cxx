@@ -17,9 +17,15 @@
 ///
 
 #include "PWGCF/Femto3D/DataModel/singletrackselector.h"
-#include "TH1F.h"
+
 #include "TCanvas.h"
 #include "TRandom.h"
+#include <TH1.h>
+#include <TString.h>
+
+#include <fairlogger/Logger.h>
+
+#include <vector>
 
 using namespace o2;
 

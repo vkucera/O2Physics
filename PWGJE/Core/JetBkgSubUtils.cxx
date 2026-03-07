@@ -15,8 +15,6 @@
 
 #include "PWGJE/Core/JetBkgSubUtils.h"
 
-#include "Common/Core/RecoDecay.h"
-
 #include <TMath.h>
 
 #include <fastjet/AreaDefinition.hh>
@@ -28,6 +26,8 @@
 #include <fastjet/contrib/ConstituentSubtractor.hh>
 #include <fastjet/tools/Subtractor.hh>
 
+#include <algorithm>
+#include <cstdlib>
 #include <tuple>
 #include <vector>
 

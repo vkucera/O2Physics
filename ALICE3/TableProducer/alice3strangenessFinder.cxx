@@ -36,13 +36,25 @@
 #include "Framework/AnalysisTask.h"
 #include "Framework/runDataProcessing.h"
 #include "ReconstructionDataFormats/Track.h"
+#include <CommonConstants/PhysicsConstants.h>
+#include <DetectorsBase/Propagator.h>
 #include <Framework/AnalysisHelpers.h>
 #include <Framework/Configurable.h>
 #include <Framework/HistogramRegistry.h>
+#include <Framework/HistogramSpec.h>
+#include <Framework/InitContext.h>
 #include <Framework/O2DatabasePDGPlugin.h>
+#include <Framework/OutputObjHeader.h>
+#include <ReconstructionDataFormats/TrackParametrization.h>
 
+#include <TH1.h>
 #include <TLorentzVector.h>
+#include <TPDGCode.h>
 
+#include <sys/types.h>
+
+#include <array>
+#include <cmath>
 #include <cstdlib>
 #include <vector>
 

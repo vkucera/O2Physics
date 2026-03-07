@@ -18,6 +18,10 @@
 /// \since  May 2025
 //
 
+#include "RCTSelectionFlags.h"
+#include "SGCutParHolder.h"
+#include "UDHelpers.h"
+
 #include "PWGUD/Core/SGSelector.h"
 #include "PWGUD/Core/UPCHelpers.h"
 #include "PWGUD/DataModel/UDTables.h"
@@ -25,24 +29,35 @@
 #include "Common/CCDB/EventSelectionParams.h"
 #include "Common/CCDB/ctpRateFetcher.h"
 #include "Common/DataModel/EventSelection.h"
+#include "Common/DataModel/PIDResponseTOF.h"
+#include "Common/DataModel/PIDResponseTPC.h"
+#include "Common/DataModel/TrackSelectionTables.h"
 
 #include "CCDB/BasicCCDBManager.h"
-#include "CommonConstants/LHCConstants.h"
 #include "DataFormatsFIT/Triggers.h"
-#include "DataFormatsParameters/AggregatedRunInfo.h"
-#include "DataFormatsParameters/GRPLHCIFData.h"
-#include "DataFormatsParameters/GRPMagField.h"
-#include "DataFormatsParameters/GRPObject.h"
 #include "Framework/ASoA.h"
-#include "Framework/ASoAHelpers.h"
 #include "Framework/AnalysisDataModel.h"
 #include "Framework/AnalysisTask.h"
 #include "Framework/HistogramRegistry.h"
 #include "Framework/runDataProcessing.h"
 #include "ReconstructionDataFormats/Vertex.h"
+#include <CommonDataFormat/TimeStamp.h>
+#include <Framework/AnalysisHelpers.h>
+#include <Framework/Configurable.h>
+#include <Framework/HistogramSpec.h>
+#include <Framework/InitContext.h>
 
+#include <TH1.h>
+
+#include <sys/types.h>
+
+#include <Rtypes.h>
+
+#include <algorithm>
 #include <cmath>
+#include <cstdint>
 #include <map>
+#include <memory>
 #include <string>
 #include <vector>
 

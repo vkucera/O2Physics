@@ -18,9 +18,6 @@
 #include "PWGJE/DataModel/Jet.h"
 #include "PWGJE/DataModel/JetReducedData.h"
 
-#include "Common/CCDB/EventSelectionParams.h"
-#include "Common/DataModel/EventSelection.h"
-
 #include "CommonConstants/MathConstants.h"
 #include "Framework/ASoA.h"
 #include "Framework/AnalysisDataModel.h"

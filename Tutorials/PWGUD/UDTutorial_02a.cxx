@@ -18,9 +18,21 @@
 
 #include "Framework/AnalysisTask.h"
 #include "Framework/runDataProcessing.h"
+#include <Framework/ASoA.h>
+#include <Framework/AnalysisHelpers.h>
+#include <Framework/Configurable.h>
+#include <Framework/HistogramRegistry.h>
+#include <Framework/HistogramSpec.h>
+#include <Framework/InitContext.h>
 
 #include "TDatabasePDG.h"
 #include "TLorentzVector.h"
+#include <TH2.h>
+#include <TParticlePDG.h>
+
+#include <Rtypes.h>
+
+#include <cmath>
 
 using namespace o2;
 using namespace o2::framework;

@@ -17,32 +17,28 @@
 
 #include "Tools/KFparticle/qaKFParticleLc.h"
 
-#include "TableHelper.h"
-
 #include <CCDB/BasicCCDBManager.h>
 
-#include <TDatabasePDG.h>
 #include <TPDGCode.h>
 
+#include <cmath>
+#include <cstdint>
 #include <string>
 
 /// includes O2
 #include "DataFormatsParameters/GRPMagField.h"
 #include "DataFormatsParameters/GRPObject.h"
-#include "DetectorsBase/GeometryManager.h"
 #include "DetectorsBase/Propagator.h"
 #include "Framework/AnalysisDataModel.h"
 #include "Framework/AnalysisTask.h"
-#include "Framework/HistogramRegistry.h"
 #include "Framework/runDataProcessing.h"
-#include "ReconstructionDataFormats/DCA.h"
-#include "ReconstructionDataFormats/Track.h"
+#include <DetectorsBase/MatLayerCylSet.h>
+#include <Framework/ASoAHelpers.h>
+#include <Framework/AnalysisHelpers.h>
+#include <Framework/Configurable.h>
+#include <Framework/InitContext.h>
 
 /// includes O2Physics
-#include "Common/Core/RecoDecay.h"
-#include "Common/Core/TrackSelection.h"
-#include "Common/Core/TrackSelectionDefaults.h"
-#include "Common/Core/trackUtilities.h"
 #include "Common/DataModel/EventSelection.h"
 #include "Common/DataModel/PIDResponseTOF.h"
 #include "Common/DataModel/PIDResponseTPC.h"
@@ -53,8 +49,6 @@
 #include "KFPTrack.h"
 #include "KFPVertex.h"
 #include "KFParticle.h"
-#include "KFParticleBase.h"
-#include "KFVertex.h"
 
 #ifndef HomogeneousField
 

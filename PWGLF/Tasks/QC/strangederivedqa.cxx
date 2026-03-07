@@ -16,25 +16,20 @@
 
 #include "PWGLF/DataModel/LFStrangenessTables.h"
 
-#include "Common/Core/trackUtilities.h"
-
-#include "CommonConstants/PhysicsConstants.h"
-#include "Framework/ASoAHelpers.h"
 #include "Framework/AnalysisDataModel.h"
 #include "Framework/AnalysisTask.h"
 #include "Framework/runDataProcessing.h"
-#include "ReconstructionDataFormats/Track.h"
+#include <Framework/Configurable.h>
+#include <Framework/HistogramRegistry.h>
+#include <Framework/HistogramSpec.h>
+#include <Framework/InitContext.h>
+#include <Framework/OutputObjHeader.h>
 
-#include <Math/Vector4D.h>
-#include <TDatabasePDG.h>
-#include <TFile.h>
-#include <TH2F.h>
-#include <TLorentzVector.h>
-#include <TPDGCode.h>
-#include <TProfile.h>
+#include <TH1.h>
+#include <TH2.h>
 
-#include <array>
 #include <cmath>
+#include <cstdint>
 #include <cstdlib>
 
 using namespace o2;

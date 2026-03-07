@@ -22,10 +22,19 @@
 #include "Framework/AnalysisTask.h"
 #include "Framework/HistogramRegistry.h"
 #include "Framework/runDataProcessing.h"
-#include "ReconstructionDataFormats/PID.h"
+#include <Framework/ASoA.h>
+#include <Framework/AnalysisDataModel.h>
+#include <Framework/AnalysisHelpers.h>
+#include <Framework/HistogramSpec.h>
+#include <Framework/InitContext.h>
+#include <Framework/OutputObjHeader.h>
+
+#include <TH1.h>
+#include <TString.h>
+
+#include <cmath>
 
 using namespace o2;
-using namespace o2::track;
 using namespace o2::framework;
 using namespace o2::framework::expressions;
 

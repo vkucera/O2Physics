@@ -28,26 +28,37 @@
 
 #include "CCDB/BasicCCDBManager.h"
 #include "DataFormatsParameters/GRPMagField.h"
-#include "DataFormatsParameters/GRPObject.h"
 #include "DetectorsBase/GeometryManager.h"
 #include "DetectorsBase/Propagator.h"
-#include "Field/MagneticField.h"
 #include "Framework/ASoAHelpers.h"
 #include "Framework/AnalysisDataModel.h"
 #include "Framework/AnalysisHelpers.h"
 #include "Framework/AnalysisTask.h"
 #include "Framework/runDataProcessing.h"
+#include <CCDB/CcdbApi.h>
+#include <DetectorsBase/MatLayerCylSet.h>
+#include <Framework/BinningPolicy.h>
+#include <Framework/Configurable.h>
+#include <Framework/InitContext.h>
 
-#include "TGeoGlobalMagField.h"
-#include <TH1F.h>
-#include <TH3F.h>
 #include <THashList.h>
 #include <TList.h>
+#include <TMath.h>
+#include <TMathBase.h>
 #include <TObjString.h>
 #include <TString.h>
 
+#include <RtypesCore.h>
+
 #include <algorithm>
+#include <chrono>
+#include <cmath>
+#include <cstddef>
+#include <cstdint>
+#include <cstdlib>
+#include <cstring>
 #include <iostream>
+#include <iterator>
 #include <map>
 #include <memory>
 #include <string>

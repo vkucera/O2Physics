@@ -23,7 +23,19 @@
 #include "Framework/AnalysisTask.h"
 #include "Framework/HistogramRegistry.h"
 #include "Framework/runDataProcessing.h"
-#include "ReconstructionDataFormats/Track.h"
+#include <Framework/ASoA.h>
+#include <Framework/AnalysisDataModel.h>
+#include <Framework/Configurable.h>
+#include <Framework/HistogramSpec.h>
+#include <Framework/InitContext.h>
+#include <Framework/OutputObjHeader.h>
+
+#include <TH1.h>
+#include <TString.h>
+
+#include <cstddef>
+#include <cstdlib>
+#include <string_view>
 
 using namespace o2;
 using namespace o2::framework;

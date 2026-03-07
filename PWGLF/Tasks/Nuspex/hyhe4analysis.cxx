@@ -20,33 +20,20 @@
 // --- david.dobrigkeit.chinellato@cern.ch
 
 #include "PWGLF/DataModel/LFHyperhelium4Tables.h"
-#include "PWGLF/DataModel/LFParticleIdentification.h"
-#include "PWGLF/DataModel/LFStrangenessTables.h"
 
-#include "Common/Core/RecoDecay.h"
-#include "Common/Core/TrackSelection.h"
-#include "Common/Core/trackUtilities.h"
-#include "Common/DataModel/TrackSelectionTables.h"
+#include "Common/DataModel/PIDResponseTPC.h"
 
-#include "CCDB/BasicCCDBManager.h"
-#include "DCAFitter/DCAFitterN.h"
-#include "DataFormatsParameters/GRPMagField.h"
-#include "DataFormatsParameters/GRPObject.h"
-#include "DetectorsBase/GeometryManager.h"
-#include "DetectorsBase/Propagator.h"
-#include "Framework/ASoAHelpers.h"
 #include "Framework/AnalysisDataModel.h"
 #include "Framework/AnalysisTask.h"
-#include "Framework/RunningWorkflowInfo.h"
 #include "Framework/runDataProcessing.h"
-#include "ReconstructionDataFormats/Track.h"
+#include <Framework/Configurable.h>
+#include <Framework/HistogramRegistry.h>
+#include <Framework/HistogramSpec.h>
+#include <Framework/InitContext.h>
+#include <Framework/OutputObjHeader.h>
 
-#include <array>
 #include <cmath>
 #include <cstdlib>
-#include <iterator>
-#include <map>
-#include <utility>
 
 using namespace std;
 using namespace o2;

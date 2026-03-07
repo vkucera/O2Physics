@@ -29,9 +29,7 @@
 #include <Framework/InitContext.h>
 #include <Framework/runDataProcessing.h>
 
-#include <algorithm>
 #include <cstdlib>
-#include <iterator>
 #include <string>
 #include <vector>
 

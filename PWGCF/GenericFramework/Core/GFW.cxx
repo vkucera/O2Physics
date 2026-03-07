@@ -11,6 +11,8 @@
 
 #include "GFW.h"
 
+#include "GFWPowerArray.h"
+
 #include <cstdio>
 #include <string>
 #include <utility>

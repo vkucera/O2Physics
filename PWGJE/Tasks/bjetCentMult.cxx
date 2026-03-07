@@ -19,9 +19,8 @@
 #include "PWGJE/Core/JetTaggingUtilities.h"
 #include "PWGJE/DataModel/Jet.h"
 #include "PWGJE/DataModel/JetReducedData.h"
+#include "PWGJE/DataModel/JetSubtraction.h"
 #include "PWGJE/DataModel/JetTagging.h"
-
-#include "Common/DataModel/Multiplicity.h"
 
 #include "Framework/ASoA.h"
 #include "Framework/AnalysisDataModel.h"
@@ -35,9 +34,8 @@
 #include <Framework/OutputObjHeader.h>
 #include <Framework/runDataProcessing.h>
 
-#include <algorithm>
-#include <array>
 #include <cmath>
+#include <cstddef>
 #include <functional>
 #include <string>
 #include <vector>

@@ -9,6 +9,11 @@
 // granted to it by virtue of its status as an Intergovernmental Organization
 // or submit itself to any jurisdiction.
 
+#include "EventSelectionFilterAndAnalysis.h"
+#include "PIDSelectionFilterAndAnalysis.h"
+#include "SelectionFilterAndAnalysis.h"
+#include "TrackSelectionFilterAndAnalysis.h"
+
 #include "PWGCF/Core/AnalysisConfigurableCuts.h"
 #include "PWGCF/Core/PairCuts.h"
 #include "PWGCF/TwoParticleCorrelations/Core/FilterAndAnalysisFramework.h"
@@ -16,21 +21,35 @@
 
 #include "Framework/AnalysisTask.h"
 #include "Framework/runDataProcessing.h"
+#include <CCDB/BasicCCDBManager.h>
+#include <CommonConstants/MathConstants.h>
 #include <DataFormatsParameters/GRPObject.h>
+#include <Framework/ASoA.h>
+#include <Framework/AnalysisDataModel.h>
+#include <Framework/AnalysisHelpers.h>
+#include <Framework/Array2D.h>
+#include <Framework/Configurable.h>
+#include <Framework/Expressions.h>
+#include <Framework/InitContext.h>
+#include <Framework/OutputObjHeader.h>
 
-#include <TDatabasePDG.h>
-#include <TDirectory.h>
-#include <TFolder.h>
 #include <TH1.h>
 #include <TH2.h>
 #include <TH3.h>
 #include <TList.h>
+#include <TObjArray.h>
 #include <TParameter.h>
-#include <TProfile3D.h>
-#include <TROOT.h>
+
+#include <sys/types.h>
+
+#include <RtypesCore.h>
 
 #include <cmath>
+#include <cstdint>
 #include <cstdio>
+#include <ctime>
+#include <iomanip>
+#include <sstream>
 #include <string>
 #include <vector>
 

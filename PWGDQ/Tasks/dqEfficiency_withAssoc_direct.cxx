@@ -30,33 +30,44 @@
 #include "Common/DataModel/EventSelection.h"
 #include "Common/DataModel/McCollisionExtra.h"
 #include "Common/DataModel/Multiplicity.h"
+#include "Common/DataModel/PIDResponseTOF.h"
+#include "Common/DataModel/PIDResponseTPC.h"
 #include "Common/DataModel/TrackSelectionTables.h"
 #include <Common/Core/trackUtilities.h>
 
 #include "CCDB/BasicCCDBManager.h"
 #include "DataFormatsParameters/GRPMagField.h"
-#include "DataFormatsParameters/GRPObject.h"
 #include "DetectorsBase/GeometryManager.h"
 #include "DetectorsBase/Propagator.h"
-#include "Field/MagneticField.h"
 #include "Framework/ASoAHelpers.h"
 #include "Framework/AnalysisDataModel.h"
 #include "Framework/AnalysisHelpers.h"
 #include "Framework/AnalysisTask.h"
 #include "Framework/runDataProcessing.h"
+#include <CCDB/CcdbApi.h>
+#include <CommonUtils/ConfigurableParam.h>
+#include <DetectorsBase/MatLayerCylSet.h>
 #include <DetectorsVertexing/PVertexer.h>
+#include <Framework/BinningPolicy.h>
+#include <Framework/Configurable.h>
+#include <Framework/InitContext.h>
 #include <ReconstructionDataFormats/Track.h>
 
-#include "TGeoGlobalMagField.h"
-#include <TH1F.h>
-#include <TH3F.h>
 #include <THashList.h>
 #include <TList.h>
+#include <TMathBase.h>
 #include <TObjString.h>
 #include <TString.h>
 
-#include <algorithm>
+#include <RtypesCore.h>
+
+#include <chrono>
+#include <cstddef>
+#include <cstdint>
+#include <cstdlib>
+#include <cstring>
 #include <iostream>
+#include <iterator>
 #include <map>
 #include <memory>
 #include <string>

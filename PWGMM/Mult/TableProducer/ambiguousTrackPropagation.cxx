@@ -34,11 +34,23 @@
 #include "Framework/AnalysisTask.h"
 #include "Framework/runDataProcessing.h"
 #include "ReconstructionDataFormats/TrackFwd.h"
+#include <Framework/AnalysisHelpers.h>
+#include <Framework/Configurable.h>
+#include <Framework/DataTypes.h>
+#include <Framework/HistogramRegistry.h>
+#include <Framework/HistogramSpec.h>
+#include <Framework/InitContext.h>
+#include <ReconstructionDataFormats/TrackParametrization.h>
 
-#include "Math/MatrixFunctions.h"
-#include "Math/SMatrix.h"
 #include "TGeoGlobalMagField.h"
+#include <TH1.h>
 
+#include <sys/types.h>
+
+#include <array>
+#include <cmath>
+#include <cstdint>
+#include <cstdlib>
 #include <string>
 #include <vector>
 

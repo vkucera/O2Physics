@@ -28,10 +28,19 @@
 #include "GlobalTracking/MatchGlobalFwd.h"
 #include "MCHTracking/TrackExtrap.h"
 #include "ReconstructionDataFormats/TrackFwd.h"
+#include <CCDB/CcdbApi.h>
+#include <DetectorsBase/GeometryManager.h>
+#include <Framework/AnalysisHelpers.h>
+#include <Framework/InitContext.h>
+#include <ReconstructionDataFormats/GlobalFwdTrack.h>
 
 #include "Math/SMatrix.h"
 #include "TGeoGlobalMagField.h"
+#include <Math/MatrixRepresentationsStatic.h>
 
+#include <array>
+#include <cmath>
+#include <cstdint>
 #include <map>
 #include <string>
 #include <vector>

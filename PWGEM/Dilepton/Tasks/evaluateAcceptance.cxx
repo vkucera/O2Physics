@@ -16,9 +16,6 @@
 #include "PWGEM/Dilepton/Utils/MCUtilities.h"
 #include "PWGEM/Dilepton/Utils/PairUtilities.h"
 
-#include "Common/Core/RecoDecay.h"
-#include "Common/Core/TableHelper.h"
-
 // #include "Common/Core/trackUtilities.h"
 // #include "Common/DataModel/Centrality.h"
 // #include "Common/DataModel/CollisionAssociationTables.h"
@@ -40,15 +37,27 @@
 #include "Framework/AnalysisDataModel.h"
 #include "Framework/AnalysisTask.h"
 #include "Framework/runDataProcessing.h"
+#include <Framework/ASoAHelpers.h>
+#include <Framework/AnalysisHelpers.h>
+#include <Framework/Configurable.h>
+#include <Framework/HistogramRegistry.h>
+#include <Framework/HistogramSpec.h>
+#include <Framework/InitContext.h>
+#include <MathUtils/Utils.h>
 
-#include "Math/Vector4D.h"
+#include <Math/Vector4D.h> // IWYU pragma: keep (do not replace with Math/Vector4Dfwd.h)
+#include <Math/Vector4Dfwd.h>
+#include <TH1.h>
 
 #include <algorithm>
 #include <array>
-#include <iostream>
+#include <cmath>
 #include <string>
+#include <string_view>
 #include <utility>
 #include <vector>
+
+#include <math.h>
 
 using namespace o2;
 using namespace o2::soa;

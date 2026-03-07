@@ -13,6 +13,8 @@
 //
 /// \author Nima Zardoshti <nima.zardoshti@cern.ch>
 
+#include "UDHelpers.h"
+
 #include "PWGDQ/DataModel/ReducedInfoTables.h"
 #include "PWGHF/DataModel/DerivedTables.h"
 #include "PWGHF/Utils/utilsBfieldCCDB.h"
@@ -59,6 +61,7 @@
 
 #include <algorithm>
 #include <cmath>
+#include <cstddef>
 #include <cstdint>
 #include <iterator>
 #include <map>

@@ -23,12 +23,10 @@
 #ifndef PWGJE_TASKS_JETFORMATIONTIMERECLUSTERING_H_
 #define PWGJE_TASKS_JETFORMATIONTIMERECLUSTERING_H_
 
-#include "PWGDQ/DataModel/ReducedInfoTables.h"
-#include "PWGHF/DataModel/DerivedTables.h"
 #include "PWGJE/DataModel/Jet.h" // IWYU pragma: keep
 #include "PWGJE/DataModel/JetReducedData.h"
-#include "PWGJE/DataModel/JetReducedDataDQ.h"
 #include "PWGJE/DataModel/JetSubstructure.h" // new
+#include "PWGJE/DataModel/JetSubtraction.h"
 
 #include <Framework/ASoA.h>
 
@@ -77,8 +75,6 @@ DECLARE_SOA_TABLE(CEWSJetTFSSs, "AOD", "CEWSJETTFSS", jetTFsubstructure::JetPt, 
 
 #include "PWGJE/Core/FastJetUtilities.h"
 #include "PWGJE/Core/JetFinder.h"
-#include "PWGJE/Core/JetSubstructureUtilities.h"
-#include "PWGJE/Core/JetUtilities.h"
 
 #include "Framework/ASoA.h"
 #include "Framework/AnalysisTask.h"

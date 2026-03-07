@@ -10,14 +10,25 @@
 // or submit itself to any jurisdiction.
 
 // O2 includes
-#include "Framework/AnalysisTask.h"
-#include "Framework/AnalysisDataModel.h"
-#include "Framework/ASoAHelpers.h"
 #include "Common/DataModel/TrackSelectionTables.h"
 
+#include "Framework/AnalysisDataModel.h"
+#include "Framework/AnalysisTask.h"
+#include <Framework/AnalysisHelpers.h>
+#include <Framework/Variant.h>
+
 // ROOT includes
-#include <TH1F.h>
-#include "TPDGCode.h"
+#include <TH1.h>
+#include <TH2.h>
+#include <TString.h>
+
+#include <cmath>
+#include <cstdint>
+#include <cstdlib>
+#include <utility>
+#include <vector>
+
+#include <math.h>
 
 using namespace o2;
 using namespace o2::framework;
@@ -103,7 +114,7 @@ struct ReconstructedTask {
   OutputObj<TH2F> pDiff{TH2F("pDiff", "pDiff;#it{p}_{MC} #it{p}_{Rec} (GeV/#it{c})", 500, -2, 2, PDGBINNING)};
 
   Filter trackAcceptance = (nabs(aod::track::eta) < 0.8f);
-  Filter trackCuts = ((requireGlobalTrackInFilter()) || (aod::track::isGlobalTrackSDD == (uint8_t) true));
+  Filter trackCuts = ((requireGlobalTrackInFilter()) || (aod::track::isGlobalTrackSDD == (uint8_t)true));
 
   void process(soa::Join<aod::Collisions, aod::McCollisionLabels>::iterator const& collision,
                soa::Filtered<soa::Join<aod::Tracks, aod::TracksExtra, aod::TracksDCA, aod::McTrackLabels, aod::TrackSelection>> const& tracks,

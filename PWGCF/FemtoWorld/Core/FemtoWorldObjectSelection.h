@@ -17,9 +17,10 @@
 #define FEMTOWORLDOBJECTSELECTION_H_
 
 #include "PWGCF/FemtoWorld/Core/FemtoWorldSelection.h"
+#include "PWGCF/FemtoWorld/DataModel/FemtoWorldDerived.h"
 
-#include "ReconstructionDataFormats/PID.h"
 #include "Framework/HistogramRegistry.h"
+#include "ReconstructionDataFormats/PID.h"
 
 using namespace o2::framework;
 

@@ -39,7 +39,6 @@
 
 #include <TH1.h>
 
-#include <algorithm>
 #include <array>
 #include <cmath>
 #include <cstddef>
@@ -47,7 +46,6 @@
 #include <cstdlib>
 #include <ctime>
 #include <string>
-#include <unordered_map>
 #include <vector>
 
 using namespace o2;

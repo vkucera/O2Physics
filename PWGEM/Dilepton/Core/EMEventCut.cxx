@@ -17,6 +17,8 @@
 
 #include "Framework/Logger.h"
 
+#include <Rtypes.h>
+
 ClassImp(EMEventCut);
 
 void EMEventCut::SetRequireSel8(bool flag)

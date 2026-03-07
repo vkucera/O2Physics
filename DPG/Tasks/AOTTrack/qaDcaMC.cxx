@@ -16,22 +16,30 @@
 ///
 
 // O2 includes
+#include "Common/DataModel/EventSelection.h"
+#include "Common/DataModel/TrackSelectionTables.h"
+
 #include "Framework/AnalysisTask.h"
-#include "Framework/runDataProcessing.h"
 #include "Framework/HistogramRegistry.h"
 #include "Framework/StaticFor.h"
-#include "ReconstructionDataFormats/DCA.h"
-#include "ReconstructionDataFormats/Track.h"
-#include "Common/Core/TrackSelection.h"
-#include "Common/DataModel/EventSelection.h"
-#include "Common/Core/TrackSelectionDefaults.h"
-#include "Common/DataModel/TrackSelectionTables.h"
-#include "PWGLF/DataModel/LFParticleIdentification.h"
+#include "Framework/runDataProcessing.h"
+#include <Framework/ASoA.h>
+#include <Framework/AnalysisDataModel.h>
+#include <Framework/Configurable.h>
+#include <Framework/HistogramSpec.h>
+#include <Framework/InitContext.h>
+#include <Framework/OutputObjHeader.h>
+#include <ReconstructionDataFormats/PID.h>
 
 // ROOT includes
-#include "TPDGCode.h"
 #include "TEfficiency.h"
-#include "THashList.h"
+#include "TPDGCode.h"
+#include <TH3.h>
+#include <TString.h>
+
+#include <array>
+#include <cstdlib>
+#include <memory>
 
 using namespace o2::framework;
 

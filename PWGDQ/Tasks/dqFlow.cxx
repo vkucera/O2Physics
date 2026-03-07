@@ -18,7 +18,6 @@
 
 #include "PWGCF/GenericFramework/Core/FlowContainer.h"
 #include "PWGCF/GenericFramework/Core/GFW.h"
-#include "PWGCF/GenericFramework/Core/GFWConfig.h"
 #include "PWGCF/GenericFramework/Core/GFWCumulant.h"
 #include "PWGCF/GenericFramework/Core/GFWWeights.h"
 #include "PWGDQ/Core/AnalysisCompositeCut.h"
@@ -26,29 +25,37 @@
 #include "PWGDQ/Core/CutsLibrary.h"
 #include "PWGDQ/Core/HistogramManager.h"
 #include "PWGDQ/Core/HistogramsLibrary.h"
-#include "PWGDQ/Core/MixingHandler.h"
 #include "PWGDQ/Core/MixingLibrary.h"
 #include "PWGDQ/Core/VarManager.h"
 #include "PWGDQ/DataModel/ReducedInfoTables.h"
 
-#include "Common/Core/TrackSelection.h"
 #include "Common/DataModel/Centrality.h"
 #include "Common/DataModel/EventSelection.h"
 #include "Common/DataModel/Qvectors.h"
 #include "Common/DataModel/TrackSelectionTables.h"
 
 #include "CCDB/BasicCCDBManager.h"
-#include "Framework/ASoAHelpers.h"
 #include "Framework/AnalysisDataModel.h"
 #include "Framework/AnalysisTask.h"
 #include "Framework/runDataProcessing.h"
+#include <Framework/AnalysisHelpers.h>
+#include <Framework/Configurable.h>
+#include <Framework/HistogramSpec.h>
+#include <Framework/InitContext.h>
 
-#include <TH1F.h>
+#include <TAxis.h>
+#include <TH1.h>
 #include <THashList.h>
+#include <TMathBase.h>
+#include <TNamed.h>
 #include <TRandom3.h>
 #include <TString.h>
 
-#include <iostream>
+#include <RtypesCore.h>
+
+#include <chrono>
+#include <cmath>
+#include <cstdint>
 #include <memory>
 #include <string>
 #include <vector>
@@ -61,7 +68,6 @@ using namespace o2;
 using namespace o2::framework;
 using namespace o2::framework::expressions;
 using namespace o2::aod;
-using namespace o2::analysis;
 
 // Declarations of various short names
 using MyBcs = soa::Join<aod::BCsWithTimestamps, aod::Run3MatchedToBCSparse>;

@@ -15,6 +15,15 @@
 #include "Framework/AnalysisDataModel.h"
 #include "Framework/AnalysisTask.h"
 #include "Framework/runDataProcessing.h"
+#include <CommonConstants/LHCConstants.h>
+#include <Framework/AnalysisHelpers.h>
+
+#include <TString.h>
+
+#include <cstdint>
+#include <map>
+#include <string>
+#include <utility>
 
 using namespace o2;
 using namespace o2::framework;

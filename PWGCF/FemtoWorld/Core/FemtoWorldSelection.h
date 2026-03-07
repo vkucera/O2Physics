@@ -16,6 +16,8 @@
 #ifndef FEMTOWORLDSELECTION_H_
 #define FEMTOWORLDSELECTION_H_
 
+#include <cstdlib>
+
 namespace o2::analysis::femtoWorld
 {
 

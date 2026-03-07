@@ -19,28 +19,37 @@
 #include "Common/Core/trackUtilities.h"
 #include "Common/DataModel/Centrality.h"
 #include "Common/DataModel/EventSelection.h"
-#include "Common/DataModel/Multiplicity.h"
 #include "Common/DataModel/PIDResponseTOF.h"
 #include "Common/DataModel/TrackSelectionTables.h"
-#include "Common/TableProducer/PID/pidTOFBase.h"
 
 #include "CCDB/BasicCCDBManager.h"
 #include "DCAFitter/DCAFitterN.h"
 #include "DataFormatsParameters/GRPMagField.h"
 #include "DataFormatsParameters/GRPObject.h"
-#include "DetectorsBase/GeometryManager.h"
 #include "DetectorsBase/Propagator.h"
-#include "Framework/ASoAHelpers.h"
 #include "Framework/AnalysisDataModel.h"
 #include "Framework/AnalysisTask.h"
 #include "Framework/runDataProcessing.h"
 #include "MathUtils/BetheBlochAleph.h"
-#include "PID/PIDTOF.h"
-#include "PID/TPCPIDResponse.h"
-#include "ReconstructionDataFormats/Track.h"
+#include <CommonConstants/PhysicsConstants.h>
+#include <Framework/AnalysisHelpers.h>
+#include <Framework/Array2D.h>
+#include <Framework/Configurable.h>
+#include <Framework/HistogramRegistry.h>
+#include <Framework/HistogramSpec.h>
+#include <Framework/InitContext.h>
+#include <Framework/OutputObjHeader.h>
+
+#include <TH1.h>
+#include <TH2.h>
+#include <TString.h>
 
 #include <algorithm>
 #include <array>
+#include <cmath>
+#include <cstddef>
+#include <cstdint>
+#include <cstdlib>
 #include <memory>
 #include <string>
 #include <vector>
@@ -883,89 +892,89 @@ struct lnnRecoTask {
                       lnnCand.gDecVtx[0], lnnCand.gDecVtx[1], lnnCand.gDecVtx[2], lnnCand.isReco, lnnCand.isSignal, lnnCand.recoMcColl, lnnCand.survEvSelection);
       }
 
-    // now we fill only the signal candidates that were not reconstructed
-    for (const auto& mcPart : particlesMC) {
+      // now we fill only the signal candidates that were not reconstructed
+      for (const auto& mcPart : particlesMC) {
 
-      if (std::abs(mcPart.pdgCode()) != lnnPdg) {
-        continue;
-      }
-      float cent = collisionFT0Ccent[mcPart.mcCollisionId()];
-      constexpr std::size_t kVtxDim = 3;
-      std::array<float, kVtxDim> secVtx;
-      std::array<float, kVtxDim> primVtx = {mcPart.vx(), mcPart.vy(), mcPart.vz()};
-
-      constexpr std::size_t kArrayDim = 3;
-      std::array<float, kArrayDim> momMother = mcPart.pVector();
-
-      std::array<float, kArrayDim> mom3H;
-      std::array<float, kArrayDim> momPi;
-      bool is3HFound = false;
-
-      for (const auto& mcDaught : mcPart.daughters_as<aod::McParticles>()) {
-        if (std::abs(mcDaught.pdgCode()) == h3DauPdg) {
-          secVtx = {mcDaught.vx(), mcDaught.vy(), mcDaught.vz()};
-          mom3H = mcDaught.pVector();
-          is3HFound = true;
-          break;
+        if (std::abs(mcPart.pdgCode()) != lnnPdg) {
+          continue;
         }
-        if (std::abs(mcDaught.pdgCode()) == piDauPdg) {
-          momPi = mcDaught.pVector();
+        float cent = collisionFT0Ccent[mcPart.mcCollisionId()];
+        constexpr std::size_t kVtxDim = 3;
+        std::array<float, kVtxDim> secVtx;
+        std::array<float, kVtxDim> primVtx = {mcPart.vx(), mcPart.vy(), mcPart.vz()};
+
+        constexpr std::size_t kArrayDim = 3;
+        std::array<float, kArrayDim> momMother = mcPart.pVector();
+
+        std::array<float, kArrayDim> mom3H;
+        std::array<float, kArrayDim> momPi;
+        bool is3HFound = false;
+
+        for (const auto& mcDaught : mcPart.daughters_as<aod::McParticles>()) {
+          if (std::abs(mcDaught.pdgCode()) == h3DauPdg) {
+            secVtx = {mcDaught.vx(), mcDaught.vy(), mcDaught.vz()};
+            mom3H = mcDaught.pVector();
+            is3HFound = true;
+            break;
+          }
+          if (std::abs(mcDaught.pdgCode()) == piDauPdg) {
+            momPi = mcDaught.pVector();
+          }
         }
-      }
 
-      if (mcPart.pdgCode() > 0) {
-        hIsMatterGen->Fill(0.);
-      } else {
-        hIsMatterGen->Fill(1.);
-      }
-      if (!is3HFound) {
-        hDecayChannel->Fill(1.);
-        continue;
-      }
-      hDecayChannel->Fill(0.);
-      if (std::find(filledMothers.begin(), filledMothers.end(), mcPart.globalIndex()) != std::end(filledMothers)) {
-        continue;
-      }
+        if (mcPart.pdgCode() > 0) {
+          hIsMatterGen->Fill(0.);
+        } else {
+          hIsMatterGen->Fill(1.);
+        }
+        if (!is3HFound) {
+          hDecayChannel->Fill(1.);
+          continue;
+        }
+        hDecayChannel->Fill(0.);
+        if (std::find(filledMothers.begin(), filledMothers.end(), mcPart.globalIndex()) != std::end(filledMothers)) {
+          continue;
+        }
 
-      LnnCandidate lnnCand;
-      lnnCand.pdgCode = mcPart.pdgCode();
-      lnnCand.survEvSelection = isGoodCollision[mcPart.mcCollisionId()];
-      int chargeFactor = -1 + 2 * (lnnCand.pdgCode > 0);
-      for (int i = 0; i < 3; i++) {
-        lnnCand.gDecVtx[i] = secVtx[i] - primVtx[i];
-        lnnCand.gMom[i] = momMother[i];
-        lnnCand.gMom3H[i] = mom3H[i];
-        lnnCand.gMomPi[i] = momPi[i];
-      }
+        LnnCandidate lnnCand;
+        lnnCand.pdgCode = mcPart.pdgCode();
+        lnnCand.survEvSelection = isGoodCollision[mcPart.mcCollisionId()];
+        int chargeFactor = -1 + 2 * (lnnCand.pdgCode > 0);
+        for (int i = 0; i < 3; i++) {
+          lnnCand.gDecVtx[i] = secVtx[i] - primVtx[i];
+          lnnCand.gMom[i] = momMother[i];
+          lnnCand.gMom3H[i] = mom3H[i];
+          lnnCand.gMomPi[i] = momPi[i];
+        }
 
-      lnnCand.posTrackID = -1;
-      lnnCand.negTrackID = -1;
-      lnnCand.isSignal = true;
-      if (lnnCand.isSignal) {
-        h2FT0CPtGenColGenCandMC->Fill(cent, chargeFactor * lnnCand.genPt());
-        h2FT0CPtGenColGenTrStrMC->Fill(cent, chargeFactor * lnnCand.genPt3H());
-        h2FT0CPtGenColGenPiStrMC->Fill(cent, chargeFactor * lnnCand.genPtPi());
-      }
+        lnnCand.posTrackID = -1;
+        lnnCand.negTrackID = -1;
+        lnnCand.isSignal = true;
+        if (lnnCand.isSignal) {
+          h2FT0CPtGenColGenCandMC->Fill(cent, chargeFactor * lnnCand.genPt());
+          h2FT0CPtGenColGenTrStrMC->Fill(cent, chargeFactor * lnnCand.genPt3H());
+          h2FT0CPtGenColGenPiStrMC->Fill(cent, chargeFactor * lnnCand.genPtPi());
+        }
 
-      float centFT0C = -1.;
-      if (lnnCand.recoMcColl) {
-        auto recoCollision = collisions.rawIteratorAt(recoCollisionIds[mcPart.mcCollisionId()]);
-        centFT0C = recoCollision.centFT0C();
+        float centFT0C = -1.;
+        if (lnnCand.recoMcColl) {
+          auto recoCollision = collisions.rawIteratorAt(recoCollisionIds[mcPart.mcCollisionId()]);
+          centFT0C = recoCollision.centFT0C();
+        }
+        outputMCTable(-1, centFT0C, -1,
+                      -1, -1, -1,
+                      0,
+                      -1, -1, -1,
+                      -1, -1, -1,
+                      -1, -1, -1,
+                      -1, -1, -1,
+                      -1, -1, -1,
+                      -1, -1, -1, -1,
+                      -1, -1,
+                      -1, -1, -1,
+                      chargeFactor * lnnCand.genPt(), lnnCand.genPhi(), lnnCand.genEta(), lnnCand.genPt3H(),
+                      lnnCand.gDecVtx[0], lnnCand.gDecVtx[1], lnnCand.gDecVtx[2], lnnCand.isReco, lnnCand.isSignal, lnnCand.recoMcColl, lnnCand.survEvSelection);
       }
-      outputMCTable(-1, centFT0C, -1,
-                    -1, -1, -1,
-                    0,
-                    -1, -1, -1,
-                    -1, -1, -1,
-                    -1, -1, -1,
-                    -1, -1, -1,
-                    -1, -1, -1,
-                    -1, -1, -1, -1,
-                    -1, -1,
-                    -1, -1, -1,
-                    chargeFactor * lnnCand.genPt(), lnnCand.genPhi(), lnnCand.genEta(), lnnCand.genPt3H(),
-                    lnnCand.gDecVtx[0], lnnCand.gDecVtx[1], lnnCand.gDecVtx[2], lnnCand.isReco, lnnCand.isSignal, lnnCand.recoMcColl, lnnCand.survEvSelection);
-    }
     }
   }
   PROCESS_SWITCH(lnnRecoTask, processMC, "MC analysis", false);

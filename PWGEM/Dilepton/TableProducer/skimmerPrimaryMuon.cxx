@@ -14,12 +14,11 @@
 
 #include "PWGEM/Dilepton/DataModel/dileptonTables.h"
 
-#include "Common/Core/TableHelper.h"
 #include "Common/Core/fwdtrackUtilities.h"
 #include "Common/DataModel/CollisionAssociationTables.h"
+#include "Common/DataModel/EventSelection.h"
 
 #include "CCDB/BasicCCDBManager.h"
-#include "CommonConstants/PhysicsConstants.h"
 #include "DataFormatsParameters/GRPMagField.h"
 #include "DetectorsBase/Propagator.h"
 #include "Field/MagneticField.h"
@@ -27,22 +26,34 @@
 #include "Framework/AnalysisTask.h"
 #include "Framework/DataTypes.h"
 #include "Framework/runDataProcessing.h"
-#include "GlobalTracking/MatchGlobalFwd.h"
 #include "MCHTracking/TrackExtrap.h"
-#include "MCHTracking/TrackParam.h"
 #include "ReconstructionDataFormats/TrackFwd.h"
+#include <CCDB/CcdbApi.h>
+#include <DetectorsBase/GeometryManager.h>
+#include <Framework/AnalysisHelpers.h>
+#include <Framework/Configurable.h>
+#include <Framework/HistogramRegistry.h>
+#include <Framework/HistogramSpec.h>
+#include <Framework/InitContext.h>
+#include <Framework/OutputObjHeader.h>
+#include <MathUtils/Utils.h>
+#include <ReconstructionDataFormats/GlobalFwdTrack.h>
 
 #include "Math/SMatrix.h"
-#include "Math/Vector4D.h"
 #include "TGeoGlobalMagField.h"
+#include <TH1.h>
 
-#include <algorithm>
+#include <cmath>
+#include <cstdint>
 #include <map>
 #include <string>
+#include <string_view>
 #include <tuple>
 #include <unordered_map>
 #include <utility>
 #include <vector>
+
+#include <math.h>
 
 using namespace o2;
 using namespace o2::soa;

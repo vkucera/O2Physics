@@ -16,17 +16,19 @@
 
 #include "PWGCF/DataModel/FemtoDerived.h"
 
-#include "Framework/ASoAHelpers.h"
 #include "Framework/AnalysisTask.h"
 #include "Framework/Configurable.h"
-#include "Framework/HistogramRegistry.h"
 #include "Framework/Logger.h"
 #include "Framework/RunningWorkflowInfo.h"
 #include "Framework/runDataProcessing.h"
+#include <Framework/AnalysisHelpers.h>
+#include <Framework/DeviceSpec.h>
+#include <Framework/InitContext.h>
 
-#include <algorithm>
+#include <array>
 #include <bitset>
 #include <chrono>
+#include <cstddef>
 #include <cstdint>
 #include <random>
 #include <string>

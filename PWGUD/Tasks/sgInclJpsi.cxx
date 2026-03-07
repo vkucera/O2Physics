@@ -21,11 +21,16 @@
 #include "Framework/AnalysisTask.h"
 #include "Framework/O2DatabasePDGPlugin.h"
 #include "Framework/runDataProcessing.h"
+#include <CommonConstants/PhysicsConstants.h>
+#include <Framework/ASoAHelpers.h>
+#include <Framework/AnalysisHelpers.h>
+#include <Framework/Configurable.h>
+#include <Framework/HistogramRegistry.h>
+#include <Framework/HistogramSpec.h>
 
 #include "TLorentzVector.h"
-#include <TString.h>
 
-#include <iostream>
+#include <vector>
 using namespace std;
 using namespace o2;
 using namespace o2::aod;

@@ -13,6 +13,8 @@
 /// \brief This code runs loop over v0 photons for PCM QC.
 /// \author Daiki Sekihata, daiki.sekihata@cern.ch
 
+#include "V0PhotonCandidate.h"
+
 #include "PWGEM/PhotonMeson/Core/EMPhotonEventCut.h"
 #include "PWGEM/PhotonMeson/Core/V0PhotonCut.h"
 #include "PWGEM/PhotonMeson/DataModel/EventTables.h"
@@ -25,9 +27,12 @@
 #include "Framework/AnalysisDataModel.h"
 #include "Framework/AnalysisTask.h"
 #include "Framework/runDataProcessing.h"
+#include <CCDB/BasicCCDBManager.h>
+#include <CCDB/CcdbApi.h>
 #include <CommonConstants/MathConstants.h>
 #include <DataFormatsParameters/GRPMagField.h>
 #include <DataFormatsParameters/GRPObject.h>
+#include <Framework/AnalysisHelpers.h>
 #include <Framework/Configurable.h>
 #include <Framework/HistogramRegistry.h>
 #include <Framework/HistogramSpec.h>
@@ -38,6 +43,7 @@
 #include <TH1.h>
 
 #include <cmath>
+#include <span>
 #include <string>
 #include <string_view>
 #include <vector>

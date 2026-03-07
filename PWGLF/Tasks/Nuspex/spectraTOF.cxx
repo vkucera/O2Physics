@@ -21,16 +21,15 @@
 
 #include "PWGLF/DataModel/spectraTOF.h"
 
-#include "PWGLF/DataModel/LFParticleIdentification.h"
 #include "PWGLF/DataModel/mcCentrality.h"
 #include "PWGLF/Utils/inelGt.h"
 
+#include "Common/CCDB/EventSelectionParams.h"
 #include "Common/Core/RecoDecay.h"
 #include "Common/Core/TrackSelection.h"
 #include "Common/Core/TrackSelectionDefaults.h"
 #include "Common/DataModel/Centrality.h"
 #include "Common/DataModel/EventSelection.h"
-#include "Common/DataModel/McCollisionExtra.h"
 #include "Common/DataModel/Multiplicity.h"
 #include "Common/DataModel/PIDResponseTOF.h"
 #include "Common/DataModel/PIDResponseTPC.h"
@@ -41,10 +40,27 @@
 #include "Framework/O2DatabasePDGPlugin.h"
 #include "Framework/StaticFor.h"
 #include "Framework/runDataProcessing.h"
-#include "ReconstructionDataFormats/Track.h"
+#include <Framework/ASoA.h>
+#include <Framework/AnalysisDataModel.h>
+#include <Framework/AnalysisHelpers.h>
+#include <Framework/Configurable.h>
+#include <Framework/DataTypes.h>
+#include <Framework/HistogramSpec.h>
+#include <Framework/InitContext.h>
+#include <Framework/OutputObjHeader.h>
+#include <Framework/SliceCache.h>
+#include <ReconstructionDataFormats/PID.h>
 
 #include "TPDGCode.h"
+#include <TH1.h>
+#include <TH2.h>
+#include <TH3.h>
+#include <TMCProcess.h>
+#include <TString.h>
 
+#include <array>
+#include <cstddef>
+#include <memory>
 #include <string>
 #include <vector>
 using namespace o2;

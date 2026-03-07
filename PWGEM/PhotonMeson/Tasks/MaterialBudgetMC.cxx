@@ -13,6 +13,8 @@
 /// \brief Task to analyse and calculate the material budget weights in MC
 /// \author D. Sekihata: daiki.sekihata@cern, S. Mrozinski: smrozins@cern.ch
 
+#include "RecoDecay.h"
+
 #include "PWGEM/PhotonMeson/Core/CutsLibrary.h"
 #include "PWGEM/PhotonMeson/Core/EMPhotonEventCut.h"
 #include "PWGEM/PhotonMeson/Core/HistogramsLibrary.h"
@@ -36,9 +38,9 @@
 #include <Framework/runDataProcessing.h>
 
 #include <Math/Vector4D.h> // IWYU pragma: keep
+#include <Math/Vector4D.h> // IWYU pragma: keep (do not replace with Math/Vector4Dfwd.h)
 #include <Math/Vector4Dfwd.h>
 #include <THashList.h>
-#include <TMath.h>
 #include <TString.h>
 
 #include <cmath>

@@ -17,26 +17,40 @@
 ///
 
 // ROOT includes
-#include "TFile.h"
-#include "TSystem.h"
 #include "TF1.h"
+#include "TFile.h"
 #include "TGraph.h"
 #include "TList.h"
+#include <TObject.h>
+#include <TString.h>
+
+#include <chrono>
+#include <cmath>
+#include <cstdint>
+#include <string>
+#include <vector>
 
 // O2 includes
-#include "CCDB/BasicCCDBManager.h"
-#include "ReconstructionDataFormats/Track.h"
-#include "CCDB/CcdbApi.h"
-#include "PWGLF/DataModel/LFParticleIdentification.h"
-#include "Common/DataModel/TrackSelectionTables.h"
-#include "Framework/AnalysisTask.h"
-#include "Framework/AnalysisDataModel.h"
-#include "Framework/runDataProcessing.h"
-#include "Framework/HistogramRegistry.h"
-#include "Framework/RunningWorkflowInfo.h"
-#include "Framework/StaticFor.h"
-#include "MathUtils/BetheBlochAleph.h"
 #include "TableHelper.h"
+
+#include "PWGLF/DataModel/LFParticleIdentification.h"
+
+#include "Common/DataModel/PIDResponseTPC.h"
+
+#include "CCDB/BasicCCDBManager.h"
+#include "CCDB/CcdbApi.h"
+#include "Framework/AnalysisDataModel.h"
+#include "Framework/AnalysisTask.h"
+#include "Framework/HistogramRegistry.h"
+#include "Framework/runDataProcessing.h"
+#include "MathUtils/BetheBlochAleph.h"
+#include <Framework/AnalysisHelpers.h>
+#include <Framework/Array2D.h>
+#include <Framework/Configurable.h>
+#include <Framework/HistogramSpec.h>
+#include <Framework/InitContext.h>
+#include <Framework/OutputObjHeader.h>
+#include <ReconstructionDataFormats/PID.h>
 
 using namespace o2;
 using namespace o2::framework;

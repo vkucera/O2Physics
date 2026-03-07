@@ -38,7 +38,6 @@
 #include <TString.h>
 
 #include <fastjet/JetDefinition.hh>
-#include <fastjet/PseudoJet.hh>
 
 #include <algorithm>
 #include <array>

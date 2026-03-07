@@ -26,23 +26,26 @@
 
 #include "PWGLF/Utils/inelGt.h"
 
-#include "Common/Core/PID/PIDTOF.h"
-#include "Common/Core/PID/TPCPIDResponse.h"
-#include "Common/Core/RecoDecay.h"
-#include "Common/Core/trackUtilities.h"
+#include "Common/CCDB/EventSelectionParams.h"
 #include "Common/DataModel/EventSelection.h"
-#include "Common/DataModel/TrackSelectionTables.h"
-#include "Common/TableProducer/PID/pidTOFBase.h"
 
-#include "MathUtils/BetheBlochAleph.h"
-#include "Framework/ASoAHelpers.h"
 #include "Framework/AnalysisDataModel.h"
 #include "Framework/AnalysisTask.h"
 #include "Framework/HistogramRegistry.h"
 #include "Framework/O2DatabasePDGPlugin.h"
 #include "Framework/runDataProcessing.h"
-#include "ReconstructionDataFormats/Track.h"
+#include <Framework/AnalysisHelpers.h>
+#include <Framework/Configurable.h>
+#include <Framework/HistogramSpec.h>
+#include <Framework/InitContext.h>
+#include <Framework/OutputObjHeader.h>
 
+#include <TH1.h>
+#include <TH2.h>
+#include <TH3.h>
+
+#include <cmath>
+#include <cstdlib>
 #include <vector>
 
 using namespace o2;

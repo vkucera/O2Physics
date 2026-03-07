@@ -10,29 +10,46 @@
 // or submit itself to any jurisdiction.
 // O2 includes
 
-#include <fmt/format.h>
+#include "filterTables.h"
+
+#include "Common/DataModel/EventSelection.h"
+
+#include "Framework/AnalysisDataModel.h"
+#include "Framework/AnalysisTask.h"
+#include "Framework/HistogramRegistry.h"
+#include <Framework/AnalysisHelpers.h>
+#include <Framework/Array2D.h>
+#include <Framework/Configurable.h>
+#include <Framework/DataProcessorSpec.h>
+#include <Framework/HistogramSpec.h>
+#include <Framework/InitContext.h>
+#include <Framework/InputSpec.h>
+#include <Framework/Lifetime.h>
+#include <Framework/OutputObjHeader.h>
+#include <Framework/ProcessingContext.h>
+#include <Framework/TableConsumer.h>
+#include <Framework/Variant.h>
+
+#include <TH1.h>
+#include <TH2.h>
+
+#include <arrow/array/array_primitive.h>
+#include <arrow/type.h>
 #include <rapidjson/document.h>
 #include <rapidjson/filereadstream.h>
 
+#include <Rtypes.h>
+
+#include <array>
+#include <cstdint>
 #include <cstdio>
+#include <memory>
 #include <random>
 #include <string>
 #include <string_view>
-#include <vector>
 #include <unordered_map>
 #include <utility>
-
-#include "filterTables.h"
-
-#include "Framework/AnalysisTask.h"
-#include "Framework/AnalysisDataModel.h"
-#include "Framework/ASoAHelpers.h"
-#include "Framework/HistogramRegistry.h"
-#include "Common/DataModel/EventSelection.h"
-#include "Common/DataModel/TrackSelectionTables.h"
-#include "CommonConstants/LHCConstants.h"
-#include "CommonDataFormat/InteractionRecord.h"
-#include "DataFormatsCTP/Scalers.h"
+#include <vector>
 
 // we need to add workflow options before including Framework/runDataProcessing
 void customize(std::vector<o2::framework::ConfigParamSpec>& workflowOptions)
@@ -201,11 +218,9 @@ static const float defaultDownscaling[128][1]{
   {1.f},
   {1.f}}; /// Max number of columns for triggers is 128 (extendible)
 
-#define FILTER_CONFIGURABLE(_TYPE_)                                                                                                                                                                                  \
-  Configurable<LabeledArray<float>> cfg##_TYPE_                                                                                                                                                                      \
-  {                                                                                                                                                                                                                  \
-    #_TYPE_, {defaultDownscaling[0], NumberOfColumns(typename _TYPE_::table_t::persistent_columns_t{}), 1, ColumnsNames(typename _TYPE_::table_t::persistent_columns_t{}), downscalingName}, #_TYPE_ " downscalings" \
-  }
+#define FILTER_CONFIGURABLE(_TYPE_)              \
+  Configurable<LabeledArray<float>> cfg##_TYPE_{ \
+    #_TYPE_, {defaultDownscaling[0], NumberOfColumns(typename _TYPE_::table_t::persistent_columns_t{}), 1, ColumnsNames(typename _TYPE_::table_t::persistent_columns_t{}), downscalingName}, #_TYPE_ " downscalings"}
 } // namespace
 
 struct centralEventFilterTask {

@@ -14,9 +14,13 @@
 // This code loops over photons and makes pairs for neutral mesons analyses.
 //    Please write to: daiki.sekihata@cern.ch
 
-#include "Framework/runDataProcessing.h"
-#include "Framework/AnalysisTask.h"
+#include "EMCPhotonCut.h"
+
 #include "PWGEM/PhotonMeson/Core/TaggingPi0.h"
+#include "PWGEM/PhotonMeson/Utils/PairUtilities.h"
+
+#include "Framework/AnalysisTask.h"
+#include "Framework/runDataProcessing.h"
 
 using namespace o2;
 using namespace o2::aod;

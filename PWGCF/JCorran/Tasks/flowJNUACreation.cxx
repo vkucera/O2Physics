@@ -13,30 +13,33 @@
 // \author  Maxim Virta (maxim.virta@cern.ch)
 
 // Standard headers.
+#include <RtypesCore.h>
+
 #include <chrono>
+#include <cstdint>
 #include <string>
 #include <vector>
-#include <TRandom3.h>
 
 // O2 headers. //
 // The first two are mandatory.
-#include "Framework/runDataProcessing.h"
-#include "Framework/AnalysisTask.h"
-
-#include "Framework/AnalysisDataModel.h"
-#include "Framework/ASoAHelpers.h"
 #include "CCDB/BasicCCDBManager.h"
+#include "Framework/AnalysisDataModel.h"
+#include "Framework/AnalysisTask.h"
 #include "Framework/HistogramRegistry.h"
+#include "Framework/runDataProcessing.h"
+#include <Framework/AnalysisHelpers.h>
+#include <Framework/Configurable.h>
+#include <Framework/InitContext.h>
+#include <Framework/OutputObjHeader.h>
 
 // O2 Physics headers. //
+#include "PWGCF/JCorran/Core/FlowJHistManager.h"
+
+#include "Common/DataModel/Centrality.h"
 #include "Common/DataModel/EventSelection.h"
 #include "Common/DataModel/FT0Corrected.h"
 #include "Common/DataModel/Multiplicity.h"
-#include "Common/DataModel/Centrality.h"
-#include "Common/Core/TrackSelection.h"
 #include "Common/DataModel/TrackSelectionTables.h"
-
-#include "PWGCF/JCorran/Core/FlowJHistManager.h"
 
 // Namespaces and definitions.
 using namespace o2;

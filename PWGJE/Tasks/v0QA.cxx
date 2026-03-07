@@ -35,6 +35,7 @@
 #include <Framework/runDataProcessing.h>
 
 #include <TPDGCode.h>
+#include <TRandom.h>
 
 #include <cstdlib>
 #include <string>

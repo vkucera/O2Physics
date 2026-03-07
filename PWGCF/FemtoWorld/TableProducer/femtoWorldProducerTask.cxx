@@ -14,18 +14,23 @@
 /// \author Andi Mathis, TU München, andreas.mathis@ph.tum.de
 /// \author Zuzanna Chochulska, WUT Warsaw, zchochul@cern.ch
 
+#include "RecoDecay.h"
+#include "TrackSelection.h"
+#include "TrackSelectionDefaults.h"
+
 #include "PWGCF/FemtoWorld/Core/FemtoWorldCollisionSelection.h"
-#include "PWGCF/FemtoWorld/Core/FemtoWorldPairCleaner.h"
 #include "PWGCF/FemtoWorld/Core/FemtoWorldPhiSelection.h"
+#include "PWGCF/FemtoWorld/Core/FemtoWorldSelection.h"
 #include "PWGCF/FemtoWorld/Core/FemtoWorldTrackSelection.h"
 #include "PWGCF/FemtoWorld/Core/FemtoWorldV0Selection.h"
 #include "PWGCF/FemtoWorld/DataModel/FemtoWorldDerived.h"
 #include "PWGHF/Core/HfHelper.h"
 #include "PWGHF/DataModel/CandidateReconstructionTables.h"
 #include "PWGHF/DataModel/CandidateSelectionTables.h"
+#include "PWGHF/DataModel/TrackIndexSkimmingTables.h"
 #include "PWGLF/DataModel/LFStrangenessTables.h"
 
-#include "Common/Core/trackUtilities.h"
+#include "Common/CCDB/TriggerAliases.h"
 #include "Common/DataModel/Centrality.h"
 #include "Common/DataModel/EventSelection.h"
 #include "Common/DataModel/Multiplicity.h"
@@ -41,12 +46,25 @@
 #include "Framework/AnalysisTask.h"
 #include "Framework/HistogramRegistry.h"
 #include "Framework/runDataProcessing.h"
-#include "ReconstructionDataFormats/Track.h"
+#include <CommonConstants/MathConstants.h>
+#include <Framework/AnalysisHelpers.h>
+#include <Framework/Configurable.h>
+#include <Framework/DataTypes.h>
+#include <Framework/InitContext.h>
+#include <Framework/OutputObjHeader.h>
+#include <ReconstructionDataFormats/PID.h>
 
-#include "Math/Vector4D.h"
 #include "TLorentzVector.h"
 #include "TMath.h"
 #include <TDatabasePDG.h> // FIXME
+#include <TMathBase.h>
+
+#include <chrono>
+#include <cmath>
+#include <cstddef>
+#include <cstdint>
+#include <cstdlib>
+#include <vector>
 
 using namespace o2;
 using namespace o2::analysis::femtoWorld;

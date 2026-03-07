@@ -13,10 +13,7 @@
 /// \brief Task for analysing D0 triggered jet events.
 /// \author Matthew Ockleton matthew.ockleton@cern.ch, University of Liverpool
 
-#include "PWGHF/Core/DecayChannels.h"
-#include "PWGHF/DataModel/AliasTables.h"
 #include "PWGJE/Core/JetDerivedDataUtilities.h"
-#include "PWGJE/Core/JetUtilities.h"
 #include "PWGJE/DataModel/Jet.h"
 #include "PWGJE/DataModel/JetReducedData.h"
 
@@ -25,14 +22,21 @@
 #include "Framework/AnalysisDataModel.h"
 #include "Framework/AnalysisTask.h"
 #include "Framework/HistogramRegistry.h"
-#include "Framework/Logger.h"
 #include "Framework/runDataProcessing.h"
+#include <CommonConstants/MathConstants.h>
 #include <Framework/ASoA.h>
+#include <Framework/AnalysisHelpers.h>
+#include <Framework/Configurable.h>
 #include <Framework/HistogramSpec.h>
-#include <Framework/Logger.h>
+#include <Framework/InitContext.h>
+#include <Framework/OutputObjHeader.h>
 
+#include <cstdlib>
 #include <string>
+#include <type_traits>
 #include <vector>
+
+#include <math.h>
 
 using namespace o2;
 using namespace o2::framework;

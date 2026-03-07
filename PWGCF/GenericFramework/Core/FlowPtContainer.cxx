@@ -15,8 +15,29 @@
 
 #include "FlowPtContainer.h"
 
+#include "BootstrapProfile.h"
+#include "GFWConfig.h"
+
+#include <Framework/HistogramSpec.h>
+
+#include <TCollection.h>
+#include <TH1.h>
+#include <TList.h>
+#include <TNamed.h>
+#include <TString.h>
+
+#include <fairlogger/Logger.h>
+
+#include <RtypesCore.h>
+
 #include <algorithm>
+#include <cassert>
+#include <cmath>
+#include <complex>
+#include <cstddef>
+#include <cstdint>
 #include <string>
+#include <variant>
 #include <vector>
 
 FlowPtContainer::FlowPtContainer() : fCMTermList(0),

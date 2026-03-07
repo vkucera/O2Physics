@@ -15,9 +15,11 @@
 /// \author Laura Serksnyte, TU München, laura.serksnyte@cern.ch; Anton Riedel, TU München, anton.riedel@cern.ch; Maximilian Korwieser, TU Munich, maximilian.korwieser@cern.ch
 
 #include "../filterTables.h"
+#include "trackUtilities.h"
 
 #include "PWGLF/Utils/strangenessBuilderHelper.h"
 
+#include "Common/CCDB/EventSelectionParams.h"
 #include "Common/Core/RecoDecay.h"
 #include "Common/DataModel/EventSelection.h"
 #include "Common/DataModel/Multiplicity.h"
@@ -36,11 +38,25 @@
 #include "Framework/HistogramRegistry.h"
 #include "Framework/Logger.h"
 #include "Framework/runDataProcessing.h"
+#include <CommonConstants/MathConstants.h>
+#include <CommonConstants/PhysicsConstants.h>
+#include <DetectorsBase/MatLayerCylSet.h>
+#include <Framework/AnalysisHelpers.h>
+#include <Framework/Array2D.h>
+#include <Framework/HistogramSpec.h>
+#include <Framework/InitContext.h>
+#include <Framework/OutputObjHeader.h>
 
 #include "Math/GenVector/Boost.h"
-#include "Math/Vector4D.h"
-#include "TMath.h"
+#include <Math/Vector4D.h> // IWYU pragma: keep (do not replace with Math/Vector4Dfwd.h)
+#include <Math/Vector4Dfwd.h>
+#include <TH1.h>
+#include <TH2.h>
 
+#include <array>
+#include <cmath>
+#include <cstddef>
+#include <cstdint>
 #include <string>
 #include <vector>
 

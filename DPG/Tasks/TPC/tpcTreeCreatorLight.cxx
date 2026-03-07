@@ -18,17 +18,18 @@
 
 #include "tpcTreeCreatorLight.h"
 
-#include <CCDB/BasicCCDBManager.h>
-
 #include <cmath>
+#include <cstdint>
 /// ROOT
-#include "TRandom3.h"
 /// O2
 #include "Framework/AnalysisTask.h"
-#include "Framework/HistogramRegistry.h"
 #include "Framework/runDataProcessing.h"
+#include <Framework/ASoA.h>
+#include <Framework/AnalysisDataModel.h>
+#include <Framework/AnalysisHelpers.h>
+#include <Framework/Configurable.h>
+#include <Framework/InitContext.h>
 /// O2Physics
-#include "Common/Core/trackUtilities.h"
 #include "Common/DataModel/EventSelection.h"
 #include "Common/DataModel/Multiplicity.h"
 #include "Common/DataModel/PIDResponseTOF.h"

@@ -11,9 +11,14 @@
 //
 // Contact: iarsene@cern.ch, i.c.arsene@fys.uio.no
 //
+#include <cstdint>
+#include <cstring>
 #include <string>
 #include <vector>
 // #include <iostream>
+
+#include "MCProng.h"
+#include "MCSignal.h"
 
 #include "PWGDQ/Core/MCSignalLibrary.h"
 
@@ -21,6 +26,10 @@
 #include "Framework/Logger.h"
 
 #include <TPDGCode.h>
+#include <TString.h>
+
+#include <rapidjson/document.h>
+#include <rapidjson/error/error.h>
 
 using namespace o2::constants::physics;
 // using std::cout;

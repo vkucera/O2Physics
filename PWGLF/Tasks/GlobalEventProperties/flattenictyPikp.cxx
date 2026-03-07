@@ -15,7 +15,10 @@
 ///        distributions as a function of charged-particle flattenicity
 /// \since 26 June 2025
 
-#include "PWGLF/DataModel/LFParticleIdentification.h"
+#include "EventSelectionParams.h"
+#include "RCTSelectionFlags.h"
+#include "RecoDecay.h"
+
 #include "PWGLF/DataModel/LFStrangenessTables.h"
 #include "PWGLF/DataModel/mcCentrality.h"
 #include "PWGLF/Utils/inelGt.h"
@@ -25,7 +28,6 @@
 #include "Common/DataModel/Centrality.h"
 #include "Common/DataModel/EventSelection.h"
 #include "Common/DataModel/FT0Corrected.h"
-#include "Common/DataModel/McCollisionExtra.h"
 #include "Common/DataModel/Multiplicity.h"
 #include "Common/DataModel/PIDResponseTOF.h"
 #include "Common/DataModel/PIDResponseTPC.h"
@@ -33,8 +35,6 @@
 
 #include "CommonConstants/MathConstants.h"
 #include "DataFormatsFIT/Triggers.h"
-#include "DetectorsCommonDataFormats/AlignParam.h"
-#include "Framework/ASoAHelpers.h"
 #include "Framework/AnalysisDataModel.h"
 #include "Framework/AnalysisTask.h"
 #include "Framework/Configurable.h"
@@ -43,26 +43,38 @@
 #include "Framework/StaticFor.h"
 #include "Framework/runDataProcessing.h"
 #include "ReconstructionDataFormats/PID.h"
-#include "ReconstructionDataFormats/Track.h"
 #include <CCDB/BasicCCDBManager.h>
+#include <CommonConstants/PhysicsConstants.h>
 #include <DataFormatsParameters/GRPMagField.h>
-#include <DataFormatsParameters/GRPObject.h>
+#include <Framework/AnalysisHelpers.h>
+#include <Framework/HistogramSpec.h>
+#include <Framework/InitContext.h>
+#include <Framework/OutputObjHeader.h>
 
 #include "TEfficiency.h"
 #include "THashList.h"
-#include "TPDGCode.h"
 #include <TF1.h>
 #include <TGraph.h>
 #include <TH1.h>
+#include <TH3.h>
+#include <THnSparse.h>
+#include <TProfile2D.h>
+#include <TString.h>
+
+#include <fmt/format.h>
 
 #include <algorithm>
+#include <array>
+#include <bitset>
+#include <chrono>
 #include <cmath>
+#include <cstdint>
 #include <cstdlib>
+#include <iterator>
 #include <map>
 #include <memory>
 #include <string>
 #include <string_view>
-#include <utility>
 #include <vector>
 
 using std::string;

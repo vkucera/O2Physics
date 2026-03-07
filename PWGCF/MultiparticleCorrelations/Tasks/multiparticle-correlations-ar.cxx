@@ -18,20 +18,34 @@
 #include "Common/DataModel/TrackSelectionTables.h"
 
 #include "Framework/AnalysisTask.h"
-#include "Framework/Expressions.h"
 #include "Framework/Logger.h"
 #include "Framework/runDataProcessing.h"
+#include <Framework/ASoA.h>
+#include <Framework/AnalysisDataModel.h>
+#include <Framework/AnalysisHelpers.h>
+#include <Framework/Array2D.h>
+#include <Framework/Configurable.h>
+#include <Framework/HistogramRegistry.h>
+#include <Framework/HistogramSpec.h>
+#include <Framework/InitContext.h>
+#include <Framework/OutputObjHeader.h>
 
 #include "TComplex.h"
+#include <TH1.h>
+#include <TList.h>
 #include <TMath.h>
+#include <TProfile.h>
 
 #include <algorithm>
 #include <array>
+#include <cmath>
+#include <cstddef>
 #include <cstdint>
-#include <iostream>
+#include <map>
 #include <numeric>
 #include <string>
 #include <string_view>
+#include <utility>
 #include <vector>
 
 using namespace o2;

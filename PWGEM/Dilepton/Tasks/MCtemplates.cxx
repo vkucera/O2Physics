@@ -23,19 +23,27 @@
 #include "PWGDQ/Core/VarManager.h"
 #include "PWGDQ/DataModel/ReducedInfoTables.h"
 
+#include "Common/DataModel/EventSelection.h"
+#include "Common/DataModel/PIDResponseTOF.h"
+#include "Common/DataModel/PIDResponseTPC.h"
 #include "Common/DataModel/TrackSelectionTables.h"
 
-#include "Framework/ASoAHelpers.h"
 #include "Framework/AnalysisDataModel.h"
 #include "Framework/AnalysisTask.h"
 #include "Framework/runDataProcessing.h"
+#include <Framework/AnalysisHelpers.h>
+#include <Framework/Configurable.h>
+#include <Framework/InitContext.h>
 
-#include <TH1F.h>
 #include <THashList.h>
-#include <TMath.h>
 #include <TString.h>
 
-#include <iostream>
+#include <RtypesCore.h>
+
+#include <cstdint>
+#include <cstdio>
+#include <memory>
+#include <string>
 #include <vector>
 
 using std::string;

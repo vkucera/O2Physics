@@ -23,7 +23,26 @@
 #include "DataFormatsParameters/GRPLHCIFData.h"
 #include "Framework/AnalysisTask.h"
 #include "Framework/runDataProcessing.h"
+#include <CommonUtils/NameConf.h>
+#include <Framework/ASoA.h>
+#include <Framework/AnalysisHelpers.h>
+#include <Framework/Configurable.h>
+#include <Framework/Expressions.h>
+#include <Framework/HistogramRegistry.h>
+#include <Framework/HistogramSpec.h>
+#include <Framework/InitContext.h>
 
+#include <TDatabasePDG.h>
+#include <TH1.h>
+#include <TH2.h>
+#include <TLorentzVector.h>
+#include <TString.h>
+
+#include <Rtypes.h>
+
+#include <algorithm>
+#include <bitset>
+#include <cstdint>
 #include <set>
 #include <string>
 

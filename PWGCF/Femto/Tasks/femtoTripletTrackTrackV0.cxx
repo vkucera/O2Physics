@@ -13,10 +13,12 @@
 /// \brief Tasks that computes correlation between two tracks
 /// \author Anton Riedel, TU München, anton.riedel@cern.ch
 
+#include "PWGCF/Femto/Core/closePairRejection.h"
 #include "PWGCF/Femto/Core/closeTripletRejection.h"
 #include "PWGCF/Femto/Core/collisionBuilder.h"
 #include "PWGCF/Femto/Core/collisionHistManager.h"
 #include "PWGCF/Femto/Core/modes.h"
+#include "PWGCF/Femto/Core/particleCleaner.h"
 #include "PWGCF/Femto/Core/partitions.h"
 #include "PWGCF/Femto/Core/trackBuilder.h"
 #include "PWGCF/Femto/Core/trackHistManager.h"
@@ -36,6 +38,7 @@
 #include "Framework/InitContext.h"
 #include "Framework/OutputObjHeader.h"
 #include "Framework/runDataProcessing.h"
+#include <Framework/HistogramSpec.h>
 
 #include <map>
 #include <vector>

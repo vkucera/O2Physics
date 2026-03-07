@@ -17,6 +17,14 @@
 
 #include "PWGCF/JCorran/Core/FlowJSPCAnalysis.h"
 
+#include <Framework/HistogramRegistry.h>
+
+#include <TComplex.h>
+
+#include <fairlogger/Logger.h>
+
+#include <cmath>
+
 using namespace o2;
 using namespace o2::framework;
 using namespace std;

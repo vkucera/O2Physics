@@ -27,11 +27,19 @@
 //
 
 // O2 Framework
+#include <CommonConstants/MathConstants.h>
+#include <CommonConstants/PhysicsConstants.h>
 #include <Framework/ASoA.h>
-#include <Framework/ASoAHelpers.h>
 #include <Framework/AnalysisDataModel.h>
+#include <Framework/AnalysisHelpers.h>
 #include <Framework/AnalysisTask.h>
+#include <Framework/Configurable.h>
+#include <Framework/DataTypes.h>
+#include <Framework/HistogramRegistry.h>
+#include <Framework/HistogramSpec.h>
+#include <Framework/InitContext.h>
 #include <Framework/Logger.h>
+#include <Framework/OutputObjHeader.h>
 #include <Framework/runDataProcessing.h>
 
 // O2 CCDB / Conditions
@@ -40,18 +48,13 @@
 #include <CCDB/CcdbApi.h>
 
 // O2 Reconstruction Data Formats
-#include <ReconstructionDataFormats/Track.h>
 
 // O2 Common Core
 #include "Common/Core/RecoDecay.h"
-#include "Common/Core/TrackSelection.h"
-#include "Common/Core/trackUtilities.h"
 
 // O2 Common DataModel
 #include "Common/DataModel/Centrality.h"
-#include "Common/DataModel/CollisionAssociationTables.h"
 #include "Common/DataModel/EventSelection.h"
-#include "Common/DataModel/McCollisionExtra.h"
 #include "Common/DataModel/Multiplicity.h" // for pp
 #include "Common/DataModel/PIDResponseTPC.h"
 // For PID in raw data:
@@ -61,36 +64,38 @@
 
 // PWGJE
 #include "PWGJE/Core/JetBkgSubUtils.h"
-#include "PWGJE/Core/JetDerivedDataUtilities.h"
 #include "PWGJE/Core/JetUtilities.h"
-#include "PWGJE/DataModel/Jet.h"
-#include "PWGJE/DataModel/JetReducedData.h"
 
 // PWGLF
 #include "PWGLF/DataModel/LFStrangenessPIDTables.h"
 // For V0TOFPIDs and NSigmas getters. Better for considering the daughters as coming from V0s instead of from PV?
+#include "EventSelectionParams.h"
+#include "RCTSelectionFlags.h"
+#include "ctpRateFetcher.h"
+
 #include "PWGLF/DataModel/LFStrangenessTables.h"
 #include "PWGLF/DataModel/lambdaJetPolarizationIons.h"
-#include "PWGLF/DataModel/mcCentrality.h"
 
 // External Libraries (FastJet)
 #include <fastjet/AreaDefinition.hh>
 #include <fastjet/ClusterSequence.hh>
 #include <fastjet/ClusterSequenceArea.hh>
 #include <fastjet/GhostedAreaSpec.hh>
+#include <fastjet/JetDefinition.hh>
 #include <fastjet/PseudoJet.hh>
-#include <fastjet/Selector.hh>
-#include <fastjet/tools/JetMedianBackgroundEstimator.hh>
-#include <fastjet/tools/Subtractor.hh>
+#include <sys/types.h>
 
 // ROOT Math
-#include "Math/GenVector/Boost.h"
-#include "Math/Vector3D.h"
-#include "Math/Vector4D.h"
+#include <TF1.h>
+#include <TH1.h>
+#include <TH2.h>
 
 // Standard Library
 #include <cmath>
+#include <cstddef>
+#include <cstdint>
 #include <map>
+#include <stdexcept>
 #include <string>
 #include <vector>
 

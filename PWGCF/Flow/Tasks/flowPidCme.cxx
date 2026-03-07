@@ -15,22 +15,23 @@
 // C++/ROOT includes.
 #include <CCDB/BasicCCDBManager.h>
 
-#include <TComplex.h>
 #include <TF1.h>
-#include <TH1F.h>
-#include <TH2D.h>
-#include <TMath.h>
-#include <TVector2.h>
+#include <TH1.h>
+#include <TH3.h>
+#include <TProfile.h>
+#include <TString.h>
 
 #include <chrono>
+#include <cmath>
+#include <cstdint>
 #include <memory>
 #include <string>
 #include <utility>
 #include <vector>
 
 // o2Physics includes.
+#include "Common/CCDB/EventSelectionParams.h"
 #include "Common/Core/EventPlaneHelper.h"
-#include "Common/Core/TrackSelection.h"
 #include "Common/DataModel/Centrality.h"
 #include "Common/DataModel/EventSelection.h"
 #include "Common/DataModel/Multiplicity.h"
@@ -40,15 +41,17 @@
 #include "Common/DataModel/Qvectors.h"
 #include "Common/DataModel/TrackSelectionTables.h"
 
-#include "CommonConstants/PhysicsConstants.h"
 #include "Framework/ASoA.h"
-#include "Framework/ASoAHelpers.h"
 #include "Framework/AnalysisDataModel.h"
 #include "Framework/AnalysisTask.h"
 #include "Framework/HistogramRegistry.h"
-#include "Framework/RunningWorkflowInfo.h"
-#include "Framework/StaticFor.h"
 #include "Framework/runDataProcessing.h"
+#include <CommonConstants/MathConstants.h>
+#include <Framework/AnalysisHelpers.h>
+#include <Framework/Configurable.h>
+#include <Framework/HistogramSpec.h>
+#include <Framework/InitContext.h>
+#include <Framework/OutputObjHeader.h>
 
 // o2 includes.
 
@@ -238,7 +241,7 @@ struct FillPIDcolums {
     if (std::abs(track.eta()) > cfgMaxEtaPID)
       return false;
     if (cfgRequireGlobalTrack) {
-      if (!(track.isGlobalTrackSDD() == (uint8_t) true))
+      if (!(track.isGlobalTrackSDD() == (uint8_t)true))
         return false;
     }
     if (cfgUseCostomTrackCuts) {

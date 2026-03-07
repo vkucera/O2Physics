@@ -17,34 +17,35 @@
 #include "PWGLF/DataModel/LFCKSSpinalignmentTables.h"
 
 #include "Common/Core/RecoDecay.h"
-#include "Common/Core/trackUtilities.h"
 
 #include "CommonConstants/PhysicsConstants.h"
 #include "Framework/ASoAHelpers.h"
 #include "Framework/AnalysisDataModel.h"
 #include "Framework/AnalysisTask.h"
 #include "Framework/BinningPolicy.h"
-#include "Framework/StepTHn.h"
 #include "Framework/runDataProcessing.h"
+#include <Framework/AnalysisHelpers.h>
 #include <Framework/Configurable.h>
+#include <Framework/HistogramRegistry.h>
+#include <Framework/HistogramSpec.h>
+#include <Framework/InitContext.h>
 #include <Framework/Logger.h>
 
 #include <Math/GenVector/Boost.h>
-#include <Math/Vector3D.h>
-#include <Math/Vector4D.h>
+#include <Math/Vector3Dfwd.h>
+#include <Math/Vector4D.h> // IWYU pragma: keep (do not replace with Math/Vector4Dfwd.h)
+#include <Math/Vector4Dfwd.h>
 #include <TMath.h>
 
+#include <chrono>
 #include <cmath> // for std::fabs
-#include <deque>
+#include <cstddef>
+#include <cstdint>
 // #include <iostream>
 #include <algorithm>
-#include <iterator>
 #include <random>
-#include <set> // <<< CHANGED: for dedup sets
 #include <string>
 #include <tuple>
-#include <type_traits>
-#include <unordered_map> // <<< CHANGED: for seenMap
 #include <unordered_set>
 #include <utility>
 #include <vector>
@@ -52,6 +53,7 @@
 // o2 includes.
 #include "CCDB/BasicCCDBManager.h"
 #include "CCDB/CcdbApi.h"
+#include <Framework/OutputObjHeader.h>
 
 using namespace o2;
 using namespace o2::framework;

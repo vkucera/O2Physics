@@ -18,15 +18,24 @@
 
 #include "CCDB/BasicCCDBManager.h"
 #include "Framework/ASoA.h"
-#include "Framework/ASoAHelpers.h"
 #include "Framework/AnalysisDataModel.h"
 #include "Framework/AnalysisTask.h"
-#include "Framework/DataTypes.h"
 #include "Framework/HistogramRegistry.h"
 #include "Framework/runDataProcessing.h"
+#include <Framework/AnalysisHelpers.h>
+#include <Framework/Configurable.h>
+#include <Framework/HistogramSpec.h>
+#include <Framework/InitContext.h>
+#include <Framework/OutputObjHeader.h>
+
+#include <TH2.h>
+#include <TMath.h>
+#include <TString.h>
 
 #include <array>
 #include <chrono>
+#include <cstdint>
+#include <cstdlib>
 #include <string>
 
 using namespace o2;

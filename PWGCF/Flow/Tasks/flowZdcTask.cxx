@@ -23,15 +23,25 @@
 #include "CommonConstants/MathConstants.h"
 #include "Framework/AnalysisTask.h"
 #include "Framework/HistogramRegistry.h"
-#include "Framework/RunningWorkflowInfo.h"
 #include "Framework/runDataProcessing.h"
 #include <CCDB/BasicCCDBManager.h>
+#include <CommonConstants/PhysicsConstants.h>
+#include <Framework/ASoA.h>
+#include <Framework/AnalysisDataModel.h>
+#include <Framework/AnalysisHelpers.h>
+#include <Framework/Configurable.h>
+#include <Framework/Expressions.h>
+#include <Framework/HistogramSpec.h>
+#include <Framework/InitContext.h>
+#include <Framework/OutputObjHeader.h>
+#include <Framework/SliceCache.h>
 
 #include <TF1.h>
-#include <TMath.h>
-#include <TProfile.h>
+#include <TH1.h>
 
+#include <chrono>
 #include <cmath>
+#include <cstdint>
 #include <string>
 #include <vector>
 

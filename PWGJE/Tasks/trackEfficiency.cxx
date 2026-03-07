@@ -19,11 +19,13 @@
 
 #include "Common/Core/TrackSelection.h"
 #include "Common/Core/TrackSelectionDefaults.h"
+#include "Common/DataModel/TrackSelectionTables.h"
 
 #include "Framework/ASoA.h"
 #include "Framework/AnalysisTask.h"
 #include "Framework/HistogramRegistry.h"
 #include "Framework/O2DatabasePDGPlugin.h"
+#include <Framework/AnalysisDataModel.h>
 #include <Framework/AnalysisHelpers.h>
 #include <Framework/Configurable.h>
 #include <Framework/HistogramSpec.h>
@@ -677,7 +679,7 @@ struct TrackEfficiency {
 
       registry.fill(HIST("h3_particle_pt_high_particle_eta_particle_phi_mcpartofinterest"), jMcParticle.pt(), jMcParticle.eta(), jMcParticle.phi(), mcCollEventWeight);
 
-      if ((std::abs(jMcParticle.eta()) < trackEtaAcceptanceCountQA)) { // removed from actual cuts for now because all the histograms have an eta axis
+      if ((std::abs(jMcParticle.eta()) < trackEtaAcceptanceCountQA)) {       // removed from actual cuts for now because all the histograms have an eta axis
         registry.fill(HIST("hMcPartCutsCounts"), 3.5, mcCollision.weight()); // etaAccept // not actually applied here but it will give an idea of what will be done in the post processing
       }
     }

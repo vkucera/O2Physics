@@ -21,8 +21,12 @@
 /// \author David Dobrigkeit Chinellato (david.dobrigkeit.chinellato@cern.ch)
 /// \author Zhongbao Yin (Zhong-Bao.Yin@cern.ch)
 
-#include "PWGLF/DataModel/LFHStrangeCorrelationTables.h"
+#include "RecoDecay.h"
 
+#include "PWGLF/DataModel/LFHStrangeCorrelationTables.h"
+#include "PWGLF/DataModel/LFStrangenessTables.h"
+
+#include "Common/CCDB/EventSelectionParams.h"
 #include "Common/Core/Zorro.h"
 #include "Common/Core/ZorroSummary.h"
 #include "Common/DataModel/Centrality.h"
@@ -37,12 +41,37 @@
 #include "Framework/O2DatabasePDGPlugin.h"
 #include "Framework/StaticFor.h"
 #include "Framework/runDataProcessing.h"
+#include <CommonConstants/MathConstants.h>
+#include <CommonConstants/PhysicsConstants.h>
+#include <Framework/ASoA.h>
+#include <Framework/AnalysisDataModel.h>
+#include <Framework/AnalysisHelpers.h>
+#include <Framework/BinningPolicy.h>
 #include <Framework/Configurable.h>
+#include <Framework/HistogramRegistry.h>
+#include <Framework/HistogramSpec.h>
+#include <Framework/InitContext.h>
+#include <Framework/OutputObjHeader.h>
 
+#include <TH1.h>
+#include <TH2.h>
+#include <TH3.h>
+#include <THn.h>
+#include <TList.h>
 #include <TPDGCode.h>
+#include <TString.h>
 
-#include <iostream>
+#include <fmt/format.h>
+
+#include <Rtypes.h>
+
+#include <cmath>
+#include <cstddef>
+#include <cstdint>
+#include <memory>
 #include <string>
+#include <string_view>
+#include <variant>
 #include <vector>
 
 using namespace o2;

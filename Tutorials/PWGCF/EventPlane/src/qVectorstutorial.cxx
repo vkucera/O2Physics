@@ -10,32 +10,29 @@
 // or submit itself to any jurisdiction.
 
 // C++/ROOT includes.
-#include <chrono>
+#include <TString.h>
+
+#include <cstddef>
 #include <string>
 #include <vector>
-#include <TComplex.h>
-#include <TH1F.h>
-#include <TH2D.h>
-#include <TMath.h>
-#include <TVector2.h>
 
 // o2Physics includes.
+#include "Common/CCDB/EventSelectionParams.h"
+#include "Common/Core/EventPlaneHelper.h"
+#include "Common/DataModel/Centrality.h"
+#include "Common/DataModel/EventSelection.h"
+#include "Common/DataModel/Qvectors.h"
+#include "Common/DataModel/TrackSelectionTables.h"
+
 #include "Framework/AnalysisDataModel.h"
 #include "Framework/AnalysisTask.h"
-#include "Framework/ASoAHelpers.h"
 #include "Framework/HistogramRegistry.h"
 #include "Framework/runDataProcessing.h"
-#include "Framework/RunningWorkflowInfo.h"
-#include "Framework/StaticFor.h"
-
-#include "Common/DataModel/Qvectors.h"
-#include "Common/DataModel/EventSelection.h"
-#include "Common/DataModel/TrackSelectionTables.h"
-#include "Common/DataModel/Centrality.h"
-#include "Common/Core/EventPlaneHelper.h"
-#include "Common/Core/TrackSelection.h"
-
-#include "CommonConstants/PhysicsConstants.h"
+#include <CommonConstants/MathConstants.h>
+#include <Framework/Configurable.h>
+#include <Framework/HistogramSpec.h>
+#include <Framework/InitContext.h>
+#include <Framework/OutputObjHeader.h>
 
 // o2 includes.
 

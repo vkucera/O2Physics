@@ -9,14 +9,34 @@
 // granted to it by virtue of its status as an Intergovernmental Organization
 // or submit itself to any jurisdiction.
 
-#include "Framework/runDataProcessing.h"
-#include "Framework/AnalysisTask.h"
-#include "Framework/AnalysisDataModel.h"
-#include "Framework/HistogramRegistry.h"
+#include "MetadataHelper.h"
+
 #include "CCDB/BasicCCDBManager.h"
 #include "DataFormatsFT0/Digit.h"
 #include "DataFormatsParameters/GRPLHCIFData.h"
-#include "MetadataHelper.h"
+#include "Framework/AnalysisDataModel.h"
+#include "Framework/AnalysisTask.h"
+#include "Framework/HistogramRegistry.h"
+#include "Framework/runDataProcessing.h"
+#include <CommonConstants/LHCConstants.h>
+#include <Framework/AnalysisHelpers.h>
+#include <Framework/Configurable.h>
+#include <Framework/HistogramSpec.h>
+#include <Framework/InitContext.h>
+#include <Framework/OutputObjHeader.h>
+
+#include <TMath.h>
+
+#include <Rtypes.h>
+#include <RtypesCore.h>
+
+#include <algorithm>
+#include <bitset>
+#include <cmath>
+#include <cstdint>
+#include <cstdlib>
+#include <map>
+#include <vector>
 
 using namespace o2;
 using namespace o2::framework;

@@ -58,6 +58,7 @@
 
 #include <THn.h>
 #include <TPDGCode.h>
+#include <TRandom.h>
 #include <TString.h>
 
 #include <sys/types.h>

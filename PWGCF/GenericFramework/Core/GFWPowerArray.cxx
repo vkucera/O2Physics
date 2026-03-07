@@ -11,6 +11,11 @@
 
 #include "GFWPowerArray.h"
 
+#include <cstddef>
+#include <cstdio>
+#include <cstdlib>
+#include <string>
+
 using std::string;
 using std::vector;
 

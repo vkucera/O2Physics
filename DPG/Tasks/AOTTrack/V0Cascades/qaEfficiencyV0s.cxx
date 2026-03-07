@@ -18,22 +18,27 @@
 ///
 
 // O2 includes
-#include "Framework/AnalysisTask.h"
-#include "Framework/runDataProcessing.h"
-#include "Framework/HistogramRegistry.h"
-#include "Framework/StaticFor.h"
-#include "ReconstructionDataFormats/DCA.h"
-#include "ReconstructionDataFormats/Track.h"
-#include "Common/Core/TrackSelection.h"
-#include "Common/DataModel/EventSelection.h"
-#include "Common/Core/TrackSelectionDefaults.h"
-#include "Common/DataModel/TrackSelectionTables.h"
 #include "PWGLF/DataModel/LFStrangenessTables.h"
 
+#include "Framework/AnalysisTask.h"
+#include "Framework/HistogramRegistry.h"
+#include "Framework/runDataProcessing.h"
+#include <Framework/AnalysisDataModel.h>
+#include <Framework/AnalysisHelpers.h>
+#include <Framework/Configurable.h>
+#include <Framework/HistogramSpec.h>
+#include <Framework/InitContext.h>
+#include <Framework/OutputObjHeader.h>
+
 // ROOT includes
-#include "TPDGCode.h"
 #include "TEfficiency.h"
 #include "THashList.h"
+#include "TPDGCode.h"
+#include <TAxis.h>
+#include <TMathBase.h>
+#include <TString.h>
+
+#include <memory>
 
 using namespace o2::framework;
 static constexpr int nSpecies = 2; // One per PDG

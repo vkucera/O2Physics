@@ -28,6 +28,7 @@
 #include <Framework/InitContext.h>
 #include <Framework/runDataProcessing.h>
 
+#include <TH2.h>
 #include <THn.h>
 
 #include <cmath>

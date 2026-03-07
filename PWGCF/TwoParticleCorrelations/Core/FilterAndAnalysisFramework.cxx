@@ -11,13 +11,26 @@
 
 #include "FilterAndAnalysisFramework.h"
 
+#include "EventSelectionFilterAndAnalysis.h"
+#include "PIDSelectionFilterAndAnalysis.h"
+#include "SelectionFilterAndAnalysis.h"
+#include "TrackSelectionFilterAndAnalysis.h"
+
+#include <CCDB/BasicCCDBManager.h>
+#include <CCDB/CcdbApi.h>
 #include <Framework/Logger.h>
 
 #include <TList.h>
+#include <TNamed.h>
 #include <TObjString.h>
 
+#include <Rtypes.h>
+
+#include <cstdint>
+#include <ctime>
 #include <iomanip>
 #include <map>
+#include <sstream>
 #include <string>
 
 using namespace o2;

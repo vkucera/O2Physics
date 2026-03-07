@@ -14,15 +14,25 @@
 #include "PWGDQ/Core/CutsLibrary.h"
 
 #include "AnalysisCompositeCut.h"
+#include "AnalysisCut.h"
 #include "VarManager.h"
 
+#include <Framework/Array2D.h>
+
 #include <TF1.h>
+#include <TString.h>
+
+#include <fairlogger/Logger.h>
+#include <rapidjson/document.h>
+#include <rapidjson/error/error.h>
 
 #include <RtypesCore.h>
 
+#include <cstddef>
 #include <iostream>
-#include <set>
+#include <numeric>
 #include <string>
+#include <utility>
 #include <vector>
 
 AnalysisCompositeCut* o2::aod::dqcuts::GetCompositeCut(const char* cutName)

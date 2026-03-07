@@ -16,6 +16,7 @@
 #ifndef PWGCF_MULTIPARTICLECORRELATIONS_CORE_MUPA_ENUMS_H_
 #define PWGCF_MULTIPARTICLECORRELATIONS_CORE_MUPA_ENUMS_H_
 
+#include <Rtypes.h>
 enum eConfiguration {
   eTaskIsConfiguredFromJson = 1, // here I start from 1 exceptionally, because these enums are used as bin contents, and ROOT starts counting bins from 1
   eTaskName,

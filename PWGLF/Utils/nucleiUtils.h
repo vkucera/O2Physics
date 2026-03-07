@@ -24,7 +24,8 @@
 #include "Framework/HistogramSpec.h"
 #include "MathUtils/BetheBlochAleph.h"
 
-#include "TMCProcess.h"
+#include <TMCProcess.h>
+#include <TPDGCode.h>
 
 #include <algorithm>
 #include <memory>

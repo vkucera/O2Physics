@@ -24,7 +24,7 @@
 #include <TString.h>
 
 #include <boost/algorithm/string/predicate.hpp>
-#include <boost/program_options.hpp>
+#include <boost/program_options.hpp> // IWYU pragma: keep
 
 #include <array>
 #include <fstream>

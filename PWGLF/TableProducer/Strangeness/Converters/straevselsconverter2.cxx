@@ -14,6 +14,7 @@
 #include "Framework/AnalysisTask.h"
 #include "Framework/runDataProcessing.h"
 #include "ReconstructionDataFormats/Vertex.h"
+#include <Framework/AnalysisHelpers.h>
 
 using namespace o2;
 using namespace o2::framework;

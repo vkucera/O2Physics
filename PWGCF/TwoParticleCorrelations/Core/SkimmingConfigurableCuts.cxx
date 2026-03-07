@@ -11,11 +11,22 @@
 
 #include "PWGCF/TwoParticleCorrelations/Core/SkimmingConfigurableCuts.h"
 
+#include <Framework/DataTypes.h>
 #include <Framework/Logger.h>
 
+#include <TNamed.h>
 #include <TObjArray.h>
 
+#include <Rtypes.h>
+
+#include <algorithm>
+#include <cmath>
+#include <cstdint>
+#include <cstring>
 #include <regex>
+#include <set>
+#include <string>
+#include <vector>
 
 using namespace o2;
 using namespace o2::analysis::PWGCF;

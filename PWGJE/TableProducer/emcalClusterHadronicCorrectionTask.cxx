@@ -12,8 +12,6 @@
 // **Hadronic Correction in the EMCAL framework: to avoid the double counting of the charged particles' contribution in jets**
 /// \author Archita Rani Dash <archita.rani.dash@cern.ch>
 
-#include "PWGJE/DataModel/EMCALClusterDefinition.h"
-#include "PWGJE/DataModel/EMCALClusters.h"
 #include "PWGJE/DataModel/Jet.h"
 #include "PWGJE/DataModel/JetReducedData.h"
 
@@ -26,7 +24,6 @@
 #include <Framework/InitContext.h>
 #include <Framework/runDataProcessing.h>
 
-#include "TVector2.h"
 #include <TF1.h>
 
 #include <cmath>

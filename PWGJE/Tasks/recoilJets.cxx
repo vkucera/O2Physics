@@ -18,7 +18,9 @@
 #include "PWGJE/DataModel/JetReducedData.h"
 #include "PWGJE/DataModel/JetSubtraction.h"
 
+#include "Common/CCDB/EventSelectionParams.h"
 #include "Common/Core/RecoDecay.h"
+#include "Common/DataModel/EventSelection.h"
 #include "Common/DataModel/Multiplicity.h"
 
 #include "CommonConstants/MathConstants.h"
@@ -26,6 +28,7 @@
 #include "Framework/AnalysisTask.h"
 #include "Framework/HistogramRegistry.h"
 #include "Framework/O2DatabasePDGPlugin.h"
+#include <Framework/AnalysisDataModel.h>
 #include <Framework/AnalysisHelpers.h>
 #include <Framework/Configurable.h>
 #include <Framework/HistogramSpec.h>
@@ -35,15 +38,17 @@
 
 #include "TRandom3.h"
 #include <TH1.h>
+#include <TH2.h>
+#include <TH3.h>
 #include <TString.h>
 
 #include <algorithm>
 #include <cmath>
+#include <cstddef>
 #include <cstdint>
 #include <memory>
 #include <string>
 #include <tuple>
-#include <type_traits>
 #include <unordered_set>
 #include <vector>
 

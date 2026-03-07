@@ -20,12 +20,12 @@
 #include <DataFormatsEMCAL/Constants.h>
 #include <EMCALBase/Geometry.h>
 #include <Framework/Array2D.h>
-#include <Framework/HistogramRegistry.h>
 #include <Framework/HistogramSpec.h>
 
 #include <algorithm> // std::find_if
 #include <array>
 #include <cstddef> // size_t
+#include <cstdint>
 #include <cstdlib> // std::abs
 #include <iomanip> // setw
 #include <ios>     // left and right
@@ -39,7 +39,6 @@
 // #include "Common/CCDB/EventSelectionParams.h"
 #include <Framework/Logger.h>
 
-#include <TH1.h>
 #include <TRandom3.h>
 
 using namespace o2;

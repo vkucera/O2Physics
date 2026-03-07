@@ -17,33 +17,38 @@
 #include "PWGLF/DataModel/FilterF1ProtonTables.h"
 #include "PWGLF/DataModel/LFStrangenessTables.h"
 
-#include "Common/Core/TrackSelection.h"
-#include "Common/DataModel/EventSelection.h"
-#include "Common/DataModel/Multiplicity.h"
 #include "Common/DataModel/PIDResponseTOF.h"
 #include "Common/DataModel/PIDResponseTPC.h"
 #include "Common/DataModel/TrackSelectionTables.h"
 
 #include "CCDB/BasicCCDBManager.h"
 #include "CCDB/CcdbApi.h"
-#include "CommonConstants/MathConstants.h"
 #include "CommonConstants/PhysicsConstants.h"
-#include "Framework/ASoAHelpers.h"
 #include "Framework/AnalysisDataModel.h"
 #include "Framework/AnalysisTask.h"
 #include "Framework/HistogramRegistry.h"
 #include "Framework/runDataProcessing.h"
 #include "MathUtils/BetheBlochAleph.h"
+#include <Framework/AnalysisHelpers.h>
 #include <Framework/Configurable.h>
+#include <Framework/HistogramSpec.h>
+#include <Framework/InitContext.h>
 #include <Framework/Logger.h>
+#include <Framework/OutputObjHeader.h>
 
 #include <Math/GenVector/Boost.h>
-#include <Math/Vector4D.h>
-#include <TMath.h>
+#include <Math/Vector4D.h> // IWYU pragma: keep (do not replace with Math/Vector4Dfwd.h)
+#include <Math/Vector4Dfwd.h>
+#include <TAxis.h>
+#include <TH1.h>
 
-#include <iostream>
+#include <chrono>
+#include <cmath>
+#include <cstddef>
 #include <iterator>
+#include <map>
 #include <string>
+#include <vector>
 
 using namespace o2;
 using namespace o2::framework;

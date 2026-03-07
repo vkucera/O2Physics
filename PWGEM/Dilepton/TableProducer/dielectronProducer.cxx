@@ -15,8 +15,8 @@
 //    Please write to: daiki.sekihata@cern.ch
 
 #include "PWGEM/Dilepton/Core/DileptonProducer.h"
+#include "PWGEM/Dilepton/Utils/PairUtilities.h"
 
-#include "Framework/ASoAHelpers.h"
 #include "Framework/AnalysisTask.h"
 #include "Framework/runDataProcessing.h"
 

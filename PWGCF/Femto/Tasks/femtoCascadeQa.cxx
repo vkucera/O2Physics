@@ -32,6 +32,7 @@
 #include "Framework/InitContext.h"
 #include "Framework/OutputObjHeader.h"
 #include "Framework/runDataProcessing.h"
+#include <Framework/HistogramSpec.h>
 
 #include <map>
 #include <vector>

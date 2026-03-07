@@ -13,17 +13,30 @@
 /// \brief Analysis task for lambda1405 via sigma kink decay
 /// \author Francesco Mazzaschi <francesco.mazzaschi@cern.ch>
 
+#include "RecoDecay.h"
+
 #include "PWGLF/DataModel/LFKinkDecayTables.h"
 #include "PWGLF/DataModel/LFLambda1405Table.h"
 
-#include "Common/Core/PID/PIDTOF.h"
 #include "Common/DataModel/EventSelection.h"
 #include "Common/DataModel/PIDResponseTOF.h"
 #include "Common/DataModel/PIDResponseTPC.h"
 
 #include "Framework/AnalysisTask.h"
 #include "Framework/runDataProcessing.h"
-#include "ReconstructionDataFormats/PID.h"
+#include <CommonConstants/PhysicsConstants.h>
+#include <Framework/ASoA.h>
+#include <Framework/AnalysisDataModel.h>
+#include <Framework/AnalysisHelpers.h>
+#include <Framework/Configurable.h>
+#include <Framework/HistogramRegistry.h>
+#include <Framework/HistogramSpec.h>
+#include <Framework/InitContext.h>
+#include <Framework/OutputObjHeader.h>
+
+#include <array>
+#include <cmath>
+#include <numeric>
 
 using namespace o2;
 using namespace o2::framework;

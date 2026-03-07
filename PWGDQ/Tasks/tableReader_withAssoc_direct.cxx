@@ -12,6 +12,8 @@
 // Contact: iarsene@cern.ch, i.c.arsene@fys.uio.no
 //   Configurable workflow for running several DQ or other PWG analyses
 
+#include "RCTSelectionFlags.h"
+
 #include "PWGDQ/Core/AnalysisCompositeCut.h"
 #include "PWGDQ/Core/AnalysisCut.h"
 #include "PWGDQ/Core/CutsLibrary.h"
@@ -22,15 +24,14 @@
 #include "PWGDQ/Core/VarManager.h"
 #include "PWGDQ/DataModel/ReducedInfoTables.h"
 
-#include "Common/CCDB/TriggerAliases.h"
-#include "Common/CCDB/ctpRateFetcher.h"
 #include "Common/Core/PID/PIDTOFParamService.h"
 #include "Common/Core/TableHelper.h"
 #include "Common/Core/Zorro.h"
 #include "Common/DataModel/CollisionAssociationTables.h"
 #include "Common/DataModel/EventSelection.h"
-#include "Common/DataModel/McCollisionExtra.h"
 #include "Common/DataModel/Multiplicity.h"
+#include "Common/DataModel/PIDResponseTOF.h"
+#include "Common/DataModel/PIDResponseTPC.h"
 #include "Common/DataModel/TrackSelectionTables.h"
 #include <Common/Core/trackUtilities.h>
 
@@ -39,25 +40,32 @@
 #include "DataFormatsParameters/GRPObject.h"
 #include "DetectorsBase/GeometryManager.h"
 #include "DetectorsBase/Propagator.h"
-#include "Field/MagneticField.h"
 #include "Framework/ASoAHelpers.h"
 #include "Framework/AnalysisDataModel.h"
 #include "Framework/AnalysisHelpers.h"
 #include "Framework/AnalysisTask.h"
 #include "Framework/runDataProcessing.h"
+#include <CCDB/CcdbApi.h>
+#include <CommonUtils/ConfigurableParam.h>
+#include <DetectorsBase/MatLayerCylSet.h>
 #include <DetectorsVertexing/PVertexer.h>
+#include <Framework/Configurable.h>
+#include <Framework/InitContext.h>
 #include <ReconstructionDataFormats/Track.h>
 
-#include "TGeoGlobalMagField.h"
-#include <TH1F.h>
-#include <TH3F.h>
+#include <TH2.h>
 #include <THashList.h>
 #include <TList.h>
-#include <TObjString.h>
+#include <TMathBase.h>
 #include <TString.h>
 
-#include <algorithm>
+#include <RtypesCore.h>
+
+#include <chrono>
+#include <cstdint>
+#include <cstdlib>
 #include <iostream>
+#include <iterator>
 #include <map>
 #include <memory>
 #include <string>

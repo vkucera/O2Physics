@@ -16,6 +16,18 @@
 #ifndef PWGCF_MULTIPARTICLECORRELATIONS_CORE_MUPA_DATAMEMBERS_H_
 #define PWGCF_MULTIPARTICLECORRELATIONS_CORE_MUPA_DATAMEMBERS_H_
 
+#include "PWGCF/MultiparticleCorrelations/Core/MuPa-Enums.h"
+#include "PWGCF/MultiparticleCorrelations/Core/MuPa-GlobalConstants.h"
+
+#include <Framework/AnalysisHelpers.h>
+#include <Framework/AnalysisTask.h>
+
+#include <TComplex.h>
+#include <TDatabasePDG.h>
+#include <TFile.h>
+#include <TFormula.h>
+#include <TProfile.h>
+
 #include <vector>
 
 // General remarks:
@@ -39,9 +51,9 @@
 // a) Base list to hold all output objects ("grandmother" of all lists):
 
 TString sBaseListName = "Default list name"; // yes, I declare it separately, because I need it also later in BailOut() function
-OutputObj<TList> fBaseList{sBaseListName.Data(),
-                           OutputObjHandlingPolicy::AnalysisObject,
-                           OutputObjSourceType::OutputObjSource};
+o2::framework::OutputObj<TList> fBaseList{sBaseListName.Data(),
+                                          o2::framework::OutputObjHandlingPolicy::AnalysisObject,
+                                          o2::framework::OutputObjSourceType::OutputObjSource};
 TProfile* fBasePro = NULL;           //!<! keeps flags relevant for the whole analysis
 TObjArray* fBaseProBinLabels = NULL; // helper for fBasePro to hold bin labels, until SetBinLabel(...) large memory consumption is resolved
 

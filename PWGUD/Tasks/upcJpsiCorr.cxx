@@ -15,6 +15,10 @@
 /// \author Sara Haidlova, sara.haidlova@cern.ch
 /// \since March 2024
 
+#include <algorithm>
+#include <array>
+#include <cstdint>
+#include <string_view>
 #include <utility>
 #include <vector>
 
@@ -23,10 +27,15 @@
 #include "CommonConstants/PhysicsConstants.h"
 #include "Framework/AnalysisTask.h"
 #include "Framework/runDataProcessing.h"
+#include <Framework/ASoA.h>
+#include <Framework/AnalysisHelpers.h>
+#include <Framework/Configurable.h>
+#include <Framework/HistogramRegistry.h>
+#include <Framework/HistogramSpec.h>
+#include <Framework/InitContext.h>
 
 // O2Physics headers
 #include "PWGUD/Core/SGSelector.h"
-#include "PWGUD/Core/UDHelpers.h"
 #include "PWGUD/Core/UPCJpsiCentralBarrelCorrHelper.h"
 #include "PWGUD/DataModel/UDTables.h"
 
@@ -34,6 +43,8 @@
 
 // ROOT headers
 #include "TLorentzVector.h"
+#include <TH1.h>
+#include <TH2.h>
 
 using namespace o2;
 using namespace o2::framework;

@@ -16,6 +16,8 @@
 //   The skimmed MC stack includes the MC truth particles corresponding to the list of user specified MC signals (see MCsignal.h)
 //    and the MC truth particles corresponding to the reconstructed tracks selected by the specified track cuts on reconstructed data.
 
+#include "EventSelectionParams.h"
+
 #include "PWGDQ/Core/AnalysisCompositeCut.h"
 #include "PWGDQ/Core/AnalysisCut.h"
 #include "PWGDQ/Core/CutsLibrary.h"
@@ -40,17 +42,25 @@
 #include "DataFormatsParameters/GRPObject.h"
 #include "DetectorsBase/GeometryManager.h"
 #include "DetectorsBase/Propagator.h"
-#include "Field/MagneticField.h"
 #include "Framework/ASoA.h"
-#include "Framework/ASoAHelpers.h"
 #include "Framework/AnalysisDataModel.h"
 #include "Framework/AnalysisTask.h"
 #include "Framework/DataTypes.h"
 #include "Framework/runDataProcessing.h"
+#include <Framework/AnalysisHelpers.h>
+#include <Framework/Configurable.h>
+#include <Framework/InitContext.h>
+#include <ReconstructionDataFormats/TrackFwd.h>
 
-#include "TGeoGlobalMagField.h"
 #include "TList.h"
+#include <THashList.h>
+#include <TObjArray.h>
+#include <TString.h>
 
+#include <RtypesCore.h>
+
+#include <cstddef>
+#include <cstdint>
 #include <iostream>
 #include <map>
 #include <memory>

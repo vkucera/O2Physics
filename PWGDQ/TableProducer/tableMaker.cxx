@@ -18,7 +18,9 @@
 // The event filtering (filterPP), centrality, and V0Bits (from v0-selector) can be switched on/off by selecting one
 //  of the process functions
 // C++ includes
-#include <iostream>
+#include <chrono>
+#include <cstddef>
+#include <cstdint>
 #include <map>
 #include <memory>
 #include <string>
@@ -45,28 +47,28 @@
 #include "Common/DataModel/TrackSelectionTables.h"
 
 #include "CCDB/BasicCCDBManager.h"
-#include "CommonDataFormat/InteractionRecord.h"
-#include "DataFormatsGlobalTracking/RecoContainer.h"
 #include "DataFormatsGlobalTracking/RecoContainerCreateTracksVariadic.h"
-#include "DataFormatsITSMFT/ROFRecord.h"
 #include "DataFormatsParameters/GRPMagField.h"
 #include "DataFormatsParameters/GRPObject.h"
 #include "DetectorsBase/GeometryManager.h"
 #include "DetectorsBase/Propagator.h"
-#include "DetectorsVertexing/PVertexerParams.h"
-#include "DetectorsVertexing/VertexTrackMatcher.h"
-#include "Field/MagneticField.h"
-#include "Framework/ASoAHelpers.h"
 #include "Framework/AnalysisDataModel.h"
 #include "Framework/AnalysisTask.h"
 #include "Framework/DataTypes.h"
 #include "Framework/runDataProcessing.h"
-#include "MathUtils/Primitive2D.h"
-#include "ReconstructionDataFormats/PrimaryVertex.h"
-#include "ReconstructionDataFormats/VtxTrackIndex.h"
-#include "ReconstructionDataFormats/VtxTrackRef.h"
+#include <DetectorsBase/MatLayerCylSet.h>
+#include <Framework/AnalysisHelpers.h>
+#include <Framework/Configurable.h>
+#include <Framework/InitContext.h>
+#include <ReconstructionDataFormats/TrackFwd.h>
 
-#include "TGeoGlobalMagField.h"
+#include <TH2.h>
+#include <THashList.h>
+#include <TList.h>
+#include <TObjArray.h>
+#include <TString.h>
+
+#include <RtypesCore.h>
 
 using namespace o2;
 using namespace o2::framework;

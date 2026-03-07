@@ -18,6 +18,17 @@
 // The event filtering, centrality, and V0Bits (from v0-selector) can be switched on/off by selecting one
 //  of the process functions
 // C++ includes
+#include "EventSelectionParams.h"
+#include "MlResponse.h"
+#include "RCTSelectionFlags.h"
+
+#include <array>
+#include <bitset>
+#include <chrono>
+#include <cmath>
+#include <cstddef>
+#include <cstdint>
+#include <cstdlib>
 #include <map>
 #include <memory>
 #include <string>
@@ -34,44 +45,46 @@
 #include "PWGDQ/Core/VarManager.h"
 #include "PWGDQ/DataModel/ReducedInfoTables.h"
 
-#include "Common/CCDB/TriggerAliases.h"
 #include "Common/CCDB/ctpRateFetcher.h"
-#include "Common/Core/TableHelper.h"
 #include "Common/Core/Zorro.h"
 #include "Common/DataModel/Centrality.h"
 #include "Common/DataModel/CollisionAssociationTables.h"
 #include "Common/DataModel/EventSelection.h"
 #include "Common/DataModel/FwdTrackReAlignTables.h"
-#include "Common/DataModel/MftmchMatchingML.h"
 #include "Common/DataModel/Multiplicity.h"
 #include "Common/DataModel/PIDResponseTOF.h"
 #include "Common/DataModel/PIDResponseTPC.h"
 #include "Common/DataModel/TrackSelectionTables.h"
 
 #include "CCDB/BasicCCDBManager.h"
-#include "CommonDataFormat/InteractionRecord.h"
 #include "DataFormatsGlobalTracking/RecoContainer.h"
 #include "DataFormatsGlobalTracking/RecoContainerCreateTracksVariadic.h"
-#include "DataFormatsITSMFT/ROFRecord.h"
 #include "DataFormatsParameters/GRPLHCIFData.h"
 #include "DataFormatsParameters/GRPMagField.h"
 #include "DataFormatsParameters/GRPObject.h"
 #include "DetectorsBase/GeometryManager.h"
 #include "DetectorsBase/Propagator.h"
-#include "DetectorsVertexing/PVertexerParams.h"
-#include "DetectorsVertexing/VertexTrackMatcher.h"
-#include "Field/MagneticField.h"
-#include "Framework/ASoAHelpers.h"
 #include "Framework/AnalysisDataModel.h"
 #include "Framework/AnalysisTask.h"
 #include "Framework/DataTypes.h"
 #include "Framework/runDataProcessing.h"
-#include "MathUtils/Primitive2D.h"
-#include "ReconstructionDataFormats/PrimaryVertex.h"
-#include "ReconstructionDataFormats/VtxTrackIndex.h"
-#include "ReconstructionDataFormats/VtxTrackRef.h"
+#include <CCDB/CcdbApi.h>
+#include <CommonConstants/LHCConstants.h>
+#include <DataFormatsFT0/Digit.h>
+#include <Framework/AnalysisHelpers.h>
+#include <Framework/Array2D.h>
+#include <Framework/Configurable.h>
+#include <Framework/InitContext.h>
+#include <ReconstructionDataFormats/TrackFwd.h>
 
-#include "TGeoGlobalMagField.h"
+#include <TH1.h>
+#include <TH2.h>
+#include <THashList.h>
+#include <TList.h>
+#include <TObjArray.h>
+#include <TString.h>
+
+#include <RtypesCore.h>
 
 using namespace o2;
 using namespace o2::framework;

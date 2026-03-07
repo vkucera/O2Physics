@@ -20,6 +20,7 @@
 #include "PWGLF/DataModel/LFStrangenessTables.h"
 #include "PWGLF/Utils/inelGt.h"
 
+#include "Common/CCDB/EventSelectionParams.h"
 #include "Common/DataModel/EventSelection.h"
 #include "Common/DataModel/Multiplicity.h"
 #include "Common/DataModel/PIDResponseTOF.h"
@@ -32,12 +33,23 @@
 #include "Framework/O2DatabasePDGPlugin.h"
 #include "Framework/runDataProcessing.h"
 #include <CommonConstants/MathConstants.h>
+#include <Framework/AnalysisHelpers.h>
 #include <Framework/Configurable.h>
+#include <Framework/HistogramSpec.h>
+#include <Framework/InitContext.h>
+#include <Framework/OutputObjHeader.h>
 
 #include <TGraph.h>
+#include <TPDGCode.h>
 #include <TRandom2.h>
+#include <TString.h>
 
+#include <array>
 #include <cmath>
+#include <cstddef>
+#include <cstdint>
+#include <span>
+#include <string_view>
 #include <vector>
 
 using namespace o2;

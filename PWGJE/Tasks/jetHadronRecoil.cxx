@@ -32,7 +32,6 @@
 #include <Framework/Configurable.h>
 #include <Framework/HistogramSpec.h>
 #include <Framework/InitContext.h>
-#include <Framework/Logger.h>
 #include <Framework/runDataProcessing.h>
 
 #include "TRandom3.h"

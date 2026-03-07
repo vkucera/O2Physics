@@ -8,13 +8,37 @@
 // In applying this license CERN does not waive the privileges and immunities
 // granted to it by virtue of its status as an Intergovernmental Organization
 // or submit itself to any jurisdiction.
+
 #include "PWGDQ/Core/VarManager.h"
 
 #include "Tools/KFparticle/KFUtilities.h"
 
+#include <CommonConstants/LHCConstants.h>
+#include <CommonConstants/PhysicsConstants.h>
+#include <DCAFitter/DCAFitterN.h>
+#include <DCAFitter/FwdDCAFitterN.h>
+#include <DataFormatsParameters/GRPLHCIFData.h>
+#include <GlobalTracking/MatchGlobalFwd.h>
+
+#include <Math/Vector4D.h> // IWYU pragma: keep (do not replace with Math/Vector4Dfwd.h)
+#include <Math/Vector4Dfwd.h>
+#include <TH3.h>
+#include <THn.h>
+#include <TObject.h>
+#include <TString.h>
+
+#include <KFParticle.h>
+#include <fairlogger/Logger.h>
+
+#include <Rtypes.h>
+#include <RtypesCore.h>
+
 #include <cmath>
-#include <iostream>
+#include <cstddef>
+#include <cstdint>
 #include <map>
+#include <numeric>
+#include <tuple>
 #include <vector>
 
 using namespace o2::constants::physics;

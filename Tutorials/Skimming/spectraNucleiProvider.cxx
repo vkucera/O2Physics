@@ -13,18 +13,22 @@
 // O2 includes
 #include "DataModel/LFDerived.h"
 
+#include "Common/CCDB/TriggerAliases.h"
 #include "Common/DataModel/EventSelection.h"
 #include "Common/DataModel/PIDResponseTOF.h"
 #include "Common/DataModel/PIDResponseTPC.h"
 #include "Common/DataModel/TrackSelectionTables.h"
 
-#include "Framework/ASoAHelpers.h"
 #include "Framework/AnalysisDataModel.h"
 #include "Framework/AnalysisTask.h"
-#include "MathUtils/Utils.h"
-#include "ReconstructionDataFormats/Track.h"
+#include <CommonConstants/PhysicsConstants.h>
+#include <Framework/AnalysisHelpers.h>
+#include <Framework/Configurable.h>
+#include <MathUtils/detail/TypeTruncation.h>
 
 #include <TLorentzVector.h>
+
+#include <cstdint>
 
 using namespace o2;
 using namespace o2::framework;

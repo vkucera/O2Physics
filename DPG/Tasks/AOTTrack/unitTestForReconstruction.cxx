@@ -16,20 +16,16 @@
 /// \since September 9, 2025
 
 #include "Framework/ASoA.h"
-#include "Framework/ASoAHelpers.h"
 #include "Framework/AnalysisDataModel.h"
 #include "Framework/AnalysisTask.h"
-#include "Framework/DataTypes.h"
 #include "Framework/HistogramRegistry.h"
-#include "Framework/Logger.h"
-#include "Framework/RunningWorkflowInfo.h"
 #include "Framework/runDataProcessing.h"
-#include "ReconstructionDataFormats/DCA.h"
-#include "ReconstructionDataFormats/Track.h"
+#include <Framework/Configurable.h>
+#include <Framework/HistogramSpec.h>
+#include <Framework/InitContext.h>
+#include <Framework/OutputObjHeader.h>
 
 #include <cmath>
-#include <memory>
-#include <random>
 #include <string>
 #include <unordered_set>
 #include <vector>

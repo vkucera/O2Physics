@@ -14,9 +14,9 @@
 
 #include "PWGEM/Dilepton/DataModel/dileptonTables.h"
 
-#include "Common/Core/TableHelper.h"
 #include "Common/Core/fwdtrackUtilities.h"
 #include "Common/DataModel/CollisionAssociationTables.h"
+#include "Common/DataModel/EventSelection.h"
 
 #include "CCDB/BasicCCDBManager.h"
 #include "CommonConstants/PhysicsConstants.h"
@@ -27,17 +27,26 @@
 #include "Framework/AnalysisTask.h"
 #include "Framework/DataTypes.h"
 #include "Framework/runDataProcessing.h"
-#include "GlobalTracking/MatchGlobalFwd.h"
 #include "MCHTracking/TrackExtrap.h"
-#include "MCHTracking/TrackParam.h"
-#include "ReconstructionDataFormats/TrackFwd.h"
+#include <CCDB/CcdbApi.h>
+#include <DetectorsBase/GeometryManager.h>
+#include <Framework/AnalysisHelpers.h>
+#include <Framework/Configurable.h>
+#include <Framework/HistogramRegistry.h>
+#include <Framework/HistogramSpec.h>
+#include <Framework/InitContext.h>
+#include <Framework/OutputObjHeader.h>
+#include <MathUtils/Utils.h>
+#include <ReconstructionDataFormats/GlobalFwdTrack.h>
 
-#include "Math/SMatrix.h"
-#include "Math/Vector4D.h"
 #include "TGeoGlobalMagField.h"
+#include <Math/Vector4D.h> // IWYU pragma: keep (do not replace with Math/Vector4Dfwd.h)
+#include <Math/Vector4Dfwd.h>
 
-#include <algorithm>
+#include <cmath>
+#include <cstdint>
 #include <map>
+#include <ranges>
 #include <string>
 #include <vector>
 

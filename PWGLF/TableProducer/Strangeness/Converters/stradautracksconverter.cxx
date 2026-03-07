@@ -22,6 +22,7 @@
 #include "Framework/AnalysisDataModel.h"
 #include "Framework/AnalysisTask.h"
 #include "Framework/runDataProcessing.h"
+#include <Framework/AnalysisHelpers.h>
 
 #include <vector>
 

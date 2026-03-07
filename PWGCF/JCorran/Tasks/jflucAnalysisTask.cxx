@@ -12,21 +12,20 @@
 /// \author Dong Jo Kim (djkim@jyu.fi)
 /// \since Sep 2022
 
-#include "Common/Core/TrackSelection.h"
-#include "Common/DataModel/Centrality.h"
-#include "Common/DataModel/EventSelection.h"
-#include "Common/DataModel/TrackSelectionTables.h"
-
-#include "Framework/ASoAHelpers.h"
 #include "Framework/AnalysisTask.h"
 #include "Framework/HistogramRegistry.h"
-#include "Framework/RunningWorkflowInfo.h"
-#include "ReconstructionDataFormats/V0.h"
 
 #include <TFormula.h>
 
+#include <sys/types.h>
+
+#include <algorithm>
 #include <array>
+#include <bit>
+#include <cstdint>
 #include <deque>
+#include <experimental/type_traits>
+#include <iterator>
 #include <memory>
 #include <string>
 
@@ -39,6 +38,12 @@
 #include "PWGCF/JCorran/DataModel/JCatalyst.h"
 
 #include "Framework/runDataProcessing.h"
+#include <CommonConstants/MathConstants.h>
+#include <Framework/ASoA.h>
+#include <Framework/Configurable.h>
+#include <Framework/Expressions.h>
+#include <Framework/HistogramSpec.h>
+#include <Framework/InitContext.h>
 
 using namespace o2;
 using namespace o2::framework;

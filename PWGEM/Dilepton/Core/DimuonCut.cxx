@@ -17,6 +17,9 @@
 
 #include "Framework/Logger.h"
 
+#include <Rtypes.h>
+
+#include <functional>
 #include <vector>
 
 ClassImp(DimuonCut);

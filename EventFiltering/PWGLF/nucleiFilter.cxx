@@ -11,12 +11,14 @@
 // O2 includes
 
 #include "../filterTables.h"
+#include "MetadataHelper.h"
+#include "RecoDecay.h"
 
 #include "PWGLF/DataModel/LFPIDTOFGenericTables.h"
 #include "PWGLF/DataModel/LFStrangenessTables.h"
-#include "PWGLF/DataModel/Vtx3BodyTables.h"
 #include "PWGLF/Utils/pidTOFGeneric.h"
 
+#include "Common/CCDB/EventSelectionParams.h"
 #include "Common/Core/PID/PIDTOF.h"
 #include "Common/Core/trackUtilities.h"
 #include "Common/DataModel/EventSelection.h"
@@ -28,21 +30,33 @@
 #include "DCAFitter/DCAFitterN.h"
 #include "DataFormatsParameters/GRPMagField.h"
 #include "DataFormatsParameters/GRPObject.h"
-#include "DataFormatsTOF/ParameterContainers.h"
-#include "MathUtils/BetheBlochAleph.h"
-#include "DetectorsBase/GeometryManager.h"
 #include "DetectorsBase/Propagator.h"
-#include "Framework/ASoAHelpers.h"
 #include "Framework/AnalysisDataModel.h"
 #include "Framework/AnalysisTask.h"
 #include "Framework/HistogramRegistry.h"
 #include "Framework/runDataProcessing.h"
-#include "ReconstructionDataFormats/Track.h"
+#include "MathUtils/BetheBlochAleph.h"
+#include <CommonConstants/PhysicsConstants.h>
+#include <DetectorsBase/MatLayerCylSet.h>
+#include <Framework/AnalysisHelpers.h>
+#include <Framework/Array2D.h>
+#include <Framework/Configurable.h>
+#include <Framework/HistogramSpec.h>
+#include <Framework/InitContext.h>
+#include <Framework/OutputObjHeader.h>
+#include <ReconstructionDataFormats/PID.h>
 
 #include "Math/GenVector/Boost.h"
-#include "Math/Vector4D.h"
+#include <Math/Vector4D.h> // IWYU pragma: keep (do not replace with Math/Vector4Dfwd.h)
+#include <Math/Vector4Dfwd.h>
+#include <TH1.h>
+#include <TH2.h>
+#include <TString.h>
 
+#include <array>
 #include <cmath>
+#include <cstddef>
+#include <cstdint>
 #include <memory>
 #include <string>
 #include <vector>

@@ -34,6 +34,9 @@
 #include <Framework/InitContext.h>
 #include <Framework/OutputObjHeader.h>
 
+#include <TPDGCode.h>
+
+#include <array>
 #include <chrono>
 #include <cstddef>
 #include <cstdint>

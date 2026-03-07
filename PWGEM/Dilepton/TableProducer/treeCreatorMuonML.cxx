@@ -14,38 +14,48 @@
 // This code will create data table for inputs to machine learning for electrons.
 //    Please write to: daiki.sekihata@cern.ch
 
+#include "EventSelectionParams.h"
+
 #include "PWGEM/Dilepton/DataModel/lmeeMLTables.h"
 
-#include "Common/CCDB/RCTSelectionFlags.h"
 #include "Common/CCDB/ctpRateFetcher.h"
 #include "Common/Core/CollisionTypeHelper.h"
 #include "Common/Core/RecoDecay.h"
-#include "Common/Core/TrackSelection.h"
 #include "Common/Core/fwdtrackUtilities.h"
 #include "Common/DataModel/EventSelection.h"
 
 #include "CCDB/BasicCCDBManager.h"
-#include "CommonConstants/PhysicsConstants.h"
-#include "DCAFitter/DCAFitterN.h"
 #include "DataFormatsParameters/GRPLHCIFData.h"
 #include "DataFormatsParameters/GRPMagField.h"
-#include "DataFormatsParameters/GRPObject.h"
 #include "DetectorsBase/GeometryManager.h"
 #include "DetectorsBase/Propagator.h"
-#include "Framework/ASoAHelpers.h"
 #include "Framework/AnalysisDataModel.h"
 #include "Framework/AnalysisTask.h"
 #include "Framework/runDataProcessing.h"
-#include "GlobalTracking/MatchGlobalFwd.h"
 #include "MCHTracking/TrackExtrap.h"
-#include "MCHTracking/TrackParam.h"
 #include "ReconstructionDataFormats/TrackFwd.h"
+#include <CCDB/CcdbApi.h>
+#include <Framework/AnalysisHelpers.h>
+#include <Framework/Configurable.h>
+#include <Framework/DataTypes.h>
+#include <Framework/HistogramRegistry.h>
+#include <Framework/HistogramSpec.h>
+#include <Framework/InitContext.h>
+#include <Framework/OutputObjHeader.h>
+#include <MathUtils/Utils.h>
+#include <ReconstructionDataFormats/GlobalFwdTrack.h>
 
+#include <TH1.h>
+
+#include <cmath>
 #include <map>
 #include <random>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <vector>
+
+#include <math.h>
 
 using namespace o2;
 using namespace o2::framework;

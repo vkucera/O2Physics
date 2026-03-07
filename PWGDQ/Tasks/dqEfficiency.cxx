@@ -29,14 +29,19 @@
 #include "Framework/AnalysisDataModel.h"
 #include "Framework/AnalysisTask.h"
 #include "Framework/runDataProcessing.h"
+#include <DetectorsBase/MatLayerCylSet.h>
+#include <Framework/AnalysisHelpers.h>
+#include <Framework/Configurable.h>
+#include <Framework/InitContext.h>
 
-#include <TH1F.h>
 #include <THashList.h>
 #include <TMath.h>
 #include <TString.h>
 
+#include <RtypesCore.h>
+
+#include <cstdint>
 #include <cstdio>
-#include <iostream>
 #include <memory>
 #include <string>
 #include <vector>

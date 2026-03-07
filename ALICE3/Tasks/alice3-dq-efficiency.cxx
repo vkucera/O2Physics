@@ -26,10 +26,6 @@
 #include "PWGDQ/DataModel/ReducedInfoTables.h"
 #include "PWGDQ/DataModel/ReducedTablesAlice3.h"
 
-#include "ALICE3/DataModel/OTFRICH.h"
-#include "ALICE3/DataModel/OTFTOF.h"
-#include "ALICE3/DataModel/collisionAlice3.h"
-#include "ALICE3/DataModel/tracksAlice3.h"
 #include "Common/Core/TableHelper.h"
 
 #include "Framework/ASoAHelpers.h"
@@ -37,15 +33,16 @@
 #include "Framework/AnalysisHelpers.h"
 #include "Framework/AnalysisTask.h"
 #include "Framework/runDataProcessing.h"
+#include <DetectorsBase/MatLayerCylSet.h>
+#include <Framework/Configurable.h>
+#include <Framework/InitContext.h>
 
-#include <TH1F.h>
-#include <TH3F.h>
 #include <THashList.h>
-#include <TList.h>
-#include <TObjString.h>
 #include <TString.h>
 
 #include <algorithm>
+#include <cmath>
+#include <cstdint>
 #include <map>
 #include <memory>
 #include <string>

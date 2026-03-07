@@ -41,7 +41,11 @@
 #include <CommonConstants/PhysicsConstants.h>
 #include <Framework/Logger.h>
 
-#include <map>
+#include <TRandom.h>
+
+#include <cmath>
+#include <fstream>
+#include <ostream>
 #include <string>
 
 namespace o2
