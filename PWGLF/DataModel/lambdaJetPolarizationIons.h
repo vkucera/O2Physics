@@ -23,6 +23,9 @@
 #include <Framework/ASoA.h>
 #include <Framework/AnalysisDataModel.h>
 
+#include <cmath>
+#include <cstdint>
+
 namespace o2::aod
 {
 

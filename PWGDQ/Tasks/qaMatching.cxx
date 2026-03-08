@@ -13,13 +13,12 @@
 /// \brief Task to compute and evaluate DCA quantities
 /// \author Nicolas Bizé <nicolas.bize@cern.ch>, SUBATECH
 //
-#include "MlResponse.h"
-
 #include "PWGDQ/Core/MuonMatchingMlResponse.h"
 #include "PWGDQ/Core/VarManager.h"
 
 #include "Common/CCDB/RCTSelectionFlags.h"
 #include "Common/DataModel/EventSelection.h"
+#include "Tools/ML/MlResponse.h"
 
 #include "CCDB/BasicCCDBManager.h"
 #include "DataFormatsParameters/GRPMagField.h"
@@ -54,6 +53,7 @@
 #include <Math/SVector.h>
 #include <Math/Vector4D.h> // IWYU pragma: keep (do not replace with Math/Vector4Dfwd.h)
 #include <Math/Vector4Dfwd.h>
+#include <TGeoGlobalMagField.h>
 #include <TH1.h>
 #include <TH2.h>
 #include <TH3.h>

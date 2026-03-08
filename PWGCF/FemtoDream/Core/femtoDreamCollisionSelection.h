@@ -18,16 +18,18 @@
 
 #include "Common/CCDB/EventSelectionParams.h"
 #include "Common/CCDB/TriggerAliases.h"
-#include "Common/Core/EventPlaneHelper.h"
-#include "Common/DataModel/EventSelection.h"
-#include "Common/DataModel/Qvectors.h"
 
 #include "Framework/HistogramRegistry.h"
 #include "Framework/Logger.h"
+#include <Framework/HistogramSpec.h>
 
 #include "TMath.h"
+#include <TH1.h>
+#include <TMathBase.h>
 
-#include <iostream>
+#include <cmath>
+#include <cstddef>
+#include <memory>
 #include <string>
 #include <vector>
 

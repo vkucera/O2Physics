@@ -19,7 +19,7 @@
 #ifndef PWGUD_DATAMODEL_UDINDEX_H_
 #define PWGUD_DATAMODEL_UDINDEX_H_
 
-#include "PWGUD/DataModel/UDTables.h"
+#include "PWGUD/DataModel/UDTables.h" // IWYU pragma: keep
 
 #include "Framework/AnalysisDataModel.h"
 

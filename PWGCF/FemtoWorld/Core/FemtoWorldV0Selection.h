@@ -22,13 +22,22 @@
 #include "PWGCF/FemtoWorld/Core/FemtoWorldObjectSelection.h"
 #include "PWGCF/FemtoWorld/Core/FemtoWorldSelection.h"
 #include "PWGCF/FemtoWorld/Core/FemtoWorldTrackSelection.h"
-
-#include "Common/Core/RecoDecay.h"
+#include "PWGCF/FemtoWorld/DataModel/FemtoWorldDerived.h"
 
 #include "Framework/HistogramRegistry.h"
-#include "ReconstructionDataFormats/PID.h"
+#include <Framework/HistogramSpec.h>
 
 #include <TDatabasePDG.h>
+
+#include <fairlogger/Logger.h>
+
+#include <array>
+#include <cstddef>
+#include <string>
+#include <string_view>
+#include <vector>
+
+#include <math.h>
 
 using namespace o2::framework;
 

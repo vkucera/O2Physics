@@ -17,12 +17,12 @@
 ///        Depending on the configuration it can also run on tiny tables.
 ///
 
-// O2 includes
 #include "PWGLF/DataModel/spectraTOF.h"
 
 #include "Common/DataModel/EventSelection.h"
 #include "Common/DataModel/Multiplicity.h"
 #include "Common/DataModel/PIDResponseTOF.h"
+#include "Common/DataModel/PIDResponseTPC.h"
 #include "Common/DataModel/TrackSelectionTables.h"
 
 #include "Framework/AnalysisTask.h"

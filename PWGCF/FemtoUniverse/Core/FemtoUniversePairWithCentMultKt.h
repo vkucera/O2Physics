@@ -34,13 +34,13 @@ class FemtoUniversePairWithCentMultKt
   /// @param kstarbins
   /// @param centmultbins
   template <typename t1>
-  void init(HistogramRegistry* registry, t1& kstarbins, t1& centmultbins, t1& ktbins, bool processKT, bool process3D)
+  void init(framework::HistogramRegistry* registry, t1& kstarbins, t1& centmultbins, t1& ktbins, bool processKT, bool process3D)
   {
     pairWithCentMultKtRegistry = registry;
-    AxisSpec kstarAxis = {kstarbins, "#it{k*} (GeV/#it{c})"};
-    AxisSpec kOutAxis = {kstarbins, "#it{q}_{out} (GeV/#it{c})"};
-    AxisSpec kSideAxis = {kstarbins, "#it{q}_{side} (GeV/#it{c})"};
-    AxisSpec kLongAxis = {kstarbins, "#it{q}_{long} (GeV/#it{c})"};
+    framework::AxisSpec kstarAxis = {kstarbins, "#it{k*} (GeV/#it{c})"};
+    framework::AxisSpec kOutAxis = {kstarbins, "#it{q}_{out} (GeV/#it{c})"};
+    framework::AxisSpec kSideAxis = {kstarbins, "#it{q}_{side} (GeV/#it{c})"};
+    framework::AxisSpec kLongAxis = {kstarbins, "#it{q}_{long} (GeV/#it{c})"};
     centMultBins = centmultbins;
     ktBins = ktbins;
     ktBins.erase(ktBins.begin());
@@ -56,7 +56,7 @@ class FemtoUniversePairWithCentMultKt
       std::string histSuffix2 = static_cast<std::string>(HistSuffix[i + 1]);
       std::string histFolderMult = "mult_" + histSuffix1 + "_" + histSuffix2;
       std::string histName = histFolderMult + "/kstar";
-      pairWithCentMultKtRegistry->add(histName.c_str(), histTitle.c_str(), HistType::kTH1F, {kstarAxis});
+      pairWithCentMultKtRegistry->add(histName.c_str(), histTitle.c_str(), framework::HistType::kTH1F, {kstarAxis});
       if (useKt) {
         for (int i = 0; i < static_cast<int>(ktBins.size() - 1); i++) {
           std::string ktBin1String = std::to_string(ktBins[i]);
@@ -70,12 +70,12 @@ class FemtoUniversePairWithCentMultKt
           std::string histSuffix2Kt = static_cast<std::string>(HistSuffix[i + 1]);
           std::string histNameKt = histFolderMult + "/kstar_kt_" + histSuffix1Kt + "_" + histSuffix2Kt;
           LOGF(info, "histNameKt %s", histNameKt);
-          pairWithCentMultKtRegistry->add(histNameKt.c_str(), histTitleKt.c_str(), HistType::kTH1F, {kstarAxis});
+          pairWithCentMultKtRegistry->add(histNameKt.c_str(), histTitleKt.c_str(), framework::HistType::kTH1F, {kstarAxis});
         }
       }
       if (use3D) {
         std::string histName3D = histFolderMult + "/q3D";
-        pairWithCentMultKtRegistry->add(histName3D.c_str(), histTitle.c_str(), HistType::kTH3F, {kOutAxis, kSideAxis, kLongAxis});
+        pairWithCentMultKtRegistry->add(histName3D.c_str(), histTitle.c_str(), framework::HistType::kTH3F, {kOutAxis, kSideAxis, kLongAxis});
         for (int i = 0; i < static_cast<int>(ktBins.size() - 1); i++) {
           std::string ktBin1String = std::to_string(ktBins[i]);
           std::replace(ktBin1String.begin(), ktBin1String.end(), '.', '_');
@@ -88,12 +88,12 @@ class FemtoUniversePairWithCentMultKt
           std::string histSuffix2Kt = static_cast<std::string>(HistSuffix[i + 1]);
           std::string histNameKt = histFolderMult + "/q3D_kt_" + histSuffix1Kt + "_" + histSuffix2Kt;
           LOGF(info, "histNameKt %s", histNameKt);
-          pairWithCentMultKtRegistry->add(histNameKt.c_str(), histTitleKt.c_str(), HistType::kTH3F, {kOutAxis, kSideAxis, kLongAxis});
+          pairWithCentMultKtRegistry->add(histNameKt.c_str(), histTitleKt.c_str(), framework::HistType::kTH3F, {kOutAxis, kSideAxis, kLongAxis});
         }
       }
     }
-    pairWithCentMultKtRegistry->add("Beyond_Max", "Beyond_Max", HistType::kTH1F, {kstarAxis});
-    pairWithCentMultKtRegistry->add("Beyond_Max_3D", "Beyond_Max_3D", HistType::kTH3F, {kOutAxis, kSideAxis, kLongAxis});
+    pairWithCentMultKtRegistry->add("Beyond_Max", "Beyond_Max", framework::HistType::kTH1F, {kstarAxis});
+    pairWithCentMultKtRegistry->add("Beyond_Max_3D", "Beyond_Max_3D", framework::HistType::kTH3F, {kOutAxis, kSideAxis, kLongAxis});
   }
 
   /// @brief
@@ -288,7 +288,7 @@ class FemtoUniversePairWithCentMultKt
   }
 
  protected:
-  HistogramRegistry* pairWithCentMultKtRegistry = nullptr;
+  framework::HistogramRegistry* pairWithCentMultKtRegistry = nullptr;
   std::vector<double> centMultBins;
   std::vector<double> ktBins;
   bool useKt = false;

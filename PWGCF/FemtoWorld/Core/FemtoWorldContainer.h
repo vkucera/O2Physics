@@ -18,18 +18,18 @@
 #ifndef PWGCF_FEMTOWORLD_CORE_FEMTOWORLDCONTAINER_H_
 #define PWGCF_FEMTOWORLD_CORE_FEMTOWORLDCONTAINER_H_
 
-#include <vector>
-#include <string>
-#include "Framework/HistogramRegistry.h"
 #include "PWGCF/FemtoWorld/Core/FemtoWorldMath.h"
 
-#include "Math/Vector4D.h"
-#include "TMath.h"
-#include "TDatabasePDG.h"
-
-#include "TLorentzVector.h"
 #include "CommonConstants/MathConstants.h"
-#include "TRandom.h"
+#include "Framework/HistogramRegistry.h"
+#include <Framework/HistogramSpec.h>
+
+#include "TDatabasePDG.h"
+#include "TLorentzVector.h"
+
+#include <string>
+#include <string_view>
+#include <vector>
 
 using namespace o2::framework;
 

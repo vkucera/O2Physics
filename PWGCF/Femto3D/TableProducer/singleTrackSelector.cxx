@@ -15,8 +15,9 @@
 
 #include "PWGCF/Femto3D/DataModel/singletrackselector.h"
 
-#include "RCTSelectionFlags.h"
+#include "PWGCF/Femto3D/DataModel/PIDutils.h"
 
+#include "Common/CCDB/RCTSelectionFlags.h"
 #include "Common/CCDB/ctpRateFetcher.h"
 #include "Common/Core/Zorro.h"
 #include "Common/Core/ZorroSummary.h"

@@ -14,6 +14,7 @@
 /// \since 31 May 2023
 
 #include "PWGCF/Femto3D/Core/femto3dPairTask.h"
+#include "PWGCF/Femto3D/DataModel/PIDutils.h"
 #include "PWGCF/Femto3D/DataModel/singletrackselector.h"
 
 #include "Common/DataModel/PIDResponseITS.h"

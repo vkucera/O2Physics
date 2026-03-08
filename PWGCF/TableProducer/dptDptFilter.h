@@ -31,25 +31,32 @@
 #include "Common/DataModel/TrackSelectionTables.h"
 
 #include "Framework/AnalysisDataModel.h"
-#include "Framework/AnalysisTask.h"
 #include "ReconstructionDataFormats/PID.h"
-#include <CCDB/BasicCCDBManager.h>
+#include <CommonConstants/MathConstants.h>
+#include <CommonConstants/PhysicsConstants.h>
+#include <Framework/DataTypes.h>
 
 #include <TF1.h>
 #include <TFormula.h>
+#include <TH1.h>
 #include <TList.h>
 #include <TMCProcess.h>
 #include <TPDGCode.h>
 
+#include <fairlogger/Logger.h>
+#include <sys/types.h>
+
 #include <Rtypes.h>
 
+#include <algorithm>
 #include <bitset>
+#include <cstddef>
+#include <cstdint>
+#include <ctime>
 #include <fstream>
 #include <functional>
 #include <iomanip>
-#include <locale>
 #include <map>
-#include <ranges>
 #include <sstream>
 #include <string>
 #include <string_view>

@@ -17,6 +17,34 @@
 #ifndef PWGDQ_CORE_VARMANAGER_H_
 #define PWGDQ_CORE_VARMANAGER_H_
 
+#include "RecoDecay.h"
+
+#include "PWGUD/Core/UPCHelpers.h"
+
+#include <CommonConstants/MathConstants.h>
+#include <DataFormatsParameters/GRPLHCIFData.h>
+#include <DetectorsBase/GeometryManager.h>
+#include <DetectorsBase/MatLayerCylSet.h>
+#include <MCHTracking/TrackExtrap.h>
+#include <ReconstructionDataFormats/GlobalFwdTrack.h>
+#include <ReconstructionDataFormats/TrackParametrizationWithError.h>
+
+#include <Math/GenVector/VectorUtil.h>
+#include <Math/MatrixRepresentationsStatic.h>
+#include <Math/Vector3Dfwd.h>
+#include <TMath.h>
+#include <TMathBase.h>
+
+#include <fairlogger/Logger.h>
+
+#include <GPUROOTCartesianFwd.h>
+#include <Rtypes.h>
+#include <RtypesCore.h>
+
+#include <array>
+#include <tuple>
+
+#include <math.h>
 #ifndef HomogeneousField
 #define HomogeneousField
 #endif
@@ -25,9 +53,7 @@
 
 #include "Common/CCDB/EventSelectionParams.h"
 #include "Common/CCDB/TriggerAliases.h"
-#include "Common/Core/CollisionTypeHelper.h"
 #include "Common/Core/EventPlaneHelper.h"
-#include "Common/Core/PID/PIDTOFParamService.h"
 #include "Common/Core/fwdtrackUtilities.h"
 #include "Common/Core/trackUtilities.h"
 
@@ -36,7 +62,6 @@
 #include <DCAFitter/DCAFitterN.h>
 #include <DCAFitter/FwdDCAFitterN.h>
 #include <DetectorsBase/Propagator.h>
-#include <Field/MagneticField.h>
 #include <Framework/AnalysisDataModel.h>
 #include <Framework/DataTypes.h>
 #include <GlobalTracking/MatchGlobalFwd.h>
@@ -47,13 +72,8 @@
 
 #include <Math/GenVector/Boost.h>
 #include <Math/SMatrix.h>
-#include <Math/Vector3D.h>
 #include <Math/Vector4D.h> // IWYU pragma: keep (do not replace with Math/Vector4Dfwd.h)
 #include <Math/Vector4Dfwd.h>
-#include <Math/VectorUtil.h>
-#include <TGeoGlobalMagField.h>
-#include <TH3F.h>
-#include <THn.h>
 #include <TObject.h>
 #include <TRandom.h>
 #include <TString.h>
@@ -61,10 +81,7 @@
 #include <KFPTrack.h>
 #include <KFPVertex.h>
 #include <KFParticle.h>
-#include <KFParticleBase.h>
-#include <KFVertex.h>
 
-#include <algorithm>
 #include <cmath>
 #include <complex>
 #include <cstdint>

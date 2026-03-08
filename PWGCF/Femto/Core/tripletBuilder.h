@@ -24,6 +24,7 @@
 #include "PWGCF/Femto/Core/tripletCleaner.h"
 #include "PWGCF/Femto/Core/tripletHistManager.h"
 #include "PWGCF/Femto/Core/tripletProcessHelpers.h"
+#include "PWGCF/Femto/Core/v0HistManager.h"
 #include "PWGCF/Femto/DataModel/FemtoTables.h"
 
 #include "Framework/HistogramRegistry.h"

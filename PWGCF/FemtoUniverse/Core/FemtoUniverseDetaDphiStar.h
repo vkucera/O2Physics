@@ -19,20 +19,31 @@
 #ifndef PWGCF_FEMTOUNIVERSE_CORE_FEMTOUNIVERSEDETADPHISTAR_H_
 #define PWGCF_FEMTOUNIVERSE_CORE_FEMTOUNIVERSEDETADPHISTAR_H_
 
-#include "PWGCF/FemtoUniverse/Core/FemtoUniverseAngularContainer.h"
 #include "PWGCF/FemtoUniverse/Core/FemtoUniverseContainer.h"
-#include "PWGCF/FemtoUniverse/Core/FemtoUniverseFemtoContainer.h"
 #include "PWGCF/FemtoUniverse/Core/FemtoUniverseTrackSelection.h"
 #include "PWGCF/FemtoUniverse/DataModel/FemtoDerived.h"
 
 #include "Framework/HistogramRegistry.h"
+#include <CommonConstants/PhysicsConstants.h>
+#include <Framework/HistogramSpec.h>
 
 #include "TMath.h"
 #include "TVector2.h"
+#include <TH2.h>
+#include <TH3.h>
 #include <TLorentzVector.h>
+#include <TMathBase.h>
 
+#include <fairlogger/Logger.h>
+
+#include <array>
+#include <cmath>
+#include <cstddef>
+#include <cstdint>
+#include <cstdlib>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <vector>
 
 namespace o2::analysis

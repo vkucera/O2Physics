@@ -59,14 +59,14 @@ consteval auto getHistDim() -> int
     return -1;
 }
 
-struct EfficiencyConfigurableGroup : ConfigurableGroup {
-  Configurable<bool> confEfficiencyApplyCorrections{"confEfficiencyApplyCorrections", false, "Should apply corrections from efficiency"};
-  Configurable<int> confEfficiencyCCDBTrainNumber{"confEfficiencyCCDBTrainNumber", 0, "Train number for which to query CCDB objects (set 0 to ignore)"};
-  Configurable<std::vector<std::string>> confEfficiencyCCDBTimestamps{"confEfficiencyCCDBTimestamps", {}, "Timestamps of efficiency histograms in CCDB, to query for specific objects (default: [], set 0 to ignore, useful when running subwagons)"};
+struct EfficiencyConfigurableGroup : framework::ConfigurableGroup {
+  framework::Configurable<bool> confEfficiencyApplyCorrections{"confEfficiencyApplyCorrections", false, "Should apply corrections from efficiency"};
+  framework::Configurable<int> confEfficiencyCCDBTrainNumber{"confEfficiencyCCDBTrainNumber", 0, "Train number for which to query CCDB objects (set 0 to ignore)"};
+  framework::Configurable<std::vector<std::string>> confEfficiencyCCDBTimestamps{"confEfficiencyCCDBTimestamps", {}, "Timestamps of efficiency histograms in CCDB, to query for specific objects (default: [], set 0 to ignore, useful when running subwagons)"};
 
   // NOTE: in the future we might move the below configurables to a separate struct, eg. CCDBConfigurableGroup
-  Configurable<std::string> confCCDBUrl{"confCCDBUrl", "http://alice-ccdb.cern.ch", "CCDB URL to be used"};
-  Configurable<std::string> confCCDBPath{"confCCDBPath", "", "CCDB base path to where to upload objects"};
+  framework::Configurable<std::string> confCCDBUrl{"confCCDBUrl", "http://alice-ccdb.cern.ch", "CCDB URL to be used"};
+  framework::Configurable<std::string> confCCDBPath{"confCCDBPath", "", "CCDB base path to where to upload objects"};
 };
 
 template <typename HistType>

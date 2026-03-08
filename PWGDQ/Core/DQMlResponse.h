@@ -21,9 +21,12 @@
 
 #include "Tools/ML/MlResponse.h"
 
+#include <fairlogger/Logger.h>
+
+#include <cstdint>
 #include <map>
 #include <string>
-#include <unordered_map>
+#include <utility>
 #include <vector>
 
 namespace o2::analysis

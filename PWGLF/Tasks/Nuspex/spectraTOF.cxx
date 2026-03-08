@@ -17,10 +17,9 @@
 ///        Depending on the configuration it can also run on tiny tables.
 ///
 
-// O2 includes
-
 #include "PWGLF/DataModel/spectraTOF.h"
 
+#include "PWGLF/DataModel/LFParticleIdentification.h" // IWYU pragma: keep
 #include "PWGLF/DataModel/mcCentrality.h"
 #include "PWGLF/Utils/inelGt.h"
 
@@ -63,6 +62,7 @@
 #include <memory>
 #include <string>
 #include <vector>
+
 using namespace o2;
 using namespace o2::track;
 using namespace o2::framework;

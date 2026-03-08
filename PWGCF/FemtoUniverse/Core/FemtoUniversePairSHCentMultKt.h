@@ -26,8 +26,6 @@
 #include <string>
 #include <vector>
 
-// using namespace o2::constants::physics;
-
 namespace o2::analysis::femto_universe
 {
 
@@ -141,7 +139,7 @@ class PairSHCentMultKt
 
         if (FolderSuffix[EventType] == FolderSuffix[0]) {
           std::string bufnameNum = "CovNum";
-          fcovnum[i][j] = pairSHCentMultKtRegistry->add<TH3>((histFolderMult + "/" + histFolderkT + "/" + bufnameNum).c_str(), "; x; y; z", kTH3D,
+          fcovnum[i][j] = pairSHCentMultKtRegistry->add<TH3>((histFolderMult + "/" + histFolderkT + "/" + bufnameNum).c_str(), "; x; y; z", framework::kTH3D,
                                                              {{kstarbins},
                                                               {(kMaxJM * 2), -0.5, ((static_cast<float>(kMaxJM) * 2.0 - 0.5))},
                                                               {(kMaxJM * 2), -0.5,
@@ -149,7 +147,7 @@ class PairSHCentMultKt
           fcovnum[i][j]->Sumw2();
         } else if (FolderSuffix[EventType] == FolderSuffix[1]) {
           std::string bufnameDen = "CovDen";
-          fcovden[i][j] = pairSHCentMultKtRegistry->add<TH3>((histFolderMult + "/" + histFolderkT + "/" + bufnameDen).c_str(), "; x; y; z", kTH3D,
+          fcovden[i][j] = pairSHCentMultKtRegistry->add<TH3>((histFolderMult + "/" + histFolderkT + "/" + bufnameDen).c_str(), "; x; y; z", framework::kTH3D,
                                                              {{kstarbins},
                                                               {(kMaxJM * 2), -0.5, ((static_cast<float>(kMaxJM) * 2.0 - 0.5))},
                                                               {(kMaxJM * 2), -0.5,

@@ -18,14 +18,9 @@
 
 #include <CommonConstants/MathConstants.h>
 
-#include "Math/Boost.h"
-#include "Math/Vector4D.h"
-#include "TLorentzVector.h"
-#include "TMath.h"
-
-#include <algorithm>
+#include <array>
+#include <cmath>
 #include <complex>
-#include <vector>
 
 namespace o2::analysis::femto_universe
 {

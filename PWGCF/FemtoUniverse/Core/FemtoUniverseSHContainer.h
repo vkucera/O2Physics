@@ -22,15 +22,19 @@
 #include "PWGCF/FemtoUniverse/DataModel/FemtoDerived.h"
 
 #include "Framework/HistogramRegistry.h"
-#include <Framework/Logger.h>
+#include <Framework/HistogramSpec.h>
 
-#include "Math/Vector4D.h"
 #include "TDatabasePDG.h"
-#include "TMath.h"
+#include <TH1.h>
+#include <TH3.h>
+#include <TString.h>
 
+#include <array>
 #include <complex>
+#include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <vector>
 
 namespace o2::analysis::femto_universe

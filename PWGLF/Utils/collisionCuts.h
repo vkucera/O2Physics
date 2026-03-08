@@ -29,9 +29,16 @@
 
 #include "Framework/HistogramRegistry.h"
 #include "Framework/Logger.h"
+#include <Framework/ASoA.h>
+#include <Framework/AnalysisDataModel.h>
+#include <Framework/HistogramSpec.h>
+
+#include <TH1.h>
+
+#include <Rtypes.h>
 
 #include <map>
-#include <string>
+#include <utility>
 #include <vector>
 
 namespace o2::analysis

@@ -16,6 +16,8 @@
 #ifndef PWGEM_PHOTONMESON_CORE_PI0ETATOGAMMAGAMMAMC_H_
 #define PWGEM_PHOTONMESON_CORE_PI0ETATOGAMMAGAMMAMC_H_
 
+#include "V0PhotonCandidate.h"
+
 #include "PWGEM/PhotonMeson/Core/DalitzEECut.h"
 #include "PWGEM/PhotonMeson/Core/EMCPhotonCut.h"
 #include "PWGEM/PhotonMeson/Core/EMPhotonEventCut.h"
@@ -43,7 +45,6 @@
 #include <Framework/AnalysisDataModel.h>
 #include <Framework/AnalysisHelpers.h>
 #include <Framework/AnalysisTask.h>
-#include <Framework/Array2D.h>
 #include <Framework/Configurable.h>
 #include <Framework/HistogramRegistry.h>
 #include <Framework/HistogramSpec.h>

@@ -24,7 +24,7 @@
 
 /// this data model uses the LF one, add here
 
-#include "PWGLF/DataModel/LFStrangenessTables.h"
+#include "PWGLF/DataModel/LFStrangenessTables.h" // IWYU pragma: keep
 
 #include "Framework/AnalysisDataModel.h"
 #include <Framework/ASoA.h>

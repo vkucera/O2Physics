@@ -21,6 +21,10 @@
 #include "Common/Core/RecoDecay.h"
 
 #include "Framework/HistogramRegistry.h"
+#include <CommonConstants/PhysicsConstants.h>
+#include <Framework/HistogramSpec.h>
+
+#include <fairlogger/Logger.h>
 
 #include <vector>
 

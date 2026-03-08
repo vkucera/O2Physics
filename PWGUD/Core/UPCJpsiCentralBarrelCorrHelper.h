@@ -23,7 +23,10 @@
 #include <RtypesCore.h>
 
 #include <algorithm>
+#include <array>
 #include <chrono>
+#include <cmath>
+#include <cstdlib>
 #include <random>
 #include <vector>
 

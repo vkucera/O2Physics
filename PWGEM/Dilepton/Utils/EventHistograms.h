@@ -20,6 +20,14 @@
 #include "Common/Core/RecoDecay.h"
 
 #include "Framework/HistogramRegistry.h"
+#include <Framework/HistogramSpec.h>
+
+#include <TH1.h>
+
+#include <array>
+#include <string_view>
+
+#include <math.h>
 
 using namespace o2::framework;
 

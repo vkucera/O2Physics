@@ -15,7 +15,10 @@
 #ifndef PWGCF_JCORRAN_DATAMODEL_JCATALYST_H_
 #define PWGCF_JCORRAN_DATAMODEL_JCATALYST_H_
 
-#include <Framework/AnalysisDataModelHelpers.h>
+#include <Framework/ASoA.h>
+#include <Framework/AnalysisDataModel.h>
+
+#include <cstdint>
 
 namespace o2::aod
 {

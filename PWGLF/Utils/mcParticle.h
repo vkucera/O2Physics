@@ -21,8 +21,11 @@
 #define PWGLF_UTILS_MCPARTICLE_H_
 
 #include "ReconstructionDataFormats/PID.h"
+#include <CommonConstants/PhysicsConstants.h>
 #include <Framework/Logger.h>
 
+#include <array>
+#include <cstdint>
 #include <string>
 #include <vector>
 

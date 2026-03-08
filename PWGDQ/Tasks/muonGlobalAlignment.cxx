@@ -51,6 +51,7 @@
 #include <Math/MatrixRepresentationsStatic.h>
 #include <Math/SMatrix.h>
 #include <Math/SVector.h>
+#include <TGeoGlobalMagField.h>
 #include <TH1.h>
 #include <TH2.h>
 #include <TH3.h>

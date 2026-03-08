@@ -24,13 +24,12 @@
 #include "PWGCF/FemtoDream/Core/femtoDreamMath.h"
 
 #include "Framework/HistogramRegistry.h"
-#include <Framework/Logger.h>
+#include <Framework/HistogramSpec.h>
 
-#include "Math/Vector4D.h"
 #include "TDatabasePDG.h"
-#include "TMath.h"
 
 #include <string>
+#include <string_view>
 #include <vector>
 
 using namespace o2::framework;
