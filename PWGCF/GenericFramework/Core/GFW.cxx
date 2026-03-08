@@ -13,6 +13,7 @@
 
 #include "GFWPowerArray.h"
 
+#include <complex>
 #include <cstdio>
 #include <string>
 #include <utility>

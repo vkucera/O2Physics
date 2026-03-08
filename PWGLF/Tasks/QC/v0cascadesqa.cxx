@@ -44,6 +44,7 @@
 #include <RtypesCore.h>
 
 #include <algorithm>
+#include <array>
 #include <cmath>
 #include <cstdint>
 #include <vector>

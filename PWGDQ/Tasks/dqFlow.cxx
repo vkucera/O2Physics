@@ -55,6 +55,7 @@
 
 #include <chrono>
 #include <cmath>
+#include <complex>
 #include <cstdint>
 #include <memory>
 #include <string>

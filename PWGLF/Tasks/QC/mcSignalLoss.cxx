@@ -44,6 +44,7 @@
 #include <TH2.h>
 #include <TH3.h>
 
+#include <array>
 #include <cmath>
 #include <cstdlib>
 #include <vector>

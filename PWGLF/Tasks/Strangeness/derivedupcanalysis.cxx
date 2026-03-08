@@ -42,6 +42,7 @@
 #include <sys/types.h>
 
 #include <algorithm>
+#include <array>
 #include <bitset>
 #include <cmath>
 #include <cstddef>
