@@ -11,7 +11,6 @@
 /// \author Nicolo' Jacazio <nicolo.jacazio@cern.ch>, CERN
 /// \author David Dobrigkeit Chinellato <david.dobrigkeit.chinellato@cern.ch>, UNICAMP/CERN
 
-// O2 includes
 #include "Common/DataModel/Centrality.h"
 #include "Common/DataModel/TrackSelectionTables.h"
 
