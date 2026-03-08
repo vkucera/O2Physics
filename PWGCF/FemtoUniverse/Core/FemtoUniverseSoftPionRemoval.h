@@ -18,6 +18,8 @@
 
 #include "PWGCF/FemtoUniverse/DataModel/FemtoDerived.h"
 
+#include "Common/Core/RecoDecay.h"
+
 #include "Framework/HistogramRegistry.h"
 
 #include <vector>
@@ -38,11 +40,11 @@ class FemtoUniverseSoftPionRemoval
 
   /// Initialization of the QA histograms
   /// \param registry HistogramRegistry
-  void init(HistogramRegistry* registry)
+  void init(framework::HistogramRegistry* registry)
   {
     if (registry) {
       mHistogramRegistry = registry;
-      mHistogramRegistry->add("SoftPion/softPionMassVsPt", "; M(K#pi#pi-K#pi); p_{T}", kTH2F, {{200, 0.0, 0.2}, {36, 0., 36.}});
+      mHistogramRegistry->add("SoftPion/softPionMassVsPt", "; M(K#pi#pi-K#pi); p_{T}", framework::kTH2F, {{200, 0.0, 0.2}, {36, 0., 36.}});
     }
   }
 
@@ -112,7 +114,7 @@ class FemtoUniverseSoftPionRemoval
   }
 
  private:
-  HistogramRegistry* mHistogramRegistry;                                                ///< For QA output
+  framework::HistogramRegistry* mHistogramRegistry;                                     ///< For QA output
   static constexpr o2::aod::femtouniverseparticle::ParticleType kPartOneType = partOne; ///< Type of particle 1
   static constexpr o2::aod::femtouniverseparticle::ParticleType kPartTwoType = partTwo; ///< Type of particle 2
 };

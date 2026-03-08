@@ -15,15 +15,17 @@
 #define VWGPDF
 
 #include "RooAbsPdf.h"
-#include "RooRealProxy.h"
-#include "RooCategoryProxy.h"
 #include "RooAbsReal.h"
-#include "RooAbsCategory.h"
+#include "RooRealProxy.h"
+#include <TObject.h>
+
+#include <Rtypes.h>
+#include <RtypesCore.h>
 
 class VWGPdf : public RooAbsPdf
 {
  public:
-  VWGPdf(){};
+  VWGPdf() {};
   VWGPdf(const char* name, const char* title,
          RooAbsReal& _x,
          RooAbsReal& _A,

@@ -26,12 +26,15 @@
 
 #include "CCDB/BasicCCDBManager.h"
 #include "CommonConstants/PhysicsConstants.h"
-#include "DataFormatsTOF/ParameterContainers.h"
-#include "Framework/DataTypes.h"
 #include "Framework/PID.h"
 #include "Framework/Plugins.h"
 #include "ReconstructionDataFormats/PID.h"
+#include <Framework/InitContext.h>
 
+#include <fairlogger/Logger.h>
+
+#include <cmath>
+#include <cstdint>
 #include <string>
 
 namespace o2::pid::tof

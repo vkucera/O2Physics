@@ -18,7 +18,6 @@
 
 #include "Common/Core/TableHelper.h"
 
-#include "CommonConstants/MathConstants.h"
 #include "CommonConstants/PhysicsConstants.h"
 #include "Framework/InitContext.h"
 #include "Framework/Logger.h"
@@ -27,7 +26,6 @@
 
 #include <cmath>
 #include <cstdint>
-#include <experimental/type_traits>
 #include <optional>
 #include <unordered_map>
 #include <utility>

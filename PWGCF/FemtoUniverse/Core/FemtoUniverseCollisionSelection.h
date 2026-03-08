@@ -22,8 +22,9 @@
 
 #include "Framework/HistogramRegistry.h"
 #include "Framework/Logger.h"
+#include <Framework/HistogramSpec.h>
 
-#include <string>
+#include <cmath>
 
 using namespace o2::framework;
 

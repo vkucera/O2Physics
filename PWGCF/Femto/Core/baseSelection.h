@@ -20,6 +20,9 @@
 
 #include "Framework/HistogramRegistry.h"
 #include "Framework/Logger.h"
+#include <Framework/HistogramSpec.h>
+
+#include <TH1.h>
 
 #include <climits>
 #include <cstddef>

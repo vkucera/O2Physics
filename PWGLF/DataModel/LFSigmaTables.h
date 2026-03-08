@@ -12,19 +12,16 @@
 #include "PWGLF/DataModel/LFStrangenessTables.h"
 
 #include "Common/Core/RecoDecay.h"
-#include "Common/DataModel/Centrality.h"
-#include "Common/DataModel/Multiplicity.h"
-#include "Common/DataModel/Qvectors.h"
 
 #include "CommonConstants/PhysicsConstants.h"
-#include "Framework/ASoAHelpers.h"
 #include "Framework/AnalysisDataModel.h"
 
-#include "Math/Vector3D.h"
 #include "TVector3.h"
+#include <TPDGCode.h>
 
+#include <array>
 #include <cmath>
-#include <vector>
+#include <cstdint>
 
 #ifndef PWGLF_DATAMODEL_LFSIGMATABLES_H_
 #define PWGLF_DATAMODEL_LFSIGMATABLES_H_

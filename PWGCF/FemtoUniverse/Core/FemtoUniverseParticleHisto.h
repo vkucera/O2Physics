@@ -24,9 +24,14 @@
 
 #include "CommonConstants/MathConstants.h"
 #include "Framework/HistogramRegistry.h"
+#include <Framework/HistogramSpec.h>
 
+#include <fairlogger/Logger.h>
+
+#include <cstdlib>
 #include <optional>
 #include <string>
+#include <string_view>
 
 using namespace o2::framework; // o2-linter: disable=using-directive
 

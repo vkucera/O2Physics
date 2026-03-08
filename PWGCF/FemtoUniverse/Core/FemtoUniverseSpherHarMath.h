@@ -16,6 +16,8 @@
 #ifndef PWGCF_FEMTOUNIVERSE_CORE_FEMTOUNIVERSESPHERHARMATH_H_
 #define PWGCF_FEMTOUNIVERSE_CORE_FEMTOUNIVERSESPHERHARMATH_H_
 
+#include <CommonConstants/MathConstants.h>
+
 #include "Math/Boost.h"
 #include "Math/Vector4D.h"
 #include "TLorentzVector.h"

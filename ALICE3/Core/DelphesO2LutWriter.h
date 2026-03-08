@@ -27,6 +27,9 @@
 
 #include "TGraph.h"
 
+#include <Rtypes.h>
+
+#include <cstddef>
 #include <string>
 
 namespace o2::fastsim

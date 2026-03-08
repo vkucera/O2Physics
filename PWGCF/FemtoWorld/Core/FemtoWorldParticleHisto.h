@@ -17,9 +17,17 @@
 #ifndef PWGCF_FEMTOWORLD_CORE_FEMTOWORLDPARTICLEHISTO_H_
 #define PWGCF_FEMTOWORLD_CORE_FEMTOWORLDPARTICLEHISTO_H_
 
-#include <string>
 #include "PWGCF/FemtoWorld/DataModel/FemtoWorldDerived.h"
+
 #include "Framework/HistogramRegistry.h"
+#include <Framework/HistogramSpec.h>
+
+#include <fairlogger/Logger.h>
+
+#include <string>
+#include <string_view>
+
+#include <math.h>
 
 using namespace o2::framework;
 // using namespace o2::aod::o2::aod;

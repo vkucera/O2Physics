@@ -23,14 +23,12 @@
 #ifndef PWGLF_DATAMODEL_LFSTRANGENESSPIDTABLES_H_
 #define PWGLF_DATAMODEL_LFSTRANGENESSPIDTABLES_H_
 
-#include "PWGLF/DataModel/LFStrangenessTables.h"
-
-#include "Common/Core/RecoDecay.h"
-
 #include "CommonConstants/PhysicsConstants.h"
 #include "Framework/AnalysisDataModel.h"
+#include <Framework/PID.h>
 
 #include <cmath>
+#include <cstdint>
 
 namespace o2::aod
 {

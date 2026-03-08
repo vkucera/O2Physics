@@ -16,7 +16,6 @@
 #include "Common/DataModel/Multiplicity.h"
 #include "Common/DataModel/PIDResponseTOF.h"
 #include "Common/DataModel/PIDResponseTPC.h"
-#include "Common/DataModel/Qvectors.h"
 #include "Common/DataModel/TrackSelectionTables.h"
 
 #include <CommonConstants/MathConstants.h>
@@ -1012,13 +1011,13 @@ using EMPrimaryElectronPrefilterBitDerived = EMPrimaryElectronsPrefilterBitDeriv
 
 namespace emprimarymuon
 {
-DECLARE_SOA_INDEX_COLUMN(EMEvent, emevent);                                          //!
-DECLARE_SOA_COLUMN(CollisionId, collisionId, int);                                   //!
-DECLARE_SOA_COLUMN(FwdTrackId, fwdtrackId, int);                                     //!
-DECLARE_SOA_COLUMN(MFTTrackId, mfttrackId, int);                                     //!
-DECLARE_SOA_COLUMN(MCHTrackId, mchtrackId, int);                                     //!
+DECLARE_SOA_INDEX_COLUMN(EMEvent, emevent);                                                //!
+DECLARE_SOA_COLUMN(CollisionId, collisionId, int);                                         //!
+DECLARE_SOA_COLUMN(FwdTrackId, fwdtrackId, int);                                           //!
+DECLARE_SOA_COLUMN(MFTTrackId, mfttrackId, int);                                           //!
+DECLARE_SOA_COLUMN(MCHTrackId, mchtrackId, int);                                           //!
 DECLARE_SOA_SELF_ARRAY_INDEX_COLUMN(GlobalMuonsWithSameMCHMID, globalMuonsWithSameMCHMID); //! self indices to global muons that have the same MCHTrackId
-DECLARE_SOA_SELF_ARRAY_INDEX_COLUMN(GlobalMuonsWithSameMFT, globalMuonsWithSameMFT); //! self indices to global muons that have the same MFTTrackId
+DECLARE_SOA_SELF_ARRAY_INDEX_COLUMN(GlobalMuonsWithSameMFT, globalMuonsWithSameMFT);       //! self indices to global muons that have the same MFTTrackId
 DECLARE_SOA_SELF_ARRAY_INDEX_COLUMN(AmbiguousMuons, ambiguousMuons);
 DECLARE_SOA_COLUMN(CXXatDCA, cXXatDCA, float);                         //! DCAx resolution squared at DCA
 DECLARE_SOA_COLUMN(CYYatDCA, cYYatDCA, float);                         //! DCAy resolution squared at DCA

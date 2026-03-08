@@ -18,6 +18,10 @@
 #define AnalysisCut_H
 
 #include <TF1.h>
+#include <TNamed.h>
+
+#include <Rtypes.h>
+
 #include <vector>
 
 //_________________________________________________________________________

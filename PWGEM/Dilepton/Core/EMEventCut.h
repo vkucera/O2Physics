@@ -18,10 +18,9 @@
 
 #include "PWGEM/Dilepton/DataModel/dileptonTables.h"
 
-#include "Common/CCDB/EventSelectionParams.h"
-#include "Common/CCDB/TriggerAliases.h"
-
 #include "TNamed.h"
+
+#include <Rtypes.h>
 
 using namespace std;
 

@@ -20,7 +20,12 @@
 #include "PWGCF/FemtoWorld/DataModel/FemtoWorldDerived.h"
 
 #include "Framework/HistogramRegistry.h"
-#include "ReconstructionDataFormats/PID.h"
+#include <Framework/HistogramSpec.h>
+
+#include <TH1.h>
+
+#include <cstddef>
+#include <string>
 
 using namespace o2::framework;
 

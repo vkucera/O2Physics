@@ -19,19 +19,27 @@
 #ifndef PWGCF_FEMTOWORLD_CORE_FEMTOWORLDPHISELECTION_H_
 #define PWGCF_FEMTOWORLD_CORE_FEMTOWORLDPHISELECTION_H_
 
-#include <string>
-#include <vector>
+#include "PWGCF/FemtoWorld/Core/FemtoWorldObjectSelection.h"
+#include "PWGCF/FemtoWorld/Core/FemtoWorldSelection.h"
+#include "PWGCF/FemtoWorld/Core/FemtoWorldTrackSelection.h"
+#include "PWGCF/FemtoWorld/DataModel/FemtoWorldDerived.h"
 
+#include "Framework/HistogramRegistry.h"
+#include <Framework/Configurable.h>
+#include <Framework/HistogramSpec.h>
+
+#include "TLorentzVector.h"
 #include <TDatabasePDG.h> // FIXME
 
-#include "PWGCF/FemtoWorld/Core/FemtoWorldObjectSelection.h"
-#include "PWGCF/FemtoWorld/Core/FemtoWorldTrackSelection.h"
-#include "PWGCF/FemtoWorld/Core/FemtoWorldSelection.h"
+#include <fairlogger/Logger.h>
 
-#include "ReconstructionDataFormats/PID.h"
-#include "Common/Core/RecoDecay.h"
-#include "Framework/HistogramRegistry.h"
-#include "TLorentzVector.h"
+#include <array>
+#include <cstddef>
+#include <string>
+#include <string_view>
+#include <vector>
+
+#include <math.h>
 
 using namespace o2::framework;
 

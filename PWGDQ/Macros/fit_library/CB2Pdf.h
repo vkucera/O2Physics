@@ -15,15 +15,17 @@
 #define CB2PDF
 
 #include "RooAbsPdf.h"
-#include "RooRealProxy.h"
-#include "RooCategoryProxy.h"
 #include "RooAbsReal.h"
-#include "RooAbsCategory.h"
+#include "RooRealProxy.h"
+#include <TObject.h>
+
+#include <Rtypes.h>
+#include <RtypesCore.h>
 
 class CB2Pdf : public RooAbsPdf
 {
  public:
-  CB2Pdf(){};
+  CB2Pdf() {};
   CB2Pdf(const char* name, const char* title,
          RooAbsReal& _x,
          RooAbsReal& _A,

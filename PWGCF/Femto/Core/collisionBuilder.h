@@ -31,6 +31,7 @@
 #include "Framework/AnalysisHelpers.h"
 #include "Framework/Configurable.h"
 #include "Framework/Logger.h"
+#include <Framework/HistogramRegistry.h>
 
 #include <algorithm>
 #include <cmath>

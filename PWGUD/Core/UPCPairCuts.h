@@ -22,6 +22,9 @@
 #include "CommonConstants/PhysicsConstants.h"
 #include "Framework/HistogramRegistry.h"
 #include "Framework/Logger.h"
+#include <Framework/HistogramSpec.h>
+
+#include <RtypesCore.h>
 
 #include <cmath>
 

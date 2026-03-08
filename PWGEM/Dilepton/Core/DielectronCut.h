@@ -16,22 +16,31 @@
 #ifndef PWGEM_DILEPTON_CORE_DIELECTRONCUT_H_
 #define PWGEM_DILEPTON_CORE_DIELECTRONCUT_H_
 
+#include "RecoDecay.h"
+
 #include "PWGEM/Dilepton/Utils/EMTrackUtilities.h"
 #include "PWGEM/Dilepton/Utils/MlResponseDielectronSingleTrack.h"
 #include "PWGEM/Dilepton/Utils/PairUtilities.h"
 
 #include "CommonConstants/PhysicsConstants.h"
-#include "Framework/DataTypes.h"
 #include "Framework/Logger.h"
+#include <MathUtils/Utils.h>
 
-#include "Math/Vector4D.h"
 #include "TNamed.h"
+#include <Math/Vector4D.h> // IWYU pragma: keep (do not replace with Math/Vector4Dfwd.h)
+#include <Math/Vector4Dfwd.h>
+
+#include <Rtypes.h>
 
 #include <algorithm>
+#include <cmath>
+#include <cstdint>
+#include <functional>
 #include <set>
-#include <string>
 #include <utility>
 #include <vector>
+
+#include <math.h>
 
 using namespace o2::aod::pwgem::dilepton::utils::emtrackutil;
 using namespace o2::aod::pwgem::dilepton::utils::pairutil;

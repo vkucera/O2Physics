@@ -17,6 +17,7 @@
 
 #ifndef PWGLF_UTILS_PIDTOFGENERIC_H_
 #define PWGLF_UTILS_PIDTOFGENERIC_H_
+
 #include "CollisionTypeHelper.h"
 #include "MetadataHelper.h"
 #include "TableHelper.h"
@@ -24,6 +25,7 @@
 #include "Common/Core/PID/PIDTOF.h"
 
 #include "CommonDataFormat/InteractionRecord.h"
+#include <Framework/AnalysisDataModel.h>
 
 #include <map>
 #include <string>

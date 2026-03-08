@@ -13,11 +13,10 @@
 #ifndef O2_ANALYSIS_LFDERIVED_H
 #define O2_ANALYSIS_LFDERIVED_H
 
-#include "Common/DataModel/PIDResponseTOF.h"
-#include "Common/DataModel/PIDResponseTPC.h"
-
 #include "Framework/ASoA.h"
 #include "Framework/AnalysisDataModel.h"
+
+#include <TMath.h>
 
 namespace o2::aod
 {

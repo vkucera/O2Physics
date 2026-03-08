@@ -20,6 +20,12 @@
 
 #include "CommonConstants/PhysicsConstants.h"
 
+#include <TPDGCode.h>
+
+#include <fairlogger/Logger.h>
+
+#include <cstdint>
+#include <cstdlib>
 #include <string>
 #include <vector>
 

@@ -10,7 +10,8 @@
 // or submit itself to any jurisdiction.
 
 #include "Framework/AnalysisDataModel.h"
-#include "Framework/ASoAHelpers.h"
+
+#include <cstdint>
 
 #ifndef PWGLF_DATAMODEL_LFSLIMSTRANGETABLES_H_
 #define PWGLF_DATAMODEL_LFSLIMSTRANGETABLES_H_

@@ -22,6 +22,10 @@
 // O2 includes
 #include "Framework/AnalysisDataModel.h"
 
+#include <fairlogger/Logger.h>
+
+#include <cstdlib>
+
 namespace o2::aod
 {
 namespace upgrade_rich

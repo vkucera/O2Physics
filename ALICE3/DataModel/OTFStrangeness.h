@@ -23,6 +23,10 @@
 #include "Common/Core/RecoDecay.h"
 
 #include "Framework/AnalysisDataModel.h"
+#include <CommonConstants/PhysicsConstants.h>
+
+#include <array>
+#include <cmath>
 
 namespace o2::aod
 {

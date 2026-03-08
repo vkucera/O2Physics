@@ -20,11 +20,20 @@
 #include "PWGCF/FemtoWorld/DataModel/FemtoWorldDerived.h"
 
 #include <Framework/HistogramRegistry.h>
+#include <Framework/HistogramSpec.h>
 
+#include <TH2.h>
 #include <TVector2.h>
 
+#include <fairlogger/Logger.h>
+
+#include <array>
+#include <cmath>
+#include <cstddef>
+#include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <vector>
 
 namespace o2::analysis

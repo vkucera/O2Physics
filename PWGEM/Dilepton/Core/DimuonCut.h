@@ -20,17 +20,20 @@
 
 #include "CommonConstants/PhysicsConstants.h"
 #include "Framework/DataTypes.h"
-#include "Framework/Logger.h"
 #include "MathUtils/Utils.h"
 
-#include "Math/Vector4D.h"
 #include "TNamed.h"
+#include <Math/Vector4D.h> // IWYU pragma: keep (do not replace with Math/Vector4Dfwd.h)
+#include <Math/Vector4Dfwd.h>
 
-#include <algorithm>
-#include <set>
-#include <string>
-#include <utility>
+#include <Rtypes.h>
+
+#include <cmath>
+#include <cstdint>
+#include <functional>
 #include <vector>
+
+#include <math.h>
 
 using namespace o2::aod::pwgem::dilepton::utils::emtrackutil;
 

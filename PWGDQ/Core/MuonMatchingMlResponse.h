@@ -18,17 +18,18 @@
 
 #include "Tools/ML/MlResponse.h"
 
-#include <map>
+#include <fairlogger/Logger.h>
+
+#include <cstdint>
 #include <string>
 #include <vector>
 
 // Fill the map of available input features
 // the key is the feature's name (std::string)
 // the value is the corresponding value in EnumInputFeatures
-#define FILL_MAP_MFTMUON_MATCH(FEATURE)                                \
-  {                                                                    \
-    #FEATURE, static_cast<uint8_t>(InputFeaturesMFTMuonMatch::FEATURE) \
-  }
+#define FILL_MAP_MFTMUON_MATCH(FEATURE) \
+  {                                     \
+    #FEATURE, static_cast<uint8_t>(InputFeaturesMFTMuonMatch::FEATURE)}
 
 // Check if the index of mCachedIndices (index associated to a FEATURE)
 // matches the entry in EnumInputFeatures associated to this FEATURE

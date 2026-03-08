@@ -16,8 +16,6 @@
 #ifndef PWGCF_GENERICFRAMEWORK_CORE_FLOWPTCONTAINER_H_
 #define PWGCF_GENERICFRAMEWORK_CORE_FLOWPTCONTAINER_H_
 
-#include "BootstrapProfile.h"
-#include "GFW.h"
 #include "GFWConfig.h"
 
 #include "Framework/HistogramSpec.h"
@@ -25,9 +23,13 @@
 #include "TCollection.h"
 #include "TList.h"
 #include "TNamed.h"
+#include <TH1.h>
 
-#include <algorithm>
+#include <Rtypes.h>
+#include <RtypesCore.h>
+
 #include <complex>
+#include <cstdint>
 #include <variant>
 #include <vector>
 

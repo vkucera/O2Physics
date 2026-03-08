@@ -22,17 +22,21 @@
 #include "PWGCF/FemtoDream/Core/femtoDreamSelection.h"
 #include "PWGCF/FemtoDream/Core/femtoDreamTrackSelection.h"
 
-#include "Common/Core/RecoDecay.h"
-
 #include "Framework/HistogramRegistry.h"
 #include "ReconstructionDataFormats/PID.h"
+#include <CommonConstants/MathConstants.h>
+#include <Framework/HistogramSpec.h>
+#include <Framework/Logger.h>
 
-#include "Math/Vector4D.h"
-#include "TMath.h"
+#include <Math/Vector4D.h> // IWYU pragma: keep (do not replace with Math/Vector4Dfwd.h)
+#include <Math/Vector4Dfwd.h>
 
 #include <array>
-#include <cstdint>
+#include <cmath>
+#include <cstddef>
+#include <cstdlib>
 #include <string>
+#include <string_view>
 #include <utility>
 #include <vector>
 

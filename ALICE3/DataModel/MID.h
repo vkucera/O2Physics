@@ -22,6 +22,8 @@
 // O2 includes
 #include "Framework/AnalysisDataModel.h"
 
+#include <cstdint>
+
 namespace o2::aod
 {
 namespace alice3mid

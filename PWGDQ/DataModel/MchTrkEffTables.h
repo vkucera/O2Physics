@@ -19,6 +19,8 @@
 
 #include "Framework/AnalysisDataModel.h"
 
+#include <cstdint>
+
 namespace o2::aod
 {
 

@@ -21,6 +21,8 @@
 
 #include "TNamed.h"
 
+#include <Rtypes.h>
+
 using namespace std;
 
 class EMPhotonEventCut : public TNamed

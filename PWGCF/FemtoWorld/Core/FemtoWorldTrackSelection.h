@@ -19,19 +19,26 @@
 #define FEMTOWORLDTRACKSELECTION_H_
 
 #include "PWGCF/FemtoWorld/Core/FemtoWorldObjectSelection.h"
+#include "PWGCF/FemtoWorld/Core/FemtoWorldSelection.h"
 #include "PWGCF/FemtoWorld/DataModel/FemtoWorldDerived.h"
 
-#include "Common/Core/TrackSelection.h"
-#include "Common/Core/TrackSelectionDefaults.h"
 #include "Common/DataModel/PIDResponseTOF.h"
 #include "Common/DataModel/PIDResponseTPC.h"
-#include "Common/DataModel/TrackSelectionTables.h"
 
 #include "Framework/HistogramRegistry.h"
 #include "ReconstructionDataFormats/PID.h"
+#include <Framework/HistogramSpec.h>
 
+#include <fairlogger/Logger.h>
+
+#include <array>
 #include <cmath>
-#include <iostream>
+#include <cstddef>
+#include <string>
+#include <string_view>
+#include <vector>
+
+#include <math.h>
 
 using namespace o2::framework;
 
@@ -92,7 +99,7 @@ class FemtoWorldTrackSelection : public FemtoWorldObjectSelection<float, femtoWo
                                dcaXYMax(-9999999.),
                                dcaZMax(-9999999.),
                                dcaMin(9999999.),
-                               nSigmaPIDMax(9999999.){};
+                               nSigmaPIDMax(9999999.) {};
 
   /// Initializes histograms for the task
   /// \tparam part Type of the particle for proper naming of the folders for QA

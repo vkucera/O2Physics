@@ -16,16 +16,17 @@
 
 #include <TF1.h>
 #include <TList.h>
-#include <TMath.h>
 #include <TNamed.h>
-#include <TObjArray.h>
 #include <TObject.h>
 #include <TString.h>
 
 #include <Rtypes.h>
 
-#include <regex>
+#include <cstdint>
+#include <functional>
 #include <set>
+#include <string>
+#include <utility>
 #include <vector>
 
 namespace o2

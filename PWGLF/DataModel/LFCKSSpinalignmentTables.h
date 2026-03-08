@@ -17,11 +17,6 @@
 #ifndef PWGLF_DATAMODEL_LFCKSSPINALIGNMENTTABLES_H_
 #define PWGLF_DATAMODEL_LFCKSSPINALIGNMENTTABLES_H_
 
-#include "Common/Core/RecoDecay.h"
-#include "Common/DataModel/Centrality.h"
-#include "Common/DataModel/Multiplicity.h"
-#include "Common/DataModel/TrackSelectionTables.h"
-
 #include "Framework/ASoA.h"
 #include "Framework/AnalysisDataModel.h"
 

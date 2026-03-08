@@ -17,6 +17,8 @@
 
 #include "Framework/ASoA.h"
 
+#include <cstdint>
+
 namespace o2::aod
 {
 

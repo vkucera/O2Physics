@@ -17,11 +17,14 @@
 #include <Framework/Logger.h>
 
 #include <TList.h>
-#include <TNamed.h>
 #include <TObject.h>
 #include <TString.h>
 
 #include <Rtypes.h>
+
+#include <cstdint>
+#include <string>
+#include <vector>
 
 namespace o2
 {

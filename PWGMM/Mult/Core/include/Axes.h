@@ -11,8 +11,12 @@
 
 #ifndef PWGMM_MULT_CORE_INCLUDE_AXES_H_
 #define PWGMM_MULT_CORE_INCLUDE_AXES_H_
-#include "Framework/HistogramSpec.h"
 #include "CommonConstants/MathConstants.h"
+#include "Framework/HistogramSpec.h"
+
+#include <array>
+#include <cstddef>
+#include <string_view>
 
 namespace pwgmm::mult
 {

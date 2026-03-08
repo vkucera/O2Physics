@@ -23,6 +23,7 @@
 
 #include "PWGLF/Utils/collisionCutsGroup.h"
 
+#include "Common/CCDB/TriggerAliases.h"
 #include "Common/DataModel/EventSelection.h"
 
 #include "Framework/HistogramRegistry.h"

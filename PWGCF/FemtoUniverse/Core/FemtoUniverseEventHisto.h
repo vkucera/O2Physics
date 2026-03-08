@@ -17,9 +17,8 @@
 #ifndef PWGCF_FEMTOUNIVERSE_CORE_FEMTOUNIVERSEEVENTHISTO_H_
 #define PWGCF_FEMTOUNIVERSE_CORE_FEMTOUNIVERSEEVENTHISTO_H_
 
-#include "PWGCF/FemtoUniverse/DataModel/FemtoDerived.h"
-
 #include "Framework/HistogramRegistry.h"
+#include <Framework/HistogramSpec.h>
 
 using namespace o2::framework;
 namespace o2::analysis::femto_universe

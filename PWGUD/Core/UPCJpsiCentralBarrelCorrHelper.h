@@ -18,7 +18,12 @@
 
 #include "CommonConstants/MathConstants.h"
 
+#include <TLorentzVector.h>
+
+#include <RtypesCore.h>
+
 #include <algorithm>
+#include <chrono>
 #include <random>
 #include <vector>
 

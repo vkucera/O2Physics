@@ -15,9 +15,16 @@
 #define PWGCF_JCORRAN_CORE_JEPFLOWANALYSIS_H_
 
 #include <TComplex.h>
+#include <TMath.h>
+
+#include <fairlogger/Logger.h>
+
+#include <Rtypes.h>
+#include <RtypesCore.h>
 
 // O2 headers. //
 #include "Framework/HistogramRegistry.h"
+#include <Framework/HistogramSpec.h>
 
 using namespace o2;
 using namespace o2::framework;

@@ -27,13 +27,9 @@
 #include <CCDB/BasicCCDBManager.h>
 #include <ReconstructionDataFormats/Track.h>
 
-#include <TRandom.h>
-
+#include <cmath>
 #include <cstdio>
-#include <fstream>
-#include <iostream>
-#include <map>
-#include <string>
+#include <cstdlib>
 
 ///////////////////////////////
 /// DelphesO2/src/lutCovm.hh //

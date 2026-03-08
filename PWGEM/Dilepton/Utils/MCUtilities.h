@@ -15,10 +15,8 @@
 #ifndef PWGEM_DILEPTON_UTILS_MCUTILITIES_H_
 #define PWGEM_DILEPTON_UTILS_MCUTILITIES_H_
 
-#include "Framework/AnalysisDataModel.h"
 #include "Framework/Logger.h"
 
-#include <algorithm>
 #include <string>
 #include <utility>
 #include <vector>

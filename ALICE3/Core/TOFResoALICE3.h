@@ -21,9 +21,14 @@
 
 // O2 includes
 #include "PID/ParamBase.h"
-#include "PID/DetectorResponse.h"
-#include "PID/PIDTOF.h"
 #include "ReconstructionDataFormats/PID.h"
+
+#include <Rtypes.h>
+
+#include <cmath>
+#include <cstdlib>
+
+#include <math.h>
 
 namespace o2::pid::tof
 {
@@ -31,7 +36,7 @@ namespace o2::pid::tof
 class TOFResoALICE3 : public Parametrization
 {
  public:
-  TOFResoALICE3() : Parametrization("TOFResoALICE3", 1){};
+  TOFResoALICE3() : Parametrization("TOFResoALICE3", 1) {};
   ~TOFResoALICE3() override = default;
   float operator()(const float* x) const override
   {

@@ -19,9 +19,21 @@
 #include "PWGCF/DataModel/FemtoDerived.h"
 
 #include "Framework/HistogramRegistry.h"
+#include <Framework/HistogramSpec.h>
 
+#include <TH2.h>
+#include <THnSparse.h>
+#include <TVector2.h>
+
+#include <fairlogger/Logger.h>
+
+#include <array>
+#include <cmath>
+#include <cstddef>
+#include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <vector>
 
 using namespace o2;

@@ -39,7 +39,7 @@ class FemtoUniversePairCleaner
 
   /// Initialization of the QA histograms
   /// \param registry HistogramRegistry
-  void init(HistogramRegistry* registry)
+  void init(framework::HistogramRegistry* registry)
   {
     if (registry) {
       mHistogramRegistry = registry;
@@ -185,7 +185,7 @@ class FemtoUniversePairCleaner
   }
 
  private:
-  HistogramRegistry* mHistogramRegistry;                                                ///< For QA output
+  framework::HistogramRegistry* mHistogramRegistry;                                     ///< For QA output
   static constexpr o2::aod::femtouniverseparticle::ParticleType kPartOneType = partOne; ///< Type of particle 1
   static constexpr o2::aod::femtouniverseparticle::ParticleType kPartTwoType = partTwo; ///< Type of particle 2
 };

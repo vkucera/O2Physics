@@ -15,17 +15,20 @@
 #define POL4EXPPDF
 
 #include "RooAbsPdf.h"
-#include "RooRealProxy.h"
-#include "RooCategoryProxy.h"
 #include "RooAbsReal.h"
-#include "RooAbsCategory.h"
+#include "RooRealProxy.h"
+#include <TObject.h>
+#include <TString.h>
+
+#include <Rtypes.h>
+#include <RtypesCore.h>
 
 TString nameParameters[] = {"p0", "p1", "p2", "p3", "p4", "p5", "N_bkg", "N_sig", "mean", "width"};
 
 class Pol4ExpPdf : public RooAbsPdf
 {
  public:
-  Pol4ExpPdf(){};
+  Pol4ExpPdf() {};
   Pol4ExpPdf(const char* name, const char* title,
              RooAbsReal& _x,
              RooAbsReal& _P0,

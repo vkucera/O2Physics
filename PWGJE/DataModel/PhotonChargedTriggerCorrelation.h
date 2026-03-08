@@ -19,9 +19,8 @@
 #define PWGJE_DATAMODEL_PHOTONCHARGEDTRIGGERCORRELATION_H_
 
 #include "PWGEM/PhotonMeson/DataModel/gammaTables.h"
-#include "PWGEM/PhotonMeson/Utils/PCMUtilities.h"
-#include "PWGJE/Core/JetDerivedDataUtilities.h"
 #include "PWGJE/DataModel/Jet.h"
+#include "PWGJE/DataModel/JetReducedData.h"
 
 #include "Framework/AnalysisDataModel.h"
 

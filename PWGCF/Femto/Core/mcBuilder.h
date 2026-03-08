@@ -25,6 +25,8 @@
 #include "Framework/Configurable.h"
 #include "Framework/Logger.h"
 
+#include <TPDGCode.h>
+
 #include <cmath>
 #include <cstdint>
 #include <string>

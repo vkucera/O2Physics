@@ -25,7 +25,13 @@
 #include "Framework/HistogramRegistry.h"
 #include "Framework/HistogramSpec.h"
 
+#include <TH1.h>
+#include <TPDGCode.h>
+
+#include <fairlogger/Logger.h>
+
 #include <array>
+#include <cstddef>
 #include <map>
 #include <string>
 #include <string_view>

@@ -16,8 +16,8 @@
 #ifndef PWGCF_FEMTODREAM_CORE_FEMTODREAMEVENTHISTO_H_
 #define PWGCF_FEMTODREAM_CORE_FEMTODREAMEVENTHISTO_H_
 
-#include "PWGCF/DataModel/FemtoDerived.h"
 #include "Framework/HistogramRegistry.h"
+#include <Framework/HistogramSpec.h>
 
 using namespace o2::framework;
 namespace o2::analysis::femtoDream

@@ -31,8 +31,10 @@
 #include "Framework/AnalysisHelpers.h"
 #include "Framework/Configurable.h"
 #include "Framework/Logger.h"
+#include <Framework/HistogramRegistry.h>
 
-#include <Math/Vector4D.h>
+#include <Math/Vector4D.h> // IWYU pragma: keep (do not replace with Math/Vector4Dfwd.h)
+#include <Math/Vector4Dfwd.h>
 
 #include <algorithm>
 #include <array>

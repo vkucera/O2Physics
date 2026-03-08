@@ -15,15 +15,17 @@
 #define EXPPDF
 
 #include "RooAbsPdf.h"
-#include "RooRealProxy.h"
-#include "RooCategoryProxy.h"
 #include "RooAbsReal.h"
-#include "RooAbsCategory.h"
+#include "RooRealProxy.h"
+#include <TObject.h>
+
+#include <Rtypes.h>
+#include <RtypesCore.h>
 
 class ExpPdf : public RooAbsPdf
 {
  public:
-  ExpPdf(){};
+  ExpPdf() {};
   ExpPdf(const char* name, const char* title,
          RooAbsReal& _x,
          RooAbsReal& _A,

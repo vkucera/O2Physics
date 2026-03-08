@@ -14,9 +14,7 @@
 #ifndef PWGLF_DATAMODEL_KFSTRANGENESSSTUDY_H_
 #define PWGLF_DATAMODEL_KFSTRANGENESSSTUDY_H_
 
-#include "Framework/AnalysisTask.h"
 #include "Framework/AnalysisDataModel.h"
-#include "Common/Core/trackUtilities.h"
 
 namespace o2::aod
 {

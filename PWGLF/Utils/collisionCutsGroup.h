@@ -29,11 +29,7 @@
 #ifndef PWGLF_UTILS_COLLISIONCUTSGROUP_H_
 #define PWGLF_UTILS_COLLISIONCUTSGROUP_H_
 
-#include "Common/CCDB/EventSelectionParams.h"
-
 #include <Rtypes.h>
-
-#include <iosfwd>
 
 // Forward declaration to avoid circular dependency
 namespace o2::analysis

@@ -12,6 +12,7 @@
 #ifndef PWGLF_UTILS_NUCLEIUTILS_H_
 #define PWGLF_UTILS_NUCLEIUTILS_H_
 
+#include "Common/CCDB/EventSelectionParams.h"
 #include "Common/DataModel/Centrality.h"
 #include "Common/DataModel/EventSelection.h"
 #include "Common/DataModel/PIDResponseITS.h"

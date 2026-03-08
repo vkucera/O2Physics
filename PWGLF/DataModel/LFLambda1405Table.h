@@ -15,9 +15,6 @@
 /// \author Francesco Mazzaschi <francesco.mazzaschi@cern.ch>
 ///
 
-#include "Common/Core/RecoDecay.h"
-
-#include "Framework/ASoAHelpers.h"
 #include "Framework/AnalysisDataModel.h"
 
 #ifndef PWGLF_DATAMODEL_LFLAMBDA1405TABLES_H_

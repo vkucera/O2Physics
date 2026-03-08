@@ -17,6 +17,8 @@
 #ifndef PWGDQ_CORE_DQMLRESPONSE_H_
 #define PWGDQ_CORE_DQMLRESPONSE_H_
 
+#include "PWGDQ/Core/VarManager.h"
+
 #include "Tools/ML/MlResponse.h"
 
 #include <map>

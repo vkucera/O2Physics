@@ -19,6 +19,7 @@
 
 #include "PWGCF/FemtoUniverse/Core/FemtoUniverseMath.h"
 #include "PWGCF/FemtoUniverse/Core/FemtoUniverseSpherHarMath.h"
+#include "PWGCF/FemtoUniverse/DataModel/FemtoDerived.h"
 
 #include "Framework/HistogramRegistry.h"
 #include <Framework/Logger.h>
@@ -67,7 +68,7 @@ class FemtoUniverseSHContainer
   /// \param registry Histogram registry to be passed
   /// \param kstarbins k* binning for the histograms
   template <typename T>
-  void init(HistogramRegistry* registry, T& kstarbins, int /*maxl*/)
+  void init(framework::HistogramRegistry* registry, T& kstarbins, int /*maxl*/)
   {
     kStarBins = kstarbins;
     std::string femtoObs1D;
@@ -110,20 +111,20 @@ class FemtoUniverseSHContainer
       }
 
       if (kFolderSuffix[kEventType] == kFolderSuffix[0]) {
-        fnumsreal[ihist] = kHistogramRegistry->add<TH1>(("NumRe" + suffix).c_str(), ("; " + femtoObs1D + "; Entries").c_str(), kTH1D, {femtoObsAxis1D});
-        fnumsimag[ihist] = kHistogramRegistry->add<TH1>(("NumIm" + suffix).c_str(), ("; " + femtoObs1D + "; Entries").c_str(), kTH1D, {femtoObsAxis1D});
+        fnumsreal[ihist] = kHistogramRegistry->add<TH1>(("NumRe" + suffix).c_str(), ("; " + femtoObs1D + "; Entries").c_str(), framework::kTH1D, {femtoObsAxis1D});
+        fnumsimag[ihist] = kHistogramRegistry->add<TH1>(("NumIm" + suffix).c_str(), ("; " + femtoObs1D + "; Entries").c_str(), framework::kTH1D, {femtoObsAxis1D});
       } else {
-        fdensreal[ihist] = kHistogramRegistry->add<TH1>(("DenRe" + suffix).c_str(), ("; " + femtoObs1D + "; Entries").c_str(), kTH1D, {femtoObsAxis1D});
-        fdensimag[ihist] = kHistogramRegistry->add<TH1>(("DenIm" + suffix).c_str(), ("; " + femtoObs1D + "; Entries").c_str(), kTH1D, {femtoObsAxis1D});
+        fdensreal[ihist] = kHistogramRegistry->add<TH1>(("DenRe" + suffix).c_str(), ("; " + femtoObs1D + "; Entries").c_str(), framework::kTH1D, {femtoObsAxis1D});
+        fdensimag[ihist] = kHistogramRegistry->add<TH1>(("DenIm" + suffix).c_str(), ("; " + femtoObs1D + "; Entries").c_str(), framework::kTH1D, {femtoObsAxis1D});
       }
     }
 
     if (kFolderSuffix[kEventType] == kFolderSuffix[0]) {
       std::string bufnameNum = "CovNum";
-      fcovnum = kHistogramRegistry->add<TH3>((bufnameNum).c_str(), "; x; y; z", kTH3D, {{kstarbins}, {(kMaxJM * 2), -0.5, ((static_cast<float>(kMaxJM) * 2.0 - 0.5))}, {(kMaxJM * 2), -0.5, ((static_cast<float>(kMaxJM) * 2.0 - 0.5))}});
+      fcovnum = kHistogramRegistry->add<TH3>((bufnameNum).c_str(), "; x; y; z", framework::kTH3D, {{kstarbins}, {(kMaxJM * 2), -0.5, ((static_cast<float>(kMaxJM) * 2.0 - 0.5))}, {(kMaxJM * 2), -0.5, ((static_cast<float>(kMaxJM) * 2.0 - 0.5))}});
     } else if (kFolderSuffix[kEventType] == kFolderSuffix[1]) {
       std::string bufnameDen = "CovDen";
-      fcovden = kHistogramRegistry->add<TH3>((bufnameDen).c_str(), "; x; y; z", kTH3D, {{kstarbins}, {(kMaxJM * 2), -0.5, ((static_cast<float>(kMaxJM) * 2.0 - 0.5))}, {(kMaxJM * 2), -0.5, ((static_cast<float>(kMaxJM) * 2.0 - 0.5))}});
+      fcovden = kHistogramRegistry->add<TH3>((bufnameDen).c_str(), "; x; y; z", framework::kTH3D, {{kstarbins}, {(kMaxJM * 2), -0.5, ((static_cast<float>(kMaxJM) * 2.0 - 0.5))}, {(kMaxJM * 2), -0.5, ((static_cast<float>(kMaxJM) * 2.0 - 0.5))}});
     }
 
     fbinctn = new TH1D(TString("BinCountNum"), "Bin Occupation (Numerator)", static_cast<int>(kStarBins[0]), kStarBins[1], kStarBins[2]);
@@ -257,7 +258,7 @@ class FemtoUniverseSHContainer
   std::array<float, (kMaxJM * kMaxJM * 4 * 100)> fcovmden{}; ///< Covariance matrix for the numerator
 
  protected:
-  HistogramRegistry* kHistogramRegistry = nullptr;                                  ///< For QA output
+  framework::HistogramRegistry* kHistogramRegistry = nullptr;                       ///< For QA output
   static constexpr std::string_view kFolderSuffix[2] = {"SameEvent", "MixedEvent"}; ///< Folder naming for the output according to kEventType
   static constexpr int kEventType = eventType;                                      ///< Type of the event (same/mixed, according to FEMTOUNIVERSESHCONTAINER::EventType)
   float kMassOne = 0.f;                                                             ///< PDG mass of particle 1

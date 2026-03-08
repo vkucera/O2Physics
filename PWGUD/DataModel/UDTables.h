@@ -27,10 +27,11 @@
 
 #include "Framework/ASoA.h"
 #include "Framework/AnalysisDataModel.h"
-#include "Framework/DataTypes.h"
-#include "MathUtils/Utils.h"
+
+#include <Rtypes.h>
 
 #include <cmath>
+#include <cstdint>
 #include <vector>
 
 namespace o2::aod

@@ -18,7 +18,8 @@
 
 #include "TProfile.h"
 #include "TProfile2D.h"
-#include "TError.h"
+
+#include <Rtypes.h>
 
 class ProfileSubset : public TProfile2D
 {

@@ -27,7 +27,10 @@
 
 #include "TH1.h"
 
+#include <fairlogger/Logger.h>
+
 #include <array>
+#include <cstddef>
 #include <map>
 #include <string>
 #include <string_view>

@@ -21,6 +21,7 @@
 
 #include "PWGLF/DataModel/LFParticleIdentification.h"
 
+#include "Common/CCDB/EventSelectionParams.h"
 #include "Common/Core/TrackSelection.h"
 #include "Common/Core/TrackSelectionDefaults.h"
 #include "Common/DataModel/Centrality.h"

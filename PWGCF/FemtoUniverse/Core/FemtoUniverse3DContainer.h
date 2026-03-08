@@ -18,16 +18,15 @@
 #define PWGCF_FEMTOUNIVERSE_CORE_FEMTOUNIVERSE3DCONTAINER_H_
 
 #include "PWGCF/FemtoUniverse/Core/FemtoUniverseMath.h"
-#include "PWGCF/FemtoUniverse/Core/FemtoUniverseParticleHisto.h"
+#include "PWGCF/FemtoUniverse/DataModel/FemtoDerived.h"
 
 #include "Framework/HistogramRegistry.h"
-#include <Framework/Logger.h>
+#include <Framework/HistogramSpec.h>
 
-#include "Math/Vector4D.h"
 #include "TDatabasePDG.h"
-#include "TMath.h"
 
 #include <string>
+#include <string_view>
 #include <vector>
 
 using namespace o2::framework;

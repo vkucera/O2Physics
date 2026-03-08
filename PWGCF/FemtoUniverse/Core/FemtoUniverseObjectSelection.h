@@ -21,9 +21,14 @@
 #include "PWGCF/FemtoUniverse/DataModel/FemtoDerived.h"
 
 #include "Framework/HistogramRegistry.h"
-#include "ReconstructionDataFormats/PID.h"
+#include <Framework/HistogramSpec.h>
+
+#include <TH1.h>
+
+#include <fairlogger/Logger.h>
 
 #include <algorithm>
+#include <cstddef>
 #include <string>
 #include <vector>
 

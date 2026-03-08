@@ -21,10 +21,10 @@
 #include <EMCALBase/Geometry.h>
 #include <Framework/Array2D.h>
 #include <Framework/Configurable.h>
-#include <Framework/HistogramRegistry.h>
 
-#include <TH1.h>
 #include <TRandom3.h>
+
+#include <fairlogger/Logger.h>
 
 #include <array>
 #include <string>

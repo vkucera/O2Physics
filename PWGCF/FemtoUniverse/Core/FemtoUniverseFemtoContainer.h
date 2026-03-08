@@ -21,6 +21,7 @@
 #define PWGCF_FEMTOUNIVERSE_CORE_FEMTOUNIVERSEFEMTOCONTAINER_H_
 
 #include "PWGCF/FemtoUniverse/Core/FemtoUniverseMath.h"
+#include "PWGCF/FemtoUniverse/DataModel/FemtoDerived.h"
 
 #include "Framework/HistogramRegistry.h"
 #include <Framework/Logger.h>

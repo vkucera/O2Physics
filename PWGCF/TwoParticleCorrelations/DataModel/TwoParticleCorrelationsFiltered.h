@@ -13,7 +13,8 @@
 
 #include "Framework/ASoA.h"
 #include "Framework/AnalysisDataModel.h"
-#include "TwoParticleCorrelationsSkimmed.h"
+
+#include <cstdint>
 
 namespace o2
 {

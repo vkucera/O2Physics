@@ -20,6 +20,8 @@
 #define PWGUD_DATAMODEL_TAUTHREEPRONGEVENTTABLES_H_
 
 #include "Framework/AnalysisDataModel.h"
+
+#include <cstdint>
 // derived tables for tautau->4 (=1+3) tracks
 namespace o2::aod
 {

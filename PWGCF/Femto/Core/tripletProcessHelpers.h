@@ -21,6 +21,8 @@
 
 #include "Framework/ASoAHelpers.h"
 
+#include <cstdint>
+
 namespace o2::analysis::femto
 {
 namespace tripletprocesshelpers

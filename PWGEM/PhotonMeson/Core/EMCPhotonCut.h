@@ -19,17 +19,24 @@
 #include "PWGEM/PhotonMeson/Core/EMBitFlags.h"
 #include "PWGEM/PhotonMeson/DataModel/gammaTables.h"
 
+#include <CommonConstants/MathConstants.h>
 #include <Framework/ASoA.h>
 #include <Framework/HistogramRegistry.h>
+#include <Framework/HistogramSpec.h>
 
+#include <TH2.h>
 #include <TNamed.h>
+
+#include <sys/types.h>
 
 #include <Rtypes.h>
 
 #include <cmath>
 #include <concepts>
 #include <cstddef>
+#include <cstdint>
 #include <string>
+#include <type_traits>
 #include <vector>
 
 template <typename T>

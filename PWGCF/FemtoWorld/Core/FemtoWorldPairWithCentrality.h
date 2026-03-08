@@ -13,10 +13,12 @@
 #ifndef PWGCF_FEMTOWORLD_CORE_FEMTOWORLDPAIRWITHCENTRALITY_H_
 #define PWGCF_FEMTOWORLD_CORE_FEMTOWORLDPAIRWITHCENTRALITY_H_
 
-#include <string>
-#include <iostream>
-#include <vector>
 #include "Framework/HistogramRegistry.h"
+#include <Framework/HistogramSpec.h>
+
+#include <string>
+#include <string_view>
+#include <vector>
 
 using namespace o2;
 using namespace o2::framework;

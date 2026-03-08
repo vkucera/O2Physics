@@ -18,7 +18,12 @@
 
 #include "Framework/HistogramRegistry.h"
 #include "Framework/Logger.h"
+#include <Framework/HistogramSpec.h>
 
+#include <THnSparse.h>
+
+#include <algorithm>
+#include <iterator>
 #include <string>
 #include <utility>
 #include <vector>

@@ -21,6 +21,8 @@
 
 #include "Framework/AnalysisDataModel.h"
 
+#include <cmath>
+#include <cstdint>
 #include <limits>
 
 namespace o2::aod

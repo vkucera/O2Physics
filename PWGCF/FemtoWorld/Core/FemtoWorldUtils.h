@@ -18,10 +18,12 @@
 #ifndef FEMTOWORLD_UTILS_H_
 #define FEMTOWORLD_UTILS_H_
 
-#include "Framework/ASoAHelpers.h"
 #include "PWGCF/FemtoWorld/DataModel/FemtoWorldDerived.h"
-#include <CCDB/BasicCCDBManager.h>
 
+#include <fairlogger/Logger.h>
+
+#include <cstdlib>
+#include <ostream>
 #include <vector>
 
 namespace o2::analysis::femtoWorld

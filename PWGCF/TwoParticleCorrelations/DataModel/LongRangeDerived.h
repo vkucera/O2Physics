@@ -21,6 +21,8 @@
 #include "Framework/ASoA.h"
 #include "Framework/AnalysisDataModel.h"
 
+#include <cstdint>
+
 namespace o2::aod
 {
 namespace lrcorrcolltable

@@ -16,20 +16,14 @@
 #ifndef PWGEM_DILEPTON_CORE_EMTRACKCUT_H_
 #define PWGEM_DILEPTON_CORE_EMTRACKCUT_H_
 
-#include "PWGEM/Dilepton/Utils/EMTrackUtilities.h"
-
-#include "CommonConstants/PhysicsConstants.h"
-#include "Framework/DataTypes.h"
-#include "Framework/Logger.h"
-
-#include "Math/Vector4D.h"
 #include "TNamed.h"
 
-#include <algorithm>
+#include <Rtypes.h>
+
+#include <cstdint>
+#include <functional>
 #include <set>
-#include <string>
 #include <utility>
-#include <vector>
 
 using namespace o2::aod::pwgem::dilepton::utils::emtrackutil;
 

@@ -18,6 +18,7 @@
 #include <Rtypes.h>
 #include <RtypesCore.h>
 
+#include <cstddef>
 #include <string>
 #include <unordered_map>
 #include <vector>

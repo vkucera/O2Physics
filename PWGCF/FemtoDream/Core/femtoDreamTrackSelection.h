@@ -19,18 +19,22 @@
 
 #include "PWGCF/DataModel/FemtoDerived.h"
 #include "PWGCF/FemtoDream/Core/femtoDreamObjectSelection.h"
-
-#include "Common/Core/TrackSelection.h"
-#include "Common/Core/TrackSelectionDefaults.h"
-#include "Common/DataModel/PIDResponseITS.h"
-#include "Common/DataModel/TrackSelectionTables.h"
+#include "PWGCF/FemtoDream/Core/femtoDreamSelection.h"
 
 #include "Framework/HistogramRegistry.h"
 #include "ReconstructionDataFormats/PID.h"
+#include <Framework/HistogramSpec.h>
 
+#include <fairlogger/Logger.h>
+
+#include <array>
 #include <cmath>
+#include <cstddef>
 #include <string>
+#include <string_view>
 #include <vector>
+
+#include <math.h>
 
 using namespace o2::framework;
 using namespace o2::analysis::femtoDream::femtoDreamSelection;

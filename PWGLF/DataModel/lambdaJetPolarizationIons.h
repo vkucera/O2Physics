@@ -21,6 +21,7 @@
 #define PWGLF_DATAMODEL_LAMBDAJETPOL_H_
 
 #include <Framework/ASoA.h>
+#include <Framework/AnalysisDataModel.h>
 
 namespace o2::aod
 {

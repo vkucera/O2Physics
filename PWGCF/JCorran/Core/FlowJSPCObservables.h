@@ -16,7 +16,11 @@
 #define PWGCF_JCORRAN_CORE_FLOWJSPCOBSERVABLES_H_
 
 // O2 headers. //
-#include "Framework/HistogramRegistry.h"
+#include <fairlogger/Logger.h>
+
+#include <Rtypes.h>
+
+#include <cstring>
 
 const int maxNrComb = 12;
 class FlowJSPCObservables

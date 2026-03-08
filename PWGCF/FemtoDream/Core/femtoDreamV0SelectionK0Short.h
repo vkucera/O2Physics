@@ -20,16 +20,23 @@
 #ifndef PWGCF_FEMTODREAM_CORE_FEMTODREAMV0SELECTIONK0SHORT_H_
 #define PWGCF_FEMTODREAM_CORE_FEMTODREAMV0SELECTIONK0SHORT_H_
 
+#include "PWGCF/DataModel/FemtoDerived.h"
 #include "PWGCF/FemtoDream/Core/femtoDreamObjectSelection.h"
 #include "PWGCF/FemtoDream/Core/femtoDreamSelection.h"
 #include "PWGCF/FemtoDream/Core/femtoDreamTrackSelection.h"
 
-#include "Common/Core/RecoDecay.h"
-
 #include "Framework/HistogramRegistry.h"
-#include "ReconstructionDataFormats/PID.h"
+#include <CommonConstants/MathConstants.h>
+#include <CommonConstants/PhysicsConstants.h>
+#include <Framework/HistogramSpec.h>
 
+#include <fairlogger/Logger.h>
+
+#include <array>
+#include <cstddef>
+#include <cstdlib>
 #include <string>
+#include <string_view>
 #include <vector>
 
 namespace o2::analysis::femtoDream

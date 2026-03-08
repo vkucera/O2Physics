@@ -20,6 +20,7 @@
 #ifndef PWGCF_FEMTODREAM_CORE_FEMTODREAMCONTAINERTHREEBODY_H_
 #define PWGCF_FEMTODREAM_CORE_FEMTODREAMCONTAINERTHREEBODY_H_
 
+#include "PWGCF/DataModel/FemtoDerived.h"
 #include "PWGCF/FemtoDream/Core/femtoDreamMath.h"
 
 #include "Framework/HistogramRegistry.h"

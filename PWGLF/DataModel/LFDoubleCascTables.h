@@ -10,7 +10,6 @@
 // or submit itself to any jurisdiction.
 
 #include "Framework/AnalysisDataModel.h"
-#include "Framework/ASoAHelpers.h"
 
 #ifndef PWGLF_DATAMODEL_LFDOUBLECASCTABLES_H_
 #define PWGLF_DATAMODEL_LFDOUBLECASCTABLES_H_

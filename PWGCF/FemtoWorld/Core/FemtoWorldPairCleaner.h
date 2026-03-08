@@ -18,7 +18,12 @@
 #define PWGCF_FEMTOWORLD_CORE_FEMTOWORLDPAIRCLEANER_H_
 
 #include "PWGCF/FemtoWorld/DataModel/FemtoWorldDerived.h"
+
 #include "Framework/HistogramRegistry.h"
+
+#include <fairlogger/Logger.h>
+
+#include <cstdint>
 
 using namespace o2::framework;
 

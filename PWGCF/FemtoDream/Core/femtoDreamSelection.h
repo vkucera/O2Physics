@@ -21,6 +21,8 @@
 #include "Framework/HistogramRegistry.h"
 
 #include <cmath>
+#include <cstddef>
+#include <string_view>
 
 using namespace o2;
 using namespace o2::framework;

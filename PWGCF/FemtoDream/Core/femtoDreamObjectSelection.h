@@ -20,9 +20,12 @@
 #include "PWGCF/FemtoDream/Core/femtoDreamSelection.h"
 
 #include "Framework/HistogramRegistry.h"
-#include "ReconstructionDataFormats/PID.h"
+#include <Framework/HistogramSpec.h>
+
+#include <TH1.h>
 
 #include <algorithm>
+#include <cstddef>
 #include <string>
 #include <vector>
 

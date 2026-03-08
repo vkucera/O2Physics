@@ -18,11 +18,8 @@
 
 #include "Framework/ASoA.h"
 #include "Framework/AnalysisDataModel.h"
-#include "Framework/DataTypes.h"
-#include "MathUtils/Utils.h"
 
-#include <map>
-#include <vector>
+#include <cstdint>
 
 namespace o2::aod
 {

@@ -19,8 +19,9 @@
 
 #include "Common/DataModel/TrackSelectionTables.h"
 
-#include "Framework/ASoAHelpers.h"
 #include "Framework/AnalysisDataModel.h"
+
+#include <cstdint>
 
 // Output table declaration
 namespace o2::aod
