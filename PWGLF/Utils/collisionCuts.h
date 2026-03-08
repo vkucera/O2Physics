@@ -23,7 +23,8 @@
 
 #include "PWGLF/Utils/collisionCutsGroup.h"
 
-#include "Common/CCDB/TriggerAliases.h"
+#include "Common/CCDB/EventSelectionParams.h"
+#include "Common/CCDB/TriggerAliases.h" // IWYU pragma: keep (needed by EventSelectionFlagsMapping.def)
 #include "Common/DataModel/EventSelection.h"
 
 #include "Framework/HistogramRegistry.h"

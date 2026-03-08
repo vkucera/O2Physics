@@ -24,6 +24,8 @@
 
 /// this data model uses the LF one, add here
 
+#include "PWGLF/DataModel/LFStrangenessTables.h"
+
 #include "Framework/AnalysisDataModel.h"
 #include <Framework/ASoA.h>
 

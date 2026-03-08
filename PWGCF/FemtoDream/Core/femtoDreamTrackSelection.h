@@ -21,6 +21,9 @@
 #include "PWGCF/FemtoDream/Core/femtoDreamObjectSelection.h"
 #include "PWGCF/FemtoDream/Core/femtoDreamSelection.h"
 
+#include "Common/DataModel/PIDResponseTOF.h"
+#include "Common/DataModel/PIDResponseTPC.h"
+
 #include "Framework/HistogramRegistry.h"
 #include "ReconstructionDataFormats/PID.h"
 #include <Framework/HistogramSpec.h>

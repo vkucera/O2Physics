@@ -15,10 +15,7 @@
 //    Please write to: daiki.sekihata@cern.ch
 
 #include "PWGEM/Dilepton/DataModel/dileptonTables.h"
-// #include "PWGEM/Dilepton/Utils/EMFwdTrack.h"
 #include "PWGEM/Dilepton/Utils/EMTrack.h"
-// #include "PWGEM/Dilepton/Utils/EMTrackUtilities.h"
-// #include "PWGEM/Dilepton/Utils/EventMixingHandler.h"
 #include "PWGEM/Dilepton/Utils/PairUtilities.h"
 
 #include "Common/Core/RecoDecay.h"
@@ -28,10 +25,6 @@
 #include "CCDB/BasicCCDBManager.h"
 #include "CommonConstants/LHCConstants.h"
 #include "DataFormatsParameters/GRPLHCIFData.h"
-// #include "DataFormatsParameters/GRPMagField.h"
-// #include "DataFormatsParameters/GRPObject.h"
-// #include "DetectorsBase/GeometryManager.h"
-// #include "DetectorsBase/Propagator.h"
 #include "Framework/AnalysisTask.h"
 #include "Framework/runDataProcessing.h"
 #include "MathUtils/Utils.h"

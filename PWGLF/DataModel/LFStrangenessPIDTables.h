@@ -23,6 +23,8 @@
 #ifndef PWGLF_DATAMODEL_LFSTRANGENESSPIDTABLES_H_
 #define PWGLF_DATAMODEL_LFSTRANGENESSPIDTABLES_H_
 
+#include "LFStrangenessTables.h" // IWYU pragma: keep
+
 #include "CommonConstants/PhysicsConstants.h"
 #include "Framework/AnalysisDataModel.h"
 #include <Framework/PID.h>

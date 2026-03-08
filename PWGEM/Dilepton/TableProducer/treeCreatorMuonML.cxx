@@ -29,6 +29,7 @@
 #include "DataFormatsParameters/GRPMagField.h"
 #include "DetectorsBase/GeometryManager.h"
 #include "DetectorsBase/Propagator.h"
+#include "Field/MagneticField.h"
 #include "Framework/AnalysisDataModel.h"
 #include "Framework/AnalysisTask.h"
 #include "Framework/runDataProcessing.h"
@@ -45,6 +46,7 @@
 #include <MathUtils/Utils.h>
 #include <ReconstructionDataFormats/GlobalFwdTrack.h>
 
+#include <TGeoGlobalMagField.h>
 #include <TH1.h>
 
 #include <cmath>

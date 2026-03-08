@@ -16,6 +16,8 @@
 #include "PWGLF/DataModel/LFKinkDecayTables.h"
 #include "PWGLF/Utils/svPoolCreator.h"
 
+#include "Common/Core/trackUtilities.h"
+
 #include "CCDB/BasicCCDBManager.h"
 #include "DCAFitter/DCAFitterN.h"
 #include "DataFormatsParameters/GRPMagField.h"
@@ -24,6 +26,7 @@
 #include "Framework/AnalysisTask.h"
 #include "Framework/runDataProcessing.h"
 #include "ReconstructionDataFormats/Track.h"
+#include "ReconstructionDataFormats/Vertex.h"
 #include <CommonConstants/MathConstants.h>
 #include <CommonConstants/PhysicsConstants.h>
 #include <DetectorsBase/MatLayerCylSet.h>

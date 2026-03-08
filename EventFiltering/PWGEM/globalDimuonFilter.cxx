@@ -31,6 +31,7 @@
 #include "MCHTracking/TrackExtrap.h"
 #include <CCDB/CcdbApi.h>
 #include <DetectorsBase/GeometryManager.h>
+#include <Field/MagFieldParam.h>
 #include <Framework/AnalysisHelpers.h>
 #include <Framework/Configurable.h>
 #include <Framework/HistogramSpec.h>
@@ -41,6 +42,7 @@
 
 #include <Math/Vector4D.h> // IWYU pragma: keep (do not replace with Math/Vector4Dfwd.h)
 #include <Math/Vector4Dfwd.h>
+#include <TGeoGlobalMagField.h>
 #include <TH1.h>
 
 #include <algorithm>

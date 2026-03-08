@@ -28,6 +28,8 @@
 #include "Framework/HistogramRegistry.h"
 
 #include "TMath.h"
+#include "TVector2.h"
+#include <TLorentzVector.h>
 
 #include <memory>
 #include <string>

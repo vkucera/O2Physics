@@ -29,6 +29,8 @@
 #ifndef PWGLF_UTILS_COLLISIONCUTSGROUP_H_
 #define PWGLF_UTILS_COLLISIONCUTSGROUP_H_
 
+#include "Common/CCDB/TriggerAliases.h" // IWYU pragma: keep (needed by EventSelectionFlagsMapping.def)
+
 #include <Rtypes.h>
 
 // Forward declaration to avoid circular dependency

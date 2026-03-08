@@ -17,9 +17,11 @@
 #include "PWGLF/Utils/svPoolCreator.h"
 
 #include "Common/CCDB/EventSelectionParams.h"
+#include "Common/Core/trackUtilities.h"
 #include "Common/DataModel/Centrality.h"
 #include "Common/DataModel/EventSelection.h"
 #include "Common/DataModel/Multiplicity.h"
+#include "Common/DataModel/PIDResponseTPC.h"
 
 #include "CCDB/BasicCCDBManager.h"
 #include "DCAFitter/DCAFitterN.h"
@@ -27,13 +29,9 @@
 #include "DetectorsBase/Propagator.h"
 #include "Framework/AnalysisDataModel.h"
 #include "Framework/AnalysisTask.h"
+#include "Framework/O2DatabasePDGPlugin.h"
 #include "Framework/runDataProcessing.h"
 #include "ReconstructionDataFormats/Track.h"
-
-//////////////
-#include "Common/DataModel/PIDResponseTPC.h"
-
-#include "Framework/O2DatabasePDGPlugin.h"
 #include <CommonConstants/MathConstants.h>
 #include <CommonConstants/PhysicsConstants.h>
 #include <DetectorsBase/MatLayerCylSet.h>
@@ -46,9 +44,11 @@
 #include <Framework/InitContext.h>
 #include <Framework/OutputObjHeader.h>
 #include <MathUtils/Primitive2D.h>
+#include <ReconstructionDataFormats/Vertex.h>
 
 #include "TPDGCode.h"
 #include "TVector3.h"
+#include <Math/Vector3D.h> // IWYU pragma: keep (do not replace with Math/Vector3Dfwd.h)
 #include <Math/Vector3Dfwd.h>
 #include <Math/Vector4D.h> // IWYU pragma: keep (do not replace with Math/Vector4Dfwd.h)
 #include <Math/Vector4Dfwd.h>

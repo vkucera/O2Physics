@@ -25,6 +25,7 @@
 #include <CommonConstants/PhysicsConstants.h>
 #include <MathUtils/Primitive2D.h>
 
+#include <TDecayChannel.h>
 #include <TGenPhaseSpace.h>
 #include <TLorentzVector.h>
 #include <TRandom3.h>

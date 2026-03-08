@@ -25,8 +25,6 @@
 #include <set>
 #include <utility>
 
-using namespace o2::aod::pwgem::dilepton::utils::emtrackutil;
-
 class EMTrackCut : public TNamed
 {
  public:

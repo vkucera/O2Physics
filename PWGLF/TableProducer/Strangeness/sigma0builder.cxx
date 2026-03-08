@@ -44,6 +44,7 @@
 #include <Framework/InitContext.h>
 #include <Framework/OutputObjHeader.h>
 
+#include <Math/Vector3D.h> // IWYU pragma: keep (do not replace with Math/Vector3Dfwd.h)
 #include <Math/Vector3Dfwd.h>
 #include <TH1.h>
 #include <TH2.h>
