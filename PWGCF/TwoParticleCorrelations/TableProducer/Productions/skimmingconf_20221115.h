@@ -9,8 +9,8 @@
 // granted to it by virtue of its status as an Intergovernmental Organization
 // or submit itself to any jurisdiction.
 
-#ifndef PWGCF_TWOPARTICLECORRELATIONS_TABLEPRODUCER_PRODUCTIONS_SKIMMINGCONF_20221115_H_
-#define PWGCF_TWOPARTICLECORRELATIONS_TABLEPRODUCER_PRODUCTIONS_SKIMMINGCONF_20221115_H_
+/// IMPORTANT: Cannot have header guard because it's included multiple times inside the code.
+// NOLINT(build/header_guard)
 
 #include <Framework/Configurable.h>
 
@@ -69,5 +69,3 @@ struct : o2::framework::ConfigurableGroup {
   o2::framework::Configurable<std::string> ccdbpath{"ccdbpath", "Users/v/victor/Skimming", "url of the skimming ccdb repository"};
   o2::framework::Configurable<std::string> filterdate{"filterdate", "20221115", "the date for the skimming production with the current filter configuration"};
 } filterccdb;
-
-#endif // PWGCF_TWOPARTICLECORRELATIONS_TABLEPRODUCER_PRODUCTIONS_SKIMMINGCONF_20221115_H_
