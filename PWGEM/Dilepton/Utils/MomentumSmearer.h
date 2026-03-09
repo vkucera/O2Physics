@@ -34,11 +34,6 @@
 #include <cstdint>
 #include <vector>
 
-using namespace o2;
-using namespace o2::framework;
-using namespace o2::framework::expressions;
-using namespace o2::soa;
-
 class MomentumSmearer
 {
  public:
@@ -578,7 +573,7 @@ class MomentumSmearer
   void setCcdbPathRes(TString ccdbPathRes) { fCcdbPathRes = ccdbPathRes; }
   void setCcdbPathEff(TString ccdbPathEff) { fCcdbPathEff = ccdbPathEff; }
   void setCcdbPathDCA(TString ccdbPathDCA) { fCcdbPathDCA = ccdbPathDCA; }
-  void setCcdb(Service<ccdb::BasicCCDBManager> ccdb)
+  void setCcdb(o2::framework::Service<o2::ccdb::BasicCCDBManager> ccdb)
   {
     fCcdb = ccdb;
     fFromCcdb = true;
@@ -647,7 +642,7 @@ class MomentumSmearer
   std::vector<TH1F*> fVecDCA;
   int64_t fTimestamp;
   bool fFromCcdb = false;
-  Service<ccdb::BasicCCDBManager> fCcdb;
+  o2::framework::Service<o2::ccdb::BasicCCDBManager> fCcdb;
   float fMinPtGen = -1.f;
 };
 

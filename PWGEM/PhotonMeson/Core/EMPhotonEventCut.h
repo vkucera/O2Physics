@@ -23,8 +23,6 @@
 
 #include <Rtypes.h>
 
-using namespace std;
-
 class EMPhotonEventCut : public TNamed
 {
  public:

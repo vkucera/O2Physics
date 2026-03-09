@@ -22,8 +22,6 @@
 
 #include <Rtypes.h>
 
-using namespace std;
-
 class EMEventCut : public TNamed
 {
  public:

@@ -22,10 +22,11 @@
 
 using namespace o2;
 using namespace o2::aod;
+using namespace o2::framework;
 
 WorkflowSpec defineDataProcessing(ConfigContext const& cfgc)
 {
   return WorkflowSpec{
-    adaptAnalysisTask<TaggingPi0MC<PairType::kPCMDalitzEE, MyV0Photons, MyMCV0Legs, MyMCElectrons>>(cfgc, TaskName{"tagging-pi0-mc-pcmdalitzee"}),
+    adaptAnalysisTask<TaggingPi0MC<o2::aod::pwgem::photonmeson::photonpair::PairType::kPCMDalitzEE, MyV0Photons, MyMCV0Legs, MyMCElectrons>>(cfgc, TaskName{"tagging-pi0-mc-pcmdalitzee"}),
   };
 }

@@ -19,6 +19,8 @@
 #include <Framework/AnalysisTask.h>
 #include <Framework/runDataProcessing.h>
 
+using namespace o2::framework;
+
 WorkflowSpec defineDataProcessing(ConfigContext const& cfgc)
 {
   return WorkflowSpec{

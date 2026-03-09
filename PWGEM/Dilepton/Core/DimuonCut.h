@@ -35,8 +35,6 @@
 
 #include <math.h>
 
-using namespace o2::aod::pwgem::dilepton::utils::emtrackutil;
-
 class DimuonCut : public TNamed
 {
  public:
@@ -94,8 +92,8 @@ class DimuonCut : public TNamed
     ROOT::Math::PtEtaPhiMVector v2(t2.pt(), t2.eta(), t2.phi(), o2::constants::physics::MassMuon);
     ROOT::Math::PtEtaPhiMVector v12 = v1 + v2;
 
-    float dca_xy_t1 = fwdDcaXYinSigma(t1);
-    float dca_xy_t2 = fwdDcaXYinSigma(t2);
+    float dca_xy_t1 = o2::aod::pwgem::dilepton::utils::emtrackutil::fwdDcaXYinSigma(t1);
+    float dca_xy_t2 = o2::aod::pwgem::dilepton::utils::emtrackutil::fwdDcaXYinSigma(t2);
     float pair_dca_xy = std::sqrt((dca_xy_t1 * dca_xy_t1 + dca_xy_t2 * dca_xy_t2) / 2.);
 
     if (v12.M() < mMinMass || mMaxMass < v12.M()) {
@@ -224,7 +222,7 @@ class DimuonCut : public TNamed
         return mMinRabs < track.rAtAbsorberEnd() && track.rAtAbsorberEnd() < mMaxRabs;
 
       case DimuonCuts::kMFTHitMap: {
-        std::vector<bool> mftHitMap{checkMFTHitMap<0, 1>(track), checkMFTHitMap<2, 3>(track), checkMFTHitMap<4, 5>(track), checkMFTHitMap<6, 7>(track), checkMFTHitMap<8, 9>(track)};
+        std::vector<bool> mftHitMap{o2::aod::pwgem::dilepton::utils::emtrackutil::checkMFTHitMap<0, 1>(track), o2::aod::pwgem::dilepton::utils::emtrackutil::checkMFTHitMap<2, 3>(track), o2::aod::pwgem::dilepton::utils::emtrackutil::checkMFTHitMap<4, 5>(track), o2::aod::pwgem::dilepton::utils::emtrackutil::checkMFTHitMap<6, 7>(track), o2::aod::pwgem::dilepton::utils::emtrackutil::checkMFTHitMap<8, 9>(track)};
         for (const auto& iDisk : mRequiredMFTDisks) {
           if (!mftHitMap[iDisk]) {
             return false;

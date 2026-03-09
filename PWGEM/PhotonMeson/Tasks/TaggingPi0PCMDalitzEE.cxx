@@ -22,12 +22,12 @@
 #include <Framework/AnalysisTask.h>
 #include <Framework/runDataProcessing.h>
 
-using namespace o2;
-using namespace o2::aod;
+using namespace o2::framework;
+using namespace o2::aod::pwgem::photonmeson::photonpair;
 
 WorkflowSpec defineDataProcessing(ConfigContext const& cfgc)
 {
   return WorkflowSpec{
-    adaptAnalysisTask<TaggingPi0<PairType::kPCMDalitzEE, MyV0Photons, aod::V0Legs, MyPrimaryElectrons>>(cfgc, TaskName{"tagging-pi0-pcmdalitzee"}),
+    adaptAnalysisTask<TaggingPi0<PairType::kPCMDalitzEE, MyV0Photons, o2::aod::V0Legs, MyPrimaryElectrons>>(cfgc, TaskName{"tagging-pi0-pcmdalitzee"}),
   };
 }
