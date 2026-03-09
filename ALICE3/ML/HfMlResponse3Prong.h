@@ -19,17 +19,14 @@
 #include "Tools/ML/MlResponse.h"
 
 #include <cstdint>
-#include <map>
-#include <string>
 #include <vector>
 
 // Fill the map of available input features
 // the key is the feature's name (std::string)
 // the value is the corresponding value in EnumInputFeatures
-#define FILL_MAP_3PRONG(FEATURE)                                 \
-  {                                                              \
-    #FEATURE, static_cast<uint8_t>(InputFeatures3Prong::FEATURE) \
-  }
+#define FILL_MAP_3PRONG(FEATURE) \
+  {                              \
+    #FEATURE, static_cast<uint8_t>(InputFeatures3Prong::FEATURE)}
 
 // Specific case of CHECK_AND_FILL_ML_ALICE3_FULL(OBJECT, FEATURE, GETTER)
 // where OBJECT is named candidate and FEATURE = GETTER

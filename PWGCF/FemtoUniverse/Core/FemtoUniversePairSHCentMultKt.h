@@ -16,14 +16,25 @@
 #ifndef PWGCF_FEMTOUNIVERSE_CORE_FEMTOUNIVERSEPAIRSHCENTMULTKT_H_
 #define PWGCF_FEMTOUNIVERSE_CORE_FEMTOUNIVERSEPAIRSHCENTMULTKT_H_
 
+#include "PWGCF/FemtoUniverse/Core/FemtoUniverseMath.h"
 #include "PWGCF/FemtoUniverse/Core/FemtoUniverseSHContainer.h"
+#include "PWGCF/FemtoUniverse/Core/FemtoUniverseSpherHarMath.h"
 
 #include "Framework/HistogramRegistry.h"
 #include <CommonConstants/PhysicsConstants.h>
+#include <Framework/HistogramSpec.h>
 
+#include <TH1.h>
+#include <TH3.h>
+#include <TString.h>
+
+#include <array>
+#include <cmath>
 #include <complex>
+#include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <vector>
 
 namespace o2::analysis::femto_universe

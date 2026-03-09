@@ -22,6 +22,8 @@
 #include "CommonConstants/PhysicsConstants.h"
 #include "DCAFitter/DCAFitterN.h"
 #include "ReconstructionDataFormats/Track.h"
+#include <DetectorsBase/MatLayerCylSet.h>
+#include <ReconstructionDataFormats/PID.h>
 
 #include <TMath.h>
 
@@ -30,10 +32,13 @@
 #include "KFParticle.h"
 #include "KFParticleBase.h"
 #include "KFVertex.h"
+#include <fairlogger/Logger.h>
 
 #include <array>
 #include <cmath>
+#include <cstdint>
 #include <cstdlib>
+#include <stdexcept>
 #include <vector>
 
 namespace o2

@@ -12,11 +12,16 @@
 #ifndef PWGLF_UTILS_DECAY3BODYBUILDERHELPER_H_
 #define PWGLF_UTILS_DECAY3BODYBUILDERHELPER_H_
 
+#include <ReconstructionDataFormats/DCA.h>
+#include <ReconstructionDataFormats/Vertex.h>
+
+#include <fairlogger/Logger.h>
+
+#include <stdexcept>
 #ifndef HomogeneousField
 #define HomogeneousField
 #endif
 
-#include "Common/Core/RecoDecay.h"
 #include "Common/Core/trackUtilities.h"
 #include "Tools/KFparticle/KFUtilities.h"
 

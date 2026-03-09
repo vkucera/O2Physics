@@ -33,10 +33,12 @@
 #include <Framework/AnalysisDataModel.h>
 #include <Framework/AnalysisHelpers.h>
 #include <Framework/Configurable.h>
+#include <Framework/DeviceSpec.h>
 #include <Framework/RunningWorkflowInfo.h>
 #include <Framework/runDataProcessing.h>
 #include <ReconstructionDataFormats/PID.h>
 
+#include <TFile.h>
 #include <TMatrixD.h> // IWYU pragma: keep (do not replace with TMatrixDfwd.h)
 #include <TMatrixDfwd.h>
 #include <TRandom.h>
@@ -50,6 +52,8 @@
 #include <ratio>
 #include <string>
 #include <vector>
+
+#include <math.h>
 
 namespace o2::aod
 {

@@ -26,9 +26,22 @@
 #include "Framework/Configurable.h"
 #include "Framework/HistogramRegistry.h"
 #include "Framework/HistogramSpec.h"
+#include <Framework/DeviceSpec.h>
+#include <Framework/RunningWorkflowInfo.h>
+#include <ReconstructionDataFormats/PID.h>
+#include <ReconstructionDataFormats/Track.h>
+#include <ReconstructionDataFormats/TrackParametrization.h>
+
+#include <TH1.h>
+#include <TMCProcess.h>
+#include <TPDGCode.h>
+#include <TString.h>
+
+#include <fairlogger/Logger.h>
 
 #include <array>
 #include <cmath>
+#include <cstdint>
 #include <cstdlib>
 #include <string>
 #include <vector>

@@ -27,6 +27,7 @@
 #include "PWGHF/Core/HfHelper.h"
 #include "PWGHF/Utils/utilsEvSelHf.h"
 #include "PWGHF/Utils/utilsMcMatching.h"
+
 //
 #include "PWGEM/PhotonMeson/Utils/PCMUtilities.h"
 #include "PWGEM/PhotonMeson/Utils/TrackSelection.h"
@@ -44,6 +45,7 @@
 #include <Framework/HistogramRegistry.h>
 #include <Framework/HistogramSpec.h>
 #include <Framework/O2DatabasePDGPlugin.h>
+#include <ReconstructionDataFormats/PID.h>
 
 #include <TH1.h>
 #include <TPDGCode.h>
@@ -51,6 +53,7 @@
 #include <KFPTrack.h>
 #include <KFPVertex.h>
 #include <KFParticle.h>
+#include <fairlogger/Logger.h>
 
 #include <Rtypes.h>
 
@@ -60,8 +63,6 @@
 #include <cstdint>
 #include <map>
 #include <string>
-#include <type_traits>
-#include <unordered_map>
 #include <vector>
 
 namespace o2::analysis

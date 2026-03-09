@@ -18,8 +18,13 @@
 #define PWGCF_FEMTOUNIVERSE_CORE_FEMTOUNIVERSEPAIRWITHCENTMULTKT_H_
 
 #include "Framework/HistogramRegistry.h"
+#include <Framework/HistogramSpec.h>
 
+#include <fairlogger/Logger.h>
+
+#include <algorithm>
 #include <string>
+#include <string_view>
 #include <vector>
 
 namespace o2::analysis::femto_universe
