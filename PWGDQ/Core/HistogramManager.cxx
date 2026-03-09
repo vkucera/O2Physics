@@ -11,7 +11,7 @@
 
 #include "PWGDQ/Core/HistogramManager.h"
 
-#include "Framework/Logger.h"
+#include <Framework/Logger.h>
 
 #include <TArrayD.h>
 #include <TCollection.h>

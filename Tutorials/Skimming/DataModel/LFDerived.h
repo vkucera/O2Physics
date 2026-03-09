@@ -13,8 +13,8 @@
 #ifndef O2_ANALYSIS_LFDERIVED_H
 #define O2_ANALYSIS_LFDERIVED_H
 
-#include "Framework/ASoA.h"
-#include "Framework/AnalysisDataModel.h"
+#include <Framework/ASoA.h>
+#include <Framework/AnalysisDataModel.h>
 
 #include <TMath.h>
 

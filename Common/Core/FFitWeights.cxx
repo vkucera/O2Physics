@@ -16,7 +16,7 @@
 
 #include "FFitWeights.h"
 
-#include "Framework/Logger.h"
+#include <Framework/Logger.h>
 
 #include <TCollection.h>
 #include <TH1.h>

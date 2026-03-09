@@ -12,8 +12,8 @@
 // O2 includes
 #include "DataModel/LFDerived.h"
 
-#include "Framework/AnalysisDataModel.h"
-#include "Framework/AnalysisTask.h"
+#include <Framework/AnalysisDataModel.h>
+#include <Framework/AnalysisTask.h>
 #include <Framework/Configurable.h>
 #include <Framework/HistogramRegistry.h>
 #include <Framework/HistogramSpec.h>
@@ -40,7 +40,7 @@ void customize(std::vector<o2::framework::ConfigParamSpec>& workflowOptions)
   std::swap(workflowOptions, options);
 }
 
-#include "Framework/runDataProcessing.h"
+#include <Framework/runDataProcessing.h>
 
 constexpr int Np = 9;
 struct TPCSpectraAnalyserTask {

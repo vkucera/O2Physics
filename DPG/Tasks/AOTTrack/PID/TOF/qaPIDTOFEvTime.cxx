@@ -21,22 +21,22 @@
 #include "Common/DataModel/TrackSelectionTables.h"
 #include "Common/TableProducer/PID/pidTOFBase.h"
 
-#include "CommonConstants/LHCConstants.h"
-#include "DataFormatsFT0/Digit.h"
-#include "Framework/AnalysisTask.h"
-#include "Framework/HistogramRegistry.h"
-#include "Framework/runDataProcessing.h"
-#include "PID/PIDTOF.h"
+#include <CommonConstants/LHCConstants.h>
+#include <DataFormatsFT0/Digit.h>
 #include <Framework/ASoA.h>
 #include <Framework/AnalysisDataModel.h>
 #include <Framework/AnalysisHelpers.h>
+#include <Framework/AnalysisTask.h>
 #include <Framework/Configurable.h>
+#include <Framework/HistogramRegistry.h>
 #include <Framework/HistogramSpec.h>
 #include <Framework/InitContext.h>
 #include <Framework/OutputObjHeader.h>
+#include <Framework/runDataProcessing.h>
+#include <PID/PIDTOF.h>
 
-#include "TEfficiency.h"
-#include "THashList.h"
+#include <TEfficiency.h>
+#include <THashList.h>
 #include <TString.h>
 
 #include <bitset>

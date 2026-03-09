@@ -26,23 +26,23 @@
 #include "Common/CCDB/EventSelectionParams.h"
 #include "Common/Core/TableHelper.h"
 
-#include "CCDB/BasicCCDBManager.h"
-#include "DataFormatsParameters/GRPMagField.h"
-#include "DetectorsBase/GeometryManager.h"
-#include "DetectorsBase/Propagator.h"
-#include "Framework/ASoAHelpers.h"
-#include "Framework/AnalysisDataModel.h"
-#include "Framework/AnalysisHelpers.h"
-#include "Framework/AnalysisTask.h"
-#include "Framework/Configurable.h"
-#include "Framework/runDataProcessing.h"
-#include "ITSMFTBase/DPLAlpideParam.h"
+#include <CCDB/BasicCCDBManager.h>
 #include <CCDB/CcdbApi.h>
 #include <DataFormatsParameters/GRPLHCIFData.h>
+#include <DataFormatsParameters/GRPMagField.h>
+#include <DetectorsBase/GeometryManager.h>
 #include <DetectorsBase/MatLayerCylSet.h>
+#include <DetectorsBase/Propagator.h>
+#include <Framework/ASoAHelpers.h>
+#include <Framework/AnalysisDataModel.h>
+#include <Framework/AnalysisHelpers.h>
+#include <Framework/AnalysisTask.h>
 #include <Framework/Array2D.h>
 #include <Framework/BinningPolicy.h>
+#include <Framework/Configurable.h>
 #include <Framework/InitContext.h>
+#include <Framework/runDataProcessing.h>
+#include <ITSMFTBase/DPLAlpideParam.h>
 
 #include <TF1.h>
 #include <THashList.h>

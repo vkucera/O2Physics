@@ -14,7 +14,7 @@
 /// \brief Slim lnn tables
 ///
 
-#include "Framework/AnalysisDataModel.h"
+#include <Framework/AnalysisDataModel.h>
 
 #include <cstdint>
 

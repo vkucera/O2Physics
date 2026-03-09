@@ -15,7 +15,7 @@
 
 #include "PWGEM/PhotonMeson/Core/EMPhotonEventCut.h"
 
-#include "Framework/Logger.h"
+#include <Framework/Logger.h>
 
 #include <Rtypes.h>
 

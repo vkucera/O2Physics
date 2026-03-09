@@ -19,9 +19,9 @@
 
 #include "Common/CCDB/TriggerAliases.h"
 
-#include "Framework/HistogramRegistry.h"
-#include "Framework/Logger.h"
+#include <Framework/HistogramRegistry.h>
 #include <Framework/HistogramSpec.h>
+#include <Framework/Logger.h>
 
 using namespace o2::framework;
 

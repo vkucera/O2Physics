@@ -17,7 +17,7 @@
 #ifndef PWGLF_DATAMODEL_LFSLIMNUCLEITABLES_H_
 #define PWGLF_DATAMODEL_LFSLIMNUCLEITABLES_H_
 
-#include "Framework/AnalysisDataModel.h"
+#include <Framework/AnalysisDataModel.h>
 
 #include <Math/GenVector/LorentzVector.h>
 #include <Math/GenVector/PtEtaPhiM4D.h>

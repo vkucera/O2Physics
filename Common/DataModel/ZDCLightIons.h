@@ -16,7 +16,7 @@
 #ifndef COMMON_DATAMODEL_ZDCLIGHTIONS_H_
 #define COMMON_DATAMODEL_ZDCLIGHTIONS_H_
 
-#include "Framework/AnalysisDataModel.h"
+#include <Framework/AnalysisDataModel.h>
 
 #include <cstdint>
 

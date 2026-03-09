@@ -16,7 +16,7 @@
 #ifndef PWGCF_GENERICFRAMEWORK_CORE_GFWCONFIG_H_
 #define PWGCF_GENERICFRAMEWORK_CORE_GFWCONFIG_H_
 
-#include "Framework/Logger.h"
+#include <Framework/Logger.h>
 
 #include <Rtypes.h>
 

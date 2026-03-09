@@ -13,7 +13,7 @@
 /// \brief Task to generate a table of dNdEta, pt and PID dependent weigths for MC particles to reflect the measured particle abundances
 /// \author Mario Krüger <mario.kruger@cern.ch>
 
-#include <PWGLF/DataModel/particleCompositionCorrectionTable.h>
+#include "PWGLF/DataModel/particleCompositionCorrectionTable.h"
 
 #include "Tools/ML/model.h"
 

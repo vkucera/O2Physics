@@ -15,8 +15,8 @@
 #ifndef PWGLF_DATAMODEL_LFSPINCORRELATIONTABLES_H_
 #define PWGLF_DATAMODEL_LFSPINCORRELATIONTABLES_H_
 
-#include "Framework/ASoA.h"
-#include "Framework/AnalysisDataModel.h"
+#include <Framework/ASoA.h>
+#include <Framework/AnalysisDataModel.h>
 
 #include <cmath>
 

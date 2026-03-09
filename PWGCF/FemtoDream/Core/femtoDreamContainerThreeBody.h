@@ -23,10 +23,10 @@
 #include "PWGCF/DataModel/FemtoDerived.h"
 #include "PWGCF/FemtoDream/Core/femtoDreamMath.h"
 
-#include "Framework/HistogramRegistry.h"
+#include <Framework/HistogramRegistry.h>
 #include <Framework/HistogramSpec.h>
 
-#include "TDatabasePDG.h"
+#include <TDatabasePDG.h>
 
 #include <string>
 #include <string_view>

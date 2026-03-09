@@ -17,8 +17,8 @@
 #include "PWGEM/PhotonMeson/Core/TaggingPi0MC.h"
 #include "PWGEM/PhotonMeson/Utils/PairUtilities.h"
 
-#include "Framework/AnalysisTask.h"
-#include "Framework/runDataProcessing.h"
+#include <Framework/AnalysisTask.h>
+#include <Framework/runDataProcessing.h>
 
 using namespace o2;
 using namespace o2::aod;

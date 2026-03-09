@@ -16,7 +16,7 @@
 #ifndef PWGEM_DILEPTON_CORE_EMTRACKCUT_H_
 #define PWGEM_DILEPTON_CORE_EMTRACKCUT_H_
 
-#include "TNamed.h"
+#include <TNamed.h>
 
 #include <Rtypes.h>
 

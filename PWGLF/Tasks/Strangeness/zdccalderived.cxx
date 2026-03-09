@@ -14,7 +14,6 @@
 
 #include "PWGLF/DataModel/ZDCCalTables.h"
 
-#include "Framework/Logger.h"
 #include <CCDB/BasicCCDBManager.h>
 #include <CCDB/CcdbApi.h>
 #include <Framework/AnalysisDataModel.h>
@@ -24,6 +23,7 @@
 #include <Framework/HistogramRegistry.h>
 #include <Framework/HistogramSpec.h>
 #include <Framework/InitContext.h>
+#include <Framework/Logger.h>
 #include <Framework/OutputObjHeader.h>
 #include <Framework/runDataProcessing.h>
 

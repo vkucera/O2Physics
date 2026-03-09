@@ -14,7 +14,7 @@
 
 #include "Common/DataModel/Centrality.h"
 
-#include "Framework/AnalysisDataModel.h"
+#include <Framework/AnalysisDataModel.h>
 
 #include <cstdint>
 

@@ -24,12 +24,12 @@
 #include "Common/Core/PID/PIDTOF.h"
 #include "Common/Core/TableHelper.h"
 
-#include "CCDB/BasicCCDBManager.h"
-#include "CommonConstants/PhysicsConstants.h"
-#include "Framework/PID.h"
-#include "Framework/Plugins.h"
-#include "ReconstructionDataFormats/PID.h"
+#include <CCDB/BasicCCDBManager.h>
+#include <CommonConstants/PhysicsConstants.h>
 #include <Framework/InitContext.h>
+#include <Framework/PID.h>
+#include <Framework/Plugins.h>
+#include <ReconstructionDataFormats/PID.h>
 
 #include <fairlogger/Logger.h>
 

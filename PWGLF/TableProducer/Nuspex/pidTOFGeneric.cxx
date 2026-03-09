@@ -22,9 +22,9 @@
 #include <string>
 
 // O2 includes
-#include "CCDB/BasicCCDBManager.h"
-#include "Framework/AnalysisTask.h"
-#include "TOFBase/EventTimeMaker.h"
+#include <CCDB/BasicCCDBManager.h>
+#include <Framework/AnalysisTask.h>
+#include <TOFBase/EventTimeMaker.h>
 
 // O2Physics includes
 #include "CollisionTypeHelper.h"
@@ -38,14 +38,14 @@
 #include "Common/DataModel/FT0Corrected.h"
 #include "Common/DataModel/PIDResponseTOF.h"
 
-#include "Framework/runDataProcessing.h"
-#include "PID/PIDTOF.h"
 #include <Framework/ASoA.h>
 #include <Framework/AnalysisDataModel.h>
 #include <Framework/AnalysisHelpers.h>
 #include <Framework/Configurable.h>
 #include <Framework/DataTypes.h>
 #include <Framework/InitContext.h>
+#include <Framework/runDataProcessing.h>
+#include <PID/PIDTOF.h>
 #include <ReconstructionDataFormats/PID.h>
 
 using namespace o2;

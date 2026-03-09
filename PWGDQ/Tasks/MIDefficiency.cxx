@@ -18,9 +18,9 @@
 ///
 /// \author Luca Quaglia <luca.quaglia@cern.ch
 
-#include "Framework/AnalysisTask.h"
-#include "Framework/HistogramRegistry.h"
-#include "Framework/runDataProcessing.h"
+#include <Framework/AnalysisTask.h>
+#include <Framework/HistogramRegistry.h>
+#include <Framework/runDataProcessing.h>
 
 #include <cstdint>
 
@@ -28,9 +28,7 @@
 #include "PWGDQ/DataModel/ReducedInfoTables.h"
 
 // O2
-#include "DataFormatsMID/Track.h" //MID track from O2
-#include "MIDBase/DetectorParameters.h"
-#include "MIDBase/Mapping.h"
+#include <DataFormatsMID/Track.h> //MID track from O2
 #include <Framework/ASoA.h>
 #include <Framework/AnalysisDataModel.h>
 #include <Framework/Configurable.h>
@@ -38,6 +36,8 @@
 #include <Framework/HistogramSpec.h>
 #include <Framework/InitContext.h>
 #include <Framework/OutputObjHeader.h>
+#include <MIDBase/DetectorParameters.h>
+#include <MIDBase/Mapping.h>
 
 #include <TMath.h>
 

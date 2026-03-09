@@ -17,25 +17,25 @@
 #include "Common/CCDB/EventSelectionParams.h"
 #include "Common/DataModel/EventSelection.h"
 
-#include "CCDB/BasicCCDBManager.h"
-#include "CommonConstants/LHCConstants.h"
-#include "Framework/AnalysisDataModel.h"
-#include "Framework/AnalysisTask.h"
-#include "Framework/HistogramRegistry.h"
-#include "Framework/runDataProcessing.h"
+#include <CCDB/BasicCCDBManager.h>
+#include <CommonConstants/LHCConstants.h>
+#include <Framework/AnalysisDataModel.h>
+#include <Framework/AnalysisTask.h>
+#include <Framework/HistogramRegistry.h>
+#include <Framework/runDataProcessing.h>
 
 #include <cmath>
 #include <cstdint>
 #include <vector>
 // #include "DataFormatsParameters/GRPLHCIFData.h"
-#include "DataFormatsParameters/AggregatedRunInfo.h"
-#include "ITSMFTBase/DPLAlpideParam.h"
+#include <DataFormatsParameters/AggregatedRunInfo.h>
 #include <Framework/AnalysisHelpers.h>
 #include <Framework/Configurable.h>
 #include <Framework/DataTypes.h>
 #include <Framework/HistogramSpec.h>
 #include <Framework/InitContext.h>
 #include <Framework/OutputObjHeader.h>
+#include <ITSMFTBase/DPLAlpideParam.h>
 
 using namespace o2;
 using namespace o2::framework;

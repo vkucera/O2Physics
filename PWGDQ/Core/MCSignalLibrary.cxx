@@ -22,8 +22,8 @@
 
 #include "PWGDQ/Core/MCSignalLibrary.h"
 
-#include "CommonConstants/PhysicsConstants.h"
-#include "Framework/Logger.h"
+#include <CommonConstants/PhysicsConstants.h>
+#include <Framework/Logger.h>
 
 #include <TPDGCode.h>
 #include <TString.h>

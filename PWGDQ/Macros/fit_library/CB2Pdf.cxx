@@ -13,9 +13,9 @@
 
 #include "CB2Pdf.h"
 
-#include "RooAbsReal.h"
-#include "TMath.h"
 #include <RooAbsPdf.h>
+#include <RooAbsReal.h>
+#include <TMath.h>
 #include <TMathBase.h>
 
 #include <Rtypes.h>

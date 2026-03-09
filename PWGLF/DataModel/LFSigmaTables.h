@@ -13,11 +13,11 @@
 
 #include "Common/Core/RecoDecay.h"
 
-#include "CommonConstants/PhysicsConstants.h"
-#include "Framework/AnalysisDataModel.h"
+#include <CommonConstants/PhysicsConstants.h>
+#include <Framework/AnalysisDataModel.h>
 
-#include "TVector3.h"
 #include <TPDGCode.h>
+#include <TVector3.h>
 
 #include <array>
 #include <cmath>

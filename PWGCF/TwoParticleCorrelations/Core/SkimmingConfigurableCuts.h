@@ -11,7 +11,7 @@
 #ifndef SKIMMING_CONFIGURABLE_CUTS_CLASSES_H
 #define SKIMMING_CONFIGURABLE_CUTS_CLASSES_H
 
-#include "Framework/DataTypes.h"
+#include <Framework/DataTypes.h>
 #include <Framework/Logger.h>
 
 #include <TF1.h>

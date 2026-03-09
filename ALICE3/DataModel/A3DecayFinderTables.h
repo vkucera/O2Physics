@@ -21,7 +21,7 @@
 // O2 includes
 #include "Common/Core/RecoDecay.h"
 
-#include "Framework/AnalysisDataModel.h"
+#include <Framework/AnalysisDataModel.h>
 
 #include <array>
 #include <cstdint>

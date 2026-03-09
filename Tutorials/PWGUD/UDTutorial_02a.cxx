@@ -16,18 +16,18 @@
 #include "PWGUD/Core/UDHelpers.h"
 #include "PWGUD/DataModel/UDTables.h"
 
-#include "Framework/AnalysisTask.h"
-#include "Framework/runDataProcessing.h"
 #include <Framework/ASoA.h>
 #include <Framework/AnalysisHelpers.h>
+#include <Framework/AnalysisTask.h>
 #include <Framework/Configurable.h>
 #include <Framework/HistogramRegistry.h>
 #include <Framework/HistogramSpec.h>
 #include <Framework/InitContext.h>
+#include <Framework/runDataProcessing.h>
 
-#include "TDatabasePDG.h"
-#include "TLorentzVector.h"
+#include <TDatabasePDG.h>
 #include <TH2.h>
+#include <TLorentzVector.h>
 #include <TParticlePDG.h>
 
 #include <Rtypes.h>

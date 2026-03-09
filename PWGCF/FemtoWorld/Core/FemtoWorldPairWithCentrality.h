@@ -13,7 +13,7 @@
 #ifndef PWGCF_FEMTOWORLD_CORE_FEMTOWORLDPAIRWITHCENTRALITY_H_
 #define PWGCF_FEMTOWORLD_CORE_FEMTOWORLDPAIRWITHCENTRALITY_H_
 
-#include "Framework/HistogramRegistry.h"
+#include <Framework/HistogramRegistry.h>
 #include <Framework/HistogramSpec.h>
 
 #include <string>

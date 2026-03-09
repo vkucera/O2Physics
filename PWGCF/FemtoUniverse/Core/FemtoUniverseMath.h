@@ -19,10 +19,10 @@
 #ifndef PWGCF_FEMTOUNIVERSE_CORE_FEMTOUNIVERSEMATH_H_
 #define PWGCF_FEMTOUNIVERSE_CORE_FEMTOUNIVERSEMATH_H_
 
-#include "TMath.h"
 #include <Math/GenVector/Boost.h>
 #include <Math/Vector4D.h> // IWYU pragma: keep (do not replace with Math/Vector4Dfwd.h)
 #include <Math/Vector4Dfwd.h>
+#include <TMath.h>
 
 #include <cmath>
 #include <vector>

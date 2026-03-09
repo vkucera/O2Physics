@@ -17,8 +17,8 @@
 #include "PWGEM/Dilepton/Core/DileptonMC.h"
 #include "PWGEM/Dilepton/Utils/PairUtilities.h"
 
-#include "Framework/AnalysisTask.h"
-#include "Framework/runDataProcessing.h"
+#include <Framework/AnalysisTask.h>
+#include <Framework/runDataProcessing.h>
 
 WorkflowSpec defineDataProcessing(ConfigContext const& cfgc)
 {

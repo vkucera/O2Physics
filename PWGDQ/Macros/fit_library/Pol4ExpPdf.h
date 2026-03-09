@@ -14,9 +14,9 @@
 #ifndef POL4EXPPDF
 #define POL4EXPPDF
 
-#include "RooAbsPdf.h"
-#include "RooAbsReal.h"
-#include "RooRealProxy.h"
+#include <RooAbsPdf.h>
+#include <RooAbsReal.h>
+#include <RooRealProxy.h>
 #include <TObject.h>
 #include <TString.h>
 

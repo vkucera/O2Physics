@@ -15,10 +15,10 @@
 #ifndef PWGEM_DILEPTON_UTILS_MOMENTUMSMEARER_H_
 #define PWGEM_DILEPTON_UTILS_MOMENTUMSMEARER_H_
 
-#include "CCDB/BasicCCDBManager.h"
-#include "Framework/Logger.h"
-#include "Framework/runDataProcessing.h"
+#include <CCDB/BasicCCDBManager.h>
 #include <Framework/AnalysisHelpers.h>
+#include <Framework/Logger.h>
+#include <Framework/runDataProcessing.h>
 
 #include <TAxis.h>
 #include <TFile.h>

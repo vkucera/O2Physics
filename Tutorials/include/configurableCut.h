@@ -12,7 +12,7 @@
 #ifndef CONFIGURABLECUT_H
 #define CONFIGURABLECUT_H
 
-#include "Framework/Array2D.h"
+#include <Framework/Array2D.h>
 
 #include <Rtypes.h>
 

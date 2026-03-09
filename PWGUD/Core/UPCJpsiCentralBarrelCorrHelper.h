@@ -16,7 +16,7 @@
 #ifndef PWGUD_CORE_UPCJPSICENTRALBARRELCORRHELPER_H_
 #define PWGUD_CORE_UPCJPSICENTRALBARRELCORRHELPER_H_
 
-#include "CommonConstants/MathConstants.h"
+#include <CommonConstants/MathConstants.h>
 
 #include <TLorentzVector.h>
 

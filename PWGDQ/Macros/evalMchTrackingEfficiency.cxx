@@ -14,16 +14,16 @@
 ///
 /// \author Zaida Conesa del Valle <zaida.conesa.del.valle@cern.ch>
 /// \author Andrea Tavira García <tavira-garcia@ijclab.in2p3.fr>
-#include "TAxis.h"
-#include "TCanvas.h"
-#include "TDirectoryFile.h"
-#include "TFile.h"
-#include "THn.h"
-#include "TLegend.h"
-#include "TStyle.h"
+#include <TAxis.h>
+#include <TCanvas.h>
+#include <TDirectoryFile.h>
+#include <TFile.h>
 #include <TH1.h>
 #include <TH2.h>
+#include <THn.h>
+#include <TLegend.h>
 #include <TString.h>
+#include <TStyle.h>
 
 #include <Rtypes.h>
 

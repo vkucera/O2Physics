@@ -15,7 +15,7 @@
 /// \author CMY
 /// \date 2025-04-10
 
-#include "Framework/AnalysisDataModel.h"
+#include <Framework/AnalysisDataModel.h>
 
 #include <cstdint>
 

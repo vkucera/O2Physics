@@ -20,7 +20,7 @@
 #define O2_ANALYSIS_ALICE3_ECAL_H_
 
 // O2 includes
-#include "Framework/AnalysisDataModel.h"
+#include <Framework/AnalysisDataModel.h>
 
 namespace o2::aod
 {

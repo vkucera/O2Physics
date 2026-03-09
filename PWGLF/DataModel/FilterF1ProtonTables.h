@@ -16,7 +16,7 @@
 #ifndef PWGLF_DATAMODEL_FILTERF1PROTONTABLES_H_
 #define PWGLF_DATAMODEL_FILTERF1PROTONTABLES_H_
 
-#include "Framework/AnalysisDataModel.h"
+#include <Framework/AnalysisDataModel.h>
 
 #include <cmath>
 

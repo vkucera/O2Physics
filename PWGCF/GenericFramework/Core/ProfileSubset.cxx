@@ -11,13 +11,13 @@
 
 #include "ProfileSubset.h"
 
-#include "TProfile2D.h"
 #include <TArrayD.h>
 #include <TAxis.h>
 #include <TError.h>
 #include <TH1.h>
 #include <TH2.h>
 #include <TProfile.h>
+#include <TProfile2D.h>
 #include <TString.h>
 
 #include <RtypesCore.h>

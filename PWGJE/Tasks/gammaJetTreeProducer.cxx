@@ -39,19 +39,19 @@
 
 #include "Common/Core/RecoDecay.h"
 
-#include "Framework/ASoA.h"
-#include "Framework/AnalysisDataModel.h"
-#include "Framework/AnalysisTask.h"
-#include "Framework/HistogramRegistry.h"
-#include "Framework/O2DatabasePDGPlugin.h"
 #include <CommonConstants/MathConstants.h>
+#include <Framework/ASoA.h>
+#include <Framework/AnalysisDataModel.h>
 #include <Framework/AnalysisHelpers.h>
+#include <Framework/AnalysisTask.h>
 #include <Framework/Configurable.h>
+#include <Framework/HistogramRegistry.h>
 #include <Framework/HistogramSpec.h>
 #include <Framework/InitContext.h>
+#include <Framework/O2DatabasePDGPlugin.h>
 
-#include "TVector2.h"
 #include <TString.h>
+#include <TVector2.h>
 
 #include <fastjet/ClusterSequenceArea.hh>
 #include <fastjet/JetDefinition.hh>
@@ -72,7 +72,7 @@ using namespace o2::framework::expressions;
 using emcClusters = o2::soa::Join<o2::aod::JClusters, o2::aod::JClusterTracks>;
 using emcMCClusters = o2::soa::Join<o2::aod::JMcClusterLbs, o2::aod::JClusters, o2::aod::JClusterTracks>;
 
-#include "Framework/runDataProcessing.h"
+#include <Framework/runDataProcessing.h>
 
 struct GammaJetTreeProducer {
   // analysis tree

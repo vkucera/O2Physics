@@ -16,7 +16,7 @@
 #include "HistogramManager.h"
 #include "VarManager.h"
 
-#include "CommonConstants/MathConstants.h"
+#include <CommonConstants/MathConstants.h>
 
 #include <TArrayD.h>
 #include <TMath.h>

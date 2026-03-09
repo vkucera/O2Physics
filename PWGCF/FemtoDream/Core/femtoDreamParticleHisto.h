@@ -20,8 +20,8 @@
 
 #include "PWGCF/DataModel/FemtoDerived.h"
 
-#include "CommonConstants/PhysicsConstants.h"
-#include "Framework/HistogramRegistry.h"
+#include <CommonConstants/PhysicsConstants.h>
+#include <Framework/HistogramRegistry.h>
 #include <Framework/HistogramSpec.h>
 
 #include <TMath.h>

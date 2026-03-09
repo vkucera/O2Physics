@@ -17,9 +17,9 @@
 // copts="--configuration json://tautauConfig.json -b"
 // o2-analysis-ud-tautau13topo $copts > output.log
 
-#include "Framework/AnalysisDataModel.h"
-#include "Framework/AnalysisTask.h"
-#include "Framework/runDataProcessing.h"
+#include <Framework/AnalysisDataModel.h>
+#include <Framework/AnalysisTask.h>
+#include <Framework/runDataProcessing.h>
 
 // #include "TDatabasePDG.h" // not recommended in o2
 #include <CommonConstants/MathConstants.h>
@@ -39,11 +39,11 @@
 
 #include "Common/Core/RecoDecay.h"
 // #include <CommonUtils/EnumFlags.h>
-#include "TPDGCode.h"
 #include <Math/GenVector/LorentzVector.h>
 #include <Math/GenVector/PxPyPzE4D.h>
 #include <TH1.h>
 #include <TH2.h>
+#include <TPDGCode.h>
 #include <TVector3.h>
 
 #include <Rtypes.h>

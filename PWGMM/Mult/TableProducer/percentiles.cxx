@@ -13,8 +13,8 @@
 
 #include "Common/CCDB/EventSelectionParams.h"
 #include "Common/DataModel/Centrality.h"
-#include <Common/DataModel/EventSelection.h>
-#include <Common/DataModel/TrackSelectionTables.h>
+#include "Common/DataModel/EventSelection.h"
+#include "Common/DataModel/TrackSelectionTables.h"
 
 #include <CCDB/BasicCCDBManager.h>
 #include <Framework/AnalysisDataModel.h>

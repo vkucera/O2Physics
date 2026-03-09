@@ -20,9 +20,9 @@
 #include "Common/DataModel/EventSelection.h"
 #include "Common/DataModel/PIDResponseITS.h"
 
-#include "Framework/ASoA.h"
-#include "Framework/AnalysisDataModel.h"
-#include "Framework/Logger.h"
+#include <Framework/ASoA.h>
+#include <Framework/AnalysisDataModel.h>
+#include <Framework/Logger.h>
 
 #include <Rtypes.h>
 

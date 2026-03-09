@@ -18,7 +18,7 @@
 
 #include "Rtypes.h"
 
-#include "TNamed.h"
+#include <TNamed.h>
 
 class PairCut : public TNamed
 {

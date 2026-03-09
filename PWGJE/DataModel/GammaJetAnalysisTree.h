@@ -17,7 +17,7 @@
 #ifndef PWGJE_DATAMODEL_GAMMAJETANALYSISTREE_H_
 #define PWGJE_DATAMODEL_GAMMAJETANALYSISTREE_H_
 
-#include "Framework/AnalysisDataModel.h"
+#include <Framework/AnalysisDataModel.h>
 
 #include <sys/types.h>
 

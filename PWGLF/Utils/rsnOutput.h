@@ -16,9 +16,9 @@
 #ifndef PWGLF_UTILS_RSNOUTPUT_H_
 #define PWGLF_UTILS_RSNOUTPUT_H_
 
-#include "Framework/HistogramRegistry.h"
-#include "Framework/Logger.h"
+#include <Framework/HistogramRegistry.h>
 #include <Framework/HistogramSpec.h>
+#include <Framework/Logger.h>
 
 #include <THnSparse.h>
 

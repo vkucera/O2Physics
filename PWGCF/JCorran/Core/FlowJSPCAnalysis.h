@@ -31,8 +31,8 @@
 // O2 headers. //
 #include "PWGCF/JCorran/Core/JQVectors.h"
 
-#include "CommonConstants/MathConstants.h"
-#include "Framework/HistogramRegistry.h"
+#include <CommonConstants/MathConstants.h>
+#include <Framework/HistogramRegistry.h>
 #include <Framework/HistogramSpec.h>
 
 class FlowJSPCAnalysis

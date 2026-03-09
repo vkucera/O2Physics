@@ -11,15 +11,15 @@
 
 // author: arvind.khuntia@cern.ch
 
-#include "DataFormatsFDD/Digit.h"
-#include "Framework/AnalysisDataModel.h"
-#include "Framework/AnalysisTask.h"
-#include "Framework/runDataProcessing.h"
 #include <CommonConstants/LHCConstants.h>
+#include <DataFormatsFDD/Digit.h>
+#include <Framework/AnalysisDataModel.h>
+#include <Framework/AnalysisTask.h>
 #include <Framework/Configurable.h>
 #include <Framework/HistogramRegistry.h>
 #include <Framework/HistogramSpec.h>
 #include <Framework/InitContext.h>
+#include <Framework/runDataProcessing.h>
 
 #include <TH1.h>
 #include <TH2.h>

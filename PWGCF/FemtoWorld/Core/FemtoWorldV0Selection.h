@@ -24,7 +24,7 @@
 #include "PWGCF/FemtoWorld/Core/FemtoWorldTrackSelection.h"
 #include "PWGCF/FemtoWorld/DataModel/FemtoWorldDerived.h"
 
-#include "Framework/HistogramRegistry.h"
+#include <Framework/HistogramRegistry.h>
 #include <Framework/HistogramSpec.h>
 
 #include <TDatabasePDG.h>

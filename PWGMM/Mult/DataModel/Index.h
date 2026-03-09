@@ -12,7 +12,7 @@
 #ifndef O2_ANALYSIS_INDEX_H_
 #define O2_ANALYSIS_INDEX_H_
 
-#include "Framework/AnalysisDataModel.h"
+#include <Framework/AnalysisDataModel.h>
 namespace o2::aod
 {
 namespace idx

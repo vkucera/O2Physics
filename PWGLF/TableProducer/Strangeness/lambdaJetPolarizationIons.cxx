@@ -43,9 +43,9 @@
 #include <Framework/runDataProcessing.h>
 
 // O2 CCDB / Conditions
-#include "DataFormatsParameters/GRPMagField.h"
 #include <CCDB/BasicCCDBManager.h>
 #include <CCDB/CcdbApi.h>
+#include <DataFormatsParameters/GRPMagField.h>
 
 // O2 Reconstruction Data Formats
 

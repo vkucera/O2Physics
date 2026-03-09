@@ -16,7 +16,7 @@
 #ifndef PWGCF_FEMTODREAM_CORE_FEMTODREAMEVENTHISTO_H_
 #define PWGCF_FEMTODREAM_CORE_FEMTODREAMEVENTHISTO_H_
 
-#include "Framework/HistogramRegistry.h"
+#include <Framework/HistogramRegistry.h>
 #include <Framework/HistogramSpec.h>
 
 using namespace o2::framework;

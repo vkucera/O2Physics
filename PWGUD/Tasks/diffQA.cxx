@@ -21,13 +21,11 @@
 #include "Common/DataModel/PIDResponseTOF.h"
 #include "Common/DataModel/TrackSelectionTables.h"
 
-#include "CommonConstants/LHCConstants.h"
-#include "CommonConstants/PhysicsConstants.h"
-#include "Framework/AnalysisTask.h"
-#include "Framework/runDataProcessing.h"
-#include "ReconstructionDataFormats/BCRange.h"
+#include <CommonConstants/LHCConstants.h>
+#include <CommonConstants/PhysicsConstants.h>
 #include <Framework/ASoA.h>
 #include <Framework/AnalysisDataModel.h>
+#include <Framework/AnalysisTask.h>
 #include <Framework/Configurable.h>
 #include <Framework/Expressions.h>
 #include <Framework/HistogramRegistry.h>
@@ -35,10 +33,12 @@
 #include <Framework/InitContext.h>
 #include <Framework/ProcessingContext.h>
 #include <Framework/SliceCache.h>
+#include <Framework/runDataProcessing.h>
+#include <ReconstructionDataFormats/BCRange.h>
 
-#include "TLorentzVector.h"
 #include <TH1.h>
 #include <TH2.h>
+#include <TLorentzVector.h>
 
 #include <algorithm>
 #include <cstddef>

@@ -16,12 +16,12 @@
 ///
 
 // O2 includes
-#include "Framework/AnalysisTask.h"
-#include "Framework/StaticFor.h"
-#include "Framework/runDataProcessing.h"
 #include <Framework/ASoA.h>
 #include <Framework/AnalysisDataModel.h>
+#include <Framework/AnalysisTask.h>
 #include <Framework/InitContext.h>
+#include <Framework/StaticFor.h>
+#include <Framework/runDataProcessing.h>
 
 // O2Physics includes
 #include "Common/DataModel/PIDResponseTOF.h"

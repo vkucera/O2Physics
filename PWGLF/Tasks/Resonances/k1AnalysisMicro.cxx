@@ -16,13 +16,12 @@
 
 #include "PWGLF/DataModel/LFResonanceTables.h"
 
-#include "CommonConstants/PhysicsConstants.h"
-#include "Framework/ASoAHelpers.h"
-#include "Framework/AnalysisTask.h"
-#include "Framework/runDataProcessing.h"
 #include <CommonConstants/MathConstants.h>
+#include <CommonConstants/PhysicsConstants.h>
 #include <Framework/ASoA.h>
+#include <Framework/ASoAHelpers.h>
 #include <Framework/AnalysisDataModel.h>
+#include <Framework/AnalysisTask.h>
 #include <Framework/BinningPolicy.h>
 #include <Framework/Configurable.h>
 #include <Framework/GroupedCombinations.h>
@@ -31,6 +30,7 @@
 #include <Framework/InitContext.h>
 #include <Framework/OutputObjHeader.h>
 #include <Framework/SliceCache.h>
+#include <Framework/runDataProcessing.h>
 
 #include <TLorentzVector.h>
 #include <TPDGCode.h> // FIXME

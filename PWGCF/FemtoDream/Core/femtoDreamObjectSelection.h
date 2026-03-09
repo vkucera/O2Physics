@@ -19,7 +19,7 @@
 #include "PWGCF/DataModel/FemtoDerived.h"
 #include "PWGCF/FemtoDream/Core/femtoDreamSelection.h"
 
-#include "Framework/HistogramRegistry.h"
+#include <Framework/HistogramRegistry.h>
 #include <Framework/HistogramSpec.h>
 
 #include <TH1.h>

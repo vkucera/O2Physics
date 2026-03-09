@@ -18,9 +18,9 @@
 
 #include "PWGCF/Femto3D/DataModel/singletrackselector.h"
 
-#include "TCanvas.h"
-#include "TRandom.h"
+#include <TCanvas.h>
 #include <TH1.h>
+#include <TRandom.h>
 #include <TString.h>
 
 #include <fairlogger/Logger.h>

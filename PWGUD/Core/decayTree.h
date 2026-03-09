@@ -12,14 +12,14 @@
 #ifndef PWGUD_CORE_DECAYTREE_H_
 #define PWGUD_CORE_DECAYTREE_H_
 
-#include "Framework/HistogramRegistry.h"
-#include "Framework/Logger.h"
+#include <Framework/HistogramRegistry.h>
 #include <Framework/HistogramSpec.h>
+#include <Framework/Logger.h>
 
-#include "TDatabasePDG.h"
-#include "TLorentzVector.h"
+#include <TDatabasePDG.h>
 #include <TH1.h>
 #include <TH2.h>
+#include <TLorentzVector.h>
 
 #include <cstddef>
 #include <cstdlib>

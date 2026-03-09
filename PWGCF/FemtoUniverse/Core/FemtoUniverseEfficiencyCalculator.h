@@ -16,8 +16,8 @@
 #ifndef PWGCF_FEMTOUNIVERSE_CORE_FEMTOUNIVERSEEFFICIENCYCALCULATOR_H_
 #define PWGCF_FEMTOUNIVERSE_CORE_FEMTOUNIVERSEEFFICIENCYCALCULATOR_H_
 
-#include "CCDB/BasicCCDBManager.h"
-#include "Framework/Configurable.h"
+#include <CCDB/BasicCCDBManager.h>
+#include <Framework/Configurable.h>
 
 #include <TH1.h>
 #include <TH2.h>

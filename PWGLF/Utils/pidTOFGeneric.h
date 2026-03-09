@@ -24,7 +24,7 @@
 
 #include "Common/Core/PID/PIDTOF.h"
 
-#include "CommonDataFormat/InteractionRecord.h"
+#include <CommonDataFormat/InteractionRecord.h>
 #include <DataFormatsParameters/GRPLHCIFData.h>
 #include <DataFormatsTOF/ParameterContainers.h>
 #include <Framework/AnalysisDataModel.h>

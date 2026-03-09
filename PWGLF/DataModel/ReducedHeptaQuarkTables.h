@@ -15,8 +15,8 @@
 #ifndef PWGLF_DATAMODEL_REDUCEDHEPTAQUARKTABLES_H_
 #define PWGLF_DATAMODEL_REDUCEDHEPTAQUARKTABLES_H_
 
-#include "Framework/ASoA.h"
-#include "Framework/AnalysisDataModel.h"
+#include <Framework/ASoA.h>
+#include <Framework/AnalysisDataModel.h>
 
 #include <cmath>
 #include <cstdint>

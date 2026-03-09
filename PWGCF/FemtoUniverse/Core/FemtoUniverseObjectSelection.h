@@ -20,7 +20,7 @@
 #include "PWGCF/FemtoUniverse/Core/FemtoUniverseSelection.h"
 #include "PWGCF/FemtoUniverse/DataModel/FemtoDerived.h"
 
-#include "Framework/HistogramRegistry.h"
+#include <Framework/HistogramRegistry.h>
 #include <Framework/HistogramSpec.h>
 
 #include <TH1.h>

@@ -23,7 +23,7 @@
 #include <string_view>
 
 // O2 headers. //
-#include "Framework/HistogramRegistry.h"
+#include <Framework/HistogramRegistry.h>
 
 // O2 Physics headers.
 

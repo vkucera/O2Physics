@@ -14,13 +14,13 @@
 
 #include "Common/DataModel/EventSelection.h"
 
-#include "Framework/AnalysisDataModel.h"
-#include "Framework/AnalysisTask.h"
-#include "Framework/HistogramRegistry.h"
+#include <Framework/AnalysisDataModel.h>
 #include <Framework/AnalysisHelpers.h>
+#include <Framework/AnalysisTask.h>
 #include <Framework/Array2D.h>
 #include <Framework/Configurable.h>
 #include <Framework/DataProcessorSpec.h>
+#include <Framework/HistogramRegistry.h>
 #include <Framework/HistogramSpec.h>
 #include <Framework/InitContext.h>
 #include <Framework/InputSpec.h>
@@ -60,7 +60,7 @@ void customize(std::vector<o2::framework::ConfigParamSpec>& workflowOptions)
   std::swap(workflowOptions, options);
 }
 
-#include "Framework/runDataProcessing.h"
+#include <Framework/runDataProcessing.h>
 
 using namespace o2;
 using namespace o2::aod;

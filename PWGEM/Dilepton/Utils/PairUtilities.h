@@ -18,11 +18,11 @@
 #include "Common/Core/RecoDecay.h"
 #include "Common/Core/trackUtilities.h"
 
-#include "ReconstructionDataFormats/TrackFwd.h"
+#include <ReconstructionDataFormats/TrackFwd.h>
 
-#include "Math/GenVector/Boost.h"
-#include "Math/SMatrix.h"
+#include <Math/GenVector/Boost.h>
 #include <Math/MatrixRepresentationsStatic.h>
+#include <Math/SMatrix.h>
 #include <Math/Vector3D.h> // IWYU pragma: keep (do not replace with Math/Vector3Dfwd.h)
 #include <Math/Vector3Dfwd.h>
 #include <Math/Vector4D.h> // IWYU pragma: keep (do not replace with Math/Vector4Dfwd.h)

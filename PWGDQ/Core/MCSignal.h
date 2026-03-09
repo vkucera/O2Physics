@@ -58,7 +58,7 @@ process(aod::McParticles const& mcTracks) {
 
 #include "MCProng.h"
 
-#include "TNamed.h"
+#include <TNamed.h>
 
 #include <cstdint>
 #include <vector>

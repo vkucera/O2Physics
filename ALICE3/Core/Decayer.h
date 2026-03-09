@@ -21,9 +21,9 @@
 
 #include "ALICE3/Core/TrackUtilities.h"
 
-#include "ReconstructionDataFormats/Track.h"
 #include <CommonConstants/PhysicsConstants.h>
 #include <MathUtils/Primitive2D.h>
+#include <ReconstructionDataFormats/Track.h>
 
 #include <TDecayChannel.h> // IWYU pragma: keep
 #include <TGenPhaseSpace.h>

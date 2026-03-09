@@ -16,18 +16,18 @@
 
 #include "PWGCF/Core/CorrelationContainer.h"
 
-#include "CommonConstants/MathConstants.h"
-#include "Framework/HistogramSpec.h"
-#include "Framework/Logger.h"
-#include "Framework/StepTHn.h"
+#include <CommonConstants/MathConstants.h>
+#include <Framework/HistogramSpec.h>
+#include <Framework/Logger.h>
+#include <Framework/StepTHn.h>
 
-#include "TCanvas.h"
-#include "TCollection.h"
-#include "TF1.h"
-#include "THn.h"
-#include "TList.h"
-#include "TMath.h"
+#include <TCanvas.h>
+#include <TCollection.h>
+#include <TF1.h>
+#include <THn.h>
 #include <TIterator.h>
+#include <TList.h>
+#include <TMath.h>
 #include <TMathBase.h>
 #include <TNamed.h>
 #include <TObject.h>

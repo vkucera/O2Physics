@@ -19,19 +19,19 @@
 #include "Common/DataModel/EventSelection.h"
 #include "Common/DataModel/Multiplicity.h"
 
-#include "CCDB/BasicCCDBManager.h"
-#include "DataFormatsFT0/RecPoints.h"
-#include "DataFormatsParameters/AggregatedRunInfo.h"
-#include "Framework/AnalysisDataModel.h"
-#include "Framework/AnalysisTask.h"
-#include "Framework/HistogramRegistry.h"
-#include "Framework/runDataProcessing.h"
+#include <CCDB/BasicCCDBManager.h>
 #include <CommonConstants/LHCConstants.h>
+#include <DataFormatsFT0/RecPoints.h>
+#include <DataFormatsParameters/AggregatedRunInfo.h>
+#include <Framework/AnalysisDataModel.h>
 #include <Framework/AnalysisHelpers.h>
+#include <Framework/AnalysisTask.h>
 #include <Framework/Configurable.h>
+#include <Framework/HistogramRegistry.h>
 #include <Framework/HistogramSpec.h>
 #include <Framework/InitContext.h>
 #include <Framework/OutputObjHeader.h>
+#include <Framework/runDataProcessing.h>
 
 #include <bitset>
 #include <cmath>

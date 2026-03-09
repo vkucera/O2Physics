@@ -19,7 +19,7 @@
 
 #include "PWGCF/FemtoWorld/DataModel/FemtoWorldDerived.h"
 
-#include "Framework/HistogramRegistry.h"
+#include <Framework/HistogramRegistry.h>
 #include <Framework/HistogramSpec.h>
 
 #include <fairlogger/Logger.h>

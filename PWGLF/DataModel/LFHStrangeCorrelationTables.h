@@ -26,8 +26,8 @@
 
 #include "PWGLF/DataModel/LFStrangenessTables.h" // IWYU pragma: keep
 
-#include "Framework/AnalysisDataModel.h"
 #include <Framework/ASoA.h>
+#include <Framework/AnalysisDataModel.h>
 
 // Simple checker
 #define bitcheck(var, nbit) ((var) & (1 << (nbit)))

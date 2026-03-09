@@ -15,17 +15,17 @@
 
 #ifndef PWGCF_GENERICFRAMEWORK_CORE_FLOWCONTAINER_H_
 #define PWGCF_GENERICFRAMEWORK_CORE_FLOWCONTAINER_H_
-#include "Framework/HistogramSpec.h"
+#include <Framework/HistogramSpec.h>
 
-#include "TAxis.h"
-#include "TCollection.h"
-#include "TFile.h"
-#include "TH1.h"
-#include "TNamed.h"
-#include "TObjArray.h"
-#include "TProfile.h"
-#include "TProfile2D.h"
-#include "TString.h"
+#include <TAxis.h>
+#include <TCollection.h>
+#include <TFile.h>
+#include <TH1.h>
+#include <TNamed.h>
+#include <TObjArray.h>
+#include <TProfile.h>
+#include <TProfile2D.h>
+#include <TString.h>
 
 #include <Rtypes.h>
 #include <RtypesCore.h>

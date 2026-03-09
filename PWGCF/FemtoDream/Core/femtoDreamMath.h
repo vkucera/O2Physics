@@ -16,11 +16,11 @@
 #ifndef PWGCF_FEMTODREAM_CORE_FEMTODREAMMATH_H_
 #define PWGCF_FEMTODREAM_CORE_FEMTODREAMMATH_H_
 
-#include "TVector2.h"
 #include <Math/GenVector/Boost.h>
 #include <Math/Vector4D.h> // IWYU pragma: keep (do not replace with Math/Vector4Dfwd.h)
 #include <Math/Vector4Dfwd.h>
 #include <TMathBase.h>
+#include <TVector2.h>
 
 #include <cmath>
 #include <vector>

@@ -16,7 +16,7 @@
 #ifndef PWGUD_CORE_SGTRACKSELECTOR_H_
 #define PWGUD_CORE_SGTRACKSELECTOR_H_
 
-#include "TVector3.h"
+#include <TVector3.h>
 
 #include <cmath>
 #include <stdexcept>

@@ -16,7 +16,7 @@
 #ifndef PWGLF_DATAMODEL_QC_STRANGENESSTABLESQC_H_
 #define PWGLF_DATAMODEL_QC_STRANGENESSTABLESQC_H_
 
-#include "Framework/AnalysisDataModel.h"
+#include <Framework/AnalysisDataModel.h>
 
 namespace o2::aod
 {

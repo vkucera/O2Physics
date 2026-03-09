@@ -14,7 +14,7 @@
 /// \brief Slim hypernuclei tables
 ///
 
-#include "Framework/AnalysisDataModel.h"
+#include <Framework/AnalysisDataModel.h>
 
 #include <cstdint>
 

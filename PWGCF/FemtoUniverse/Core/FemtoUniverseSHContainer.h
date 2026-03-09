@@ -21,10 +21,10 @@
 #include "PWGCF/FemtoUniverse/Core/FemtoUniverseSpherHarMath.h"
 #include "PWGCF/FemtoUniverse/DataModel/FemtoDerived.h"
 
-#include "Framework/HistogramRegistry.h"
+#include <Framework/HistogramRegistry.h>
 #include <Framework/HistogramSpec.h>
 
-#include "TDatabasePDG.h"
+#include <TDatabasePDG.h>
 #include <TH1.h>
 #include <TH3.h>
 #include <TString.h>

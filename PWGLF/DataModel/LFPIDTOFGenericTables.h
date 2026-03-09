@@ -13,7 +13,7 @@
 /// \brief Table for event time without remving track bias
 /// \author Yuanzhe Wang <yuanzhe.wang@cern.ch>
 
-#include "Framework/AnalysisDataModel.h"
+#include <Framework/AnalysisDataModel.h>
 
 #ifndef PWGLF_DATAMODEL_LFPIDTOFGENERICTABLES_H_
 #define PWGLF_DATAMODEL_LFPIDTOFGENERICTABLES_H_

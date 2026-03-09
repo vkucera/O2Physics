@@ -22,8 +22,8 @@
 
 #include "PWGCF/FemtoUniverse/DataModel/FemtoDerived.h"
 
-#include "CommonConstants/MathConstants.h"
-#include "Framework/HistogramRegistry.h"
+#include <CommonConstants/MathConstants.h>
+#include <Framework/HistogramRegistry.h>
 #include <Framework/HistogramSpec.h>
 
 #include <fairlogger/Logger.h>

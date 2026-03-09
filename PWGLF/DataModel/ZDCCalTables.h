@@ -17,7 +17,7 @@
 #ifndef PWGLF_DATAMODEL_ZDCCALTABLES_H_
 #define PWGLF_DATAMODEL_ZDCCALTABLES_H_
 
-#include "Framework/AnalysisDataModel.h"
+#include <Framework/AnalysisDataModel.h>
 
 #include <cmath>
 

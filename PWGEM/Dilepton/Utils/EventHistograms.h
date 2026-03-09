@@ -19,7 +19,7 @@
 
 #include "Common/Core/RecoDecay.h"
 
-#include "Framework/HistogramRegistry.h"
+#include <Framework/HistogramRegistry.h>
 #include <Framework/HistogramSpec.h>
 
 #include <TH1.h>

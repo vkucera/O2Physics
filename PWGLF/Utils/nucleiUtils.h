@@ -16,14 +16,14 @@
 #include "Common/DataModel/Centrality.h"
 #include "Common/DataModel/PIDResponseITS.h"
 
-#include "Framework/HistogramRegistry.h"
-#include "Framework/HistogramSpec.h"
-#include "MathUtils/BetheBlochAleph.h"
-#include "PID/PIDTOF.h"
 #include <CommonConstants/MathConstants.h>
 #include <CommonConstants/PhysicsConstants.h>
 #include <DetectorsBase/MatLayerCylSet.h>
 #include <Framework/Array2D.h>
+#include <Framework/HistogramRegistry.h>
+#include <Framework/HistogramSpec.h>
+#include <MathUtils/BetheBlochAleph.h>
+#include <PID/PIDTOF.h>
 #include <ReconstructionDataFormats/PID.h>
 
 #include <TH1.h>

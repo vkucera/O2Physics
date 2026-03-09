@@ -20,10 +20,10 @@
 
 #include "PWGCF/Femto/Core/histManager.h"
 
-#include "Framework/Configurable.h"
-#include "Framework/HistogramRegistry.h"
-#include "Framework/HistogramSpec.h"
 #include <CommonConstants/MathConstants.h>
+#include <Framework/Configurable.h>
+#include <Framework/HistogramRegistry.h>
+#include <Framework/HistogramSpec.h>
 
 #include <fairlogger/Logger.h>
 

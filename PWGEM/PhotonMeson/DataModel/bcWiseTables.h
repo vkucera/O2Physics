@@ -19,7 +19,7 @@
 #ifndef PWGEM_PHOTONMESON_DATAMODEL_BCWISETABLES_H_
 #define PWGEM_PHOTONMESON_DATAMODEL_BCWISETABLES_H_
 
-#include "Framework/AnalysisDataModel.h"
+#include <Framework/AnalysisDataModel.h>
 
 #include <cmath>
 #include <cstdint>

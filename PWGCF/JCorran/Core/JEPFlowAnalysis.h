@@ -23,7 +23,7 @@
 #include <RtypesCore.h>
 
 // O2 headers. //
-#include "Framework/HistogramRegistry.h"
+#include <Framework/HistogramRegistry.h>
 #include <Framework/HistogramSpec.h>
 
 using namespace o2;

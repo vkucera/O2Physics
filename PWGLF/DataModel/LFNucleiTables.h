@@ -17,7 +17,7 @@
 
 #include "Common/CCDB/EventSelectionParams.h"
 
-#include "Framework/AnalysisDataModel.h"
+#include <Framework/AnalysisDataModel.h>
 
 #include <cmath>
 #include <cstdint>

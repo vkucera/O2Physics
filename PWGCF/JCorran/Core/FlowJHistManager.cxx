@@ -17,7 +17,7 @@
 // O2 Physics headers.
 #include "PWGCF/JCorran/Core/FlowJHistManager.h"
 
-#include "CommonConstants/MathConstants.h"
+#include <CommonConstants/MathConstants.h>
 #include <Framework/HistogramSpec.h>
 
 #include <fairlogger/Logger.h>

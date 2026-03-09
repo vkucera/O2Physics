@@ -14,9 +14,9 @@
 #ifndef VWGPDF
 #define VWGPDF
 
-#include "RooAbsPdf.h"
-#include "RooAbsReal.h"
-#include "RooRealProxy.h"
+#include <RooAbsPdf.h>
+#include <RooAbsReal.h>
+#include <RooRealProxy.h>
 #include <TObject.h>
 
 #include <Rtypes.h>

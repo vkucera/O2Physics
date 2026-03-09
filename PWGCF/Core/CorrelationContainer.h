@@ -14,9 +14,9 @@
 
 // encapsulate histogram and corrections for correlation analysis
 
-#include "Framework/HistogramSpec.h"
+#include <Framework/HistogramSpec.h>
 
-#include "TNamed.h"
+#include <TNamed.h>
 
 #include <Rtypes.h>
 #include <RtypesCore.h>

@@ -18,9 +18,9 @@
 #define PWGCF_GENERICFRAMEWORK_CORE_GFWWEIGHTSLIST_H_
 #include "GFWWeights.h"
 
-#include "TObjArray.h"
 #include <TCollection.h>
 #include <TNamed.h>
+#include <TObjArray.h>
 
 #include <Rtypes.h>
 #include <RtypesCore.h>

@@ -17,7 +17,7 @@
 #ifndef PWGCF_DATAMODEL_SPTABLEZDC_H_
 #define PWGCF_DATAMODEL_SPTABLEZDC_H_
 
-#include "Framework/AnalysisDataModel.h"
+#include <Framework/AnalysisDataModel.h>
 
 #include <cmath>
 #include <cstdint>

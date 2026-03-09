@@ -24,9 +24,9 @@
 #include "PWGJE/DataModel/JetReducedData.h"
 #include "PWGJE/DataModel/JetSubtraction.h"
 
-#include "Framework/ASoA.h"
-#include "Framework/AnalysisTask.h"
+#include <Framework/ASoA.h>
 #include <Framework/AnalysisHelpers.h>
+#include <Framework/AnalysisTask.h>
 #include <Framework/Configurable.h>
 #include <Framework/HistogramRegistry.h>
 #include <Framework/HistogramSpec.h>
@@ -36,7 +36,7 @@
 
 #include <TMath.h>
 
-#include "fastjet/contrib/AxesDefinition.hh"
+#include <fastjet/contrib/AxesDefinition.hh>
 
 #include <cmath>
 #include <cstdint>

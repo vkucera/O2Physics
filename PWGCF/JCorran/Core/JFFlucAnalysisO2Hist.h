@@ -16,7 +16,7 @@
 
 #include "JFFlucAnalysis.h"
 
-#include "Framework/HistogramRegistry.h"
+#include <Framework/HistogramRegistry.h>
 #include <Framework/HistogramSpec.h>
 
 #include <TString.h>

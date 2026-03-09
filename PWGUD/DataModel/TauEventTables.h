@@ -19,7 +19,7 @@
 #ifndef ALISW_TAUEVENTTABLES_H
 #define ALISW_TAUEVENTTABLES_H
 
-#include "Framework/AnalysisDataModel.h"
+#include <Framework/AnalysisDataModel.h>
 
 #include <cstdint>
 

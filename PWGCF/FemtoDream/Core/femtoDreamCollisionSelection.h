@@ -19,12 +19,12 @@
 #include "Common/CCDB/EventSelectionParams.h"
 #include "Common/CCDB/TriggerAliases.h"
 
-#include "Framework/HistogramRegistry.h"
-#include "Framework/Logger.h"
+#include <Framework/HistogramRegistry.h>
 #include <Framework/HistogramSpec.h>
+#include <Framework/Logger.h>
 
-#include "TMath.h"
 #include <TH1.h>
+#include <TMath.h>
 #include <TMathBase.h>
 
 #include <cmath>

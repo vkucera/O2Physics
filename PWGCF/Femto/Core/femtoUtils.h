@@ -18,11 +18,11 @@
 
 #include "Common/Core/TableHelper.h"
 
-#include "CommonConstants/PhysicsConstants.h"
-#include "Framework/InitContext.h"
-#include "Framework/Logger.h"
+#include <CommonConstants/PhysicsConstants.h>
+#include <Framework/InitContext.h>
+#include <Framework/Logger.h>
 
-#include "TPDGCode.h"
+#include <TPDGCode.h>
 
 #include <cmath>
 #include <cstdint>

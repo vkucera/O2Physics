@@ -22,12 +22,12 @@
 #include "Common/CCDB/EventSelectionParams.h"
 #include "Common/DataModel/PIDResponseTOF.h"
 
-#include "Framework/AnalysisDataModel.h"
+#include <Framework/AnalysisDataModel.h>
 #include <Framework/DataTypes.h>
 #include <ReconstructionDataFormats/PID.h>
 
-#include "TPDGCode.h"
 #include <TH2.h>
+#include <TPDGCode.h>
 
 #include <cmath>
 #include <cstdint>

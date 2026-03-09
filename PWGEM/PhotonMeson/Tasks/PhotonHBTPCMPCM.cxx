@@ -16,8 +16,8 @@
 
 #include "PWGEM/PhotonMeson/Core/PhotonHBT.h"
 
-#include "Framework/AnalysisTask.h"
-#include "Framework/runDataProcessing.h"
+#include <Framework/AnalysisTask.h>
+#include <Framework/runDataProcessing.h>
 
 WorkflowSpec defineDataProcessing(ConfigContext const& cfgc)
 {

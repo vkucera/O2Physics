@@ -21,9 +21,9 @@
 #include "PWGCF/Femto/Core/modes.h"
 #include "PWGCF/Femto/DataModel/FemtoTables.h"
 
-#include "Framework/AnalysisHelpers.h"
-#include "Framework/Configurable.h"
-#include "Framework/Logger.h"
+#include <Framework/AnalysisHelpers.h>
+#include <Framework/Configurable.h>
+#include <Framework/Logger.h>
 
 #include <TPDGCode.h>
 

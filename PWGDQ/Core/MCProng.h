@@ -57,7 +57,7 @@ A few non-existent PYTHIA codes are used to select more than one PYTHIA code.
 #ifndef PWGDQ_CORE_MCPRONG_H_
 #define PWGDQ_CORE_MCPRONG_H_
 
-#include "TString.h"
+#include <TString.h>
 
 #include <Rtypes.h>
 

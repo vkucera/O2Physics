@@ -15,7 +15,7 @@
 /// \author Francesco Mazzaschi <francesco.mazzaschi@cern.ch>
 ///
 
-#include "Framework/AnalysisDataModel.h"
+#include <Framework/AnalysisDataModel.h>
 
 #ifndef PWGLF_DATAMODEL_LFLAMBDA1405TABLES_H_
 #define PWGLF_DATAMODEL_LFLAMBDA1405TABLES_H_

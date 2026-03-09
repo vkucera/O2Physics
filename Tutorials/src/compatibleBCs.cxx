@@ -15,11 +15,11 @@
 /// \author
 /// \since
 
-#include "CommonConstants/LHCConstants.h"
-#include "Framework/AnalysisTask.h"
-#include "Framework/runDataProcessing.h"
+#include <CommonConstants/LHCConstants.h>
 #include <Framework/ASoA.h>
 #include <Framework/AnalysisDataModel.h>
+#include <Framework/AnalysisTask.h>
+#include <Framework/runDataProcessing.h>
 
 #include <cmath>
 #include <cstdint>

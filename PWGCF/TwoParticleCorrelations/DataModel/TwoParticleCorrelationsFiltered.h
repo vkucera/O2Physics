@@ -11,8 +11,8 @@
 #ifndef O2_ANALYSIS_TWOPARTFILTERED_H
 #define O2_ANALYSIS_TWOPARTFILTERED_H
 
-#include "Framework/ASoA.h"
-#include "Framework/AnalysisDataModel.h"
+#include <Framework/ASoA.h>
+#include <Framework/AnalysisDataModel.h>
 
 #include <cstdint>
 

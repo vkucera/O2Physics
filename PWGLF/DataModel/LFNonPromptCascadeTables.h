@@ -14,7 +14,7 @@
 /// \brief Non prompt cascade tables
 ///
 
-#include "Framework/AnalysisDataModel.h"
+#include <Framework/AnalysisDataModel.h>
 
 #include <cstdint>
 

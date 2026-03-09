@@ -14,9 +14,9 @@
 #ifndef CB2PDF
 #define CB2PDF
 
-#include "RooAbsPdf.h"
-#include "RooAbsReal.h"
-#include "RooRealProxy.h"
+#include <RooAbsPdf.h>
+#include <RooAbsReal.h>
+#include <RooRealProxy.h>
 #include <TObject.h>
 
 #include <Rtypes.h>

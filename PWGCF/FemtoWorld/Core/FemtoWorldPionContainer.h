@@ -20,12 +20,12 @@
 
 #include "PWGCF/FemtoWorld/Core/FemtoWorldMath.h"
 
-#include "CommonConstants/MathConstants.h"
-#include "Framework/HistogramRegistry.h"
+#include <CommonConstants/MathConstants.h>
+#include <Framework/HistogramRegistry.h>
 #include <Framework/HistogramSpec.h>
 
-#include "TDatabasePDG.h"
-#include "TLorentzVector.h"
+#include <TDatabasePDG.h>
+#include <TLorentzVector.h>
 
 #include <string>
 #include <string_view>

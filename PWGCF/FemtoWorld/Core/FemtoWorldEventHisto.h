@@ -17,7 +17,7 @@
 #ifndef FEMTOWORLDEVENTHISTO_H_
 #define FEMTOWORLDEVENTHISTO_H_
 
-#include "Framework/HistogramRegistry.h"
+#include <Framework/HistogramRegistry.h>
 #include <Framework/HistogramSpec.h>
 
 using namespace o2::framework;

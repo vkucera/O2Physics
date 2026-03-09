@@ -15,9 +15,9 @@
 /// \author Fabiola Lugo
 ///
 
-#include <PWGLF/DataModel/LFAntinCexTables.h>
+#include "PWGLF/DataModel/LFAntinCexTables.h"
 
-#include <Common/DataModel/PIDResponseITS.h>
+#include "Common/DataModel/PIDResponseITS.h"
 
 #include <CommonConstants/MathConstants.h>
 #include <DCAFitter/DCAFitterN.h>

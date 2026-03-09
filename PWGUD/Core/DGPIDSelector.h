@@ -12,10 +12,10 @@
 #ifndef PWGUD_CORE_DGPIDSELECTOR_H_
 #define PWGUD_CORE_DGPIDSELECTOR_H_
 
-#include "Framework/Logger.h"
+#include <Framework/Logger.h>
 
-#include "TDatabasePDG.h"
-#include "TLorentzVector.h"
+#include <TDatabasePDG.h>
+#include <TLorentzVector.h>
 #include <TVector3.h>
 
 #include <algorithm>

@@ -17,7 +17,7 @@
 #ifndef DPG_TASKS_TPC_TPCTREECREATORLIGHT_H_
 #define DPG_TASKS_TPC_TPCTREECREATORLIGHT_H_
 
-#include "Framework/AnalysisDataModel.h"
+#include <Framework/AnalysisDataModel.h>
 
 #include <Rtypes.h>
 

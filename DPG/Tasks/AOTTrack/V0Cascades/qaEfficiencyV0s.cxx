@@ -20,22 +20,22 @@
 // O2 includes
 #include "PWGLF/DataModel/LFStrangenessTables.h"
 
-#include "Framework/AnalysisTask.h"
-#include "Framework/HistogramRegistry.h"
-#include "Framework/runDataProcessing.h"
 #include <Framework/AnalysisDataModel.h>
 #include <Framework/AnalysisHelpers.h>
+#include <Framework/AnalysisTask.h>
 #include <Framework/Configurable.h>
+#include <Framework/HistogramRegistry.h>
 #include <Framework/HistogramSpec.h>
 #include <Framework/InitContext.h>
 #include <Framework/OutputObjHeader.h>
+#include <Framework/runDataProcessing.h>
 
 // ROOT includes
-#include "TEfficiency.h"
-#include "THashList.h"
-#include "TPDGCode.h"
 #include <TAxis.h>
+#include <TEfficiency.h>
+#include <THashList.h>
 #include <TMathBase.h>
+#include <TPDGCode.h>
 #include <TString.h>
 
 #include <memory>

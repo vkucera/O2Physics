@@ -20,10 +20,10 @@
 #include "PWGCF/FemtoUniverse/Core/FemtoUniverseMath.h"
 #include "PWGCF/FemtoUniverse/DataModel/FemtoDerived.h"
 
-#include "Framework/HistogramRegistry.h"
+#include <Framework/HistogramRegistry.h>
 #include <Framework/HistogramSpec.h>
 
-#include "TDatabasePDG.h"
+#include <TDatabasePDG.h>
 
 #include <string>
 #include <string_view>

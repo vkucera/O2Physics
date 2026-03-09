@@ -14,9 +14,9 @@
 /// \date 10.10.2024
 
 // O2 headers
-#include "Framework/AnalysisDataModel.h"
-#include "Framework/AnalysisTask.h"
-#include "Framework/runDataProcessing.h"
+#include <Framework/AnalysisDataModel.h>
+#include <Framework/AnalysisTask.h>
+#include <Framework/runDataProcessing.h>
 
 // O2Physics headers
 #include "PWGUD/DataModel/UDTables.h"
@@ -29,9 +29,9 @@
 #include <Framework/OutputObjHeader.h>
 
 // ROOT headers
-#include "TLorentzVector.h"
-#include "TMath.h"
 #include <TH1.h>
+#include <TLorentzVector.h>
+#include <TMath.h>
 #include <TString.h>
 
 #include <cstdint>

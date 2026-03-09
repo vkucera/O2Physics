@@ -19,10 +19,10 @@
 #include "Common/DataModel/PIDResponseTPC.h"
 #include "Common/DataModel/TrackSelectionTables.h"
 
-#include "Framework/AnalysisDataModel.h"
-#include "Framework/AnalysisTask.h"
 #include <CommonConstants/PhysicsConstants.h>
+#include <Framework/AnalysisDataModel.h>
 #include <Framework/AnalysisHelpers.h>
+#include <Framework/AnalysisTask.h>
 #include <Framework/Configurable.h>
 #include <MathUtils/detail/TypeTruncation.h>
 
@@ -35,7 +35,7 @@ using namespace o2::framework;
 using namespace o2::framework::expressions;
 using namespace o2::math_utils::detail;
 
-#include "Framework/runDataProcessing.h"
+#include <Framework/runDataProcessing.h>
 
 struct NucleiSpectraProviderTask {
 

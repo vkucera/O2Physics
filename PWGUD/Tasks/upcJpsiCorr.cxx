@@ -23,16 +23,16 @@
 #include <vector>
 
 // O2 headers
-#include "CommonConstants/MathConstants.h"
-#include "CommonConstants/PhysicsConstants.h"
-#include "Framework/AnalysisTask.h"
-#include "Framework/runDataProcessing.h"
+#include <CommonConstants/MathConstants.h>
+#include <CommonConstants/PhysicsConstants.h>
 #include <Framework/ASoA.h>
 #include <Framework/AnalysisHelpers.h>
+#include <Framework/AnalysisTask.h>
 #include <Framework/Configurable.h>
 #include <Framework/HistogramRegistry.h>
 #include <Framework/HistogramSpec.h>
 #include <Framework/InitContext.h>
+#include <Framework/runDataProcessing.h>
 
 // O2Physics headers
 #include "PWGUD/Core/SGSelector.h"
@@ -42,9 +42,9 @@
 #include "Common/Core/RecoDecay.h"
 
 // ROOT headers
-#include "TLorentzVector.h"
 #include <TH1.h>
 #include <TH2.h>
+#include <TLorentzVector.h>
 
 using namespace o2;
 using namespace o2::framework;

@@ -18,7 +18,7 @@
 
 #include "PWGCF/DataModel/FemtoDerived.h"
 
-#include "Framework/HistogramRegistry.h"
+#include <Framework/HistogramRegistry.h>
 #include <Framework/HistogramSpec.h>
 
 #include <TH2.h>

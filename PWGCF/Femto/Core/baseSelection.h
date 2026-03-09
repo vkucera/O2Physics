@@ -18,9 +18,9 @@
 
 #include "PWGCF/Femto/Core/selectionContainer.h"
 
-#include "Framework/HistogramRegistry.h"
-#include "Framework/Logger.h"
+#include <Framework/HistogramRegistry.h>
 #include <Framework/HistogramSpec.h>
+#include <Framework/Logger.h>
 
 #include <TH1.h>
 

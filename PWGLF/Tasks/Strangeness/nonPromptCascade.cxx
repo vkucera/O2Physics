@@ -20,23 +20,23 @@
 #include "Common/DataModel/PIDResponseTOF.h"
 #include "Common/DataModel/PIDResponseTPC.h"
 
-#include "CCDB/BasicCCDBManager.h"
-#include "DCAFitter/DCAFitterN.h"
-#include "DataFormatsParameters/GRPMagField.h"
-#include "DetectorsBase/Propagator.h"
-#include "DetectorsVertexing/PVertexer.h"
-#include "Framework/ASoA.h"
-#include "Framework/AnalysisDataModel.h"
-#include "Framework/AnalysisTask.h"
-#include "Framework/HistogramRegistry.h"
-#include "Framework/O2DatabasePDGPlugin.h"
-#include "Framework/runDataProcessing.h"
-#include "ReconstructionDataFormats/Vertex.h"
+#include <CCDB/BasicCCDBManager.h>
+#include <DCAFitter/DCAFitterN.h>
+#include <DataFormatsParameters/GRPMagField.h>
+#include <DetectorsBase/Propagator.h>
+#include <DetectorsVertexing/PVertexer.h>
+#include <Framework/ASoA.h>
+#include <Framework/AnalysisDataModel.h>
+#include <Framework/AnalysisTask.h>
+#include <Framework/HistogramRegistry.h>
+#include <Framework/O2DatabasePDGPlugin.h>
+#include <Framework/runDataProcessing.h>
+#include <ReconstructionDataFormats/Vertex.h>
 
-#include "TParticlePDG.h"
 #include <Math/GenVector/LorentzVector.h>
 #include <Math/GenVector/PtEtaPhiM4D.h>
 #include <TH2.h>
+#include <TParticlePDG.h>
 
 #include <GPUROOTSMatrixFwd.h>
 
@@ -53,8 +53,6 @@
 #include "PWGLF/DataModel/LFNonPromptCascadeTables.h"
 #include "PWGLF/DataModel/LFStrangenessTables.h"
 
-#include "ReconstructionDataFormats/DCA.h"
-#include "ReconstructionDataFormats/Track.h"
 #include <CommonConstants/PhysicsConstants.h>
 #include <CommonUtils/StringUtils.h>
 #include <DetectorsBase/MatLayerCylSet.h>
@@ -63,6 +61,8 @@
 #include <Framework/Configurable.h>
 #include <Framework/HistogramSpec.h>
 #include <Framework/InitContext.h>
+#include <ReconstructionDataFormats/DCA.h>
+#include <ReconstructionDataFormats/Track.h>
 
 using namespace o2;
 using namespace o2::framework;

@@ -18,7 +18,7 @@
 
 #include "PWGCF/DataModel/FemtoDerived.h"
 
-#include "Framework/HistogramRegistry.h"
+#include <Framework/HistogramRegistry.h>
 
 #include <fairlogger/Logger.h>
 

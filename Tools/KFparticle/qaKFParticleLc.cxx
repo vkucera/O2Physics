@@ -26,17 +26,17 @@
 #include <string>
 
 /// includes O2
-#include "DataFormatsParameters/GRPMagField.h"
-#include "DataFormatsParameters/GRPObject.h"
-#include "DetectorsBase/Propagator.h"
-#include "Framework/AnalysisDataModel.h"
-#include "Framework/AnalysisTask.h"
-#include "Framework/runDataProcessing.h"
+#include <DataFormatsParameters/GRPMagField.h>
+#include <DataFormatsParameters/GRPObject.h>
 #include <DetectorsBase/MatLayerCylSet.h>
+#include <DetectorsBase/Propagator.h>
 #include <Framework/ASoAHelpers.h>
+#include <Framework/AnalysisDataModel.h>
 #include <Framework/AnalysisHelpers.h>
+#include <Framework/AnalysisTask.h>
 #include <Framework/Configurable.h>
 #include <Framework/InitContext.h>
+#include <Framework/runDataProcessing.h>
 
 /// includes O2Physics
 #include "Common/DataModel/EventSelection.h"
@@ -46,9 +46,9 @@
 #include "Tools/KFparticle/KFUtilities.h"
 
 /// includes KFParticle
-#include "KFPTrack.h"
-#include "KFPVertex.h"
-#include "KFParticle.h"
+#include <KFPTrack.h>
+#include <KFPVertex.h>
+#include <KFParticle.h>
 
 #ifndef HomogeneousField
 

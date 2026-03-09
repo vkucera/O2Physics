@@ -24,15 +24,15 @@
 #include "Common/DataModel/PIDResponseTPC.h"
 #include "Common/DataModel/TrackSelectionTables.h"
 
-#include "CCDB/BasicCCDBManager.h"
-#include "DataFormatsParameters/GRPMagField.h"
-#include "Framework/ASoAHelpers.h"
-#include "Framework/AnalysisDataModel.h"
-#include "Framework/AnalysisTask.h"
-#include "Framework/HistogramRegistry.h"
-#include "Framework/O2DatabasePDGPlugin.h"
-#include "Framework/runDataProcessing.h"
-#include "ReconstructionDataFormats/Track.h"
+#include <CCDB/BasicCCDBManager.h>
+#include <DataFormatsParameters/GRPMagField.h>
+#include <Framework/ASoAHelpers.h>
+#include <Framework/AnalysisDataModel.h>
+#include <Framework/AnalysisTask.h>
+#include <Framework/HistogramRegistry.h>
+#include <Framework/O2DatabasePDGPlugin.h>
+#include <Framework/runDataProcessing.h>
+#include <ReconstructionDataFormats/Track.h>
 
 #include <Math/Vector3Dfwd.h>
 #include <Math/Vector4D.h> // IWYU pragma: keep (do not replace with Math/Vector4Dfwd.h)
@@ -48,8 +48,7 @@
 #include <vector>
 // #include "PWGHF/Utils/utilsBfieldCCDB.h"
 
-#include "DCAFitter/DCAFitterN.h"
-#include "ReconstructionDataFormats/DCA.h"
+#include <DCAFitter/DCAFitterN.h>
 #include <DetectorsBase/Propagator.h>
 #include <Framework/AnalysisHelpers.h>
 #include <Framework/BinningPolicy.h>
@@ -58,6 +57,7 @@
 #include <Framework/HistogramSpec.h>
 #include <Framework/InitContext.h>
 #include <Framework/OutputObjHeader.h>
+#include <ReconstructionDataFormats/DCA.h>
 #include <ReconstructionDataFormats/PID.h>
 
 using namespace o2;

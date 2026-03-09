@@ -11,7 +11,7 @@
 //
 // Author: Giorgio Alberto Lucia
 
-#include "Framework/AnalysisDataModel.h"
+#include <Framework/AnalysisDataModel.h>
 
 #include <cstdint>
 

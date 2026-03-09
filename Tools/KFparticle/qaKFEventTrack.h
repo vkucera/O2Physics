@@ -15,7 +15,7 @@
 #ifndef TOOLS_KFPARTICLE_QAKFEVENTTRACK_H_
 #define TOOLS_KFPARTICLE_QAKFEVENTTRACK_H_
 
-#include "Framework/AnalysisDataModel.h"
+#include <Framework/AnalysisDataModel.h>
 
 #include <Rtypes.h>
 

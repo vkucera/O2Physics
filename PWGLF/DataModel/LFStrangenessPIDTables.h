@@ -25,8 +25,8 @@
 
 #include "LFStrangenessTables.h" // IWYU pragma: keep
 
-#include "CommonConstants/PhysicsConstants.h"
-#include "Framework/AnalysisDataModel.h"
+#include <CommonConstants/PhysicsConstants.h>
+#include <Framework/AnalysisDataModel.h>
 #include <Framework/PID.h>
 
 #include <cmath>

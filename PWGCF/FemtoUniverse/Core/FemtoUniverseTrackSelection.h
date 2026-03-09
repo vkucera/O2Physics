@@ -25,10 +25,10 @@
 #include "Common/DataModel/PIDResponseTOF.h"
 #include "Common/DataModel/PIDResponseTPC.h"
 
-#include "Framework/HistogramRegistry.h"
-#include "ReconstructionDataFormats/PID.h"
 #include <CommonConstants/MathConstants.h>
+#include <Framework/HistogramRegistry.h>
 #include <Framework/HistogramSpec.h>
+#include <ReconstructionDataFormats/PID.h>
 
 #include <fairlogger/Logger.h>
 

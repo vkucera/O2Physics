@@ -19,18 +19,18 @@
 #include "PWGJE/DataModel/Jet.h"
 #include "PWGJE/DataModel/JetReducedData.h"
 
-#include "Framework/ASoA.h"
-#include "Framework/AnalysisTask.h"
-#include "Framework/HistogramRegistry.h"
-#include "Framework/O2DatabasePDGPlugin.h"
+#include <Framework/ASoA.h>
+#include <Framework/AnalysisTask.h>
+#include <Framework/HistogramRegistry.h>
+#include <Framework/O2DatabasePDGPlugin.h>
 
 #include <TMath.h>
 #include <TMathBase.h>
 #include <TVector3.h>
 
-#include "fastjet/ClusterSequenceArea.hh"
-#include "fastjet/PseudoJet.hh"
+#include <fastjet/ClusterSequenceArea.hh>
 #include <fastjet/JetDefinition.hh>
+#include <fastjet/PseudoJet.hh>
 
 #include <cmath>
 #include <utility>

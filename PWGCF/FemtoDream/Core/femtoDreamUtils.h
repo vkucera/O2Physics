@@ -18,7 +18,7 @@
 
 #include "PWGCF/DataModel/FemtoDerived.h"
 
-#include "CommonConstants/PhysicsConstants.h"
+#include <CommonConstants/PhysicsConstants.h>
 
 #include <TPDGCode.h>
 

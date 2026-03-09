@@ -18,7 +18,7 @@
 
 #include "PWGEM/Dilepton/DataModel/dileptonTables.h"
 
-#include "TNamed.h"
+#include <TNamed.h>
 
 #include <Rtypes.h>
 

@@ -13,9 +13,9 @@
 
 #include "GausPdf.h"
 
-#include "RooAbsReal.h"
-#include "TMath.h"
 #include <RooAbsPdf.h>
+#include <RooAbsReal.h>
+#include <TMath.h>
 
 #include <Rtypes.h>
 #include <RtypesCore.h>

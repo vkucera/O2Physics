@@ -17,24 +17,24 @@
 #include "Common/CCDB/EventSelectionParams.h"
 #include "Common/CCDB/ctpRateFetcher.h"
 
-#include "CCDB/BasicCCDBManager.h"
-#include "CommonDataFormat/BunchFilling.h"
-#include "DataFormatsFDD/Digit.h"
-#include "DataFormatsFT0/Digit.h"
-#include "DataFormatsFV0/Digit.h"
-#include "DataFormatsParameters/GRPECSObject.h"
-#include "DataFormatsParameters/GRPLHCIFData.h"
-#include "Framework/ASoA.h"
-#include "Framework/AnalysisDataModel.h"
-#include "Framework/AnalysisTask.h"
-#include "Framework/runDataProcessing.h"
+#include <CCDB/BasicCCDBManager.h>
 #include <CommonConstants/LHCConstants.h>
+#include <CommonDataFormat/BunchFilling.h>
+#include <DataFormatsFDD/Digit.h>
+#include <DataFormatsFT0/Digit.h>
+#include <DataFormatsFV0/Digit.h>
+#include <DataFormatsParameters/GRPECSObject.h>
+#include <DataFormatsParameters/GRPLHCIFData.h>
+#include <Framework/ASoA.h>
+#include <Framework/AnalysisDataModel.h>
 #include <Framework/AnalysisHelpers.h>
+#include <Framework/AnalysisTask.h>
 #include <Framework/Configurable.h>
 #include <Framework/HistogramRegistry.h>
 #include <Framework/HistogramSpec.h>
 #include <Framework/InitContext.h>
 #include <Framework/OutputObjHeader.h>
+#include <Framework/runDataProcessing.h>
 
 #include <TH1.h>
 #include <TString.h>

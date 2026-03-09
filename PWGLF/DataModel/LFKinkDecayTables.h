@@ -17,8 +17,8 @@
 
 #include "Common/Core/RecoDecay.h"
 
-#include "Framework/AnalysisDataModel.h"
 #include <CommonConstants/PhysicsConstants.h>
+#include <Framework/AnalysisDataModel.h>
 
 #include <array>
 #include <cmath>

@@ -13,7 +13,7 @@
 /// \brief Slim hypernuclei kink tables
 /// \author Yuanzhe Wang <yuanzhe.wang@cern.ch>
 
-#include "Framework/AnalysisDataModel.h"
+#include <Framework/AnalysisDataModel.h>
 
 #include <cstdint>
 

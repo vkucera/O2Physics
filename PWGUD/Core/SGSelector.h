@@ -24,8 +24,8 @@
 
 #include "Common/CCDB/RCTSelectionFlags.h"
 
-#include "Framework/Logger.h"
 #include <Framework/DataTypes.h>
+#include <Framework/Logger.h>
 
 #include <cmath>
 #include <cstdint>

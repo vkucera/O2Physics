@@ -21,7 +21,7 @@
 
 #include "PWGUD/DataModel/UDTables.h" // IWYU pragma: keep
 
-#include "Framework/AnalysisDataModel.h"
+#include <Framework/AnalysisDataModel.h>
 
 namespace o2::aod
 {

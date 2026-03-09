@@ -14,7 +14,7 @@
 /// \brief Slim tables for he3Hadron
 ///
 
-#include "Framework/AnalysisDataModel.h"
+#include <Framework/AnalysisDataModel.h>
 
 #include <cstdint>
 

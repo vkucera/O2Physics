@@ -12,8 +12,8 @@
 #ifndef PWGUD_DATAMODEL_SGTABLES_H_
 #define PWGUD_DATAMODEL_SGTABLES_H_
 
-#include "Framework/ASoA.h"
-#include "Framework/AnalysisDataModel.h"
+#include <Framework/ASoA.h>
+#include <Framework/AnalysisDataModel.h>
 
 #include <cmath>
 #include <cstdint>

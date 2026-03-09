@@ -17,7 +17,7 @@
 
 #include "PWGLF/DataModel/LFKinkDecayTables.h"
 
-#include "Framework/AnalysisDataModel.h"
+#include <Framework/AnalysisDataModel.h>
 
 #ifndef PWGLF_DATAMODEL_LFSIGMAPROTONTABLES_H_
 #define PWGLF_DATAMODEL_LFSIGMAPROTONTABLES_H_

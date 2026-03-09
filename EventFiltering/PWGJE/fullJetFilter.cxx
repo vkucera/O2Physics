@@ -21,16 +21,16 @@
 
 #include "Common/CCDB/TriggerAliases.h"
 
-#include "CCDB/BasicCCDBManager.h"
-#include "DataFormatsCTP/Configuration.h"
-#include "Framework/ASoA.h"
-#include "Framework/AnalysisDataModel.h"
-#include "Framework/AnalysisTask.h"
-#include "Framework/runDataProcessing.h"
+#include <CCDB/BasicCCDBManager.h>
+#include <DataFormatsCTP/Configuration.h>
 #include <EMCALBase/GeometryBase.h>
+#include <Framework/ASoA.h>
+#include <Framework/AnalysisDataModel.h>
 #include <Framework/AnalysisHelpers.h>
+#include <Framework/AnalysisTask.h>
 #include <Framework/Configurable.h>
 #include <Framework/InitContext.h>
+#include <Framework/runDataProcessing.h>
 
 #include <TH1.h>
 #include <TH2.h>

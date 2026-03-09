@@ -16,8 +16,8 @@
 #ifndef PWGUD_TABLEPRODUCER_DGBCCANDPRODUCER_H_
 #define PWGUD_TABLEPRODUCER_DGBCCANDPRODUCER_H_
 
-#include "Framework/ASoA.h"
-#include "Framework/AnalysisDataModel.h"
+#include <Framework/ASoA.h>
+#include <Framework/AnalysisDataModel.h>
 
 #include <cstdint>
 

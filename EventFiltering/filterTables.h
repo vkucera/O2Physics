@@ -25,7 +25,7 @@ template <uint32_t T>
 struct Hash;
 }
 
-#include "Framework/ASoA.h"
+#include <Framework/ASoA.h>
 
 namespace o2::soa
 {

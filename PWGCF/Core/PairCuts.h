@@ -12,10 +12,10 @@
 #ifndef O2_ANALYSIS_PAIRCUTS_H
 #define O2_ANALYSIS_PAIRCUTS_H
 
-#include "CommonConstants/MathConstants.h"
-#include "Framework/HistogramRegistry.h"
-#include "Framework/Logger.h"
+#include <CommonConstants/MathConstants.h>
+#include <Framework/HistogramRegistry.h>
 #include <Framework/HistogramSpec.h>
+#include <Framework/Logger.h>
 
 #include <RtypesCore.h>
 

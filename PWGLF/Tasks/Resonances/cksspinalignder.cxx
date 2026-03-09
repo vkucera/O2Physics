@@ -18,18 +18,18 @@
 
 #include "Common/Core/RecoDecay.h"
 
-#include "CommonConstants/PhysicsConstants.h"
-#include "Framework/ASoAHelpers.h"
-#include "Framework/AnalysisDataModel.h"
-#include "Framework/AnalysisTask.h"
-#include "Framework/BinningPolicy.h"
-#include "Framework/runDataProcessing.h"
+#include <CommonConstants/PhysicsConstants.h>
+#include <Framework/ASoAHelpers.h>
+#include <Framework/AnalysisDataModel.h>
 #include <Framework/AnalysisHelpers.h>
+#include <Framework/AnalysisTask.h>
+#include <Framework/BinningPolicy.h>
 #include <Framework/Configurable.h>
 #include <Framework/HistogramRegistry.h>
 #include <Framework/HistogramSpec.h>
 #include <Framework/InitContext.h>
 #include <Framework/Logger.h>
+#include <Framework/runDataProcessing.h>
 
 #include <Math/GenVector/Boost.h>
 #include <Math/Vector3Dfwd.h>
@@ -51,8 +51,8 @@
 #include <vector>
 
 // o2 includes.
-#include "CCDB/BasicCCDBManager.h"
-#include "CCDB/CcdbApi.h"
+#include <CCDB/BasicCCDBManager.h>
+#include <CCDB/CcdbApi.h>
 #include <Framework/OutputObjHeader.h>
 
 using namespace o2;

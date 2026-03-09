@@ -15,10 +15,10 @@
 #include "PWGUD/Core/DGCutparHolder.h"
 #include "PWGUD/Core/UDHelpers.h"
 
-#include "Framework/Logger.h"
+#include <Framework/Logger.h>
 
-#include "TDatabasePDG.h"
-#include "TLorentzVector.h"
+#include <TDatabasePDG.h>
+#include <TLorentzVector.h>
 #include <TParticlePDG.h>
 
 #include <Rtypes.h>
