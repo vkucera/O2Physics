@@ -11,8 +11,6 @@
 
 /// \author Jasper Parkkila <jasper.parkkila@cern.ch>
 
-#include "RecoDecay.h"
-
 #include "PWGCF/DataModel/CorrelationsDerived.h"
 #include "PWGHF/Core/DecayChannels.h"
 #include "PWGHF/Core/HfHelper.h"
@@ -21,6 +19,7 @@
 #include "PWGHF/DataModel/TrackIndexSkimmingTables.h"
 #include "PWGLF/DataModel/LFStrangenessTables.h"
 
+#include "Common/Core/RecoDecay.h"
 #include "Common/DataModel/PIDResponseITS.h"
 #include "Common/DataModel/PIDResponseTOF.h"
 #include "Common/DataModel/PIDResponseTPC.h"

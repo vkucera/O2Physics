@@ -18,9 +18,10 @@
 // The event filtering, centrality, and V0Bits (from v0-selector) can be switched on/off by selecting one
 //  of the process functions
 // C++ includes
-#include "EventSelectionParams.h"
 #include "MlResponse.h"
-#include "RCTSelectionFlags.h"
+
+#include "Common/CCDB/EventSelectionParams.h"
+#include "Common/CCDB/RCTSelectionFlags.h"
 
 #include <array>
 #include <bitset>

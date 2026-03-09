@@ -16,9 +16,8 @@
 /// \author Yeghishe Hambardzumyan, MIPT
 /// \since Apr, 2024
 
-#include "RecoDecay.h"
-
 #include "Common/CCDB/TriggerAliases.h"
+#include "Common/Core/RecoDecay.h"
 #include "Common/Core/trackUtilities.h"
 #include "Common/DataModel/CaloClusters.h"
 #include "Common/DataModel/Centrality.h"

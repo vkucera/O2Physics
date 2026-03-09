@@ -17,9 +17,9 @@
 #ifndef PWGDQ_CORE_VARMANAGER_H_
 #define PWGDQ_CORE_VARMANAGER_H_
 
-#include "RecoDecay.h"
-
 #include "PWGUD/Core/UPCHelpers.h"
+
+#include "Common/Core/RecoDecay.h"
 
 #include <CommonConstants/MathConstants.h>
 #include <DataFormatsParameters/GRPLHCIFData.h>

@@ -13,14 +13,13 @@
 /// \brief QA and analysis task for kink decay of hypernuclei
 /// \author Yuanzhe Wang <yuanzhe.wang@cern.ch>
 
-#include "MetadataHelper.h"
-
 #include "PWGLF/DataModel/LFHyperNucleiKinkTables.h"
 #include "PWGLF/DataModel/LFKinkDecayTables.h"
 #include "PWGLF/DataModel/LFPIDTOFGenericTables.h"
 #include "PWGLF/Utils/pidTOFGeneric.h"
 
 #include "Common/CCDB/EventSelectionParams.h"
+#include "Common/Core/MetadataHelper.h"
 #include "Common/Core/RecoDecay.h"
 #include "Common/Core/trackUtilities.h"
 #include "Common/DataModel/EventSelection.h"

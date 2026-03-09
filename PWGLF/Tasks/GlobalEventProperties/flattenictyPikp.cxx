@@ -15,14 +15,13 @@
 ///        distributions as a function of charged-particle flattenicity
 /// \since 26 June 2025
 
-#include "EventSelectionParams.h"
-#include "RCTSelectionFlags.h"
-#include "RecoDecay.h"
-
 #include "PWGLF/DataModel/LFStrangenessTables.h"
 #include "PWGLF/DataModel/mcCentrality.h"
 #include "PWGLF/Utils/inelGt.h"
 
+#include "Common/CCDB/EventSelectionParams.h"
+#include "Common/CCDB/RCTSelectionFlags.h"
+#include "Common/Core/RecoDecay.h"
 #include "Common/Core/TrackSelection.h"
 #include "Common/Core/TrackSelectionDefaults.h"
 #include "Common/DataModel/Centrality.h"

@@ -14,10 +14,9 @@
 // This code will create data table for inputs to machine learning for electrons.
 //    Please write to: daiki.sekihata@cern.ch
 
-#include "EventSelectionParams.h"
-
 #include "PWGEM/Dilepton/DataModel/lmeeMLTables.h"
 
+#include "Common/CCDB/EventSelectionParams.h"
 #include "Common/CCDB/ctpRateFetcher.h"
 #include "Common/Core/CollisionTypeHelper.h"
 #include "Common/Core/RecoDecay.h"

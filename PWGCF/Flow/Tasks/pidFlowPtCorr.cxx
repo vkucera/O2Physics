@@ -14,12 +14,12 @@
 /// \since  Nov/24/2025
 /// \brief  This task is to caculate vn-[pt] correlation of PID particles
 
-#include "EventSelectionParams.h"
 #include "FlowContainer.h"
 #include "GFW.h"
 #include "GFWWeights.h"
-#include "TriggerAliases.h"
 
+#include "Common/CCDB/EventSelectionParams.h"
+#include "Common/CCDB/TriggerAliases.h"
 #include "Common/CCDB/ctpRateFetcher.h"
 #include "Common/DataModel/Centrality.h"
 #include "Common/DataModel/EventSelection.h"

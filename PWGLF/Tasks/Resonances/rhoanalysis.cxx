@@ -15,8 +15,6 @@
 ///
 /// \author Nasir Mehdi Malik
 
-#include "RecoDecay.h"
-
 #include "Common/Core/RecoDecay.h"
 #include "Common/DataModel/Centrality.h"
 #include "Common/DataModel/EventSelection.h"

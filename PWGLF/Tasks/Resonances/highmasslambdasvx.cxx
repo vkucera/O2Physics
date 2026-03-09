@@ -11,13 +11,12 @@
 // Phi meson spin alignment task
 // sourav.kundu@cern.ch
 
-#include "RecoDecay.h"
-
 #include "PWGHF/Utils/utilsBfieldCCDB.h"
 #include "PWGLF/DataModel/EPCalibrationTables.h"
 #include "PWGLF/DataModel/LFStrangenessTables.h"
 
 #include "Common/CCDB/EventSelectionParams.h"
+#include "Common/Core/RecoDecay.h"
 #include "Common/Core/trackUtilities.h"
 #include "Common/DataModel/Centrality.h"
 #include "Common/DataModel/EventSelection.h"

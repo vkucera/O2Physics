@@ -14,8 +14,7 @@
 ///
 /// \author Nicolas Strangmann (nicolas.strangmann@cern.ch) - Goethe University Frankfurt, Stefanie Mrozinski (stefanie.mrozinski@cern.ch) - Goethe University Frankfurt
 
-#include "EventSelectionParams.h"
-
+#include "Common/CCDB/EventSelectionParams.h"
 #include "Common/CCDB/ctpRateFetcher.h"
 #include "Common/Core/MetadataHelper.h"
 #include "Common/DataModel/EventSelection.h"

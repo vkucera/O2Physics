@@ -18,7 +18,6 @@
 /// \since  May 2025
 //
 
-#include "RCTSelectionFlags.h"
 #include "SGCutParHolder.h"
 #include "UDHelpers.h"
 
@@ -27,6 +26,7 @@
 #include "PWGUD/DataModel/UDTables.h"
 
 #include "Common/CCDB/EventSelectionParams.h"
+#include "Common/CCDB/RCTSelectionFlags.h"
 #include "Common/CCDB/ctpRateFetcher.h"
 #include "Common/DataModel/EventSelection.h"
 #include "Common/DataModel/PIDResponseTOF.h"

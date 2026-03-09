@@ -15,9 +15,9 @@
 /// \author Yash Patley <yash.patley@cern.ch>
 /// \author Nasir Mehdi Malik
 
-#include "RecoDecay.h"
-
 #include "PWGLF/DataModel/LFResonanceTables.h"
+
+#include "Common/Core/RecoDecay.h"
 
 #include <CommonConstants/MathConstants.h>
 #include <CommonConstants/PhysicsConstants.h>

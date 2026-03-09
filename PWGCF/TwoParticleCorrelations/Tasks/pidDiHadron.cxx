@@ -14,12 +14,11 @@
 /// \author Preet Bhanjan Pati (preet.bhanjan.pati@cern.ch), Zhiyong Lu (zhiyong.lu@cern.ch)
 /// \since  July/29/2025
 
-#include "EventSelectionParams.h"
-#include "TriggerAliases.h"
-
 #include "PWGCF/Core/CorrelationContainer.h"
 #include "PWGLF/DataModel/LFStrangenessTables.h"
 
+#include "Common/CCDB/EventSelectionParams.h"
+#include "Common/CCDB/TriggerAliases.h"
 #include "Common/Core/RecoDecay.h"
 #include "Common/DataModel/Centrality.h"
 #include "Common/DataModel/EventSelection.h"

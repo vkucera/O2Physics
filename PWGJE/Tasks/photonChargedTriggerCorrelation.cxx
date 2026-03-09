@@ -20,12 +20,11 @@
 
 #include "PWGJE/DataModel/PhotonChargedTriggerCorrelation.h"
 
-#include "RecoDecay.h"
-
 #include "PWGEM/PhotonMeson/DataModel/gammaTables.h"
 #include "PWGJE/DataModel/Jet.h"
 #include "PWGJE/DataModel/JetReducedData.h"
 
+#include "Common/Core/RecoDecay.h"
 #include "Common/Core/TableHelper.h"
 
 #include <CCDB/BasicCCDBManager.h>

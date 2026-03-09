@@ -26,12 +26,11 @@
 //    romain.schotter@cern.ch
 //
 
-#include "EventSelectionParams.h"
-#include "RCTSelectionFlags.h"
-
 #include "PWGLF/DataModel/LFStrangenessPIDTables.h"
 #include "PWGLF/DataModel/LFStrangenessTables.h"
 
+#include "Common/CCDB/EventSelectionParams.h"
+#include "Common/CCDB/RCTSelectionFlags.h"
 #include "Common/CCDB/ctpRateFetcher.h"
 #include "Common/Core/Zorro.h"
 #include "Common/Core/ZorroSummary.h"

@@ -15,13 +15,12 @@
 /// \author Chiara De Martin (chiara.de.martin@cern.ch)
 /// \author Maximiliano Puccio (maximiliano.puccio@cern.ch)
 
-#include "RecoDecay.h"
-
 #include "PWGLF/DataModel/LFStrangenessPIDTables.h"
 #include "PWGLF/DataModel/LFStrangenessTables.h"
 #include "PWGLF/DataModel/cascqaanalysis.h"
 
 #include "Common/CCDB/EventSelectionParams.h"
+#include "Common/Core/RecoDecay.h"
 #include "Tools/ML/MlResponse.h"
 
 #include <CCDB/BasicCCDBManager.h>

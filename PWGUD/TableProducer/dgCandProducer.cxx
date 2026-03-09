@@ -13,13 +13,13 @@
 // \author Paul Buehler, paul.buehler@oeaw.ac.at
 
 #include "DGCutparHolder.h"
-#include "EventSelectionParams.h"
 #include "UDHelpers.h"
 
 #include "PWGUD/Core/DGSelector.h"
 #include "PWGUD/Core/UPCHelpers.h"
 #include "PWGUD/DataModel/UDTables.h"
 
+#include "Common/CCDB/EventSelectionParams.h"
 #include "Common/CCDB/ctpRateFetcher.h"
 #include "Common/Core/Zorro.h"
 #include "Common/Core/ZorroSummary.h"

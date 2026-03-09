@@ -14,13 +14,13 @@
 /// \since  Dec/10/2023
 /// \brief  jira: PWGCF-254, task to measure flow observables with cumulant method
 
-#include "EventSelectionParams.h"
 #include "FlowContainer.h"
 #include "FlowPtContainer.h"
 #include "GFW.h"
 #include "GFWConfig.h"
 #include "GFWWeights.h"
 
+#include "Common/CCDB/EventSelectionParams.h"
 #include "Common/CCDB/ctpRateFetcher.h"
 #include "Common/DataModel/Centrality.h"
 #include "Common/DataModel/EventSelection.h"

@@ -69,12 +69,13 @@
 // PWGLF
 #include "PWGLF/DataModel/LFStrangenessPIDTables.h"
 // For V0TOFPIDs and NSigmas getters. Better for considering the daughters as coming from V0s instead of from PV?
-#include "EventSelectionParams.h"
-#include "RCTSelectionFlags.h"
 #include "ctpRateFetcher.h"
 
 #include "PWGLF/DataModel/LFStrangenessTables.h"
 #include "PWGLF/DataModel/lambdaJetPolarizationIons.h"
+
+#include "Common/CCDB/EventSelectionParams.h"
+#include "Common/CCDB/RCTSelectionFlags.h"
 
 // External Libraries (FastJet)
 #include <fastjet/AreaDefinition.hh>

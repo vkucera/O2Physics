@@ -16,11 +16,11 @@
 #ifndef PWGEM_DILEPTON_CORE_DIELECTRONCUT_H_
 #define PWGEM_DILEPTON_CORE_DIELECTRONCUT_H_
 
-#include "RecoDecay.h"
-
 #include "PWGEM/Dilepton/Utils/EMTrackUtilities.h"
 #include "PWGEM/Dilepton/Utils/MlResponseDielectronSingleTrack.h"
 #include "PWGEM/Dilepton/Utils/PairUtilities.h"
+
+#include "Common/Core/RecoDecay.h"
 
 #include <CommonConstants/PhysicsConstants.h>
 #include <Framework/Logger.h>

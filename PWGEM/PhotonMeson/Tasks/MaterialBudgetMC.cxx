@@ -13,8 +13,6 @@
 /// \brief Task to analyse and calculate the material budget weights in MC
 /// \author D. Sekihata: daiki.sekihata@cern, S. Mrozinski: smrozins@cern.ch
 
-#include "RecoDecay.h"
-
 #include "PWGEM/PhotonMeson/Core/CutsLibrary.h"
 #include "PWGEM/PhotonMeson/Core/EMPhotonEventCut.h"
 #include "PWGEM/PhotonMeson/Core/HistogramsLibrary.h"
@@ -24,6 +22,8 @@
 #include "PWGEM/PhotonMeson/DataModel/gammaTables.h"
 #include "PWGEM/PhotonMeson/Utils/MCUtilities.h"
 #include "PWGEM/PhotonMeson/Utils/PairUtilities.h"
+
+#include "Common/Core/RecoDecay.h"
 //
 #include "PWGEM/Dilepton/Utils/MCUtilities.h"
 

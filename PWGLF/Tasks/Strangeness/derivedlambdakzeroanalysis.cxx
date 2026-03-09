@@ -28,17 +28,16 @@
 //    david.dobrigkeit.chinellato@cern.ch
 //
 
-#include "EventSelectionParams.h"
-#include "RCTSelectionFlags.h"
-#include "RecoDecay.h"
-#include "TriggerAliases.h"
-
 #include "PWGLF/DataModel/LFStrangenessMLTables.h"
 #include "PWGLF/DataModel/LFStrangenessPIDTables.h"
 #include "PWGLF/DataModel/LFStrangenessTables.h"
 #include "PWGUD/Core/SGSelector.h"
 
+#include "Common/CCDB/EventSelectionParams.h"
+#include "Common/CCDB/RCTSelectionFlags.h"
+#include "Common/CCDB/TriggerAliases.h"
 #include "Common/CCDB/ctpRateFetcher.h"
+#include "Common/Core/RecoDecay.h"
 #include "Tools/ML/model.h"
 
 #include <CCDB/BasicCCDBManager.h>

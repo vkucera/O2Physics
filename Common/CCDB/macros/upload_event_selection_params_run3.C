@@ -9,7 +9,7 @@
 // granted to it by virtue of its status as an Intergovernmental Organization
 // or submit itself to any jurisdiction.
 
-#include "EventSelectionParams.h"
+#include "Common/CCDB/EventSelectionParams.h"
 
 #include "CCDB/CcdbApi.h"
 #include <Framework/Logger.h>

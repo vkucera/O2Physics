@@ -18,11 +18,10 @@
 #ifndef PWGLF_UTILS_PIDTOFGENERIC_H_
 #define PWGLF_UTILS_PIDTOFGENERIC_H_
 
-#include "CollisionTypeHelper.h"
-#include "MetadataHelper.h"
-#include "TableHelper.h"
-
+#include "Common/Core/CollisionTypeHelper.h"
+#include "Common/Core/MetadataHelper.h"
 #include "Common/Core/PID/PIDTOF.h"
+#include "Common/Core/TableHelper.h"
 
 #include <CommonDataFormat/InteractionRecord.h>
 #include <DataFormatsParameters/GRPLHCIFData.h>

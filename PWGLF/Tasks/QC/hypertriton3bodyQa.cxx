@@ -13,12 +13,11 @@
 /// \brief QA for MC productions which contain hypertriton 3body decay process, including special checks for TOF PID
 /// \author Yuanzhe Wang <yuanzhe.wang@cern.ch>
 
-#include "MetadataHelper.h"
-
 #include "PWGLF/DataModel/LFPIDTOFGenericTables.h"
 #include "PWGLF/Utils/pidTOFGeneric.h"
 
 #include "Common/CCDB/EventSelectionParams.h"
+#include "Common/Core/MetadataHelper.h"
 #include "Common/Core/RecoDecay.h"
 #include "Common/DataModel/EventSelection.h"
 #include "Common/DataModel/PIDResponseTOF.h"

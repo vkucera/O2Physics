@@ -16,13 +16,12 @@
 /// \author Nicolas Strangmann (nicolas.strangmann@cern.ch) - Goethe University Frankfurt
 ///
 
-#include "RecoDecay.h"
-
 #include "PWGEM/PhotonMeson/Utils/HNMUtilities.h"
 #include "PWGEM/PhotonMeson/Utils/PairUtilities.h"
 #include "PWGJE/DataModel/EMCALMatchedCollisions.h"
 
 #include "Common/CCDB/TriggerAliases.h"
+#include "Common/Core/RecoDecay.h"
 #include "Common/DataModel/EventSelection.h"
 #include "Common/DataModel/Multiplicity.h"
 #include "Common/DataModel/PIDResponseITS.h"

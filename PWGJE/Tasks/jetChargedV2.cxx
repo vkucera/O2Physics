@@ -13,8 +13,6 @@
 /// \file jetChargedV2.cxx
 /// \brief This file contains the implementation for the Charged Jet v2 analysis in the ALICE experiment
 
-#include "RecoDecay.h"
-
 #include "PWGJE/Core/JetDerivedDataUtilities.h"
 #include "PWGJE/Core/JetFindingUtilities.h"
 #include "PWGJE/DataModel/Jet.h"
@@ -22,6 +20,7 @@
 #include "PWGJE/DataModel/JetSubtraction.h"
 
 #include "Common/Core/EventPlaneHelper.h"
+#include "Common/Core/RecoDecay.h"
 #include "Common/DataModel/Qvectors.h"
 
 #include <CommonConstants/MathConstants.h>

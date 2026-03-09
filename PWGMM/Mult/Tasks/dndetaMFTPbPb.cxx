@@ -15,12 +15,12 @@
 /// \author Gyula Bencedi, gyula.bencedi@cern.ch
 /// \since  Nov 2024
 
-#include "EventSelectionParams.h"
 #include "Functions.h"
 #include "Index.h"
-#include "RCTSelectionFlags.h"
 #include "bestCollisionTable.h"
 
+#include "Common/CCDB/EventSelectionParams.h"
+#include "Common/CCDB/RCTSelectionFlags.h"
 #include "Common/CCDB/ctpRateFetcher.h"
 #include "Common/Core/fwdtrackUtilities.h"
 #include "Common/DataModel/Centrality.h"

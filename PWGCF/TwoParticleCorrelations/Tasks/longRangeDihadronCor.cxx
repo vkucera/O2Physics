@@ -14,10 +14,9 @@
 /// \author Zhiyong Lu (zhiyong.lu@cern.ch), Joachim Hansen (joachim.hansen@cern.ch)
 /// \since  Sep/10/2025
 
-#include "EventSelectionParams.h"
-
 #include "PWGCF/Core/CorrelationContainer.h"
 
+#include "Common/CCDB/EventSelectionParams.h"
 #include "Common/Core/RecoDecay.h"
 #include "Common/DataModel/Centrality.h"
 #include "Common/DataModel/EventSelection.h"

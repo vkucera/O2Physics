@@ -13,9 +13,8 @@
 /// \brief Task for particle number fluctuation analysis
 /// \author Fan Si <fsi@physi.uni-heidelberg.de>
 
-#include "EventSelectionParams.h"
-#include "RCTSelectionFlags.h"
-
+#include "Common/CCDB/EventSelectionParams.h"
+#include "Common/CCDB/RCTSelectionFlags.h"
 #include "Common/DataModel/Centrality.h"
 #include "Common/DataModel/EventSelection.h"
 #include "Common/DataModel/McCollisionExtra.h"

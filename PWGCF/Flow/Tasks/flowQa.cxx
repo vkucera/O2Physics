@@ -14,11 +14,11 @@
 /// \since  Feb/23/2025
 /// \brief  jira: PWGCF-254, QA for flow analysis
 
-#include "EventSelectionParams.h"
 #include "FlowContainer.h"
 #include "GFW.h"
 #include "GFWWeights.h"
 
+#include "Common/CCDB/EventSelectionParams.h"
 #include "Common/CCDB/ctpRateFetcher.h"
 #include "Common/DataModel/Centrality.h"
 #include "Common/DataModel/EventSelection.h"

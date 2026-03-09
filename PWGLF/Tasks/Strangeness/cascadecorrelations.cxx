@@ -15,13 +15,13 @@
 // Author: Rik Spijkers (rik.spijkers@cern.ch)
 //
 
-#include "RecoDecay.h"
 #include "ZorroSummary.h"
 
 #include "PWGLF/DataModel/LFStrangenessTables.h"
 #include "PWGLF/Utils/inelGt.h"
 
 #include "Common/CCDB/EventSelectionParams.h"
+#include "Common/Core/RecoDecay.h"
 #include "Common/Core/Zorro.h"
 #include "Common/DataModel/Centrality.h"
 #include "Common/DataModel/EventSelection.h"

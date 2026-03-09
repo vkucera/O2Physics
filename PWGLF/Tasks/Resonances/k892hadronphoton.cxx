@@ -20,12 +20,11 @@
 //    gianni.shigeru.setoue.liveraro@cern.ch
 //
 
-#include "EventSelectionParams.h"
-
 #include "PWGLF/DataModel/LFSigmaTables.h"
 #include "PWGLF/DataModel/LFStrangenessMLTables.h"
 #include "PWGLF/DataModel/LFStrangenessTables.h"
 
+#include "Common/CCDB/EventSelectionParams.h"
 #include "Common/CCDB/ctpRateFetcher.h"
 
 #include <CCDB/BasicCCDBManager.h>

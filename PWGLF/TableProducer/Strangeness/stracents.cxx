@@ -15,9 +15,9 @@
 /// \author ALICE
 //
 
-#include "MetadataHelper.h"
-
 #include "PWGLF/DataModel/LFStrangenessTables.h"
+
+#include "Common/Core/MetadataHelper.h"
 
 #include <CCDB/BasicCCDBManager.h>
 #include <Framework/ASoA.h>

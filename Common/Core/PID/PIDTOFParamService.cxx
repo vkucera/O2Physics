@@ -18,8 +18,8 @@
 
 #include "PIDTOFParamService.h"
 
-#include "CollisionTypeHelper.h"
-#include "MetadataHelper.h"
+#include "Common/Core/CollisionTypeHelper.h"
+#include "Common/Core/MetadataHelper.h"
 
 #include <CCDB/BasicCCDBManager.h>
 #include <DataFormatsParameters/GRPLHCIFData.h>

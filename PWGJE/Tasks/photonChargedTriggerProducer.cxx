@@ -15,14 +15,13 @@
 ///
 /// Table producer for photon-jet angular correlation analysis (see photonChargedTriggerCorrelation.cxx)
 
-#include "RecoDecay.h"
-
 #include "PWGEM/PhotonMeson/DataModel/gammaTables.h"
 #include "PWGJE/Core/JetDerivedDataUtilities.h"
 #include "PWGJE/DataModel/Jet.h"
 #include "PWGJE/DataModel/JetReducedData.h"
 #include "PWGJE/DataModel/PhotonChargedTriggerCorrelation.h"
 
+#include "Common/Core/RecoDecay.h"
 #include "Common/DataModel/PIDResponseTOF.h"
 #include "Common/DataModel/PIDResponseTPC.h"
 

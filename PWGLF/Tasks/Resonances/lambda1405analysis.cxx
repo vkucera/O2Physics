@@ -13,11 +13,10 @@
 /// \brief Analysis task for lambda1405 via sigma kink decay
 /// \author Francesco Mazzaschi <francesco.mazzaschi@cern.ch>
 
-#include "RecoDecay.h"
-
 #include "PWGLF/DataModel/LFKinkDecayTables.h"
 #include "PWGLF/DataModel/LFLambda1405Table.h"
 
+#include "Common/Core/RecoDecay.h"
 #include "Common/DataModel/EventSelection.h"
 #include "Common/DataModel/PIDResponseTOF.h"
 #include "Common/DataModel/PIDResponseTPC.h"

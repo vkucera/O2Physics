@@ -13,10 +13,9 @@
 /// \brief Hypernuclei rconstruction using KFParticle package
 /// \author Janik Ditzel <jditzel@cern.ch> and Michael Hartung <mhartung@cern.ch>
 
-#include "MetadataHelper.h"
-
 #include "PWGLF/DataModel/LFHypernucleiKfTables.h"
 
+#include "Common/Core/MetadataHelper.h"
 #include "Common/Core/RecoDecay.h"
 #include "Common/Core/trackUtilities.h"
 #include "Common/DataModel/Centrality.h"

@@ -14,11 +14,10 @@
 /// In case of questions please write to:
 /// \author Roman Nepeivoda (roman.nepeivoda@cern.ch)
 
-#include "RecoDecay.h"
-
 #include "PWGLF/DataModel/LFStrangenessTables.h"
 #include "PWGLF/DataModel/QC/strangenessTablesQC.h"
 
+#include "Common/Core/RecoDecay.h"
 #include "Common/DataModel/EventSelection.h"
 #include "Common/DataModel/PIDResponseTPC.h"
 #include "Common/DataModel/TrackSelectionTables.h"

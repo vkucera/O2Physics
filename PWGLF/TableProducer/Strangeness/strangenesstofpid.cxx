@@ -23,11 +23,10 @@
 // (strange, weakly-decaying) particle. This task is meant to be a test, as
 // it hasn't been fully tested yet! Use at your own peril for now :-)
 
-#include "TableHelper.h"
-
 #include "PWGLF/DataModel/LFStrangenessPIDTables.h"
 #include "PWGLF/DataModel/LFStrangenessTables.h"
 
+#include "Common/Core/TableHelper.h"
 #include "Common/DataModel/PIDResponseTOF.h"
 #include "Common/DataModel/PIDResponseTPC.h"
 

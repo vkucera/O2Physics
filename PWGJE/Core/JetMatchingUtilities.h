@@ -20,11 +20,11 @@
 #ifndef PWGJE_CORE_JETMATCHINGUTILITIES_H_
 #define PWGJE_CORE_JETMATCHINGUTILITIES_H_
 
-#include "RecoDecay.h"
-
 #include "PWGJE/Core/JetCandidateUtilities.h"
 #include "PWGJE/Core/JetFindingUtilities.h"
 #include "PWGJE/DataModel/JetReducedData.h"
+
+#include "Common/Core/RecoDecay.h"
 
 #include <Framework/Logger.h>
 

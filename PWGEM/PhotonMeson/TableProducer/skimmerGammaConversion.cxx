@@ -23,7 +23,7 @@
 
 // runme like: o2-analysis-trackselection -b --aod-file ${sourceFile} --aod-writer-json ${writerFile} | o2-analysis-timestamp -b | o2-analysis-trackextension -b | o2-analysis-lf-lambdakzerobuilder -b | o2-analysis-pid-tpc -b | o2-analysis-em-skimmermc -b
 
-#include "RecoDecay.h"
+#include "Common/Core/RecoDecay.h"
 
 #include <cmath>
 #include <cstddef>

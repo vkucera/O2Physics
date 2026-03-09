@@ -14,10 +14,10 @@
 // This code filters events that are interesting for dilepton analyses.
 //    Please write to: daiki.sekihata@cern.ch
 
-#include "TableHelper.h"
-
 #include "PWGEM/Dilepton/DataModel/dileptonTables.h"
 #include "PWGEM/PhotonMeson/DataModel/gammaTables.h"
+
+#include "Common/Core/TableHelper.h"
 
 #include <Framework/AnalysisDataModel.h>
 #include <Framework/AnalysisHelpers.h>

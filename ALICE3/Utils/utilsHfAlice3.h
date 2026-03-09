@@ -17,9 +17,9 @@
 #ifndef ALICE3_UTILS_UTILSHFALICE3_H_
 #define ALICE3_UTILS_UTILSHFALICE3_H_
 
-#include "RecoDecay.h"
-
 #include "PWGHF/Core/HfHelper.h"
+
+#include "Common/Core/RecoDecay.h"
 
 #include <CommonConstants/PhysicsConstants.h>
 

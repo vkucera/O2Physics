@@ -15,8 +15,6 @@
 
 /// TO DO : include histograms for cluster correction modes in the MC Mult processes.
 
-#include "EventSelectionParams.h"
-
 #include "PWGJE/Core/JetDerivedDataUtilities.h"
 #include "PWGJE/Core/JetFindingUtilities.h"
 #include "PWGJE/Core/JetUtilities.h"
@@ -25,6 +23,7 @@
 #include "PWGJE/DataModel/Jet.h"
 #include "PWGJE/DataModel/JetReducedData.h"
 
+#include "Common/CCDB/EventSelectionParams.h"
 #include "Common/CCDB/TriggerAliases.h"
 #include "Common/Core/Zorro.h"
 #include "Common/Core/ZorroSummary.h"

@@ -15,11 +15,11 @@
 /// \since  Oct/30/2024
 /// \brief  jira: PWGCF-254, produce Run-by-Run QA plots and flow analysis for Run3
 
-#include "EventSelectionParams.h"
 #include "FlowContainer.h"
 #include "GFW.h"
 #include "GFWWeights.h"
 
+#include "Common/CCDB/EventSelectionParams.h"
 #include "Common/CCDB/ctpRateFetcher.h"
 #include "Common/DataModel/Centrality.h"
 #include "Common/DataModel/EventSelection.h"

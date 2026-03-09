@@ -14,8 +14,6 @@
 /// \file alice3-dq-table-maker.cxx
 /// \brief DQ table maker for ALICE 3
 
-#include "EventSelectionParams.h"
-
 #include "PWGDQ/Core/AnalysisCompositeCut.h"
 #include "PWGDQ/Core/AnalysisCut.h"
 #include "PWGDQ/Core/CutsLibrary.h"
@@ -30,6 +28,7 @@
 #include "ALICE3/DataModel/OTFTOF.h"
 #include "ALICE3/DataModel/collisionAlice3.h"
 #include "ALICE3/DataModel/tracksAlice3.h"
+#include "Common/CCDB/EventSelectionParams.h"
 #include "Common/DataModel/CollisionAssociationTables.h"
 #include "Common/DataModel/TrackSelectionTables.h"
 

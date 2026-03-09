@@ -30,10 +30,10 @@
 //    david.dobrigkeit.chinellato@cern.ch
 //
 
-#include "RecoDecay.h"
-
 #include "PWGUD/Core/SGSelector.h"
 #include "PWGUD/DataModel/UDTables.h"
+
+#include "Common/Core/RecoDecay.h"
 
 #include <CommonConstants/PhysicsConstants.h>
 #include <Framework/AnalysisDataModel.h>

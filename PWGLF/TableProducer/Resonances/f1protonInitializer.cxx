@@ -12,11 +12,10 @@
 /// \file f1protonInitializer.cxx
 /// check if the event have f1-p candidate
 /// \author Sourav Kundu <sourav.kundu@cern.ch>
-#include "RecoDecay.h"
-
 #include "PWGLF/DataModel/LFF1Tables.h"
 #include "PWGLF/DataModel/LFStrangenessTables.h"
 
+#include "Common/Core/RecoDecay.h"
 #include "Common/DataModel/PIDResponseTOF.h"
 #include "Common/DataModel/PIDResponseTPC.h"
 #include "Common/DataModel/TrackSelectionTables.h"

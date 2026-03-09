@@ -31,10 +31,9 @@
 #include <vector>
 
 // O2 includes
-#include "TableHelper.h"
-
 #include "PWGLF/DataModel/LFParticleIdentification.h"
 
+#include "Common/Core/TableHelper.h"
 #include "Common/DataModel/PIDResponseTPC.h"
 
 #include <CCDB/BasicCCDBManager.h>
