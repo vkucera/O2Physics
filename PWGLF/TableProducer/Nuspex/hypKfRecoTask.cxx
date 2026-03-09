@@ -13,6 +13,10 @@
 /// \brief Hypernuclei rconstruction using KFParticle package
 /// \author Janik Ditzel <jditzel@cern.ch> and Michael Hartung <mhartung@cern.ch>
 
+#ifndef HomogeneousField
+#define HomogeneousField // o2-linter: disable=name/macro (Name is defined in KFParticle package)
+#endif
+
 #include "PWGLF/DataModel/LFHypernucleiKfTables.h"
 
 #include "Common/Core/MetadataHelper.h"
@@ -47,6 +51,9 @@
 #include <TH2.h>
 #include <TString.h>
 
+#include <KFPVertex.h>
+#include <KFParticle.h>
+
 #include <algorithm>
 #include <array>
 #include <cmath>
@@ -60,13 +67,6 @@
 #include <string>
 #include <utility>
 #include <vector>
-
-// KFParticle
-#ifndef HomogeneousField
-#define HomogeneousField // o2-linter: disable=name/macro (Name is defined in KFParticle package)
-#endif
-#include <KFPVertex.h>
-#include <KFParticle.h>
 
 using namespace o2;
 using namespace o2::framework;

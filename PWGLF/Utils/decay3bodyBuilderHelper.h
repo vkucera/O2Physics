@@ -12,11 +12,6 @@
 #ifndef PWGLF_UTILS_DECAY3BODYBUILDERHELPER_H_
 #define PWGLF_UTILS_DECAY3BODYBUILDERHELPER_H_
 
-#include <Framework/Logger.h>
-#include <ReconstructionDataFormats/DCA.h>
-#include <ReconstructionDataFormats/Vertex.h>
-
-#include <stdexcept>
 #ifndef HomogeneousField
 #define HomogeneousField
 #endif
@@ -27,7 +22,10 @@
 #include <CommonConstants/PhysicsConstants.h>
 #include <DCAFitter/DCAFitterN.h>
 #include <DetectorsVertexing/SVertexHypothesis.h>
+#include <Framework/Logger.h>
+#include <ReconstructionDataFormats/DCA.h>
 #include <ReconstructionDataFormats/Track.h>
+#include <ReconstructionDataFormats/Vertex.h>
 
 #include <KFPTrack.h>
 #include <KFPVertex.h>
@@ -38,6 +36,7 @@
 #include <array>
 #include <cmath>
 #include <cstdlib>
+#include <stdexcept>
 
 namespace o2
 {
