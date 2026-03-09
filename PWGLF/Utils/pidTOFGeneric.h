@@ -28,12 +28,11 @@
 #include <DataFormatsTOF/ParameterContainers.h>
 #include <Framework/AnalysisDataModel.h>
 #include <Framework/InitContext.h>
+#include <Framework/Logger.h>
 #include <ReconstructionDataFormats/PID.h>
 
 #include <TGraph.h>
 #include <TMath.h>
-
-#include <fairlogger/Logger.h>
 
 #include <chrono>
 #include <cstdint>

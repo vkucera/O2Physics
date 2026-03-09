@@ -16,7 +16,7 @@
 #define PWGCF_JCORRAN_CORE_FLOWJSPCOBSERVABLES_H_
 
 // O2 headers. //
-#include <fairlogger/Logger.h>
+#include <Framework/Logger.h>
 
 #include <Rtypes.h>
 

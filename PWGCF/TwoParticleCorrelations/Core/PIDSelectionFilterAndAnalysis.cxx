@@ -14,13 +14,14 @@
 #include "SelectionFilterAndAnalysis.h"
 #include "SkimmingConfigurableCuts.h"
 
+#include <Framework/Logger.h>
+
 #include <TString.h>
 
 #include <boost/regex/v5/regbase.hpp>
 #include <boost/regex/v5/regex.hpp>
 #include <boost/regex/v5/regex_fwd.hpp>
 #include <boost/regex/v5/regex_search.hpp>
-#include <fairlogger/Logger.h>
 #include <sys/types.h>
 
 #include <Rtypes.h>

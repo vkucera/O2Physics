@@ -22,6 +22,7 @@
 #include <Framework/Array2D.h>
 #include <Framework/HistogramRegistry.h>
 #include <Framework/HistogramSpec.h>
+#include <Framework/Logger.h>
 #include <MathUtils/BetheBlochAleph.h>
 #include <PID/PIDTOF.h>
 #include <ReconstructionDataFormats/PID.h>
@@ -30,7 +31,6 @@
 #include <TMCProcess.h>
 #include <TPDGCode.h>
 
-#include <fairlogger/Logger.h>
 #include <fmt/format.h>
 #include <sys/types.h>
 

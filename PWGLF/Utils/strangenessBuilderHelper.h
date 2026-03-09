@@ -22,6 +22,7 @@
 #include <CommonConstants/PhysicsConstants.h>
 #include <DCAFitter/DCAFitterN.h>
 #include <DetectorsBase/MatLayerCylSet.h>
+#include <Framework/Logger.h>
 #include <ReconstructionDataFormats/PID.h>
 #include <ReconstructionDataFormats/Track.h>
 
@@ -32,7 +33,6 @@
 #include <KFParticle.h>
 #include <KFParticleBase.h>
 #include <KFVertex.h>
-#include <fairlogger/Logger.h>
 
 #include <array>
 #include <cmath>

@@ -16,9 +16,8 @@
 #include <DCAFitter/DCAFitterN.h>
 #include <Framework/AnalysisDataModel.h>
 #include <Framework/DataTypes.h>
+#include <Framework/Logger.h>
 #include <MathUtils/Primitive2D.h>
-
-#include <fairlogger/Logger.h>
 
 #include <Rtypes.h>
 

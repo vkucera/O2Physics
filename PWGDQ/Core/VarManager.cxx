@@ -18,6 +18,7 @@
 #include <DCAFitter/DCAFitterN.h>
 #include <DCAFitter/FwdDCAFitterN.h>
 #include <DataFormatsParameters/GRPLHCIFData.h>
+#include <Framework/Logger.h>
 #include <GlobalTracking/MatchGlobalFwd.h>
 
 #include <Math/Vector4D.h> // IWYU pragma: keep (do not replace with Math/Vector4Dfwd.h)
@@ -28,7 +29,6 @@
 #include <TString.h>
 
 #include <KFParticle.h>
-#include <fairlogger/Logger.h>
 
 #include <Rtypes.h>
 #include <RtypesCore.h>

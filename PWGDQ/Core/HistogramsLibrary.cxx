@@ -17,12 +17,12 @@
 #include "VarManager.h"
 
 #include <CommonConstants/MathConstants.h>
+#include <Framework/Logger.h>
 
 #include <TArrayD.h>
 #include <TMath.h>
 #include <TString.h>
 
-#include <fairlogger/Logger.h>
 #include <rapidjson/document.h>
 #include <rapidjson/error/error.h>
 

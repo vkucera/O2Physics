@@ -23,13 +23,13 @@
 #include "PWGCF/FemtoUniverse/Core/FemtoUniverseV0Selection.h"
 #include "PWGCF/FemtoUniverse/DataModel/FemtoDerived.h"
 
+#include <Framework/Logger.h>
 #include <ReconstructionDataFormats/PID.h>
 
 #include <boost/property_tree/exceptions.hpp>
 #include <boost/property_tree/json_parser.hpp>
 #include <boost/property_tree/ptree.hpp>
 #include <boost/property_tree/ptree_fwd.hpp>
-#include <fairlogger/Logger.h>
 
 #include <bitset>
 #include <cstddef>

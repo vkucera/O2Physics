@@ -20,12 +20,11 @@
 
 #include <Framework/HistogramRegistry.h>
 #include <Framework/HistogramSpec.h>
+#include <Framework/Logger.h>
 
 #include <TH2.h>
 #include <THnSparse.h>
 #include <TVector2.h>
-
-#include <fairlogger/Logger.h>
 
 #include <array>
 #include <cmath>

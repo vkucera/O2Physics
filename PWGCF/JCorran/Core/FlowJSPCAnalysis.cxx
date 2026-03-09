@@ -18,10 +18,9 @@
 #include "PWGCF/JCorran/Core/FlowJSPCAnalysis.h"
 
 #include <Framework/HistogramRegistry.h>
+#include <Framework/Logger.h>
 
 #include <TComplex.h>
-
-#include <fairlogger/Logger.h>
 
 #include <cmath>
 

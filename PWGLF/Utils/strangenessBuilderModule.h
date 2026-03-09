@@ -27,6 +27,7 @@
 #include <Framework/DeviceSpec.h>
 #include <Framework/HistogramRegistry.h>
 #include <Framework/HistogramSpec.h>
+#include <Framework/Logger.h>
 #include <Framework/RunningWorkflowInfo.h>
 #include <ReconstructionDataFormats/PID.h>
 #include <ReconstructionDataFormats/Track.h>
@@ -36,8 +37,6 @@
 #include <TMCProcess.h>
 #include <TPDGCode.h>
 #include <TString.h>
-
-#include <fairlogger/Logger.h>
 
 #include <array>
 #include <cmath>

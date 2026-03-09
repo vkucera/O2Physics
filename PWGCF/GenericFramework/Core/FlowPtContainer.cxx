@@ -19,14 +19,13 @@
 #include "GFWConfig.h"
 
 #include <Framework/HistogramSpec.h>
+#include <Framework/Logger.h>
 
 #include <TCollection.h>
 #include <TH1.h>
 #include <TList.h>
 #include <TNamed.h>
 #include <TString.h>
-
-#include <fairlogger/Logger.h>
 
 #include <RtypesCore.h>
 

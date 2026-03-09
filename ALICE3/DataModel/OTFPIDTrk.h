@@ -22,8 +22,7 @@
 
 // O2 includes
 #include <Framework/AnalysisDataModel.h>
-
-#include <fairlogger/Logger.h>
+#include <Framework/Logger.h>
 
 #include <cstdlib>
 

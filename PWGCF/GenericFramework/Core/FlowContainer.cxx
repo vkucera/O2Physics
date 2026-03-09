@@ -14,6 +14,7 @@
 #include "ProfileSubset.h"
 
 #include <Framework/HistogramSpec.h>
+#include <Framework/Logger.h>
 
 #include <TCollection.h>
 #include <TFile.h>
@@ -25,8 +26,6 @@
 #include <TProfile2D.h>
 #include <TRandom.h>
 #include <TString.h>
-
-#include <fairlogger/Logger.h>
 
 #include <Rtypes.h>
 #include <RtypesCore.h>

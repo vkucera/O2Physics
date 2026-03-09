@@ -18,12 +18,12 @@
 
 #include <CCDB/BasicCCDBManager.h>
 #include <Framework/Configurable.h>
+#include <Framework/Logger.h>
 
 #include <TH1.h>
 #include <TH2.h>
 #include <TH3.h>
 
-#include <fairlogger/Logger.h>
 #include <fmt/format.h>
 
 #include <algorithm>

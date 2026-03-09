@@ -16,10 +16,11 @@
 #define PWGCF_JCORRAN_CORE_FLOWJSPCANALYSIS_H_
 
 /* Header files. */
+#include <Framework/Logger.h>
+
 #include <TComplex.h>
 #include <TString.h>
 
-#include <fairlogger/Logger.h>
 #include <sys/types.h>
 
 #include <Rtypes.h>

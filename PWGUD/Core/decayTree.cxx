@@ -12,10 +12,10 @@
 #include "decayTree.h"
 
 #include <Framework/HistogramRegistry.h>
+#include <Framework/Logger.h>
 
 #include <TDatabasePDG.h>
 
-#include <fairlogger/Logger.h>
 #include <rapidjson/document.h>
 #include <rapidjson/filereadstream.h>
 #include <sys/types.h>

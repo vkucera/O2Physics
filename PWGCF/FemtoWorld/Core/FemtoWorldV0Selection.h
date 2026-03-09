@@ -26,10 +26,9 @@
 
 #include <Framework/HistogramRegistry.h>
 #include <Framework/HistogramSpec.h>
+#include <Framework/Logger.h>
 
 #include <TDatabasePDG.h>
-
-#include <fairlogger/Logger.h>
 
 #include <array>
 #include <cstddef>

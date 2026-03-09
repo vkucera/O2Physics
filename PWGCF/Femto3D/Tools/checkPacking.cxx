@@ -18,12 +18,12 @@
 
 #include "PWGCF/Femto3D/DataModel/singletrackselector.h"
 
+#include <Framework/Logger.h>
+
 #include <TCanvas.h>
 #include <TH1.h>
 #include <TRandom.h>
 #include <TString.h>
-
-#include <fairlogger/Logger.h>
 
 #include <vector>
 

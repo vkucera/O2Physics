@@ -25,6 +25,7 @@
 #include <DataFormatsParameters/GRPLHCIFData.h>
 #include <DetectorsBase/GeometryManager.h>
 #include <DetectorsBase/MatLayerCylSet.h>
+#include <Framework/Logger.h>
 #include <MCHTracking/TrackExtrap.h>
 #include <ReconstructionDataFormats/GlobalFwdTrack.h>
 #include <ReconstructionDataFormats/TrackParametrizationWithError.h>
@@ -34,8 +35,6 @@
 #include <Math/Vector3Dfwd.h>
 #include <TMath.h>
 #include <TMathBase.h>
-
-#include <fairlogger/Logger.h>
 
 #include <GPUROOTCartesianFwd.h>
 #include <Rtypes.h>

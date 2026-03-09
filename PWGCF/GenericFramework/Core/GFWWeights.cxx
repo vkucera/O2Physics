@@ -11,6 +11,8 @@
 
 #include "GFWWeights.h"
 
+#include <Framework/Logger.h>
+
 #include <TCollection.h>
 #include <TFile.h>
 #include <TH1.h>
@@ -20,8 +22,6 @@
 #include <TNamed.h>
 #include <TObjArray.h>
 #include <TString.h>
-
-#include <fairlogger/Logger.h>
 
 #include <RtypesCore.h>
 

@@ -16,7 +16,7 @@
 #define PWGCF_JCORRAN_CORE_FLOWJHISTMANAGER_H_
 
 /* Header files. */
-#include <fairlogger/Logger.h>
+#include <Framework/Logger.h>
 
 #include <Rtypes.h>
 

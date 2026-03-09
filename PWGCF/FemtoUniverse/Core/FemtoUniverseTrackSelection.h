@@ -28,9 +28,8 @@
 #include <CommonConstants/MathConstants.h>
 #include <Framework/HistogramRegistry.h>
 #include <Framework/HistogramSpec.h>
+#include <Framework/Logger.h>
 #include <ReconstructionDataFormats/PID.h>
-
-#include <fairlogger/Logger.h>
 
 #include <array>
 #include <cmath>

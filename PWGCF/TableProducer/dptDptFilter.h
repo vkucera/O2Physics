@@ -34,6 +34,7 @@
 #include <CommonConstants/PhysicsConstants.h>
 #include <Framework/AnalysisDataModel.h>
 #include <Framework/DataTypes.h>
+#include <Framework/Logger.h>
 #include <ReconstructionDataFormats/PID.h>
 
 #include <TF1.h>
@@ -43,7 +44,6 @@
 #include <TMCProcess.h>
 #include <TPDGCode.h>
 
-#include <fairlogger/Logger.h>
 #include <sys/types.h>
 
 #include <Rtypes.h>

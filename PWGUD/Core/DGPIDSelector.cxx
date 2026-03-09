@@ -10,10 +10,11 @@
 // or submit itself to any jurisdiction.
 #include "DGPIDSelector.h"
 
+#include <Framework/Logger.h>
+
 #include <TDatabasePDG.h>
 #include <TParticlePDG.h>
 
-#include <fairlogger/Logger.h>
 #include <sys/types.h>
 
 #include <algorithm>

@@ -12,10 +12,9 @@
 #ifndef PWGLF_UTILS_DECAY3BODYBUILDERHELPER_H_
 #define PWGLF_UTILS_DECAY3BODYBUILDERHELPER_H_
 
+#include <Framework/Logger.h>
 #include <ReconstructionDataFormats/DCA.h>
 #include <ReconstructionDataFormats/Vertex.h>
-
-#include <fairlogger/Logger.h>
 
 #include <stdexcept>
 #ifndef HomogeneousField

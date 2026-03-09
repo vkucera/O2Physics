@@ -21,13 +21,13 @@
 
 #include <CCDB/BasicCCDBManager.h>
 #include <Framework/InitContext.h>
+#include <Framework/Logger.h>
 
 #include <TEnv.h>
 #include <THashList.h>
 #include <TString.h>
 #include <TSystem.h>
 
-#include <fairlogger/Logger.h>
 #include <sys/file.h>
 #include <sys/stat.h>
 

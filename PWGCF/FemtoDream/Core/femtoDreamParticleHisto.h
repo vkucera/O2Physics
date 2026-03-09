@@ -23,11 +23,10 @@
 #include <CommonConstants/PhysicsConstants.h>
 #include <Framework/HistogramRegistry.h>
 #include <Framework/HistogramSpec.h>
+#include <Framework/Logger.h>
 
 #include <TMath.h>
 #include <TPDGCode.h>
-
-#include <fairlogger/Logger.h>
 
 #include <cstdlib>
 #include <string>

@@ -16,6 +16,7 @@
 
 #include <CCDB/BasicCCDBManager.h>
 #include <CommonConstants/MathConstants.h>
+#include <Framework/Logger.h>
 #include <MathUtils/Utils.h>
 #include <ReconstructionDataFormats/Track.h>
 #include <ReconstructionDataFormats/TrackParametrization.h>
@@ -30,8 +31,6 @@
 #include <TRandom.h>
 #include <TString.h>
 #include <TVectorDfwd.h>
-
-#include <fairlogger/Logger.h>
 
 #include <Rtypes.h>
 #include <RtypesCore.h>

@@ -19,8 +19,7 @@
 
 #include <CommonConstants/MathConstants.h>
 #include <Framework/HistogramSpec.h>
-
-#include <fairlogger/Logger.h>
+#include <Framework/Logger.h>
 
 // Namespaces.
 using namespace o2;

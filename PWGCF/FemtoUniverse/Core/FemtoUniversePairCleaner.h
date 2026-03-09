@@ -22,8 +22,7 @@
 #include "PWGCF/FemtoUniverse/DataModel/FemtoDerived.h"
 
 #include <Framework/HistogramRegistry.h>
-
-#include <fairlogger/Logger.h>
+#include <Framework/Logger.h>
 
 namespace o2::analysis::femto_universe
 {

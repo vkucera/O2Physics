@@ -23,8 +23,7 @@
 #include <CommonConstants/PhysicsConstants.h>
 #include <Framework/HistogramRegistry.h>
 #include <Framework/HistogramSpec.h>
-
-#include <fairlogger/Logger.h>
+#include <Framework/Logger.h>
 
 #include <vector>
 

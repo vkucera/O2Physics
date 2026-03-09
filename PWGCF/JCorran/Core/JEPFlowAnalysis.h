@@ -14,10 +14,10 @@
 #ifndef PWGCF_JCORRAN_CORE_JEPFLOWANALYSIS_H_
 #define PWGCF_JCORRAN_CORE_JEPFLOWANALYSIS_H_
 
+#include <Framework/Logger.h>
+
 #include <TComplex.h>
 #include <TMath.h>
-
-#include <fairlogger/Logger.h>
 
 #include <Rtypes.h>
 #include <RtypesCore.h>

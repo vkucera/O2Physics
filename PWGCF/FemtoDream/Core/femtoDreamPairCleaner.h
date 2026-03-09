@@ -19,8 +19,7 @@
 #include "PWGCF/DataModel/FemtoDerived.h"
 
 #include <Framework/HistogramRegistry.h>
-
-#include <fairlogger/Logger.h>
+#include <Framework/Logger.h>
 
 using namespace o2::framework;
 

@@ -30,10 +30,9 @@
 #include <CommonConstants/PhysicsConstants.h>
 #include <Framework/HistogramRegistry.h>
 #include <Framework/HistogramSpec.h>
+#include <Framework/Logger.h>
 
 #include <TLorentzVector.h>
-
-#include <fairlogger/Logger.h>
 
 #include <array>
 #include <cstddef>

@@ -25,6 +25,7 @@
 #include <DataFormatsParameters/GRPLHCIFData.h>
 #include <DataFormatsTOF/ParameterContainers.h>
 #include <Framework/CommonServices.h>
+#include <Framework/Logger.h>
 #include <Framework/Plugins.h>
 #include <Framework/ServiceHandle.h>
 #include <Framework/ServiceSpec.h>
@@ -32,8 +33,6 @@
 #include <PID/PIDTOF.h>
 
 #include <TGraph.h>
-
-#include <fairlogger/Logger.h>
 
 #include <chrono>
 #include <cstdint>

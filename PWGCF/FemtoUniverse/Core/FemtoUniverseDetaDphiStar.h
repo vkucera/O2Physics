@@ -26,6 +26,7 @@
 #include <CommonConstants/PhysicsConstants.h>
 #include <Framework/HistogramRegistry.h>
 #include <Framework/HistogramSpec.h>
+#include <Framework/Logger.h>
 
 #include <TH2.h>
 #include <TH3.h>
@@ -33,8 +34,6 @@
 #include <TMath.h>
 #include <TMathBase.h>
 #include <TVector2.h>
-
-#include <fairlogger/Logger.h>
 
 #include <array>
 #include <cmath>

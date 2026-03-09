@@ -25,6 +25,7 @@
 #include "ALICE3/Core/FastTracker.h"
 #include "ALICE3/Core/TrackUtilities.h"
 
+#include <Framework/Logger.h>
 #include <ReconstructionDataFormats/Track.h>
 
 #include <TAxis.h>
@@ -37,8 +38,6 @@
 #include <TParticlePDG.h>
 #include <TString.h>
 #include <TVectorDfwd.h>
-
-#include <fairlogger/Logger.h>
 
 #include <Rtypes.h>
 
