@@ -42,7 +42,7 @@ class FemtoUniverseSoftPionRemoval
   virtual ~FemtoUniverseSoftPionRemoval() = default;
 
   /// Initialization of the QA histograms
-  /// \param registry HistogramRegistry
+  /// \param registry o2::framework::HistogramRegistry
   void init(framework::HistogramRegistry* registry)
   {
     if (registry) {

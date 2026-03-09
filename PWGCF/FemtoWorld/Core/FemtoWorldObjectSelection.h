@@ -27,8 +27,6 @@
 #include <cstddef>
 #include <string>
 
-using namespace o2::framework;
-
 namespace o2::analysis
 {
 namespace femtoWorld
@@ -52,7 +50,7 @@ class FemtoWorldObjectSelection
   void fillSelectionHistogram()
   {
     int nBins = mSelections.size();
-    mHistogramRegistry->add((static_cast<std::string>(o2::aod::femtoworldparticle::ParticleTypeName[part]) + "/cuthist").c_str(), "; Cut; Value", kTH1F, {{nBins, 0, static_cast<double>(nBins)}});
+    mHistogramRegistry->add((static_cast<std::string>(o2::aod::femtoworldparticle::ParticleTypeName[part]) + "/cuthist").c_str(), "; Cut; Value", o2::framework::kTH1F, {{nBins, 0, static_cast<double>(nBins)}});
     auto hist = mHistogramRegistry->get<TH1>(HIST(o2::aod::femtoworldparticle::ParticleTypeName[part]) + HIST("/cuthist"));
     for (size_t i = 0; i < mSelections.size(); ++i) {
       hist->GetXaxis()->SetBinLabel(i + 1, Form("%u", mSelections.at(i).getSelectionVariable()));
@@ -188,7 +186,7 @@ class FemtoWorldObjectSelection
   }
 
  protected:
-  HistogramRegistry* mHistogramRegistry;                                     ///< For QA output
+  o2::framework::HistogramRegistry* mHistogramRegistry;                      ///< For QA output
   std::vector<FemtoWorldSelection<selValDataType, selVariable>> mSelections; ///< Vector containing all selections
 };
 

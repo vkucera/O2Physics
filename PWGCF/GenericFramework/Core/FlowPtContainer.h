@@ -41,9 +41,6 @@ enum EventWeight {
 };
 };
 
-using namespace o2::analysis::genericframework;
-using namespace o2::analysis::genericframework::eventweight;
-
 class FlowPtContainer : public TNamed
 {
  public:
@@ -52,9 +49,9 @@ class FlowPtContainer : public TNamed
   explicit FlowPtContainer(const char* name);
   ~FlowPtContainer();
   FlowPtContainer(const char* name, const char* title);
-  void initialise(const o2::framework::AxisSpec axis, const int& m, const GFWCorrConfigs& configs, const int& nsub = 10);
-  void initialise(int nbinsx, double* xbins, const int& m, const GFWCorrConfigs& configs, const int& nsub = 10);
-  void initialise(int nbinsx, double xlow, double xhigh, const int& m, const GFWCorrConfigs& configs, const int& nsub = 10);
+  void initialise(const o2::framework::AxisSpec axis, const int& m, const o2::analysis::genericframework::GFWCorrConfigs& configs, const int& nsub = 10);
+  void initialise(int nbinsx, double* xbins, const int& m, const o2::analysis::genericframework::GFWCorrConfigs& configs, const int& nsub = 10);
+  void initialise(int nbinsx, double xlow, double xhigh, const int& m, const o2::analysis::genericframework::GFWCorrConfigs& configs, const int& nsub = 10);
   // initial pt-pt correlations with two subevents
   void initialiseSubevent(const o2::framework::AxisSpec axis, const int& m, const int& nsubev = 2, const int& nsub = 10);
   void initialiseSubevent(int nbinsx, double* xbins, const int& m, const int& nsubev = 2, const int& nsub = 10);

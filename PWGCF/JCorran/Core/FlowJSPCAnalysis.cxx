@@ -9,12 +9,6 @@
 // granted to it by virtue of its status as an Intergovernmental Organization
 // or submit itself to any jurisdiction.
 
-// Header files.
-
-// O2 headers.
-
-// O2 Physics headers.
-
 #include "PWGCF/JCorran/Core/FlowJSPCAnalysis.h"
 
 #include <Framework/HistogramRegistry.h>

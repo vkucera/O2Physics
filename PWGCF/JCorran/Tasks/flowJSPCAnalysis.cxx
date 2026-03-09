@@ -13,7 +13,27 @@
 /// \brief   Task for the calculation of SPC with filtered data.
 /// \author  Maxim Virta (maxim.virta@cern.ch), Cindy Mordasini (cindy.mordasini@cern.ch), Neelkamal Mallick (neelkamal.mallick@cern.ch)
 
-// Standard headers.
+#include "PWGCF/JCorran/Core/FlowJSPCAnalysis.h"
+
+#include "PWGCF/DataModel/CorrelationsDerived.h"
+#include "PWGCF/JCorran/Core/FlowJHistManager.h"
+#include "PWGCF/JCorran/Core/FlowJSPCObservables.h"
+#include "PWGCF/JCorran/DataModel/JCatalyst.h"
+
+#include "Common/DataModel/Centrality.h"
+#include "Common/DataModel/EventSelection.h"
+#include "Common/DataModel/FT0Corrected.h"
+#include "Common/DataModel/Multiplicity.h"
+#include "Common/DataModel/TrackSelectionTables.h"
+
+#include <Framework/AnalysisDataModel.h>
+#include <Framework/AnalysisTask.h>
+#include <Framework/Configurable.h>
+#include <Framework/HistogramRegistry.h>
+#include <Framework/InitContext.h>
+#include <Framework/OutputObjHeader.h>
+#include <Framework/runDataProcessing.h>
+
 #include <TFormula.h>
 
 #include <sys/types.h>
@@ -27,29 +47,6 @@
 #include <memory>
 #include <string>
 #include <vector>
-
-// O2 headers. //
-// The first two are mandatory.
-#include <Framework/AnalysisDataModel.h>
-#include <Framework/AnalysisTask.h>
-#include <Framework/Configurable.h>
-#include <Framework/HistogramRegistry.h>
-#include <Framework/InitContext.h>
-#include <Framework/OutputObjHeader.h>
-#include <Framework/runDataProcessing.h>
-
-// O2 Physics headers. //
-#include "PWGCF/DataModel/CorrelationsDerived.h"
-#include "PWGCF/JCorran/Core/FlowJHistManager.h"
-#include "PWGCF/JCorran/Core/FlowJSPCAnalysis.h"
-#include "PWGCF/JCorran/Core/FlowJSPCObservables.h"
-#include "PWGCF/JCorran/DataModel/JCatalyst.h"
-
-#include "Common/DataModel/Centrality.h"
-#include "Common/DataModel/EventSelection.h"
-#include "Common/DataModel/FT0Corrected.h"
-#include "Common/DataModel/Multiplicity.h"
-#include "Common/DataModel/TrackSelectionTables.h"
 
 // Namespaces and definitions.
 using namespace o2;

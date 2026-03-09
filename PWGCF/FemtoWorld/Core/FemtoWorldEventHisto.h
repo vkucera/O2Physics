@@ -20,8 +20,6 @@
 #include <Framework/HistogramRegistry.h>
 #include <Framework/HistogramSpec.h>
 
-using namespace o2::framework;
-
 namespace o2::analysis::femtoWorld
 {
 /// \class FemtoWorldEventHisto
@@ -33,11 +31,11 @@ class FemtoWorldEventHisto
   virtual ~FemtoWorldEventHisto() = default;
   /// Initializes histograms for the task
   /// \param registry Histogram registry to be passed
-  void init(HistogramRegistry* registry)
+  void init(o2::framework::HistogramRegistry* registry)
   {
     mHistogramRegistry = registry;
-    mHistogramRegistry->add("Event/zvtxhist", "; vtx_{z} (cm); Entries", kTH1F, {{300, -12.5, 12.5}});
-    mHistogramRegistry->add("Event/MultV0M", "; vMultV0M; Entries", kTH1F, {{600, 0, 600}});
+    mHistogramRegistry->add("Event/zvtxhist", "; vtx_{z} (cm); Entries", o2::framework::kTH1F, {{300, -12.5, 12.5}});
+    mHistogramRegistry->add("Event/MultV0M", "; vMultV0M; Entries", o2::framework::kTH1F, {{600, 0, 600}});
   }
 
   /// Some basic QA of the event
@@ -53,7 +51,7 @@ class FemtoWorldEventHisto
   }
 
  private:
-  HistogramRegistry* mHistogramRegistry; ///< For QA output
+  o2::framework::HistogramRegistry* mHistogramRegistry; ///< For QA output
 };
 } // namespace o2::analysis::femtoWorld
 

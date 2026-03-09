@@ -20,9 +20,6 @@
 #include <string_view>
 #include <vector>
 
-using namespace o2;
-using namespace o2::framework;
-
 namespace o2::analysis::femtoWorld
 {
 class PairWithCentrality
@@ -35,10 +32,10 @@ class PairWithCentrality
   /// @param kstarbins
   /// @param centbins
   template <typename t1>
-  void init(HistogramRegistry* registry, t1& kstarbins, t1& centbins)
+  void init(o2::framework::HistogramRegistry* registry, t1& kstarbins, t1& centbins)
   {
     PairWithCentralityRegistry = registry;
-    AxisSpec kstarAxis = {kstarbins, "#it{k*} (GeV/#it{c})"};
+    o2::framework::AxisSpec kstarAxis = {kstarbins, "#it{k*} (GeV/#it{c})"};
     CentBins = centbins;
     CentBins.erase(CentBins.begin());
 
@@ -47,9 +44,9 @@ class PairWithCentrality
       std::string HistSuffix1 = static_cast<std::string>(HistSuffix[i]);
       std::string HistSuffix2 = static_cast<std::string>(HistSuffix[i + 1]);
       std::string HistName = "kstar_cent_" + HistSuffix1 + "_" + HistSuffix2;
-      PairWithCentralityRegistry->add(HistName.c_str(), HistTitle.c_str(), HistType::kTH1F, {kstarAxis});
+      PairWithCentralityRegistry->add(HistName.c_str(), HistTitle.c_str(), o2::framework::HistType::kTH1F, {kstarAxis});
     }
-    PairWithCentralityRegistry->add("Beyond_Max_Cent", "Beyond_Max_Cent", HistType::kTH1F, {kstarAxis});
+    PairWithCentralityRegistry->add("Beyond_Max_Cent", "Beyond_Max_Cent", o2::framework::HistType::kTH1F, {kstarAxis});
   }
 
   /// @brief
@@ -83,7 +80,7 @@ class PairWithCentrality
   }
 
  protected:
-  HistogramRegistry* PairWithCentralityRegistry = nullptr;
+  o2::framework::HistogramRegistry* PairWithCentralityRegistry = nullptr;
   std::vector<double> CentBins;
   static constexpr std::string_view HistSuffix[10] = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9"};
 };

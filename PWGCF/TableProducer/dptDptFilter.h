@@ -1596,8 +1596,6 @@ struct TpcExcludeTrack {
 template <typename TrackObject>
 inline bool matchTrackType(TrackObject const& track)
 {
-  using namespace o2::aod::track;
-
   if (tracktype == TrackTypePWGMM) {
     // under tests MM track selection
     // see: https://indico.cern.ch/event/1383788/contributions/5816953/attachments/2805905/4896281/TrackSel_GlobalTracks_vs_MMTrackSel.pdf

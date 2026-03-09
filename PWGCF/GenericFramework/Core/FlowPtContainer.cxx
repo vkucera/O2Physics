@@ -39,6 +39,9 @@
 #include <variant>
 #include <vector>
 
+using namespace o2::analysis::genericframework;
+using namespace o2::analysis::genericframework::eventweight;
+
 FlowPtContainer::FlowPtContainer() : fCMTermList(0),
                                      fCorrList(0),
                                      fCovList(0),

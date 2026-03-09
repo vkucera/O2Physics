@@ -15,7 +15,11 @@
 #ifndef PWGCF_JCORRAN_CORE_FLOWJSPCANALYSIS_H_
 #define PWGCF_JCORRAN_CORE_FLOWJSPCANALYSIS_H_
 
-/* Header files. */
+#include "PWGCF/JCorran/Core/JQVectors.h"
+
+#include <CommonConstants/MathConstants.h>
+#include <Framework/HistogramRegistry.h>
+#include <Framework/HistogramSpec.h>
 #include <Framework/Logger.h>
 
 #include <TComplex.h>
@@ -28,13 +32,6 @@
 #include <cstring>
 #include <string_view>
 #include <vector>
-
-// O2 headers. //
-#include "PWGCF/JCorran/Core/JQVectors.h"
-
-#include <CommonConstants/MathConstants.h>
-#include <Framework/HistogramRegistry.h>
-#include <Framework/HistogramSpec.h>
 
 class FlowJSPCAnalysis
 {

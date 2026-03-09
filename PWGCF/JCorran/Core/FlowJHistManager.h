@@ -15,17 +15,12 @@
 #ifndef PWGCF_JCORRAN_CORE_FLOWJHISTMANAGER_H_
 #define PWGCF_JCORRAN_CORE_FLOWJHISTMANAGER_H_
 
-/* Header files. */
+#include <Framework/HistogramRegistry.h>
 #include <Framework/Logger.h>
 
 #include <Rtypes.h>
 
 #include <string_view>
-
-// O2 headers. //
-#include <Framework/HistogramRegistry.h>
-
-// O2 Physics headers.
 
 /* Namespaces. */
 

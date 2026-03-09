@@ -12,16 +12,14 @@
 // \brief   Task for the NUA correction with filtered data.
 // \author  Maxim Virta (maxim.virta@cern.ch)
 
-// Standard headers.
-#include <RtypesCore.h>
+#include "PWGCF/JCorran/Core/FlowJHistManager.h"
 
-#include <chrono>
-#include <cstdint>
-#include <string>
-#include <vector>
+#include "Common/DataModel/Centrality.h"
+#include "Common/DataModel/EventSelection.h"
+#include "Common/DataModel/FT0Corrected.h"
+#include "Common/DataModel/Multiplicity.h"
+#include "Common/DataModel/TrackSelectionTables.h"
 
-// O2 headers. //
-// The first two are mandatory.
 #include <CCDB/BasicCCDBManager.h>
 #include <Framework/AnalysisDataModel.h>
 #include <Framework/AnalysisHelpers.h>
@@ -32,14 +30,12 @@
 #include <Framework/OutputObjHeader.h>
 #include <Framework/runDataProcessing.h>
 
-// O2 Physics headers. //
-#include "PWGCF/JCorran/Core/FlowJHistManager.h"
+#include <RtypesCore.h>
 
-#include "Common/DataModel/Centrality.h"
-#include "Common/DataModel/EventSelection.h"
-#include "Common/DataModel/FT0Corrected.h"
-#include "Common/DataModel/Multiplicity.h"
-#include "Common/DataModel/TrackSelectionTables.h"
+#include <chrono>
+#include <cstdint>
+#include <string>
+#include <vector>
 
 // Namespaces and definitions.
 using namespace o2;

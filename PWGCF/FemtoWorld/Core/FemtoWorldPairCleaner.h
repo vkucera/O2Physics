@@ -24,8 +24,6 @@
 
 #include <cstdint>
 
-using namespace o2::framework;
-
 namespace o2::analysis::femtoWorld
 {
 
@@ -41,8 +39,8 @@ class FemtoWorldPairCleaner
   virtual ~FemtoWorldPairCleaner() = default;
 
   /// Initialization of the QA histograms
-  /// \param registry HistogramRegistry
-  void init(HistogramRegistry* registry)
+  /// \param registry o2::framework::HistogramRegistry
+  void init(o2::framework::HistogramRegistry* registry)
   {
     if (registry) {
       mHistogramRegistry = registry;
@@ -92,7 +90,7 @@ class FemtoWorldPairCleaner
   }
 
  private:
-  HistogramRegistry* mHistogramRegistry;                                             ///< For QA output
+  o2::framework::HistogramRegistry* mHistogramRegistry;                              ///< For QA output
   static constexpr o2::aod::femtoworldparticle::ParticleType mPartOneType = partOne; ///< Type of particle 1
   static constexpr o2::aod::femtoworldparticle::ParticleType mPartTwoType = partTwo; ///< Type of particle 2
 };

@@ -43,6 +43,7 @@
 #include <string>
 #include <vector>
 
+using namespace o2;
 using namespace o2::aod;
 using namespace o2::soa;
 using namespace o2::framework;

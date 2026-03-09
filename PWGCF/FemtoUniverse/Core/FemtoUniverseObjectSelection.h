@@ -31,9 +31,6 @@
 #include <string>
 #include <vector>
 
-using namespace o2;
-using namespace o2::framework;
-
 namespace o2::analysis
 {
 namespace femto_universe
@@ -58,7 +55,7 @@ class FemtoUniverseObjectSelection
   {
     int nBins = mSelections.size();
     LOGF(info, "%s", (static_cast<std::string>(o2::aod::femtouniverseparticle::ParticleTypeName[part]) + "/cuthist").c_str());
-    mHistogramRegistry->add((static_cast<std::string>(o2::aod::femtouniverseparticle::ParticleTypeName[part]) + "/cuthist").c_str(), "; Cut; Value", kTH1F, {{nBins, 0, static_cast<double>(nBins)}});
+    mHistogramRegistry->add((static_cast<std::string>(o2::aod::femtouniverseparticle::ParticleTypeName[part]) + "/cuthist").c_str(), "; Cut; Value", o2::framework::kTH1F, {{nBins, 0, static_cast<double>(nBins)}});
     auto hist = mHistogramRegistry->get<TH1>(HIST(o2::aod::femtouniverseparticle::ParticleTypeName[part]) + HIST("/cuthist"));
     for (size_t i = 0; i < mSelections.size(); ++i) {
       hist->GetXaxis()->SetBinLabel(i + 1, Form("%u", mSelections.at(i).getSelectionVariable()));
@@ -195,7 +192,7 @@ class FemtoUniverseObjectSelection
   }
 
  protected:
-  HistogramRegistry* mHistogramRegistry;                                        ///< For QA output
+  o2::framework::HistogramRegistry* mHistogramRegistry;                         ///< For QA output
   std::vector<FemtoUniverseSelection<selValDataType, selVariable>> mSelections; ///< Vector containing all selections
 };
 

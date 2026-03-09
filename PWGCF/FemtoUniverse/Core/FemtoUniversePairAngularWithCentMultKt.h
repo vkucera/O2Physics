@@ -41,7 +41,7 @@ class FemtoUniversePairAngularWithCentMultKt
   void init(framework::HistogramRegistry* registry, t1& /*kstarbins*/, t1& centmultbins, t2& phiBins, t2& etaBins, bool processKT)
   {
     pairWithCentMultKtRegistry = registry;
-    // AxisSpec kstarAxis = {kstarbins, "#it{k*} (GeV/#it{c})"};
+    // o2::framework::AxisSpec kstarAxis = {kstarbins, "#it{k*} (GeV/#it{c})"};
 
     kPhiLow = (-static_cast<int>(phiBins / 4) + 0.5) * o2::constants::math::TwoPI / phiBins;
     kPhiHigh = o2::constants::math::TwoPI + (-static_cast<int>(phiBins / 4) + 0.5) * o2::constants::math::TwoPI / phiBins;
