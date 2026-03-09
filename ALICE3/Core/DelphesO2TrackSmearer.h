@@ -260,10 +260,9 @@ class TrackSmearer
 } // namespace delphes
 } // namespace o2
 
-// #endif /** _DelphesO2_TrackSmearer_h_ **/
-
 namespace o2::delphes
 {
 using DelphesO2TrackSmearer = TrackSmearer;
 }
+
 #endif // ALICE3_CORE_DELPHESO2TRACKSMEARER_H_

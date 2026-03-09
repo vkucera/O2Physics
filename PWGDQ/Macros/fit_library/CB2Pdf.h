@@ -11,8 +11,8 @@
 
 /// \author Luca Micheletti <luca.micheletti@cern.ch>, CERN
 
-#ifndef CB2PDF
-#define CB2PDF
+#ifndef PWGDQ_MACROS_FIT_LIBRARY_CB2PDF_H_
+#define PWGDQ_MACROS_FIT_LIBRARY_CB2PDF_H_
 
 #include <RooAbsPdf.h>
 #include <RooAbsReal.h>
@@ -53,4 +53,4 @@ class CB2Pdf : public RooAbsPdf
   ClassDef(CB2Pdf, 1) // Your description goes here...
 };
 
-#endif
+#endif // PWGDQ_MACROS_FIT_LIBRARY_CB2PDF_H_

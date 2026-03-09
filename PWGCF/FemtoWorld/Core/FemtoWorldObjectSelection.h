@@ -13,8 +13,8 @@
 /// \brief FemtoWorldObjectSelection - Parent class of all selections
 /// \author Andi Mathis, TU München, andreas.mathis@ph.tum.de
 
-#ifndef FEMTOWORLDOBJECTSELECTION_H_
-#define FEMTOWORLDOBJECTSELECTION_H_
+#ifndef PWGCF_FEMTOWORLD_CORE_FEMTOWORLDOBJECTSELECTION_H_
+#define PWGCF_FEMTOWORLD_CORE_FEMTOWORLDOBJECTSELECTION_H_
 
 #include "PWGCF/FemtoWorld/Core/FemtoWorldSelection.h"
 #include "PWGCF/FemtoWorld/DataModel/FemtoWorldDerived.h"
@@ -195,4 +195,4 @@ class FemtoWorldObjectSelection
 } // namespace femtoWorld
 } // namespace o2::analysis
 
-#endif /* FEMTOWORLDOBJECTSELECTION_H_ */
+#endif // PWGCF_FEMTOWORLD_CORE_FEMTOWORLDOBJECTSELECTION_H_

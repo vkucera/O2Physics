@@ -16,8 +16,8 @@
 /// \brief  Implementation for the TOF PID response of the expected times resolution
 ///
 
-#ifndef O2_ANALYSIS_PID_TOFRESOALICE3_H_
-#define O2_ANALYSIS_PID_TOFRESOALICE3_H_
+#ifndef ALICE3_CORE_TOFRESOALICE3_H_
+#define ALICE3_CORE_TOFRESOALICE3_H_
 
 #include <PID/ParamBase.h>
 #include <ReconstructionDataFormats/PID.h>
@@ -76,4 +76,4 @@ float TOFResoALICE3ParamTrack(const T& track, const Parameters& parameters)
 
 } // namespace o2::pid::tof
 
-#endif
+#endif // ALICE3_CORE_TOFRESOALICE3_H_

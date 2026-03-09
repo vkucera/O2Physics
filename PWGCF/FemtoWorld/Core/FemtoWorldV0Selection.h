@@ -16,8 +16,8 @@
 /// \author Luca Barioglio, TU München, luca.barioglio@cern.ch
 /// \author Zuzanna Chochulska, WUT Warsaw, zchochul@cern.ch
 
-#ifndef FEMTOWORLDV0SELECTION_H_
-#define FEMTOWORLDV0SELECTION_H_
+#ifndef PWGCF_FEMTOWORLD_CORE_FEMTOWORLDV0SELECTION_H_
+#define PWGCF_FEMTOWORLD_CORE_FEMTOWORLDV0SELECTION_H_
 
 #include "PWGCF/FemtoWorld/Core/FemtoWorldObjectSelection.h"
 #include "PWGCF/FemtoWorld/Core/FemtoWorldSelection.h"
@@ -555,4 +555,4 @@ void FemtoWorldV0Selection::fillQA(C const& /*col*/, V const& v0, T const& posTr
 
 } // namespace o2::analysis::femtoWorld
 
-#endif /* FEMTOWORLDV0SELECTION_H_ */
+#endif // PWGCF_FEMTOWORLD_CORE_FEMTOWORLDV0SELECTION_H_

@@ -11,8 +11,8 @@
 
 /// \author Luca Micheletti <luca.micheletti@cern.ch>, CERN
 
-#ifndef VWGPDF
-#define VWGPDF
+#ifndef PWGDQ_MACROS_FIT_LIBRARY_VWGPDF_H_
+#define PWGDQ_MACROS_FIT_LIBRARY_VWGPDF_H_
 
 #include <RooAbsPdf.h>
 #include <RooAbsReal.h>
@@ -47,4 +47,4 @@ class VWGPdf : public RooAbsPdf
   ClassDef(VWGPdf, 1) // Your description goes here...
 };
 
-#endif
+#endif // PWGDQ_MACROS_FIT_LIBRARY_VWGPDF_H_

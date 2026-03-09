@@ -11,6 +11,10 @@
 //
 // Contact: iarsene@cern.ch, i.c.arsene@fys.uio.no
 //
+
+#ifndef PWGDQ_CORE_MIXINGLIBRARY_H_
+#define PWGDQ_CORE_MIXINGLIBRARY_H_
+
 #include "PWGDQ/Core/MixingHandler.h"
 
 namespace o2::aod
@@ -22,3 +26,5 @@ void SetUpMixing(MixingHandler* mh, const char* mixingVarible);
 } // namespace o2::aod
 
 void o2::aod::dqmixing::SetUpMixing(MixingHandler* mh, const char* mixingVarible);
+
+#endif // PWGDQ_CORE_MIXINGLIBRARY_H_

@@ -17,8 +17,8 @@
 //    cicero.domenico.muncinelli@cern.ch
 //
 
-#ifndef PWGLF_DATAMODEL_LAMBDAJETPOL_H_
-#define PWGLF_DATAMODEL_LAMBDAJETPOL_H_
+#ifndef PWGLF_DATAMODEL_LAMBDAJETPOLARIZATIONIONS_H_
+#define PWGLF_DATAMODEL_LAMBDAJETPOLARIZATIONIONS_H_
 
 #include <Framework/ASoA.h>
 #include <Framework/AnalysisDataModel.h>
@@ -151,4 +151,4 @@ DECLARE_SOA_TABLE(RingCollisions, "AOD", "RINGCOLLISIONS",
 
 } // namespace o2::aod
 
-#endif // PWGLF_DATAMODEL_LAMBDAJETPOL_H_
+#endif // PWGLF_DATAMODEL_LAMBDAJETPOLARIZATIONIONS_H_

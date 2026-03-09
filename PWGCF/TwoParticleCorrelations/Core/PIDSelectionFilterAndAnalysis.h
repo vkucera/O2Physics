@@ -8,8 +8,9 @@
 // In applying this license CERN does not waive the privileges and immunities
 // granted to it by virtue of its status as an Intergovernmental Organization
 // or submit itself to any jurisdiction.
-#ifndef PIDSELECTIONFILTERANDANALYSIS_H
-#define PIDSELECTIONFILTERANDANALYSIS_H
+
+#ifndef PWGCF_TWOPARTICLECORRELATIONS_CORE_PIDSELECTIONFILTERANDANALYSIS_H_
+#define PWGCF_TWOPARTICLECORRELATIONS_CORE_PIDSELECTIONFILTERANDANALYSIS_H_
 
 #include "SelectionFilterAndAnalysis.h"
 #include "SkimmingConfigurableCuts.h"
@@ -191,4 +192,4 @@ inline uint64_t PIDSelectionFilterAndAnalysis::Filter(TrackToFilter const& track
 } // namespace analysis
 } // namespace o2
 
-#endif // PIDSELECTIONFILTERANDANALYSIS_H
+#endif // PWGCF_TWOPARTICLECORRELATIONS_CORE_PIDSELECTIONFILTERANDANALYSIS_H_

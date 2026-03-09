@@ -8,8 +8,9 @@
 // In applying this license CERN does not waive the privileges and immunities
 // granted to it by virtue of its status as an Intergovernmental Organization
 // or submit itself to any jurisdiction.
-#ifndef SELECTIONFILTERANDANALYSIS_H
-#define SELECTIONFILTERANDANALYSIS_H
+
+#ifndef PWGCF_TWOPARTICLECORRELATIONS_CORE_SELECTIONFILTERANDANALYSIS_H_
+#define PWGCF_TWOPARTICLECORRELATIONS_CORE_SELECTIONFILTERANDANALYSIS_H_
 
 #include <TNamed.h>
 #include <TString.h>
@@ -78,4 +79,4 @@ class SelectionFilterAndAnalysis : public TNamed
 } // namespace analysis
 } // namespace o2
 
-#endif // SELECTIONFILTERANDANALYSIS_H
+#endif // PWGCF_TWOPARTICLECORRELATIONS_CORE_SELECTIONFILTERANDANALYSIS_H_

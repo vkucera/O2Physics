@@ -11,8 +11,8 @@
 
 /// \author Luca Micheletti <luca.micheletti@cern.ch>, CERN
 
-#ifndef GAUSPDF
-#define GAUSPDF
+#ifndef PWGDQ_MACROS_FIT_LIBRARY_GAUSPDF_H_
+#define PWGDQ_MACROS_FIT_LIBRARY_GAUSPDF_H_
 
 #include <RooAbsPdf.h>
 #include <RooAbsReal.h>
@@ -45,4 +45,4 @@ class GausPdf : public RooAbsPdf
   ClassDef(GausPdf, 1) // Your description goes here...
 };
 
-#endif
+#endif // PWGDQ_MACROS_FIT_LIBRARY_GAUSPDF_H_

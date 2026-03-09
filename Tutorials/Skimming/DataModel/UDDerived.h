@@ -10,8 +10,8 @@
 // or submit itself to any jurisdiction.
 /// \author Nima Zardoshti <nima.zardoshti@cern.ch>, CERN
 
-#ifndef O2_ANALYSIS_UDDERIVED_H
-#define O2_ANALYSIS_UDDERIVED_H
+#ifndef TUTORIALS_SKIMMING_DATAMODEL_UDDERIVED_H_
+#define TUTORIALS_SKIMMING_DATAMODEL_UDDERIVED_H_
 
 #include <Framework/ASoA.h>
 #include <Framework/AnalysisDataModel.h>
@@ -40,4 +40,4 @@ using UDTrack = UDTracks::iterator;
 
 } // namespace o2::aod
 
-#endif // O2_ANALYSIS_UDDERIVED_H
+#endif // TUTORIALS_SKIMMING_DATAMODEL_UDDERIVED_H_

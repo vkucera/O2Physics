@@ -16,8 +16,8 @@
 /// \brief  Set of tables for the ALICE3 FTOF information
 ///
 
-#ifndef O2_ANALYSIS_ALICE3_FTOF_H_
-#define O2_ANALYSIS_ALICE3_FTOF_H_
+#ifndef ALICE3_DATAMODEL_FTOF_H_
+#define ALICE3_DATAMODEL_FTOF_H_
 
 #include <Framework/AnalysisDataModel.h>
 
@@ -60,4 +60,4 @@ using FTOF = FTOFs::iterator;
 
 } // namespace o2::aod
 
-#endif // O2_ANALYSIS_ALICE3_FTOF_H_
+#endif // ALICE3_DATAMODEL_FTOF_H_

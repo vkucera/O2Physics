@@ -16,8 +16,8 @@
 /// \brief  Set of tables for the ALICE3 ECAL information
 ///
 
-#ifndef O2_ANALYSIS_ALICE3_ECAL_H_
-#define O2_ANALYSIS_ALICE3_ECAL_H_
+#ifndef ALICE3_DATAMODEL_ECAL_H_
+#define ALICE3_DATAMODEL_ECAL_H_
 
 #include <Framework/AnalysisDataModel.h>
 
@@ -52,4 +52,4 @@ using ECAL = ECALs::iterator;
 
 } // namespace o2::aod
 
-#endif // O2_ANALYSIS_ALICE3_ECAL_H_
+#endif // ALICE3_DATAMODEL_ECAL_H_

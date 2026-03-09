@@ -14,8 +14,8 @@
 /// \brief Slim nuclei tables
 ///
 
-#ifndef PWGLF_DATAMODEL_LFSLIMNUCLEITABLES_H_
-#define PWGLF_DATAMODEL_LFSLIMNUCLEITABLES_H_
+#ifndef PWGLF_DATAMODEL_LFSLIMHELAMBDA_H_
+#define PWGLF_DATAMODEL_LFSLIMHELAMBDA_H_
 
 #include <Framework/AnalysisDataModel.h>
 
@@ -87,4 +87,4 @@ struct lambdaCandidate {
   int8_t sign = 0;                // Charge sign of the Lambda candidate
 };
 
-#endif // PWGLF_DATAMODEL_LFSLIMNUCLEITABLES_H_
+#endif // PWGLF_DATAMODEL_LFSLIMHELAMBDA_H_

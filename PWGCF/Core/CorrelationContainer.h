@@ -9,8 +9,8 @@
 // granted to it by virtue of its status as an Intergovernmental Organization
 // or submit itself to any jurisdiction.
 
-#ifndef CorrelationContainer_H
-#define CorrelationContainer_H
+#ifndef PWGCF_CORE_CORRELATIONCONTAINER_H_
+#define PWGCF_CORE_CORRELATIONCONTAINER_H_
 
 // encapsulate histogram and corrections for correlation analysis
 
@@ -186,4 +186,4 @@ class CorrelationContainer : public TNamed
   ClassDef(CorrelationContainer, 2) // underlying event histogram container
 };
 
-#endif
+#endif // PWGCF_CORE_CORRELATIONCONTAINER_H_

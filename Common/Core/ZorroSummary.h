@@ -10,8 +10,8 @@
 // or submit itself to any jurisdiction.
 //
 
-#ifndef EVENTFILTERING_ZORROSUMMARY_H_
-#define EVENTFILTERING_ZORROSUMMARY_H_
+#ifndef COMMON_CORE_ZORROSUMMARY_H_
+#define COMMON_CORE_ZORROSUMMARY_H_
 
 #include <TNamed.h>
 
@@ -81,4 +81,4 @@ class ZorroSummary : public TNamed
   ClassDef(ZorroSummary, 1);
 };
 
-#endif // EVENTFILTERING_ZORROSUMMARY_H_
+#endif // COMMON_CORE_ZORROSUMMARY_H_

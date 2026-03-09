@@ -15,10 +15,10 @@
 /// \author Francesco Mazzaschi <francesco.mazzaschi@cern.ch>
 ///
 
-#include <Framework/AnalysisDataModel.h>
+#ifndef PWGLF_DATAMODEL_LFLAMBDA1405TABLE_H_
+#define PWGLF_DATAMODEL_LFLAMBDA1405TABLE_H_
 
-#ifndef PWGLF_DATAMODEL_LFLAMBDA1405TABLES_H_
-#define PWGLF_DATAMODEL_LFLAMBDA1405TABLES_H_
+#include <Framework/AnalysisDataModel.h>
 
 namespace o2::aod
 {
@@ -82,4 +82,4 @@ DECLARE_SOA_TABLE(Lambda1405CandsMC, "AOD", "MCLAMBDA1405",
 
 } // namespace o2::aod
 
-#endif // PWGLF_DATAMODEL_LFLAMBDA1405TABLES_H_
+#endif // PWGLF_DATAMODEL_LFLAMBDA1405TABLE_H_

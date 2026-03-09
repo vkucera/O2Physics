@@ -9,8 +9,8 @@
 // granted to it by virtue of its status as an Intergovernmental Organization
 // or submit itself to any jurisdiction.
 
-#ifndef O2_ANALYSIS_PAIRCUTS_H
-#define O2_ANALYSIS_PAIRCUTS_H
+#ifndef PWGCF_CORE_PAIRCUTS_H_
+#define PWGCF_CORE_PAIRCUTS_H_
 
 #include <CommonConstants/MathConstants.h>
 #include <Framework/HistogramRegistry.h>
@@ -342,4 +342,4 @@ float PairCuts::getDPhiStar(T const& track1, T const& track2, float radius, int 
   return dphistar;
 }
 
-#endif
+#endif // PWGCF_CORE_PAIRCUTS_H_

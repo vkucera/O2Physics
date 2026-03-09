@@ -10,8 +10,8 @@
 // or submit itself to any jurisdiction.
 /// \author Nima Zardoshti <nima.zardoshti@cern.ch>, CERN
 
-#ifndef O2_ANALYSIS_JEDERIVED_H
-#define O2_ANALYSIS_JEDERIVED_H
+#ifndef TUTORIALS_SKIMMING_DATAMODEL_JEDERIVED_H_
+#define TUTORIALS_SKIMMING_DATAMODEL_JEDERIVED_H_
 
 #include <Framework/ASoA.h>
 #include <Framework/AnalysisDataModel.h>
@@ -71,4 +71,4 @@ DECLARE_SOA_TABLE(JEConstituents, "AOD", "JECONSTITUENT", o2::soa::Index<>,
 using JEConstituent = JEConstituents::iterator;
 } // namespace o2::aod
 
-#endif // O2_ANALYSIS_JEDERIVED_H
+#endif // TUTORIALS_SKIMMING_DATAMODEL_JEDERIVED_H_

@@ -11,8 +11,8 @@
 
 /// \author Luca Micheletti <luca.micheletti@cern.ch>, CERN
 
-#ifndef POL4EXPPDF
-#define POL4EXPPDF
+#ifndef PWGDQ_MACROS_FIT_LIBRARY_POL4EXPPDF_H_
+#define PWGDQ_MACROS_FIT_LIBRARY_POL4EXPPDF_H_
 
 #include <RooAbsPdf.h>
 #include <RooAbsReal.h>
@@ -56,4 +56,4 @@ class Pol4ExpPdf : public RooAbsPdf
   ClassDef(Pol4ExpPdf, 1) // Your description goes here...
 };
 
-#endif
+#endif // PWGDQ_MACROS_FIT_LIBRARY_POL4EXPPDF_H_

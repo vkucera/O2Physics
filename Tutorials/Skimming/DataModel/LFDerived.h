@@ -10,8 +10,8 @@
 // or submit itself to any jurisdiction.
 /// \author Nima Zardoshti <nima.zardoshti@cern.ch>, CERN
 
-#ifndef O2_ANALYSIS_LFDERIVED_H
-#define O2_ANALYSIS_LFDERIVED_H
+#ifndef TUTORIALS_SKIMMING_DATAMODEL_LFDERIVED_H_
+#define TUTORIALS_SKIMMING_DATAMODEL_LFDERIVED_H_
 
 #include <Framework/ASoA.h>
 #include <Framework/AnalysisDataModel.h>
@@ -94,4 +94,4 @@ using LFNucleiTrack = LFNucleiTracks::iterator;
 
 } // namespace o2::aod
 
-#endif // O2_ANALYSIS_LFDERIVED_H
+#endif // TUTORIALS_SKIMMING_DATAMODEL_LFDERIVED_H_

@@ -8,8 +8,9 @@
 // In applying this license CERN does not waive the privileges and immunities
 // granted to it by virtue of its status as an Intergovernmental Organization
 // or submit itself to any jurisdiction.
-#ifndef EVENTSELECTIONFILTERANDANALYSIS_H
-#define EVENTSELECTIONFILTERANDANALYSIS_H
+
+#ifndef PWGCF_TWOPARTICLECORRELATIONS_CORE_EVENTSELECTIONFILTERANDANALYSIS_H_
+#define PWGCF_TWOPARTICLECORRELATIONS_CORE_EVENTSELECTIONFILTERANDANALYSIS_H_
 
 #include "SelectionFilterAndAnalysis.h"
 #include "SkimmingConfigurableCuts.h"
@@ -270,4 +271,4 @@ inline std::vector<float> EventSelectionFilterAndAnalysis::MultiplicityBrick::Ge
 } // namespace analysis
 } // namespace o2
 
-#endif // EVENTSELECTIONFILTERANDANALYSIS_H
+#endif // PWGCF_TWOPARTICLECORRELATIONS_CORE_EVENTSELECTIONFILTERANDANALYSIS_H_

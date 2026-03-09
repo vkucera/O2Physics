@@ -16,8 +16,8 @@
 /// \brief  A table to store information about events preselected to be candidates for UPC gammagamma->tautau
 ///
 
-#ifndef ALISW_TAUEVENTTABLES_H
-#define ALISW_TAUEVENTTABLES_H
+#ifndef PWGUD_DATAMODEL_TAUEVENTTABLES_H_
+#define PWGUD_DATAMODEL_TAUEVENTTABLES_H_
 
 #include <Framework/AnalysisDataModel.h>
 
@@ -223,4 +223,4 @@ DECLARE_SOA_TABLE(TrueTauTwoTracks, "AOD", "TRUETAUTWOTRACK",
 
 } // namespace o2::aod
 
-#endif // ALISW_TAUEVENTTABLES_H
+#endif // PWGUD_DATAMODEL_TAUEVENTTABLES_H_

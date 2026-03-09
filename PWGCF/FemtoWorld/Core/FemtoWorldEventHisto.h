@@ -14,13 +14,14 @@
 /// \author Andi Mathis, TU München, andreas.mathis@ph.tum.de
 /// \author Zuzanna Chochulska, WUT Warsaw, zchochul@cern.ch
 
-#ifndef FEMTOWORLDEVENTHISTO_H_
-#define FEMTOWORLDEVENTHISTO_H_
+#ifndef PWGCF_FEMTOWORLD_CORE_FEMTOWORLDEVENTHISTO_H_
+#define PWGCF_FEMTOWORLD_CORE_FEMTOWORLDEVENTHISTO_H_
 
 #include <Framework/HistogramRegistry.h>
 #include <Framework/HistogramSpec.h>
 
 using namespace o2::framework;
+
 namespace o2::analysis::femtoWorld
 {
 /// \class FemtoWorldEventHisto
@@ -56,4 +57,4 @@ class FemtoWorldEventHisto
 };
 } // namespace o2::analysis::femtoWorld
 
-#endif /* FEMTOWORLDEVENTHISTO_H_ */
+#endif // PWGCF_FEMTOWORLD_CORE_FEMTOWORLDEVENTHISTO_H_
