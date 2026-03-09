@@ -16,8 +16,6 @@
 //   The skimmed MC stack includes the MC truth particles corresponding to the list of user specified MC signals (see MCsignal.h)
 //    and the MC truth particles corresponding to the reconstructed tracks selected by the specified track cuts on reconstructed data.
 
-#include "MlResponse.h"
-
 #include "PWGDQ/Core/AnalysisCompositeCut.h"
 #include "PWGDQ/Core/AnalysisCut.h"
 #include "PWGDQ/Core/CutsLibrary.h"
@@ -40,6 +38,7 @@
 #include "Common/DataModel/PIDResponseTOF.h"
 #include "Common/DataModel/PIDResponseTPC.h"
 #include "Common/DataModel/TrackSelectionTables.h"
+#include "Tools/ML/MlResponse.h"
 
 #include <CCDB/BasicCCDBManager.h>
 #include <CCDB/CcdbApi.h>

@@ -16,8 +16,6 @@
 /// \author Hanseo Park <hanseo.park@cern.ch>
 /// \author Hadi Hassan <hadi.hassan@cern.ch>, University of Jyväskylä
 
-#include "MlResponse.h"
-
 #include "PWGJE/Core/JetTaggingUtilities.h"
 #include "PWGJE/Core/MlResponseHfTagging.h"
 #include "PWGJE/DataModel/Jet.h"
@@ -25,6 +23,7 @@
 #include "PWGJE/DataModel/JetTagging.h"
 
 #include "Common/DataModel/TrackSelectionTables.h"
+#include "Tools/ML/MlResponse.h"
 
 #include <CCDB/CcdbApi.h>
 #include <Framework/ASoA.h>
