@@ -40,6 +40,7 @@
 using namespace o2;
 using namespace o2::framework;
 using namespace o2::framework::expressions;
+using namespace o2::constants::math;
 
 static constexpr float cfgPairCutDefaults[1][5] = {{-1, -1, -1, -1, -1}};
 constexpr float kThreeHalfPi = 1.5f * PI;
