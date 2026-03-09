@@ -16,7 +16,7 @@
 #ifndef PWGLF_UTILS_STRANGENESSBUILDERMODULE_H_
 #define PWGLF_UTILS_STRANGENESSBUILDERMODULE_H_
 
-#include "PWGLF/DataModel/LFStrangenessTables.h"
+#include "PWGLF/DataModel/LFStrangenessTables.h" // IWYU pragma: keep
 #include "PWGLF/Utils/strangenessBuilderHelper.h"
 
 #include "Common/Core/TPCVDriftManager.h"

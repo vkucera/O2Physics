@@ -26,7 +26,7 @@
 #include "Common/Core/PID/TPCPIDResponse.h"
 #include "Common/Core/TableHelper.h"
 #include "Common/DataModel/PIDResponseTPC.h"
-#include "Common/TableProducer/PID/pidTPCBase.h"
+#include "Common/TableProducer/PID/pidTPCBase.h" // IWYU pragma: keep
 #include "Tools/ML/model.h"
 
 #include <DataFormatsParameters/GRPLHCIFData.h>

@@ -25,7 +25,7 @@
 #include <ReconstructionDataFormats/PID.h>
 #include <ReconstructionDataFormats/Track.h>
 
-#include <TMath.h>
+#include <TMath.h> // IWYU pragma: keep
 
 #include <KFPTrack.h>
 #include <KFPVertex.h>
