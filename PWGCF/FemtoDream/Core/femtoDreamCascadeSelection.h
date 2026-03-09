@@ -39,9 +39,6 @@
 
 #include <math.h>
 
-using namespace o2::framework;
-using namespace o2::analysis::femtoDream::femtoDreamSelection;
-
 namespace o2::analysis::femtoDream
 {
 namespace femtoDreamCascadeSelection
