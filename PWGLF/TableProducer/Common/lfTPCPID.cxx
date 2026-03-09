@@ -16,21 +16,6 @@
 /// \brief  Task to produce the PID information for the TPC for the purpose of the Light flavor PWG
 ///
 
-// ROOT includes
-#include <TF1.h>
-#include <TFile.h>
-#include <TGraph.h>
-#include <TList.h>
-#include <TObject.h>
-#include <TString.h>
-
-#include <chrono>
-#include <cmath>
-#include <cstdint>
-#include <string>
-#include <vector>
-
-// O2 includes
 #include "PWGLF/DataModel/LFParticleIdentification.h"
 
 #include "Common/Core/TableHelper.h"
@@ -50,6 +35,19 @@
 #include <Framework/runDataProcessing.h>
 #include <MathUtils/BetheBlochAleph.h>
 #include <ReconstructionDataFormats/PID.h>
+
+#include <TF1.h>
+#include <TFile.h>
+#include <TGraph.h>
+#include <TList.h>
+#include <TObject.h>
+#include <TString.h>
+
+#include <chrono>
+#include <cmath>
+#include <cstdint>
+#include <string>
+#include <vector>
 
 using namespace o2;
 using namespace o2::framework;

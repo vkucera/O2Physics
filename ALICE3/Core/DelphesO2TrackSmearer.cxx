@@ -28,12 +28,6 @@
 /// @author: Roberto Preghenella
 /// @email: preghenella@bo.infn.it
 
-// #include "TrackSmearer.hh"
-// #include "TrackUtils.hh"
-// #include "TRandom.h"
-// #include <iostream>
-// #include <fstream>
-
 #include "ALICE3/Core/DelphesO2TrackSmearer.h"
 
 #include "ALICE3/Core/GeometryContainer.h"

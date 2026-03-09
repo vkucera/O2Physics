@@ -16,7 +16,6 @@
 /// \brief  Task to check how many tracks pass the cuts
 ///
 
-// O2 includes
 #include "Common/Core/TrackSelection.h"
 #include "Common/Core/TrackSelectionDefaults.h"
 #include "Common/DataModel/EventSelection.h"

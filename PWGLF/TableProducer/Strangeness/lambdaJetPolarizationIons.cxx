@@ -26,9 +26,29 @@
 //    cicero.domenico.muncinelli@cern.ch
 //
 
-// O2 Framework
+#include "PWGLF/DataModel/lambdaJetPolarizationIons.h"
+
+#include "ctpRateFetcher.h"
+
+#include "PWGJE/Core/JetBkgSubUtils.h"
+#include "PWGJE/Core/JetUtilities.h"
+#include "PWGLF/DataModel/LFStrangenessPIDTables.h"
+#include "PWGLF/DataModel/LFStrangenessTables.h"
+
+#include "Common/CCDB/EventSelectionParams.h"
+#include "Common/CCDB/RCTSelectionFlags.h"
+#include "Common/Core/RecoDecay.h"
+#include "Common/DataModel/Centrality.h"
+#include "Common/DataModel/EventSelection.h"
+#include "Common/DataModel/Multiplicity.h" // for pp
+#include "Common/DataModel/PIDResponseTPC.h"
+#include "Common/DataModel/TrackSelectionTables.h"
+
+#include <CCDB/BasicCCDBManager.h>
+#include <CCDB/CcdbApi.h>
 #include <CommonConstants/MathConstants.h>
 #include <CommonConstants/PhysicsConstants.h>
+#include <DataFormatsParameters/GRPMagField.h>
 #include <Framework/ASoA.h>
 #include <Framework/AnalysisDataModel.h>
 #include <Framework/AnalysisHelpers.h>
@@ -42,42 +62,10 @@
 #include <Framework/OutputObjHeader.h>
 #include <Framework/runDataProcessing.h>
 
-// O2 CCDB / Conditions
-#include <CCDB/BasicCCDBManager.h>
-#include <CCDB/CcdbApi.h>
-#include <DataFormatsParameters/GRPMagField.h>
+#include <TF1.h>
+#include <TH1.h>
+#include <TH2.h>
 
-// O2 Reconstruction Data Formats
-
-// O2 Common Core
-#include "Common/Core/RecoDecay.h"
-
-// O2 Common DataModel
-#include "Common/DataModel/Centrality.h"
-#include "Common/DataModel/EventSelection.h"
-#include "Common/DataModel/Multiplicity.h" // for pp
-#include "Common/DataModel/PIDResponseTPC.h"
-// For PID in raw data:
-// #include "Common/DataModel/PIDResponseTOF.h" // Maybe switch this around with LFStrangenessPIDTables?
-// #include "Common/DataModel/Qvectors.h"
-#include "Common/DataModel/TrackSelectionTables.h"
-
-// PWGJE
-#include "PWGJE/Core/JetBkgSubUtils.h"
-#include "PWGJE/Core/JetUtilities.h"
-
-// PWGLF
-#include "PWGLF/DataModel/LFStrangenessPIDTables.h"
-// For V0TOFPIDs and NSigmas getters. Better for considering the daughters as coming from V0s instead of from PV?
-#include "ctpRateFetcher.h"
-
-#include "PWGLF/DataModel/LFStrangenessTables.h"
-#include "PWGLF/DataModel/lambdaJetPolarizationIons.h"
-
-#include "Common/CCDB/EventSelectionParams.h"
-#include "Common/CCDB/RCTSelectionFlags.h"
-
-// External Libraries (FastJet)
 #include <fastjet/AreaDefinition.hh>
 #include <fastjet/ClusterSequence.hh>
 #include <fastjet/ClusterSequenceArea.hh>
@@ -86,12 +74,6 @@
 #include <fastjet/PseudoJet.hh>
 #include <sys/types.h>
 
-// ROOT Math
-#include <TF1.h>
-#include <TH1.h>
-#include <TH2.h>
-
-// Standard Library
 #include <cmath>
 #include <cstddef>
 #include <cstdint>

@@ -10,7 +10,6 @@
 // or submit itself to any jurisdiction.
 /// \author Nima Zardoshti <nima.zardoshti@cern.ch>, CERN
 
-// O2 includes
 #include "DataModel/DerivedExampleTable.h"
 
 #include <Framework/AnalysisTask.h>
@@ -18,6 +17,7 @@
 #include <Framework/HistogramSpec.h>
 #include <Framework/InitContext.h>
 #include <Framework/OutputObjHeader.h>
+#include <Framework/runDataProcessing.h>
 
 #include <TMath.h>
 
@@ -26,8 +26,6 @@
 using namespace o2;
 using namespace o2::framework;
 using namespace o2::framework::expressions;
-
-#include <Framework/runDataProcessing.h>
 
 struct DerivedBasicConsumer {
   /// Function to aid in calculating delta-phi

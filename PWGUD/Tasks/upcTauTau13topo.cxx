@@ -17,28 +17,22 @@
 // copts="--configuration json://tautauConfig.json -b"
 // o2-analysis-ud-tautau13topo $copts > output.log
 
-#include <Framework/AnalysisDataModel.h>
-#include <Framework/AnalysisTask.h>
-#include <Framework/runDataProcessing.h>
-
-// #include "TDatabasePDG.h" // not recommended in o2
-#include <CommonConstants/MathConstants.h>
-#include <CommonConstants/PhysicsConstants.h>
-#include <Framework/AnalysisHelpers.h>
-#include <Framework/Configurable.h>
-#include <Framework/HistogramRegistry.h>
-#include <Framework/HistogramSpec.h>
-#include <Framework/InitContext.h>
-
-// #include "TLorentzVector.h"
-// #include "Common/DataModel/EventSelection.h"
-// #include "Common/DataModel/TrackSelectionTables.h"
-
 #include "PWGUD/Core/SGSelector.h"
 #include "PWGUD/DataModel/UDTables.h"
 
 #include "Common/Core/RecoDecay.h"
-// #include <CommonUtils/EnumFlags.h>
+
+#include <CommonConstants/MathConstants.h>
+#include <CommonConstants/PhysicsConstants.h>
+#include <Framework/AnalysisDataModel.h>
+#include <Framework/AnalysisHelpers.h>
+#include <Framework/AnalysisTask.h>
+#include <Framework/Configurable.h>
+#include <Framework/HistogramRegistry.h>
+#include <Framework/HistogramSpec.h>
+#include <Framework/InitContext.h>
+#include <Framework/runDataProcessing.h>
+
 #include <Math/GenVector/LorentzVector.h>
 #include <Math/GenVector/PxPyPzE4D.h>
 #include <TH1.h>

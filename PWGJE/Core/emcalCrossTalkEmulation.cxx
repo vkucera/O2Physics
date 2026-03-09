@@ -21,6 +21,9 @@
 #include <EMCALBase/Geometry.h>
 #include <Framework/Array2D.h>
 #include <Framework/HistogramSpec.h>
+#include <Framework/Logger.h>
+
+#include <TRandom3.h>
 
 #include <algorithm> // std::find_if
 #include <array>
@@ -34,12 +37,6 @@
 #include <sstream>
 #include <string>
 #include <vector>
-// #include "Framework/OutputObjHeader.h"
-
-// #include "Common/CCDB/EventSelectionParams.h"
-#include <Framework/Logger.h>
-
-#include <TRandom3.h>
 
 using namespace o2;
 using namespace o2::emccrosstalk;

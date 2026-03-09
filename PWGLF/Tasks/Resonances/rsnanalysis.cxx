@@ -13,7 +13,6 @@
 /// \brief  Analysis task for the measurement of resonances
 /// \author Nicola Rubini <nrubini@cern.ch>
 
-// O2 includes
 #include "Common/DataModel/EventSelection.h"
 #include "Common/DataModel/PIDResponseTOF.h"
 #include "Common/DataModel/PIDResponseTPC.h"

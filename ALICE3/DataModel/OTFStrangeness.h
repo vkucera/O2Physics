@@ -19,7 +19,6 @@
 #ifndef ALICE3_DATAMODEL_OTFSTRANGENESS_H_
 #define ALICE3_DATAMODEL_OTFSTRANGENESS_H_
 
-// O2 includes
 #include "Common/Core/RecoDecay.h"
 
 #include <CommonConstants/PhysicsConstants.h>

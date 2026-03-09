@@ -16,7 +16,6 @@
 /// \brief  Header for the trackJetQa task for the analysis of the tracks for jets..
 ///
 
-// O2 includes
 #include "PWGJE/DataModel/TrackJetQa.h"
 
 #include "Common/Core/TrackSelection.h"

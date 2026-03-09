@@ -16,7 +16,6 @@
 /// \author Barbara Chytla, WUT Warsaw, barbara.chytla@cern.ch
 /// \author Zuzanna Chochulska, WUT Warsaw & CTU Prague, zchochul@cern.ch
 
-// O2 includes
 #include "PWGCF/FemtoUniverse/Core/FemtoUniverseCollisionSelection.h"
 
 #include "Common/CCDB/TriggerAliases.h"

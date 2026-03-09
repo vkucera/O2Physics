@@ -18,7 +18,6 @@
 #ifndef ALICE3_DATAMODEL_A3DECAYFINDERTABLES_H_
 #define ALICE3_DATAMODEL_A3DECAYFINDERTABLES_H_
 
-// O2 includes
 #include "Common/Core/RecoDecay.h"
 
 #include <Framework/AnalysisDataModel.h>

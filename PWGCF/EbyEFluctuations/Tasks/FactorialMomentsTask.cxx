@@ -13,16 +13,6 @@
 /// \author Salman Malik
 /// \author Balwan Singh
 
-#include <TH1.h>
-#include <TH2.h>
-#include <TMath.h>
-#include <TRandom.h>
-#include <TString.h>
-
-#include <Rtypes.h>
-#include <RtypesCore.h>
-
-// O2 includes
 #include "Common/CCDB/EventSelectionParams.h"
 #include "Common/CCDB/TriggerAliases.h"
 #include "Common/Core/RecoDecay.h"
@@ -42,6 +32,15 @@
 #include <Framework/O2DatabasePDGPlugin.h>
 #include <Framework/OutputObjHeader.h>
 #include <Framework/runDataProcessing.h>
+
+#include <TH1.h>
+#include <TH2.h>
+#include <TMath.h>
+#include <TRandom.h>
+#include <TString.h>
+
+#include <Rtypes.h>
+#include <RtypesCore.h>
 
 #include <array>
 #include <cmath>

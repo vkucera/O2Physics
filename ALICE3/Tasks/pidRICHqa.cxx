@@ -15,7 +15,6 @@
 /// \brief  Task to produce QA output of the PID with ALICE3 RICH running on the MC.
 ///
 
-// O2 includes
 #include "ALICE3/DataModel/RICH.h"
 #include "Common/DataModel/PIDResponseTOF.h"
 

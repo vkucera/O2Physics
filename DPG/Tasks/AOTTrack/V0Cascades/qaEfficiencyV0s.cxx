@@ -17,7 +17,6 @@
 ///         The efficiency for particles is computed according to the PDG code (sign included and not charge)
 ///
 
-// O2 includes
 #include "PWGLF/DataModel/LFStrangenessTables.h"
 
 #include <Framework/AnalysisDataModel.h>
@@ -30,7 +29,6 @@
 #include <Framework/OutputObjHeader.h>
 #include <Framework/runDataProcessing.h>
 
-// ROOT includes
 #include <TAxis.h>
 #include <TEfficiency.h>
 #include <THashList.h>

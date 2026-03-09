@@ -14,8 +14,6 @@
 // This code is for event QC for PWG-EM.
 //    Please write to: daiki.sekihata@cern.ch
 
-// #include "PWGEM/PhotonMeson/DataModel/gammaTables.h"
-
 #include "Common/CCDB/EventSelectionParams.h"
 #include "Common/CCDB/RCTSelectionFlags.h"
 #include "Common/Core/RecoDecay.h"

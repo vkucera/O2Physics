@@ -13,6 +13,8 @@
 ///
 /// \author Simone Ragoni
 
+#include "PWGUD/DataModel/UDTables.h"
+
 #include "Common/DataModel/EventSelection.h"
 
 #include <CommonConstants/MathConstants.h>
@@ -27,10 +29,7 @@
 #include <Framework/InitContext.h>
 #include <Framework/OutputObjHeader.h>
 #include <Framework/runDataProcessing.h>
-// #include "TDatabasePDG.h"
-#include "PWGUD/DataModel/UDTables.h"
-// #include "TLorentzVector.h"
-// #include "TVector3.h"
+
 #include <Math/GenVector/LorentzVector.h>
 #include <Math/GenVector/PxPyPzM4D.h>
 

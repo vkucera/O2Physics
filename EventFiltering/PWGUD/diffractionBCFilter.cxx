@@ -8,7 +8,6 @@
 // In applying this license CERN does not waive the privileges and immunities
 // granted to it by virtue of its status as an Intergovernmental Organization
 // or submit itself to any jurisdiction.
-// O2 includes
 //
 // \brief A filter task for diffractive BCs
 // \author P. Buehler, paul.buehler@oeaw.ac.at

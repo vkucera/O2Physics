@@ -13,7 +13,6 @@
 /// \brief glueball resonance
 /// \author Sawan <sawan.sawan@cern.ch>
 
-// #include <TDatabasePDG.h>
 #include "PWGLF/DataModel/LFStrangenessPIDTables.h"
 #include "PWGLF/DataModel/LFStrangenessTables.h"
 #include "PWGLF/DataModel/mcCentrality.h"

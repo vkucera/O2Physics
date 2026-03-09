@@ -11,15 +11,6 @@
 // Particle flow task
 // prottay.das@cern.ch
 
-#include <Math/Vector3Dfwd.h>
-#include <Math/Vector4D.h> // IWYU pragma: keep (do not replace with Math/Vector4Dfwd.h)
-#include <Math/Vector4Dfwd.h>
-#include <TMath.h>
-
-#include <cmath>
-#include <cstdlib>
-
-// #include "Common/DataModel/Qvectors.h"
 #include "PWGLF/DataModel/LFStrangenessTables.h"
 #include "PWGLF/DataModel/SPCalibrationTables.h"
 
@@ -43,6 +34,14 @@
 #include <Framework/O2DatabasePDGPlugin.h>
 #include <Framework/OutputObjHeader.h>
 #include <Framework/runDataProcessing.h>
+
+#include <Math/Vector3Dfwd.h>
+#include <Math/Vector4D.h> // IWYU pragma: keep (do not replace with Math/Vector4Dfwd.h)
+#include <Math/Vector4Dfwd.h>
+#include <TMath.h>
+
+#include <cmath>
+#include <cstdlib>
 
 using namespace o2;
 using namespace o2::framework;

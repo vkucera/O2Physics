@@ -12,22 +12,7 @@
 /// \author ZhengqingWang(zhengqing.wang@cern.ch)
 /// \file   flowEsePHe3.cxx
 /// \brief  task to calculate the P He3 flow correlation.
-// C++/ROOT includes.
 
-#include <TF1.h>
-#include <TH2.h>
-#include <TH3.h>
-#include <THnSparse.h>
-#include <TProfile3D.h>
-#include <TString.h>
-
-#include <cmath>
-#include <cstdint>
-#include <memory>
-#include <string>
-#include <vector>
-
-// o2Physics includes.
 #include "Common/CCDB/EventSelectionParams.h"
 #include "Common/Core/EventPlaneHelper.h"
 #include "Common/DataModel/Centrality.h"
@@ -54,6 +39,19 @@
 #include <Framework/runDataProcessing.h>
 #include <MathUtils/BetheBlochAleph.h>
 #include <ReconstructionDataFormats/PID.h>
+
+#include <TF1.h>
+#include <TH2.h>
+#include <TH3.h>
+#include <THnSparse.h>
+#include <TProfile3D.h>
+#include <TString.h>
+
+#include <cmath>
+#include <cstdint>
+#include <memory>
+#include <string>
+#include <vector>
 
 using namespace o2;
 using namespace o2::framework;

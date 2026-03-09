@@ -19,7 +19,6 @@
 #ifndef O2_ANALYSIS_ALICE3_FTOF_H_
 #define O2_ANALYSIS_ALICE3_FTOF_H_
 
-// O2 includes
 #include <Framework/AnalysisDataModel.h>
 
 namespace o2::aod

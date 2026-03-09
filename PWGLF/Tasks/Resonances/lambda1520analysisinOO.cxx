@@ -13,16 +13,6 @@
 /// \brief This standalone task reconstructs track-track decay of lambda(1520) resonance candidate
 /// \author Hirak Kumar Koley <hirak.koley@cern.ch>
 
-// 1. Own header (doesn't exist)
-
-// 2. C system headers (none)
-
-// 3. C++ system headers
-#include <cstddef>
-#include <string>
-#include <vector>
-
-// 4. Other includes: O2 framework, ROOT, etc.
 #include "PWGLF/Utils/collisionCuts.h"
 
 #include "Common/CCDB/EventSelectionParams.h"
@@ -57,6 +47,10 @@
 #include <TPDGCode.h>
 #include <TRandom.h>
 #include <TVector3.h>
+
+#include <cstddef>
+#include <string>
+#include <vector>
 
 using namespace o2;
 using namespace o2::soa;

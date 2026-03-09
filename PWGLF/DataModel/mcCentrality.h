@@ -20,7 +20,6 @@
 #ifndef PWGLF_DATAMODEL_MCCENTRALITY_H_
 #define PWGLF_DATAMODEL_MCCENTRALITY_H_
 
-// O2 includes
 #include "Common/DataModel/Centrality.h"
 
 #include <Framework/ASoA.h>

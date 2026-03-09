@@ -19,7 +19,6 @@
 #ifndef O2_ANALYSIS_PID_TOFRESOALICE3_H_
 #define O2_ANALYSIS_PID_TOFRESOALICE3_H_
 
-// O2 includes
 #include <PID/ParamBase.h>
 #include <ReconstructionDataFormats/PID.h>
 

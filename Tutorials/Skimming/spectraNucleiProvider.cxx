@@ -10,7 +10,6 @@
 // or submit itself to any jurisdiction.
 /// \author Nima Zardoshti <nima.zardoshti@cern.ch>, CERN
 
-// O2 includes
 #include "DataModel/LFDerived.h"
 
 #include "Common/CCDB/TriggerAliases.h"
@@ -24,6 +23,7 @@
 #include <Framework/AnalysisHelpers.h>
 #include <Framework/AnalysisTask.h>
 #include <Framework/Configurable.h>
+#include <Framework/runDataProcessing.h>
 #include <MathUtils/detail/TypeTruncation.h>
 
 #include <TLorentzVector.h>
@@ -34,8 +34,6 @@ using namespace o2;
 using namespace o2::framework;
 using namespace o2::framework::expressions;
 using namespace o2::math_utils::detail;
-
-#include <Framework/runDataProcessing.h>
 
 struct NucleiSpectraProviderTask {
 

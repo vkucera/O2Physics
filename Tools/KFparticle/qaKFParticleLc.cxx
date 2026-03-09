@@ -15,17 +15,19 @@
 /// \brief  Task to test the performance of the KFParticle package on the Lc to pKpi decay
 ///
 
+#ifndef HomogeneousField
+#define HomogeneousField
+#endif
+
 #include "Tools/KFparticle/qaKFParticleLc.h"
 
+#include "Common/DataModel/EventSelection.h"
+#include "Common/DataModel/PIDResponseTOF.h"
+#include "Common/DataModel/PIDResponseTPC.h"
+#include "Common/DataModel/TrackSelectionTables.h"
+#include "Tools/KFparticle/KFUtilities.h"
+
 #include <CCDB/BasicCCDBManager.h>
-
-#include <TPDGCode.h>
-
-#include <cmath>
-#include <cstdint>
-#include <string>
-
-/// includes O2
 #include <DataFormatsParameters/GRPMagField.h>
 #include <DataFormatsParameters/GRPObject.h>
 #include <DetectorsBase/MatLayerCylSet.h>
@@ -38,23 +40,15 @@
 #include <Framework/InitContext.h>
 #include <Framework/runDataProcessing.h>
 
-/// includes O2Physics
-#include "Common/DataModel/EventSelection.h"
-#include "Common/DataModel/PIDResponseTOF.h"
-#include "Common/DataModel/PIDResponseTPC.h"
-#include "Common/DataModel/TrackSelectionTables.h"
-#include "Tools/KFparticle/KFUtilities.h"
+#include <TPDGCode.h>
 
-/// includes KFParticle
 #include <KFPTrack.h>
 #include <KFPVertex.h>
 #include <KFParticle.h>
 
-#ifndef HomogeneousField
-
-#define HomogeneousField
-
-#endif
+#include <cmath>
+#include <cstdint>
+#include <string>
 
 using namespace o2;
 using namespace o2::framework;

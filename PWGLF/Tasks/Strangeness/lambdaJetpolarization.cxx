@@ -10,11 +10,10 @@
 // or submit itself to any jurisdiction.
 ///
 
-// o2-linter: disable=name/workflow-file
-
 /// \author Youpeng Su (yousu@cern.ch)
 
 #include "PWGLF/DataModel/LFStrangenessTables.h"
+#include "PWGLF/DataModel/mcCentrality.h"
 
 #include "Common/CCDB/EventSelectionParams.h"
 #include "Common/DataModel/Centrality.h"
@@ -40,7 +39,6 @@
 #include <Math/GenVector/Boost.h>
 #include <Math/Vector4D.h> // IWYU pragma: keep (do not replace with Math/Vector4Dfwd.h)
 #include <Math/Vector4Dfwd.h>
-// #include <TLorentzVector.h>
 #include <TMath.h>
 #include <TMatrixDfwd.h>
 #include <TTree.h>
@@ -54,9 +52,6 @@
 
 #include <algorithm>
 #include <cmath>
-// #include <iostream>
-#include "PWGLF/DataModel/mcCentrality.h"
-
 #include <cstdint>
 #include <string>
 #include <vector>

@@ -18,6 +18,8 @@
 
 #include "Common/Core/RecoDecay.h"
 
+#include <CCDB/BasicCCDBManager.h>
+#include <CCDB/CcdbApi.h>
 #include <CommonConstants/PhysicsConstants.h>
 #include <Framework/ASoAHelpers.h>
 #include <Framework/AnalysisDataModel.h>
@@ -29,6 +31,7 @@
 #include <Framework/HistogramSpec.h>
 #include <Framework/InitContext.h>
 #include <Framework/Logger.h>
+#include <Framework/OutputObjHeader.h>
 #include <Framework/runDataProcessing.h>
 
 #include <Math/GenVector/Boost.h>
@@ -37,23 +40,17 @@
 #include <Math/Vector4Dfwd.h>
 #include <TMath.h>
 
+#include <algorithm>
 #include <chrono>
 #include <cmath> // for std::fabs
 #include <cstddef>
 #include <cstdint>
-// #include <iostream>
-#include <algorithm>
 #include <random>
 #include <string>
 #include <tuple>
 #include <unordered_set>
 #include <utility>
 #include <vector>
-
-// o2 includes.
-#include <CCDB/BasicCCDBManager.h>
-#include <CCDB/CcdbApi.h>
-#include <Framework/OutputObjHeader.h>
 
 using namespace o2;
 using namespace o2::framework;

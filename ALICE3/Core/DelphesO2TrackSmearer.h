@@ -156,11 +156,6 @@ struct lutEntry_t {
 // #ifndef _DelphesO2_TrackSmearer_h_
 // #define _DelphesO2_TrackSmearer_h_
 
-// #include "ReconstructionDataFormats/Track.h"
-// #include "classes/DelphesClasses.h"
-// #include "lutCovm.hh"
-// #include <map>
-
 using O2Track = o2::track::TrackParCov;
 
 namespace o2

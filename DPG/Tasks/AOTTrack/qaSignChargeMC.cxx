@@ -16,7 +16,6 @@
 /// \since  08/05/2024
 ///
 
-// O2 includes
 #include <Framework/ASoA.h>
 #include <Framework/AnalysisDataModel.h>
 #include <Framework/AnalysisHelpers.h>

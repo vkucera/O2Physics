@@ -14,7 +14,6 @@
 // Task used to convert the data model from the old format to the new format. To avoid
 // the conflict with the old data model.
 
-// other includes
 #include "PWGDQ/DataModel/ReducedInfoTables.h"
 
 #include <Framework/AnalysisDataModel.h>

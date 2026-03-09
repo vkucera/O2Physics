@@ -39,12 +39,9 @@
 #include <Framework/O2DatabasePDGPlugin.h>
 #include <Framework/runDataProcessing.h>
 
-// #include <TLorentzVector.h> // o2-linter: disable= root/lorentz-vector (TLorentzVector is needed for TPythia8Decayer)
 #include <TH1.h>
 #include <THnSparse.h>
 #include <TPDGCode.h>
-// #include <TParticle.h>
-// #include <TPythia8Decayer.h>
 
 #include <cmath>
 #include <map>

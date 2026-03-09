@@ -14,7 +14,6 @@
 /// \author prottay das, sawan
 /// \since 13/03/2024
 
-// #include <TDatabasePDG.h>
 #include "PWGLF/DataModel/mcCentrality.h"
 #include "PWGLF/Utils/inelGt.h"
 

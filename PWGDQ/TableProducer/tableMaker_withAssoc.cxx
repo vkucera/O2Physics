@@ -17,26 +17,9 @@
 // The skimming can optionally produce just the barrel, muon, or both barrel and muon tracks
 // The event filtering, centrality, and V0Bits (from v0-selector) can be switched on/off by selecting one
 //  of the process functions
-// C++ includes
+
 #include "MlResponse.h"
 
-#include "Common/CCDB/EventSelectionParams.h"
-#include "Common/CCDB/RCTSelectionFlags.h"
-
-#include <array>
-#include <bitset>
-#include <chrono>
-#include <cmath>
-#include <cstddef>
-#include <cstdint>
-#include <cstdlib>
-#include <map>
-#include <memory>
-#include <string>
-#include <unordered_map>
-#include <utility>
-#include <vector>
-// other includes
 #include "PWGDQ/Core/AnalysisCompositeCut.h"
 #include "PWGDQ/Core/AnalysisCut.h"
 #include "PWGDQ/Core/CutsLibrary.h"
@@ -46,6 +29,8 @@
 #include "PWGDQ/Core/VarManager.h"
 #include "PWGDQ/DataModel/ReducedInfoTables.h"
 
+#include "Common/CCDB/EventSelectionParams.h"
+#include "Common/CCDB/RCTSelectionFlags.h"
 #include "Common/CCDB/ctpRateFetcher.h"
 #include "Common/Core/Zorro.h"
 #include "Common/DataModel/Centrality.h"
@@ -86,6 +71,20 @@
 #include <TString.h>
 
 #include <RtypesCore.h>
+
+#include <array>
+#include <bitset>
+#include <chrono>
+#include <cmath>
+#include <cstddef>
+#include <cstdint>
+#include <cstdlib>
+#include <map>
+#include <memory>
+#include <string>
+#include <unordered_map>
+#include <utility>
+#include <vector>
 
 using namespace o2;
 using namespace o2::framework;

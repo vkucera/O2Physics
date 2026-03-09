@@ -17,15 +17,7 @@
 // The skimming can optionally produce just the barrel, muon, or both barrel and muon tracks
 // The event filtering (filterPP), centrality, and V0Bits (from v0-selector) can be switched on/off by selecting one
 //  of the process functions
-// C++ includes
-#include <chrono>
-#include <cstddef>
-#include <cstdint>
-#include <map>
-#include <memory>
-#include <string>
-#include <vector>
-// other includes
+
 #include "PWGDQ/Core/AnalysisCompositeCut.h"
 #include "PWGDQ/Core/AnalysisCut.h"
 #include "PWGDQ/Core/CutsLibrary.h"
@@ -69,6 +61,14 @@
 #include <TString.h>
 
 #include <RtypesCore.h>
+
+#include <chrono>
+#include <cstddef>
+#include <cstdint>
+#include <map>
+#include <memory>
+#include <string>
+#include <vector>
 
 using namespace o2;
 using namespace o2::framework;

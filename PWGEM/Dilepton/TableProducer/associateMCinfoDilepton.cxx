@@ -15,7 +15,6 @@
 //    Please write to: daiki.sekihata@cern.ch
 
 #include "PWGEM/Dilepton/DataModel/dileptonTables.h"
-// #include "PWGEM/PhotonMeson/DataModel/gammaTables.h"
 
 #include "Common/DataModel/EventSelection.h"
 

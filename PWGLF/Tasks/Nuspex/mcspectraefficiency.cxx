@@ -9,7 +9,6 @@
 // granted to it by virtue of its status as an Intergovernmental Organization
 // or submit itself to any jurisdiction.
 
-// O2 includes
 #include "Common/DataModel/TrackSelectionTables.h"
 
 #include <Framework/AnalysisDataModel.h>
@@ -17,7 +16,6 @@
 #include <Framework/AnalysisTask.h>
 #include <Framework/Variant.h>
 
-// ROOT includes
 #include <TH1.h>
 #include <TH2.h>
 #include <TString.h>

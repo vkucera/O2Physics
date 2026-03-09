@@ -16,7 +16,6 @@
 /// \brief  Task to use the ALICE3 ECAL table
 ///
 
-// O2 includes
 #include "ALICE3/DataModel/ECAL.h"
 
 #include <Framework/ASoA.h>

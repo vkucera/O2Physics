@@ -17,7 +17,6 @@
 ///        In addition the task makes histograms of the TPC signal with TOF selections.
 ///
 
-// O2 includes
 #include "Common/Core/TrackSelection.h"
 #include "Common/Core/TrackSelectionDefaults.h"
 #include "Common/DataModel/EventSelection.h"

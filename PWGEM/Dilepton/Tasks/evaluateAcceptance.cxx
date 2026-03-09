@@ -16,24 +16,10 @@
 #include "PWGEM/Dilepton/Utils/MCUtilities.h"
 #include "PWGEM/Dilepton/Utils/PairUtilities.h"
 
-// #include "Common/Core/trackUtilities.h"
-// #include "Common/DataModel/Centrality.h"
-// #include "Common/DataModel/CollisionAssociationTables.h"
-// #include "Common/DataModel/EventSelection.h"
-// #include "Common/DataModel/Multiplicity.h"
-// #include "Common/DataModel/TrackSelectionTables.h"
-
 #include <CCDB/BasicCCDBManager.h>
 #include <CommonConstants/LHCConstants.h>
 #include <CommonConstants/PhysicsConstants.h>
 #include <DataFormatsParameters/GRPLHCIFData.h>
-
-// #include "DataFormatsCalibration/MeanVertexObject.h"
-// #include "DataFormatsParameters/GRPMagField.h"
-// #include "DataFormatsParameters/GRPObject.h"
-// #include "DetectorsBase/GeometryManager.h"
-// #include "DetectorsBase/Propagator.h"
-
 #include <Framework/ASoAHelpers.h>
 #include <Framework/AnalysisDataModel.h>
 #include <Framework/AnalysisHelpers.h>

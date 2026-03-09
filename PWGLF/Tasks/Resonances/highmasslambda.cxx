@@ -25,13 +25,24 @@
 #include "Common/DataModel/TrackSelectionTables.h"
 
 #include <CCDB/BasicCCDBManager.h>
+#include <DCAFitter/DCAFitterN.h>
 #include <DataFormatsParameters/GRPMagField.h>
+#include <DetectorsBase/Propagator.h>
 #include <Framework/ASoAHelpers.h>
 #include <Framework/AnalysisDataModel.h>
+#include <Framework/AnalysisHelpers.h>
 #include <Framework/AnalysisTask.h>
+#include <Framework/BinningPolicy.h>
+#include <Framework/Configurable.h>
+#include <Framework/GroupedCombinations.h>
 #include <Framework/HistogramRegistry.h>
+#include <Framework/HistogramSpec.h>
+#include <Framework/InitContext.h>
 #include <Framework/O2DatabasePDGPlugin.h>
+#include <Framework/OutputObjHeader.h>
 #include <Framework/runDataProcessing.h>
+#include <ReconstructionDataFormats/DCA.h>
+#include <ReconstructionDataFormats/PID.h>
 #include <ReconstructionDataFormats/Track.h>
 
 #include <Math/Vector3Dfwd.h>
@@ -46,24 +57,12 @@
 #include <cstdlib>
 #include <string>
 #include <vector>
-// #include "PWGHF/Utils/utilsBfieldCCDB.h"
-
-#include <DCAFitter/DCAFitterN.h>
-#include <DetectorsBase/Propagator.h>
-#include <Framework/AnalysisHelpers.h>
-#include <Framework/BinningPolicy.h>
-#include <Framework/Configurable.h>
-#include <Framework/GroupedCombinations.h>
-#include <Framework/HistogramSpec.h>
-#include <Framework/InitContext.h>
-#include <Framework/OutputObjHeader.h>
-#include <ReconstructionDataFormats/DCA.h>
-#include <ReconstructionDataFormats/PID.h>
 
 using namespace o2;
 using namespace o2::framework;
 using namespace o2::framework::expressions;
 using std::array;
+
 struct highmasslambda {
   int multEstimator;
   Service<o2::ccdb::BasicCCDBManager> ccdb;

@@ -20,7 +20,6 @@
 #ifndef ALICE3_DATAMODEL_OTFMULTICHARM_H_
 #define ALICE3_DATAMODEL_OTFMULTICHARM_H_
 
-// O2 includes
 #include "ALICE3/DataModel/OTFStrangeness.h"
 
 #include <Framework/AnalysisDataModel.h>

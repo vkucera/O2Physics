@@ -19,7 +19,6 @@
 #ifndef ALICE3_DATAMODEL_TRACKSALICE3_H_
 #define ALICE3_DATAMODEL_TRACKSALICE3_H_
 
-// O2 includes
 #include <Framework/ASoA.h>
 #include <Framework/AnalysisDataModel.h>
 

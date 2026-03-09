@@ -16,7 +16,6 @@
 /// \brief Task for the analysis of the spectra of Pi Ka Pr with the TPC detector
 ///
 
-// O2 includes
 #include "Common/DataModel/PIDResponseTPC.h"
 #include "Common/DataModel/TrackSelectionTables.h"
 

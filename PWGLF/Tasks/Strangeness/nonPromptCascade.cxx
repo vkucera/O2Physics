@@ -9,6 +9,9 @@
 // granted to it by virtue of its status as an Intergovernmental Organization
 // or submit itself to any jurisdiction.
 
+#include "PWGLF/DataModel/LFNonPromptCascadeTables.h"
+#include "PWGLF/DataModel/LFStrangenessTables.h"
+
 #include "Common/CCDB/EventSelectionParams.h"
 #include "Common/Core/RecoDecay.h"
 #include "Common/Core/Zorro.h"
@@ -21,16 +24,26 @@
 #include "Common/DataModel/PIDResponseTPC.h"
 
 #include <CCDB/BasicCCDBManager.h>
+#include <CommonConstants/PhysicsConstants.h>
+#include <CommonUtils/StringUtils.h>
 #include <DCAFitter/DCAFitterN.h>
 #include <DataFormatsParameters/GRPMagField.h>
+#include <DetectorsBase/MatLayerCylSet.h>
 #include <DetectorsBase/Propagator.h>
 #include <DetectorsVertexing/PVertexer.h>
 #include <Framework/ASoA.h>
 #include <Framework/AnalysisDataModel.h>
+#include <Framework/AnalysisHelpers.h>
 #include <Framework/AnalysisTask.h>
+#include <Framework/Array2D.h>
+#include <Framework/Configurable.h>
 #include <Framework/HistogramRegistry.h>
+#include <Framework/HistogramSpec.h>
+#include <Framework/InitContext.h>
 #include <Framework/O2DatabasePDGPlugin.h>
 #include <Framework/runDataProcessing.h>
+#include <ReconstructionDataFormats/DCA.h>
+#include <ReconstructionDataFormats/Track.h>
 #include <ReconstructionDataFormats/Vertex.h>
 
 #include <Math/GenVector/LorentzVector.h>
@@ -49,20 +62,6 @@
 #include <ostream>
 #include <string>
 #include <vector>
-// #include "PWGHF/Core/PDG.h"
-#include "PWGLF/DataModel/LFNonPromptCascadeTables.h"
-#include "PWGLF/DataModel/LFStrangenessTables.h"
-
-#include <CommonConstants/PhysicsConstants.h>
-#include <CommonUtils/StringUtils.h>
-#include <DetectorsBase/MatLayerCylSet.h>
-#include <Framework/AnalysisHelpers.h>
-#include <Framework/Array2D.h>
-#include <Framework/Configurable.h>
-#include <Framework/HistogramSpec.h>
-#include <Framework/InitContext.h>
-#include <ReconstructionDataFormats/DCA.h>
-#include <ReconstructionDataFormats/Track.h>
 
 using namespace o2;
 using namespace o2::framework;

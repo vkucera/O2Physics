@@ -19,7 +19,6 @@
 #ifndef O2_ANALYSIS_ALICE3_MID_H_
 #define O2_ANALYSIS_ALICE3_MID_H_
 
-// O2 includes
 #include <Framework/AnalysisDataModel.h>
 
 #include <cstdint>

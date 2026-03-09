@@ -10,7 +10,6 @@
 // or submit itself to any jurisdiction.
 /// \author Nicolo' Jacazio <nicolo.jacazio@cern.ch>, CERN
 
-// O2 includes
 #include "Common/DataModel/TrackSelectionTables.h"
 
 #include <Framework/ASoA.h>

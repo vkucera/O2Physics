@@ -15,7 +15,6 @@
 /// \author Alicja Plachta, WUT Warsaw, alicja.plachta@cern.ch
 /// \author Barbara Chytla, WUT Warsaw, barbara.chytla@cern.ch
 
-// O2 includes
 #include "PWGCF/FemtoWorld/Core/FemtoWorldCollisionSelection.h"
 
 #include "Common/CCDB/TriggerAliases.h"

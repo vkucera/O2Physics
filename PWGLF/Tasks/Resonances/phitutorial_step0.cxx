@@ -12,7 +12,6 @@
 /// \brief Phi meson analysis tutorial
 /// \author Adrian Fereydon Nassirpour <adrian.fereydon.nassirpour@cern.ch>
 
-// IMPORTANT INCLUDES
 #include "Common/DataModel/Centrality.h"
 #include "Common/DataModel/EventSelection.h"
 #include "Common/DataModel/Multiplicity.h"
@@ -31,9 +30,6 @@
 #include <Framework/OutputObjHeader.h>
 #include <Framework/runDataProcessing.h>
 
-// ROOT Includes (optional)
-
-// C++ includes
 #include <iostream>
 #include <string>
 #include <vector>

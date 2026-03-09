@@ -12,7 +12,6 @@
 /// \brief Phi meson analysis tutorial
 /// \author Adrian Fereydon Nassirpour <adrian.fereydon.nassirpour@cern.ch>
 
-// IMPORTANT INCLUDES
 #include "Common/CCDB/EventSelectionParams.h"
 #include "Common/DataModel/Centrality.h"
 #include "Common/DataModel/EventSelection.h"
@@ -35,11 +34,9 @@
 #include <Framework/OutputObjHeader.h>
 #include <Framework/runDataProcessing.h>
 
-// ROOT Includes (optional)
 #include <Math/Vector4D.h> // IWYU pragma: keep (do not replace with Math/Vector4Dfwd.h)
 #include <Math/Vector4Dfwd.h>
 
-// C++ includes
 #include <iostream>
 #include <string>
 #include <vector>

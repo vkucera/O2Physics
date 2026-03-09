@@ -12,7 +12,6 @@
 /// \author Nicolo' Jacazio <nicolo.jacazio@cern.ch>, CERN
 /// \author Alexander Kalweit <alexander.kalweit@cern.ch>, CERN
 
-// O2 includes
 #include "Common/Core/trackUtilities.h"
 #include "Common/DataModel/PIDResponseTOF.h"
 

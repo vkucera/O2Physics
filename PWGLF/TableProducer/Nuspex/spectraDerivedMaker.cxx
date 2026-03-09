@@ -17,7 +17,6 @@
 ///        Depending on the configuration it can also run on tiny tables.
 ///
 
-// O2 includes
 #include "PWGLF/DataModel/spectraTOF.h"
 
 #include "Common/Core/TrackSelection.h"

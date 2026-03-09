@@ -15,6 +15,10 @@
 /// \author Carolina Reetz <c.reetz@cern.ch>
 // ========================
 
+#ifndef HomogeneousField
+#define HomogeneousField
+#endif
+
 #include "PWGLF/DataModel/LFPIDTOFGenericTables.h"
 #include "PWGLF/DataModel/Reduced3BodyTables.h"
 #include "PWGLF/DataModel/Vtx3BodyTables.h"
@@ -55,6 +59,8 @@
 #include <TObject.h>
 #include <TPDGCode.h>
 
+#include <KFParticle.h>
+
 #include <array>
 #include <cmath>
 #include <cstdlib>
@@ -63,13 +69,6 @@
 #include <string>
 #include <unordered_map>
 #include <vector>
-
-#ifndef HomogeneousField
-#define HomogeneousField
-#endif
-
-// includes KFParticle
-#include <KFParticle.h>
 
 using namespace o2;
 using namespace o2::framework;

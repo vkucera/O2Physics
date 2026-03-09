@@ -15,7 +15,6 @@
 /// \brief  Task to analyse the DCA distributions in the MC according to PDG code and status
 ///
 
-// O2 includes
 #include "Common/DataModel/EventSelection.h"
 #include "Common/DataModel/TrackSelectionTables.h"
 
@@ -31,7 +30,6 @@
 #include <Framework/runDataProcessing.h>
 #include <ReconstructionDataFormats/PID.h>
 
-// ROOT includes
 #include <TEfficiency.h>
 #include <TH3.h>
 #include <TPDGCode.h>

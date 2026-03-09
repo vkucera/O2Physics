@@ -11,9 +11,31 @@
 
 /// \author ZhengqingWang(zhengqing.wang@cern.ch), KegangXiong(kxiong@cern.ch)
 /// \file   flowPidCme.cxx
-/// \brief  task to calculate the pikp cme signal and bacground.
-// C++/ROOT includes.
+/// \brief  task to calculate the pikp cme signal and background.
+
+#include "Common/CCDB/EventSelectionParams.h"
+#include "Common/Core/EventPlaneHelper.h"
+#include "Common/DataModel/Centrality.h"
+#include "Common/DataModel/EventSelection.h"
+#include "Common/DataModel/Multiplicity.h"
+#include "Common/DataModel/PIDResponseITS.h"
+#include "Common/DataModel/PIDResponseTOF.h"
+#include "Common/DataModel/PIDResponseTPC.h"
+#include "Common/DataModel/Qvectors.h"
+#include "Common/DataModel/TrackSelectionTables.h"
+
 #include <CCDB/BasicCCDBManager.h>
+#include <CommonConstants/MathConstants.h>
+#include <Framework/ASoA.h>
+#include <Framework/AnalysisDataModel.h>
+#include <Framework/AnalysisHelpers.h>
+#include <Framework/AnalysisTask.h>
+#include <Framework/Configurable.h>
+#include <Framework/HistogramRegistry.h>
+#include <Framework/HistogramSpec.h>
+#include <Framework/InitContext.h>
+#include <Framework/OutputObjHeader.h>
+#include <Framework/runDataProcessing.h>
 
 #include <TF1.h>
 #include <TH1.h>
@@ -28,32 +50,6 @@
 #include <string>
 #include <utility>
 #include <vector>
-
-// o2Physics includes.
-#include "Common/CCDB/EventSelectionParams.h"
-#include "Common/Core/EventPlaneHelper.h"
-#include "Common/DataModel/Centrality.h"
-#include "Common/DataModel/EventSelection.h"
-#include "Common/DataModel/Multiplicity.h"
-#include "Common/DataModel/PIDResponseITS.h"
-#include "Common/DataModel/PIDResponseTOF.h"
-#include "Common/DataModel/PIDResponseTPC.h"
-#include "Common/DataModel/Qvectors.h"
-#include "Common/DataModel/TrackSelectionTables.h"
-
-#include <CommonConstants/MathConstants.h>
-#include <Framework/ASoA.h>
-#include <Framework/AnalysisDataModel.h>
-#include <Framework/AnalysisHelpers.h>
-#include <Framework/AnalysisTask.h>
-#include <Framework/Configurable.h>
-#include <Framework/HistogramRegistry.h>
-#include <Framework/HistogramSpec.h>
-#include <Framework/InitContext.h>
-#include <Framework/OutputObjHeader.h>
-#include <Framework/runDataProcessing.h>
-
-// o2 includes.
 
 using namespace o2;
 using namespace o2::framework;

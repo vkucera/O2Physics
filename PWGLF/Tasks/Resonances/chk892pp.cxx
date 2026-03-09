@@ -15,11 +15,6 @@
 ///
 /// \author Su-Jeong Ji <su-jeong.ji@cern.ch>, Bong-Hwi Lim <Bong-Hwi.Lim@cern.ch>
 
-#include <Math/GenVector/LorentzVector.h>
-#include <Math/GenVector/PxPyPzM4D.h>
-#include <Math/GenVector/RotationZ.h>
-#include <THn.h>
-// #include <TDatabasePDG.h> // FIXME
 #include "PWGLF/DataModel/LFStrangenessTables.h"
 #include "PWGLF/DataModel/mcCentrality.h"
 #include "PWGLF/Utils/collisionCuts.h"
@@ -48,7 +43,11 @@
 #include <Framework/OutputObjHeader.h>
 #include <Framework/runDataProcessing.h>
 
+#include <Math/GenVector/LorentzVector.h>
+#include <Math/GenVector/PxPyPzM4D.h>
+#include <Math/GenVector/RotationZ.h>
 #include <TF1.h>
+#include <THn.h>
 #include <TPDGCode.h> // FIXME
 
 #include <chrono>

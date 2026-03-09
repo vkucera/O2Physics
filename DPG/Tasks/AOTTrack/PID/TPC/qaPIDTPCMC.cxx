@@ -15,7 +15,6 @@
 /// \brief  Task to produce QA output of the PID with TPC running on the MC.
 ///
 
-// O2 includes
 #include "Common/DataModel/PIDResponseTPC.h"
 
 #include <Framework/ASoA.h>

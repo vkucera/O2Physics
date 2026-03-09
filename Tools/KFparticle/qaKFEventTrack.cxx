@@ -15,48 +15,42 @@
 /// \brief  Task to test the performance of the KFParticle package
 ///
 
+#ifndef HomogeneousField
+#define HomogeneousField
+#endif
+
 #include "Tools/KFparticle/qaKFEventTrack.h"
 
-#include <CCDB/BasicCCDBManager.h>
-#include <CommonConstants/LHCConstants.h>
-#include <DetectorsBase/MatLayerCylSet.h>
-#include <Framework/AnalysisHelpers.h>
-#include <Framework/Configurable.h>
-#include <Framework/HistogramSpec.h>
-#include <Framework/InitContext.h>
-
-#include <TH1.h>
-
-#include <cstdint>
-#include <string>
-using namespace std;
-
-/// includes O2
-#include <DataFormatsParameters/GRPMagField.h>
-#include <DataFormatsParameters/GRPObject.h>
-#include <DetectorsBase/Propagator.h>
-#include <Framework/AnalysisDataModel.h>
-#include <Framework/AnalysisTask.h>
-#include <Framework/HistogramRegistry.h>
-#include <Framework/runDataProcessing.h>
-
-/// includes O2Physics
 #include "Common/DataModel/EventSelection.h"
 #include "Common/DataModel/Multiplicity.h"
 #include "Common/DataModel/TrackSelectionTables.h"
 #include "Tools/KFparticle/KFUtilities.h"
 
-/// includes KFParticle
+#include <CCDB/BasicCCDBManager.h>
+#include <CommonConstants/LHCConstants.h>
+#include <DataFormatsParameters/GRPMagField.h>
+#include <DataFormatsParameters/GRPObject.h>
+#include <DetectorsBase/MatLayerCylSet.h>
+#include <DetectorsBase/Propagator.h>
+#include <Framework/AnalysisDataModel.h>
+#include <Framework/AnalysisHelpers.h>
+#include <Framework/AnalysisTask.h>
+#include <Framework/Configurable.h>
+#include <Framework/HistogramRegistry.h>
+#include <Framework/HistogramSpec.h>
+#include <Framework/InitContext.h>
+#include <Framework/runDataProcessing.h>
+
+#include <TH1.h>
+
 #include <KFPTrack.h>
 #include <KFPVertex.h>
 #include <KFParticle.h>
 
-#ifndef HomogeneousField
+#include <cstdint>
+#include <string>
 
-#define HomogeneousField
-
-#endif
-
+using namespace std;
 using namespace o2;
 using namespace o2::framework;
 using namespace o2::framework::expressions;

@@ -12,8 +12,21 @@
 /// \author Dong Jo Kim (djkim@jyu.fi)
 /// \since Sep 2022
 
+#include "JFFlucAnalysis.h"
+#include "JFFlucAnalysisO2Hist.h"
+
+#include "PWGCF/DataModel/CorrelationsDerived.h"
+#include "PWGCF/JCorran/DataModel/JCatalyst.h"
+
+#include <CommonConstants/MathConstants.h>
+#include <Framework/ASoA.h>
 #include <Framework/AnalysisTask.h>
+#include <Framework/Configurable.h>
+#include <Framework/Expressions.h>
 #include <Framework/HistogramRegistry.h>
+#include <Framework/HistogramSpec.h>
+#include <Framework/InitContext.h>
+#include <Framework/runDataProcessing.h>
 
 #include <TFormula.h>
 
@@ -28,22 +41,6 @@
 #include <iterator>
 #include <memory>
 #include <string>
-
-// #include "CCDB/BasicCCDBManager.h"
-
-#include "JFFlucAnalysis.h"
-#include "JFFlucAnalysisO2Hist.h"
-
-#include "PWGCF/DataModel/CorrelationsDerived.h"
-#include "PWGCF/JCorran/DataModel/JCatalyst.h"
-
-#include <CommonConstants/MathConstants.h>
-#include <Framework/ASoA.h>
-#include <Framework/Configurable.h>
-#include <Framework/Expressions.h>
-#include <Framework/HistogramSpec.h>
-#include <Framework/InitContext.h>
-#include <Framework/runDataProcessing.h>
 
 using namespace o2;
 using namespace o2::framework;

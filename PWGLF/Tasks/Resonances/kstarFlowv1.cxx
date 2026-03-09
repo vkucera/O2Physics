@@ -14,12 +14,6 @@
 /// \author  Prottay Das <prottay.das@cern.ch>, Dukhishyam Mallick <dukhishyam.mallick@cern.ch>
 ///
 
-#include <Math/Vector4D.h> // IWYU pragma: keep (do not replace with Math/Vector4Dfwd.h)
-#include <Math/Vector4Dfwd.h>
-
-#include <string>
-#include <vector>
-// #include <TDatabasePDG.h>
 #include "PWGLF/DataModel/SPCalibrationTables.h"
 
 #include "Common/CCDB/EventSelectionParams.h"
@@ -43,8 +37,13 @@
 #include <Framework/OutputObjHeader.h>
 #include <Framework/runDataProcessing.h>
 
+#include <Math/Vector4D.h> // IWYU pragma: keep (do not replace with Math/Vector4Dfwd.h)
+#include <Math/Vector4Dfwd.h>
+
 #include <cmath>
 #include <cstdlib>
+#include <string>
+#include <vector>
 
 using namespace o2;
 using namespace o2::framework;
