@@ -30,7 +30,6 @@
 #include "Common/Core/ZorroSummary.h"
 #include "Common/DataModel/EventSelection.h"
 #include "Common/DataModel/PIDResponseTPC.h"
-#include "Tools/KFparticle/KFUtilities.h"
 
 #include "CCDB/BasicCCDBManager.h"
 #include "DataFormatsParameters/GRPMagField.h"
