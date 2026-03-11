@@ -65,6 +65,7 @@ class DimuonCut : public TNamed
     kPDCA,
     kMFTHitMap,
     kDPtDEtaDPhiwrtMCHMID,
+    kTTCA,
     kNCuts
   };
 
@@ -167,6 +168,9 @@ class DimuonCut : public TNamed
     if (!IsSelectedTrack(track, DimuonCuts::kRabs)) {
       return false;
     }
+    if (!IsSelectedTrack(track, DimuonCuts::kTTCA)) {
+      return false;
+    }
     if (mApplyMFTHitMap && track.trackType() == static_cast<uint8_t>(o2::aod::fwdtrack::ForwardTrackTypeEnum::GlobalMuonTrack) && !IsSelectedTrack(track, DimuonCuts::kMFTHitMap)) {
       return false;
     }
@@ -221,6 +225,9 @@ class DimuonCut : public TNamed
       case DimuonCuts::kRabs:
         return mMinRabs < track.rAtAbsorberEnd() && track.rAtAbsorberEnd() < mMaxRabs;
 
+      case DimuonCuts::kTTCA:
+        return mEnableTTCA ? true : track.isAssociatedToMPC();
+
       case DimuonCuts::kMFTHitMap: {
         std::vector<bool> mftHitMap{o2::aod::pwgem::dilepton::utils::emtrackutil::checkMFTHitMap<0, 1>(track), o2::aod::pwgem::dilepton::utils::emtrackutil::checkMFTHitMap<2, 3>(track), o2::aod::pwgem::dilepton::utils::emtrackutil::checkMFTHitMap<4, 5>(track), o2::aod::pwgem::dilepton::utils::emtrackutil::checkMFTHitMap<6, 7>(track), o2::aod::pwgem::dilepton::utils::emtrackutil::checkMFTHitMap<8, 9>(track)};
         for (const auto& iDisk : mRequiredMFTDisks) {
@@ -262,6 +269,7 @@ class DimuonCut : public TNamed
   void SetMFTHitMap(bool flag, std::vector<int> hitMap);
   void SetMaxdPtdEtadPhiwrtMCHMID(float reldPtMax, float dEtaMax, float dPhiMax); // this is relevant for global muons
   void SetMaxMatchingChi2MCHMFTPtDep(std::function<float(float)> PtDepCut);
+  void EnableTTCA(bool flag);
 
  private:
   // pair cuts
@@ -272,6 +280,7 @@ class DimuonCut : public TNamed
   bool mApplydEtadPhi{false};                     // flag to apply deta, dphi cut between 2 tracks
   float mMinDeltaEta{0.f};
   float mMinDeltaPhi{0.f};
+  bool mEnableTTCA{true};
 
   // kinematic cuts
   float mMinTrackPt{0.f}, mMaxTrackPt{1e10f};        // range in pT

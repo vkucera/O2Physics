@@ -536,9 +536,10 @@ struct HfTaskFlow {
     std::vector<AxisSpec> const effAxis = {{configAxis.axisEtaEfficiency, "#eta"},
                                            {configAxis.axisPtEfficiency, "p_{T} (GeV/c)"},
                                            {configAxis.axisVertexEfficiency, "z-vtx (cm)"}};
-    std::vector<AxisSpec> const userAxis = {{configAxis.axisSamples, "sampling"}};
-    std::vector<AxisSpec> const hfUserAxis = {{configAxis.axisMass, "m_{inv} (GeV/c^{2})"},
-                                              {configAxis.axisSamples, "sampling"}};
+    std::vector<AxisSpec> const hfUserAxis = {{configAxis.axisMass, "m_{inv} (GeV/c^{2})"}};
+    // std::vector<AxisSpec> const userAxis = {{configAxis.axisSamples, "sampling"}};
+    // std::vector<AxisSpec> const hfUserAxis = {{configAxis.axisMass, "m_{inv} (GeV/c^{2})"},
+    //                                           {configAxis.axisSamples, "sampling"}};
 
     //  =========================
     //  Initialization of histograms and CorrelationContainers for TpcTpc cases
@@ -547,8 +548,8 @@ struct HfTaskFlow {
     if (doprocessSameTpcTpcChCh) {
       addHistograms<Data, TpcTpc, ChPartChPart>();
 
-      sameEvent.setObject(new CorrelationContainer("sameEvent", "sameEvent", corrAxis, effAxis, userAxis));
-      mixedEvent.setObject(new CorrelationContainer("mixedEvent", "mixedEvent", corrAxis, effAxis, userAxis));
+      sameEvent.setObject(new CorrelationContainer("sameEvent", "sameEvent", corrAxis, effAxis, {}));
+      mixedEvent.setObject(new CorrelationContainer("mixedEvent", "mixedEvent", corrAxis, effAxis, {}));
     }
 
     if (doprocessSameTpcTpcD0Ch) {
@@ -573,8 +574,8 @@ struct HfTaskFlow {
       addHistograms<Data, TpcMft, ChPartChPart>();
       addMftHistograms();
 
-      sameEvent.setObject(new CorrelationContainer("sameEvent", "sameEvent", corrAxis, effAxis, userAxis));
-      mixedEvent.setObject(new CorrelationContainer("mixedEvent", "mixedEvent", corrAxis, effAxis, userAxis));
+      sameEvent.setObject(new CorrelationContainer("sameEvent", "sameEvent", corrAxis, effAxis, {}));
+      mixedEvent.setObject(new CorrelationContainer("mixedEvent", "mixedEvent", corrAxis, effAxis, {}));
     }
 
     if (doprocessSameTpcMftD0Ch || doprocessSameTpcMftD0ChReassociated) {
@@ -600,8 +601,8 @@ struct HfTaskFlow {
     if (doprocessSameTpcFv0aChCh) {
       addHistograms<Data, TpcFv0a, ChPartChPart>();
 
-      sameEvent.setObject(new CorrelationContainer("sameEvent", "sameEvent", corrAxis, effAxis, userAxis));
-      mixedEvent.setObject(new CorrelationContainer("mixedEvent", "mixedEvent", corrAxis, effAxis, userAxis));
+      sameEvent.setObject(new CorrelationContainer("sameEvent", "sameEvent", corrAxis, effAxis, {}));
+      mixedEvent.setObject(new CorrelationContainer("mixedEvent", "mixedEvent", corrAxis, effAxis, {}));
     }
 
     if (doprocessSameTpcFv0aD0Ch) {
@@ -627,8 +628,8 @@ struct HfTaskFlow {
       addHistograms<Data, MftFv0a, ChPartChPart>();
       addMftHistograms();
 
-      sameEvent.setObject(new CorrelationContainer("sameEvent", "sameEvent", corrAxis, effAxis, userAxis));
-      mixedEvent.setObject(new CorrelationContainer("mixedEvent", "mixedEvent", corrAxis, effAxis, userAxis));
+      sameEvent.setObject(new CorrelationContainer("sameEvent", "sameEvent", corrAxis, effAxis, {}));
+      mixedEvent.setObject(new CorrelationContainer("mixedEvent", "mixedEvent", corrAxis, effAxis, {}));
     }
 
     //  =========================
@@ -640,8 +641,8 @@ struct HfTaskFlow {
       registry.add("Data/FT0Amp", "", {HistType::kTH2F, {configAxis.axisChID, configAxis.axisAmplitudeFit}});
       registry.add("Data/FT0AmpCorr", "", {HistType::kTH2F, {configAxis.axisChID, configAxis.axisAmplitudeFit}});
 
-      sameEvent.setObject(new CorrelationContainer("sameEvent", "sameEvent", corrAxis, effAxis, userAxis));
-      mixedEvent.setObject(new CorrelationContainer("mixedEvent", "mixedEvent", corrAxis, effAxis, userAxis));
+      sameEvent.setObject(new CorrelationContainer("sameEvent", "sameEvent", corrAxis, effAxis, {}));
+      mixedEvent.setObject(new CorrelationContainer("mixedEvent", "mixedEvent", corrAxis, effAxis, {}));
     }
 
     if (doprocessSameTpcFt0aD0Ch) {
@@ -672,8 +673,8 @@ struct HfTaskFlow {
       registry.add("Data/FT0Amp", "", {HistType::kTH2F, {configAxis.axisChID, configAxis.axisAmplitudeFit}});
       registry.add("Data/FT0AmpCorr", "", {HistType::kTH2F, {configAxis.axisChID, configAxis.axisAmplitudeFit}});
 
-      sameEvent.setObject(new CorrelationContainer("sameEvent", "sameEvent", corrAxis, effAxis, userAxis));
-      mixedEvent.setObject(new CorrelationContainer("mixedEvent", "mixedEvent", corrAxis, effAxis, userAxis));
+      sameEvent.setObject(new CorrelationContainer("sameEvent", "sameEvent", corrAxis, effAxis, {}));
+      mixedEvent.setObject(new CorrelationContainer("mixedEvent", "mixedEvent", corrAxis, effAxis, {}));
     }
 
     //  =========================
@@ -685,8 +686,8 @@ struct HfTaskFlow {
       registry.add("Data/FT0Amp", "", {HistType::kTH2F, {configAxis.axisChID, configAxis.axisAmplitudeFit}});
       registry.add("Data/FT0AmpCorr", "", {HistType::kTH2F, {configAxis.axisChID, configAxis.axisAmplitudeFit}});
 
-      sameEvent.setObject(new CorrelationContainer("sameEvent", "sameEvent", corrAxis, effAxis, userAxis));
-      mixedEvent.setObject(new CorrelationContainer("mixedEvent", "mixedEvent", corrAxis, effAxis, userAxis));
+      sameEvent.setObject(new CorrelationContainer("sameEvent", "sameEvent", corrAxis, effAxis, {}));
+      mixedEvent.setObject(new CorrelationContainer("mixedEvent", "mixedEvent", corrAxis, effAxis, {}));
     }
 
     if (doprocessSameTpcFt0cD0Ch) {
@@ -716,8 +717,8 @@ struct HfTaskFlow {
       registry.add("Data/FT0Amp", "", {HistType::kTH2F, {configAxis.axisChID, configAxis.axisAmplitudeFit}});
       registry.add("Data/FT0AmpCorr", "", {HistType::kTH2F, {configAxis.axisChID, configAxis.axisAmplitudeFit}});
 
-      sameEvent.setObject(new CorrelationContainer("sameEvent", "sameEvent", corrAxis, effAxis, userAxis));
-      mixedEvent.setObject(new CorrelationContainer("mixedEvent", "mixedEvent", corrAxis, effAxis, userAxis));
+      sameEvent.setObject(new CorrelationContainer("sameEvent", "sameEvent", corrAxis, effAxis, {}));
+      mixedEvent.setObject(new CorrelationContainer("mixedEvent", "mixedEvent", corrAxis, effAxis, {}));
     }
 
   } // End of init() function
@@ -1157,7 +1158,7 @@ struct HfTaskFlow {
     auto triggerWeight = 1;
     auto associatedWeight = 1;
     auto loopCounter = 0; // To avoid filling associated tracks QA many times, I fill it only for the first trigger track of the collision
-    int sampleIndex = gRandom->Uniform(0, configTask.nSamples);
+    // int sampleIndex = gRandom->Uniform(0, configTask.nSamples);
 
     // TRIGGER PARTICLE
     for (const auto& track1 : tracks1) {
@@ -1193,9 +1194,9 @@ struct HfTaskFlow {
 
       //  fill single-track distributions
       if (!fillingHFcontainer) { // if not HF-h case
-        target->getTriggerHist()->Fill(step, pt1, multiplicity, posZ, sampleIndex, triggerWeight);
+        target->getTriggerHist()->Fill(step, pt1, multiplicity, posZ, triggerWeight);
       } else {
-        target->getTriggerHist()->Fill(step, pt1, multiplicity, posZ, invmass, sampleIndex, triggerWeight);
+        target->getTriggerHist()->Fill(step, pt1, multiplicity, posZ, invmass, triggerWeight);
       }
 
       // FILL QA PLOTS for trigger particle
@@ -1320,10 +1321,10 @@ struct HfTaskFlow {
 
         if (!fillingHFcontainer) {
           //  fill pair correlations
-          target->getPairHist()->Fill(step, sampleIndex, eta1 - eta2, pt2, pt1, multiplicity, deltaPhi, posZ,
+          target->getPairHist()->Fill(step, eta1 - eta2, pt2, pt1, multiplicity, deltaPhi, posZ,
                                       triggerWeight * associatedWeight);
         } else {
-          target->getPairHist()->Fill(step, sampleIndex, eta1 - eta2, pt2, pt1, multiplicity, deltaPhi, posZ, invmass,
+          target->getPairHist()->Fill(step, eta1 - eta2, pt2, pt1, multiplicity, deltaPhi, posZ, invmass,
                                       triggerWeight * associatedWeight);
         }
 
@@ -1363,7 +1364,7 @@ struct HfTaskFlow {
     auto triggerWeight = 1;
     auto associatedWeight = 1;
     auto loopCounter = 0; // To avoid filling associated tracks QA many times, I fill it only for the first trigger track of the collision
-    int sampleIndex = gRandom->Uniform(0, configTask.nSamples);
+    // int sampleIndex = gRandom->Uniform(0, configTask.nSamples);
 
     // TRIGGER PARTICLE
     for (const auto& track1 : tracks1) {
@@ -1395,9 +1396,9 @@ struct HfTaskFlow {
 
       //  fill single-track distributions
       if (!fillingHFcontainer) { // if not HF-h case
-        target->getTriggerHist()->Fill(step, pt1, multiplicity, posZ, sampleIndex, triggerWeight);
+        target->getTriggerHist()->Fill(step, pt1, multiplicity, posZ, triggerWeight);
       } else {
-        target->getTriggerHist()->Fill(step, pt1, multiplicity, posZ, invmass, sampleIndex, triggerWeight);
+        target->getTriggerHist()->Fill(step, pt1, multiplicity, posZ, invmass, triggerWeight);
       }
 
       // FILL QA PLOTS for trigger particle
@@ -1488,10 +1489,10 @@ struct HfTaskFlow {
         deltaPhi = RecoDecay::constrainAngle(deltaPhi, -PIHalf);
 
         if (!fillingHFcontainer) {
-          target->getPairHist()->Fill(step, sampleIndex, eta1 - eta2, pt2, pt1, multiplicity, deltaPhi, posZ,
+          target->getPairHist()->Fill(step, eta1 - eta2, pt2, pt1, multiplicity, deltaPhi, posZ,
                                       triggerWeight * associatedWeight);
         } else {
-          target->getPairHist()->Fill(step, sampleIndex, eta1 - eta2, pt2, pt1, multiplicity, deltaPhi, posZ, invmass,
+          target->getPairHist()->Fill(step, eta1 - eta2, pt2, pt1, multiplicity, deltaPhi, posZ, invmass,
                                       triggerWeight * associatedWeight);
         }
 
@@ -1520,7 +1521,7 @@ struct HfTaskFlow {
     auto triggerWeight = 1;
     auto associatedWeight = 1;
     auto loopCounter = 0; // To avoid filling associated tracks QA many times, I fill it only for the first trigger track of the collision
-    int sampleIndex = gRandom->Uniform(0, configTask.nSamples);
+    // int sampleIndex = gRandom->Uniform(0, configTask.nSamples);
 
     // TRIGGER PARTICLE
     for (auto const& track1 : tracks1) {
@@ -1559,9 +1560,9 @@ struct HfTaskFlow {
 
       //  fill single-track distributions
       if (!fillingHFcontainer) { // if not HF-h case
-        target->getTriggerHist()->Fill(step, pt1, multiplicity, posZ, sampleIndex, triggerWeight);
+        target->getTriggerHist()->Fill(step, pt1, multiplicity, posZ, triggerWeight);
       } else {
-        target->getTriggerHist()->Fill(step, pt1, multiplicity, posZ, invmass, sampleIndex, triggerWeight);
+        target->getTriggerHist()->Fill(step, pt1, multiplicity, posZ, invmass, triggerWeight);
       }
 
       // FILL QA PLOTS for trigger particle
@@ -1621,10 +1622,10 @@ struct HfTaskFlow {
           deltaPhi = RecoDecay::constrainAngle(deltaPhi, -PIHalf); // set range of delta phi in (-pi/2 , 3/2*pi)
 
           if (!fillingHFcontainer) {
-            target->getPairHist()->Fill(step, sampleIndex, eta1 - eta2, pt1, pt1, multiplicity, deltaPhi, posZ,
+            target->getPairHist()->Fill(step, eta1 - eta2, pt1, pt1, multiplicity, deltaPhi, posZ,
                                         triggerWeight * associatedWeight);
           } else {
-            target->getPairHist()->Fill(step, sampleIndex, eta1 - eta2, pt1, pt1, multiplicity, deltaPhi, posZ, invmass,
+            target->getPairHist()->Fill(step, eta1 - eta2, pt1, pt1, multiplicity, deltaPhi, posZ, invmass,
                                         triggerWeight * associatedWeight);
           }
 
@@ -1669,10 +1670,10 @@ struct HfTaskFlow {
           deltaPhi = RecoDecay::constrainAngle(deltaPhi, -PIHalf); // set range of delta phi in (-pi/2 , 3/2*pi)
 
           if (!fillingHFcontainer) {
-            target->getPairHist()->Fill(step, sampleIndex, eta1 - eta2, pt1, pt1, multiplicity, deltaPhi, posZ,
+            target->getPairHist()->Fill(step, eta1 - eta2, pt1, pt1, multiplicity, deltaPhi, posZ,
                                         amplitude * triggerWeight * associatedWeight);
           } else {
-            target->getPairHist()->Fill(step, sampleIndex, eta1 - eta2, pt1, pt1, multiplicity, deltaPhi, posZ, invmass,
+            target->getPairHist()->Fill(step, eta1 - eta2, pt1, pt1, multiplicity, deltaPhi, posZ, invmass,
                                         amplitude * triggerWeight * associatedWeight);
           }
 
@@ -1720,7 +1721,7 @@ struct HfTaskFlow {
     auto triggerWeight = 1;
     auto associatedWeight = 1;
     auto loopCounter = 0; // To avoid filling associated tracks QA many times, I fill it only for the first trigger track of the collision
-    int sampleIndex = gRandom->Uniform(0, configTask.nSamples);
+    // int sampleIndex = gRandom->Uniform(0, configTask.nSamples);
 
     // TRIGGER PARTICLE
     for (auto const& track1 : tracks1) {
@@ -1743,7 +1744,7 @@ struct HfTaskFlow {
       float phi1 = reassociatedMftTrack.phi();
       o2::math_utils::bringTo02Pi(phi1);
 
-      target->getTriggerHist()->Fill(step, pt1, multiplicity, posZ, sampleIndex, triggerWeight);
+      target->getTriggerHist()->Fill(step, pt1, multiplicity, posZ, triggerWeight);
 
       // FILL QA PLOTS for trigger particle
       if (sameEvent && (step == CorrelationContainer::kCFStepReconstructed)) {
@@ -1767,7 +1768,7 @@ struct HfTaskFlow {
           float deltaPhi = phi1 - phi2;
           deltaPhi = RecoDecay::constrainAngle(deltaPhi, -PIHalf); // set range of delta phi in (-pi/2 , 3/2*pi)
 
-          target->getPairHist()->Fill(step, sampleIndex, eta1 - eta2, pt1, pt1, multiplicity, deltaPhi, posZ,
+          target->getPairHist()->Fill(step, eta1 - eta2, pt1, pt1, multiplicity, deltaPhi, posZ,
                                       triggerWeight * associatedWeight);
 
           // FILL QA PLOTS for associated particle
@@ -1800,7 +1801,7 @@ struct HfTaskFlow {
           float deltaPhi = phi1 - phi2;
           deltaPhi = RecoDecay::constrainAngle(deltaPhi, -PIHalf); // set range of delta phi in (-pi/2 , 3/2*pi)
 
-          target->getPairHist()->Fill(step, sampleIndex, eta1 - eta2, pt1, pt1, multiplicity, deltaPhi, posZ,
+          target->getPairHist()->Fill(step, eta1 - eta2, pt1, pt1, multiplicity, deltaPhi, posZ,
                                       amplitude * triggerWeight * associatedWeight);
 
           // FILL QA PLOTS for associated particle
@@ -1822,7 +1823,7 @@ struct HfTaskFlow {
     auto triggerWeight = 1;
     auto associatedWeight = 1;
     auto loopCounter = 0; // To avoid filling associated tracks QA many times, I fill it only for the first trigger track of the collision
-    int sampleIndex = gRandom->Uniform(0, configTask.nSamples);
+    // int sampleIndex = gRandom->Uniform(0, configTask.nSamples);
 
     // TRIGGER PARTICLE FROM FT0A
     for (std::size_t indexChannelA = 0; indexChannelA < ft0as.channelA().size(); indexChannelA++) {
@@ -1833,7 +1834,7 @@ struct HfTaskFlow {
       auto phiA = getPhiFT0(channelIdA, isFT0A);
       auto etaA = getEtaFT0(channelIdA, isFT0A);
 
-      target->getTriggerHist()->Fill(step, 0.f, multiplicity, posZ, sampleIndex, amplitude * triggerWeight);
+      target->getTriggerHist()->Fill(step, 0.f, multiplicity, posZ, amplitude * triggerWeight);
 
       if (sameEvent && (step == CorrelationContainer::kCFStepReconstructed)) {
         fillTriggerQa<Data, Ft0aFt0c, ChPartChPart>(multiplicity, etaA, phiA, 0.f);
@@ -1849,7 +1850,7 @@ struct HfTaskFlow {
         auto etaC = getEtaFT0(channelIdC, isFT0C);
         float deltaPhi = RecoDecay::constrainAngle(phiA - phiC, -PIHalf);
 
-        target->getPairHist()->Fill(step, sampleIndex, etaA - etaC, 0.f, 0.f, multiplicity, deltaPhi, posZ,
+        target->getPairHist()->Fill(step, etaA - etaC, 0.f, 0.f, multiplicity, deltaPhi, posZ,
                                     amplitude * triggerWeight * associatedWeight);
 
         if (sameEvent && (loopCounter == 1) && (step == CorrelationContainer::kCFStepReconstructed)) {

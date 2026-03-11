@@ -192,7 +192,9 @@ struct lambdaspincorrderived {
   TH3D* hweight22;
   TH3D* hweight32;
   TH3D* hweight42;
+  TH2D* hweightCentPair = nullptr;
 
+  Configurable<std::string> ConfWeightPathCentPair{"ConfWeightPathCentPair", "", "Centrality x pair-type weight path"};
   Configurable<std::string> ConfWeightPathLL{"ConfWeightPathLL", "Users/s/skundu/My/Object/spincorr/cent010LL", "Weight path"};
   Configurable<std::string> ConfWeightPathALAL{"ConfWeightPathALAL", "Users/s/skundu/My/Object/spincorr/cent010LL", "Weight path"};
   Configurable<std::string> ConfWeightPathLAL{"ConfWeightPathLAL", "Users/s/skundu/My/Object/spincorr/cent010LL", "Weight path"};
@@ -208,6 +210,7 @@ struct lambdaspincorrderived {
   Configurable<int> cfgV5NeighborPt{"cfgV5NeighborPt", 0, "v5: neighbor bins in pT (use symmetric ±N, edge-safe)"};
   Configurable<int> cfgV5NeighborEta{"cfgV5NeighborEta", 0, "v5: neighbor bins in eta (use symmetric ±N, edge-safe)"};
   Configurable<int> cfgV5NeighborPhi{"cfgV5NeighborPhi", 0, "v5: neighbor bins in phi (use symmetric ±N, periodic wrap)"};
+
   Configurable<int> cfgV5MaxMatches{"cfgV5MaxMatches", 50, "v5: max ME replacements per SE pair (after all cuts)"};
   Configurable<uint64_t> cfgMixSeed{"cfgMixSeed", 0xdecafbadULL, "RNG seed for downsampling matches (deterministic)"};
   Configurable<float> centMin{"centMin", 0, "Minimum Centrality"};
@@ -277,6 +280,9 @@ struct lambdaspincorrderived {
     histos.add("deltaPhiMix", "deltaPhiMix", HistType::kTH1D, {{72, -TMath::Pi(), TMath::Pi()}}, true);
     histos.add("ptCent", "ptCent", HistType::kTH2D, {{100, 0.0, 10.0}, {8, 0.0, 80.0}}, true);
     histos.add("etaCent", "etaCent", HistType::kTH2D, {{32, -0.8, 0.8}, {8, 0.0, 80.0}}, true);
+
+    histos.add("hCentPairTypeSE", "SE pair-weighted centrality;Centrality;PairType", kTH2D, {{110, 0.0, 110.0}, {4, -0.5, 3.5}});
+    histos.add("hCentPairTypeME", "ME pair-weighted centrality;Centrality;PairType", kTH2D, {{110, 0.0, 110.0}, {4, -0.5, 3.5}});
 
     // --- 3D SE/ME pair-space maps per category (LL, LAL, ALL, ALAL)
     histos.add("SE_LL", "SE pairs", HistType::kTH3D, {ax_dphi_h, ax_deta, ax_ptpair}, true);
@@ -367,6 +373,9 @@ struct lambdaspincorrderived {
       hweight22 = ccdb->getForTimeStamp<TH3D>(ConfWeightPathLAL2.value, cfgCcdbParam.nolaterthan.value);
       hweight32 = ccdb->getForTimeStamp<TH3D>(ConfWeightPathALL2.value, cfgCcdbParam.nolaterthan.value);
       hweight42 = ccdb->getForTimeStamp<TH3D>(ConfWeightPathALAL2.value, cfgCcdbParam.nolaterthan.value);
+    }
+    if (!ConfWeightPathCentPair.value.empty()) {
+      hweightCentPair = ccdb->getForTimeStamp<TH2D>(ConfWeightPathCentPair.value, cfgCcdbParam.nolaterthan.value);
     }
   }
 
@@ -694,6 +703,18 @@ struct lambdaspincorrderived {
     }
   }
 
+  static inline int pairTypeCode(int tag1, int tag2)
+  {
+    if (tag1 == 0 && tag2 == 0) {
+      return 0; // LL
+    } else if (tag1 == 0 && tag2 == 1) {
+      return 1; // LAL
+    } else if (tag1 == 1 && tag2 == 0) {
+      return 2; // ALL
+    } else {
+      return 3; // ALAL
+    }
+  }
   ROOT::Math::PtEtaPhiMVector lambda0, proton0;
   ROOT::Math::PtEtaPhiMVector lambda, proton;
   ROOT::Math::PtEtaPhiMVector lambda2, proton2;
@@ -737,6 +758,8 @@ struct lambdaspincorrderived {
         proton2 = ROOT::Math::PtEtaPhiMVector(v02.protonPt(), v02.protonEta(), v02.protonPhi(), o2::constants::physics::MassProton);
         lambda2 = ROOT::Math::PtEtaPhiMVector(v02.lambdaPt(), v02.lambdaEta(), v02.lambdaPhi(), v02.lambdaMass());
         histos.fill(HIST("deltaPhiSame"), RecoDecay::constrainAngle(v0.lambdaPhi() - v02.lambdaPhi(), -TMath::Pi(), harmonicDphi));
+        const int ptype = pairTypeCode(v0.v0Status(), v02.v0Status());
+        histos.fill(HIST("hCentPairTypeSE"), collision.cent(), ptype, 1.0);
         if (v0.v0Status() == 0 && v02.v0Status() == 0) {
           fillHistograms(0, 0, lambda, lambda2, proton, proton2, 0, 1.0);
         }
@@ -1030,7 +1053,8 @@ struct lambdaspincorrderived {
     MixBinner(float ptMin_, float ptMax_, float ptStep_,
               float etaAbsMax, float etaStep_,
               float phiStep_)
-      : ptMin(ptMin_), ptMax(ptMax_), ptStep(ptStep_), etaMin(-etaAbsMax), etaMax(+etaAbsMax), etaStep(etaStep_), phiMin(0.f), phiMax(static_cast<float>(2.0 * TMath::Pi())), phiStep(phiStep_)
+      : ptMin(ptMin_), ptMax(ptMax_), ptStep(ptStep_), etaMin(-etaAbsMax), etaMax(+etaAbsMax), etaStep(etaStep_), phiMin(-static_cast<float>(TMath::Pi())), phiMax(+static_cast<float>(TMath::Pi())), phiStep(phiStep_)
+    // : ptMin(ptMin_), ptMax(ptMax_), ptStep(ptStep_), etaMin(-etaAbsMax), etaMax(+etaAbsMax), etaStep(etaStep_), phiMin(0.f), phiMax(static_cast<float>(2.0 * TMath::Pi())), phiStep(phiStep_)
     {
       ptStep = (ptStep > 0.f ? ptStep : 0.1f);
       etaStep = (etaStep > 0.f ? etaStep : 0.1f);
@@ -1138,7 +1162,7 @@ struct lambdaspincorrderived {
         // Bin kinematics (φ already constrained via your call-site)
         const int ptB = mb.ptBin(t.lambdaPt());
         const int etaB = mb.etaBin(t.lambdaEta());
-        const int phiB = mb.phiBin(RecoDecay::constrainAngle(t.lambdaPhi(), 0.0F, harmonic));
+        const int phiB = mb.phiBin(RecoDecay::constrainAngle(t.lambdaPhi(), -TMath::Pi(), harmonic));
         const int mB = mb.massBin(t.lambdaMass());
         if (ptB < 0 || etaB < 0 || phiB < 0 || mB < 0)
           continue;
@@ -1187,7 +1211,7 @@ struct lambdaspincorrderived {
         // Bin of t1 defines where to search (exact bin, but handle φ wrap at edges)
         const int ptB = mb.ptBin(t1.lambdaPt());
         const int etaB = mb.etaBin(t1.lambdaEta());
-        const int phiB = mb.phiBin(RecoDecay::constrainAngle(t1.lambdaPhi(), 0.0F, harmonic));
+        const int phiB = mb.phiBin(RecoDecay::constrainAngle(t1.lambdaPhi(), -TMath::Pi(), harmonic));
         const int mB = mb.massBin(t1.lambdaMass());
         if (ptB < 0 || etaB < 0 || phiB < 0 || mB < 0)
           continue;
@@ -1410,6 +1434,8 @@ struct lambdaspincorrderived {
                     RecoDecay::constrainAngle(mcacc::lamPhi(v0) - mcacc::lamPhi(v02),
                                               -TMath::Pi(), harmonicDphi));
 
+        const int ptype = pairTypeCode(mcacc::v0Status(v0), mcacc::v0Status(v02));
+        histos.fill(HIST("hCentPairTypeSE"), mcacc::cent(collision), ptype, 1.0);
         // datatype=0 (same event)
         fillHistograms(mcacc::v0Status(v0), mcacc::v0Status(v02),
                        lambda, lambda2, proton, proton2,
@@ -1573,7 +1599,7 @@ struct lambdaspincorrderived {
 
         const int ptB = mb.ptBin(mcacc::lamPt(t));
         const int etaB = mb.etaBin(mcacc::lamEta(t));
-        const int phiB = mb.phiBin(RecoDecay::constrainAngle(mcacc::lamPhi(t), 0.0F, harmonic));
+        const int phiB = mb.phiBin(RecoDecay::constrainAngle(mcacc::lamPhi(t), -TMath::Pi(), harmonic));
         const int mB = mb.massBin(mcacc::lamMass(t));
         if (ptB < 0 || etaB < 0 || phiB < 0 || mB < 0) {
           continue;
@@ -1625,7 +1651,7 @@ struct lambdaspincorrderived {
 
         const int ptB = mb.ptBin(mcacc::lamPt(t1));
         const int etaB = mb.etaBin(mcacc::lamEta(t1));
-        const int phiB = mb.phiBin(RecoDecay::constrainAngle(mcacc::lamPhi(t1), 0.0F, harmonic));
+        const int phiB = mb.phiBin(RecoDecay::constrainAngle(mcacc::lamPhi(t1), -TMath::Pi(), harmonic));
         const int mB = mb.massBin(mcacc::lamMass(t1));
         if (ptB < 0 || etaB < 0 || phiB < 0 || mB < 0) {
           continue;
@@ -1846,7 +1872,7 @@ struct lambdaspincorrderived {
           etaB = mb.etaBin(lv.Rapidity()); // treat "eta axis" as rapidity axis
         }
 
-        const int phiB = mb.phiBin(RecoDecay::constrainAngle(t.lambdaPhi(), 0.0F, harmonic));
+        const int phiB = mb.phiBin(RecoDecay::constrainAngle(t.lambdaPhi(), -TMath::Pi(), harmonic));
         const int mB = mb.massBin(t.lambdaMass());
 
         if (ptB < 0 || etaB < 0 || phiB < 0 || mB < 0) {
@@ -1867,9 +1893,10 @@ struct lambdaspincorrderived {
       }
     }
 
-    // Neighbor policy (continuous mixing)
-    constexpr int nN_pt = 1;  // ±1 pt-bin
-    constexpr int nN_eta = 1; // ±1 eta/y-bin (can make configurable later)
+    // Neighbor policy from configurables
+    const int nN_pt = std::max(0, cfgV5NeighborPt.value);
+    const int nN_eta = std::max(0, cfgV5NeighborEta.value);
+    const int nN_phi = std::max(0, cfgV5NeighborPhi.value);
 
     std::vector<int> ptBins, etaBins, phiBins;
     std::vector<MatchRef> matches;
@@ -1918,7 +1945,7 @@ struct lambdaspincorrderived {
           etaB = mb.etaBin(lv1.Rapidity());
         }
 
-        const int phiB = mb.phiBin(RecoDecay::constrainAngle(t1.lambdaPhi(), 0.0F, harmonic));
+        const int phiB = mb.phiBin(RecoDecay::constrainAngle(t1.lambdaPhi(), -TMath::Pi(), harmonic));
         const int mB = mb.massBin(t1.lambdaMass());
 
         if (ptB < 0 || etaB < 0 || phiB < 0 || mB < 0) {
@@ -1927,7 +1954,7 @@ struct lambdaspincorrderived {
 
         collectNeighborBinsClamp(ptB, nPt, nN_pt, ptBins);
         collectNeighborBinsClamp(etaB, nEta, nN_eta, etaBins);
-        collectPhiBinsWithEdgeWrap(phiB, nPhi, phiBins);
+        collectNeighborBinsPhi(phiB, nPhi, nN_phi, phiBins);
 
         matches.clear();
 
@@ -1948,12 +1975,10 @@ struct lambdaspincorrderived {
                   continue;
                 }
 
-                // extra strict kinematic check (uses eta or rapidity based on userapidity)
                 if (!checkKinematics(t1, tX)) {
                   continue;
                 }
 
-                // safety (should be redundant because different event)
                 if (tX.globalIndex() == t1.globalIndex())
                   continue;
                 if (tX.globalIndex() == t2.globalIndex())
@@ -1969,7 +1994,6 @@ struct lambdaspincorrderived {
           continue;
         }
 
-        // dedupe
         std::sort(matches.begin(), matches.end(),
                   [](auto const& a, auto const& b) {
                     return std::tie(a.collisionIdx, a.rowIndex) < std::tie(b.collisionIdx, b.rowIndex);
@@ -1983,9 +2007,8 @@ struct lambdaspincorrderived {
           continue;
         }
 
-        // unbiased cap (cfgV5MaxMatches==1 => pick-one mode)
         if (cfgV5MaxMatches.value > 0 && (int)matches.size() > cfgV5MaxMatches.value) {
-          uint64_t seed = 0;
+          uint64_t seed = cfgMixSeed.value;
           seed ^= splitmix64((uint64_t)t1.globalIndex());
           seed ^= splitmix64((uint64_t)t2.globalIndex() + 0x1234567ULL);
           seed ^= splitmix64((uint64_t)curColIdx + 0x9abcULL);
@@ -2014,12 +2037,22 @@ struct lambdaspincorrderived {
           auto lambda2 = ROOT::Math::PtEtaPhiMVector(t2.lambdaPt(), t2.lambdaEta(), t2.lambdaPhi(),
                                                      t2.lambdaMass());
 
+          const int ptype = pairTypeCode(tX.v0Status(), t2.v0Status());
+          double centPairWeight = 1.0;
+          if (hweightCentPair) {
+            const int bin = hweightCentPair->FindBin(col1.cent(), ptype);
+            centPairWeight = hweightCentPair->GetBinContent(bin);
+            if (centPairWeight <= 0.0) {
+              centPairWeight = 1.0;
+            }
+          }
+          const float meWeight = wBase * centPairWeight;
           const float dPhi = deltaPhiMinusPiToPi((float)lambda.Phi(), (float)lambda2.Phi());
           histos.fill(HIST("deltaPhiMix"), dPhi, wBase);
-
+          histos.fill(HIST("hCentPairTypeME"), col1.cent(), ptype, wBase);
           fillHistograms(tX.v0Status(), t2.v0Status(),
                          lambda, lambda2, proton, proton2,
-                         /*datatype=*/1, /*mixpairweight=*/wBase);
+                         /*datatype=*/1, /*mixpairweight=*/meWeight);
         }
       }
     }
@@ -2028,8 +2061,6 @@ struct lambdaspincorrderived {
 
   void processMCMEV5(EventCandidatesMC const& collisions, AllTrackCandidatesMC const& V0sMC)
   {
-    // Buffer binning: v0etaMixBuffer = max(|eta|) or max(|y|) if userapidity
-    //                etaMix         = step for that axis (and also your matching window inside checkKinematicsMC)
     MixBinner mb{
       ptMin.value, ptMax.value, ptMix.value,
       v0etaMixBuffer.value, etaMix.value,
@@ -2038,7 +2069,7 @@ struct lambdaspincorrderived {
     const int nCol = colBinning.getAllBinsCount();
     const int nStat = N_STATUS;
     const int nPt = mb.nPt();
-    const int nEta = mb.nEta(); // logical "nY" if userapidity=true
+    const int nEta = mb.nEta();
     const int nPhi = mb.nPhi();
 
     const size_t nKeys = static_cast<size_t>(nCol) * nStat * nPt * nEta * nPhi;
@@ -2081,7 +2112,7 @@ struct lambdaspincorrderived {
           etaB = mb.etaBin(lv.Rapidity());
         }
 
-        const int phiB = mb.phiBin(phi0To2Pi(mcacc::lamPhi(t)));
+        const int phiB = mb.phiBin(RecoDecay::constrainAngle(mcacc::lamPhi(t), -TMath::Pi(), harmonic));
         if (ptB < 0 || etaB < 0 || phiB < 0) {
           continue;
         }
@@ -2097,8 +2128,9 @@ struct lambdaspincorrderived {
       }
     }
 
-    constexpr int nN_pt = 1;
-    constexpr int nN_eta = 1;
+    const int nN_pt = std::max(0, cfgV5NeighborPt.value);
+    const int nN_eta = std::max(0, cfgV5NeighborEta.value);
+    const int nN_phi = std::max(0, cfgV5NeighborPhi.value);
 
     std::vector<int> ptBins, etaBins, phiBins;
     std::vector<MatchRef> matches;
@@ -2124,7 +2156,6 @@ struct lambdaspincorrderived {
           continue;
         }
 
-        // no shared daughters
         if (mcacc::prIdx(t1) == mcacc::prIdx(t2))
           continue;
         if (mcacc::piIdx(t1) == mcacc::piIdx(t2))
@@ -2147,15 +2178,14 @@ struct lambdaspincorrderived {
                                                        mcacc::lamPhi(t1), mcacc::lamMass(t1));
           etaB = mb.etaBin(lv1.Rapidity());
         }
-
-        const int phiB = mb.phiBin(phi0To2Pi(mcacc::lamPhi(t1)));
+        const int phiB = mb.phiBin(RecoDecay::constrainAngle(mcacc::lamPhi(t1), -TMath::Pi(), harmonic));
         if (ptB < 0 || etaB < 0 || phiB < 0) {
           continue;
         }
 
         collectNeighborBinsClamp(ptB, nPt, nN_pt, ptBins);
         collectNeighborBinsClamp(etaB, nEta, nN_eta, etaBins);
-        collectPhiBinsWithEdgeWrap(phiB, nPhi, phiBins);
+        collectNeighborBinsPhi(phiB, nPhi, nN_phi, phiBins);
 
         matches.clear();
 
@@ -2166,7 +2196,7 @@ struct lambdaspincorrderived {
 
               for (auto const& bc : vec) {
                 if (bc.collisionIdx == curColIdx) {
-                  continue; // different event
+                  continue;
                 }
 
                 auto tX = V0sMC.iteratorAt(static_cast<uint64_t>(bc.rowIndex));
@@ -2177,7 +2207,6 @@ struct lambdaspincorrderived {
                   continue;
                 }
 
-                // safety (should be redundant due to different event)
                 if (tX.globalIndex() == t1.globalIndex())
                   continue;
                 if (tX.globalIndex() == t2.globalIndex())
@@ -2193,7 +2222,6 @@ struct lambdaspincorrderived {
           continue;
         }
 
-        // dedupe
         std::sort(matches.begin(), matches.end(),
                   [](auto const& a, auto const& b) {
                     return std::tie(a.collisionIdx, a.rowIndex) < std::tie(b.collisionIdx, b.rowIndex);
@@ -2207,9 +2235,8 @@ struct lambdaspincorrderived {
           continue;
         }
 
-        // unbiased cap (cfgV5MaxMatches==1 => pick-one mode)
         if (cfgV5MaxMatches.value > 0 && (int)matches.size() > cfgV5MaxMatches.value) {
-          uint64_t seed = 0;
+          uint64_t seed = cfgMixSeed.value;
           seed ^= splitmix64((uint64_t)t1.globalIndex());
           seed ^= splitmix64((uint64_t)t2.globalIndex() + 0x1234567ULL);
           seed ^= splitmix64((uint64_t)curColIdx + 0x9abcULL);
@@ -2238,12 +2265,22 @@ struct lambdaspincorrderived {
           auto l2 = ROOT::Math::PtEtaPhiMVector(mcacc::lamPt(t2), mcacc::lamEta(t2), mcacc::lamPhi(t2),
                                                 mcacc::lamMass(t2));
 
+          const int ptype = pairTypeCode(mcacc::v0Status(tX), mcacc::v0Status(t2));
+          double centPairWeight = 1.0;
+          if (hweightCentPair) {
+            const int bin = hweightCentPair->FindBin(mcacc::cent(col1), ptype);
+            centPairWeight = hweightCentPair->GetBinContent(bin);
+            if (centPairWeight <= 0.0) {
+              centPairWeight = 1.0;
+            }
+          }
+          const float meWeight = wBase * centPairWeight;
           const float dPhi = deltaPhiMinusPiToPi((float)lX.Phi(), (float)l2.Phi());
           histos.fill(HIST("deltaPhiMix"), dPhi, wBase);
-
+          histos.fill(HIST("hCentPairTypeME"), mcacc::cent(col1), ptype, wBase);
           fillHistograms(mcacc::v0Status(tX), mcacc::v0Status(t2),
                          lX, l2, pX, p2,
-                         /*datatype=*/1, /*mixpairweight=*/wBase);
+                         /*datatype=*/1, /*mixpairweight=*/meWeight);
         }
       }
     }
