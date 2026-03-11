@@ -57,7 +57,6 @@
 #include <TH1.h>
 #include <TRandom3.h>
 
-#include <algorithm>
 #include <array>
 #include <cmath>
 #include <cstdint>

@@ -46,6 +46,7 @@
 #include <TList.h>
 #include <TPDGCode.h>
 #include <TParameter.h>
+#include <TString.h>
 
 #include <sys/types.h>
 

@@ -29,6 +29,8 @@
 #include <Framework/Configurable.h>
 #include <Framework/InitContext.h>
 
+#include <fairlogger/Logger.h>
+
 #include <vector>
 
 template <typename JetsBase, typename JetsTag, typename JetsBasetoTagMatchingTable, typename JetsTagtoBaseMatchingTable, typename CandidatesBase, typename CandidatesTag, typename ClustersBase>

@@ -22,6 +22,7 @@
 
 #include <KFParticle.h>
 
+#include <array>
 #include <cstdint>
 
 enum CentType : uint8_t {

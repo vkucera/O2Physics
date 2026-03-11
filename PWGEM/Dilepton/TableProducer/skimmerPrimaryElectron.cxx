@@ -12,6 +12,8 @@
 /// \brief write relevant information about primary electrons.
 /// \author daiki.sekihata@cern.ch
 
+#include "TableHelper.h"
+
 #include "PWGEM/Dilepton/DataModel/dileptonTables.h"
 #include "PWGEM/Dilepton/Utils/MlResponseO2Track.h"
 #include "PWGEM/Dilepton/Utils/PairUtilities.h"

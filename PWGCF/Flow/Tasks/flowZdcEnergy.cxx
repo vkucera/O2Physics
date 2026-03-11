@@ -14,9 +14,6 @@
 /// \since  03/2026
 /// \brief  A try to use the znc energy.
 
-#include "PWGCF/DataModel/SPTableZDC.h"
-
-#include "Common/CCDB/RCTSelectionFlags.h"
 #include "Common/DataModel/Centrality.h"
 #include "Common/DataModel/EventSelection.h"
 #include "Common/DataModel/Multiplicity.h"
@@ -32,6 +29,8 @@
 #include <Framework/InitContext.h>
 #include <Framework/runDataProcessing.h>
 
+#include <TH1.h>
+
 #include <chrono>
 #include <cstdint>
 #include <cstdlib>
@@ -41,8 +40,6 @@
 using namespace o2;
 using namespace o2::framework;
 using namespace o2::framework::expressions;
-using namespace o2::aod::rctsel;
-// using namespace o2::analysis;
 
 #define O2_DEFINE_CONFIGURABLE(NAME, TYPE, DEFAULT, HELP) Configurable<TYPE> NAME{#NAME, DEFAULT, HELP};
 

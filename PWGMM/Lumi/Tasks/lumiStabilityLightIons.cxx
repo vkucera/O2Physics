@@ -35,6 +35,7 @@
 #include <Framework/OutputObjHeader.h>
 #include <Framework/runDataProcessing.h>
 
+#include <TH1.h>
 #include <TH2.h>
 #include <TString.h>
 
@@ -42,6 +43,7 @@
 #include <bitset>
 #include <cstdint>
 #include <cstdlib>
+#include <limits>
 #include <map>
 #include <memory>
 #include <string>
