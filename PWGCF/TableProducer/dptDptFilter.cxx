@@ -63,6 +63,7 @@ using namespace o2::framework;
 using namespace o2::soa;
 using namespace o2::framework::expressions;
 using namespace o2::analysis;
+using namespace o2::common::core;
 
 #define DPTDPTFILTERLOGCOLLISIONS debug
 #define DPTDPTFILTERLOGTRACKS debug

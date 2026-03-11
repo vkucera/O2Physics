@@ -190,7 +190,7 @@ struct TOFResponseImpl {
   template <typename VType>
   void getCfg(o2::framework::InitContext& initContext, const std::string name, VType& v, const std::string task)
   {
-    if (!getTaskOptionValue(initContext, task, name, v, false)) {
+    if (!o2::common::core::getTaskOptionValue(initContext, task, name, v, false)) {
       LOG(fatal) << "Could not get " << name << " from " << task << " task";
     }
   }

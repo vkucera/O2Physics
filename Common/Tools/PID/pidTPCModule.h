@@ -303,11 +303,11 @@ class pidTPCModule
     // initialize PID response
     response = new o2::pid::tpc::Response();
 
-    enableFlagIfTableRequired(context, "DEdxsCorrected", pidTPCopts.savedEdxsCorrected);
+    o2::common::core::enableFlagIfTableRequired(context, "DEdxsCorrected", pidTPCopts.savedEdxsCorrected);
 
     // Checking the tables are requested in the workflow and enabling them
     auto enableFlag = [&](const std::string particle, o2::framework::Configurable<int>& flag) {
-      enableFlagIfTableRequired(context, "pidTPC" + particle, flag);
+      o2::common::core::enableFlagIfTableRequired(context, "pidTPC" + particle, flag);
     };
     enableFlag("FullEl", pidTPCopts.pidFullEl);
     enableFlag("FullMu", pidTPCopts.pidFullMu);
@@ -330,7 +330,7 @@ class pidTPCModule
     enableFlag("Al", pidTPCopts.pidTinyAl);
 
     if (metadataInfo.isMC()) {
-      enableFlagIfTableRequired(context, "mcTPCTuneOnData", pidTPCopts.enableTuneOnDataTable);
+      o2::common::core::enableFlagIfTableRequired(context, "mcTPCTuneOnData", pidTPCopts.enableTuneOnDataTable);
     }
 
     speciesNetworkFlags[0] = pidTPCopts.useNetworkEl;

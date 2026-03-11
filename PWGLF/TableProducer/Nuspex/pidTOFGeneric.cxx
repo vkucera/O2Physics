@@ -113,7 +113,7 @@ struct pidTOFGeneric {
     mTOFCalibConfig.metadataInfo = metadataInfo;
     mTOFCalibConfig.inheritFromBaseTask(initContext);
     // Checking that the table is requested in the workflow and enabling it
-    enableTable = isTableRequiredInWorkflow(initContext, "EvTimeTOFFT0") || isTableRequiredInWorkflow(initContext, "EvTimeTOFFT0ForTrack");
+    enableTable = o2::common::core::isTableRequiredInWorkflow(initContext, "EvTimeTOFFT0") || o2::common::core::isTableRequiredInWorkflow(initContext, "EvTimeTOFFT0ForTrack");
     if (!enableTable) {
       LOG(info) << "Table for global Event time is not required, disabling it";
       // return;  //TODO: uncomment this line

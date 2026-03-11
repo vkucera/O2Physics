@@ -727,7 +727,7 @@ struct PhotonChargedTriggerCorrelation {
     // init analysis variables
 
     // get variables from other tasks
-    getTaskOptionValue(initContext, "photon-charged-trigger-producer", "etaMax", etaMax, false);
+    o2::common::core::getTaskOptionValue(initContext, "photon-charged-trigger-producer", "etaMax", etaMax, false);
 
     // histograms from ccdb
     initCcdbHistograms();

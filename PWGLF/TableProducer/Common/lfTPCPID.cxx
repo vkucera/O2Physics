@@ -591,43 +591,43 @@ struct lfTpcPid {
       ccdb->setFatalWhenNull(false);
     }
 
-#define InitPerParticle(Particle)                                                                          \
-  if (doprocess##Particle || doprocessFull##Particle) {                                                    \
-    LOG(info) << "Enabling " << #Particle;                                                                 \
-    bbPos##Particle.init(#Particle, bbParameters, fileParamBbPositive, ccdb);                              \
-    auto h = histos.add<TH1>(Form("%s", #Particle), "", kTH1F, {{10, 0, 10}});                             \
-    h->SetBit(TH1::kIsAverage);                                                                            \
-    h->SetBinContent(1, bbPos##Particle.bb1);                                                              \
-    h->SetBinContent(2, bbPos##Particle.bb2);                                                              \
-    h->SetBinContent(3, bbPos##Particle.bb3);                                                              \
-    h->SetBinContent(4, bbPos##Particle.bb4);                                                              \
-    h->SetBinContent(5, bbPos##Particle.bb5);                                                              \
-    h->SetBinContent(6, bbPos##Particle.mip);                                                              \
-    h->SetBinContent(7, bbPos##Particle.exp);                                                              \
-    h->SetBinContent(8, bbPos##Particle.res);                                                              \
-    h->SetBinContent(9, 1.f);                                                                              \
-    bbNeg##Particle.init(#Particle, bbParameters, fileParamBbNegative, ccdb);                              \
-    h = histos.add<TH1>(Form("Neg%s", #Particle), "", kTH1F, {{10, 0, 10}});                               \
-    h->SetBit(TH1::kIsAverage);                                                                            \
-    h->SetBinContent(1, bbNeg##Particle.bb1);                                                              \
-    h->SetBinContent(2, bbNeg##Particle.bb2);                                                              \
-    h->SetBinContent(3, bbNeg##Particle.bb3);                                                              \
-    h->SetBinContent(4, bbNeg##Particle.bb4);                                                              \
-    h->SetBinContent(5, bbNeg##Particle.bb5);                                                              \
-    h->SetBinContent(6, bbNeg##Particle.mip);                                                              \
-    h->SetBinContent(7, bbNeg##Particle.exp);                                                              \
-    h->SetBinContent(8, bbNeg##Particle.res);                                                              \
-    h->SetBinContent(9, 1.f);                                                                              \
-  } else {                                                                                                 \
-    LOG(info) << "Skipping " << #Particle;                                                                 \
-    const bool requireTiny = isTableRequiredInWorkflow(initContext, Form("pidTPCLf%s", #Particle));        \
-    const bool requireFull = isTableRequiredInWorkflow(initContext, Form("pidTPCLfFull%s", #Particle));    \
-    if (requireTiny || requireFull) {                                                                      \
-      LOG(fatal) << "Requested "                                                                           \
-                 << #Particle << " table but not enabled in configuration: pidTPCLf" << #Particle          \
-                 << " -> " << requireTiny << " (" << doprocess##Particle << "), pidTPCLfFull" << #Particle \
-                 << " -> " << requireFull << " (" << doprocessFull##Particle << ")";                       \
-    }                                                                                                      \
+#define InitPerParticle(Particle)                                                                                         \
+  if (doprocess##Particle || doprocessFull##Particle) {                                                                   \
+    LOG(info) << "Enabling " << #Particle;                                                                                \
+    bbPos##Particle.init(#Particle, bbParameters, fileParamBbPositive, ccdb);                                             \
+    auto h = histos.add<TH1>(Form("%s", #Particle), "", kTH1F, {{10, 0, 10}});                                            \
+    h->SetBit(TH1::kIsAverage);                                                                                           \
+    h->SetBinContent(1, bbPos##Particle.bb1);                                                                             \
+    h->SetBinContent(2, bbPos##Particle.bb2);                                                                             \
+    h->SetBinContent(3, bbPos##Particle.bb3);                                                                             \
+    h->SetBinContent(4, bbPos##Particle.bb4);                                                                             \
+    h->SetBinContent(5, bbPos##Particle.bb5);                                                                             \
+    h->SetBinContent(6, bbPos##Particle.mip);                                                                             \
+    h->SetBinContent(7, bbPos##Particle.exp);                                                                             \
+    h->SetBinContent(8, bbPos##Particle.res);                                                                             \
+    h->SetBinContent(9, 1.f);                                                                                             \
+    bbNeg##Particle.init(#Particle, bbParameters, fileParamBbNegative, ccdb);                                             \
+    h = histos.add<TH1>(Form("Neg%s", #Particle), "", kTH1F, {{10, 0, 10}});                                              \
+    h->SetBit(TH1::kIsAverage);                                                                                           \
+    h->SetBinContent(1, bbNeg##Particle.bb1);                                                                             \
+    h->SetBinContent(2, bbNeg##Particle.bb2);                                                                             \
+    h->SetBinContent(3, bbNeg##Particle.bb3);                                                                             \
+    h->SetBinContent(4, bbNeg##Particle.bb4);                                                                             \
+    h->SetBinContent(5, bbNeg##Particle.bb5);                                                                             \
+    h->SetBinContent(6, bbNeg##Particle.mip);                                                                             \
+    h->SetBinContent(7, bbNeg##Particle.exp);                                                                             \
+    h->SetBinContent(8, bbNeg##Particle.res);                                                                             \
+    h->SetBinContent(9, 1.f);                                                                                             \
+  } else {                                                                                                                \
+    LOG(info) << "Skipping " << #Particle;                                                                                \
+    const bool requireTiny = o2::common::core::isTableRequiredInWorkflow(initContext, Form("pidTPCLf%s", #Particle));     \
+    const bool requireFull = o2::common::core::isTableRequiredInWorkflow(initContext, Form("pidTPCLfFull%s", #Particle)); \
+    if (requireTiny || requireFull) {                                                                                     \
+      LOG(fatal) << "Requested "                                                                                          \
+                 << #Particle << " table but not enabled in configuration: pidTPCLf" << #Particle                         \
+                 << " -> " << requireTiny << " (" << doprocess##Particle << "), pidTPCLfFull" << #Particle                \
+                 << " -> " << requireFull << " (" << doprocessFull##Particle << ")";                                      \
+    }                                                                                                                     \
   }
 
     if (doprocessStandalone) { // If in standalone mode we enable the configuration of tables of interest

@@ -58,6 +58,7 @@ using namespace o2;
 using namespace o2::framework;
 using namespace o2::soa;
 using namespace o2::framework::expressions;
+using namespace o2::common::core;
 
 #define DPTDPTLOGCOLLISIONS debug
 #define DPTDPTLOGTRACKS debug

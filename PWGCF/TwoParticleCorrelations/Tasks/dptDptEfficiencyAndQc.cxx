@@ -58,6 +58,7 @@ using namespace o2;
 using namespace o2::framework;
 using namespace o2::soa;
 using namespace o2::framework::expressions;
+using namespace o2::common::core;
 
 #define ADDHISTOGRAM(thetype, thedirectory, thename, thetitle, thekind, thebinning...) \
   registry.add<thetype>(TString::Format("%s/%s", thedirectory, thename).Data(), thetitle, thekind, thebinning)
