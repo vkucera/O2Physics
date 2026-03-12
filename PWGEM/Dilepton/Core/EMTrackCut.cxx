@@ -20,7 +20,6 @@
 #include <Rtypes.h>
 
 #include <cstdint>
-#include <functional>
 
 ClassImp(EMTrackCut);
 

@@ -21,9 +21,6 @@
 #include <Rtypes.h>
 
 #include <cstdint>
-#include <functional>
-#include <set>
-#include <utility>
 
 class EMTrackCut : public TNamed
 {
