@@ -28,8 +28,7 @@
 #include <Framework/AnalysisHelpers.h>
 #include <Framework/Configurable.h>
 #include <Framework/InitContext.h>
-
-#include <fairlogger/Logger.h>
+#include <Framework/Logger.h>
 
 #include <vector>
 

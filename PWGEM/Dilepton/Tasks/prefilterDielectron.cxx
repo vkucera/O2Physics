@@ -17,7 +17,6 @@
 #include "PWGEM/Dilepton/Core/DielectronCut.h"
 #include "PWGEM/Dilepton/Core/EMEventCut.h"
 #include "PWGEM/Dilepton/DataModel/dileptonTables.h"
-#include "PWGEM/Dilepton/Utils/MlResponseDielectronSingleTrack.h"
 #include "PWGEM/Dilepton/Utils/PairUtilities.h"
 
 #include "Common/DataModel/Centrality.h"

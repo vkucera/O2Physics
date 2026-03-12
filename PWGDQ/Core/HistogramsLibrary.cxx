@@ -31,6 +31,7 @@
 #include <algorithm>
 #include <array>
 #include <cstring>
+#include <ostream>
 #include <vector>
 
 void o2::aod::dqhistograms::DefineHistograms(HistogramManager* hm, const char* histClass, const char* groupName, const char* subGroupName)

@@ -15,6 +15,7 @@
 // ==============================================================================
 #include "PWGLF/DataModel/LFLnnTables.h"
 
+#include "Common/CCDB/EventSelectionParams.h"
 #include "Common/Core/RecoDecay.h"
 #include "Common/Core/trackUtilities.h"
 #include "Common/DataModel/Centrality.h"

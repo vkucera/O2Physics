@@ -13,13 +13,13 @@
 /// \author Daiki Sekihata
 /// \since 2026-03-01
 
-#include "DataFormatsCalibration/MeanVertexObject.h"
-#include "DataFormatsParameters/GRPMagField.h"
-#include "Framework/AnalysisTask.h"
-#include "Framework/runDataProcessing.h"
+#include <DataFormatsCalibration/MeanVertexObject.h>
+#include <DataFormatsParameters/GRPMagField.h>
 #include <Framework/ASoA.h>
 #include <Framework/AnalysisDataModel.h>
+#include <Framework/AnalysisTask.h>
 #include <Framework/InitContext.h>
+#include <Framework/runDataProcessing.h>
 
 using namespace o2::framework;
 using namespace o2::header;
