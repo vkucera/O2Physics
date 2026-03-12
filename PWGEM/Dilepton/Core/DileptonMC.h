@@ -260,8 +260,8 @@ struct DileptonMC {
     // configuration for PID ML
     o2::framework::Configurable<std::vector<std::string>> onnxFileNames{"onnxFileNames", std::vector<std::string>{"filename"}, "ONNX file names for each bin (if not from CCDB full path)"};
     o2::framework::Configurable<std::vector<std::string>> onnxPathsCCDB{"onnxPathsCCDB", std::vector<std::string>{"path"}, "Paths of models on CCDB"};
-    o2::framework::Configurable<std::vector<double>> binsMl{"binsMl", std::vector<double>{-999999., 999999.}, "Bin limits for ML application"};
-    o2::framework::Configurable<std::vector<double>> cutsMl{"cutsMl", std::vector<double>{0.95}, "ML cuts per bin"};
+    o2::framework::Configurable<std::vector<double>> binsMl{"binsMl", std::vector<double>{0.1, 0.15, 0.2, 0.25, 0.4, 0.8, 1.6, 2.0, 20.f}, "Bin limits for ML application"};
+    o2::framework::Configurable<std::vector<double>> cutsMl{"cutsMl", std::vector<double>{0.98, 0.98, 0.9, 0.9, 0.95, 0.95, 0.8, 0.8}, "ML cuts per bin"};
     o2::framework::Configurable<std::vector<std::string>> namesInputFeatures{"namesInputFeatures", std::vector<std::string>{"feature"}, "Names of ML model input features"};
     o2::framework::Configurable<std::string> nameBinningFeature{"nameBinningFeature", "pt", "Names of ML model binning feature"};
     o2::framework::Configurable<int64_t> timestampCCDB{"timestampCCDB", -1, "timestamp of the ONNX file for ML model used to query in CCDB.  Exceptions: > 0 for the specific timestamp, 0 gets the run dependent timestamp"};
@@ -725,7 +725,6 @@ struct DileptonMC {
     fEMEventCut.SetRequireGoodITSLayersAll(eventcuts.cfgRequireGoodITSLayersAll);
   }
 
-  o2::analysis::MlResponseDielectronSingleTrack<float> mlResponseSingleTrack;
   void DefineDielectronCut()
   {
     fDielectronCut = DielectronCut("fDielectronCut", "fDielectronCut");
@@ -783,31 +782,6 @@ struct DileptonMC {
         thresholdsML.emplace_back(dielectroncuts.cutsMl.value[i]);
       }
       fDielectronCut.SetMLThresholds(binsML, thresholdsML);
-
-      // static constexpr int nClassesMl = 2;
-      // const std::vector<int> cutDirMl = {o2::cuts_ml::CutNot, o2::cuts_ml::CutSmaller};
-      // const std::vector<std::string> labelsClasses = {"Background", "Signal"};
-      // const uint32_t nBinsMl = dielectroncuts.binsMl.value.size() - 1;
-      // const std::vector<std::string> labelsBins(nBinsMl, "bin");
-      // double cutsMlArr[nBinsMl][nClassesMl];
-      // for (uint32_t i = 0; i < nBinsMl; i++) {
-      //   cutsMlArr[i][0] = 0.;
-      //   cutsMlArr[i][1] = dielectroncuts.cutsMl.value[i];
-      // }
-      // o2::framework::LabeledArray<double> cutsMl = {cutsMlArr[0], nBinsMl, nClassesMl, labelsBins, labelsClasses};
-
-      // mlResponseSingleTrack.configure(dielectroncuts.binsMl.value, cutsMl, cutDirMl, nClassesMl);
-      // if (dielectroncuts.loadModelsFromCCDB) {
-      //   ccdbApi.init(ccdburl);
-      //   mlResponseSingleTrack.setModelPathsCCDB(dielectroncuts.onnxFileNames.value, ccdbApi, dielectroncuts.onnxPathsCCDB.value, dielectroncuts.timestampCCDB.value);
-      // } else {
-      //   mlResponseSingleTrack.setModelPathsLocal(dielectroncuts.onnxFileNames.value);
-      // }
-      // mlResponseSingleTrack.cacheInputFeaturesIndices(dielectroncuts.namesInputFeatures);
-      // mlResponseSingleTrack.cacheBinningIndex(dielectroncuts.nameBinningFeature);
-      // mlResponseSingleTrack.init(dielectroncuts.enableOptimizations.value);
-
-      // fDielectronCut.SetPIDMlResponse(&mlResponseSingleTrack);
     } // end of PID ML
   }
 

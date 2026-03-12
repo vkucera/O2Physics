@@ -67,16 +67,11 @@ using namespace o2::framework;
 using namespace o2::framework::expressions;
 using namespace o2::soa;
 using namespace o2::aod::pwgem::dilepton::utils;
-// using namespace o2::aod::pwgem::dilepton::utils::emtrackutil;
 using namespace o2::aod::pwgem::dilepton::utils::pairutil;
 
 struct DileptonPolarization {
   // Configurables
   Configurable<std::string> ccdburl{"ccdb-url", "http://alice-ccdb.cern.ch", "url of the ccdb repository"};
-  // Configurable<std::string> grpPath{"grpPath", "GLO/GRP/GRP", "Path of the grp file"};
-  // Configurable<std::string> grpmagPath{"grpmagPath", "GLO/Config/GRPMagField", "CCDB path of the GRPMagField object"};
-  // Configurable<bool> skipGRPOquery{"skipGRPOquery", true, "skip grpo query"};
-  // Configurable<float> d_bz_input{"d_bz_input", -999, "bz field in kG, -999 is automatic"};
 
   Configurable<int> cfgPairType{"cfgPairType", 0, "0:dielectron, 1:dimuon"};
   Configurable<int> cfgOccupancyEstimator{"cfgOccupancyEstimator", 0, "FT0C:0, Track:1"};

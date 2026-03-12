@@ -17,9 +17,6 @@
 #include "PWGEM/Dilepton/Core/DimuonCut.h"
 #include "PWGEM/Dilepton/Core/EMEventCut.h"
 #include "PWGEM/Dilepton/DataModel/dileptonTables.h"
-
-// #include "PWGEM/Dilepton/Utils/EMTrack.h"
-// #include "PWGEM/Dilepton/Utils/EventHistograms.h"
 #include "PWGEM/Dilepton/Utils/EMTrackUtilities.h"
 #include "PWGEM/Dilepton/Utils/PairUtilities.h"
 
@@ -43,11 +40,9 @@
 
 #include <Math/Vector4Dfwd.h>
 
-// #include <map>
 #include <cmath>
 #include <cstdint>
 #include <string>
-// #include <tuple>
 #include <unordered_map>
 #include <vector>
 
