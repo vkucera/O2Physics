@@ -35,7 +35,7 @@ namespace o2::pid::tof
 class TOFResoALICE3 : public Parametrization
 {
  public:
-  TOFResoALICE3() : Parametrization("TOFResoALICE3", 1) {};
+  TOFResoALICE3() : Parametrization("TOFResoALICE3", 1){};
   ~TOFResoALICE3() override = default;
   float operator()(const float* x) const override
   {
