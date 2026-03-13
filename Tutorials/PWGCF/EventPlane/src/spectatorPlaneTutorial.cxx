@@ -16,33 +16,32 @@
 
 #include "PWGCF/DataModel/SPTableZDC.h"
 
-#include "Common/Core/EventPlaneHelper.h"
+#include "Common/CCDB/RCTSelectionFlags.h"
 #include "Common/Core/RecoDecay.h"
-#include "Common/Core/TrackSelection.h"
 #include "Common/DataModel/Centrality.h"
 #include "Common/DataModel/EventSelection.h"
 #include "Common/DataModel/Multiplicity.h"
-#include "Common/DataModel/Qvectors.h"
 #include "Common/DataModel/TrackSelectionTables.h"
 
-#include "CCDB/BasicCCDBManager.h"
-#include "DataFormatsParameters/GRPLHCIFData.h"
-#include "DataFormatsParameters/GRPMagField.h"
-#include "Framework/ASoAHelpers.h"
-#include "Framework/AnalysisTask.h"
-#include "Framework/HistogramRegistry.h"
-#include "Framework/RunningWorkflowInfo.h"
-#include "Framework/runDataProcessing.h"
+#include <CCDB/BasicCCDBManager.h>
+#include <CommonConstants/MathConstants.h>
+#include <Framework/ASoA.h>
+#include <Framework/AnalysisDataModel.h>
+#include <Framework/AnalysisHelpers.h>
+#include <Framework/AnalysisTask.h>
+#include <Framework/Configurable.h>
+#include <Framework/Expressions.h>
+#include <Framework/HistogramRegistry.h>
+#include <Framework/HistogramSpec.h>
+#include <Framework/InitContext.h>
+#include <Framework/runDataProcessing.h>
 
-#include "TF1.h"
-#include "TPDGCode.h"
+#include <TProfile.h>
 
-#include <algorithm>
-#include <map>
-#include <numeric>
+#include <chrono>
+#include <cmath>
+#include <cstdint>
 #include <string>
-#include <unordered_map>
-#include <utility>
 #include <vector>
 
 using namespace o2;
@@ -78,7 +77,7 @@ struct SpectatorPlaneTutorial {
   float dcaZMax = 2.0;
 
   Filter collisionFilter = nabs(aod::collision::posZ) < vtxZ;
-  Filter trackFilter = nabs(aod::track::eta) < etaMax && aod::track::pt > ptMin&& aod::track::pt < ptMax && ((requireGlobalTrackInFilter()) || (aod::track::isGlobalTrackSDD == (uint8_t) true)) && nabs(aod::track::dcaXY) < dcaXYMax&& nabs(aod::track::dcaZ) < dcaZMax;
+  Filter trackFilter = nabs(aod::track::eta) < etaMax && aod::track::pt > ptMin&& aod::track::pt < ptMax && ((requireGlobalTrackInFilter()) || (aod::track::isGlobalTrackSDD == (uint8_t)true)) && nabs(aod::track::dcaXY) < dcaXYMax&& nabs(aod::track::dcaZ) < dcaZMax;
   using GeneralCollisions = soa::Join<aod::Collisions, aod::EvSels, aod::Mults, aod::CentFT0Cs>;
   using UnfilteredTracks = soa::Join<aod::Tracks, aod::TracksExtra, aod::TrackSelection, aod::TracksDCA>;
 
