@@ -77,7 +77,7 @@ struct SpectatorPlaneTutorial {
   float dcaZMax = 2.0;
 
   Filter collisionFilter = nabs(aod::collision::posZ) < vtxZ;
-  Filter trackFilter = nabs(aod::track::eta) < etaMax && aod::track::pt > ptMin&& aod::track::pt < ptMax && ((requireGlobalTrackInFilter()) || (aod::track::isGlobalTrackSDD == (uint8_t)true)) && nabs(aod::track::dcaXY) < dcaXYMax&& nabs(aod::track::dcaZ) < dcaZMax;
+  Filter trackFilter = nabs(aod::track::eta) < etaMax && aod::track::pt > ptMin&& aod::track::pt < ptMax && ((requireGlobalTrackInFilter()) || (aod::track::isGlobalTrackSDD == (uint8_t) true)) && nabs(aod::track::dcaXY) < dcaXYMax&& nabs(aod::track::dcaZ) < dcaZMax;
   using GeneralCollisions = soa::Join<aod::Collisions, aod::EvSels, aod::Mults, aod::CentFT0Cs>;
   using UnfilteredTracks = soa::Join<aod::Tracks, aod::TracksExtra, aod::TrackSelection, aod::TracksDCA>;
 
