@@ -13,22 +13,18 @@
 /// \author Anisa Khatun
 /// \date 10.10.2024
 
-// O2 headers
-#include <Framework/AnalysisDataModel.h>
-#include <Framework/AnalysisTask.h>
-#include <Framework/runDataProcessing.h>
-
-// O2Physics headers
 #include "PWGUD/DataModel/UDTables.h"
 
 #include <CommonConstants/PhysicsConstants.h>
+#include <Framework/AnalysisDataModel.h>
+#include <Framework/AnalysisTask.h>
 #include <Framework/Configurable.h>
 #include <Framework/HistogramRegistry.h>
 #include <Framework/HistogramSpec.h>
 #include <Framework/InitContext.h>
 #include <Framework/OutputObjHeader.h>
+#include <Framework/runDataProcessing.h>
 
-// ROOT headers
 #include <TH1.h>
 #include <TLorentzVector.h>
 #include <TMath.h>

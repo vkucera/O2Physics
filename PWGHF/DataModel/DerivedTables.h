@@ -31,8 +31,6 @@
 #include <cstdint>
 #include <vector>
 
-#include <termios.h>
-
 namespace o2::aod
 {
 // basic species:
