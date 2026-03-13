@@ -18,6 +18,7 @@
 
 #include "PWGHF/DataModel/CandidateReconstructionTables.h"
 #include "PWGHF/DataModel/TrackIndexSkimmingTables.h"
+#include "PWGLF/DataModel/LFStrangenessTables.h"
 
 #include "Common/Core/RecoDecay.h"
 #include "Common/DataModel/Centrality.h"
@@ -29,6 +30,8 @@
 
 #include <cstdint>
 #include <vector>
+
+#include <termios.h>
 
 namespace o2::aod
 {
