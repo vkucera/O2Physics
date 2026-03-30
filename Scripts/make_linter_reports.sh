@@ -3,8 +3,7 @@
 # Run all C++ code analysers and produce Markdown reports.
 
 # Repository
-repo="O2Physics"
-# repo="O2"
+repo="$1"
 
 # Path to the repository
 path="." # Do not change
@@ -46,9 +45,11 @@ print_date() { echo "$(date +"%F_%H-%M-%S")" "$@"; }
 
 grep_logs() { grep -A 1 "parallel: Warning: This job was killed" "$@"; }
 
-print_date "Start"
+print_date "Start linting $repo"
+cd "$repo" || exit
 
 # Count lines of C++ code per directory.
+print_date "Counting lines of code"
 while IFS= read -r -d '' dir; do echo "${dir/$path\//}" "$(find "$dir" \( -path "${path}/PWGHF/ALICE3" \) -prune -o \( -name "*.h" -o -name "*.cxx" -o -name "*.C" \) -print0 | xargs -0 grep -vE "^ *($|/[/\*])" | wc -l)"; done < <(find "$path" -mindepth 1 -maxdepth 1 -type d -print0) > "${file_n_lines}"
 
 # gcc
@@ -134,4 +135,6 @@ if [[ $do_includes -eq 1 ]]; then
     [[ $make_reports -eq 1 ]] && make_report "$linter"
 fi
 
-print_date "End"
+print_date "End linting $repo"
+
+cd - || exit
