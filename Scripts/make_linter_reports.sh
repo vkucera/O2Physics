@@ -2,6 +2,9 @@
 
 # Run all C++ code analysers and produce Markdown reports.
 
+# Directory with repos
+dir_alice="$HOME/alice"
+
 # Repository
 repo="$1"
 
@@ -46,7 +49,7 @@ print_date() { echo "$(date +"%F_%H-%M-%S")" "$@"; }
 grep_logs() { grep -A 1 "parallel: Warning: This job was killed" "$@"; }
 
 print_date "Start linting $repo"
-cd "$repo" || exit
+cd "${dir_alice}/$repo" || exit
 
 # Count lines of C++ code per directory.
 print_date "Counting lines of code"
