@@ -2,6 +2,8 @@
 
 # Run all C++ code analysers and produce Markdown reports.
 
+[[ -z "$1" ]] && { echo "Provide name of the repository"; exit 1; }
+
 # Directory with repos
 dir_alice="$HOME/alice"
 
