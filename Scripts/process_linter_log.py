@@ -67,7 +67,12 @@ def main():
             LinterSpec.GroupPath: 4,
             LinterSpec.GroupSeverity: 5,
             LinterSpec.GroupCategory: 6,
-            LinterSpec.IgnoredCategories: ["clang-diagnostic-unknown-pragmas", "cppcoreguidelines-special-member-functions", "bugprone-narrowing-conversions"],
+            LinterSpec.IgnoredCategories: [
+                "clang-diagnostic-unknown-pragmas",
+                "cppcoreguidelines-special-member-functions",
+                "bugprone-narrowing-conversions",
+                "bugprone-easily-swappable-parameters",
+            ],
             LinterSpec.IgnoredSeverities: ["note"],
         },
         Linter.Cppcheck: {
@@ -200,7 +205,11 @@ def main():
         severity = (
             match.group(config_linter[LinterSpec.GroupSeverity]) if LinterSpec.GroupSeverity in config_linter else ""
         )
-        category = match.group(config_linter[LinterSpec.GroupCategory]) if config_linter[LinterSpec.GroupCategory] >= 0 else "none"
+        category = (
+            match.group(config_linter[LinterSpec.GroupCategory])
+            if config_linter[LinterSpec.GroupCategory] >= 0
+            else "none"
+        )
         dir_file_code = path_file_code.split("/")[0]
         if severity and severities_ignored and severity in severities_ignored:
             continue
@@ -250,14 +259,15 @@ def main():
     print("|---|---|---|")
     hyperlinks = {
         # key: {"heading": f"{key} {{#{key.lower()}}}", "link": f"[`{key}`](#{key.lower()})"} for key in counter_directory # custom anchors not supported on GitHub Wiki
-        key: {"heading": key, "link": f"[`{key}`](#{key.lower()})"} for key in counter_directory
+        key: {"heading": key, "link": f"[`{key}`](#{key.lower()})"}
+        for key in counter_directory
     }
     len_column = max(len(hyperlinks[key]["link"]) for key in counter_directory) + len_gap
     n_lines_code_total = sum(n_lines_code_per_dir.values())
     for directory in sorted(counter_directory.keys()):
         n_lines_code = n_lines_code_per_dir[directory]
         print(
-            f"| {hyperlinks[directory]["link"]}{(len_column - len(hyperlinks[directory]["link"])) * ' '} | {counter_directory[directory]} | {counter_directory[directory] / n_lines_code * n_lines_norm:.3g} |"
+            f"| {hyperlinks[directory]['link']}{(len_column - len(hyperlinks[directory]['link'])) * ' '} | {counter_directory[directory]} | {counter_directory[directory] / n_lines_code * n_lines_norm:.3g} |"
         )
     print(
         f"| {cat_total}{(len_column - len(cat_total)) * ' '} | {n_issues_total} | {n_issues_total / n_lines_code_total * n_lines_norm:.3g} |"
@@ -265,7 +275,7 @@ def main():
 
     print("\n## Issues")
     for directory in sorted(dic_issues.keys()):
-        print(f"\n### {hyperlinks[directory]["heading"]}")
+        print(f"\n### {hyperlinks[directory]['heading']}")
         for file in sorted(dic_issues[directory].keys()):
             print(f"\n#### `{file}`\n")
             print("```text")
