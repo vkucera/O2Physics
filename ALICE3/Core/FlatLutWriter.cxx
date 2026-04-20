@@ -9,12 +9,11 @@
 // granted to it by virtue of its status as an Intergovernmental Organization
 // or submit itself to any jurisdiction.
 
-#include "ALICE3/Core/FlatLutWriter.h"
+#include "FlatLutWriter.h"
 
-#include "FlatLutEntry.h"
-#include "TrackUtilities.h"
-
+#include "ALICE3/Core/FlatLutEntry.h"
 #include "ALICE3/Core/FlatTrackSmearer.h"
+#include "ALICE3/Core/TrackUtilities.h"
 
 #include <Framework/Logger.h>
 #include <ReconstructionDataFormats/Track.h>

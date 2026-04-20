@@ -11,16 +11,14 @@
 
 #include "FlatTrackSmearer.h"
 
-#include "FlatLutEntry.h"
-
+#include "ALICE3/Core/FlatLutEntry.h"
 #include "ALICE3/Core/GeometryContainer.h"
 
 #include <CommonConstants/PhysicsConstants.h>
+#include <Framework/Logger.h>
 #include <Framework/RuntimeError.h>
 
 #include <TRandom.h>
-
-#include <fairlogger/Logger.h>
 
 #include <cmath>
 #include <cstddef>
