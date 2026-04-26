@@ -77,7 +77,7 @@ Checks:
   - performance-trivially-destructible
   - performance-type-promotion-in-math-fn
   - performance-unnecessary-copy-initialization
-  - performance-unnecessary-value-param
+  - performance-unnecessary-value-param # slow
   - readability-avoid-unconditional-preprocessor-if
   - readability-braces-around-statements
   - readability-const-return-type
