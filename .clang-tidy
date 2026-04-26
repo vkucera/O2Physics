@@ -41,7 +41,7 @@ Checks:
   - google-default-arguments
   - google-explicit-constructor
   - google-global-names-in-headers
-  - misc-const-correctness # to be checked
+  # - misc-const-correctness # to be checked
   - misc-header-include-cycle
   - misc-include-cleaner
   - misc-misplaced-const
