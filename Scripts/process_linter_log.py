@@ -68,10 +68,7 @@ def main():
             LinterSpec.GroupSeverity: 5,
             LinterSpec.GroupCategory: 6,
             LinterSpec.IgnoredCategories: [
-                "clang-diagnostic-unknown-pragmas",
                 "cppcoreguidelines-special-member-functions",
-                "bugprone-narrowing-conversions",
-                "bugprone-easily-swappable-parameters",
             ],
             LinterSpec.IgnoredSeverities: ["note"],
         },
