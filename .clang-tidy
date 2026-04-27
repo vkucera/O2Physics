@@ -2,6 +2,7 @@
 Checks:
   - clang-diagnostic-*
   - clang-analyzer-*
+  - -clang-diagnostic-unknown-pragmas
   - bugprone-*
   - -bugprone-assert-side-effect
   - -bugprone-bad-signal-to-kill-thread
