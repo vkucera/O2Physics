@@ -219,7 +219,7 @@ struct DQBarrelTrackSelection {
       fHistMan->SetDefaultVarNames(VarManager::fgVariableNames, VarManager::fgVariableUnits);
 
       TString cutNames = "TrackBarrel_BeforeCuts;";
-      for (auto& cut : fTrackCuts) {
+      for (auto const& cut : fTrackCuts) {
         cutNames += Form("TrackBarrel_%s;", cut.GetName());
         fCutHistNames.push_back(Form("TrackBarrel_%s", cut.GetName()));
       }
@@ -243,7 +243,7 @@ struct DQBarrelTrackSelection {
   template <uint32_t TTrackFillMap, typename TTracks>
   void runTrackSelection(aod::BCsWithTimestamps const& bcs, TTracks const& tracksBarrel)
   {
-    auto bc = bcs.begin(); // check just the first bc to get the run number
+    auto const& bc = bcs.begin(); // check just the first bc to get the run number
     if (fConfigComputeTPCpostCalib && fCurrentRun != bc.runNumber()) {
       auto calibList = fCCDB->getForTimeStamp<TList>(fConfigCcdbPathTPC.value, bc.timestamp());
       VarManager::SetCalibrationObject(VarManager::kTPCElectronMean, calibList->FindObject("mean_map_electron"));
@@ -259,7 +259,7 @@ struct DQBarrelTrackSelection {
     trackSel.reserve(tracksBarrel.size());
 
     VarManager::ResetValues(0, VarManager::kNBarrelTrackVariables);
-    for (auto& track : tracksBarrel) {
+    for (auto const& track : tracksBarrel) {
       filterMap = static_cast<uint32_t>(0);
       if (!track.has_collision()) {
         trackSel(static_cast<uint32_t>(0));
@@ -345,7 +345,7 @@ struct DQMuonsSelection {
     VarManager::ResetValues(0, VarManager::kNMuonTrackVariables);
     // fill event information which might be needed in histograms or cuts that combine track and event properties
 
-    for (auto& muon : muons) {
+    for (auto const& muon : muons) {
       filterMap = static_cast<uint32_t>(0);
       if (!muon.has_collision()) {
         trackSel(static_cast<uint32_t>(0));
@@ -554,7 +554,7 @@ struct DQFilterPPTask {
     // run pairing if there is at least one selection that requires it
     uint32_t pairFilter = 0;
     if (pairingMask > 0) {
-      for (auto& [t1, t2] : combinations(tracksBarrel, tracksBarrel)) {
+      for (auto const& [t1, t2] : combinations(tracksBarrel, tracksBarrel)) {
         // check the pairing mask and that the tracks share a cut bit
         pairFilter = pairingMask & t1.isDQBarrelSelected() & t2.isDQBarrelSelected();
         if (pairFilter == 0) {
@@ -618,7 +618,7 @@ struct DQFilterPPTask {
     // run pairing if there is at least one selection that requires it
     pairFilter = 0;
     if (pairingMask > 0) {
-      for (auto& [t1, t2] : combinations(muons, muons)) {
+      for (auto const& [t1, t2] : combinations(muons, muons)) {
         // check the pairing mask and that the tracks share a cut bit
         pairFilter = pairingMask & t1.isDQMuonSelected() & t2.isDQMuonSelected();
         if (pairFilter == 0) {

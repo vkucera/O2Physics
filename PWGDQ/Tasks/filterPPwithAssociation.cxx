@@ -327,7 +327,7 @@ struct DQTrackSelection {
   template <uint32_t TTrackFillMap, typename TEvent, typename TTracks, typename AssocTracks>
   void runTrackSelection(TEvent const& collision, aod::BCsWithTimestamps const& bcs, TTracks const& tracksBarrel, AssocTracks const& trackAssocs)
   {
-    auto bc = bcs.begin(); // check just the first bc to get the run number
+    auto const& bc = bcs.begin(); // check just the first bc to get the run number
     if (fCurrentRun != bc.runNumber()) {
       fCurrentRun = bc.runNumber();
 
@@ -363,7 +363,7 @@ struct DQTrackSelection {
       filterMap = static_cast<uint32_t>(0);
       filterMapEMu = static_cast<uint32_t>(0);
 
-      auto track = trackAssoc.template track_as<TTracks>();
+      auto const& track = trackAssoc.template track_as<TTracks>();
 
       VarManager::FillTrack<TTrackFillMap>(track);
       // compute quantities which depend on the associated collision, such as DCA
@@ -396,7 +396,7 @@ struct DQTrackSelection {
   template <uint32_t TMuonFillMap, typename TEvent, typename TMuons, typename AssocMuons>
   void runMuonSelection(TEvent const& collision, aod::BCsWithTimestamps const& bcs, TMuons const& muons, AssocMuons const& muonAssocs)
   {
-    auto bc = bcs.begin(); // check just the first bc to get the run number
+    auto const& bc = bcs.begin(); // check just the first bc to get the run number
     if (fCurrentRun != bc.runNumber()) {
       fCurrentRun = bc.runNumber();
       if (fPropMuon) {
@@ -418,7 +418,7 @@ struct DQTrackSelection {
     for (auto const& muonAssoc : muonAssocs) {
       filterMap = static_cast<uint32_t>(0);
       filterMapEMu = static_cast<uint32_t>(0);
-      auto muon = muonAssoc.template fwdtrack_as<TMuons>();
+      auto const& muon = muonAssoc.template fwdtrack_as<TMuons>();
       VarManager::FillTrack<TMuonFillMap>(muon);
       if (fPropMuon) {
         VarManager::FillPropagateMuon<TMuonFillMap>(muon, collision);
@@ -449,7 +449,7 @@ struct DQTrackSelection {
   void processSelection(Collisions const& collisions, aod::BCsWithTimestamps const& bcs, MyBarrelTracks const& tracks, aod::TrackAssoc const& trackAssocs)
   {
     for (auto const& collision : collisions) {
-      auto trackIdsThisCollision = trackAssocs.sliceBy(barrelTrackIndicesPerCollision, collision.globalIndex());
+      auto const& trackIdsThisCollision = trackAssocs.sliceBy(barrelTrackIndicesPerCollision, collision.globalIndex());
       runTrackSelection<gkTrackFillMap>(collision, bcs, tracks, trackIdsThisCollision);
     }
   }
@@ -457,7 +457,7 @@ struct DQTrackSelection {
   void processSelectionTPCPID(Collisions const& collisions, aod::BCsWithTimestamps const& bcs, MyBarrelTracksTPCPID const& tracks, aod::TrackAssoc const& trackAssocs)
   {
     for (auto const& collision : collisions) {
-      auto trackIdsThisCollision = trackAssocs.sliceBy(barrelTrackIndicesPerCollision, collision.globalIndex());
+      auto const& trackIdsThisCollision = trackAssocs.sliceBy(barrelTrackIndicesPerCollision, collision.globalIndex());
       runTrackSelection<gkTrackFillMapTPCPID>(collision, bcs, tracks, trackIdsThisCollision);
     }
   }
@@ -465,7 +465,7 @@ struct DQTrackSelection {
   void processSelectionMu(Collisions const& collisions, BCsWithTimestamps const& bcstimestamps, MyMuons const& muons, aod::FwdTrackAssoc const& muonAssocs)
   {
     for (auto const& collision : collisions) {
-      auto muonIdsThisCollision = muonAssocs.sliceBy(fwdtrackIndicesPerCollision, collision.globalIndex());
+      auto const& muonIdsThisCollision = muonAssocs.sliceBy(fwdtrackIndicesPerCollision, collision.globalIndex());
       runMuonSelection<gkMuonFillMap>(collision, bcstimestamps, muons, muonIdsThisCollision);
     }
   }
@@ -698,7 +698,7 @@ struct DQFilterPPTask {
                        TMuons const& /*muons*/,
                        AssocTracks const& barrelAssocs, AssocMuons const& muonAssocs)
   {
-    auto bc = collision.template bc_as<aod::BCsWithTimestamps>();
+    auto const& bc = collision.template bc_as<aod::BCsWithTimestamps>();
     if (fCurrentRun != bc.runNumber()) {
       fCurrentRun = bc.runNumber();
       if (fPropMuon) {
@@ -725,7 +725,7 @@ struct DQFilterPPTask {
           if (trackAssoc.isDQBarrelSelected() & (static_cast<uint32_t>(1) << i)) {
             objCountersBarrel[i] += 1;
             taggedCollisions[i][collision.globalIndex()] = 1; // add the current associated collision to the map
-            auto t1 = trackAssoc.template track_as<TTracks>();
+            auto const& t1 = trackAssoc.template track_as<TTracks>();
             if (t1.has_collision()) {
               taggedCollisions[i][t1.collisionId()] = 1; // add the originally assigned collision to the map
             }
@@ -750,8 +750,8 @@ struct DQFilterPPTask {
         for (auto const& [a1, a2] : combinations(barrelAssocs, barrelAssocs)) {
 
           // get the tracks from the index stored in the association
-          auto t1 = a1.template track_as<TTracks>();
-          auto t2 = a2.template track_as<TTracks>();
+          auto const& t1 = a1.template track_as<TTracks>();
+          auto const& t2 = a2.template track_as<TTracks>();
 
           // check the pairing mask and that the tracks share a cut bit
           pairFilter = pairingMask & a1.isDQBarrelSelected() & a2.isDQBarrelSelected();
@@ -801,7 +801,7 @@ struct DQFilterPPTask {
           if (muon.isDQMuonSelected() & (static_cast<uint32_t>(1) << i)) {
             objCountersMuon[i] += 1;
             taggedCollisions[i + fNBarrelCuts][collision.globalIndex()] = 1; // add the current associated collision to the map
-            auto t1 = muon.template fwdtrack_as<TMuons>();
+            auto const& t1 = muon.template fwdtrack_as<TMuons>();
             if (t1.has_collision()) {
               taggedCollisions[i + fNBarrelCuts][t1.collisionId()] = 1; // add the originally assigned collision to the map
             }
@@ -834,8 +834,8 @@ struct DQFilterPPTask {
           }
 
           // get the real muon tracks
-          auto t1 = a1.template fwdtrack_as<TMuons>();
-          auto t2 = a2.template fwdtrack_as<TMuons>();
+          auto const& t1 = a1.template fwdtrack_as<TMuons>();
+          auto const& t2 = a2.template fwdtrack_as<TMuons>();
 
           // construct the pair and apply cuts
           VarManager::FillPair<VarManager::kDecayToMuMu, TTrackFillMap>(t1, t2); // compute pair quantities
@@ -898,8 +898,8 @@ struct DQFilterPPTask {
             continue;
           }
           // get the real electron and muon tracks
-          auto t1 = a1.template track_as<TTracks>();
-          auto t2 = a2.template fwdtrack_as<TMuons>();
+          auto const& t1 = a1.template track_as<TTracks>();
+          auto const& t2 = a2.template fwdtrack_as<TMuons>();
           // construct the pair and apply cuts
           VarManager::FillPair<VarManager::kElectronMuon, TTrackFillMap>(t1, t2); // compute pair quantities
           for (int icut = 0; icut < fNElectronMuonCuts; icut++) {
@@ -1039,8 +1039,8 @@ struct DQFilterPPTask {
         continue;
       }
       // group the tracks and muons for this collision
-      auto groupedTrackIndices = trackAssocs.sliceBy(trackIndicesPerCollision, collision.globalIndex());
-      auto groupedMuonIndices = muonAssocs.sliceBy(muonIndicesPerCollision, collision.globalIndex());
+      auto const& groupedTrackIndices = trackAssocs.sliceBy(trackIndicesPerCollision, collision.globalIndex());
+      auto const& groupedMuonIndices = muonAssocs.sliceBy(muonIndicesPerCollision, collision.globalIndex());
 
       uint64_t filter = 0;
       // if there is at least one track or muon, run the filtering function and compute triggers
@@ -1079,7 +1079,7 @@ struct DQFilterPPTask {
             fStats->Fill(static_cast<float>(i));
         }
         eventFilter(fFiltersMap[collision.globalIndex()]);
-        auto dqDecisions = fCEFPfilters[collision.globalIndex()];
+        auto const& dqDecisions = fCEFPfilters[collision.globalIndex()];
         dqtable(dqDecisions[0], dqDecisions[1], dqDecisions[2], dqDecisions[3], dqDecisions[4], dqDecisions[5], dqDecisions[6], dqDecisions[7]);
       }
     }
@@ -1109,7 +1109,7 @@ struct DQFilterPPTask {
         continue;
       }
       // group the muons for this collision
-      auto groupedMuonIndices = muonAssocs.sliceBy(muonIndicesPerCollision, collision.globalIndex());
+      auto const& groupedMuonIndices = muonAssocs.sliceBy(muonIndicesPerCollision, collision.globalIndex());
 
       uint64_t filter = 0;
       // if there is at least one track or muon, run the filtering function and compute triggers
@@ -1147,7 +1147,7 @@ struct DQFilterPPTask {
       // Do the same for muons
       if (filter & muonMask) {
         for (auto const& a : groupedMuonIndices) {
-          auto t = a.template fwdtrack_as<MyMuons>();
+          auto const& t = a.template fwdtrack_as<MyMuons>();
           if (!t.has_collision()) {
             continue;
           }
@@ -1198,7 +1198,7 @@ struct DQFilterPPTask {
             fStats->Fill(static_cast<float>(i));
         }
         eventFilter(fFiltersMap[collision.globalIndex()]);
-        auto dqDecisions = fCEFPfilters[collision.globalIndex()];
+        auto const& dqDecisions = fCEFPfilters[collision.globalIndex()];
         dqtable(dqDecisions[0], dqDecisions[1], dqDecisions[2], dqDecisions[3], dqDecisions[4], dqDecisions[5], dqDecisions[6], dqDecisions[7]);
       }
     }
