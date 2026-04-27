@@ -673,15 +673,15 @@ struct DQFilterPPTask {
       fHistMan->SetUseDefaultVariableNames(kTRUE);
       fHistMan->SetDefaultVarNames(VarManager::fgVariableNames, VarManager::fgVariableUnits);
       TString histNames = "";
-      for (const auto& [key, value] : fBarrelPairHistNames) {
+      for (auto const& [key, value] : fBarrelPairHistNames) {
         histNames += value;
         histNames += ";";
       }
-      for (const auto& [key, value] : fMuonPairHistNames) {
+      for (auto const& [key, value] : fMuonPairHistNames) {
         histNames += value;
         histNames += ";";
       }
-      for (const auto& [key, value] : fElectronMuonPairHistNames) {
+      for (auto const& [key, value] : fElectronMuonPairHistNames) {
         histNames += value;
         histNames += ";";
       }
@@ -720,7 +720,7 @@ struct DQFilterPPTask {
     uint32_t pairFilter = 0;
     // count the number of barrel tracks fulfilling each cut
     if constexpr (static_cast<bool>(TTrackFillMap)) {
-      for (const auto& trackAssoc : barrelAssocs) {
+      for (auto const& trackAssoc : barrelAssocs) {
         for (int i = 0; i < fNBarrelCuts; ++i) {
           if (trackAssoc.isDQBarrelSelected() & (static_cast<uint32_t>(1) << i)) {
             objCountersBarrel[i] += 1;
@@ -1033,7 +1033,7 @@ struct DQFilterPPTask {
 
     // Loop over collisions
     int eventsFired = 0;
-    for (const auto& collision : collisions) {
+    for (auto const& collision : collisions) {
       // skip those that do not pass our selection
       if (!collision.isDQEventSelected()) {
         continue;
@@ -1060,7 +1060,7 @@ struct DQFilterPPTask {
     //       The configured order has to be in sync with that implemented in the cefp task and can be done
     //       by preparing a dedicated json configuration file
     int totalEventsTriggered = 0;
-    for (const auto& collision : collisions) {
+    for (auto const& collision : collisions) {
       fStats->Fill(-2.0);
       if (!collision.isDQEventSelected()) {
         eventFilter(0);
@@ -1102,7 +1102,7 @@ struct DQFilterPPTask {
     // Loop over collisions
     // int event = 0;
     int eventsFired = 0;
-    for (const auto& collision : collisions) {
+    for (auto const& collision : collisions) {
       // skip those that do not pass our selection
       if (!collision.isDQEventSelected()) {
         // event++;
@@ -1179,7 +1179,7 @@ struct DQFilterPPTask {
     //       The configured order has to be in sync with that implemented in the cefp task and can be done
     //       by preparing a dedicated json configuration file
     int totalEventsTriggered = 0;
-    for (const auto& collision : collisions) {
+    for (auto const& collision : collisions) {
       fStats->Fill(-2.0);
       if (!collision.isDQEventSelected()) {
         eventFilter(0);

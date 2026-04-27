@@ -483,11 +483,11 @@ struct DQFilterPPTask {
       fHistMan->SetUseDefaultVariableNames(kTRUE);
       fHistMan->SetDefaultVarNames(VarManager::fgVariableNames, VarManager::fgVariableUnits);
       TString histNames = "";
-      for (const auto& [key, value] : fBarrelPairHistNames) {
+      for (auto const& [key, value] : fBarrelPairHistNames) {
         histNames += value;
         histNames += ";";
       }
-      for (const auto& [key, value] : fMuonPairHistNames) {
+      for (auto const& [key, value] : fMuonPairHistNames) {
         histNames += value;
         histNames += ";";
       }
@@ -521,7 +521,7 @@ struct DQFilterPPTask {
 
     std::vector<int> objCountersBarrel(fNBarrelCuts, 0); // init all counters to zero
     // count the number of barrel tracks fulfilling each cut
-    for (const auto& track : tracksBarrel) {
+    for (auto const& track : tracksBarrel) {
       for (int i = 0; i < fNBarrelCuts; ++i) {
         if (track.isDQBarrelSelected() & (static_cast<uint32_t>(1) << i)) {
           objCountersBarrel[i] += 1;
@@ -585,7 +585,7 @@ struct DQFilterPPTask {
 
     std::vector<int> objCountersMuon(fNMuonCuts, 0); // init all counters to zero
     // count the number of muon tracks fulfilling each selection
-    for (const auto& muon : muons) {
+    for (auto const& muon : muons) {
       for (int i = 0; i < fNMuonCuts; ++i) {
         if (muon.isDQMuonSelected() & (static_cast<uint32_t>(1) << i)) {
           objCountersMuon[i] += 1;
