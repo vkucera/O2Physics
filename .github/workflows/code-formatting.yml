@@ -8,6 +8,6 @@ permissions: {}
 jobs:
   formatting:
     name: PR formatting
-    uses: alisw/ali-bot/.github/workflows/c++-code-formatting.yml@master
+    uses: vkucera/ali-bot/.github/workflows/c++-code-formatting.yml@format-includes
     secrets:
       alibuild_github_token: ${{ secrets.ALIBUILD_GITHUB_TOKEN }}
