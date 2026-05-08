@@ -19,12 +19,12 @@
 
 #include <CommonConstants/MathConstants.h>
 
-#include <TMCProcess.h> // for VMC Particle Production Process
 #include <TPDGCode.h>   // for PDG codes
 
 #include <algorithm>   // std::find
 #include <array>       // std::array
 #include <cmath>       // std::abs, std::sqrt
+#include "TMCProcess.h" // for VMC Particle Production Process
 #include <cstddef>     // std::size_t
 #include <cstdint>     // intX_t
 #include <tuple>       // std::apply
