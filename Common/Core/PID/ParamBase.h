@@ -36,7 +36,7 @@
 
 namespace o2::pid
 {
-/// Variable to use for the pid input/output i.e. float, double et cetera
+/// Variable to use for the pid input/output i.e. float, double et cetera/
 using pidvar_t = float;
 
 /// \brief Class to handle the parameters of a given detector response
