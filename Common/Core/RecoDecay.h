@@ -38,7 +38,7 @@
 /// - useful arithmetic operations and basic vector algebra
 /// - calculation of kinematic quantities
 /// - calculation of topological properties of secondary vertices
-/// - Monte Carlo matching of decays at track and particle level///
+/// - Monte Carlo matching of decays at track and particle level////
 
 struct RecoDecay {
   // mapping of charm-hadron origin type
