@@ -23,8 +23,7 @@
 #include <CommonConstants/MathConstants.h>
 #include <Framework/ASoA.h>
 #include <Framework/AnalysisDataModel.h>
-
-#include <fairlogger/Logger.h>
+#include <Framework/Logger.h>
 
 #include <cstdint>
 #include <utility>
