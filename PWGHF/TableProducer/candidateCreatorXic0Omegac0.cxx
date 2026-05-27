@@ -19,6 +19,7 @@
 
 #ifndef HomogeneousField
 #define HomogeneousField // o2-linter: disable=name/macro (required by KFParticle)
+#include <ReconstructionDataFormats/PID.h>
 #endif
 
 #include "PWGHF/Core/CentralityEstimation.h"

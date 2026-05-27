@@ -19,6 +19,7 @@
 /// \author Oleksii Lubynets <oleksii.lubynets@cern.ch>
 /// \author Phil Stahlhut <phil.lennart.stahlhut@cern.ch>
 
+#include <array>
 #if !defined(__CINT__) || defined(__CLING__)
 
 #include "HFInvMassFitter.h"

@@ -24,6 +24,7 @@
 ///
 
 #include "GeometryContainer.h"
+#include "OTFParticle.h"
 
 #include "ALICE3/Core/DetLayer.h"
 #include "ALICE3/Core/FastTracker.h"

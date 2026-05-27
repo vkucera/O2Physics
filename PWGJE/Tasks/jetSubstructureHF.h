@@ -17,6 +17,8 @@
 #ifndef PWGJE_TASKS_JETSUBSTRUCTUREHF_H_
 #define PWGJE_TASKS_JETSUBSTRUCTUREHF_H_
 
+#include "JetDerivedDataUtilities.h"
+
 #include "PWGJE/Core/FastJetUtilities.h"
 #include "PWGJE/Core/JetDQUtilities.h"
 #include "PWGJE/Core/JetFinder.h"
