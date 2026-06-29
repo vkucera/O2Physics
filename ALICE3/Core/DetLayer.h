@@ -15,7 +15,7 @@
 /// \since  11/03/2021
 /// \brief  Basic struct to hold information regarding a detector layer to be used in fast simulation
 ///
-
+//
 #ifndef ALICE3_CORE_DETLAYER_H_
 #define ALICE3_CORE_DETLAYER_H_
 
