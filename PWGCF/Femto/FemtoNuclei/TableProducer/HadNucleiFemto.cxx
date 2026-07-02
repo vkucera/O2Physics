@@ -16,7 +16,6 @@
 /// \date 2025-04-10
 
 #include "PWGCF/Femto/FemtoNuclei/DataModel/HadronNucleiTables.h"
-#include "PWGCF/FemtoWorld/Core/FemtoWorldMath.h"
 #include "PWGLF/DataModel/LFHypernucleiTables.h"
 #include "PWGLF/Utils/svPoolCreator.h"
 
@@ -55,6 +54,9 @@
 #include <MathUtils/Primitive2D.h>
 #include <ReconstructionDataFormats/PID.h>
 
+#include <Math/GenVector/Boost.h>
+#include <Math/Vector4D.h> // IWYU pragma: keep (do not replace with Math/Vector4Dfwd.h)
+#include <Math/Vector4Dfwd.h>
 #include <THn.h>
 #include <TPDGCode.h>
 #include <TString.h>
