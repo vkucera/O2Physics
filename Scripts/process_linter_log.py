@@ -62,7 +62,7 @@ def main():
         },
         Linter.ClangTidy: {
             LinterSpec.Name: "Clang-Tidy",
-            LinterSpec.Regex: r"/home/\w+/alice/(sw/SOURCES/)?O2\w*/(\w+/0/)?((.+):\d+:\d+: (.+): .+ \[(.+)\])",
+            LinterSpec.Regex: r"/home/\w+/alice/(sw/SOURCES/)?O2\w*/(\w+/0/)?((.+):\d+:\d+: (.+): .+ \[([^,]+)(,-warnings-as-errors)?\])",
             LinterSpec.GroupLineOut: 3,
             LinterSpec.GroupPath: 4,
             LinterSpec.GroupSeverity: 5,
