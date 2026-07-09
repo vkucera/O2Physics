@@ -9,6 +9,7 @@
 // granted to it by virtue of its status as an Intergovernmental Organization
 // or submit itself to any jurisdiction.
 
+/// \file ElectronModule.h
 /// \brief write relevant information about primary electrons.
 /// \author daiki.sekihata@cern.ch
 
@@ -51,7 +52,6 @@
 #include <Framework/HistogramSpec.h>
 #include <Framework/InitContext.h>
 #include <Framework/OutputObjHeader.h>
-#include <Framework/runDataProcessing.h>
 #include <MathUtils/Utils.h>
 #include <PID/PIDTOFParamService.h>
 #include <ReconstructionDataFormats/DCA.h>
