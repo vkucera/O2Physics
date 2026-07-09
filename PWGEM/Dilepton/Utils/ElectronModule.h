@@ -51,7 +51,6 @@
 #include <Framework/HistogramSpec.h>
 #include <Framework/InitContext.h>
 #include <Framework/OutputObjHeader.h>
-#include <Framework/runDataProcessing.h>
 #include <MathUtils/Utils.h>
 #include <PID/PIDTOFParamService.h>
 #include <ReconstructionDataFormats/DCA.h>
