@@ -512,9 +512,9 @@ struct SginclusivePhiKstarSD {
   }
 
   //_____________________________________________________________________________
-  double cosThetaCollinsSoperFrame(ROOT::Math::PxPyPzMVector pair1,
-                                   ROOT::Math::PxPyPzMVector pair2,
-                                   ROOT::Math::PxPyPzMVector fourpion)
+  double cosThetaCollinsSoperFrame(const ROOT::Math::PxPyPzMVector& pair1,
+                                   const ROOT::Math::PxPyPzMVector& pair2,
+                                   const ROOT::Math::PxPyPzMVector& fourpion)
   {
     double halfSqrtSnn = 2680.;
     double massOfLead208 = 193.6823;
@@ -540,7 +540,7 @@ struct SginclusivePhiKstarSD {
     return cosThetaCs;
   }
 
-  double phiCollinsSoperFrame(ROOT::Math::PxPyPzMVector pair1, ROOT::Math::PxPyPzMVector pair2, ROOT::Math::PxPyPzMVector fourpion)
+  double phiCollinsSoperFrame(const ROOT::Math::PxPyPzMVector& pair1, const ROOT::Math::PxPyPzMVector& pair2, const ROOT::Math::PxPyPzMVector& fourpion)
   {
     // Half of the energy per pair of the colliding nucleons.
     double halfSqrtSnn = 2680.;

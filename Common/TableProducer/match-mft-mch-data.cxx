@@ -503,7 +503,7 @@ struct match_mft_mch_data_mc {
   };
 
   template <typename MUON>
-  bool isGoodMuonQuality(MUON muontrack)
+  bool isGoodMuonQuality(const MUON& muontrack)
   {
     if (!muontrack.has_collision())
       return false;
@@ -521,7 +521,7 @@ struct match_mft_mch_data_mc {
   }
 
   template <typename MUON>
-  bool isGoodMuonKine(MUON muontrack)
+  bool isGoodMuonKine(const MUON& muontrack)
   {
     if (fEtaMchLow > muontrack.getEta() || muontrack.getEta() > fEtaMchUp)
       return false;
@@ -529,7 +529,7 @@ struct match_mft_mch_data_mc {
   }
 
   template <typename MFT>
-  bool isGoodMFTQuality(MFT mfttrack)
+  bool isGoodMFTQuality(const MFT& mfttrack)
   {
     if (!mfttrack.has_collision())
       return false;
@@ -541,7 +541,7 @@ struct match_mft_mch_data_mc {
   }
 
   template <typename MFT>
-  bool isGoodMFTKine(MFT mfttrack)
+  bool isGoodMFTKine(const MFT& mfttrack)
   {
     if (fEtaMftLow > mfttrack.getEta() || mfttrack.getEta() > fEtaMftUp)
       return false;

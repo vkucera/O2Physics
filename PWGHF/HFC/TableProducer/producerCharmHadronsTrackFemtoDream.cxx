@@ -1068,7 +1068,7 @@ struct HfProducerCharmHadronsTrackFemtoDream {
   }
 
   template <DecayChannel Channel, typename ParticleType>
-  void fillCharmHadMcGen(ParticleType particles)
+  void fillCharmHadMcGen(const ParticleType& particles)
   {
     // Filling particle properties
     tables.rowCandCharmHadGen.reserve(particles.size() + 1);

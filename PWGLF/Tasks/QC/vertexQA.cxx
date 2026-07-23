@@ -45,7 +45,7 @@ namespace
 {
 constexpr double LHCRFFreq = 400.789e6;
 constexpr double LHCBunchSpacingNS = 10 * 1.e9 / LHCRFFreq;
-double deltaTimeColl(BCcoll const bccoll1, BCcoll const bccoll2)
+double deltaTimeColl(BCcoll const& bccoll1, BCcoll const& bccoll2)
 {
   auto coll1 = std::get<aod::Collision>(bccoll1);
   auto coll2 = std::get<aod::Collision>(bccoll2);

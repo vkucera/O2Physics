@@ -269,7 +269,7 @@ struct PhotonIsolationQA {
     return Pt_Iso;
   }
 
-  void fillclusterhistos(const auto cluster, HistogramRegistry registry, double weight = 1.0)
+  void fillclusterhistos(const auto& cluster, HistogramRegistry registry, double weight = 1.0)
   {
     registry.fill(HIST("hClusterLocation"), cluster.eta(), cluster.phi());
     if (isMC == true) {

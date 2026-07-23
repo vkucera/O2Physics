@@ -963,7 +963,7 @@ struct kstarInOO {
   } // TrackSlicingMC
 
   template <typename JetType>
-  double DistinguishJets(const JetType& jets, ROOT::Math::PxPyPzMVector& lResonance)
+  double DistinguishJets(const JetType& jets, const ROOT::Math::PxPyPzMVector& lResonance)
   {
     if (cDebugLevel > 0) {
       LOG(info) << "Found multiple jets to the same phi.";

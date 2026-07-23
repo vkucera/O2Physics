@@ -57,9 +57,9 @@ struct sgExclusivePhi {
   HistogramRegistry registry{"registry", {}, OutputObjHandlingPolicy::AnalysisObject};
 
   //_____________________________________________________________________________
-  Double_t CosThetaHelicityFrame(TLorentzVector pionPositive,
-                                 TLorentzVector pionNegative,
-                                 TLorentzVector possibleRhoZero)
+  Double_t CosThetaHelicityFrame(const TLorentzVector& pionPositive,
+                                 const TLorentzVector& pionNegative,
+                                 const TLorentzVector& possibleRhoZero)
   {
 
     Double_t HalfSqrtSnn = 2680.;
@@ -86,7 +86,7 @@ struct sgExclusivePhi {
     return CosThetaHE;
   }
   //------------------------------------------------------------------------------------------------------
-  Double_t PhiHelicityFrame(TLorentzVector muonPositive, TLorentzVector muonNegative, TLorentzVector possibleJPsi)
+  Double_t PhiHelicityFrame(const TLorentzVector& muonPositive, const TLorentzVector& muonNegative, const TLorentzVector& possibleJPsi)
   {
 
     // Half of the energy per pair of the colliding nucleons.

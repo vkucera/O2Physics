@@ -104,7 +104,7 @@ struct UDTutorial03a {
   }
 
   // check if a reconstructed track is a muon candidate
-  bool isMuonCandidate_rec(TC track)
+  bool isMuonCandidate_rec(const TC& track)
   {
     if (abs(track.tpcNSigmaMu()) > 3.) {
       return false;
