@@ -714,7 +714,7 @@ struct QaMatching {
     o2::framework::HistPtr hDeltaEta;
     o2::framework::HistPtr hRabs;
 
-    MatchFeaturesHistos(std::string path, HistogramRegistry* registry, int numCandidates, double scoreMax)
+    MatchFeaturesHistos(const std::string& path, HistogramRegistry* registry, int numCandidates, double scoreMax)
     {
       AxisSpec indexAxis = {numCandidates, 0, static_cast<double>(numCandidates), "ranking index"};
       int matchTypeMax = static_cast<int>(kMatchTypeUndefined) + 1;
@@ -754,7 +754,7 @@ struct QaMatching {
     o2::framework::HistPtr histVsDeltaChi2;
     o2::framework::HistPtr histVsProdRanking;
 
-    MatchRankingHistos(std::string histName, std::string histTitle, HistogramRegistry* registry, int mftMultMax, int numCandidates)
+    MatchRankingHistos(const std::string& histName, const std::string& histTitle, HistogramRegistry* registry, int mftMultMax, int numCandidates)
     {
       AxisSpec pAxis = {100, 0, 100, "p (GeV/c)"};
       AxisSpec ptAxis = {100, 0, 10, "p_{T} (GeV/c)"};
@@ -2865,7 +2865,7 @@ struct QaMatching {
                        TMUON const& muonTracks,
                        TMFT const& mftTracks,
                        CMFT const& mftCovs,
-                       std::string label,
+                       const std::string& label,
                        const std::vector<std::pair<int64_t, int64_t>>& matchablePairs,
                        const MatchingCandidates& matchingCandidates,
                        MatchingCandidates& newMatchingCandidates)
@@ -2898,7 +2898,7 @@ struct QaMatching {
                      TMUON const& muonTracks,
                      TMFT const& mftTracks,
                      CMFT const& mftCovs,
-                     std::string label,
+                     const std::string& label,
                      const std::vector<std::pair<int64_t, int64_t>>& matchablePairs,
                      const MatchingCandidates& matchingCandidates,
                      MatchingCandidates& newMatchingCandidates)

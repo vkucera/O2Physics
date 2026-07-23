@@ -106,7 +106,7 @@ constexpr static uint32_t gkEventFillMap = VarManager::ObjTypes::BC | VarManager
 constexpr static uint32_t gkTrackFillMap = VarManager::ObjTypes::Track | VarManager::ObjTypes::TrackExtra | VarManager::ObjTypes::TrackDCA | VarManager::ObjTypes::TrackSelection | VarManager::ObjTypes::TrackPID;
 constexpr static uint32_t gkMuonFillMap = VarManager::ObjTypes::Muon;
 
-void DefineHistograms(HistogramManager* histMan, TString histClasses);
+void DefineHistograms(HistogramManager* histMan, const TString& histClasses);
 
 struct DQEventSelectionTask {
   Produces<aod::DQEventCuts> eventSel;
@@ -701,7 +701,7 @@ WorkflowSpec defineDataProcessing(ConfigContext const& cfgc)
     adaptAnalysisTask<DQFilterPPTask>(cfgc)};
 }
 
-void DefineHistograms(HistogramManager* histMan, TString histClasses)
+void DefineHistograms(HistogramManager* histMan, const TString& histClasses)
 {
   //
   // Define here the histograms for all the classes required in analysis.

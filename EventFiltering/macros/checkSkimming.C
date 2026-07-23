@@ -22,7 +22,7 @@
 #include <string>
 #include <vector>
 
-void checkSkimming(std::string original_path = "AnalysisResults.root", std::string skimmed_path = "AnalysisResults_skimmed.root", TFile* outputFile = nullptr, bool skipDownscaled = true)
+void checkSkimming(const std::string& original_path = "AnalysisResults.root", const std::string& skimmed_path = "AnalysisResults_skimmed.root", TFile* outputFile = nullptr, bool skipDownscaled = true)
 {
   gStyle->SetOptStat(0);
   std::string runNumber = "";
@@ -104,7 +104,7 @@ void checkSkimming(std::string original_path = "AnalysisResults.root", std::stri
   }
 }
 
-void checkSkimming(std::string listName = "period.txt", bool skipDownscaled = true)
+void checkSkimming(const std::string& listName = "period.txt", bool skipDownscaled = true)
 {
   std::string periodName = listName.substr(0, listName.find_last_of('.'));
   std::ifstream file(listName);

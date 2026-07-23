@@ -464,7 +464,7 @@ struct f1protoncorrelation {
 
   /// Magnetic field to be provided in Tesla
   static constexpr float tmpRadiiTPC[9] = {85., 105., 125., 145., 165., 185., 205., 225., 245.};
-  float PhiAtSpecificRadiiTPC(const TLorentzVector part1, const TLorentzVector part2, float charge1 = 0, int charge2 = 0, float magfield1 = 0.0, float magfield2 = 0.0)
+  float PhiAtSpecificRadiiTPC(const TLorentzVector& part1, const TLorentzVector& part2, float charge1 = 0, int charge2 = 0, float magfield1 = 0.0, float magfield2 = 0.0)
   {
     float pt1 = part1.Pt();
     float phi1 = part1.Phi();
@@ -496,8 +496,8 @@ struct f1protoncorrelation {
 
   // get kstar
   TLorentzVector trackSum, PartOneCMS, PartTwoCMS, trackRelK;
-  float getkstar(const TLorentzVector part1,
-                 const TLorentzVector part2)
+  float getkstar(const TLorentzVector& part1,
+                 const TLorentzVector& part2)
   {
     // const TLorentzVector trackSum = part1 + part2;
     trackSum = part1 + part2;
@@ -517,7 +517,7 @@ struct f1protoncorrelation {
     return 0.5 * trackRelK.P();
   }
 
-  float getmT(const TLorentzVector part1, const TLorentzVector part2)
+  float getmT(const TLorentzVector& part1, const TLorentzVector& part2)
   {
     trackSum = part1 + part2;
     float kT = 0.5 * trackSum.Pt();

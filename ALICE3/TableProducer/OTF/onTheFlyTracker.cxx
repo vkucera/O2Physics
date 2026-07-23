@@ -786,7 +786,7 @@ struct OnTheFlyTracker {
   /// \param xiDecayVertex the address of the xi decay vertex
   /// \param laDecayVertex the address of the la decay vertex
   template <typename McParticleType>
-  void decayCascade(McParticleType particle, o2::track::TrackParCov track, std::vector<TLorentzVector>& decayDaughters, std::vector<double>& xiDecayVertex, std::vector<double>& laDecayVertex)
+  void decayCascade(const McParticleType& particle, o2::track::TrackParCov track, std::vector<TLorentzVector>& decayDaughters, std::vector<double>& xiDecayVertex, std::vector<double>& laDecayVertex)
   {
     const double uXi = rand.Uniform(0, 1);
     const double ctauXi = 4.91; // cm
@@ -837,7 +837,7 @@ struct OnTheFlyTracker {
   /// \param decayDaughters the address of resulting daughters
   /// \param v0DecayVertex the address of the la decay vertex
   template <typename McParticleType>
-  void decayV0Particle(McParticleType particle, std::vector<TLorentzVector>& decayDaughters, std::vector<double>& v0DecayVertex, int pdgCode)
+  void decayV0Particle(const McParticleType& particle, std::vector<TLorentzVector>& decayDaughters, std::vector<double>& v0DecayVertex, int pdgCode)
   {
     double u = rand.Uniform(0, 1);
     double v0Mass = -1.;
@@ -890,7 +890,7 @@ struct OnTheFlyTracker {
   /// \param mcParticles the set of MC particles to compute dN/deta from
   /// \param histPath the path to the histogram where the computed dN/deta value will be stored for QA purposes
   template <typename McParticleType>
-  void computeDNDEta(float& dNdEta, McParticleType const& mcParticles, const std::string histPath)
+  void computeDNDEta(float& dNdEta, McParticleType const& mcParticles, const std::string& histPath)
   {
     for (const auto& mcParticle : mcParticles) {
       if (std::abs(mcParticle.eta()) > multEtaRange) {

@@ -303,7 +303,7 @@ struct TauThreeProngEventTableProducer {
     return angle;
   }
 
-  float calculateDeltaPhi(ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> p, ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>> p1)
+  float calculateDeltaPhi(const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& p, const ROOT::Math::LorentzVector<ROOT::Math::PxPyPzE4D<double>>& p1)
   {
     //    float delta = p.Phi();
     float delta = RecoDecay::constrainAngle(p.Phi());
@@ -453,7 +453,7 @@ struct TauThreeProngEventTableProducer {
   // check ITS clusters, how many -1,0,1,7 + 10 if 0,1,2 layers were fired
   // analysis track quality check
   template <typename T>
-  int numberOfItsClustersCheck(T track)
+  int numberOfItsClustersCheck(const T& track)
   {
     if (!track.hasITS())
       return -1;
@@ -553,7 +553,7 @@ struct TauThreeProngEventTableProducer {
 
   std::vector<std::pair<int8_t, std::set<uint8_t>>> cutMyRequiredITSHits{};
 
-  void mySetRequireHitsInITSLayers(int8_t minNRequiredHits, std::set<uint8_t> requiredLayers)
+  void mySetRequireHitsInITSLayers(int8_t minNRequiredHits, const std::set<uint8_t>& requiredLayers)
   {
     // layer 0 corresponds to the the innermost ITS layer
     cutMyRequiredITSHits.push_back(std::make_pair(minNRequiredHits, requiredLayers));

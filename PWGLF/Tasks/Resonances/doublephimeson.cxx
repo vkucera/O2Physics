@@ -241,8 +241,8 @@ struct doublephimeson {
 
   // get kstar
   TLorentzVector trackSum, PartOneCMS, PartTwoCMS, trackRelK;
-  float getkstar(const TLorentzVector part1,
-                 const TLorentzVector part2)
+  float getkstar(const TLorentzVector& part1,
+                 const TLorentzVector& part2)
   {
     // const TLorentzVector trackSum = part1 + part2;
     trackSum = part1 + part2;
@@ -262,8 +262,8 @@ struct doublephimeson {
     return 0.5 * trackRelK.P();
   }
 
-  float deepangle2(const ROOT::Math::PtEtaPhiMVector candidate1,
-                   const ROOT::Math::PtEtaPhiMVector candidate2)
+  float deepangle2(const ROOT::Math::PtEtaPhiMVector& candidate1,
+                   const ROOT::Math::PtEtaPhiMVector& candidate2)
   {
     double pt1, pt2, pz1, pz2, p1, p2, angle;
     pt1 = candidate1.Pt();
@@ -276,8 +276,8 @@ struct doublephimeson {
     return angle;
   }
 
-  float deepangle(const TLorentzVector candidate1,
-                  const TLorentzVector candidate2)
+  float deepangle(const TLorentzVector& candidate1,
+                  const TLorentzVector& candidate2)
   {
     double pt1, pt2, pz1, pz2, p1, p2, angle;
     pt1 = candidate1.Pt();
@@ -293,8 +293,8 @@ struct doublephimeson {
   // get cosTheta
   TLorentzVector daughterCMS;
   ROOT::Math::XYZVector threeVecDauCM, threeVecMother;
-  float getCosTheta(const TLorentzVector mother,
-                    const TLorentzVector daughter)
+  float getCosTheta(const TLorentzVector& mother,
+                    const TLorentzVector& daughter)
   {
     threeVecMother = mother.Vect();
     const float beta = mother.Beta();

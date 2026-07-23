@@ -158,7 +158,7 @@ constexpr static int pairTypeMuMu = VarManager::kDecayToMuMu;
 constexpr static int pairTypeEMu = VarManager::kElectronMuon;
 
 // Global function used to define needed histogram classes
-void DefineHistograms(HistogramManager* histMan, TString histClasses, Configurable<std::string> configVar); // defines histograms for all tasks
+void DefineHistograms(HistogramManager* histMan, const TString& histClasses, const Configurable<std::string>& configVar); // defines histograms for all tasks
 
 struct AnalysisEventSelection {
   Produces<aod::EventCuts> eventSel;
@@ -2315,7 +2315,7 @@ WorkflowSpec defineDataProcessing(ConfigContext const& cfgc)
     adaptAnalysisTask<AnalysisDileptonTrackTrack>(cfgc)};
 }
 
-void DefineHistograms(HistogramManager* histMan, TString histClasses, Configurable<std::string> configVar)
+void DefineHistograms(HistogramManager* histMan, const TString& histClasses, const Configurable<std::string>& configVar)
 {
   //
   // Define here the histograms for all the classes required in analysis.

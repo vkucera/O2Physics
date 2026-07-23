@@ -103,7 +103,7 @@ struct resonances_tutorial {
 
   // Track selection
   template <typename TrackType>
-  bool trackCut(const TrackType track)
+  bool trackCut(const TrackType& track)
   {
     // basic track cuts
     if (std::abs(track.pt()) < cMinPtcut)

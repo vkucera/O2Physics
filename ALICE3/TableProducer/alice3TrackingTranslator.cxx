@@ -49,6 +49,7 @@
 #include <cstdint>
 #include <map>
 #include <string>
+#include <utility>
 #include <vector>
 
 TString inputPath;
@@ -91,7 +92,7 @@ struct Alice3TrackingTranslator {
   }
 
   struct FileStruct {
-    FileStruct(std::string filename, std::string treename) : mFile(filename.c_str(), "READ")
+    FileStruct(const std::string& filename, const std::string& treename) : mFile(filename.c_str(), "READ")
     {
       if (mFile.IsZombie()) {
         LOG(fatal) << "Could not open file '" << filename << "'";
@@ -115,7 +116,7 @@ struct Alice3TrackingTranslator {
   };
 
   struct ParticleStruct : public FileStruct {
-    ParticleStruct(std::string filename, std::string treename) : FileStruct(filename, treename)
+    ParticleStruct(std::string filename, std::string treename) : FileStruct(std::move(filename), std::move(treename))
     {
       // mTree->Print();
       SETADDRESS("particle_type", m_particle_type);
@@ -152,7 +153,7 @@ struct Alice3TrackingTranslator {
   };
 
   struct TrackStruct : public FileStruct {
-    TrackStruct(std::string filename, std::string treename) : FileStruct(filename, treename)
+    TrackStruct(std::string filename, std::string treename) : FileStruct(std::move(filename), std::move(treename))
     {
       mTree->Print();
       // Set branch addresses for ACTS track parameters
@@ -221,7 +222,7 @@ struct Alice3TrackingTranslator {
   };
 
   struct HitsStruct : public FileStruct {
-    HitsStruct(std::string filename, std::string treename) : FileStruct(filename, treename)
+    HitsStruct(std::string filename, std::string treename) : FileStruct(std::move(filename), std::move(treename))
     {
       mTree->Print();
       SETADDRESS("barcode", barcode);

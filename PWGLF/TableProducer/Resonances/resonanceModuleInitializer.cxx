@@ -282,7 +282,7 @@ struct ResonanceModuleInitializer {
    * @return Centrality value
    */
   template <typename ResoColl, bool isMC = false>
-  float centEst(ResoColl ResoEvents)
+  float centEst(const ResoColl& ResoEvents)
   {
     float returnValue = -999.0;
     switch (multEstimator) {
@@ -378,7 +378,7 @@ struct ResonanceModuleInitializer {
    * @return Event plane value
    */
   template <typename ResoColl>
-  float getEvtPl(ResoColl ResoEvents)
+  float getEvtPl(const ResoColl& ResoEvents)
   {
     float returnValue = -999.0;
     if (ResoEvents.qvecAmp()[evtPlDetId] > 1e-8)
@@ -396,7 +396,7 @@ struct ResonanceModuleInitializer {
    * @return Event plane resolution
    */
   template <typename ResoColl>
-  float getEvtPlRes(ResoColl ResoEvents, int a, int b)
+  float getEvtPlRes(const ResoColl& ResoEvents, int a, int b)
   {
     float returnValue = -999.0;
     if (ResoEvents.qvecAmp()[a] < 1e-8 || ResoEvents.qvecAmp()[b] < 1e-8)

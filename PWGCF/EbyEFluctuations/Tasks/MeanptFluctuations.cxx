@@ -350,7 +350,7 @@ struct MeanptFluctuationsAnalysis {
   } //! end init function
 
   template <typename TCollision>
-  bool eventSelected(TCollision collision, const int& multTrk, const float& centrality)
+  bool eventSelected(const TCollision& collision, const int& multTrk, const float& centrality)
   {
     if (collision.alias_bit(kTVXinTRD)) {
       // TRD triggered
@@ -384,7 +384,7 @@ struct MeanptFluctuationsAnalysis {
   }
 
   template <typename TCollision>
-  bool eventSelectedSmallion(TCollision collision, const int multTrk, const float centrality)
+  bool eventSelectedSmallion(const TCollision& collision, const int multTrk, const float centrality)
   {
     auto multNTracksPV = collision.multNTracksPV();
 
@@ -426,7 +426,7 @@ struct MeanptFluctuationsAnalysis {
   }
 
   template <typename TCollision>
-  bool eventSelectionDefaultCuts(TCollision coll)
+  bool eventSelectionDefaultCuts(const TCollision& coll)
   {
     histos.fill(HIST("hEventStatData"), 0.5);
     if (!coll.sel8()) {

@@ -342,7 +342,7 @@ struct CascadeAnalysisLightIonsDerivedData {
   }
 
   template <typename TCollision>
-  void initCCDB(TCollision collision)
+  void initCCDB(const TCollision& collision)
   {
     if (mRunNumber == collision.runNumber()) {
       return;

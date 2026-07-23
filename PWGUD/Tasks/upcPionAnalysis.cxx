@@ -85,9 +85,9 @@ struct UPCPionAnalysis {
   HistogramRegistry registry{"registry", {}, OutputObjHandlingPolicy::AnalysisObject};
 
   //_____________________________________________________________________________________________
-  Double_t CosThetaHelicityFrame(TLorentzVector pionPositive,
-                                 TLorentzVector pionNegative,
-                                 TLorentzVector possibleRhoZero)
+  Double_t CosThetaHelicityFrame(const TLorentzVector& pionPositive,
+                                 const TLorentzVector& pionNegative,
+                                 const TLorentzVector& possibleRhoZero)
   {
 
     Double_t HalfSqrtSnn = 2680.;
@@ -114,7 +114,7 @@ struct UPCPionAnalysis {
     return CosThetaHE;
   }
   //------------------------------------------------------------------------------------------------------
-  Double_t PhiHelicityFrame(TLorentzVector piPositive, TLorentzVector piNegative, TLorentzVector possibleRho)
+  Double_t PhiHelicityFrame(const TLorentzVector& piPositive, const TLorentzVector& piNegative, const TLorentzVector& possibleRho)
   {
 
     // Half of the energy per pair of the colliding nucleons.
@@ -281,7 +281,7 @@ struct UPCPionAnalysis {
     return q;
   }
 
-  double DeltaPhi(TLorentzVector lv1, TLorentzVector lv2)
+  double DeltaPhi(const TLorentzVector& lv1, const TLorentzVector& lv2)
   {
     TLorentzVector lv_sum = lv1 + lv2;
     TLorentzVector lv_diff = lv1 - lv2;

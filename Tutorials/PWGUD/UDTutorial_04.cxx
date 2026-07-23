@@ -113,7 +113,7 @@ struct UDTutorial04 {
   }
 
   // check if a reconstructed track represents a muon candidate
-  bool isMuonCandidate_rec(TC track)
+  bool isMuonCandidate_rec(const TC& track)
   {
     if (abs(track.tpcNSigmaMu()) > 3.) {
       return false;
@@ -137,7 +137,7 @@ struct UDTutorial04 {
 
   // find the McParticles belongin to given tracks
   template <typename MCTrack>
-  std::vector<int64_t> getDaughterParts_rec(TCs const& tracks, std::vector<int64_t> trackIds, MCTrack const& /*parts*/)
+  std::vector<int64_t> getDaughterParts_rec(TCs const& tracks, const std::vector<int64_t>& trackIds, MCTrack const& /*parts*/)
   {
     std::vector<int64_t> emptySelection;
     std::vector<int64_t> selectedParts;
@@ -155,7 +155,7 @@ struct UDTutorial04 {
 
   // retrieve the reconstructed tracks which are associated with the given McParticles
   template <typename McPart>
-  std::vector<int64_t> getDaughterTracks_gen(McPart const& parts, std::vector<int64_t> partIds, TCs const& tracks)
+  std::vector<int64_t> getDaughterTracks_gen(McPart const& parts, const std::vector<int64_t>& partIds, TCs const& tracks)
   {
     // return a vector of track indices
     std::vector<int64_t> emptySelection;

@@ -15,6 +15,7 @@
 #include <cstdio>
 #include <cstdlib>
 #include <string>
+#include <utility>
 #include <vector>
 
 using std::string;
@@ -33,13 +34,13 @@ int GFWPowerArray::getHighestHarmonic(const HarSet& inhar)
 };
 HarSet GFWPowerArray::TrimVec(HarSet hars, int ind)
 {
-  HarSet retVec = hars;
+  HarSet retVec = std::move(hars);
   retVec.erase(retVec.begin() + ind);
   return retVec;
 };
 HarSet GFWPowerArray::AddConstant(HarSet hars, int offset)
 {
-  HarSet retVec = hars;
+  HarSet retVec = std::move(hars);
   for (int& val : retVec)
     val += offset;
   return retVec;
@@ -72,7 +73,7 @@ void GFWPowerArray::PrintVector(const HarSet& singleSet)
     printf(", %i", singleSet[i]);
   printf("}\n");
 }
-HarSet GFWPowerArray::GetPowerArray(vector<HarSet> inHarmonics)
+HarSet GFWPowerArray::GetPowerArray(const vector<HarSet>& inHarmonics)
 {
   // First, find maximum number of particle correlations ( = max power) and maximum (sum of) harmonics
   int MaxHar = 0;

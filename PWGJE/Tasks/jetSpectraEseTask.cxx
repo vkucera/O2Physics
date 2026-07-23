@@ -628,7 +628,7 @@ struct JetSpectraEseTask {
   }
 
   template <typename TTrack>
-  double getEfficiency(TTrack track, auto vtxZ)
+  double getEfficiency(const TTrack& track, auto vtxZ)
   {
     double eff{1.0};
     if (cfg.is3D) {
@@ -1350,7 +1350,7 @@ struct JetSpectraEseTask {
 
   const int secondHarmonic{2};
   template <DetID id, bool fill, typename Col>
-  std::vector<float> qVecNoESE(Col collision, int nmode = 2, int corrLevel = 3)
+  std::vector<float> qVecNoESE(const Col& collision, int nmode = 2, int corrLevel = 3)
   {
     int detId{detIDN(id)};
     int detInd{detId * 4 + cfgnTotalSystem * 4 * (nmode - 2)};

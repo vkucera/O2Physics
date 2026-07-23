@@ -749,7 +749,7 @@ struct HadronNucleiCorrelation {
     } // nBinspT loop
   }
 
-  void GetCorrection(o2::framework::Service<o2::ccdb::BasicCCDBManager> const& ccdbObj, TString filepath, TString histname)
+  void GetCorrection(o2::framework::Service<o2::ccdb::BasicCCDBManager> const& ccdbObj, const TString& filepath, const TString& histname)
   {
     TList* l = ccdbObj->get<TList>(filepath.Data());
     if (!l) {

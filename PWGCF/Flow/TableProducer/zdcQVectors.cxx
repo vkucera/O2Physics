@@ -414,7 +414,7 @@ struct ZdcQVectors {
   }
 
   template <typename TCollision, typename TZdc>
-  inline void fillCutAnalysis(TCollision collision, TZdc zdcBC, int evSel)
+  inline void fillCutAnalysis(const TCollision& collision, const TZdc& zdcBC, int evSel)
   {
     registry.fill(HIST("hEventCount"), evSel);
     // FT0C is the default centrality estimator
@@ -465,7 +465,7 @@ struct ZdcQVectors {
   }
 
   template <typename TCollision, typename TBunchCrossing>
-  uint16_t eventSelected(TCollision collision, TBunchCrossing bunchCrossing, bool& isEventSelected, const int& multTrk)
+  uint16_t eventSelected(const TCollision& collision, const TBunchCrossing& bunchCrossing, bool& isEventSelected, const int& multTrk)
   {
     uint16_t selectionBits = 0;
     bool selected;

@@ -1266,7 +1266,7 @@ class VarManager : public TObject
   }
 
   // Setup the collision system
-  static void SetCollisionSystem(TString system, float energy);
+  static void SetCollisionSystem(const TString& system, float energy);
   static void SetCollisionSystem(o2::parameters::GRPLHCIFData* grplhcif);
 
   static void SetMagneticField(float magField)
@@ -1633,7 +1633,7 @@ class VarManager : public TObject
   static KFPTrack createKFPFwdTrackFromFwdTrack(const T& muon);
   template <typename T>
   static KFPVertex createKFPVertexFromCollision(const T& collision);
-  static float calculateCosPA(KFParticle kfp, KFParticle PV);
+  static float calculateCosPA(const KFParticle& kfp, const KFParticle& PV);
   template <int pairType, typename T1, typename T2>
   static float calculatePhiV(const T1& t1, const T2& t2);
   template <typename T1, typename T2>

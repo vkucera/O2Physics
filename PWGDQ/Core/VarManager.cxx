@@ -147,7 +147,7 @@ void VarManager::ResetValues(int startValue, int endValue, float* values)
 }
 
 //__________________________________________________________________
-void VarManager::SetCollisionSystem(TString system, float energy)
+void VarManager::SetCollisionSystem(const TString& system, float energy)
 {
   //
   // Set the collision system and the center of mass energy
@@ -243,7 +243,7 @@ void VarManager::FillTrackDerived(float* values)
 }
 
 //__________________________________________________________________
-float VarManager::calculateCosPA(KFParticle kfp, KFParticle PV)
+float VarManager::calculateCosPA(const KFParticle& kfp, const KFParticle& PV)
 {
   return cpaFromKF(kfp, PV);
 }

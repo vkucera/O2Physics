@@ -733,7 +733,7 @@ struct FemtoDreamProducerTaskReso {
   }
 
   /// Function to retrieve the nominal magnetic field in kG (0.1T) and convert it directly to T
-  void initCcdbMagTrig(aod::BCsWithTimestamps::iterator bc)
+  void initCcdbMagTrig(const aod::BCsWithTimestamps::iterator& bc)
   {
     // TODO done only once (and not per run). Will be replaced by CCDBConfigurable
     // get magnetic field for run

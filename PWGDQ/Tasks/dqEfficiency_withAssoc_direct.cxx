@@ -301,7 +301,7 @@ constexpr static uint32_t gkTrackFillMapWithCovNoTOF = VarManager::ObjTypes::Tra
 constexpr static uint32_t gkDileptonFillMap = VarManager::ObjTypes::ReducedTrack | VarManager::ObjTypes::Pair; // fill map
 
 // Global function used to define needed histogram classes
-void DefineHistograms(HistogramManager* histMan, TString histClasses, const char* histGroups); // defines histograms for all tasks
+void DefineHistograms(HistogramManager* histMan, const TString& histClasses, const char* histGroups); // defines histograms for all tasks
 
 template <typename TMap>
 void PrintBitMap(TMap map, int nbits)
@@ -3180,7 +3180,7 @@ WorkflowSpec defineDataProcessing(ConfigContext const& cfgc)
     adaptAnalysisTask<AnalysisDileptonTrack>(cfgc)};
 }
 
-void DefineHistograms(HistogramManager* histMan, TString histClasses, const char* histGroups)
+void DefineHistograms(HistogramManager* histMan, const TString& histClasses, const char* histGroups)
 {
   //
   // Define here the histograms for all the classes required in analysis.

@@ -1297,7 +1297,7 @@ struct derivedlambdakzeroanalysis {
   }
 
   template <typename TCollision>
-  void initCCDB(TCollision collision)
+  void initCCDB(const TCollision& collision)
   {
     if (mRunNumber == collision.runNumber()) {
       return;
@@ -1358,7 +1358,7 @@ struct derivedlambdakzeroanalysis {
   }
 
   template <typename TV0, typename TCollision>
-  uint64_t computeReconstructionBitmap(TV0 v0, TCollision collision, float rapidityLambda, float rapidityK0Short, float /*pT*/)
+  uint64_t computeReconstructionBitmap(const TV0& v0, const TCollision& collision, float rapidityLambda, float rapidityK0Short, float /*pT*/)
   // precalculate this information so that a check is one mask operation, not many
   {
     uint64_t bitMap = 0;
@@ -1621,7 +1621,7 @@ struct derivedlambdakzeroanalysis {
   }
 
   template <typename TV0>
-  uint64_t computeMCAssociation(TV0 v0)
+  uint64_t computeMCAssociation(const TV0& v0)
   // precalculate this information so that a check is one mask operation, not many
   {
     uint64_t bitMap = 0;
@@ -1804,7 +1804,7 @@ struct derivedlambdakzeroanalysis {
   }
 
   template <typename TV0>
-  void analyseCandidate(TV0 v0, float pt, float centrality, uint64_t selMap, uint8_t gapSide, int& nK0Shorts, int& nLambdas, int& nAntiLambdas)
+  void analyseCandidate(const TV0& v0, float pt, float centrality, uint64_t selMap, uint8_t gapSide, int& nK0Shorts, int& nLambdas, int& nAntiLambdas)
   // precalculate this information so that a check is one mask operation, not many
   {
     bool passK0ShortSelections = false;
@@ -2207,7 +2207,7 @@ struct derivedlambdakzeroanalysis {
   }
 
   template <typename TV0>
-  void analyseCollisionAssociation(TV0 /*v0*/, float pt, int mcNch, bool correctAssociation, uint64_t selMap)
+  void analyseCollisionAssociation(const TV0& /*v0*/, float pt, int mcNch, bool correctAssociation, uint64_t selMap)
   // analyse collision association
   {
     // __________________________________________
@@ -2230,7 +2230,7 @@ struct derivedlambdakzeroanalysis {
   }
 
   template <typename TV0>
-  void fillFeeddownMatrix(TV0 v0, float pt, float centrality, uint64_t selMap)
+  void fillFeeddownMatrix(const TV0& v0, float pt, float centrality, uint64_t selMap)
   // fill feeddown matrix for Lambdas or AntiLambdas
   // fixme: a potential improvement would be to consider mass windows for the l/al
   {
@@ -2284,7 +2284,7 @@ struct derivedlambdakzeroanalysis {
   }
 
   template <typename TCollision>
-  bool isEventAccepted(TCollision collision, bool fillHists)
+  bool isEventAccepted(const TCollision& collision, bool fillHists)
   // check whether the collision passes our collision selections
   {
     float centrality = -1.0f;

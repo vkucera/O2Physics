@@ -51,7 +51,7 @@ namespace fastsim
 
 // +-~-<*>-~-+-~-<*>-~-+-~-<*>-~-+-~-<*>-~-+-~-<*>-~-+-~-<*>-~-+-~-<*>-~-+-~-<*>-~-+
 
-DetLayer* FastTracker::AddLayer(TString name, float r, float z, float x0, float xrho, float resRPhi, float resZ, float eff, int type)
+DetLayer* FastTracker::AddLayer(const TString& name, float r, float z, float x0, float xrho, float resRPhi, float resZ, float eff, int type)
 {
   LOG(debug) << "Adding layer " << name << " r=" << r << " z=" << z << " x0=" << x0 << " xrho=" << xrho << " resRPhi=" << resRPhi << " resZ=" << resZ << " eff=" << eff << " type=" << type;
   DetLayer newLayer(name, r, z, x0, xrho, resRPhi, resZ, eff, type);
@@ -154,7 +154,7 @@ void FastTracker::AddTPC(float phiResMean, float zResMean)
   }
 }
 
-void FastTracker::AddGenericDetector(o2::fastsim::GeometryEntry configMap, o2::ccdb::BasicCCDBManager* ccdbManager)
+void FastTracker::AddGenericDetector(const o2::fastsim::GeometryEntry& configMap, o2::ccdb::BasicCCDBManager* ccdbManager)
 {
   // Layers
   for (const auto& layer : configMap.getLayerNames()) {

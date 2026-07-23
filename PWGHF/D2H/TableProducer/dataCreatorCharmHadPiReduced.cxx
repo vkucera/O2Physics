@@ -488,7 +488,7 @@ struct HfDataCreatorCharmHadPiReduced {
                       const PParticles& particlesMc,
                       const std::vector<TTrack>& vecDaughtersB,
                       int& indexHfCandCharm,
-                      std::map<int64_t, int64_t> selectedTracksPion,
+                      const std::map<int64_t, int64_t>& selectedTracksPion,
                       const int64_t indexCollisionMaxNumContrib)
   {
 
