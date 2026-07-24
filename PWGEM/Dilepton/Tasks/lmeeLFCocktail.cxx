@@ -167,7 +167,7 @@ struct lmeelfcocktail {
   }
 
   template <typename T>
-  bool isAcceptedPair(T& p1, T& p2)
+  bool isAcceptedPair(const T& p1, const T& p2)
   {
     ROOT::Math::PtEtaPhiMVector v1(p1.ptSmeared(), p1.etaSmeared(), p1.phiSmeared(), o2::constants::physics::MassElectron);
     ROOT::Math::PtEtaPhiMVector v2(p2.ptSmeared(), p2.etaSmeared(), p2.phiSmeared(), o2::constants::physics::MassElectron);
@@ -175,7 +175,7 @@ struct lmeelfcocktail {
   }
 
   template <typename T>
-  bool isAcceptedSingle(T& p1)
+  bool isAcceptedSingle(const T& p1)
   {
     ROOT::Math::PtEtaPhiMVector v1(p1.ptSmeared(), p1.etaSmeared(), p1.phiSmeared(), o2::constants::physics::MassElectron);
     return isAcceptedSingle(v1);
