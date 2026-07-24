@@ -1110,8 +1110,8 @@ struct QaMatching {
       SVector5 mK(mftTrack.getX(), mftTrack.getY(), mftTrack.getPhi(),
                   mftTrack.getTanl(), mftTrack.getInvQPt()),
         rKKminus1;
-      SVector5 globalMuonTrackParameters = mchTrack.getParameters();
-      SMatrix55Sym globalMuonTrackCovariances = mchTrack.getCovariances();
+      const SVector5& globalMuonTrackParameters = mchTrack.getParameters();
+      const SMatrix55Sym& globalMuonTrackCovariances = mchTrack.getCovariances();
       vK(0, 0) = mftTrack.getCovariances()(0, 0);
       vK(1, 1) = mftTrack.getCovariances()(1, 1);
       vK(2, 2) = mftTrack.getCovariances()(2, 2);
@@ -1145,8 +1145,8 @@ struct QaMatching {
       SVector4 mK(mftTrack.getX(), mftTrack.getY(), mftTrack.getPhi(),
                   mftTrack.getTanl()),
         rKKminus1;
-      SVector5 globalMuonTrackParameters = mchTrack.getParameters();
-      SMatrix55Sym globalMuonTrackCovariances = mchTrack.getCovariances();
+      const SVector5& globalMuonTrackParameters = mchTrack.getParameters();
+      const SMatrix55Sym& globalMuonTrackCovariances = mchTrack.getCovariances();
       vK(0, 0) = mftTrack.getCovariances()(0, 0);
       vK(1, 1) = mftTrack.getCovariances()(1, 1);
       vK(2, 2) = mftTrack.getCovariances()(2, 2);
@@ -1176,8 +1176,8 @@ struct QaMatching {
       SMatrix25 hK;
       SMatrix22 vK;
       SVector2 mK(mftTrack.getX(), mftTrack.getY()), rKKminus1;
-      SVector5 globalMuonTrackParameters = mchTrack.getParameters();
-      SMatrix55Sym globalMuonTrackCovariances = mchTrack.getCovariances();
+      const SVector5& globalMuonTrackParameters = mchTrack.getParameters();
+      const SMatrix55Sym& globalMuonTrackCovariances = mchTrack.getCovariances();
       vK(0, 0) = mftTrack.getCovariances()(0, 0);
       vK(1, 1) = mftTrack.getCovariances()(1, 1);
       hK(0, 0) = 1.0;

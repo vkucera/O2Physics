@@ -1444,7 +1444,7 @@ struct HfDataCreatorCharmHadPiReduced {
           tables.hfCandPidProng1(candC.nSigTpcPi1(), candC.nSigTofPi1(), candC.nSigTpcKa1(), candC.nSigTofKa1(), nSigmaTpcPr1, nSigmaTofPr1, charmHadDauTracks[1].hasTOF(), charmHadDauTracks[1].hasTPC());
 
           // Soft pion tables
-          auto trackSoftPion = charmHadDauTracks.back();
+          const auto& trackSoftPion = charmHadDauTracks.back();
           auto trackParCovSoftPion = getTrackParCov(trackSoftPion);
           std::array<float, 2> dcaSoftPion{trackSoftPion.dcaXY(), trackSoftPion.dcaZ()};
           std::array<float, 3> pVecSoftPion = trackSoftPion.pVector();

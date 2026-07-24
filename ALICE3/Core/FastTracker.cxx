@@ -586,7 +586,7 @@ int FastTracker::FastTrack(o2::track::TrackParCov inputTrack, o2::track::TrackPa
   m.SetMatrixArray(reinterpret_cast<double*>(fcovm));
   TMatrixDSymEigen eigen(m);
   TMatrixD eigVec = eigen.GetEigenVectors();
-  TVectorD eigVal = eigen.GetEigenValues();
+  const TVectorD& eigVal = eigen.GetEigenValues();
   bool negEigVal = false;
   for (int ii = 0; ii < 5; ii++) {
     if (eigVal[ii] < 0.0f)
