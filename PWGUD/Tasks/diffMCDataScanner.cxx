@@ -413,8 +413,8 @@ struct MCTracks {
         // }
 
         if (hasDiff && mothers.size() > 1) {
-          auto mom1 = mothers[0];
-          auto mom2 = mothers[1];
+          const auto& mom1 = mothers[0];
+          const auto& mom2 = mothers[1];
           if (mcpart.isPhysicalPrimary() &&
               (mcpart.getGenStatusCode() == 1 || mcpart.getGenStatusCode() == 2) &&
               mom1.globalIndex() != mom2.globalIndex() &&

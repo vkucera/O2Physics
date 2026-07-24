@@ -526,7 +526,7 @@ struct HfProducerCharmHadronsV0FemtoDream {
           // list of mothers is not empty
         } else if (particleMc.getProcess() == TMCProcess::kPDecay && particleMc.getGenStatusCode() == GenFromTransport && !motherparticlesMc.empty()) {
           // get direct mother
-          auto motherparticleMc = motherparticlesMc.front();
+          const auto& motherparticleMc = motherparticlesMc.front();
           pdgCodeMother = motherparticleMc.pdgCode();
           particleOrigin = checkDaughterType(fdparttype, motherparticleMc.pdgCode(), pdgCode);
           // check if particle is material

@@ -1088,14 +1088,14 @@ struct doublephimeson {
       for (auto if1 = exoticresonance.begin(); if1 != exoticresonance.end(); ++if1) {
         auto i5 = std::distance(exoticresonance.begin(), if1);
 
-        auto exotic1phi1 = phiresonanced1.at(i5);
-        auto exotic1phi2 = phiresonanced2.at(i5);
+        const auto& exotic1phi1 = phiresonanced1.at(i5);
+        const auto& exotic1phi2 = phiresonanced2.at(i5);
         auto exotic1 = exoticresonance.at(i5);
 
-        auto exotic1kaonplus1 = kaonplus1.at(i5);
-        auto exotic1kaonminus1 = kaonminus1.at(i5);
-        auto exotic1kaonplus2 = kaonplus2.at(i5);
-        auto exotic1kaonminus2 = kaonminus2.at(i5);
+        const auto& exotic1kaonplus1 = kaonplus1.at(i5);
+        const auto& exotic1kaonminus1 = kaonminus1.at(i5);
+        const auto& exotic1kaonplus2 = kaonplus2.at(i5);
+        const auto& exotic1kaonminus2 = kaonminus2.at(i5);
         auto deltaRkaonplus1 = TMath::Sqrt(TMath::Power(exotic1kaonplus1.Phi() - exotic1kaonplus2.Phi(), 2.0) + TMath::Power(exotic1kaonplus1.Eta() - exotic1kaonplus2.Eta(), 2.0));
         auto deltaRkaonminus1 = TMath::Sqrt(TMath::Power(exotic1kaonminus1.Phi() - exotic1kaonminus2.Phi(), 2.0) + TMath::Power(exotic1kaonminus1.Eta() - exotic1kaonminus2.Eta(), 2.0));
         histos.fill(HIST("hDeltaRkaonplus"), deltaRkaonplus1);
@@ -1113,14 +1113,14 @@ struct doublephimeson {
 
         for (auto if2 = if1 + 1; if2 != exoticresonance.end(); ++if2) {
           auto i6 = std::distance(exoticresonance.begin(), if2);
-          auto exotic2phi1 = phiresonanced1.at(i6);
-          auto exotic2phi2 = phiresonanced2.at(i6);
+          const auto& exotic2phi1 = phiresonanced1.at(i6);
+          const auto& exotic2phi2 = phiresonanced2.at(i6);
           auto exotic2 = exoticresonance.at(i6);
 
-          auto exotic2kaonplus1 = kaonplus1.at(i6);
-          auto exotic2kaonminus1 = kaonminus1.at(i6);
-          auto exotic2kaonplus2 = kaonplus2.at(i6);
-          auto exotic2kaonminus2 = kaonminus2.at(i6);
+          const auto& exotic2kaonplus1 = kaonplus1.at(i6);
+          const auto& exotic2kaonminus1 = kaonminus1.at(i6);
+          const auto& exotic2kaonplus2 = kaonplus2.at(i6);
+          const auto& exotic2kaonminus2 = kaonminus2.at(i6);
           auto deltaRkaonplus2 = TMath::Sqrt(TMath::Power(exotic2kaonplus1.Phi() - exotic2kaonplus2.Phi(), 2.0) + TMath::Power(exotic2kaonplus1.Eta() - exotic2kaonplus2.Eta(), 2.0));
           auto deltaRkaonminus2 = TMath::Sqrt(TMath::Power(exotic2kaonminus1.Phi() - exotic2kaonminus2.Phi(), 2.0) + TMath::Power(exotic2kaonminus1.Eta() - exotic2kaonminus2.Eta(), 2.0));
 
@@ -1146,14 +1146,14 @@ struct doublephimeson {
     } else {
       for (auto if1 = exoticresonance.begin(); if1 != exoticresonance.end(); ++if1) {
         auto i5 = std::distance(exoticresonance.begin(), if1);
-        auto exotic1phi1 = phiresonanced1.at(i5);
-        auto exotic1phi2 = phiresonanced2.at(i5);
+        const auto& exotic1phi1 = phiresonanced1.at(i5);
+        const auto& exotic1phi2 = phiresonanced2.at(i5);
         auto exotic1 = exoticresonance.at(i5);
 
-        auto exotic1kaonplus1 = kaonplus1.at(i5);
-        auto exotic1kaonminus1 = kaonminus1.at(i5);
-        auto exotic1kaonplus2 = kaonplus2.at(i5);
-        auto exotic1kaonminus2 = kaonminus2.at(i5);
+        const auto& exotic1kaonplus1 = kaonplus1.at(i5);
+        const auto& exotic1kaonminus1 = kaonminus1.at(i5);
+        const auto& exotic1kaonplus2 = kaonplus2.at(i5);
+        const auto& exotic1kaonminus2 = kaonminus2.at(i5);
         auto deltaRkaonplus1 = TMath::Sqrt(TMath::Power(exotic1kaonplus1.Phi() - exotic1kaonplus2.Phi(), 2.0) + TMath::Power(exotic1kaonplus1.Eta() - exotic1kaonplus2.Eta(), 2.0));
         auto deltaRkaonminus1 = TMath::Sqrt(TMath::Power(exotic1kaonminus1.Phi() - exotic1kaonminus2.Phi(), 2.0) + TMath::Power(exotic1kaonminus1.Eta() - exotic1kaonminus2.Eta(), 2.0));
         auto deltam1 = TMath::Sqrt(TMath::Power(exotic1phi1.M() - 1.0192, 2.0) + TMath::Power(exotic1phi2.M() - 1.0192, 2.0));

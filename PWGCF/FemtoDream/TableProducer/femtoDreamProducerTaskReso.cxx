@@ -925,7 +925,7 @@ struct FemtoDreamProducerTaskReso {
           // list of mothers is not empty
         } else if (particleMC.getProcess() == ProcessDirectMother && particleMC.getGenStatusCode() == GenStatusTransport && !motherparticlesMC.empty()) {
           // get direct mother
-          auto motherparticleMC = motherparticlesMC.front();
+          const auto& motherparticleMC = motherparticlesMC.front();
           pdgCodeMother = motherparticleMC.pdgCode();
           trackRegistry.fill(HIST("AnalysisQA/Mother"), pdgCodeMother);
           particleOrigin = checkDaughterType(fdparttype, motherparticleMC.pdgCode(), pdgCode);
