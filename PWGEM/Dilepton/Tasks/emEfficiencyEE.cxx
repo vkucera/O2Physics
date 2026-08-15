@@ -324,7 +324,7 @@ struct AnalysisEventQa {
   {
 
     Int_t midrap = 0;
-    for (auto mctrack : groupedMCTracks) {
+    for (const auto& mctrack : groupedMCTracks) {
       if (TMath::Abs(mctrack.eta()) < 0.5 && mctrack.isPhysicalPrimary() && (TMath::Abs(mctrack.pdgCode()) == 211 || mctrack.pdgCode() == 111)) {
         midrap++;
       }

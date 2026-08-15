@@ -720,7 +720,7 @@ struct DQFilterPPTask {
     uint32_t pairFilter = 0;
     // count the number of barrel tracks fulfilling each cut
     if constexpr (static_cast<bool>(TTrackFillMap)) {
-      for (auto trackAssoc : barrelAssocs) {
+      for (const auto& trackAssoc : barrelAssocs) {
         for (int i = 0; i < fNBarrelCuts; ++i) {
           if (trackAssoc.isDQBarrelSelected() & (static_cast<uint32_t>(1) << i)) {
             objCountersBarrel[i] += 1;

@@ -57,7 +57,7 @@ void checkSkimming(const std::string& original_path = "AnalysisResults.root", co
 
   // Find the bins corresponding to the desired labels
   std::vector<double> selected_bins1, selected_bins2;
-  for (auto lab : labels) {
+  for (const auto& lab : labels) {
     int bin1 = hist1->GetXaxis()->FindBin(lab.c_str());
     if (bin1 == -1) {
       std::cerr << "Error: Label " << lab << " not found in histogram 1." << std::endl;

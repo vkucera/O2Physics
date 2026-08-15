@@ -173,7 +173,7 @@ struct UDTutorial03b {
       if (trs.size() > 1) {
         LOGF(info, "%d tracks belong to same McParticle!", trs.size());
       }
-      for (auto tr : trs) {
+      for (const auto& tr : trs) {
         selectedTracks.push_back(tr.globalIndex());
       }
     }
@@ -196,7 +196,7 @@ struct UDTutorial03b {
     // and be muon candidates
     int netCharge = 0;
     int ind = -1;
-    for (auto track : tracks) {
+    for (const auto& track : tracks) {
       ind++;
       if (track.isPVContributor()) {
         if (!isMuonCandidate_rec(track)) {
@@ -328,7 +328,7 @@ struct UDTutorial03b {
     TLorentzVector* lv_rec = new TLorentzVector();
 
     // loop over all generated collisions
-    for (auto mccollision : mccollisions) {
+    for (const auto& mccollision : mccollisions) {
       registry.get<TH1>(HIST("MC/Stat"))->Fill(0., 1.);
 
       // get reconstructed collision which belongs to mccollision
@@ -400,14 +400,14 @@ struct UDTutorial03b {
       registry.get<TH2>(HIST("MC/selMPt"))->Fill(lv_rec->M(), lv_rec->Pt(), 1.);
 
       // compute the difference between generated and reconstructed particle momentum
-      for (auto McPart : partSlice) {
+      for (const auto& McPart : partSlice) {
         // get track which corresponds to McPart
         auto trackSlice = tracks.sliceBy(trackPerMcParticle, McPart.globalIndex());
         registry.get<TH1>(HIST("MC/nRecTracks"))->Fill(trackSlice.size(), 1.);
 
         // are there reconstructed tracks?
         if (trackSlice.size() > 0) {
-          for (auto track : trackSlice) {
+          for (const auto& track : trackSlice) {
             auto pTrack = track.p();
             auto pPart = McPart.p();
             auto pDiff = pTrack - pPart;
@@ -436,7 +436,7 @@ struct UDTutorial03b {
     registry.get<TH1>(HIST("Reco/Stat"))->Fill(0., 1.);
     registry.get<TH1>(HIST("Reco/nTracks"))->Fill(tracks.size(), 1.);
     int nContributors = 0;
-    for (auto track : tracks) {
+    for (const auto& track : tracks) {
       if (track.isPVContributor()) {
         nContributors++;
       }
@@ -489,7 +489,7 @@ struct UDTutorial03b {
     }
 
     // compute the difference between generated and reconstructed momentum
-    for (auto track : tracks) {
+    for (const auto& track : tracks) {
       // is there an associated McParticle?
       if (track.has_mcParticle()) {
         auto pTrack = track.p();

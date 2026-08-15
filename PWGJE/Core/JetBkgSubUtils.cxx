@@ -167,7 +167,7 @@ double JetBkgSubUtils::getMd(const fastjet::PseudoJet& jet) const
 {
   // Refere to https://arxiv.org/abs/1211.2811 for the rhoM caclulation
   double sum(0);
-  for (auto constituent : jet.constituents()) {
+  for (const auto& constituent : jet.constituents()) {
     sum += TMath::Sqrt(constituent.m() * constituent.m() + constituent.pt() * constituent.pt()) - constituent.pt();
   }
 

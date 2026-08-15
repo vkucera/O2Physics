@@ -616,7 +616,7 @@ struct MultiParticleCorrelationsARTask {
     for (auto SC : cfgSC.value) {
       Correlators = MapSCToCor(SC);
       fMapScToCor.insert({SC, Correlators});
-      for (auto cor : Correlators) {
+      for (const auto& cor : Correlators) {
         if (std::find(fCorrelators.begin(), fCorrelators.end(), cor) !=
             fCorrelators.end()) {
           continue;

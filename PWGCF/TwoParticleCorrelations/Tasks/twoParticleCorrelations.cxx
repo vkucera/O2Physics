@@ -425,7 +425,7 @@ struct twoParticleCorrelations {
       TH1::AddDirectory(kFALSE);
 
       /* load the species names */
-      for (auto id : idnames) {
+      for (const auto& id : idnames) {
         LOGF(info, "Adding particle species %s", id.c_str());
         tname.push_back(std::string(id.c_str()));
       }

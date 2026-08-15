@@ -60,7 +60,7 @@ struct resonances_tutorial {
   template <typename CollisionType, typename ParticleType>
   void fillHistograms(const CollisionType& /*collision*/, const ParticleType& resoParents)
   {
-    for (auto part : resoParents) { // loop over all resoParents
+    for (const auto& part : resoParents) { // loop over all resoParents
       if (!ptCut(part))
         continue; // pt selection
 

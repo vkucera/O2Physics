@@ -593,7 +593,7 @@ struct phiInJets {
     JEhistos.fill(HIST("hNResoPerEventInJet"), nResoInTrig);
 
     int nJets = 0;
-    for (auto chargedjet : chargedjets) {
+    for (const auto& chargedjet : chargedjets) {
       JEhistos.fill(HIST("FJetaHistogram"), chargedjet.eta());
       JEhistos.fill(HIST("FJphiHistogram"), chargedjet.phi());
       JEhistos.fill(HIST("FJptHistogram"), chargedjet.pt());

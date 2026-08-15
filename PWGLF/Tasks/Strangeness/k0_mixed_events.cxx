@@ -369,8 +369,8 @@ struct K0MixedEvents {
   void mixTracks(Type const& tracks1, Type const& tracks2, const float centrality)
   {
     LOG(debug) << "Mixing tracks of two different events";
-    for (auto trk1 : tracks1) {
-      for (auto trk2 : tracks2) {
+    for (const auto& trk1 : tracks1) {
+      for (const auto& trk2 : tracks2) {
 
         Pair->setPair(trk1, trk2);
 
@@ -719,7 +719,7 @@ struct K0MixedEvents {
     }
 
     registry.fill(HIST("Trks"), 2.f, tracks.size());
-    for (auto collision : collisions) {
+    for (const auto& collision : collisions) {
       if (!acceptEvent(collision))
         continue;
       LOG(debug) << "Collision index " << collision.globalIndex();

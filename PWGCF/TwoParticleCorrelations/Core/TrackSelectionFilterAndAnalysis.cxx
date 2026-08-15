@@ -71,7 +71,7 @@ TrackSelectionConfigurable::TrackSelectionConfigurable(std::vector<std::string> 
         TString scut = selname + "{cwv{";
         bool def = true;
         bool firstvar = true;
-        for (auto cut : selvector) {
+        for (const auto& cut : selvector) {
           if (def) {
             scut += cut + ':';
             def = false;
