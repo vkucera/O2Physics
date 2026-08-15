@@ -283,8 +283,8 @@ struct FemtoCorrelationsMC {
   template <typename Type>
   void fillEtaPhi(Type const& tracks1, Type const& tracks2, unsigned int centBin)
   { // template for particles from the same collision non-identical
-    for (auto ii : tracks1) {
-      for (auto iii : tracks2) {
+    for (const auto& ii : tracks1) {
+      for (const auto& iii : tracks2) {
 
         Pair->SetPair(ii, iii);
         float pair_kT = Pair->GetKt();
@@ -307,8 +307,8 @@ struct FemtoCorrelationsMC {
   template <typename Type>
   void fillResMatrix(Type const& tracks1, Type const& tracks2, unsigned int centBin)
   { // template for ME
-    for (auto ii : tracks1) {
-      for (auto iii : tracks2) {
+    for (const auto& ii : tracks1) {
+      for (const auto& iii : tracks2) {
 
         Pair->SetPair(ii, iii);
         float pair_kT = Pair->GetKt();

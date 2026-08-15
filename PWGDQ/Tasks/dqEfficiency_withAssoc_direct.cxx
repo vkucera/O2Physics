@@ -2737,7 +2737,7 @@ struct AnalysisDileptonTrack {
 
     auto bc = event.template bc_as<TBCs>();
 
-    for (auto dilepton : dileptons) {
+    for (const auto& dilepton : dileptons) {
       // get full track info of tracks based on the index
       auto lepton1 = tracks.rawIteratorAt(dilepton.index0Id());
       auto lepton2 = tracks.rawIteratorAt(dilepton.index1Id());

@@ -837,7 +837,7 @@ struct doublephimeson {
       return;
     }
     int phimult = 0;
-    for (auto phitrackd1 : phitracks) {
+    for (const auto& phitrackd1 : phitracks) {
       if (phitrackd1.phiMass() < minPhiMass1 || phitrackd1.phiMass() > maxPhiMass1) {
         continue;
       }
@@ -857,7 +857,7 @@ struct doublephimeson {
       }
       phimult = phimult + 1;
     }
-    for (auto phitrackd1 : phitracks) {
+    for (const auto& phitrackd1 : phitracks) {
       auto kaonplusd1pt = TMath::Sqrt(phitrackd1.phid1Px() * phitrackd1.phid1Px() + phitrackd1.phid1Py() * phitrackd1.phid1Py());
       auto kaonminusd1pt = TMath::Sqrt(phitrackd1.phid2Px() * phitrackd1.phid2Px() + phitrackd1.phid2Py() * phitrackd1.phid2Py());
       if (kaonplusd1pt > maxKaonPt) {
@@ -880,7 +880,7 @@ struct doublephimeson {
       Phid1.SetXYZM(phitrackd1.phiPx(), phitrackd1.phiPy(), phitrackd1.phiPz(), phitrackd1.phiMass());
       Phi1kaonplus.SetXYZM(phitrackd1.phid1Px(), phitrackd1.phid1Py(), phitrackd1.phid1Pz(), 0.493);
       Phi1kaonminus.SetXYZM(phitrackd1.phid2Px(), phitrackd1.phid2Py(), phitrackd1.phid2Pz(), 0.493);
-      for (auto phitrackd2 : phitracks) {
+      for (const auto& phitrackd2 : phitracks) {
         auto phid2id = phitrackd2.index();
         if (phid2id <= phid1id) {
           continue;
@@ -973,7 +973,7 @@ struct doublephimeson {
     }
     int phimult = 0;
 
-    for (auto phitrackd1 : phitracks) {
+    for (const auto& phitrackd1 : phitracks) {
       if (phitrackd1.phiMass() < minPhiMass1 || phitrackd1.phiMass() > maxPhiMass1) {
         continue;
       }
@@ -993,7 +993,7 @@ struct doublephimeson {
       }
       phimult = phimult + 1;
     }
-    for (auto phitrackd1 : phitracks) {
+    for (const auto& phitrackd1 : phitracks) {
       auto kaonplusd1pt = TMath::Sqrt(phitrackd1.phid1Px() * phitrackd1.phid1Px() + phitrackd1.phid1Py() * phitrackd1.phid1Py());
       auto kaonminusd1pt = TMath::Sqrt(phitrackd1.phid2Px() * phitrackd1.phid2Px() + phitrackd1.phid2Py() * phitrackd1.phid2Py());
 
@@ -1021,7 +1021,7 @@ struct doublephimeson {
       Phid1.SetXYZM(phitrackd1.phiPx(), phitrackd1.phiPy(), phitrackd1.phiPz(), phitrackd1.phiMass());
       Phi1kaonplus.SetXYZM(phitrackd1.phid1Px(), phitrackd1.phid1Py(), phitrackd1.phid1Pz(), 0.493);
       Phi1kaonminus.SetXYZM(phitrackd1.phid2Px(), phitrackd1.phid2Py(), phitrackd1.phid2Pz(), 0.493);
-      for (auto phitrackd2 : phitracks) {
+      for (const auto& phitrackd2 : phitracks) {
         auto phid2id = phitrackd2.index();
         if (phid2id <= phid1id) {
           continue;

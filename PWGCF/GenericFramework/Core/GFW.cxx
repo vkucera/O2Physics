@@ -325,7 +325,7 @@ void GFW::InitializePowerArrays()
   vector<vector<vector<int>>> harSets(static_cast<int>(fRegions.size()));
   for (const CorrConfig& lConf : fListOfCFGs) {
     auto HarPerReg = GetHarmonicsSingleConfig(lConf);
-    for (auto oneHar : HarPerReg)
+    for (const auto& oneHar : HarPerReg)
       harSets[oneHar.first].push_back(oneHar.second);
   }
   // Now, loop through all combinations of different harmonics for each region and calculate power arrays

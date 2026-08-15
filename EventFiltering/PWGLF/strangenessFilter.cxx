@@ -1217,7 +1217,7 @@ struct strangenessFilter {
 
     // QA tracks
     int triggcounterAllEv = 0;
-    for (auto track : tracks) { // start loop over tracks
+    for (const auto& track : tracks) { // start loop over tracks
       if (cfgTrackCuts.isTrackFilter && !selectTrack(track)) {
         continue;
       }
@@ -1524,7 +1524,7 @@ struct strangenessFilter {
       QAHistosSigma.fill(HIST("hDecayRadiusSigma"), decRad);
       // pair a proton
       bool isProtonPaired = false;
-      for (auto track : tracks) {
+      for (const auto& track : tracks) {
         if (track.globalIndex() == dauTrack.globalIndex()) {
           continue;
         }

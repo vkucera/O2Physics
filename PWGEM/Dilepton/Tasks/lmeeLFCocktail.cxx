@@ -203,7 +203,7 @@ struct lmeelfcocktail {
 
   void addHistogram1D(const TString& histname, const AxisSpec& axis, int& i)
   {
-    for (auto s : stage) {
+    for (const auto& s : stage) {
       addHistogram1D_stage(histname, axis, i, s);
     }
   }
@@ -244,7 +244,7 @@ struct lmeelfcocktail {
 
   void addHistogram2D(const TString& histname, const AxisSpec& axis1, const AxisSpec& axis2, int& i)
   {
-    for (auto s : stage) {
+    for (const auto& s : stage) {
       addHistogram2D_stage(histname, axis1, axis2, i, s);
     }
   }
@@ -273,7 +273,7 @@ struct lmeelfcocktail {
   template <typename TAxes>
   void addHistogramND(const TString& histname, TAxes const& axes, int& i)
   {
-    for (auto s : stage) {
+    for (const auto& s : stage) {
       addHistogramND_stage(histname, axes, i, s);
     }
   }

@@ -543,7 +543,7 @@ struct f1protoncorrelation {
     }
     lastRunNumber = currentRunNumber;
 
-    for (auto f1track : f1tracks) {
+    for (const auto& f1track : f1tracks) {
       if (f1track.f1MassKaonKshort() > maxKKS0Mass) {
         continue;
       }
@@ -593,7 +593,7 @@ struct f1protoncorrelation {
       if (typeofCombined == 1) {
         combinedTPC = (f1track.f1d1TPC() - f1track.f1d2TPC()) / (f1track.f1d1TPC() + f1track.f1d2TPC());
       }
-      for (auto protontrack : protontracks) {
+      for (const auto& protontrack : protontracks) {
         Proton.SetXYZM(protontrack.protonPx(), protontrack.protonPy(), protontrack.protonPz(), 0.938);
         if (Proton.Pt() > momentumProtonMax || Proton.Pt() < momentumProtonMin) {
           continue;
@@ -975,7 +975,7 @@ struct f1protoncorrelation {
     lastRunNumber = currentRunNumber;
     auto countf1 = 0;
 
-    for (auto f1track : f1tracks) {
+    for (const auto& f1track : f1tracks) {
 
       if (f1track.f1MassKaonKshort() > maxKKS0Mass)
         continue;
@@ -1021,7 +1021,7 @@ struct f1protoncorrelation {
         continue;
 
       // Proton loop
-      for (auto protontrack : protontracks) {
+      for (const auto& protontrack : protontracks) {
         Proton.SetXYZM(protontrack.protonPx(), protontrack.protonPy(), protontrack.protonPz(), 0.938);
 
         if ((f1track.f1PionIndex() == protontrack.f1ProtonIndex()) ||

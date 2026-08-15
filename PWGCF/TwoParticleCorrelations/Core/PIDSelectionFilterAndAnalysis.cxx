@@ -71,7 +71,7 @@ PIDSelectionConfigurable::PIDSelectionConfigurable(std::vector<std::string> pidt
         TString scut = selname + "{cwv{";
         bool def = true;
         bool firstvar = true;
-        for (auto cut : selvector) {
+        for (const auto& cut : selvector) {
           if (def) {
             scut += cut + ':';
             def = false;

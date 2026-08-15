@@ -211,7 +211,7 @@ struct ExclusiveTwoProtonsSG {
     std::vector<decltype(tracks.begin())> rawProtonTracks;
     std::vector<decltype(tracks.begin())> rawProtonTracksTOF;
 
-    for (auto trk : tracks) {
+    for (const auto& trk : tracks) {
       if (!trk.isPVContributor()) {
         continue;
       }

@@ -556,7 +556,7 @@ struct match_mft_mch_data_mc {
   template <typename MUONs, typename Collisions>
   void setMUONs(MUONs const& muontracks, Collisions const& collisions)
   {
-    for (auto muontrack : muontracks) {
+    for (const auto& muontrack : muontracks) {
       if (!isGoodMuonQuality(muontrack))
         continue;
       o2::dataformats::GlobalFwdTrack muontrack_at_pv = propagateMUONtoPV(muontrack, collisions);
@@ -595,7 +595,7 @@ struct match_mft_mch_data_mc {
   template <typename MFTs, typename Collisions>
   void setMFTs(MFTs const& mfttracks, Collisions const& collisions, o2::field::MagneticField* field)
   {
-    for (auto mfttrack : mfttracks) {
+    for (const auto& mfttrack : mfttracks) {
       if (!isGoodMFTQuality(mfttrack))
         continue;
 
