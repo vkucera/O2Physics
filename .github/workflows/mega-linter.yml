@@ -23,6 +23,7 @@ jobs:
     permissions:
       # Give the default GITHUB_TOKEN write permission to commit and push, comment issues & post new PR
       # Remove the ones you do not need
+      contents: read
       pull-requests: write
     steps:
       # Git Checkout
