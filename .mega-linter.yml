@@ -30,7 +30,7 @@ DISABLE_ERRORS_LINTERS: # If errors are found by these linters, they will be con
 SHOW_ELAPSED_TIME: true
 FILEIO_REPORTER: false
 GITHUB_COMMENT_REPORTER: true
-REPORTERS_MARKDOWN_SUMMARY_TYPE: sections
+REPORTERS_MARKDOWN_SUMMARY_TYPE: table
 UPDATED_SOURCES_REPORTER: true
 PRINT_ALPACA: false # Don't print ASCII alpaca in the log
 PRINT_ALL_FILES: true # Print all processed files
