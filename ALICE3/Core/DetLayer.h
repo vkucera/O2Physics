@@ -12,7 +12,7 @@
 ///
 /// \file   DetLayer.h
 /// \author David Dobrigkeit Chinellato
-/// \since  11/03/2021
+/// \since  11/03/2021 test
 /// \brief  Basic struct to hold information regarding a detector layer to be used in fast simulation
 ///
 
