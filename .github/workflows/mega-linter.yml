@@ -51,6 +51,7 @@ jobs:
           # master. Override with true if you always want to lint all sources.
           VALIDATE_ALL_CODEBASE: false
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REF: refs/pull/${{ github.event.number }}/merge
 
       # Upload MegaLinter artifacts
       - name: Archive production artifacts
