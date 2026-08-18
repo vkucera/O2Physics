@@ -3,7 +3,7 @@
 # More info at https://megalinter.io
 name: MegaLinter
 
-'on': [pull_request_target]
+'on': [pull_request]
 
 permissions:
   # Give the default GITHUB_TOKEN write permission to commit and push, comment issues & post new PR
@@ -36,7 +36,7 @@ jobs:
           fetch-depth: 0
           # So we can use secrets.ALIBUILD_GITHUB_TOKEN to push later.
           persist-credentials: false
-          allow-unsafe-pr-checkout: true # needed for pull_request_target
+          allow-unsafe-pr-checkout: false # needed for pull_request_target
 
       # MegaLinter
       - name: MegaLinter
@@ -51,7 +51,6 @@ jobs:
           # master. Override with true if you always want to lint all sources.
           VALIDATE_ALL_CODEBASE: false
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GITHUB_REF: refs/pull/${{ github.event.number }}/merge
 
       # Upload MegaLinter artifacts
       - name: Archive production artifacts
