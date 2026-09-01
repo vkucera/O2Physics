@@ -55,7 +55,19 @@ cd "${dir_alice}/$repo" || exit
 
 # Count lines of C++ code per directory.
 print_date "Counting lines of code"
-while IFS= read -r -d '' dir; do echo "${dir/$path\//}" "$(find "$dir" \( -path "${path}/PWGHF/ALICE3" \) -prune -o \( -name "*.h" -o -name "*.cxx" -o -name "*.C" \) -print0 | xargs -0 grep -vE "^ *($|/[/\*])" | wc -l)"; done < <(find "$path" -mindepth 1 -maxdepth 1 -type d -print0) > "${file_n_lines}"
+while IFS= read -r -d '' dir; do echo "${dir/$path\//}" "$(find "$dir" \( \
+    -path "${path}/*LinkDef\.h" \
+    -o -path "${path}/Common/Tools/aodDataModelGraph.cxx" \
+    -o -path "${path}/PWGCF/Femto3D/TableProducer/Converters/*" \
+    -o -path "${path}/PWGCF/FemtoWorld/TableProducer/femtoWorldProducerReducedTask.cxx" \
+    -o -path "${path}/PWGCF/FemtoWorld/TableProducer/femtoWorldProducerTaskV0Only.cxx" \
+    -o -path "${path}/PWGEM/PhotonMeson/Legacy/*" \
+    -o -path "${path}/PWGHF/ALICE3/*" \
+    -o -path "${path}/PWGHF/Macros/computeFonllPlusPythiaPredictions.C" \
+    -o -path "${path}/PWGHF/Tasks/taskLcCentrality.cxx" \
+    -o -path "${path}/PWGHF/Tasks/taskSelOptimisation.cxx" \
+    \) -prune -o \( -name "*.h" -o -name "*.cxx" -o -name "*.C" \) -print0 | xargs -0 grep -vE "^ *($|/[/\*])" | wc -l)"
+done < <(find "$path" -mindepth 1 -maxdepth 1 -type d -print0) > "${file_n_lines}"
 
 # gcc
 if [[ $do_gcc -eq 1 ]]; then
