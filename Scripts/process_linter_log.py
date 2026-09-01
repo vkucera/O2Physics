@@ -133,7 +133,18 @@ def main():
         "includes": Linter.Includes,
     }
 
-    paths_ignored = [r"^PWGHF/ALICE3/", r"LinkDef\.h$"]
+    paths_ignored = [
+        r"LinkDef\.h$",
+        r"^Common/Tools/aodDataModelGraph.cxx",
+        r"^PWGCF/Femto3D/TableProducer/Converters/",
+        r"^PWGCF/FemtoWorld/TableProducer/femtoWorldProducerReducedTask.cxx",
+        r"^PWGCF/FemtoWorld/TableProducer/femtoWorldProducerTaskV0Only.cxx",
+        r"^PWGEM/PhotonMeson/Legacy/",
+        r"^PWGHF/ALICE3/",
+        r"^PWGHF/Macros/computeFonllPlusPythiaPredictions.C",
+        r"^PWGHF/Tasks/taskLcCentrality.cxx",
+        r"^PWGHF/Tasks/taskSelOptimisation.cxx",
+    ]
 
     parser = argparse.ArgumentParser(description="Process a linter output and make a Markdown report.")
     parser.add_argument("-p", dest="path", type=str, required=True, help="linter log file path")
