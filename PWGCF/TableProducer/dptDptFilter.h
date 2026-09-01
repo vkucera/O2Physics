@@ -1247,7 +1247,7 @@ float getCentMultPercentile(const CollisionObject& collision)
 
 /// \brief Centrality selection when there is centrality/multiplicity information
 template <typename CollisionObject>
-inline bool centralitySelectionMult(CollisionObject collision, float& centmult)
+inline bool centralitySelectionMult(const CollisionObject& collision, float& centmult)
 {
   float mult = getCentMultPercentile(std::move(collision));
   if (mult < ValidPercentileUpLimit && ValidPercentileLowLimit < mult) {

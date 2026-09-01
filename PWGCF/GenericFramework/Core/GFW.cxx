@@ -56,7 +56,7 @@ void GFW::AddRegion(const string& refName, double lEtaMin, double lEtaMax, int l
   lOneRegion.BitMask = BitMask;   // Bit mask
   AddRegion(lOneRegion);
 };
-void GFW::AddRegion(string refName, const vector<int>& lNparVec, double lEtaMin, double lEtaMax, int lNpT, int BitMask)
+void GFW::AddRegion(const string& refName, const vector<int>& lNparVec, double lEtaMin, double lEtaMax, int lNpT, int BitMask)
 {
   AddRegion(std::move(refName), lEtaMin, lEtaMax, lNpT, BitMask);
   (fRegions.end() - 1)->Nhar = static_cast<int>(lNparVec.size());

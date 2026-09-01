@@ -54,9 +54,9 @@ class GFW
   std::vector<Region> fRegions;
   std::vector<GFWCumulant> fCumulants;
   void AddRegion(const std::string& refName, double lEtaMin, double lEtaMax, int lNpT, int BitMask);
-  void AddRegion(std::string refName, const std::vector<int>& lNparVec, double lEtaMin, double lEtaMax, int lNpT, int BitMask); // Legacy
-  void AddRegion(std::string refName, int lNhar, int lNpar, double lEtaMin, double lEtaMax, int lNpT, int BitMask);             // Legacy support, all powers are the same
-  void AddRegion(std::string refName, int lNhar, int* lNparVec, double lEtaMin, double lEtaMax, int lNpT, int BitMask);         // Legacy support, array instead of a vector
+  void AddRegion(const std::string& refName, const std::vector<int>& lNparVec, double lEtaMin, double lEtaMax, int lNpT, int BitMask); // Legacy
+  void AddRegion(std::string refName, int lNhar, int lNpar, double lEtaMin, double lEtaMax, int lNpT, int BitMask);                    // Legacy support, all powers are the same
+  void AddRegion(std::string refName, int lNhar, int* lNparVec, double lEtaMin, double lEtaMax, int lNpT, int BitMask);                // Legacy support, array instead of a vector
   int CreateRegions();
   void Fill(double eta, int ptin, double phi, double weight, int mask, double secondWeight = -1);
   void Clear();

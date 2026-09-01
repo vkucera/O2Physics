@@ -220,14 +220,14 @@ struct HyperNucleus {
   bool active, savePrimary;
   std::vector<int> daughters, daughterTrackSigns, v0DaughterVec;
   std::vector<float> primSettings;
-  HyperNucleus(std::string name_, int pdgCode_, bool active_, std::vector<int> daughters_, std::vector<int> daughterTrackSigns_, std::vector<int> v0DaughterVec_, const LabeledArray<double>& primSettings_) : pdgCode(pdgCode_), active(active_), savePrimary(active_)
+  HyperNucleus(const std::string& name_, int pdgCode_, bool active_, const std::vector<int>& daughters_, const std::vector<int>& daughterTrackSigns_, const std::vector<int>& v0DaughterVec_, const LabeledArray<double>& primSettings_) : pdgCode(pdgCode_), active(active_), savePrimary(active_)
   {
     init(std::move(name_), std::move(daughters_), std::move(daughterTrackSigns_), std::move(v0DaughterVec_));
     for (unsigned int i = 0; i < nSelPrim; i++) {
       primSettings.push_back(primSettings_.get(name, i));
     }
   }
-  HyperNucleus(std::string name_, int pdgCode_, bool active_, int hypDaughter, std::vector<int> daughters_, std::vector<int> daughterTrackSigns_) : pdgCode(pdgCode_), active(active_), savePrimary(active_)
+  HyperNucleus(const std::string& name_, int pdgCode_, bool active_, int hypDaughter, const std::vector<int>& daughters_, const std::vector<int>& daughterTrackSigns_) : pdgCode(pdgCode_), active(active_), savePrimary(active_)
   {
     daughters.push_back(hypDaughter);
     init(std::move(name_), std::move(daughters_), std::move(daughterTrackSigns_));

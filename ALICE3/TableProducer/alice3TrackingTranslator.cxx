@@ -138,7 +138,7 @@ struct Alice3TrackingTranslator {
   };
 
   struct ParticleStruct : public FileStruct {
-    ParticleStruct(std::string filename, std::string treename) : FileStruct(std::move(filename), std::move(treename))
+    ParticleStruct(const std::string& filename, const std::string& treename) : FileStruct(std::move(filename), std::move(treename))
     {
       // mTree->Print();
       SETADDRESS("particle_type", m_particle_type);
@@ -181,7 +181,7 @@ struct Alice3TrackingTranslator {
   };
 
   struct VertexStruct : public FileStruct {
-    VertexStruct(std::string filename, std::string treename) : FileStruct(filename, treename)
+    VertexStruct(const std::string& filename, const std::string& treename) : FileStruct(filename, treename)
     {
       SETADDRESS("vx", m_x);
       SETADDRESS("vy", m_y);
@@ -215,7 +215,7 @@ struct Alice3TrackingTranslator {
   };
 
   struct TrackStruct : public FileStruct {
-    TrackStruct(std::string filename, std::string treename) : FileStruct(std::move(filename), std::move(treename))
+    TrackStruct(const std::string& filename, const std::string& treename) : FileStruct(std::move(filename), std::move(treename))
     {
       mTree->Print();
       // Set branch addresses for ACTS track parameters
@@ -289,7 +289,7 @@ struct Alice3TrackingTranslator {
   };
 
   struct HitsStruct : public FileStruct {
-    HitsStruct(std::string filename, std::string treename) : FileStruct(std::move(filename), std::move(treename))
+    HitsStruct(const std::string& filename, const std::string& treename) : FileStruct(std::move(filename), std::move(treename))
     {
       mTree->Print();
       SETADDRESS("barcode", barcode);
