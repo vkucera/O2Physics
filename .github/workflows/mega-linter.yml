@@ -3,9 +3,13 @@
 # More info at https://megalinter.io
 name: MegaLinter
 
-'on': [pull_request_target]
+'on': [pull_request]
 
-permissions: {}
+permissions:
+  # Give the default GITHUB_TOKEN write permission to commit and push, comment issues & post new PR
+  # Remove the ones you do not need
+  contents: read
+  pull-requests: write
 
 env:
   # Apply linter fixes configuration
@@ -32,7 +36,7 @@ jobs:
           fetch-depth: 0
           # So we can use secrets.ALIBUILD_GITHUB_TOKEN to push later.
           persist-credentials: false
-          allow-unsafe-pr-checkout: true # needed for pull_request_target
+          allow-unsafe-pr-checkout: false # needed for pull_request_target
 
       # MegaLinter
       - name: MegaLinter
