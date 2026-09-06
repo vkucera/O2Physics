@@ -47,6 +47,8 @@
 #include <Framework/ASoA.h>
 #include <Framework/AnalysisDataModel.h>
 
+#include <TBufferFile.h> // IWYU pragma: keep (until added in Framework/ASoA.h)
+
 namespace o2::aod
 {
 namespace ccdbGlo
