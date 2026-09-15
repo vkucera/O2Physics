@@ -32,13 +32,16 @@
 #include <RtypesCore.h>
 
 #include <iostream>
+#include <vector>
 
 //________________________________________________________________
 Double_t FastIntegrate(TF1* f1, Double_t a, Double_t b, Int_t n = 5)
 {
   // Do fast integration with N sampling points
   const Int_t nc = n;
-  Double_t x[nc], y[nc];
+  // Double_t x[nc], y[nc];
+  std::vector<Double_t> x(nc, 0.);
+  std::vector<Double_t> y(nc, 0.);
   Double_t lWidth = (b - a) / ((double)(n - 1));
   for (Int_t ii = 0; ii < n; ii++) {
     x[ii] = a + ((double)(ii)) * lWidth;
@@ -357,8 +360,8 @@ int runGlauberFit(const TString& lInputFileName = "AnalysisResultsLHC24ar.root",
   c1->cd(1);
   TLatex* lat = new TLatex();
   lat->SetNDC();
-  Float_t lPosText = 0.76;
-  Float_t lYShift = 0.25;
+  // Float_t lPosText = 0.76;
+  // Float_t lYShift = 0.25;
   lat->SetTextSize(0.042);
 
   // save the glauber parameters explicitly

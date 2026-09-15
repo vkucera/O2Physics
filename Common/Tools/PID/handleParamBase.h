@@ -49,11 +49,11 @@ std::string timeStampToHReadble(time_t rawtime)
   if (rawtime < 0) {
     return std::string(" latest");
   }
-  struct tm* dt = new tm();
+  tm dt{};
   char buffer[30];
   rawtime /= 1000;
-  localtime_r(&rawtime, dt);
-  strftime(buffer, sizeof(buffer), "%H:%M %d-%m %Y", dt);
+  localtime_r(&rawtime, &dt);
+  strftime(buffer, sizeof(buffer), "%H:%M %d-%m %Y", &dt);
   return std::string(buffer);
 }
 

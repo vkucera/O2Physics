@@ -622,11 +622,13 @@ struct TrackTuner : o2::framework::ConfigurableGroup {
       ccdb_object_dca = dynamic_cast<TList*>(inputFile->Get("ccdb_object"));
 
       /// open the input correction file - q/pt correction
-      TFile* inputFileQoverPt = TFile::Open(fullNameFileQoverPt.c_str(), "READ");
-      if (!inputFileQoverPt && (updateCurvature || updateCurvatureIU)) {
-        LOG(fatal) << "Something wrong with the Q/Pt input file" << fullNameFileQoverPt << " for Q/Pt correction. Fix it!";
+      if (updateCurvature || updateCurvatureIU) {
+        TFile* inputFileQoverPt = TFile::Open(fullNameFileQoverPt.c_str(), "READ");
+        if (!inputFileQoverPt) {
+          LOG(fatal) << "Something wrong with the Q/Pt input file" << fullNameFileQoverPt << " for Q/Pt correction. Fix it!";
+        }
+        ccdb_object_qoverpt = dynamic_cast<TList*>(inputFileQoverPt->Get("ccdb_object"));
       }
-      ccdb_object_qoverpt = dynamic_cast<TList*>(inputFileQoverPt->Get("ccdb_object"));
     }
 
     getDcaGraphs(ccdb_object_dca, ccdb_object_qoverpt);
