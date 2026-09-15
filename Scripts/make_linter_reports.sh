@@ -57,6 +57,8 @@ cd "${dir_alice}/$repo" || exit
 print_date "Counting lines of code"
 while IFS= read -r -d '' dir; do echo "${dir/$path\//}" "$(find "$dir" \( \
     -path "${path}/*LinkDef\.h" \
+    -o -path "${path}/ALICE3/Core/DelphesO2LutWriter.cxx" \
+    -o -path "${path}/ALICE3/Core/DelphesO2TrackSmearer.cxx" \
     -o -path "${path}/Common/Tools/aodDataModelGraph.cxx" \
     -o -path "${path}/PWGCF/Femto3D/TableProducer/Converters/*" \
     -o -path "${path}/PWGCF/FemtoWorld/TableProducer/femtoWorldProducerReducedTask.cxx" \

@@ -135,6 +135,8 @@ def main():
 
     paths_ignored = [
         r"LinkDef\.h$",
+        r"^ALICE3/Core/DelphesO2LutWriter.cxx",
+        r"^ALICE3/Core/DelphesO2TrackSmearer.cxx",
         r"^Common/Tools/aodDataModelGraph.cxx",
         r"^PWGCF/Femto3D/TableProducer/Converters/",
         r"^PWGCF/FemtoWorld/TableProducer/femtoWorldProducerReducedTask.cxx",
