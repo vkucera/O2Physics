@@ -1116,9 +1116,9 @@ struct CaloClusterProducer {
         if (cpvdist != 99.) {           // was evaluated
           cpvdist = std::sqrt(cpvdist); // was squared
         }
-        if (trackdist != 99.) {             // was evaluated
-          trackdist = std::sqrt(trackdist); // was squared
-        }
+        // if (trackdist != 99.) {             // was evaluated
+        //   trackdist = std::sqrt(trackdist); // was squared
+        // }
 
         float lambdaShort = 0., lambdaLong = 0.;
         clu.getElipsAxis(lambdaShort, lambdaLong);
@@ -1544,9 +1544,9 @@ struct CaloClusterProducer {
         if (cpvdist != 99.) {           // was evaluated
           cpvdist = std::sqrt(cpvdist); // was squared
         }
-        if (trackdist != 99.) {             // was evaluated
-          trackdist = std::sqrt(trackdist); // was squared
-        }
+        // if (trackdist != 99.) {             // was evaluated
+        //   trackdist = std::sqrt(trackdist); // was squared
+        // }
 
         float lambdaShort = 0., lambdaLong = 0.;
         clu.getElipsAxis(lambdaShort, lambdaLong);
