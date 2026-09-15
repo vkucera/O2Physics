@@ -22,6 +22,7 @@
 
 #include <algorithm>
 #include <cmath>
+#include <cstddef>
 #include <iostream>
 #include <memory>
 #include <regex>
@@ -46,8 +47,8 @@ struct bcTuple {
 };
 
 struct selectedFrames : public IRFrame {
-  selectedFrames(ULong64_t bcAO2D, ULong64_t bcEvSel, const IRFrame& frame) : IRFrame(frame), bcAO2D(bcAO2D), bcEvSel(bcEvSel), triMask{0, 0}, selMask{0, 0} {}
-  selectedFrames(ULong64_t bcAO2D, ULong64_t bcEvSel, ULong64_t triMask[2], ULong64_t selMask[2], const IRFrame& frame) : IRFrame(frame), bcAO2D(bcAO2D), bcEvSel(bcEvSel), triMask{triMask[0], triMask[1]}, selMask{selMask[0], selMask[1]} {}
+  selectedFrames(ULong64_t bcAO2D, ULong64_t bcEvSel, const IRFrame& frame) : IRFrame(frame), triMask{0, 0}, selMask{0, 0}, bcAO2D(bcAO2D), bcEvSel(bcEvSel) {}
+  selectedFrames(ULong64_t bcAO2D, ULong64_t bcEvSel, ULong64_t triMask[2], ULong64_t selMask[2], const IRFrame& frame) : IRFrame(frame), triMask{triMask[0], triMask[1]}, selMask{selMask[0], selMask[1]}, bcAO2D(bcAO2D), bcEvSel(bcEvSel) {}
   ULong64_t triMask[2]{0ull}, selMask[2]{0ull}, bcAO2D, bcEvSel;
   int numSameTriggerInNearbyBCs = 0; // related to bcDiffTolerance
   bool isSingle() { return numSameTriggerInNearbyBCs == 0; }
@@ -155,11 +156,11 @@ void checkNearbyBCs(std::vector<selectedFrames>& frames, ULong64_t bcDiffToleran
       return a.getMax() < b.getMax();
     }
   });
-  int firstTrg = 0;
+  std::size_t firstTrg = 0;
   for (auto& currentFrame : frames) {
     int num = 0;
     bool shouldUpdate = true; // true if the maxBC of event in loop is smaller than the evaluating one ->  update firstTrg
-    for (int i = firstTrg; i < frames.size(); i++) {
+    for (std::size_t i = firstTrg; i < frames.size(); i++) {
       auto& frame = frames[i];
       if (frame.getMin() > currentFrame.getMax() + bcDiffTolerance) {
         break;
@@ -220,8 +221,8 @@ void checkBCForSelectedTrg(std::vector<selectedFrames>& originalFrames, std::vec
   checkNearbyBCs(skimmedFrames, bcDiffTolerance);
 
   std::vector<bcTuple> bcSet;
-  int firstTrg = 0;
-  for (int i = 0; i < originalFrames.size(); i++) {
+  std::size_t firstTrg = 0;
+  for (std::size_t i = 0; i < originalFrames.size(); i++) {
     auto& frame = originalFrames[i];
     hTriggerCounter.Fill(0);
     hBCOriginal.Fill(0);
@@ -249,7 +250,7 @@ void checkBCForSelectedTrg(std::vector<selectedFrames>& originalFrames, std::vec
     std::vector<bcTuple> skimmedbcs;
     int n = 0;
     bool shouldUpdate = true;
-    for (int j = firstTrg; j < skimmedFrames.size(); j++) {
+    for (std::size_t j = firstTrg; j < skimmedFrames.size(); j++) {
       auto& skimmedFrame = skimmedFrames[j];
       if (skimmedFrame.getMin() > frame.getMax()) {
         break;
@@ -407,7 +408,7 @@ void checkBCrangesSkimming(std::string AnaFileName = "AnalysisResults.root", std
   std::unique_ptr<TFile> skimmedFile{TFile::Open(skimmedFileName.c_str(), "READ")};
   std::vector<std::vector<selectedFrames>> originalAllFrames = getFrames(originalFile, 0, labels.size());
   std::vector<std::vector<selectedFrames>> skimmedAllFrames = getFrames(skimmedFile, 0, labels.size());
-  for (int trgID = 0; trgID < labels.size(); trgID++) {
+  for (std::size_t trgID = 0; trgID < labels.size(); trgID++) {
     // Caculate singles, doubles, and multiples
     int noriginal{0}, nskimmed{0}, noriginalsingle{0}, nskimmedsingle{0}, noriginaldouble{0}, nskimmeddouble{0}, noriginalmultiple{0}, nskimmedmultiple{0};
     // Caculate mean and rms of diff BC
@@ -447,9 +448,9 @@ void checkBCrangesSkimming(std::string AnaFileName = "AnalysisResults.root", std
     }
 
     // Check BC differences
-    int npair{0}, npairedBCAO2D{0}, npairedBCEvSel{0}, ncloseskimmed{0}, maxdeltaBCAO2D{0}, maxdeltaBCEvSel{0};
-    int firstTrg = 0;
-    for (int i = 0; i < originalFrames.size(); i++) {
+    int npair{0}, npairedBCAO2D{0}, npairedBCEvSel{0}, ncloseskimmed{0}; //, maxdeltaBCAO2D{0}, maxdeltaBCEvSel{0};
+    std::size_t firstTrg = 0;
+    for (std::size_t i = 0; i < originalFrames.size(); i++) {
       auto& frame = originalFrames[i];
       if (frame.GetNInNearbyBC() != 1) {
         continue; // Only check singles
@@ -457,7 +458,7 @@ void checkBCrangesSkimming(std::string AnaFileName = "AnalysisResults.root", std
       std::vector<selectedFrames> skimmedbcs;
       int n = 0;
       bool shouldUpdate = true;
-      for (int j = firstTrg; j < skimmedFrames.size(); j++) {
+      for (std::size_t j = firstTrg; j < skimmedFrames.size(); j++) {
         auto& skimmedFrame = skimmedFrames[j];
         if (skimmedFrame.getMin() > frame.getMax()) {
           break;
@@ -557,7 +558,7 @@ void checkBCrangesSkimming(std::string AnaFileName = "AnalysisResults.root", std
   TH1D hDiffBC("hDiffBC", (runNumber + " One-to-one matches;;|#DeltaBC|").data(), sel_labels.size(), 0, sel_labels.size());                                                                   // difference between the BC tuple, expected to be 0 if bcDiffTolerance = 0
   TH1D hNumMatchesInSkimmed("hNumMatchesInSkimmed", (runNumber + " number of matched triggers in skimmed data;;Matched trigger count").data(), sel_labels.size(), 0, sel_labels.size());      // number of triggers in skimmed data which are compatible in the BC ranges of singles in original selection
 
-  for (int i = 0; i < sel_labels.size(); i++) {
+  for (std::size_t i = 0; i < sel_labels.size(); i++) {
     // Original data
     hOriginalTotal.GetXaxis()->SetBinLabel(i + 1, sel_labels[i].c_str());
     hOriginalSingles.GetXaxis()->SetBinLabel(i + 1, sel_labels[i].c_str());
@@ -679,7 +680,7 @@ void checkBCrangesSkimming(std::string AnaFileName = "AnalysisResults.root", std
   fout.Close();
 
   // Do checks for trigger
-  for (int trgID = 0; trgID < labels.size(); trgID++) {
+  for (std::size_t trgID = 0; trgID < labels.size(); trgID++) {
     // if (trgID == 77 || trgID == 78 || trgID == 79) {
     // checkBCForSelectedTrg(originalAllFrames[trgID], skimmedAllFrames[trgID], runNumber, labels[trgID]);
     //}

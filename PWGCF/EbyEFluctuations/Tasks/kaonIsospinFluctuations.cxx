@@ -2327,7 +2327,7 @@ struct KaonIsospinFluctuations {
       if (!collision.has_mcCollision()) {
         continue;
       }
-      centrality = -1;
+      // centrality = -1;
       const auto& mcColl = collision.mcCollision();
 
       centrality = collision.centFT0C();
@@ -2448,7 +2448,7 @@ struct KaonIsospinFluctuations {
     recoEvent.fill(HIST("recoEvent/ProcessType"), doSimProcessing);
     float centrality = -1;
     for (const auto& mcColl : mcCollisions) {
-      centrality = -1;
+      // centrality = -1;
 
       if (cfgVtxZCheck) {
         if (std::abs(mcColl.posZ()) >= cutZvertex) {

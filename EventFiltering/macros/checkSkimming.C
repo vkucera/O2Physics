@@ -87,7 +87,7 @@ void checkSkimming(std::string original_path = "AnalysisResults.root", std::stri
   TH1D hRatio("hRatio", (runNumber + ";;Skimmed / Original").data(), labels.size(), 0, labels.size());   // Histogram for the ratio of the two
 
   // Fill the histograms
-  for (int i = 0; i < labels.size(); i++) {
+  for (std::size_t i = 0; i < labels.size(); i++) {
     hOriginal.SetBinContent(i + 1, selected_bins1[i]);
     hSkimmed.SetBinContent(i + 1, selected_bins2[i]);
     hOriginal.GetXaxis()->SetBinLabel(i + 1, labels[i].c_str());

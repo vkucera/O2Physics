@@ -630,7 +630,7 @@ TH2* CorrelationContainer::getSumOfRatios(CorrelationContainer* mixed, Correlati
       }
 
       mixedNorm /= triggers;
-      mixedNormError /= triggers;
+      // mixedNormError /= triggers;
 
       delete tracksMixed;
     } else {

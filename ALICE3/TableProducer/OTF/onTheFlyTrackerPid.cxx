@@ -344,7 +344,7 @@ struct OnTheFlyTrackerPid {
     const float centerDistance = std::hypot(trcCircle.xC, trcCircle.yC);
 
     if (centerDistance < trcCircle.rC + radius && centerDistance > std::fabs(trcCircle.rC - radius)) {
-      length = 0.0f;
+      // length = 0.0f;
       const float ux = trcCircle.xC / centerDistance;
       const float uy = trcCircle.yC / centerDistance;
       const float vx = -uy;

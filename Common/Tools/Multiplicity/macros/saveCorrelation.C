@@ -59,7 +59,7 @@ void saveCorrelation(const TString& filename = "gmc-PbPb-snn68.21-md0.40-nd-1.0-
 
   // 2D correlation plot necessary for Glauber + NBD fitting
   // The provided range should be enough for Pb-Pb
-  TH2D* hNpNc = new TH2D("hNpNc", "", 500, -0.5, 499.5, 2500, -0.5, 2499.5);
+  // TH2D* hNpNc = new TH2D("hNpNc", "", 500, -0.5, 499.5, 2500, -0.5, 2499.5);
 
   // let's draw this on screen for inspection
   TCanvas* c1 = new TCanvas("c1", "", 800, 600);

@@ -137,7 +137,7 @@ void uploadOTSobjects(std::string inputList, std::string passName, bool useAlien
             endTS = (orbitResetTimestamp + int64_t(bcEnd * o2::constants::lhc::LHCBunchSpacingNS * 1e-3)) / 1000 + 1;
             break;
           }
-          bcEnd = nextHelper.bcAOD > nextHelper.bcEvSel ? nextHelper.bcAOD : nextHelper.bcEvSel;
+          // bcEnd = nextHelper.bcAOD > nextHelper.bcEvSel ? nextHelper.bcAOD : nextHelper.bcEvSel;
           endIndex++;
         }
         std::cout << ">>> Chunk " << helperIndex << " - " << helperIndex + chunk.size() << " : " << startTS << " - " << endTS << " \t" << (endTS - startTS) * 1.e-3 << std::endl;

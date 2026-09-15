@@ -32,6 +32,7 @@
 #include <TString.h>
 #include <TSystem.h>
 
+#include <cstddef>
 #include <fstream>
 #include <map>
 #include <memory>
@@ -64,6 +65,7 @@ auto readMetadata(std::unique_ptr<TFile>& currentFile) -> std::vector<o2::framew
     LOGP(info, "- {}: {} goes into key {}", obj->GetName(), objString->String().Data(), key);
     char const* value = strdup(objString->String());
     results.push_back(o2::framework::ConfigParamSpec{key, o2::framework::VariantType::String, value, {"Metadata in AOD"}});
+    delete value;
   }
   return results;
 }
@@ -104,7 +106,7 @@ std::map<std::string, bool> buildMapForCommitHash(const std::string& hash)
   std::string lineOfO2VersionsWithHash;
   while (std::getline(infileO2Versions, lineOfO2Version)) {
     // Extract the tag
-    int stripSize = 4;
+    std::size_t stripSize = 4;
     std::string tag = lineOfO2Version.substr(lineOfO2Version.find("O2::") + stripSize);
     // Strip a trailing "-1" (some alienv entries append this)
     stripSize = 2;

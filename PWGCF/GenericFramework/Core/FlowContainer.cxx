@@ -414,7 +414,7 @@ TProfile* FlowContainer::GetCorrXXVsMulti(const char* order, int l_pti)
     }
     delete rethist;
   }
-  if (fMultiRebin > 0) {
+  if (fMultiRebin > 0 && retSubset != nullptr) {
     TString temp_name(retSubset->GetName());
     TProfile* tempprof = dynamic_cast<TProfile*>(retSubset->Clone("tempProfile"));
     delete retSubset;

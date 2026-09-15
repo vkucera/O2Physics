@@ -51,7 +51,7 @@ void drawFastTracker(float magneticField = 5.f, // in units of kGauss
   o2::parameters::GRPMagField grpmag;
   grpmag.setFieldUniformity(true);
   grpmag.setL3Current(30000.f * (magneticField / 5.0f));
-  auto field = grpmag.getNominalL3Field();
+  // auto field = grpmag.getNominalL3Field();
   o2::base::Propagator::initFieldFromGRP(&grpmag);
 
   fair::Logger::SetVerbosity(fair::Verbosity::verylow);
