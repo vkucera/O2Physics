@@ -119,6 +119,7 @@ bool UDGoodRunSelector::init(std::string const& goodRunsFile)
   // is it a proper json document?
   if (jsonDocument.HasParseError()) {
     LOGF(error, "Check the goodRuns file! There is a problem with the format!");
+    fclose(fjson);
     return false;
   }
 

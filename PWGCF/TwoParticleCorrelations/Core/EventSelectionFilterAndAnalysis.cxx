@@ -164,7 +164,7 @@ EventSelectionFilterAndAnalysis::EventSelectionFilterAndAnalysis(const EventSele
   }
   mCutStringSignature = cutString.ReplaceAll("-yes", "").ReplaceAll("-no", "");
   if (mode == kAnalysis) {
-    StoreArmedMask();
+    EventSelectionFilterAndAnalysis::StoreArmedMask();
   }
 }
 
@@ -394,7 +394,7 @@ void EventSelectionFilterAndAnalysis::ConstructCutFromString(const TString& cuts
       lev2str.Remove(0, m[0].length());
     }
   }
-  mMaskLength = CalculateMaskLength();
+  mMaskLength = EventSelectionFilterAndAnalysis::CalculateMaskLength();
 }
 
 ///

@@ -423,7 +423,7 @@ struct cascpolsp {
       }
 
       int taga = LambdaTag;
-      int tagb = aLambdaTag;
+      int tagb{};
 
       if (LambdaTag) {
         Lambda = Proton + AntiPion;

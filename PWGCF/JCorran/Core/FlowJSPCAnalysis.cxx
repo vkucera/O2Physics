@@ -120,10 +120,10 @@ void FlowJSPCAnalysis::calculateCorrelators(const int fCentBin)
     // Histogram filling
     fillHistograms(fCentBin, j, correlationNum, correlationDenom, weightCorrelationNum, weightCorrelationDenom);
 
-    correlationNum = 0.;
-    weightCorrelationNum = 0.;
-    correlationDenom = 0.;
-    weightCorrelationDenom = 0.;
+    // correlationNum = 0.;
+    // weightCorrelationNum = 0.;
+    // correlationDenom = 0.;
+    // weightCorrelationDenom = 0.;
   }
 }
 
