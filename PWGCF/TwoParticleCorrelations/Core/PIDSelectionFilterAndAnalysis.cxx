@@ -186,11 +186,11 @@ PIDSelectionFilterAndAnalysis::PIDSelectionFilterAndAnalysis(const PIDSelectionC
   cutString += "}}";
   ConstructCutFromString(cutString);
   if (mMaskLength > 64) {
-    LOGF(fatal, "EventSelectionFilterAndAnalysis not ready for filter mask of %d bits. Just 64 available for the time being", mMaskLength);
+    LOGF(fatal, "PIDSelectionFilterAndAnalysis not ready for filter mask of %d bits. Just 64 available for the time being", mMaskLength);
   }
   mCutStringSignature = cutString.ReplaceAll("-yes", "").ReplaceAll("-no", "");
   if (mode == kAnalysis) {
-    StoreArmedMask();
+    PIDSelectionFilterAndAnalysis::StoreArmedMask();
   }
 }
 
@@ -317,7 +317,7 @@ void PIDSelectionFilterAndAnalysis::ConstructCutFromString(const TString& cutstr
       lev2str.Remove(0, m[0].length());
     }
   }
-  mMaskLength = CalculateMaskLength();
+  mMaskLength = PIDSelectionFilterAndAnalysis::CalculateMaskLength();
 }
 
 void PIDSelectionFilterAndAnalysis::StoreArmedMask()

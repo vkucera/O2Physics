@@ -45,28 +45,26 @@ enum Decays { kTwoBody = 2,
               kThreeBody = 3 };
 
 struct TrackProperties {
-  TrackProperties() : x(0), y(0), z(0), px(0), py(0), pz(0), tpcNcls(0), itsNcls(0), tpcChi2(0), itsChi2(0), itsMeanClsSizeL(0), rigidity(0), tpcSignal(0), tpcNsigma(0), itsNsigma(0), tpcNclsPid(0), tpcNclsCr(0), pidForTrk(0), tofMass(0), dcaXY(0), dcaZ(0), isPvContributor(0), subMass(0) {}
-  float x, y, z, px, py, pz;
-  uint8_t tpcNcls, itsNcls;
-  float tpcChi2, itsChi2, itsMeanClsSizeL;
-  float rigidity, tpcSignal, tpcNsigma, itsNsigma, tpcNclsPid, tpcNclsCr;
-  uint32_t pidForTrk;
-  float tofMass, dcaXY, dcaZ;
-  bool isPvContributor;
-  float subMass;
+  float x{}, y{}, z{}, px{}, py{}, pz{};
+  uint8_t tpcNcls{}, itsNcls{};
+  float tpcChi2{}, itsChi2{}, itsMeanClsSizeL{};
+  float rigidity{}, tpcSignal{}, tpcNsigma{}, itsNsigma{}, tpcNclsPid{}, tpcNclsCr{};
+  uint32_t pidForTrk{};
+  float tofMass{}, dcaXY{}, dcaZ{};
+  bool isPvContributor{};
+  float subMass{};
 };
 
 struct HyperNucleus {
-  HyperNucleus() : pdgCode(0), isReconstructed(0), globalIndex(0), species(0), speciesMC(0), isMatter(0), passedEvSel(0), isMatterMC(0), passedEvSelMC(0), isPhysicalPrimary(0), collisionMcTrue(0), mass(0), y(0), pt(0), ct(0), yGen(0), ptGen(0), ctGen(0), cpaPvGen(0), cpaPv(0), cpaSv(0), maxDcaTracks(0), maxDcaTracksSv(0), dcaToPvXY(0), dcaToPvZ(0), dcaToVtxXY(0), dcaToVtxZ(0), devToPvXY(0), chi2(0), pvx(0), pvy(0), pvz(0), svx(0), svy(0), svz(0), px(0), py(0), pz(0), pvxGen(0), pvyGen(0), pvzGen(0), svxGen(0), svyGen(0), svzGen(0), pxGen(0), pyGen(0), pzGen(0), nSingleDaughters(0), mcTrue(0), mcTrueVtx(0), mcPhysicalPrimary(0) {}
-  int pdgCode, isReconstructed, globalIndex;
-  uint8_t species, speciesMC;
-  bool isMatter, passedEvSel, isMatterMC, passedEvSelMC, isPhysicalPrimary, collisionMcTrue;
-  float mass, y, pt, ct, yGen, ptGen, ctGen, cpaPvGen, cpaPv, cpaSv, maxDcaTracks, maxDcaTracksSv;
-  float dcaToPvXY, dcaToPvZ, dcaToVtxXY, dcaToVtxZ, devToPvXY, chi2;
-  float pvx, pvy, pvz, svx, svy, svz, px, py, pz;
-  float pvxGen, pvyGen, pvzGen, svxGen, svyGen, svzGen, pxGen, pyGen, pzGen;
-  int nSingleDaughters, cent, occu, runNumber;
-  bool mcTrue, mcTrueVtx, mcPhysicalPrimary;
+  int pdgCode{}, isReconstructed{}, globalIndex{};
+  uint8_t species{}, speciesMC{};
+  bool isMatter{}, passedEvSel{}, isMatterMC{}, passedEvSelMC{}, isPhysicalPrimary{}, collisionMcTrue{};
+  float mass{}, y{}, pt{}, ct{}, yGen{}, ptGen{}, ctGen{}, cpaPvGen{}, cpaPv{}, cpaSv{}, maxDcaTracks{}, maxDcaTracksSv{};
+  float dcaToPvXY{}, dcaToPvZ{}, dcaToVtxXY{}, dcaToVtxZ{}, devToPvXY{}, chi2{};
+  float pvx{}, pvy{}, pvz{}, svx{}, svy{}, svz{}, px{}, py{}, pz{};
+  float pvxGen{}, pvyGen{}, pvzGen{}, svxGen{}, svyGen{}, svzGen{}, pxGen{}, pyGen{}, pzGen{};
+  int nSingleDaughters{}, cent{}, occu{}, runNumber{};
+  bool mcTrue{}, mcTrueVtx{}, mcPhysicalPrimary{};
   std::vector<TrackProperties> daughterTracks;
   std::vector<float> subDaughterMassVec;
 };

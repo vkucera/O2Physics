@@ -254,8 +254,8 @@ struct HyperNucleus {
     }
     return vec;
   };
-  const char* motherName() { return name.Contains("->") ? ((TString)name(0, name.First("-"))).Data() : name.Data(); }
-  const char* daughterNames() { return name.Contains("->") ? ((TString)name(name.First("-") + 2, name.Length())).Data() : ""; }
+  TString motherName() { return name.Contains("->") ? name(0, name.First("-")) : name; }
+  TString daughterNames() { return name.Contains("->") ? name(name.First("-") + 2, name.Length()) : TString{""}; }
 }; // struct HyperNucleus
 
 struct DaughterKf {
@@ -622,7 +622,7 @@ struct HypKfRecoTask {
     for (size_t i = 0; i < hypNucVectors.size(); i++) {
       for (size_t j = 0; j < hypNucVectors.at(i).size(); j++) {
         if (hypNucVectors.at(i).at(j).active) {
-          hInvMass[histCount] = histos.add<TH1>(Form("h%d_%s", histCount, hypNucVectors.at(i).at(j).motherName()), ";;Counts", HistType::kTH1F, {axisInvMass});
+          hInvMass[histCount] = histos.add<TH1>(Form("h%d_%s", histCount, hypNucVectors.at(i).at(j).motherName().Data()), ";;Counts", HistType::kTH1F, {axisInvMass});
         }
         histCount++;
       }

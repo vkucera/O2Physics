@@ -35,6 +35,7 @@
 #include <Rtypes.h>
 #include <RtypesCore.h>
 
+#include <cstddef>
 #include <cstdio>
 #include <iostream>
 #include <string>
@@ -121,7 +122,7 @@ void fitCorrelDs(const TString& cfgFileName = "config_CorrAnalysis.json")
   int const fixBase = config["FixBaseline"].GetInt();
   int const fixMean = config["FixMean"].GetInt();
 
-  int const nBaselinePoints = config["nBaselinePoints"].GetInt();
+  std::size_t const nBaselinePoints = config["nBaselinePoints"].GetInt();
   vector<int> pointsForBaselineVec;
   const Value& pointsForBaselineValue = config["binsForBaseline"];
   readArray(pointsForBaselineValue, pointsForBaselineVec);
@@ -265,13 +266,13 @@ void fitCorrelDs(const TString& cfgFileName = "config_CorrAnalysis.json")
       corrFitter[iBinPtHad][iBinPtCand]->setFuncType(static_cast<DhCorrelationFitter::FunctionType>(fitFunc[iBinPtCand]));
       corrFitter[iBinPtHad][iBinPtCand]->fitting(kTRUE, kTRUE); // the first term is for drawing the fit functions, the second argument is useExternalParams
 
-      TF1* fFit = corrFitter[iBinPtHad][iBinPtCand]->getFitFunction();
+      // TF1* fFit = corrFitter[iBinPtHad][iBinPtCand]->getFitFunction();
 
       // Title of the histogram
       auto* pttext = new TPaveText(0.15, 0.9, 0.85, 0.95, "NDC");
       pttext->SetFillStyle(0);
       pttext->SetBorderSize(0);
-      TText* tpT = pttext->AddText(0., 0.8, Form("%.0f < p_{T}^{D_{s}} < %.0f GeV/c, p_{T}^{assoc} > %.1f GeV/c", binsPtCandIntervals[iBinPtCand], binsPtCandIntervals[iBinPtCand + 1], binsPtHadIntervals[iBinPtHad]));
+      // TText* tpT = pttext->AddText(0., 0.8, Form("%.0f < p_{T}^{D_{s}} < %.0f GeV/c, p_{T}^{assoc} > %.1f GeV/c", binsPtCandIntervals[iBinPtCand], binsPtCandIntervals[iBinPtCand + 1], binsPtHadIntervals[iBinPtHad]));
       // pttext -> Draw("same");
 
       // Fill the histograms with the fit parameters

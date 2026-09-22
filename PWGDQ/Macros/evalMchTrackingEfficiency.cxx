@@ -63,7 +63,7 @@ void evalMchTrackingEfficiency(const char* inFile = "AnalysisResults.root", cons
   getBinLimits(hHitsEtaPtPhi, nBinsPt, ptAx, limitsPt);    // these are values!
   getBinLimits(hHitsEtaPtPhi, nBinsPhi, phiAx, limitsPhi); // these are values!
 
-  int nBinMinPt = hHitsEtaPtPhi->GetAxis(ptAx)->FindBin(minPt);
+  // int nBinMinPt = hHitsEtaPtPhi->GetAxis(ptAx)->FindBin(minPt);
 
   // Define the output file
   TFile* outFile = new TFile(outFileName, "recreate");
@@ -83,7 +83,7 @@ void evalMchTrackingEfficiency(const char* inFile = "AnalysisResults.root", cons
   // as well as the one per station
   // the total integrated value is stored in both histos as last quantity for reference
   TH1F* hEffIntegratedChamber = new TH1F("hEffIntegratedChamber", "integrated efficiency per chamber; ;Efficiency", kChamber + 1, -0.5, kChamber + 0.5);
-  const char* hChNames[kChamber + 1];
+  // const char* hChNames[kChamber + 1];
   for (int i = 0; i < kChamber; i++) {
     hEffIntegratedChamber->GetXaxis()->SetBinLabel(i + 1, Form("Chamber %d", i));
   }

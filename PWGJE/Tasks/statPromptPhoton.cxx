@@ -1552,7 +1552,7 @@ struct statPromptPhoton {
 
         while (chase) {
           if (visited.count(chaseindex)) {
-            chase = false;
+            // chase = false;
             break;
           }
           visited.insert(chaseindex);
@@ -1677,7 +1677,7 @@ struct statPromptPhoton {
 
         while (chase) {
           if (visited.count(chaseindex)) {
-            chase = false;
+            // chase = false;
             break;
           }
           visited.insert(chaseindex);

@@ -336,6 +336,11 @@ struct FlowTask {
 
   void init(InitContext const&)
   {
+    if (cfgTrackCuts->rows() != kDCAzNSigma + 1 || cfgTrackCuts->cols() != kTrCutObs + 1) {
+      LOGF(fatal, "Wrong dimensions of track cuts: %d x %d", cfgTrackCuts->rows(), cfgTrackCuts->cols());
+      return;
+    }
+
     const AxisSpec axisVertex{40, -20, 20, "Vtxz (cm)"};
     const AxisSpec axisPhi{60, 0.0, constants::math::TwoPI, "#varphi"};
     const AxisSpec axisEta{40, -1., 1., "#eta"};
@@ -667,7 +672,7 @@ struct FlowTask {
       fFCpt->setEventWeight(EventWeight::TupleWeight);
     fFCpt->initialise(axisIndependent, cfgMpar, gfwConfigs, cfgNbootstrap);
     if (cfgEtaGapPtPtEnabled) {
-      for (int i = 0; i < 4; ++i) { // o2-linter: disable=magic-number (maximum of 4 subevents)
+      for (auto i = 0u; i < cfgPtPtGaps->rows(); ++i) {
         if (cfgPtPtGaps->getData()[i][0] < -1. || cfgPtPtGaps->getData()[i][1] < -1.)
           continue;
         etagapsPtPt.push_back(std::make_pair(cfgPtPtGaps->getData()[i][0], cfgPtPtGaps->getData()[i][1]));

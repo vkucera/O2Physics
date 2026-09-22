@@ -21,6 +21,7 @@
 
 #include <RtypesCore.h>
 
+#include <stdexcept>
 #include <vector>
 
 //_________________________________________________________________________
@@ -38,6 +39,9 @@ class AnalysisCompositeCut : public AnalysisCut
     if (auto* composite = dynamic_cast<AnalysisCompositeCut*>(cut)) {
       fCompositeCutList.push_back(*composite);
     } else {
+      if (cut == nullptr) {
+        throw std::runtime_error("invalid cut");
+      }
       fCutList.push_back(*cut);
     }
   };

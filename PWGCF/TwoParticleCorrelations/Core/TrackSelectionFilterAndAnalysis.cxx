@@ -220,7 +220,7 @@ TrackSelectionFilterAndAnalysis::TrackSelectionFilterAndAnalysis(const TrackSele
   mCutStringSignature = cutString.ReplaceAll("-yes", "").ReplaceAll("-no", "");
   if (mode == kAnalysis) {
     /* TODO: check cuts consistency. In principle it should be there except for the ttype valid combinations */
-    StoreArmedMask();
+    TrackSelectionFilterAndAnalysis::StoreArmedMask();
   }
 }
 

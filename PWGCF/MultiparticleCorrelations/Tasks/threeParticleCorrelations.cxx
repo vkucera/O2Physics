@@ -1292,7 +1292,11 @@ struct ThreeParticleCorrelations {
       double dPhiStarMean = 0;
 
       // Start of the TPC radius loop
-      for (double r = rMin; r <= rMax; r += 0.01) {
+      double step = 0.01;
+      std::size_t nSteps{static_cast<size_t>(std::round((rMax - rMin) / step))};
+      for (auto i{0u}; i <= nSteps; ++i) {
+        double r = rMin + i * step;
+
         dPhiStar = RecoDecay::constrainAngle(dPhi + std::asin(phaseProton * r) - std::asin(phaseTrack * r), -constants::math::PIHalf);
 
         if (r == rMin) {                              // TPC inner radius

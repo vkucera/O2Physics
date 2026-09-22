@@ -62,7 +62,7 @@ constexpr MomentumLimitsMatrix defaultModelPLimits({0.0, 0.5, 0.8});
 // TODO: Copied from cefpTask, shall we put it in some common utils code?
 namespace
 {
-bool readJsonFile(std::string const& config, rapidjson::Document& d)
+bool readJsonFile(std::string const& config, rapidjson::Document& d) // NOLINT(clang-diagnostic-unneeded-internal-declaration)
 {
   FILE* fp = fopen(config.data(), "rb");
   if (!fp) {
