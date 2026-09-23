@@ -1164,7 +1164,7 @@ struct PhiStrangeCorrelation {
 
               histos.fill(histoKey, collision.posZ(), mcCollision.centFT0M(), assoc.pt(), assoc.y());
             }
-          };
+          }; // NOLINT(readability/braces)
 
           fillRecoAssocSpecies(makeAssocInput<kK0S>(k0sReduced), HIST("k0s/h4K0SMCReco"));
           fillRecoAssocSpecies(makeAssocInput<kLambda>(lambdaReduced), HIST("lambda/h4LambdaMCReco"));
@@ -1213,7 +1213,7 @@ struct PhiStrangeCorrelation {
           }
 
           fillGenHistos(h3Key, h4Key);
-        };
+        }; // NOLINT(readability/braces)
 
         if (!inYAcceptance()) {
           continue;
@@ -1408,7 +1408,7 @@ struct PhiStrangeCorrelation {
         }
 
         collection.emplace_back(mcParticle.pt(), mcParticle.y(), mcParticle.phi());
-      };
+      }; // NOLINT(readability/braces)
 
       if (!inYAcceptance()) {
         continue;
