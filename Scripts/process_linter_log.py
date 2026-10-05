@@ -98,7 +98,7 @@ def main():
             LinterSpec.GroupSeverity: 3,
             LinterSpec.GroupCategory: 4,
             LinterSpec.IgnoredCategories: [],
-            LinterSpec.IgnoredSeverities: ["info", "warning"],
+            LinterSpec.IgnoredSeverities: ["info"],
         },
         Linter.UnusedFiles: {
             LinterSpec.Name: "Unused files",
