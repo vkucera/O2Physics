@@ -275,12 +275,14 @@ def main():
     len_column = max(len(hyperlinks[key]["link"]) for key in counter_directory) + len_gap
     n_lines_code_total = sum(n_lines_code_per_dir.values())
     for directory in sorted(counter_directory.keys()):
+        if directory not in n_lines_code_per_dir:
+            continue
         n_lines_code = n_lines_code_per_dir[directory]
         print(
-            f"| {hyperlinks[directory]['link']}{(len_column - len(hyperlinks[directory]['link'])) * ' '} | {counter_directory[directory]} | {counter_directory[directory] / n_lines_code * n_lines_norm:.3g} |"
+            f"| {hyperlinks[directory]['link']}{(len_column - len(hyperlinks[directory]['link'])) * ' '} | {counter_directory[directory]} | {((counter_directory[directory] / n_lines_code * n_lines_norm) if n_lines_code > 0 else float('nan')):.3g} |"
         )
     print(
-        f"| {cat_total}{(len_column - len(cat_total)) * ' '} | {n_issues_total} | {n_issues_total / n_lines_code_total * n_lines_norm:.3g} |"
+        f"| {cat_total}{(len_column - len(cat_total)) * ' '} | {n_issues_total} | {((n_issues_total / n_lines_code_total * n_lines_norm) if n_lines_code_total > 0 else float('nan')):.3g} |"
     )
 
     print("\n## Issues")
