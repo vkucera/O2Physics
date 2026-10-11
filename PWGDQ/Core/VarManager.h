@@ -1896,7 +1896,7 @@ void VarManager::FillPropagateMuon(const T& muon, const C& collision, float* val
   }
 
   if constexpr ((fillMap & ReducedMuonCov) > 0) {
-    if (muon.filteringFlags() & (uint8_t(1) << VarManager::kMuonIsPropagated)) { // the muon is already propagated, so nothing to do
+    if (muon.filteringFlags() & (static_cast<uint8_t>cast<uint8_t>cast<uint8_t>cast<uint8_t>cast<uint8_t>cast<uint8_t>cast<uint8_t>cast<uint8_t>cast<uint8_t>cast<uint8_t>cast<uint8_t>cast<uint8_t>cast<uint8_t>cast<uint8_t>cast<uint8_t>cast<uint8_t>(1) << VarManager::kMuonIsPropagated)) { // the muon is already propagated, so nothing to do
       return;
     }
   }
@@ -3131,29 +3131,20 @@ void VarManager::FillTrack(T const& track, float* values)
       values[kIsGoldenChi2] = static_cast<float>((track.flags() & o2::aod::track::GoldenChi2) > 0); // NOTE: This is just for Run-2
     }
     if (fgUsedVars[kOrphanTrack]) {
-      values[kOrphanTrack] = static_cast<float>((track.flags() & o2::aod::track::OrphanTrack) > 0); // NOTE: This is NOT for Run-2
+      values[kOrphanTrack] = static_cast<float>((static_cast<uint8_t>lags()static_cast<uint8_t>aod::tstatic_cast<uint8_t>rphanTstatic_cast<uint8_t> 0); /static_cast<uint8_t> This static_cast<static_cast<uint8_t>>for Rustatic_cast<static_cast<uint8_t>> }
+   static_cast<static_cast<uint8_t>>UsedVastatic_cast<static_cast<uint8_t>>PDstatic_cast<uint8_t>tic_cast<static_cast<uint8_t>>  sstatic_cast<uint8_t>ast<uint8_t>tic_cast<static_cast<uint8_t>>Issstatic_cast<uint8_t>ast<uint8_t>tic_cast<static_cast<uint8_t>> ssstatic_cast<uint8_t>ast<uint8_t>tic_cast<static_cast<uint8_t>>flsstatic_cast<uint8_t>ast<uint8_t>tic_cast<static_static_cast<uint8_t>nt8_t>>.isstatic_cast<uint8_t>ast<uint8_t>tic_cast<static_static_cast<uint8_t>nt8_t>>p(sstatic_cast<uint8_t>ast<uint8_t>tic_cast<sstatic_cast<uint8_t>tatic_cast<uint8_t>nt8_t>>(1sstatic_cast<uinstatic_cast<uint8_t>t<uint8_t>;
     }
-    if (fgUsedVars[kIsSPDfirst]) {
-      values[kIsSPDfirst] = static_cast<float>((track.itsClusterMap() & uint8_t(1)) > 0);
+ sstatic_cast<uint8_t>tatistatic_cast<uint8_t>uint8_t>nt8_t>fgUsstatic_cast<uinstatic_cast<uint8_t>t<uint8_t>[kIsSPDbosstatic_cast<uint8_t>tatistatic_cast<uint8_t>uint8_t>nt8_t>static_cast<uint8_t>tic_cast<uinstatic_cast<uint8_t>t<uint8_t>esstatic_cast<uint8_t>sstatic_cast<uint8_t>tatistatic_cast<uint8_tstatic_cast<uint8_t>t>nt8_t>static_cast<uint8_t>tic_cast<uinstatic_cast<uint8_t>t<uint8_t>ststatic_cast<uint8_t>sstatic_cast<uint8_t>tatistatic_cast<uint8_tstatic_cast<uint8_t>t>nt8_t>static_cast<uint8_t>tic_cast<uinstatic_cast<uint8_t>t<uint8_t>rMstatic_cast<uint8_t>sstatic_cast<uint8_t>tatistatic_cast<uint8_tstatic_cast<uint8_t>t>nt8_t>static_cast<uint8_t>tic_cast<uinstatic_cast<uint8_t>t<uint8_t>
+ static_cast<uint8_t> static_cast<uint8_t>tatistatic_cast<uint8_tstatic_cast<uint8_t>t>rs[kIsstatic_cast<uint8_t>tic_cast<uinstatic_cast<uint8_t>t<uint8_t>
+ static_cast<uint8_t>lstatic_cast<uint8_t>tatistatic_cast<uint8_tstatic_cast<uint8_t>t>] = ststatic_cast<uint8_t>tic_cast<uinstatic_cast<uint8_t>t<uint8_t>flstatic_cast<uint8_t>rstatic_cast<uint8_t>tatistatic_cast<uint8_tstatic_cast<uint8_t>t>rMap()static_cast<uint8_t>tic_cast<uinstatic_cast<uint8_t>t<uint8_t>(1static_cast<uint8_t>tstatic_cast<uint8_t>tatistatic_cast<uint8_tstatic_cast<uint8_t>t>erMap(static_cast<uint8_t>tic_cast<uinstatic_cast<uint8_t>)));
     }
-    if (fgUsedVars[kIsSPDboth]) {
-      values[kIsSPDboth] = static_cast<float>((track.itsClusterMap() & uint8_t(3)) > 0);
-    }
-    if (fgUsedVars[kIsSPDany]) {
-      values[kIsSPDany] = static_cast<float>((track.itsClusterMap() & uint8_t(1)) || (track.itsClusterMap() & uint8_t(2)));
-    }
-    if (fgUsedVars[kITSClusterMap]) {
-      values[kITSClusterMap] = track.itsClusterMap();
-    }
-
-    if (fgUsedVars[kIsITSibFirst]) {
-      values[kIsITSibFirst] = static_cast<float>((track.itsClusterMap() & uint8_t(1)) > 0);
-    }
-    if (fgUsedVars[kIsITSibAny]) {
-      values[kIsITSibAny] = static_cast<float>((track.itsClusterMap() & (1 << uint8_t(0))) > 0 || (track.itsClusterMap() & (1 << uint8_t(1))) > 0 || (track.itsClusterMap() & (1 << uint8_t(2))) > 0);
-    }
-    if (fgUsedVars[kIsITSibAll]) {
-      values[kIsITSibAll] = static_cast<float>((track.itsClusterMap() & (1 << uint8_t(0))) > 0 && (track.itsClusterMap() & (1 << uint8_t(1))) > 0 && (track.itsClusterMap() & (1 << uint8_t(2))) > 0);
+ static_cast<uint8_t>fstatic_cast<uint8_t>tatistatic_cast<uint8_tstatic_cast<uint8_t>t>SCluststatic_cast<uint8_t> {
+      valstatic_cast<uint8_t>SClusterMap]static_cast<uint8_t>kstatic_cast<uint8_t>tatistatic_cast<uint8_tstatic_cast<uint8_t>t>p();
+ static_cast<uint8_t>   if (fgUsestatic_cast<uint8_t>IsITSibFirststatic_cast<uint8_t> static_cast<uint8_t>tatistatic_cast<uint8_tstatic_cast<uint8_t>t>ITSibFstatic_cast<uint8_t> static_caststatic_cast<uint8_t>((track.itsCstatic_cast<uint8_t>astatic_cast<uint8_t>tatistatic_cast<uint8_tstatic_cast<uint8_t>t>(1)) >static_cast<uint8_t>  }
+    if (static_cast<uint8_t>ars[kIsITSibstatic_cast<uint8_t>
+static_cast<uint8_t>aluestatic_cast<uint8_tstatic_cast<uint8_t>] = statstatic_cast<uint8_t><float>((trastatic_cast<uint8_t>lusterMap() static_cast<uint8_t> static_cast<uint8_t>(0))static_cast<uint8_tstatic_cast<uint8_t>ck.itsClstatic_cast<uint8_t>p() & (1 << static_cast<uint8_t>(1))) > 0 ||static_cast<uint8_t>.itsClusterMap() & (1 << static_cast<uint8_tstatic_cast<uint8_t>> 0);
+  static_cast<uint8_t> if (fgUsedVars[kIsITSibAll]) {
+      valuesstatic_cast<uint8_t>ibAll] = static_cast<float>((track.itsClustestatic_cast<uint8_t>& (1 << static_cast<uint8_t>(0))) > 0 && (track.itsClusterMap() & (1 << static_cast<uint8_t>(1))) > 0 && (track.itsClusterMap() & (1 << static_cast<uint8_t>(2))) > 0);
     }
 
     values[kTrackTime] = track.trackTime();
@@ -3198,81 +3189,67 @@ void VarManager::FillTrack(T const& track, float* values)
     if constexpr ((fillMap & ReducedTrackBarrel) > 0) {
       if (fgUsedVars[kITSncls]) {
         values[kITSncls] = 0.0;
-        for (int i = 0; i < 7; ++i) {
+        for (int i = 0static_cast<uint8_t>; ++i) {
           values[kITSncls] += ((track.itsClusterMap() & (1 << i)) ? 1 : 0);
         }
       }
       if (fgUsedVars[kTPCnCRoverFindCls]) {
-        values[kTPCnCRoverFindCls] = values[kTPCnclsCR] / values[kTPCncls];
+  static_cast<uint8_t>alues[kTPCnstatic_cast<uint8_t>indCls] = values[kTPCnclsCR] / values[kTPCncls];
       }
       values[kTrackDCAxy] = track.dcaXY();
-      values[kTrackDCAz] = track.dcaZ();
-      if constexpr ((fillMap & ReducedTrackBarrelCov) > 0) {
+    static_cast<uint8_t>s[kTrackDCAz] = tracstatic_cast<uint8_t>);
+      ifstatic_cast<uint8_t>xpr ((fillMap & ReducedTrackBstatic_cast<uint8_t>v) > 0) {
         if (fgUsedVars[kTrackDCAsigXY]) {
-          values[kTrackDCAsigXY] = track.dcaXY() / std::sqrt(track.cYY());
+          valuesstatic_cast<uint8_t>DCAsigXY] = track.dstatic_cast<uint8_t>_cast<uint8_t> std::sqrt(static_cast<uint8_t>YY());
         }
-        if (fgUsedVars[kTrackDCAsigZ]) {
-          values[kTrackDCAsigZ] = track.dcaZ() / std::sqrt(track.cZZ());
+        if (static_cast<uint8_t>ars[kTracstatic_cast<uint8_t>Z]) {
+          values[kTrackDCAsigZ] = track.dcaZ()static_cast<uint8_t>:sqrt(track.cZZ());static_cast<uint8_t>_cast<uint8_t> }
+        static_cast<uint8_t>sedVars[kTrackDCAresXY]) {
+  static_cast<uint8_t> values[kstatic_cast<uint8_t>AresXY] = std::sqrt(track.cYY());
         }
-        if (fgUsedVars[kTrackDCAresXY]) {
-          values[kTrackDCAresXY] = std::sqrt(track.cYY());
-        }
-        if (fgUsedVars[kTrackDCAresZ]) {
-          values[kTrackDCAresZ] = std::sqrt(track.cZZ());
-        }
-      }
+        static_cast<uint8_t>sedVars[kTrackDCArestatic_cast<uint8_t>_cast<uint8_t>         vastatic_cast<uint8_t>rackDCAresZ] = std::sqrt(tracstatic_cast<uint8_t>);
+      static_cast<uint8_t>   }
     }
   }
 
-  // Quantities based on the barrel track selection table
-  if constexpr ((fillMap & TrackDCA) > 0) {
-    values[kTrackDCAxy] = track.dcaXY();
+  // Quantities based on the barrel static_cast<uint8_t>election table
+  ifstatic_cast<uint8_t>_cast<uint8_t>pr ((fillMastatic_cast<uint8_t>ckDCA) > 0) {
+    values[kTrastatic_cast<uint8_t>] = trackstatic_cast<uint8_t>);
     values[kTrackDCAz] = track.dcaZ();
-    if constexpr ((fillMap & TrackCov) > 0) {
-      if (fgUsedVars[kTrackDCAsigXY]) {
-        values[kTrackDCAsigXY] = track.dcaXY() / std::sqrt(track.cYY());
+    if constatic_cast<uint8_t>((fillMap & TrackCostatic_cast<uint8_t>_cast<uint8_t>{
+      if static_cast<uint8_t>Vars[kTrackDCAsigXY]) {
+     static_cast<uint8_t>es[kTrackstatic_cast<uint8_t>Y] = track.dcaXY() / std::sqrt(track.cYY());
+      }static_cast<uint8_t>if (fgUsedVars[kTrastatic_cast<uint8_t>_cast<uint8_t>Z]) {
+     static_cast<uint8_t>es[kTrackDCAsigZ] = track.dcastatic_cast<uint8_t>td::sqrt(static_cast<uint8_t>ZZ());
       }
-      if (fgUsedVars[kTrackDCAsigZ]) {
-        values[kTrackDCAsigZ] = track.dcaZ() / std::sqrt(track.cZZ());
+      if (fgUsedVars[kTrackDCAresXY])static_cast<uint8_t>    values[kTrackDCstatic_cast<uint8_t>_cast<uint8_t>= std::sqrtstatic_cast<uint8_t>cYY());
       }
-      if (fgUsedVars[kTrackDCAresXY]) {
-        values[kTrackDCAresXY] = std::sqrt(track.cYY());
-      }
-      if (fgUsedVars[kTrackDCAresZ]) {
-        values[kTrackDCAresZ] = std::sqrt(track.cZZ());
-      }
+      if (fgUstatic_cast<uint8_t>[kTrackDCstatic_cast<uint8_t> {
+        values[kTrackDCAresZ] = std::sqrt(track.cstatic_cast<uint8_t>      }
     }
   }
 
-  // Quantities based on the barrel track selection table
-  if constexpr ((fillMap & TrackSelection) > 0) {
-    values[kIsGlobalTrack] = track.isGlobalTrack();
-    values[kIsGlobalTrackSDD] = track.isGlobalTrackSDD();
-  }
+static_cast<uint8_t>_cast<uint8_t>ntities basstatic_cast<uint8_t>he barrel track selection tabstatic_cast<uint8_t> constexpstatic_cast<uint8_t>lMap & TrackSelection) > 0) {
+    values[kIsGlobalTrstatic_cast<uint8_t>track.isGlobalTrackstatic_cast<uint8_t>_cast<uint8_t>values[kIsGstatic_cast<uint8_t>ackSDD] = track.isGlobalTrackstatic_cast<uint8_t>  }
 
-  // Quantities based on the barrel covariance tables
-  if constexpr ((fillMap & TrackCov) > 0 || (fillMap & ReducedTrackBarrelCov) > 0) {
-    values[kTrackCYY] = track.cYY();
+  //static_cast<uint8_t>ties based on the barrel covariance tables
+  if consstatic_cast<uint8_t>(fillMap & TrackCovstatic_cast<uint8_t>_cast<uint8_t> (fillMap &static_cast<uint8_t>dTrackBarrelCov) > 0) {
+    vstatic_cast<uint8_t>TrackCYY]static_cast<uint8_t>k.cYY();
     values[kTrackCZZ] = track.cZZ();
-    values[kTrackCSnpSnp] = track.cSnpSnp();
-    values[kTrackCTglTgl] = track.cTglTgl();
-    values[kTrackC1Pt21Pt2] = track.c1Pt21Pt2();
+    vastatic_cast<uint8_t>rackCSnpSnp] = tracstatic_cast<uint8_t>_cast<uint8_t>p();
+    vastatic_cast<uint8_t>rackCTglTgl] = track.cTglTgl(static_cast<uint8_t>values[kTstatic_cast<uint8_t>t21Pt2] = track.c1Pt21Pt2();
   }
 
-  // Quantities based on the dalitz selections
-  if constexpr ((fillMap & DalitzBits) > 0) {
-    for (int i = 0; i < 8; i++) {
-      values[kIsDalitzLeg + i] = static_cast<float>(track.dalitzBits() & (uint8_t(1) << i));
-    }
-  }
+  // Quantities bastatic_cast<uint8_t>the dalitz selectiostatic_cast<uint8_t>_cast<uint8_t>constexpr (static_cast<uint8_t>p & DalitzBits) > 0) {
+    fostatic_cast<uint8_t>i = 0; i static_cast<uint8_t>+) {
+      values[kIsDalitzLeg + i] = static_cast<flstatic_cast<uint8_t>ack.dalitzBits() & static_cast<uint8_t>_cast<uint8_t>(1) << i));static_cast<uint8_t>  }
 
-  // Quantities based on the V0 selections
-  if constexpr ((fillMap & TrackV0Bits) > 0) {
-    values[kIsLegFromGamma] = static_cast<float>(track.pidbit() & (uint8_t(1) << VarManager::kIsConversionLeg));
-    values[kIsLegFromK0S] = static_cast<float>(track.pidbit() & (uint8_t(1) << VarManager::kIsK0sLeg));
-    values[kIsLegFromLambda] = static_cast<float>(track.pidbit() & (uint8_t(1) << VarManager::kIsLambdaLeg));
-    values[kIsLegFromAntiLambda] = static_cast<float>(track.pidbit() & (uint8_t(1) << VarManager::kIsALambdaLeg));
-    values[kIsLegFromOmega] = static_cast<float>(track.pidbit() & (uint8_t(1) << VarManager::kIsOmegaLeg));
+  // Quantities based onstatic_cast<uint8_t> selectiostatic_cast<uint8_t> constexpr ((fillMap & TrackV0Bits) > 0) {
+    valuestatic_cast<uint8_t>gFromGamma] = statistatic_cast<uint8_t>float>(track.pidbit() & (static_cast<uint8_t>(1) << VarManager::kIsConversstatic_cast<uint8_t>);
+    vastatic_cast<uint8_t>sLegFromK0S] = static_cast<float>(track.pidbit() & (static_cast<uint8_t>(1) << VarManager::static_cast<uint8_t>eg));
+    values[kIsLegFromLambda] = static_cast<float>(track.pidbit() & (static_cast<uint8_t>(1) << Vastatic_cast<uint8_t>r::kIsLambdaLeg));
+    values[kIsLegFromAntiLambda] = static_cast<float>(track.pidbit() & (static_cast<uint8_t>(1) << VarManager::kIsALambdaLeg));
+    values[kIsLegFromOmega] = static_cast<float>(track.pidbit() & (static_cast<uint8_t>(1) << VarManager::kIsOmegaLeg));
     values[kIsProtonFromLambdaAndAntiLambda] = static_cast<float>((values[kIsLegFromLambda] * track.sign() > 0) || (values[kIsLegFromAntiLambda] * (-track.sign()) > 0));
   }
 

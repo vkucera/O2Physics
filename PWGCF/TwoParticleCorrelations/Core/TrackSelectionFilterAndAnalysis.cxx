@@ -229,10 +229,10 @@ int TrackSelectionFilterAndAnalysis::CalculateMaskLength()
 {
   int length = 0;
   for (int i = 0; i < mTrackSign.GetEntries(); ++i) {
-    length += ((CutBrick<float>*)mTrackSign.At(i))->Length();
+    length += (static_cast<CutBrick<float>*>(mTrackSign.At(i)))->Length();
   }
   for (int i = 0; i < mTrackTypes.GetEntries(); ++i) {
-    length += ((SpecialCutBrick*)mTrackTypes.At(i))->Length();
+    length += (static_cast<SpecialCutBrick*>(mTrackTypes.At(i)))->Length();
   }
   if (mNClustersTPC != nullptr) {
     length += mNClustersTPC->Length();
@@ -358,42 +358,42 @@ void TrackSelectionFilterAndAnalysis::ConstructCutFromString(const TString& cuts
       if (m[1].str() == "nclstpc") {
         storeIntCut(mNClustersTPC);
         for (int i = 0; i < mTrackTypes.GetEntries(); ++i) {
-          ((TrackSelectionBrick*)mTrackTypes.At(i))->DisableNClustersTPCCheck();
+          (static_cast<TrackSelectionBrick*>(mTrackTypes.At(i)))->DisableNClustersTPCCheck();
         }
       } else if (m[1].str() == "nclsits") {
         storeIntCut(mNClustersITS);
         for (int i = 0; i < mTrackTypes.GetEntries(); ++i) {
-          ((TrackSelectionBrick*)mTrackTypes.At(i))->DisableNClustersITSCheck();
+          (static_cast<TrackSelectionBrick*>(mTrackTypes.At(i)))->DisableNClustersITSCheck();
         }
       } else if (m[1].str() == "nxrtpc") {
         storeIntCut(mNCrossedRowsTPC);
         for (int i = 0; i < mTrackTypes.GetEntries(); ++i) {
-          ((TrackSelectionBrick*)mTrackTypes.At(i))->DisableNCrossedRowsTPCCheck();
+          (static_cast<TrackSelectionBrick*>(mTrackTypes.At(i)))->DisableNCrossedRowsTPCCheck();
         }
       } else if (m[1].str() == "chi2clustpc") {
         storeFloatCut(mMaxChi2PerClusterTPC);
         for (int i = 0; i < mTrackTypes.GetEntries(); ++i) {
-          ((TrackSelectionBrick*)mTrackTypes.At(i))->DisableMaxChi2PerClusterTPCCheck();
+          (static_cast<TrackSelectionBrick*>(mTrackTypes.At(i)))->DisableMaxChi2PerClusterTPCCheck();
         }
       } else if (m[1].str() == "chi2clusits") {
         storeFloatCut(mMaxChi2PerClusterITS);
         for (int i = 0; i < mTrackTypes.GetEntries(); ++i) {
-          ((TrackSelectionBrick*)mTrackTypes.At(i))->DisableMaxChi2PerClusterITSCheck();
+          (static_cast<TrackSelectionBrick*>(mTrackTypes.At(i)))->DisableMaxChi2PerClusterITSCheck();
         }
       } else if (m[1].str() == "xrofctpc") {
         storeFloatCut(mMinNCrossedRowsOverFindableClustersTPC);
         for (int i = 0; i < mTrackTypes.GetEntries(); ++i) {
-          ((TrackSelectionBrick*)mTrackTypes.At(i))->DisableMinNCrossedRowsOverFindableClustersTPCCheck();
+          (static_cast<TrackSelectionBrick*>(mTrackTypes.At(i)))->DisableMinNCrossedRowsOverFindableClustersTPCCheck();
         }
       } else if (m[1].str() == "dcaxy") {
         storeFloatCut(mMaxDcaXY);
         for (int i = 0; i < mTrackTypes.GetEntries(); ++i) {
-          ((TrackSelectionBrick*)mTrackTypes.At(i))->DisableMaxDcaXYCheck();
+          (static_cast<TrackSelectionBrick*>(mTrackTypes.At(i)))->DisableMaxDcaXYCheck();
         }
       } else if (m[1].str() == "dcaz") {
         storeFloatCut(mMaxDcaZ);
         for (int i = 0; i < mTrackTypes.GetEntries(); ++i) {
-          ((TrackSelectionBrick*)mTrackTypes.At(i))->DisableMaxDcaZCheck();
+          (static_cast<TrackSelectionBrick*>(mTrackTypes.At(i)))->DisableMaxDcaZCheck();
         }
       } else if (m[1].str() == "pT") {
         storeFloatCut(mPtRange);
@@ -437,12 +437,12 @@ void TrackSelectionFilterAndAnalysis::StoreArmedMask()
 
   optMask = 0UL;
   for (int i = 0; i < mTrackSign.GetEntries(); ++i) {
-    armedBrick((CutBrick<float>*)mTrackSign.At(i), true);
+    armedBrick(static_cast<CutBrick<float>*>(mTrackSign.At(i)), true);
   }
   mOptArmedMask.push_back(optMask);
   optMask = 0UL;
   for (int i = 0; i < mTrackTypes.GetEntries(); ++i) {
-    armedBrick((TrackSelectionBrick*)mTrackTypes.At(i), true);
+    armedBrick(static_cast<TrackSelectionBrick*>(mTrackTypes.At(i)), true);
   }
   mOptArmedMask.push_back(optMask);
   optMask = 0UL;

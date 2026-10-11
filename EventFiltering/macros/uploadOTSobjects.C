@@ -134,7 +134,7 @@ void uploadOTSobjects(std::string inputList, const std::string& passName, bool u
           auto bcNext{nextHelper.bcAOD < nextHelper.bcEvSel ? nextHelper.bcAOD : nextHelper.bcEvSel};
           if (bcNext - bcEnd > 2001 / o2::constants::lhc::LHCBunchSpacingMUS) { /// ensure a gap of 2ms between chunks
             chunk.insert(chunk.begin(), zorroHelpers.begin() + helperIndex, zorroHelpers.begin() + endIndex + 1);
-            endTS = (orbitResetTimestamp + int64_t(bcEnd * o2::constants::lhc::LHCBunchSpacingNS * 1e-3)) / 1000 + 1;
+            endTS = (orbitResetTimestamp + static_cast<int64_t>(bcEnd * o2::constants::lhc::LHCBunchSpacingNS * 1e-3)) / 1000 + 1;
             break;
           }
           bcEnd = nextHelper.bcAOD > nextHelper.bcEvSel ? nextHelper.bcAOD : nextHelper.bcEvSel;

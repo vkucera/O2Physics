@@ -154,7 +154,7 @@ CorrelationContainer::CorrelationContainer(const CorrelationContainer& c) : TNam
   // CorrelationContainer copy constructor
   //
 
-  ((CorrelationContainer&)c).Copy(*this);
+  (const_cast<CorrelationContainer&>(c)).Copy(*this);
 }
 
 //____________________________________________________________________
@@ -194,7 +194,7 @@ CorrelationContainer& CorrelationContainer::operator=(const CorrelationContainer
   // assigment operator
 
   if (this != &c) {
-    ((CorrelationContainer&)c).Copy(*this);
+    (const_cast<CorrelationContainer&>(c)).Copy(*this);
   }
 
   return *this;
@@ -205,7 +205,7 @@ void CorrelationContainer::Copy(TObject& c) const
 {
   // copy function
 
-  CorrelationContainer& target = (CorrelationContainer&)c;
+  CorrelationContainer& target = static_cast<CorrelationContainer&>(c);
 
   if (mPairHist) {
     target.mPairHist = dynamic_cast<StepTHn*>(mPairHist->Clone());
@@ -522,7 +522,7 @@ TH2* CorrelationContainer::getSumOfRatios(CorrelationContainer* mixed, Correlati
   Int_t nCorrelationFunctions = 0;
 
   getHistsZVtxMult(step, ptTriggerMin, ptTriggerMax, &trackSameAll, &eventSameAll);
-  mixed->getHistsZVtxMult((stepForMixed == -1) ? step : (CFStep)stepForMixed, ptTriggerMin, ptTriggerMax, &trackMixedAll, &eventMixedAll);
+  mixed->getHistsZVtxMult((stepForMixed == -1) ? step : static_cast<CFStep>(stepForMixed), ptTriggerMin, ptTriggerMax, &trackMixedAll, &eventMixedAll);
 
   // If we ask for histograms from step8 (TTR cut applied) there is a hole at 0,0; so this cannot be used for the
   // mixed-event normalization. If step6 is available, the normalization factor is read out from that one.
@@ -727,7 +727,7 @@ TH2* CorrelationContainer::getSumOfRatios(CorrelationContainer* mixed, Correlati
         */
 
         if (!totalTracks) {
-          totalTracks = (TH2*)tracksSame->Clone("totalTracks");
+          totalTracks = static_cast<TH2*>(tracksSame->Clone("totalTracks"));
         } else {
           totalTracks->Add(tracksSame);
         }
@@ -765,7 +765,7 @@ TH2* CorrelationContainer::getSumOfRatios(CorrelationContainer* mixed, Correlati
       }
     }
     if (trigger != nullptr) {
-      *trigger = (Int_t)totalEvents;
+      *trigger = static_cast<Int_t>(totalEvents);
     }
 
     // normalizate to dphi width
@@ -835,7 +835,7 @@ THnBase* CorrelationContainer::getTrackEfficiencyND(EfficiencyStep step1, Effici
   resetBinLimits(sourceContainer->getTHn(step1));
   resetBinLimits(sourceContainer->getTHn(step2));
 
-  THnBase* clone = (THnBase*)measured->Clone();
+  THnBase* clone = static_cast<THnBase*>(measured->Clone());
 
   clone->Divide(measured, generated, 1, 1, "B");
 
@@ -935,7 +935,7 @@ TH1* CorrelationContainer::getTrackEfficiency(EfficiencyStep step1, EfficiencySt
 
   if (mPtMax > mPtMin) {
     // TODO this is just checking up to 15 for now
-    Float_t ptMax = TMath::Min((Float_t)15., mPtMax);
+    Float_t ptMax = TMath::Min(static_cast<Float_t>(15.), mPtMax);
     if (axis1 == 1) {
       binBegin[0] = generated->GetXaxis()->FindBin(mPtMin);
       binEnd[0] = generated->GetXaxis()->FindBin(ptMax);
@@ -1009,7 +1009,7 @@ TH1* CorrelationContainer::getTrackEfficiency(EfficiencyStep step1, EfficiencySt
         measured = new TH2D(Form("%s_rebinned", tmp->GetName()), tmp->GetTitle(), axis->GetNbins(), axis->GetXbins()->GetArray(), tmp->GetNbinsY(), tmp->GetYaxis()->GetXbins()->GetArray());
         for (Int_t x = 1; x <= tmp->GetNbinsX(); x++) {
           for (Int_t y = 1; y <= tmp->GetNbinsY(); y++) {
-            ((TH2*)measured)->Fill(tmp->GetXaxis()->GetBinCenter(x), tmp->GetYaxis()->GetBinCenter(y), tmp->GetBinContent(x, y));
+            (static_cast<TH2*>(measured))->Fill(tmp->GetXaxis()->GetBinCenter(x), tmp->GetYaxis()->GetBinCenter(y), tmp->GetBinContent(x, y));
             measured->SetBinError(x, y, 0); // cannot trust bin error, set to 0
           }
         }
@@ -1019,7 +1019,7 @@ TH1* CorrelationContainer::getTrackEfficiency(EfficiencyStep step1, EfficiencySt
         generated = new TH2D(Form("%s_rebinned", tmp->GetName()), tmp->GetTitle(), axis->GetNbins(), axis->GetXbins()->GetArray(), tmp->GetNbinsY(), tmp->GetYaxis()->GetXbins()->GetArray());
         for (Int_t x = 1; x <= tmp->GetNbinsX(); x++) {
           for (Int_t y = 1; y <= tmp->GetNbinsY(); y++) {
-            ((TH2*)generated)->Fill(tmp->GetXaxis()->GetBinCenter(x), tmp->GetYaxis()->GetBinCenter(y), tmp->GetBinContent(x, y));
+            (static_cast<TH2*>(generated))->Fill(tmp->GetXaxis()->GetBinCenter(x), tmp->GetYaxis()->GetBinCenter(y), tmp->GetBinContent(x, y));
             generated->SetBinError(x, y, 0); // cannot trust bin error, set to 0
           }
         }
@@ -1169,14 +1169,14 @@ TH1* CorrelationContainer::getBias(EfficiencyStep step1, EfficiencyStep step2, c
   resetBinLimits(mTriggerHist->getTHn(step2), 3);
   setBinLimits(tmp->getTHn(step2));
 
-  TH1D* events1 = (TH1D*)mTriggerHist->getTHn(step1)->Projection(0);
-  TH3D* hist1 = (TH3D*)tmp->getTHn(step1)->Projection(0, tmp->getNVar() - 1, 2);
+  TH1D* events1 = mTriggerHist->getTHn(step1)->Projection(0);
+  TH3D* hist1 = tmp->getTHn(step1)->Projection(0, tmp->getNVar() - 1, 2);
   if (weighting == 0) {
     weightHistogram(hist1, events1);
   }
 
-  TH1D* events2 = (TH1D*)mTriggerHist->getTHn(step2)->Projection(0);
-  TH3D* hist2 = (TH3D*)tmp->getTHn(step2)->Projection(0, tmp->getNVar() - 1, 2);
+  TH1D* events2 = mTriggerHist->getTHn(step2)->Projection(0);
+  TH3D* hist2 = tmp->getTHn(step2)->Projection(0, tmp->getNVar() - 1, 2);
   if (weighting == 0) {
     weightHistogram(hist2, events2);
   }
@@ -1429,7 +1429,7 @@ void CorrelationContainer::symmetrizepTBins()
     }
 
     // for symmetric bins
-    THnBase* source = (THnBase*)target->Clone();
+    THnBase* source = static_cast<THnBase*>(target->Clone());
 
     // axes: 0 delta eta; 1 pT,a; 2 pT,t; 3 centrality; 4 delta phi; 5 vtx-z
     for (Int_t i3 = 1; i3 <= target->GetAxis(3)->GetNbins(); i3++) {

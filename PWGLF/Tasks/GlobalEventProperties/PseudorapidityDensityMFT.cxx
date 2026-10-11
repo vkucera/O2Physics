@@ -1483,8 +1483,8 @@ struct PseudorapidityDensityMFT {
 
   expressions::Filter trackSelectionCentral =
     ((aod::track::trackCutFlag & TrackSelectionIts) == TrackSelectionIts) &&
-    ifnode((aod::track::v001::detectorMap & (uint8_t)o2::aod::track::TPC) ==
-             (uint8_t)o2::aod::track::TPC,
+    ifnode((aod::track::v001::detectorMap & static_cast<uint8_t>(o2::aod::track::TPC)) ==
+             static_cast<uint8_t>(o2::aod::track::TPC),
            (aod::track::trackCutFlag & TrackSelectionTpc) ==
              TrackSelectionTpc,
            true) &&
@@ -1902,8 +1902,8 @@ struct PseudorapidityDensityMFT {
   using ParticlesGenReco = aod::McParticles;
   expressions::Filter primaries =
     (aod::mcparticle::flags &
-     (uint8_t)o2::aod::mcparticle::enums::PhysicalPrimary) ==
-    (uint8_t)o2::aod::mcparticle::enums::PhysicalPrimary;
+     static_cast<uint8_t>(o2::aod::mcparticle::enums::PhysicalPrimary)) ==
+    static_cast<uint8_t>(o2::aod::mcparticle::enums::PhysicalPrimary);
   static constexpr float McSampleEtaMax = 1.1f;
   Partition<Particles> mcSample = nabs(aod::mcparticle::eta) < McSampleEtaMax;
   Partition<Particles> mcSampleCentral =

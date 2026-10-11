@@ -87,7 +87,7 @@ struct FemtoWorldIdenticalPionPair {
   Configurable<int> cfgSignPartTwo{"cfgSignPartTwo", 1, "Sign of Second particle"};
 
   /// Partition for particle 1
-  Partition<aod::FemtoWorldParticlesMerged> partsOne = (aod::femtoworldparticle::partType == uint8_t(aod::femtoworldparticle::ParticleType::kTrack))                          // particle type cut
+  Partition<aod::FemtoWorldParticlesMerged> partsOne = (aod::femtoworldparticle::partType == static_cast<uint8_t>(aod::femtoworldparticle::ParticleType::kTrack))                          // particle type cut
                                                        && (aod::femtoworldparticle::pt < cfgPtHighPart1) && (aod::femtoworldparticle::pt > cfgPtLowPart1)                     // simple pT cuts
                                                        && (aod::femtoworldparticle::eta < cfgEtaHighPart1) && (aod::femtoworldparticle::eta > cfgEtaLowPart1)                 // Eta cuts
                                                        && (nabs(o2::aod::track::dcaXY) < cfgDcaXYPart1) && (nabs(o2::aod::track::dcaZ) < cfgDcaZPart1)                        // DCA cuts for XY and Z

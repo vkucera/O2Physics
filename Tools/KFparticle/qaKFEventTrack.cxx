@@ -629,7 +629,7 @@ struct qaKFEvent {
       if (!isSelectedCollision(collisionIndex)) {
         continue;
       }
-      timeColl = uint64_t((bc.globalBC() - bc0) * o2::constants::lhc::LHCBunchSpacingNS) + collisionIndex.collisionTime();
+      timeColl = static_cast<uint64_t>((bc.globalBC() - bc0) * o2::constants::lhc::LHCBunchSpacingNS) + collisionIndex.collisionTime();
       writeVarTreeColl(collisionIndex, timeColl, bc.timestamp(), collisionIndex.collisionTime(), tfID);
     }
   }

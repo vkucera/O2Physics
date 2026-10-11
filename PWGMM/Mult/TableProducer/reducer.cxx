@@ -99,13 +99,13 @@ struct Reducer {
     // p[6] - normalization
     // alpha = p[1]^2 / ( 1 + p[1]^2), relative weight, 0 < alpha < 1
 
-    return params->get((int)0, 6) *
-           (params->get((int)0, 1) * params->get((int)0, 1) / (1. + params->get((int)0, 1) * params->get((int)0, 1)) * // alpha
+    return params->get(0, 6) *
+           (params->get(0, 1) * params->get(0, 1) / (1. + params->get(0, 1) * params->get(0, 1)) * // alpha
                                                                                                                        // v1 +
-              1. / (x * TMath::Beta(x, (1. + params->get((int)0, 3) * params->get((int)0, 3)))) * TMath::Power((params->get((int)0, 2) * params->get((int)0, 2)) / ((1. + params->get((int)0, 3) * params->get((int)0, 3)) + (params->get((int)0, 2) * params->get((int)0, 2))), x) * TMath::Power((1. + params->get((int)0, 3) * params->get((int)0, 3)) / ((1. + params->get((int)0, 3) * params->get((int)0, 3)) + (params->get((int)0, 2) * params->get((int)0, 2))), (1. + params->get((int)0, 3) * params->get((int)0, 3))) +
-            1. / (1 + params->get((int)0, 1) * params->get((int)0, 1)) * // 1 - alpha
+              1. / (x * TMath::Beta(x, (1. + params->get(0, 3) * params->get(0, 3)))) * TMath::Power((params->get(0, 2) * params->get(0, 2)) / ((1. + params->get(0, 3) * params->get(0, 3)) + (params->get(0, 2) * params->get(0, 2))), x) * TMath::Power((1. + params->get(0, 3) * params->get(0, 3)) / ((1. + params->get(0, 3) * params->get(0, 3)) + (params->get(0, 2) * params->get(0, 2))), (1. + params->get(0, 3) * params->get(0, 3))) +
+            1. / (1 + params->get(0, 1) * params->get(0, 1)) * // 1 - alpha
                                                                          // v2 );
-              1. / (x * TMath::Beta(x, (1. + params->get((int)0, 5) * params->get((int)0, 5)))) * TMath::Power((params->get((int)0, 4) * params->get((int)0, 4)) / ((1. + params->get((int)0, 5) * params->get((int)0, 5)) + (params->get((int)0, 4) * params->get((int)0, 4))), x) * TMath::Power((1. + params->get((int)0, 5) * params->get((int)0, 5)) / ((1. + params->get((int)0, 5) * params->get((int)0, 5)) + (params->get((int)0, 4) * params->get((int)0, 4))), (1. + params->get((int)0, 5) * params->get((int)0, 5))));
+              1. / (x * TMath::Beta(x, (1. + params->get(0, 5) * params->get(0, 5)))) * TMath::Power((params->get(0, 4) * params->get(0, 4)) / ((1. + params->get(0, 5) * params->get(0, 5)) + (params->get(0, 4) * params->get(0, 4))), x) * TMath::Power((1. + params->get(0, 5) * params->get(0, 5)) / ((1. + params->get(0, 5) * params->get(0, 5)) + (params->get(0, 4) * params->get(0, 4))), (1. + params->get(0, 5) * params->get(0, 5))));
   }
 
   template <typename C>
@@ -147,11 +147,11 @@ struct Reducer {
   {
     weights.clear();
     weights.resize(mccollisions.size());
-    std::fill(weights.begin(), weights.end(), (float)-1.);
+    std::fill(weights.begin(), weights.end(), static_cast<float>(-1.));
     auto i = 0;
     LOGP(debug, ">>> {} MC collisions for BC", mccollisions.size());
     for (auto& mcc : mccollisions) {
-      auto value = (mcc.multMCNParticlesEta10() == 0) ? params->get((int)0, (int)0) : NormalizedDoubleNBD((double)mcc.multMCNParticlesEta10());
+      auto value = (mcc.multMCNParticlesEta10() == 0) ? params->get(0, 0) : NormalizedDoubleNBD((double)mcc.multMCNParticlesEta10());
       LOGP(debug, ">>> {} value for reduction (threshold {})", value, (float)reductionFactor);
       if (value < reductionFactor) {
         // if the fraction of events at this multiplicity is less than reduction factor, keep the event as is

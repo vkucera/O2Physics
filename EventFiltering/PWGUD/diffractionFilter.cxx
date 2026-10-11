@@ -95,7 +95,7 @@ struct DGFilterRun3 {
     }
 
     // cut holder
-    diffCuts = (DGCutparHolder)diffCutsHolder;
+    diffCuts = DGCutparHolder(diffCutsHolder);
 
     // create histograms
     // stat
