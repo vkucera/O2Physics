@@ -182,7 +182,7 @@ T getCompatibleBCs(aod::MFTTracks::iterator const& track, aod::Collision const& 
     // the previous minimum is actually bigger than the right boundary
 
     if (bcIt != bcs.begin()) {
-      --bcIt;                                                    // let's check the previous element in the BC list
+      --bcIt;                                           // let's check the previous element in the BC list
       if ((int64_t)bcIt.globalBC() < firstBC + deltaBC) // if this previous element is smaller than the left boundary
       {
         // means that the slice of compatible BCs is empty

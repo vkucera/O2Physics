@@ -132,7 +132,7 @@ struct tracksWGTInBCs {
           auto firstCompatibleBC = ambTracksSlice.begin().bc().begin().globalBC();
           LOGF(debug, "First compatible BC %d Track time %f", firstCompatibleBC, track.trackTime());
           closestBC = static_cast<uint64_t>(firstCompatibleBC +
-                                 (track.trackTime() / o2::constants::lhc::LHCBunchSpacingNS));
+                                            (track.trackTime() / o2::constants::lhc::LHCBunchSpacingNS));
         } else {
           // this track is not ambiguous, has hence a unique association to a collision/BC
           if (!track.has_collision()) {
@@ -216,7 +216,7 @@ struct tracksWGTInBCs {
           // compute the BC closest in time
           auto firstCompatibleBC = ambFwdTracksSlice.begin().bc().begin().globalBC();
           closestBC = static_cast<uint64_t>(firstCompatibleBC +
-                                 (fwdTrack.trackTime() / o2::constants::lhc::LHCBunchSpacingNS));
+                                            (fwdTrack.trackTime() / o2::constants::lhc::LHCBunchSpacingNS));
         } else {
           // this track is not ambiguous, has hence a unique association to a collision/BC
           if (!fwdTrack.has_collision()) {

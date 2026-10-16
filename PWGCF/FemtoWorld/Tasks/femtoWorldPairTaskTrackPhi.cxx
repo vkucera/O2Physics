@@ -97,11 +97,11 @@ struct femtoWorldPairTaskTrackPhi {
 
   /// Partition for particle 1 (proton)
   Partition<aod::FemtoWorldParticles> partsOne = (aod::femtoworldparticle::partType == static_cast<uint8_t>(aod::femtoworldparticle::ParticleType::kTrack)) && (aod::femtoworldparticle::pt < cfgPtHighPart1) && (aod::femtoworldparticle::pt > cfgPtLowPart1) // simple pT cuts
-                                                 && (aod::femtoworldparticle::eta < cfgEtaHighPart1) && (aod::femtoworldparticle::eta > cfgEtaLowPart1)                                                                                           // Eta cuts
-                                                 && (o2::aod::track::dcaXY < cfgDcaXYPart1) && (o2::aod::track::dcaZ < cfgDcaZPart1)                                                                                                              // DCA cuts for XY and Z
-                                                 && (aod::femtoworldparticle::tpcNClsFound > (uint8_t)cfgTpcClPart1)                                                                                                                              // Number of found TPC clusters
-                                                 && (aod::femtoworldparticle::tpcNClsCrossedRows > (uint8_t)cfgTpcCrosRoPart1)                                                                                                                    // Crossed rows TPC
-                                                 && (aod::femtoworldparticle::itsChi2NCl < cfgChi2ItsPart1) && (aod::femtoworldparticle::tpcChi2NCl < cfgChi2TpcPart1)                                                                            //&& // chi2 cuts
+                                                 && (aod::femtoworldparticle::eta < cfgEtaHighPart1) && (aod::femtoworldparticle::eta > cfgEtaLowPart1)                                                                                                        // Eta cuts
+                                                 && (o2::aod::track::dcaXY < cfgDcaXYPart1) && (o2::aod::track::dcaZ < cfgDcaZPart1)                                                                                                                           // DCA cuts for XY and Z
+                                                 && (aod::femtoworldparticle::tpcNClsFound > (uint8_t)cfgTpcClPart1)                                                                                                                                           // Number of found TPC clusters
+                                                 && (aod::femtoworldparticle::tpcNClsCrossedRows > (uint8_t)cfgTpcCrosRoPart1)                                                                                                                                 // Crossed rows TPC
+                                                 && (aod::femtoworldparticle::itsChi2NCl < cfgChi2ItsPart1) && (aod::femtoworldparticle::tpcChi2NCl < cfgChi2TpcPart1)                                                                                         //&& // chi2 cuts
                                                  && (aod::femtoworldparticle::sign > static_cast<int8_t>(0));
 
   /// Histogramming for particle 1
@@ -117,7 +117,7 @@ struct femtoWorldPairTaskTrackPhi {
 
   /// Partition for particle 2
   Partition<aod::FemtoWorldParticles> partsTwo = (aod::femtoworldparticle::partType == static_cast<uint8_t>(aod::femtoworldparticle::ParticleType::kPhi)) && (aod::femtoworldparticle::pt < cfgPtHighPart2) && (aod::femtoworldparticle::pt > cfgPtLowPart2) // pT cuts
-                                                 && (aod::femtoworldparticle::eta < cfgEtaHighPart2) && (aod::femtoworldparticle::eta > cfgEtaLowPart2);                                                                                        // Eta cuts
+                                                 && (aod::femtoworldparticle::eta < cfgEtaHighPart2) && (aod::femtoworldparticle::eta > cfgEtaLowPart2);                                                                                                     // Eta cuts
 
   /// Histogramming for particle 2
   FemtoWorldParticleHisto<aod::femtoworldparticle::ParticleType::kPhi, 0> trackHistoPartTwo;

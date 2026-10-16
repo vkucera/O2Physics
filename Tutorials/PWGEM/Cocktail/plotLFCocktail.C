@@ -35,7 +35,7 @@ void loadHistos(TFile* file, TH1F* hists[], const TString& name_extra, int rebin
 {
   for (int i = 0; i < nHists; i++) {
     hists[i] = static_cast<TH1F*>(file->GetDirectory("em-lmee-lf-cocktail")
-                 ->Get(TString("mee") + name_extra + histNames[i]));
+                                    ->Get(TString("mee") + name_extra + histNames[i]));
     hists[i]->Rebin(rebin);
     hists[i]->Scale(1. / nEvents);
     hists[i]->SetTitle(histLegends[i]);

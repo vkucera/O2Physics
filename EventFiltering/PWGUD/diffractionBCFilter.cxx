@@ -113,7 +113,7 @@ struct tracksWGTInBCs {
           if (atr.bc().size() > 0) {
             auto firstCompatibleBC = atr.bc().begin().globalBC();
             closestBC = static_cast<uint64_t>(firstCompatibleBC +
-                                   (track.trackTime() / o2::constants::lhc::LHCBunchSpacingNS));
+                                              (track.trackTime() / o2::constants::lhc::LHCBunchSpacingNS));
             // update tracksInBCList
             LOGF(debug, "closestBC %d", closestBC);
             tracksInBCList[closestBC].emplace_back(static_cast<int32_t>(track.globalIndex()));
@@ -196,7 +196,7 @@ struct tracksWGTInBCs {
           if (aftr.bc().size() > 0) {
             auto firstCompatibleBC = aftr.bc().begin().globalBC();
             closestBC = static_cast<uint64_t>(firstCompatibleBC +
-                                   (fwdTrack.trackTime() / o2::constants::lhc::LHCBunchSpacingNS));
+                                              (fwdTrack.trackTime() / o2::constants::lhc::LHCBunchSpacingNS));
 
             // update fwdTracksWGTInBCList
             LOGF(debug, "closestBC %d", closestBC);
