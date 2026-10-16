@@ -1396,8 +1396,8 @@ struct DptDptCorrelations {
     }
   }
 
-  Filter onlyacceptedcollisions = (aod::dptdptfilter::collisionaccepted == uint8_t(true));
-  Filter onlyacceptedtracks = (aod::dptdptfilter::trackacceptedid >= int8_t(0));
+  Filter onlyacceptedcollisions = (aod::dptdptfilter::collisionaccepted == static_cast<uint8_t>(true));
+  Filter onlyacceptedtracks = (aod::dptdptfilter::trackacceptedid >= static_cast<int8_t>(0));
 
   void processRecLevel(soa::Filtered<aod::DptDptCFAcceptedCollisions>::iterator const& collision, aod::BCsWithTimestamps const&, soa::Filtered<aod::ScannedTracks> const& tracks)
   {

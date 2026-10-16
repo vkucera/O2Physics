@@ -187,7 +187,7 @@ struct TableMakerMC {
   int fCurrentRun;            // needed to detect if the run changed and trigger update of calibrations etc.
 
   // TODO: filter on TPC dedx used temporarily until electron PID will be improved
-  Filter barrelSelectedTracks = ifnode(fIsRun2.node() == true, aod::track::trackType == uint8_t(aod::track::Run2Track), aod::track::trackType == uint8_t(aod::track::Track)) && o2::aod::track::pt >= fConfigBarrelTrackPtLow && nabs(o2::aod::track::eta) <= 0.9f;
+  Filter barrelSelectedTracks = ifnode(fIsRun2.node() == true, aod::track::trackType == static_cast<uint8_t>(aod::track::Run2Track), aod::track::trackType == static_cast<uint8_t>(aod::track::Track)) && o2::aod::track::pt >= fConfigBarrelTrackPtLow && nabs(o2::aod::track::eta) <= 0.9f;
 
   Filter muonFilter = o2::aod::fwdtrack::pt >= fConfigMuonPtLow;
 
@@ -578,7 +578,7 @@ struct TableMakerMC {
           int i = 0;
           for (auto& cut : fTrackCuts) {
             if (cut.IsSelected(VarManager::fgValues)) {
-              trackTempFilterMap |= (uint8_t(1) << i);
+              trackTempFilterMap |= (static_cast<uint8_t>(1) << i);
               if (fConfigQA) {
                 fHistMan->FillHistClass(Form("TrackBarrel_%s", cut.GetName()), VarManager::fgValues); // fill the reconstructed truth
                 if (fIsAmbiguous && isAmbiguous == 1) {
@@ -623,7 +623,7 @@ struct TableMakerMC {
               if (fDoDetailedQA) {
                 j = 0;
                 for (auto& cut : fTrackCuts) {
-                  if (trackTempFilterMap & (uint8_t(1) << j)) {
+                  if (trackTempFilterMap & (static_cast<uint8_t>(1) << j)) {
                     fHistMan->FillHistClass(Form("TrackBarrel_%s_%s", cut.GetName(), sig.GetName()), VarManager::fgValues); // fill the reconstructed truth
                   }
                   j++;
@@ -775,7 +775,7 @@ struct TableMakerMC {
           int i = 0;
           for (auto& cut : fMuonCuts) {
             if (cut.IsSelected(VarManager::fgValues)) {
-              trackTempFilterMap |= (uint8_t(1) << i);
+              trackTempFilterMap |= (static_cast<uint8_t>(1) << i);
             }
             i++;
           }
@@ -823,7 +823,7 @@ struct TableMakerMC {
           int i = 0;
           for (auto& cut : fMuonCuts) {
             if (cut.IsSelected(VarManager::fgValues)) {
-              trackTempFilterMap |= (uint8_t(1) << i);
+              trackTempFilterMap |= (static_cast<uint8_t>(1) << i);
               if (fIsAmbiguous && isAmbiguous == 1) {
                 fHistMan->FillHistClass(Form("Ambiguous_Muons_%s", cut.GetName()), VarManager::fgValues);
               }
@@ -847,7 +847,7 @@ struct TableMakerMC {
               if (fDoDetailedQA) {
                 j = 0;
                 for (auto& cut : fMuonCuts) {
-                  if (trackTempFilterMap & (uint8_t(1) << j)) {
+                  if (trackTempFilterMap & (static_cast<uint8_t>(1) << j)) {
                     fHistMan->FillHistClass(Form("Muons_%s_%s", cut.GetName(), sig.GetName()), VarManager::fgValues); // fill the reconstructed truth
                   }
                   j++;
@@ -1201,7 +1201,7 @@ struct TableMakerMC {
           int i = 0;
           for (auto& cut : fTrackCuts) {
             if (cut.IsSelected(VarManager::fgValues)) {
-              trackTempFilterMap |= (uint8_t(1) << i);
+              trackTempFilterMap |= (static_cast<uint8_t>(1) << i);
               if (fConfigQA) {
                 fHistMan->FillHistClass(Form("TrackBarrel_%s", cut.GetName()), VarManager::fgValues); // fill the reconstructed truth
                 if (fIsAmbiguous && isAmbiguous == 1) {
@@ -1246,7 +1246,7 @@ struct TableMakerMC {
               if (fDoDetailedQA) {
                 j = 0;
                 for (auto& cut : fTrackCuts) {
-                  if (trackTempFilterMap & (uint8_t(1) << j)) {
+                  if (trackTempFilterMap & (static_cast<uint8_t>(1) << j)) {
                     fHistMan->FillHistClass(Form("TrackBarrel_%s_%s", cut.GetName(), sig.GetName()), VarManager::fgValues); // fill the reconstructed truth
                   }
                   j++;
@@ -1334,7 +1334,7 @@ struct TableMakerMC {
           int i = 0;
           for (auto& cut : fMuonCuts) {
             if (cut.IsSelected(VarManager::fgValues)) {
-              trackTempFilterMap |= (uint8_t(1) << i);
+              trackTempFilterMap |= (static_cast<uint8_t>(1) << i);
             }
             i++;
           }
@@ -1379,7 +1379,7 @@ struct TableMakerMC {
           int i = 0;
           for (auto& cut : fMuonCuts) {
             if (cut.IsSelected(VarManager::fgValues)) {
-              trackTempFilterMap |= (uint8_t(1) << i);
+              trackTempFilterMap |= (static_cast<uint8_t>(1) << i);
               fHistMan->FillHistClass(Form("Muons_%s", cut.GetName()), VarManager::fgValues);
               if (fIsAmbiguous && isAmbiguous == 1) {
                 fHistMan->FillHistClass(Form("Ambiguous_Muons_%s", cut.GetName()), VarManager::fgValues);
@@ -1404,7 +1404,7 @@ struct TableMakerMC {
               if (fDoDetailedQA) {
                 j = 0;
                 for (auto& cut : fMuonCuts) {
-                  if (trackTempFilterMap & (uint8_t(1) << j)) {
+                  if (trackTempFilterMap & (static_cast<uint8_t>(1) << j)) {
                     fHistMan->FillHistClass(Form("Muons_%s_%s", cut.GetName(), sig.GetName()), VarManager::fgValues); // fill the reconstructed truth
                   }
                   j++;
@@ -1576,7 +1576,7 @@ struct TableMakerMC {
     fStatsList.setObject(new TList());
     fStatsList->SetOwner(kTRUE);
     std::vector<TString> eventLabels{"BCs", "Collisions before filtering", "Before cuts", "After cuts"};
-    TH2I* histEvents = new TH2I("EventStats", "Event statistics", eventLabels.size(), -0.5, eventLabels.size() - 0.5, (float)kNaliases + 1, -0.5, (float)kNaliases + 0.5);
+    TH2I* histEvents = new TH2I("EventStats", "Event statistics", eventLabels.size(), -0.5, eventLabels.size() - 0.5, static_cast<float>(kNaliases) + 1, -0.5, static_cast<float>(kNaliases) + 0.5);
     int ib = 1;
     for (auto label = eventLabels.begin(); label != eventLabels.end(); label++, ib++) {
       histEvents->GetXaxis()->SetBinLabel(ib, (*label).Data());

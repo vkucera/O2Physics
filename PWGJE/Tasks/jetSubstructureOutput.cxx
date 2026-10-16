@@ -96,7 +96,7 @@ struct JetSubstructureOutputTask {
 
   void init(InitContext const&)
   {
-    jetRadiiValues = (std::vector<double>)jetRadii;
+    jetRadiiValues = std::vector<double>(jetRadii);
   }
 
   Preslice<soa::Join<aod::ChargedSPs, aod::ChargedSPsMatchedToChargedEventWiseSubtractedSPs>> splittingsPerJetData = aod::chargedsplitting::jetId;

@@ -750,7 +750,7 @@ void defaultConfiguration()
   // ...
 
   // *) Toy NUA:
-  auto lApplyNUAPDF = (std::vector<int>)cf_nua.cfApplyNUAPDF;
+  auto lApplyNUAPDF = std::vector<int>(cf_nua.cfApplyNUAPDF);
   if (lApplyNUAPDF.size() != eNUAPDF_N) {
     LOGF(info, "\033[1;31m lApplyNUAPDF.size() = %d\033[0m", lApplyNUAPDF.size());
     LOGF(info, "\033[1;31m eNUAPDF_N = %d\033[0m", static_cast<int>(eNUAPDF_N));
@@ -764,7 +764,7 @@ void defaultConfiguration()
   // **) Execute the lines below, only if toy NUA (either default or custom) is requested for at least one kine variable:
   if (nua.fApplyNUAPDF[ePhiNUAPDF] || nua.fApplyNUAPDF[ePtNUAPDF] || nua.fApplyNUAPDF[eEtaNUAPDF] || nua.fApplyNUAPDF[eChargeNUAPDF]) {
 
-    auto lUseDefaultNUAPDF = (std::vector<int>)cf_nua.cfUseDefaultNUAPDF;
+    auto lUseDefaultNUAPDF = std::vector<int>(cf_nua.cfUseDefaultNUAPDF);
     if (lUseDefaultNUAPDF.size() != eNUAPDF_N) {
       LOGF(info, "\033[1;31m lUseDefaultNUAPDF.size() = %d\033[0m", lUseDefaultNUAPDF.size());
       LOGF(info, "\033[1;31m eNUAPDF_N = %d\033[0m", static_cast<int>(eNUAPDF_N));
@@ -787,7 +787,7 @@ void defaultConfiguration()
       nua.fFileWithCustomNUA = TString(cf_nua.cfFileWithCustomNUA);
 
       // *) histogram names with custom NUA distributions in that file + get those histograms immediately here:
-      auto lCustomNUAPDFHistNames = (std::vector<std::string>)cf_nua.cfCustomNUAPDFHistNames;
+      auto lCustomNUAPDFHistNames = std::vector<std::string>(cf_nua.cfCustomNUAPDFHistNames);
       // TBI 20241115 For some reason, the default values of configurable "cfCustomNUAPDFHistNames" are not correctly propagated in the local variables, but I can circumvent that with JSON settings for the time being
       if (lCustomNUAPDFHistNames.size() != eNUAPDF_N) {
         LOGF(info, "\033[1;31m lCustomNUAPDFHistNames.size() = %d\033[0m", lCustomNUAPDFHistNames.size());
@@ -1387,7 +1387,7 @@ void defaultBooking()
   ph.fBookParticleHistograms2D[ePhiEta] = alright(lBookParticleHistograms2D[ePhiEta]) && ph.fFillParticleHistograms2D;
 
   // e) Particle sparse histograms:
-  auto lRebinSparse = (std::vector<float>)cf_ph.cfRebinSparse;
+  auto lRebinSparse = std::vector<float>(cf_ph.cfRebinSparse);
 
   ph.fRebinSparse[eDWPhi][wPhiPhiAxis] = lRebinSparse[wPhiPhiAxis];
   ph.fRebinSparse[eDWPhi][wPhiPtAxis] = lRebinSparse[wPhiPtAxis];
@@ -2118,7 +2118,7 @@ void defaultCuts()
 
   // *) Use or do not use a cut enumerated in EEventHistograms + eEventCuts.
   //    Default cuts are set in configurable cfUseEventCuts
-  auto lUseEventCuts = (std::vector<std::string>)cf_ec.cfUseEventCuts;
+  auto lUseEventCuts = std::vector<std::string>(cf_ec.cfUseEventCuts);
   if (lUseEventCuts.size() != eEventCuts_N) {
     LOGF(info, "\033[1;31m lUseEventCuts.size() = %d\033[0m", lUseEventCuts.size());
     LOGF(info, "\033[1;31m eEventCuts_N = %d\033[0m", static_cast<int>(eEventCuts_N));
@@ -2218,15 +2218,15 @@ void defaultCuts()
   // **) event cuts defined via [min, max):
   //     Remark: I use this one also for events cuts set only via min or via max.
   //             In this case, I set either min or max intentionally to some value which never can be met (see below example for "MinVertexDistanceFromIP")
-  auto lNumberOfEvents = (std::vector<int>)cf_ec.cfNumberOfEvents;
+  auto lNumberOfEvents = std::vector<int>(cf_ec.cfNumberOfEvents);
   ec.fdEventCuts[eNumberOfEvents][eMin] = lNumberOfEvents[eMin];
   ec.fdEventCuts[eNumberOfEvents][eMax] = lNumberOfEvents[eMax];
 
-  auto lTotalMultiplicity = (std::vector<int>)cf_ec.cfTotalMultiplicity;
+  auto lTotalMultiplicity = std::vector<int>(cf_ec.cfTotalMultiplicity);
   ec.fdEventCuts[eTotalMultiplicity][eMin] = lTotalMultiplicity[eMin];
   ec.fdEventCuts[eTotalMultiplicity][eMax] = lTotalMultiplicity[eMax];
 
-  auto lMultiplicity = (std::vector<float>)cf_ec.cfMultiplicity;
+  auto lMultiplicity = std::vector<float>(cf_ec.cfMultiplicity);
   ec.fdEventCuts[eMultiplicity][eMin] = lMultiplicity[eMin];
   ec.fdEventCuts[eMultiplicity][eMax] = lMultiplicity[eMax];
   // If I have requested fFixedNumberOfRandomlySelectedTracks, then I do not care about events with smaller number of particles:
@@ -2234,55 +2234,55 @@ void defaultCuts()
     ec.fdEventCuts[eMultiplicity][eMin] = tc.fFixedNumberOfRandomlySelectedTracks;
   }
 
-  auto lReferenceMultiplicity = (std::vector<float>)cf_ec.cfReferenceMultiplicity;
+  auto lReferenceMultiplicity = std::vector<float>(cf_ec.cfReferenceMultiplicity);
   ec.fdEventCuts[eReferenceMultiplicity][eMin] = lReferenceMultiplicity[eMin];
   ec.fdEventCuts[eReferenceMultiplicity][eMax] = lReferenceMultiplicity[eMax];
 
-  auto lCentrality = (std::vector<float>)cf_ec.cfCentrality;
+  auto lCentrality = std::vector<float>(cf_ec.cfCentrality);
   ec.fdEventCuts[eCentrality][eMin] = lCentrality[eMin];
   ec.fdEventCuts[eCentrality][eMax] = lCentrality[eMax];
 
-  auto lVertexX = (std::vector<float>)cf_ec.cfVertexX;
+  auto lVertexX = std::vector<float>(cf_ec.cfVertexX);
   ec.fdEventCuts[eVertexX][eMin] = lVertexX[eMin];
   ec.fdEventCuts[eVertexX][eMax] = lVertexX[eMax];
 
-  auto lVertexY = (std::vector<float>)cf_ec.cfVertexY;
+  auto lVertexY = std::vector<float>(cf_ec.cfVertexY);
   ec.fdEventCuts[eVertexY][eMin] = lVertexY[eMin];
   ec.fdEventCuts[eVertexY][eMax] = lVertexY[eMax];
 
-  auto lVertexZ = (std::vector<float>)cf_ec.cfVertexZ;
+  auto lVertexZ = std::vector<float>(cf_ec.cfVertexZ);
   ec.fdEventCuts[eVertexZ][eMin] = lVertexZ[eMin];
   ec.fdEventCuts[eVertexZ][eMax] = lVertexZ[eMax];
 
-  auto lNContributors = (std::vector<int>)cf_ec.cfNContributors;
+  auto lNContributors = std::vector<int>(cf_ec.cfNContributors);
   ec.fdEventCuts[eNContributors][eMin] = lNContributors[eMin];
   ec.fdEventCuts[eNContributors][eMax] = lNContributors[eMax];
 
-  auto lImpactParameter = (std::vector<float>)cf_ec.cfImpactParameter;
+  auto lImpactParameter = std::vector<float>(cf_ec.cfImpactParameter);
   ec.fdEventCuts[eImpactParameter][eMin] = lImpactParameter[eMin];
   ec.fdEventCuts[eImpactParameter][eMax] = lImpactParameter[eMax];
 
-  auto lEventPlaneAngle = (std::vector<float>)cf_ec.cfEventPlaneAngle;
+  auto lEventPlaneAngle = std::vector<float>(cf_ec.cfEventPlaneAngle);
   ec.fdEventCuts[eEventPlaneAngle][eMin] = lEventPlaneAngle[eMin];
   ec.fdEventCuts[eEventPlaneAngle][eMax] = lEventPlaneAngle[eMax];
 
-  auto lOccupancy = (std::vector<float>)cf_ec.cfOccupancy;
+  auto lOccupancy = std::vector<float>(cf_ec.cfOccupancy);
   ec.fdEventCuts[eOccupancy][eMin] = lOccupancy[eMin];
   ec.fdEventCuts[eOccupancy][eMax] = lOccupancy[eMax];
 
-  auto lInteractionRate = (std::vector<float>)cf_ec.cfInteractionRate;
+  auto lInteractionRate = std::vector<float>(cf_ec.cfInteractionRate);
   ec.fdEventCuts[eInteractionRate][eMin] = lInteractionRate[eMin];
   ec.fdEventCuts[eInteractionRate][eMax] = lInteractionRate[eMax];
 
-  auto lCurrentRunDuration = (std::vector<float>)cf_ec.cfCurrentRunDuration;
+  auto lCurrentRunDuration = std::vector<float>(cf_ec.cfCurrentRunDuration);
   ec.fdEventCuts[eCurrentRunDuration][eMin] = lCurrentRunDuration[eMin];
   ec.fdEventCuts[eCurrentRunDuration][eMax] = lCurrentRunDuration[eMax];
 
-  auto lMultMCNParticlesEta08 = (std::vector<float>)cf_ec.cfMultMCNParticlesEta08;
+  auto lMultMCNParticlesEta08 = std::vector<float>(cf_ec.cfMultMCNParticlesEta08);
   ec.fdEventCuts[eMultMCNParticlesEta08][eMin] = lMultMCNParticlesEta08[eMin];
   ec.fdEventCuts[eMultMCNParticlesEta08][eMax] = lMultMCNParticlesEta08[eMax];
 
-  auto lSelectedEvents = (std::vector<int>)cf_ec.cfSelectedEvents;
+  auto lSelectedEvents = std::vector<int>(cf_ec.cfSelectedEvents);
   ec.fdEventCuts[eSelectedEvents][eMin] = lSelectedEvents[eMin];
   ec.fdEventCuts[eSelectedEvents][eMax] = lSelectedEvents[eMax];
 
@@ -2309,7 +2309,7 @@ void defaultCuts()
 
   // *) Use or do not use a cut enumerated in eParticleHistograms + eParticleCuts.
   //    Default cuts are set in configurable cfUseParticleCuts
-  auto lUseParticleCuts = (std::vector<std::string>)cf_pc.cfUseParticleCuts;
+  auto lUseParticleCuts = std::vector<std::string>(cf_pc.cfUseParticleCuts);
   if (lUseParticleCuts.size() != eParticleCuts_N) {
     LOGF(info, "\033[1;31m lUseParticleCuts.size() = %d\033[0m", lUseParticleCuts.size());
     LOGF(info, "\033[1;31m eParticleCuts_N = %d\033[0m", static_cast<int>(eParticleCuts_N));
@@ -2365,75 +2365,75 @@ void defaultCuts()
   pc.fUseParticleCuts[eisPVContributor] = pc.fUseParticleCuts[eisPVContributor] && cf_pc.cfisPVContributor;
 
   // **) particles cuts defined via [min, max):
-  auto lPhi = (std::vector<float>)cf_pc.cfPhi;
+  auto lPhi = std::vector<float>(cf_pc.cfPhi);
   pc.fdParticleCuts[ePhi][eMin] = lPhi[eMin];
   pc.fdParticleCuts[ePhi][eMax] = lPhi[eMax];
 
-  auto lPt = (std::vector<float>)cf_pc.cfPt;
+  auto lPt = std::vector<float>(cf_pc.cfPt);
   pc.fdParticleCuts[ePt][eMin] = lPt[eMin];
   pc.fdParticleCuts[ePt][eMax] = lPt[eMax];
 
-  auto lEta = (std::vector<float>)cf_pc.cfEta;
+  auto lEta = std::vector<float>(cf_pc.cfEta);
   pc.fdParticleCuts[eEta][eMin] = lEta[eMin];
   pc.fdParticleCuts[eEta][eMax] = lEta[eMax];
 
-  auto lCharge = (std::vector<float>)cf_pc.cfCharge;
+  auto lCharge = std::vector<float>(cf_pc.cfCharge);
   pc.fdParticleCuts[eCharge][eMin] = lCharge[eMin];
   pc.fdParticleCuts[eCharge][eMax] = lCharge[eMax];
 
-  auto ltpcNClsFindable = (std::vector<float>)cf_pc.cftpcNClsFindable;
+  auto ltpcNClsFindable = std::vector<float>(cf_pc.cftpcNClsFindable);
   pc.fdParticleCuts[etpcNClsFindable][eMin] = ltpcNClsFindable[eMin];
   pc.fdParticleCuts[etpcNClsFindable][eMax] = ltpcNClsFindable[eMax];
 
-  auto ltpcNClsShared = (std::vector<float>)cf_pc.cftpcNClsShared;
+  auto ltpcNClsShared = std::vector<float>(cf_pc.cftpcNClsShared);
   pc.fdParticleCuts[etpcNClsShared][eMin] = ltpcNClsShared[eMin];
   pc.fdParticleCuts[etpcNClsShared][eMax] = ltpcNClsShared[eMax];
 
-  auto litsChi2NCl = (std::vector<float>)cf_pc.cfitsChi2NCl;
+  auto litsChi2NCl = std::vector<float>(cf_pc.cfitsChi2NCl);
   pc.fdParticleCuts[eitsChi2NCl][eMin] = litsChi2NCl[eMin];
   pc.fdParticleCuts[eitsChi2NCl][eMax] = litsChi2NCl[eMax];
 
-  auto ltpcNClsFound = (std::vector<float>)cf_pc.cftpcNClsFound;
+  auto ltpcNClsFound = std::vector<float>(cf_pc.cftpcNClsFound);
   pc.fdParticleCuts[etpcNClsFound][eMin] = ltpcNClsFound[eMin];
   pc.fdParticleCuts[etpcNClsFound][eMax] = ltpcNClsFound[eMax];
 
-  auto ltpcNClsCrossedRows = (std::vector<float>)cf_pc.cftpcNClsCrossedRows;
+  auto ltpcNClsCrossedRows = std::vector<float>(cf_pc.cftpcNClsCrossedRows);
   pc.fdParticleCuts[etpcNClsCrossedRows][eMin] = ltpcNClsCrossedRows[eMin];
   pc.fdParticleCuts[etpcNClsCrossedRows][eMax] = ltpcNClsCrossedRows[eMax];
 
-  auto litsNCls = (std::vector<float>)cf_pc.cfitsNCls;
+  auto litsNCls = std::vector<float>(cf_pc.cfitsNCls);
   pc.fdParticleCuts[eitsNCls][eMin] = litsNCls[eMin];
   pc.fdParticleCuts[eitsNCls][eMax] = litsNCls[eMax];
 
-  auto litsNClsInnerBarrel = (std::vector<float>)cf_pc.cfitsNClsInnerBarrel;
+  auto litsNClsInnerBarrel = std::vector<float>(cf_pc.cfitsNClsInnerBarrel);
   pc.fdParticleCuts[eitsNClsInnerBarrel][eMin] = litsNClsInnerBarrel[eMin];
   pc.fdParticleCuts[eitsNClsInnerBarrel][eMax] = litsNClsInnerBarrel[eMax];
 
-  auto ltpcCrossedRowsOverFindableCls = (std::vector<float>)cf_pc.cftpcCrossedRowsOverFindableCls;
+  auto ltpcCrossedRowsOverFindableCls = std::vector<float>(cf_pc.cftpcCrossedRowsOverFindableCls);
   pc.fdParticleCuts[etpcCrossedRowsOverFindableCls][eMin] = ltpcCrossedRowsOverFindableCls[eMin];
   pc.fdParticleCuts[etpcCrossedRowsOverFindableCls][eMax] = ltpcCrossedRowsOverFindableCls[eMax];
 
-  auto ltpcFoundOverFindableCls = (std::vector<float>)cf_pc.cftpcFoundOverFindableCls;
+  auto ltpcFoundOverFindableCls = std::vector<float>(cf_pc.cftpcFoundOverFindableCls);
   pc.fdParticleCuts[etpcFoundOverFindableCls][eMin] = ltpcFoundOverFindableCls[eMin];
   pc.fdParticleCuts[etpcFoundOverFindableCls][eMax] = ltpcFoundOverFindableCls[eMax];
 
-  auto ltpcFractionSharedCls = (std::vector<float>)cf_pc.cftpcFractionSharedCls;
+  auto ltpcFractionSharedCls = std::vector<float>(cf_pc.cftpcFractionSharedCls);
   pc.fdParticleCuts[etpcFractionSharedCls][eMin] = ltpcFractionSharedCls[eMin];
   pc.fdParticleCuts[etpcFractionSharedCls][eMax] = ltpcFractionSharedCls[eMax];
 
-  auto ltpcChi2NCl = (std::vector<float>)cf_pc.cftpcChi2NCl;
+  auto ltpcChi2NCl = std::vector<float>(cf_pc.cftpcChi2NCl);
   pc.fdParticleCuts[etpcChi2NCl][eMin] = ltpcChi2NCl[eMin];
   pc.fdParticleCuts[etpcChi2NCl][eMax] = ltpcChi2NCl[eMax];
 
-  auto ldcaXY = (std::vector<float>)cf_pc.cfdcaXY;
+  auto ldcaXY = std::vector<float>(cf_pc.cfdcaXY);
   pc.fdParticleCuts[edcaXY][eMin] = ldcaXY[eMin];
   pc.fdParticleCuts[edcaXY][eMax] = ldcaXY[eMax];
 
-  auto ldcaZ = (std::vector<float>)cf_pc.cfdcaZ;
+  auto ldcaZ = std::vector<float>(cf_pc.cfdcaZ);
   pc.fdParticleCuts[edcaZ][eMin] = ldcaZ[eMin];
   pc.fdParticleCuts[edcaZ][eMax] = ldcaZ[eMax];
 
-  auto lPDG = (std::vector<float>)cf_pc.cfPDG;
+  auto lPDG = std::vector<float>(cf_pc.cfPDG);
   pc.fdParticleCuts[ePDG][eMin] = lPDG[eMin];
   pc.fdParticleCuts[ePDG][eMax] = lPDG[eMax];
 
@@ -6913,7 +6913,7 @@ void bookInternalValidationHistograms()
 
   // b) Book and fill container vn amplitudes:
   iv.fInternalValidationVnPsin[eVn] = new TArrayD(gMaxHarmonic);
-  auto lInternalValidationAmplitudes = (std::vector<float>)cf_iv.cfInternalValidationAmplitudes; // this is now the local version of that array from configurable
+  auto lInternalValidationAmplitudes = std::vector<float>(cf_iv.cfInternalValidationAmplitudes); // this is now the local version of that array from configurable
   if (lInternalValidationAmplitudes.size() < 1) {
     LOGF(fatal, "\033[1;31m%s at line %d : set at least one vn amplitude in array cfInternalValidationAmplitudes\n \033[0m", __FUNCTION__, __LINE__);
   }
@@ -6926,7 +6926,7 @@ void bookInternalValidationHistograms()
 
   // c) Book and fill container for Psin planes:
   iv.fInternalValidationVnPsin[ePsin] = new TArrayD(gMaxHarmonic);
-  auto lInternalValidationPlanes = (std::vector<float>)cf_iv.cfInternalValidationPlanes;
+  auto lInternalValidationPlanes = std::vector<float>(cf_iv.cfInternalValidationPlanes);
   if (lInternalValidationPlanes.size() < 1) {
     LOGF(fatal, "\033[1;31m%s at line : %d set at least one Psi plane in array cfInternalValidationPlanes\n \033[0m", __FUNCTION__, __LINE__);
   }
@@ -6941,7 +6941,7 @@ void bookInternalValidationHistograms()
   }
 
   // d) Handle multiplicity for internal validation:
-  auto lMultRangeInternalValidation = (std::vector<int>)cf_iv.cfMultRangeInternalValidation;
+  auto lMultRangeInternalValidation = std::vector<int>(cf_iv.cfMultRangeInternalValidation);
   iv.fMultRangeInternalValidation[eMin] = lMultRangeInternalValidation[eMin];
   iv.fMultRangeInternalValidation[eMax] = lMultRangeInternalValidation[eMax];
   if (iv.fMultRangeInternalValidation[eMin] >= iv.fMultRangeInternalValidation[eMax]) {

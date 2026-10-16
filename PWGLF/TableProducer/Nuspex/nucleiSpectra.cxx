@@ -513,7 +513,7 @@ struct nucleiSpectra {
     ccdb->setLocalObjectValidityChecking();
     ccdb->setFatalWhenNull(false);
 
-    const AxisSpec centAxis{cfgCentralityBins, fmt::format("{} percentile", (std::string)nuclei::centDetectorNames[cfgCentralityEstimator])};
+    const AxisSpec centAxis{cfgCentralityBins, fmt::format("{} percentile", std::string(nuclei::centDetectorNames[cfgCentralityEstimator]))};
     const AxisSpec nSigmaAxes[2]{{cfgNsigmaTPCbins, "n#sigma_{TPC}"}, {cfgNsigmaTOFbins, "n#sigma_{TOF}"}};
     const AxisSpec tofMassAxis{cfgTOFmassBins, "TOF mass - PDG mass"};
     const AxisSpec ptResAxis{cfgMomResBins, "#Delta#it{p}_{T}/#it{p}_{T}"};

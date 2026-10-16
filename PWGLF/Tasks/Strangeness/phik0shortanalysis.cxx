@@ -344,13 +344,13 @@ struct Phik0shortanalysis {
     AxisSpec deltaphiAxis = {72, -o2::constants::math::PIHalf, o2::constants::math::PIHalf * 3, "#Delta#varphi"};
     AxisSpec phiAxis = {629, 0, o2::constants::math::TwoPI, "#phi"};
     AxisSpec multAxis = {120, 0.0f, 120.0f, "centFT0M"};
-    AxisSpec binnedmultAxis{(std::vector<double>)binsMult, "centFT0M"};
+    AxisSpec binnedmultAxis{std::vector<double>(binsMult), "centFT0M"};
     AxisSpec pTPhiAxis = {120, 0.0f, 12.0f, "#it{p}_{T} (GeV/#it{c})"};
-    AxisSpec binnedpTPhiAxis{(std::vector<double>)binspTPhi, "#it{p}_{T} (GeV/#it{c})"};
+    AxisSpec binnedpTPhiAxis{std::vector<double>(binspTPhi), "#it{p}_{T} (GeV/#it{c})"};
     AxisSpec pTK0SAxis = {100, 0.0f, 10.0f, "#it{p}_{T} (GeV/#it{c})"};
-    AxisSpec binnedpTK0SAxis{(std::vector<double>)binspTK0S, "#it{p}_{T} (GeV/#it{c})"};
+    AxisSpec binnedpTK0SAxis{std::vector<double>(binspTK0S), "#it{p}_{T} (GeV/#it{c})"};
     AxisSpec pTPiAxis = {50, 0.0f, 5.0f, "#it{p}_{T} (GeV/#it{c})"};
-    AxisSpec binnedpTPiAxis{(std::vector<double>)binspTPi, "#it{p}_{T} (GeV/#it{c})"};
+    AxisSpec binnedpTPiAxis{std::vector<double>(binspTPi), "#it{p}_{T} (GeV/#it{c})"};
 
     // Histograms
     // Number of events per selection

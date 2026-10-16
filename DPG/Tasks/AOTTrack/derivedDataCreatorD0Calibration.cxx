@@ -537,7 +537,7 @@ struct DerivedDataCreatorD0Calibration {
                       collision.covYZ(),
                       collision.covZZ(),
                       collision.numContrib(),
-                      uint8_t(std::round(collision.centFT0C())),
+                      static_cast<uint8_t>(std::round(collision.centFT0C())),
                       getCompressedOccupancy(collision.trackOccupancyInTimeRange()),
                       getCompressedOccupancy(collision.ft0cOccupancyInTimeRange()),
                       eventIR.orbit,

@@ -108,7 +108,7 @@ struct UpcCandProducerSemiFwd {
 
   void init(InitContext&)
   {
-    fUpcCuts = (UPCCutparHolder)fUpcCutsConf;
+    fUpcCuts = UPCCutparHolder(fUpcCutsConf);
     if (fUpcCuts.getUseFwdCuts()) {
       fCCDB->setURL("http://alice-ccdb.cern.ch");
       fCCDB->setCaching(true);

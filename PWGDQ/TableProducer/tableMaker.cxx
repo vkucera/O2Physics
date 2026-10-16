@@ -236,7 +236,7 @@ struct TableMaker {
   int fCurrentRun;            // needed to detect if the run changed and trigger update of calibrations etc.
 
   // TODO: filter on TPC dedx used temporarily until electron PID will be improved
-  Filter barrelSelectedTracks = ifnode(fIsRun2.node() == true, aod::track::trackType == uint8_t(aod::track::Run2Track), aod::track::trackType == uint8_t(aod::track::Track)) && o2::aod::track::pt >= fConfigBarrelTrackPtLow && nabs(o2::aod::track::eta) <= fConfigBarrelTrackMaxAbsEta && o2::aod::track::tpcSignal >= configTpcSignal.fConfigMinTpcSignal && o2::aod::track::tpcSignal <= configTpcSignal.fConfigMaxTpcSignal && o2::aod::track::tpcChi2NCl < 4.0f && o2::aod::track::itsChi2NCl < 36.0f;
+  Filter barrelSelectedTracks = ifnode(fIsRun2.node() == true, aod::track::trackType == static_cast<uint8_t>(aod::track::Run2Track), aod::track::trackType == static_cast<uint8_t>(aod::track::Track)) && o2::aod::track::pt >= fConfigBarrelTrackPtLow && nabs(o2::aod::track::eta) <= fConfigBarrelTrackMaxAbsEta && o2::aod::track::tpcSignal >= configTpcSignal.fConfigMinTpcSignal && o2::aod::track::tpcSignal <= configTpcSignal.fConfigMaxTpcSignal && o2::aod::track::tpcChi2NCl < 4.0f && o2::aod::track::itsChi2NCl < 36.0f;
 
   Filter muonFilter = o2::aod::fwdtrack::pt >= fConfigMuonPtLow;
 
@@ -534,7 +534,7 @@ struct TableMaker {
         }
 
         trackFilteringTag = static_cast<uint64_t>(0);
-        trackTempFilterMap = uint8_t(0);
+        trackTempFilterMap = static_cast<uint8_t>(0);
         VarManager::FillTrack<TTrackFillMap>(track);
         if (fDoDetailedQA) {
           fHistMan->FillHistClass("TrackBarrel_BeforeCuts", VarManager::fgValues);
@@ -547,7 +547,7 @@ struct TableMaker {
         int i = 0;
         for (auto cut = fTrackCuts.begin(); cut != fTrackCuts.end(); cut++, i++) {
           if ((*cut).IsSelected(VarManager::fgValues)) {
-            trackTempFilterMap |= (uint8_t(1) << i);
+            trackTempFilterMap |= (static_cast<uint8_t>(1) << i);
             if (fConfigQA) {
               fHistMan->FillHistClass(Form("TrackBarrel_%s", (*cut).GetName()), VarManager::fgValues);
               if (fIsAmbiguous && isAmbiguous == 1) {
@@ -571,7 +571,7 @@ struct TableMaker {
         if constexpr (static_cast<bool>(TTrackFillMap & VarManager::ObjTypes::TrackV0Bits)) { // BIT0-4: V0Bits
           trackFilteringTag = static_cast<uint64_t>(track.pidbit());
           for (int iv0 = 0; iv0 < 5; iv0++) {
-            if (track.pidbit() & (uint8_t(1) << iv0)) {
+            if (track.pidbit() & (static_cast<uint8_t>(1) << iv0)) {
               (reinterpret_cast<TH1D*>(fStatsList->At(1)))->Fill(fTrackCuts.size() + static_cast<float>(iv0));
             }
           }
@@ -715,7 +715,7 @@ struct TableMaker {
         int i = 0;
         for (auto cut = fMuonCuts.begin(); cut != fMuonCuts.end(); cut++, i++) {
           if ((*cut).IsSelected(VarManager::fgValues))
-            trackTempFilterMap |= (uint8_t(1) << i);
+            trackTempFilterMap |= (static_cast<uint8_t>(1) << i);
         }
 
         if (!trackTempFilterMap) { // does not pass the cuts
@@ -738,8 +738,8 @@ struct TableMaker {
             }
           }
         }
-        fwdFilteringTag = uint8_t(0);
-        trackTempFilterMap = uint8_t(0);
+        fwdFilteringTag = static_cast<uint8_t>(0);
+        trackTempFilterMap = static_cast<uint8_t>(0);
 
         VarManager::FillTrack<TMuonFillMap>(muon);
 
@@ -759,7 +759,7 @@ struct TableMaker {
         int i = 0;
         for (auto cut = fMuonCuts.begin(); cut != fMuonCuts.end(); cut++, i++) {
           if ((*cut).IsSelected(VarManager::fgValues)) {
-            trackTempFilterMap |= (uint8_t(1) << i);
+            trackTempFilterMap |= (static_cast<uint8_t>(1) << i);
             if (fConfigQA) {
               fHistMan->FillHistClass(Form("Muons_%s", (*cut).GetName()), VarManager::fgValues);
               if (fIsAmbiguous && isAmbiguous == 1) {
@@ -775,7 +775,7 @@ struct TableMaker {
         // store the cut decisions
         trackFilteringTag = trackTempFilterMap; // BIT0-7:  user selection cuts
         if (fPropMuon) {
-          trackFilteringTag |= (uint8_t(1) << VarManager::kMuonIsPropagated); // store the info on whether the muon is propagated or not
+          trackFilteringTag |= (static_cast<uint8_t>(1) << VarManager::kMuonIsPropagated); // store the info on whether the muon is propagated or not
         }
 
         // update the matching MCH/MFT index
@@ -999,7 +999,7 @@ struct TableMaker {
           }
         }
         trackFilteringTag = static_cast<uint64_t>(0);
-        trackTempFilterMap = uint8_t(0);
+        trackTempFilterMap = static_cast<uint8_t>(0);
         VarManager::FillTrack<TTrackFillMap>(track);
         if (fDoDetailedQA) {
           fHistMan->FillHistClass("TrackBarrel_BeforeCuts", VarManager::fgValues);
@@ -1012,7 +1012,7 @@ struct TableMaker {
         int i = 0;
         for (auto cut = fTrackCuts.begin(); cut != fTrackCuts.end(); cut++, i++) {
           if ((*cut).IsSelected(VarManager::fgValues)) {
-            trackTempFilterMap |= (uint8_t(1) << i);
+            trackTempFilterMap |= (static_cast<uint8_t>(1) << i);
             if (fConfigQA) {
               fHistMan->FillHistClass(Form("TrackBarrel_%s", (*cut).GetName()), VarManager::fgValues);
               if (fIsAmbiguous && isAmbiguous == 1) {
@@ -1036,7 +1036,7 @@ struct TableMaker {
         if constexpr (static_cast<bool>(TTrackFillMap & VarManager::ObjTypes::TrackV0Bits)) { // BIT2-6: V0Bits
           trackFilteringTag |= (static_cast<uint64_t>(track.pidbit()) << 2);
           for (int iv0 = 0; iv0 < 5; iv0++) {
-            if (track.pidbit() & (uint8_t(1) << iv0)) {
+            if (track.pidbit() & (static_cast<uint8_t>(1) << iv0)) {
               (reinterpret_cast<TH1D*>(fStatsList->At(1)))->Fill(fTrackCuts.size() + static_cast<float>(iv0));
             }
           }
@@ -1133,7 +1133,7 @@ struct TableMaker {
         int i = 0;
         for (auto cut = fMuonCuts.begin(); cut != fMuonCuts.end(); cut++, i++) {
           if ((*cut).IsSelected(VarManager::fgValues))
-            trackTempFilterMap |= (uint8_t(1) << i);
+            trackTempFilterMap |= (static_cast<uint8_t>(1) << i);
         }
 
         if (!trackTempFilterMap) { // does not pass the cuts
@@ -1152,7 +1152,7 @@ struct TableMaker {
           }
         }
         trackFilteringTag = static_cast<uint64_t>(0);
-        trackTempFilterMap = uint8_t(0);
+        trackTempFilterMap = static_cast<uint8_t>(0);
 
         if constexpr (static_cast<bool>(TMuonFillMap & VarManager::ObjTypes::MuonRealign)) {
           if (static_cast<bool>(muon.isRemovable())) {
@@ -1179,7 +1179,7 @@ struct TableMaker {
         int i = 0;
         for (auto cut = fMuonCuts.begin(); cut != fMuonCuts.end(); cut++, i++) {
           if ((*cut).IsSelected(VarManager::fgValues)) {
-            trackTempFilterMap |= (uint8_t(1) << i);
+            trackTempFilterMap |= (static_cast<uint8_t>(1) << i);
             if (fConfigQA) {
               fHistMan->FillHistClass(Form("Muons_%s", (*cut).GetName()), VarManager::fgValues);
               if (fIsAmbiguous && isAmbiguous == 1) {
@@ -1196,7 +1196,7 @@ struct TableMaker {
         // store the cut decisions
         trackFilteringTag = trackTempFilterMap; // BIT0-7:  user selection cuts
         if (fPropMuon) {
-          trackFilteringTag |= (uint8_t(1) << VarManager::kMuonIsPropagated); // store the info on whether the muon is propagated or not
+          trackFilteringTag |= (static_cast<uint8_t>(1) << VarManager::kMuonIsPropagated); // store the info on whether the muon is propagated or not
         }
 
         // update the matching MCH/MFT index
@@ -1447,7 +1447,7 @@ struct TableMaker {
                                     soa::Filtered<MyBarrelTracksWithDalitzBits> const& tracksBarrel)
   {
     for (auto const& track : tracksBarrel) {
-      if (track.dalitzBits() != uint8_t(0)) {
+      if (track.dalitzBits() != static_cast<uint8_t>(0)) {
         fullSkimming<gkEventFillMapWithMult, gkTrackFillMapWithDalitzBits, 0u>(collision, bcs, tracksBarrel, nullptr, nullptr, nullptr);
         break;
       }
@@ -1460,12 +1460,12 @@ struct TableMaker {
   {
     for (auto const& track : tracksBarrel) {
       // check if this event has a Dalitz candidate
-      if (track.dalitzBits() != uint8_t(0)) {
+      if (track.dalitzBits() != static_cast<uint8_t>(0)) {
         fullSkimming<gkEventFillMapWithMult, gkTrackFillMapWithV0AndDalitzBits, 0u>(collision, bcs, tracksBarrel, nullptr, nullptr, nullptr);
         break;
       }
       // check if this event has a electron candidate from V0
-      if (track.pidbit() == uint8_t(1)) {
+      if (track.pidbit() == static_cast<uint8_t>(1)) {
         fullSkimming<gkEventFillMapWithMult, gkTrackFillMapWithV0AndDalitzBits, 0u>(collision, bcs, tracksBarrel, nullptr, nullptr, nullptr);
         break;
       }

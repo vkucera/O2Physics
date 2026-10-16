@@ -157,7 +157,7 @@ struct UpcCandProducer {
     fwdSelectors.resize(upchelpers::kNFwdSels - 1, false);
     barrelSelectors.resize(upchelpers::kNBarrelSels - 1, false);
 
-    upcCuts = (UPCCutparHolder)inputCuts;
+    upcCuts = UPCCutparHolder(inputCuts);
 
     // initialize RCT flag checker
     if (rctLabel.value != "none" && rctLabel.value != "muon" && rctLabel.value != "muon_glo") {

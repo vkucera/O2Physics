@@ -215,7 +215,7 @@ struct AmbiguousTrackPropagation {
       if ((track.trackCutFlag() & CtrackSelectionITS) != CtrackSelectionITS) {
         continue;
       }
-      if ((track.detectorMap() & (uint8_t)o2::aod::track::TPC) == (uint8_t)o2::aod::track::TPC) {
+      if ((track.detectorMap() & static_cast<uint8_t>(o2::aod::track::TPC)) == static_cast<uint8_t>(o2::aod::track::TPC)) {
         if ((track.trackCutFlag() & CtrackSelectionTPC) != CtrackSelectionTPC) {
           continue;
         }

@@ -227,7 +227,7 @@ struct HfTaskBplusReduced {
     const AxisSpec axisEta{100, -2., 2.};
     const AxisSpec axisRapidity{100, -2., 2.};
     const AxisSpec axisPtD0{100, 0., 50.};
-    const AxisSpec axisPtB{(std::vector<double>)binsPt, "#it{p}_{T}^{B^{+}} (GeV/#it{c})"};
+    const AxisSpec axisPtB{std::vector<double>(binsPt), "#it{p}_{T}^{B^{+}} (GeV/#it{c})"};
     const AxisSpec axisPtPi{100, 0.f, 10.f};
 
     if (doprocessData || doprocessDataWithDmesMl || doprocessDataWithBplusMl) {
@@ -288,7 +288,7 @@ struct HfTaskBplusReduced {
         registry.add("hPtProngsVsPtBGen", mcParticleMatched + "prong 0 #it{p}_{T}^{gen} (GeV/#it{c});prong 1 #it{p}_{T}^{gen} (GeV/#it{c});" + stringPt, {HistType::kTH3F, {axisPtProng, axisPtProng, axisPtB}});
         registry.add("hYProngsVsBplusGen", mcParticleMatched + "prong 0 #it{y}^{gen};prong 1 #it{y}^{gen};" + stringPt, {HistType::kTH3F, {axisRapidity, axisRapidity, axisPtB}});
         registry.add("hEtaProngsVsBplusGen", mcParticleMatched + "prong 0 #it{#eta}^{gen};prong 1 #it{#eta}^{gen};" + stringPt, {HistType::kTH3F, {axisEta, axisEta, axisPtB}});
-        registry.add("hYGenWithProngsInAcceptance", "MC particles (generated-daughters in acceptance);B^{+} candidate #it{y}^{gen};entries", {HistType::kTH2F, {{100, -2., 2.}, {(std::vector<double>)binsPt, "#it{p}_{T} (GeV/#it{c})"}}});
+        registry.add("hYGenWithProngsInAcceptance", "MC particles (generated-daughters in acceptance);B^{+} candidate #it{y}^{gen};entries", {HistType::kTH2F, {{100, -2., 2.}, {std::vector<double>(binsPt), "#it{p}_{T} (GeV/#it{c})"}}});
         // Reco Level - Signal
         registry.add("hPtRecSig", bPlusCandMatch + "candidate #it{p}_{T} (GeV/#it{c});" + entries, {HistType::kTH1F, {{300, 0., 30.}}});
         registry.add("hCpaRecSig", bPlusCandMatch + "candidate cosine of pointing angle;" + stringPt, {HistType::kTH2F, {axisCpa, axisPtB}});

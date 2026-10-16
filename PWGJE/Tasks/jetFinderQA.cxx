@@ -107,14 +107,14 @@ struct JetFinderQATask {
   {
     eventSelectionBits = jetderiveddatautilities::initialiseEventSelectionBits(static_cast<std::string>(eventSelections));
     trackSelection = jetderiveddatautilities::initialiseTrackSelection(static_cast<std::string>(trackSelections));
-    jetRadiiValues = (std::vector<double>)jetRadii;
+    jetRadiiValues = std::vector<double>(jetRadii);
 
     for (std::size_t iJetRadius = 0; iJetRadius < jetRadiiValues.size(); iJetRadius++) {
       filledJetRBoth.push_back(0.0);
       filledJetRLow.push_back(0.0);
       filledJetRHigh.push_back(0.0);
     }
-    auto jetRadiiBins = (std::vector<double>)jetRadii;
+    auto jetRadiiBins = std::vector<double>(jetRadii);
     if (jetRadiiBins.size() > 1) {
       jetRadiiBins.push_back(jetRadiiBins[jetRadiiBins.size() - 1] + (std::abs(jetRadiiBins[jetRadiiBins.size() - 1] - jetRadiiBins[jetRadiiBins.size() - 2])));
     } else {

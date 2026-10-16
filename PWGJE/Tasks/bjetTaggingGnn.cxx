@@ -246,7 +246,7 @@ struct BjetTaggingGnn {
 
   void init(InitContext const&)
   {
-    jetRadiiValues = (std::vector<double>)jetRadii;
+    jetRadiiValues = std::vector<double>(jetRadii);
 
     eventSelectionBits = jetderiveddatautilities::initialiseEventSelectionBits(static_cast<std::string>(eventSelections));
     eventSelectionBitsTVX = jetderiveddatautilities::initialiseEventSelectionBits("TVX");

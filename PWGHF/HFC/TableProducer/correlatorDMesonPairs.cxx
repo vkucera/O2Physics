@@ -409,7 +409,7 @@ struct HfCorrelatorDMesonPairs {
     }
 
     // Event mixing
-    AxisSpec axisPtHadron = {(std::vector<double>)binsPtHadron, "#it{p}_{T} Hadron (GeV/#it{c})"};
+    AxisSpec axisPtHadron = {std::vector<double>(binsPtHadron), "#it{p}_{T} Hadron (GeV/#it{c})"};
     AxisSpec const axisMultiplicity = {binsMultiplicity, "Multiplicity"};
     AxisSpec axisMultFT0M = {binsMultFT0M, "MultiplicityFT0M"};
     AxisSpec const axisPosZ = {binsZVtx, "PosZ"};

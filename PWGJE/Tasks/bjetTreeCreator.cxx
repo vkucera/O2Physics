@@ -294,9 +294,9 @@ struct BJetTreeCreator {
     // Seed the random number generator using current time
     std::srand(static_cast<unsigned int>(std::time(nullptr)));
 
-    jetRadiiValues = (std::vector<double>)jetRadii;
-    jetPtBinsReduction = (std::vector<double>)jetPtBins;
-    jetReductionFactorsPt = (std::vector<double>)jetReductionFactors;
+    jetRadiiValues = std::vector<double>(jetRadii);
+    jetPtBinsReduction = std::vector<double>(jetPtBins);
+    jetReductionFactorsPt = std::vector<double>(jetReductionFactors);
 
     eventSelectionBits = jetderiveddatautilities::initialiseEventSelectionBits(static_cast<std::string>(eventSelections));
 

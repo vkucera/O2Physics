@@ -163,11 +163,11 @@ T getCompatibleBCs(aod::MFTTracks::iterator const& track, aod::Collision const& 
   } else {
     // here bcIt.globalBC() >= firstBC + deltaBC
 
-    while (bcIt != bcs.begin() && (int64_t)bcIt.globalBC() >= (int64_t)firstBC + deltaBC) {
+    while (bcIt != bcs.begin() && (int64_t)bcIt.globalBC() >= firstBC + deltaBC) {
       minBCId = bcIt.globalIndex();
       --bcIt;
     }
-    if (bcIt == bcs.begin() && (int64_t)bcIt.globalBC() >= (int64_t)firstBC + deltaBC) {
+    if (bcIt == bcs.begin() && (int64_t)bcIt.globalBC() >= firstBC + deltaBC) {
       minBCId = bcIt.globalIndex();
     }
     ++bcIt; // retrieve the pointer which gave minBCId and minGlobalBC
@@ -178,12 +178,12 @@ T getCompatibleBCs(aod::MFTTracks::iterator const& track, aod::Collision const& 
 
   int64_t maxBCId = bcIt.globalIndex();
 
-  if ((int64_t)bcIt.globalBC() > (int64_t)lastBC + deltaBC) {
+  if ((int64_t)bcIt.globalBC() > lastBC + deltaBC) {
     // the previous minimum is actually bigger than the right boundary
 
     if (bcIt != bcs.begin()) {
       --bcIt;                                                    // let's check the previous element in the BC list
-      if ((int64_t)bcIt.globalBC() < (int64_t)firstBC + deltaBC) // if this previous element is smaller than the left boundary
+      if ((int64_t)bcIt.globalBC() < firstBC + deltaBC) // if this previous element is smaller than the left boundary
       {
         // means that the slice of compatible BCs is empty
 
@@ -192,18 +192,18 @@ T getCompatibleBCs(aod::MFTTracks::iterator const& track, aod::Collision const& 
     }
   }
 
-  if ((int64_t)bcIt.globalBC() < (int64_t)firstBC + deltaBC) {
+  if ((int64_t)bcIt.globalBC() < firstBC + deltaBC) {
     // the previous minimum is actually smaller than the right boundary
     ++bcIt;
 
-    if (bcIt != bcs.end() && ((int64_t)bcIt.globalBC() > (int64_t)lastBC + deltaBC)) {
+    if (bcIt != bcs.end() && ((int64_t)bcIt.globalBC() > lastBC + deltaBC)) {
       // check the following element
 
       return bcs.emptySlice();
     }
   }
 
-  while (bcIt != bcs.end() && (int64_t)bcIt.globalBC() <= (int64_t)lastBC + deltaBC) {
+  while (bcIt != bcs.end() && (int64_t)bcIt.globalBC() <= lastBC + deltaBC) {
     maxBCId = bcIt.globalIndex();
 
     ++bcIt;

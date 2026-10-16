@@ -359,7 +359,7 @@ struct FullJetSpectra {
     eventSelectionBits = jetderiveddatautilities::initialiseEventSelectionBits(static_cast<std::string>(eventSelections));
     triggerMaskBits = jetderiveddatautilities::initialiseTriggerMaskBits(triggerMasks);
     particleSelection = static_cast<std::string>(particleSelections);
-    jetRadiiValues = (std::vector<double>)jetRadii;
+    jetRadiiValues = std::vector<double>(jetRadii);
     doSumw2 = doMBGapTrigger;
     /*  if (doMcClosure) {
     // randGen.SetSeed(mcSplitSeed);
@@ -391,7 +391,7 @@ struct FullJetSpectra {
     for (std::size_t iJetRadius = 0; iJetRadius < jetRadiiValues.size(); iJetRadius++) {
       filledJetR.push_back(0.0);
     }
-    auto jetRadiiBins = (std::vector<double>)jetRadii;
+    auto jetRadiiBins = std::vector<double>(jetRadii);
     if (jetRadiiBins.size() > 1) {
       jetRadiiBins.push_back(jetRadiiBins[jetRadiiBins.size() - 1] + (std::abs(jetRadiiBins[jetRadiiBins.size() - 1] - jetRadiiBins[jetRadiiBins.size() - 2])));
     } else {
