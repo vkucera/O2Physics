@@ -1032,7 +1032,7 @@ struct lambdaspincorrderived {
       }
     }
 
-    const float dphi = deltaPhiMinusPiToPi((float)c1.lambdaPhi(), (float)c2.lambdaPhi());
+    const float dphi = deltaPhiMinusPiToPi(static_cast<float>(c1.lambdaPhi()), static_cast<float>(c2.lambdaPhi()));
     if (std::abs(dphi) > phiMix) {
       return false;
     }
@@ -2672,8 +2672,8 @@ struct lambdaspincorrderived {
     }
 
     // delta-phi window (wrapped)
-    const float dphi = deltaPhiMinusPiToPi((float)mcacc::lamPhi(candidate1),
-                                           (float)mcacc::lamPhi(candidate2));
+    const float dphi = deltaPhiMinusPiToPi(static_cast<float>(mcacc::lamPhi(candidate1)),
+                                           static_cast<float>(mcacc::lamPhi(candidate2)));
     if (std::abs(dphi) > phiMix) {
       return false;
     }

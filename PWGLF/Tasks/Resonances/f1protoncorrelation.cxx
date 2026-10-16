@@ -202,14 +202,14 @@ struct f1protoncorrelation {
     };
 
     sysCuts.clear();
-    sysCuts.reserve(1 + (size_t)nSysRand);
+    sysCuts.reserve(1 + static_cast<size_t>(nSysRand));
     sysCuts.push_back(def); // sysId=0
 
     std::unordered_set<uint32_t> used;
-    used.reserve((size_t)nSysRand * 2);
+    used.reserve(static_cast<size_t>(nSysRand) * 2);
     used.insert(0u); // all-default code
 
-    const int nPick = std::max(0, (int)nSysRand);
+    const int nPick = std::max(0, nSysRand.value);
     while (static_cast<int>(sysCuts.size()) < 1 + nPick) {
 
       std::array<int, 14> idx{};

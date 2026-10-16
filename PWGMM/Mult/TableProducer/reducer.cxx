@@ -123,7 +123,7 @@ struct Reducer {
   void init(InitContext const&)
   {
     randomgen.seed(rd());
-    LOGP(debug, ">>> Starting with params: {}, {}, {}, {}, {}, {}, {}", params->get(static_cast<int>(0), int(0)), params->get(static_cast<int>(0), 1), params->get(static_cast<int>(0), 2),
+    LOGP(debug, ">>> Starting with params: {}, {}, {}, {}, {}, {}, {}", params->get(static_cast<int>(0), static_cast<int>(0)), params->get(static_cast<int>(0), 1), params->get(static_cast<int>(0), 2),
          params->get(static_cast<int>(0), 3), params->get(static_cast<int>(0), 4), params->get(static_cast<int>(0), 5), params->get(static_cast<int>(0), 6));
     etabins = static_cast<std::vector<double>>(etaBins);
     phibins = static_cast<std::vector<double>>(phiBins);
@@ -153,7 +153,7 @@ struct Reducer {
     auto i = 0;
     LOGP(debug, ">>> {} MC collisions for BC", mccollisions.size());
     for (auto& mcc : mccollisions) {
-      auto value = (mcc.multMCNParticlesEta10() == 0) ? params->get(static_cast<int>(0), static_cast<int>(0)) : NormalizedDoubleNBD((double)mcc.multMCNParticlesEta10()); //     // NOLINT(readability-redundant-casting)
+      auto value = (mcc.multMCNParticlesEta10() == 0) ? params->get(static_cast<int>(0), static_cast<int>(0)) : NormalizedDoubleNBD(static_cast<double>(mcc.multMCNParticlesEta10())); //     // NOLINT(readability-redundant-casting)
       LOGP(debug, ">>> {} value for reduction (threshold {})", value, (float)reductionFactor);
       if (value < reductionFactor) {
         // if the fraction of events at this multiplicity is less than reduction factor, keep the event as is

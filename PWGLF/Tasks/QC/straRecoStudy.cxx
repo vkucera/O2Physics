@@ -357,8 +357,8 @@ struct straRecoStudy {
     histos.add("hEventSelection", "hEventSelection", kTH1F, {axisEventSelection});
 
     // Creation of axes
-    const AxisSpec axisVsPt{(int)NBinsPt, 0, MaxPt, "#it{p}_{T} (GeV/c)"};
-    const AxisSpec axisVsPtCoarse{(int)NBinsPtCoarse, 0, MaxPt, "#it{p}_{T} (GeV/c)"};
+    const AxisSpec axisVsPt{NBinsPt.value, 0, MaxPt, "#it{p}_{T} (GeV/c)"};
+    const AxisSpec axisVsPtCoarse{NBinsPtCoarse.value, 0, MaxPt, "#it{p}_{T} (GeV/c)"};
 
     const AxisSpec axisGammaMass{400, 0.000f, 0.400f, "Inv. Mass (GeV/c^{2})"};
     const AxisSpec axisK0ShortMass{400, 0.400f, 0.600f, "Inv. Mass (GeV/c^{2})"};

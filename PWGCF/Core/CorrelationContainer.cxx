@@ -423,7 +423,7 @@ void CorrelationContainer::getHistsZVtxMult(CorrelationContainer::CFStep step, F
 
   Int_t dimensions[] = {4, 0, 5, 3};
   THnBase* tmpTrackHist = sparse->ProjectionND(4, dimensions, "E");
-  *eventHist = (TH2*)mTriggerHist->getTHn(step)->Projection(1, 2); // NOTE the syntax is Projection(Y, X) --> produces a histogram where x = axis 2 (vertex) and y = axis 1 (multiplicity)
+  *eventHist = static_cast<TH2*>(mTriggerHist->getTHn(step)->Projection(1, 2)); // NOTE the syntax is Projection(Y, X) --> produces a histogram where x = axis 2 (vertex) and y = axis 1 (multiplicity)
   // convert to THn
   *trackHist = changeToThn(tmpTrackHist);
   delete tmpTrackHist;

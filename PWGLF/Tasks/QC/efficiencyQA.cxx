@@ -507,7 +507,7 @@ struct efficiencyQA {
       probe.collIndex = probeTrack.collisionId();
       if (probeTrack.has_collision()) {
         auto collisionIts = probeTrack.template collision_as<SelCollisions>();
-        probe.bcIndex = int64_t(collisionIts.bcId());
+        probe.bcIndex = static_cast<int64_t>(collisionIts.bcId());
       } else {
         continue; // TODO: check ambiguous tracks (?)
       }
