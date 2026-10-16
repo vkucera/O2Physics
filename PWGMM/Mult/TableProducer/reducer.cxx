@@ -149,7 +149,7 @@ struct Reducer {
   {
     weights.clear();
     weights.resize(mccollisions.size());
-    std::fill(weights.begin(), weights.end(), (float)-1.);
+    std::fill(weights.begin(), weights.end(), static_cast<float>(-1.));
     auto i = 0;
     LOGP(debug, ">>> {} MC collisions for BC", mccollisions.size());
     for (auto& mcc : mccollisions) {
