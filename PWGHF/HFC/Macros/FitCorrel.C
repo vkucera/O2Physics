@@ -187,12 +187,12 @@ void fitCorrelDs(const TString& cfgFileName = "config_CorrAnalysis.json")
   for (int iBinPtCand = 0; iBinPtCand < nBinsPtCand; iBinPtCand++) {
     for (int iBinPtHad = 0; iBinPtHad < nBinsPtHad; iBinPtHad++) {
       if (isReflected) {
-        hCorrPhi[iBinPtCand][iBinPtHad] = static_cast<TH1D*>(inFile->Get(Form("hCorrectedCorrReflected_PtCand%.0fto%.0f_PtAssoc%.0fto%.0f", binsPtCandIntervals[iBinPtCand], binsPtCandIntervals[iBinPtCand + 1], binsPtHadIntervals[iBinPtHad], binsPtHadIntervals[iBinPtHad + 1])));
+        hCorrPhi[iBinPtCand][iBinPtHad] = dynamic_cast<TH1D*>(inFile->Get(Form("hCorrectedCorrReflected_PtCand%.0fto%.0f_PtAssoc%.0fto%.0f", binsPtCandIntervals[iBinPtCand], binsPtCandIntervals[iBinPtCand + 1], binsPtHadIntervals[iBinPtHad], binsPtHadIntervals[iBinPtHad + 1])));
       } else {
-        hCorrPhi[iBinPtCand][iBinPtHad] = static_cast<TH1D*>(inFile->Get(Form("hCorrectedCorr_PtCand%.0fto%.0f_PtAssoc%.0fto%.0f", binsPtCandIntervals[iBinPtCand], binsPtCandIntervals[iBinPtCand + 1], binsPtHadIntervals[iBinPtHad], binsPtHadIntervals[iBinPtHad + 1])));
+        hCorrPhi[iBinPtCand][iBinPtHad] = dynamic_cast<TH1D*>(inFile->Get(Form("hCorrectedCorr_PtCand%.0fto%.0f_PtAssoc%.0fto%.0f", binsPtCandIntervals[iBinPtCand], binsPtCandIntervals[iBinPtCand + 1], binsPtHadIntervals[iBinPtHad], binsPtHadIntervals[iBinPtHad + 1])));
       }
 
-      corrFitter[iBinPtHad][iBinPtCand] = new DhCorrelationFitter(static_cast<TH1F*>(hCorrPhi[iBinPtCand][iBinPtHad]), fMin, fMax);
+      corrFitter[iBinPtHad][iBinPtCand] = new DhCorrelationFitter(reinterpret_cast<TH1F*>(hCorrPhi[iBinPtCand][iBinPtHad]), fMin, fMax); // FIXME
       corrFitter[iBinPtHad][iBinPtCand]->setHistoIsReflected(refl);
       corrFitter[iBinPtHad][iBinPtCand]->setFixBaseline(fixBase);
       corrFitter[iBinPtHad][iBinPtCand]->setBaselineUpOrDown(shiftBaseUp, shiftBaseDown);
@@ -238,8 +238,8 @@ void fitCorrelDs(const TString& cfgFileName = "config_CorrAnalysis.json")
       // draw systematic errors
       int const nBinsPhi = hCorrPhi[iBinPtCand][iBinPtHad]->GetNbinsX();
       if (drawSystematicErrors) {
-        hSystematicErrors[iBinPtCand][iBinPtHad] = static_cast<TH1F*>(inFileSystematicErrors->Get(Form("hSystematicErrorsMerged_PtBin%d_PtBinAssoc%d", iBinPtCand + 1, iBinPtHad + 1)));
-        hSystematicErrorsPlot[iBinPtCand][iBinPtHad] = static_cast<TH1D*>(hCorrPhi[iBinPtCand][iBinPtHad]->Clone(Form("hSystematicErrorsPlot_PtBin%d_PtBinAssoc%d", iBinPtCand + 1, iBinPtHad + 1)));
+        hSystematicErrors[iBinPtCand][iBinPtHad] = dynamic_cast<TH1F*>(inFileSystematicErrors->Get(Form("hSystematicErrorsMerged_PtBin%d_PtBinAssoc%d", iBinPtCand + 1, iBinPtHad + 1)));
+        hSystematicErrorsPlot[iBinPtCand][iBinPtHad] = dynamic_cast<TH1D*>(hCorrPhi[iBinPtCand][iBinPtHad]->Clone(Form("hSystematicErrorsPlot_PtBin%d_PtBinAssoc%d", iBinPtCand + 1, iBinPtHad + 1)));
         for (int iPhi = 0; iPhi < nBinsPhi; iPhi++) {
           if (sameSystematics) {
             hSystematicErrorsPlot[iBinPtCand][iBinPtHad]->SetBinError(iPhi + 1, hSystematicErrors[iBinPtCand][iBinPtHad]->GetBinContent(1) * hCorrPhi[iBinPtCand][iBinPtHad]->GetBinContent(iPhi + 1));
@@ -391,11 +391,11 @@ void fitCorrelDs(const TString& cfgFileName = "config_CorrAnalysis.json")
     hBaselin[iBinPtHad]->Draw();
 
     if (drawSystematicErrors) {
-      TH1F* hBaselinSyst = static_cast<TH1F*>(inFileFitSystematicErrors->Get(Form("hSystematicErrorsBaselinMerged_PtBinAssoc%d", iBinPtHad + 1)));
-      TH1F* hNSYieldSyst = static_cast<TH1F*>(inFileFitSystematicErrors->Get(Form("hSystematicErrorsNSYieldMerged_PtBinAssoc%d", iBinPtHad + 1)));
-      TH1F* hNSSigmaSyst = static_cast<TH1F*>(inFileFitSystematicErrors->Get(Form("hSystematicErrorsNSSigmaMerged_PtBinAssoc%d", iBinPtHad + 1)));
-      TH1F* hASYieldSyst = static_cast<TH1F*>(inFileFitSystematicErrors->Get(Form("hSystematicErrorsASYieldMerged_PtBinAssoc%d", iBinPtHad + 1)));
-      TH1F* hASSigmaSyst = static_cast<TH1F*>(inFileFitSystematicErrors->Get(Form("hSystematicErrorsASSigmaMerged_PtBinAssoc%d", iBinPtHad + 1)));
+      TH1F* hBaselinSyst = dynamic_cast<TH1F*>(inFileFitSystematicErrors->Get(Form("hSystematicErrorsBaselinMerged_PtBinAssoc%d", iBinPtHad + 1)));
+      TH1F* hNSYieldSyst = dynamic_cast<TH1F*>(inFileFitSystematicErrors->Get(Form("hSystematicErrorsNSYieldMerged_PtBinAssoc%d", iBinPtHad + 1)));
+      TH1F* hNSSigmaSyst = dynamic_cast<TH1F*>(inFileFitSystematicErrors->Get(Form("hSystematicErrorsNSSigmaMerged_PtBinAssoc%d", iBinPtHad + 1)));
+      TH1F* hASYieldSyst = dynamic_cast<TH1F*>(inFileFitSystematicErrors->Get(Form("hSystematicErrorsASYieldMerged_PtBinAssoc%d", iBinPtHad + 1)));
+      TH1F* hASSigmaSyst = dynamic_cast<TH1F*>(inFileFitSystematicErrors->Get(Form("hSystematicErrorsASSigmaMerged_PtBinAssoc%d", iBinPtHad + 1)));
 
       for (int iBinPtCand = 0; iBinPtCand < nBinsPtCand; iBinPtCand++) {
         hBaselinSyst->SetBinError(iBinPtCand + 1, hBaselinSyst->GetBinContent(iBinPtCand + 1) * hBaselin[iBinPtHad]->GetBinContent(iBinPtCand + 1));
