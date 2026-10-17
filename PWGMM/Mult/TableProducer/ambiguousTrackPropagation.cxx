@@ -161,7 +161,7 @@ struct AmbiguousTrackPropagation {
     runNumber = bc.runNumber();
 
     if (doprocessMFT || doprocessMFTReassoc || doprocessMFTReassoc3D) {
-      o2::field::MagneticField* field = static_cast<o2::field::MagneticField*>(TGeoGlobalMagField::Instance()->GetField());
+      o2::field::MagneticField* field = dynamic_cast<o2::field::MagneticField*>(TGeoGlobalMagField::Instance()->GetField());
       bZ = field->getBz(CcenterMFT);
       LOG(info) << "The field at the center of the MFT is bZ = " << bZ;
     }

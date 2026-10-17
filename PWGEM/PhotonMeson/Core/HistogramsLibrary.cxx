@@ -725,7 +725,7 @@ THashList* o2::aod::pwgem::photon::histogram::AddHistClass(THashList* list, cons
 {
   if (list->FindObject(histClass)) {
     LOGF(info, "HistogramsLibrary::AddHistClass(): Cannot add histogram class %s because it already exists.", histClass);
-    return static_cast<THashList*>(list->FindObject(histClass));
+    return dynamic_cast<THashList*>(list->FindObject(histClass));
   }
 
   auto* sublist = new THashList();

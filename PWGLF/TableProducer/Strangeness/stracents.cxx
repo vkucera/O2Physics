@@ -390,12 +390,12 @@ struct straCents {
             listCalib->Add(lCalibObjects_Multiplicity->Clone(Form("Multiplicity_%i", collision.runNumber())));
           }
 
-          hVtxZFV0A = static_cast<TProfile*>(lCalibObjects_Multiplicity->FindObject("hVtxZFV0A"));
-          hVtxZFT0A = static_cast<TProfile*>(lCalibObjects_Multiplicity->FindObject("hVtxZFT0A"));
-          hVtxZFT0C = static_cast<TProfile*>(lCalibObjects_Multiplicity->FindObject("hVtxZFT0C"));
-          hVtxZFDDA = static_cast<TProfile*>(lCalibObjects_Multiplicity->FindObject("hVtxZFDDA"));
-          hVtxZFDDC = static_cast<TProfile*>(lCalibObjects_Multiplicity->FindObject("hVtxZFDDC"));
-          hVtxZNTracks = static_cast<TProfile*>(lCalibObjects_Multiplicity->FindObject("hVtxZNTracksPV"));
+          hVtxZFV0A = dynamic_cast<TProfile*>(lCalibObjects_Multiplicity->FindObject("hVtxZFV0A"));
+          hVtxZFT0A = dynamic_cast<TProfile*>(lCalibObjects_Multiplicity->FindObject("hVtxZFT0A"));
+          hVtxZFT0C = dynamic_cast<TProfile*>(lCalibObjects_Multiplicity->FindObject("hVtxZFT0C"));
+          hVtxZFDDA = dynamic_cast<TProfile*>(lCalibObjects_Multiplicity->FindObject("hVtxZFDDA"));
+          hVtxZFDDC = dynamic_cast<TProfile*>(lCalibObjects_Multiplicity->FindObject("hVtxZFDDC"));
+          hVtxZNTracks = dynamic_cast<TProfile*>(lCalibObjects_Multiplicity->FindObject("hVtxZNTracksPV"));
           lCalibLoaded = true;
           // Capture error
           if (!hVtxZFV0A || !hVtxZFT0A || !hVtxZFT0C || !hVtxZFDDA || !hVtxZFDDC || !hVtxZNTracks) {

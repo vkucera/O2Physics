@@ -1160,7 +1160,7 @@ struct Phik0shortanalysis {
 
     for (size_t multIdx = 0; multIdx < binsMult->size() - 1; multIdx++) {
       for (size_t ptIdx = 0; ptIdx < binspTPhi->size() - 1; ptIdx++) {
-        phiPurityFunctions[multIdx][ptIdx] = static_cast<TF1*>(listPhiPurityFunctions->FindObject(Form("funcFitPhiPur_%zu_%zu", multIdx, ptIdx)));
+        phiPurityFunctions[multIdx][ptIdx] = dynamic_cast<TF1*>(listPhiPurityFunctions->FindObject(Form("funcFitPhiPur_%zu_%zu", multIdx, ptIdx)));
       }
     }
   }
@@ -1199,22 +1199,22 @@ struct Phik0shortanalysis {
     if (!listEfficiencyMaps)
       LOG(error) << "Problem getting TList object with efficiency maps!";
 
-    effMapPhi = static_cast<TH3F*>(listEfficiencyMaps->FindObject("h3EfficiencyPhi"));
+    effMapPhi = dynamic_cast<TH3F*>(listEfficiencyMaps->FindObject("h3EfficiencyPhi"));
     if (!effMapPhi) {
       LOG(error) << "Problem getting efficiency map for Phi!";
       return;
     }
-    effMapK0S = static_cast<TH3F*>(listEfficiencyMaps->FindObject("h3EfficiencyK0S"));
+    effMapK0S = dynamic_cast<TH3F*>(listEfficiencyMaps->FindObject("h3EfficiencyK0S"));
     if (!effMapK0S) {
       LOG(error) << "Problem getting efficiency map for K0S!";
       return;
     }
-    effMapPionTPC = static_cast<TH3F*>(listEfficiencyMaps->FindObject("h3EfficiencyPionTPC"));
+    effMapPionTPC = dynamic_cast<TH3F*>(listEfficiencyMaps->FindObject("h3EfficiencyPionTPC"));
     if (!effMapPionTPC) {
       LOG(error) << "Problem getting efficiency map for Pion with TPC!";
       return;
     }
-    effMapPionTPCTOF = static_cast<TH3F*>(listEfficiencyMaps->FindObject("h3EfficiencyPionTPCTOF"));
+    effMapPionTPCTOF = dynamic_cast<TH3F*>(listEfficiencyMaps->FindObject("h3EfficiencyPionTPCTOF"));
     if (!effMapPionTPCTOF) {
       LOG(error) << "Problem getting efficiency map for Pion with TPC and TOF!";
       return;

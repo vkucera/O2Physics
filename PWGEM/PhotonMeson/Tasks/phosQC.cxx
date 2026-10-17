@@ -113,8 +113,8 @@ struct phosQC {
 
   void processQC(MyCollisions const& collisions, aod::PHOSClusters const& clusters)
   {
-    THashList* list_ev = static_cast<THashList*>(fMainList->FindObject("Event"));
-    THashList* list_cluster = static_cast<THashList*>(fMainList->FindObject("Cluster"));
+    THashList* list_ev = dynamic_cast<THashList*>(fMainList->FindObject("Event"));
+    THashList* list_cluster = dynamic_cast<THashList*>(fMainList->FindObject("Cluster"));
 
     for (auto& collision : collisions) {
 
@@ -142,7 +142,7 @@ struct phosQC {
 
       auto clusters_per_coll = clusters.sliceBy(perCollision, collision.collisionId());
       for (const auto& cut : fPHOSCuts) {
-        THashList* list_cluster_cut = static_cast<THashList*>(list_cluster->FindObject(cut.getName().c_str()));
+        THashList* list_cluster_cut = dynamic_cast<THashList*>(list_cluster->FindObject(cut.getName().c_str()));
         int ng = 0;
         for (auto& cluster : clusters_per_coll) {
 

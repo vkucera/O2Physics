@@ -206,7 +206,7 @@ void CorrelationContainer::Copy(TObject& c) const
 {
   // copy function
 
-  CorrelationContainer& target = static_cast<CorrelationContainer&>(c);
+  CorrelationContainer& target = dynamic_cast<CorrelationContainer&>(c);
 
   if (mPairHist) {
     target.mPairHist = dynamic_cast<StepTHn*>(mPairHist->Clone());
@@ -728,7 +728,7 @@ TH2* CorrelationContainer::getSumOfRatios(CorrelationContainer* mixed, Correlati
         */
 
         if (!totalTracks) {
-          totalTracks = static_cast<TH2*>(tracksSame->Clone("totalTracks"));
+          totalTracks = dynamic_cast<TH2*>(tracksSame->Clone("totalTracks"));
         } else {
           totalTracks->Add(tracksSame);
         }
@@ -836,7 +836,7 @@ THnBase* CorrelationContainer::getTrackEfficiencyND(EfficiencyStep step1, Effici
   resetBinLimits(sourceContainer->getTHn(step1));
   resetBinLimits(sourceContainer->getTHn(step2));
 
-  THnBase* clone = static_cast<THnBase*>(measured->Clone());
+  THnBase* clone = dynamic_cast<THnBase*>(measured->Clone());
 
   clone->Divide(measured, generated, 1, 1, "B");
 
@@ -1010,7 +1010,7 @@ TH1* CorrelationContainer::getTrackEfficiency(EfficiencyStep step1, EfficiencySt
         measured = new TH2D(Form("%s_rebinned", tmp->GetName()), tmp->GetTitle(), axis->GetNbins(), axis->GetXbins()->GetArray(), tmp->GetNbinsY(), tmp->GetYaxis()->GetXbins()->GetArray());
         for (Int_t x = 1; x <= tmp->GetNbinsX(); x++) {
           for (Int_t y = 1; y <= tmp->GetNbinsY(); y++) {
-            (static_cast<TH2*>(measured))->Fill(tmp->GetXaxis()->GetBinCenter(x), tmp->GetYaxis()->GetBinCenter(y), tmp->GetBinContent(x, y));
+            (dynamic_cast<TH2*>(measured))->Fill(tmp->GetXaxis()->GetBinCenter(x), tmp->GetYaxis()->GetBinCenter(y), tmp->GetBinContent(x, y));
             measured->SetBinError(x, y, 0); // cannot trust bin error, set to 0
           }
         }
@@ -1020,7 +1020,7 @@ TH1* CorrelationContainer::getTrackEfficiency(EfficiencyStep step1, EfficiencySt
         generated = new TH2D(Form("%s_rebinned", tmp->GetName()), tmp->GetTitle(), axis->GetNbins(), axis->GetXbins()->GetArray(), tmp->GetNbinsY(), tmp->GetYaxis()->GetXbins()->GetArray());
         for (Int_t x = 1; x <= tmp->GetNbinsX(); x++) {
           for (Int_t y = 1; y <= tmp->GetNbinsY(); y++) {
-            (static_cast<TH2*>(generated))->Fill(tmp->GetXaxis()->GetBinCenter(x), tmp->GetYaxis()->GetBinCenter(y), tmp->GetBinContent(x, y));
+            (dynamic_cast<TH2*>(generated))->Fill(tmp->GetXaxis()->GetBinCenter(x), tmp->GetYaxis()->GetBinCenter(y), tmp->GetBinContent(x, y));
             generated->SetBinError(x, y, 0); // cannot trust bin error, set to 0
           }
         }
@@ -1430,7 +1430,7 @@ void CorrelationContainer::symmetrizepTBins()
     }
 
     // for symmetric bins
-    THnBase* source = static_cast<THnBase*>(target->Clone());
+    THnBase* source = dynamic_cast<THnBase*>(target->Clone());
 
     // axes: 0 delta eta; 1 pT,a; 2 pT,t; 3 centrality; 4 delta phi; 5 vtx-z
     for (Int_t i3 = 1; i3 <= target->GetAxis(3)->GetNbins(); i3++) {

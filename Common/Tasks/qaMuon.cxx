@@ -2356,9 +2356,9 @@ struct muonQa {
         base::Propagator::initFieldFromGRP(grpmag);
         TrackExtrap::setField();
         TrackExtrap::useExtrapV2();
-        fieldB = static_cast<o2::field::MagneticField*>(TGeoGlobalMagField::Instance()->GetField()); // for MFT
-        double centerMFT[3] = {0, 0, -61.4};                                                         // or use middle point between Vtx and MFT?
-        Bz = fieldB->getBz(centerMFT);                                                               // Get field at centre of MFT
+        fieldB = dynamic_cast<o2::field::MagneticField*>(TGeoGlobalMagField::Instance()->GetField()); // for MFT
+        double centerMFT[3] = {0, 0, -61.4};                                                          // or use middle point between Vtx and MFT?
+        Bz = fieldB->getBz(centerMFT);                                                                // Get field at centre of MFT
       } else {
         LOGF(fatal, "GRP object is not available in CCDB at timestamp=%llu", bcs.begin().timestamp());
       }

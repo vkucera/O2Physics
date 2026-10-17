@@ -501,12 +501,12 @@ struct AnalysisEnergyCorrelator {
     if (!listAccs) {
       LOG(fatal) << "Problem getting TList object with efficiencies!";
     }
-    hEfficiency_dilepton = static_cast<TH2F*>(listAccs->FindObject("hEfficiency_dilepton"));
-    hEfficiency_hadron = static_cast<TH2F*>(listAccs->FindObject("hEfficiency_hadron"));
-    hAcceptance_rec = static_cast<TH2F*>(listAccs->FindObject("hAcceptance_rec"));
-    hAcceptance_gen = static_cast<TH2F*>(listAccs->FindObject("hAcceptance_gen"));
-    hMasswindow = static_cast<TH1F*>(listAccs->FindObject("hMasswindow"));
-    hReweighthadron = static_cast<TH2F*>(listAccs->FindObject("hReweighthadron"));
+    hEfficiency_dilepton = dynamic_cast<TH2F*>(listAccs->FindObject("hEfficiency_dilepton"));
+    hEfficiency_hadron = dynamic_cast<TH2F*>(listAccs->FindObject("hEfficiency_hadron"));
+    hAcceptance_rec = dynamic_cast<TH2F*>(listAccs->FindObject("hAcceptance_rec"));
+    hAcceptance_gen = dynamic_cast<TH2F*>(listAccs->FindObject("hAcceptance_gen"));
+    hMasswindow = dynamic_cast<TH1F*>(listAccs->FindObject("hMasswindow"));
+    hReweighthadron = dynamic_cast<TH2F*>(listAccs->FindObject("hReweighthadron"));
     if (!hAcceptance_rec || !hAcceptance_gen || !hEfficiency_dilepton || !hEfficiency_hadron || !hMasswindow || !hReweighthadron) {
       LOG(fatal) << "Problem getting histograms from the TList object with efficiencies!";
     }

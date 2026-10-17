@@ -658,11 +658,11 @@ struct DalitzSelection {
         auto trackCut = fTrackCuts.begin();
         for (auto pairCut = fPairCuts.begin(); pairCut != fPairCuts.end(); pairCut++, trackCut++, icut++) {
           if (filterMap & (uint8_t(1) << icut)) {
-            static_cast<TH1I*>(fStatsList->At(0))->Fill(fIsTagAndProbe ? 2 * icut + 1 : icut + 1);
+            dynamic_cast<TH1I*>(fStatsList->At(0))->Fill(fIsTagAndProbe ? 2 * icut + 1 : icut + 1);
             fHistMan->FillHistClass(fIsTagAndProbe ? Form("TrackBarrelTag_%s_%s_%s", (*trackCut).GetName(), fTrackCutsProbe.at(icut).GetName(), (*pairCut).GetName()) : Form("TrackBarrel_%s_%s", (*trackCut).GetName(), (*pairCut).GetName()), static_cast<float*>(VarManager::fgValues));
           }
           if (filterMapProbe & (uint8_t(1) << icut)) {
-            static_cast<TH1I*>(fStatsList->At(0))->Fill(2 * icut + 2);
+            dynamic_cast<TH1I*>(fStatsList->At(0))->Fill(2 * icut + 2);
             fHistMan->FillHistClass(Form("TrackBarrelProbe_%s_%s_%s", (*trackCut).GetName(), fTrackCutsProbe.at(icut).GetName(), (*pairCut).GetName()), static_cast<float*>(VarManager::fgValues));
           }
         }
@@ -821,7 +821,7 @@ struct DalitzSelection {
       bool isEventSelected = fEventCut->IsSelected(static_cast<float*>(VarManager::fgValues));
 
       if (isEventSelected) {
-        static_cast<TH1I*>(fStatsList->At(0))->Fill(0);
+        dynamic_cast<TH1I*>(fStatsList->At(0))->Fill(0);
 
         auto bc = collision.template bc_as<aod::BCsWithTimestamps>();
 
@@ -896,7 +896,7 @@ struct DalitzSelection {
 
       if (isEventSelected) {
 
-        static_cast<TH1I*>(fStatsList->At(0))->Fill(0);
+        dynamic_cast<TH1I*>(fStatsList->At(0))->Fill(0);
 
         auto bc = collision.template bc_as<aod::BCsWithTimestamps>();
 
@@ -971,7 +971,7 @@ struct DalitzSelection {
 
       if (isEventSelected) {
 
-        static_cast<TH1I*>(fStatsList->At(0))->Fill(0);
+        dynamic_cast<TH1I*>(fStatsList->At(0))->Fill(0);
 
         auto bc = collision.template bc_as<aod::BCsWithTimestamps>();
 

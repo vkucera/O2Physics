@@ -425,11 +425,11 @@ void EventSelectionFilterAndAnalysis::ComplexBrickHelper::armedBrick(uint64_t& a
     if (deflst.GetEntries() > 1) {
       LOGF(fatal, "EventSelectionFilterAndAnalysis::Filter() expected only one default multiplicity class estimator");
     }
-    armedBrick(static_cast<CutBrick<float>*>(deflst.At(0)), true);
+    armedBrick(dynamic_cast<CutBrick<float>*>(deflst.At(0)), true);
     /* and now the variants */
     TList& varlst = dynamic_cast<CutWithVariations<float>*>(mBrick)->getVariantBricks();
     for (int i = 0; i < varlst.GetEntries(); ++i) {
-      armedBrick(static_cast<CutBrick<float>*>(varlst.At(i)), true);
+      armedBrick(dynamic_cast<CutBrick<float>*>(varlst.At(i)), true);
     }
   } else {
     /* no alternative estimators, just the default */

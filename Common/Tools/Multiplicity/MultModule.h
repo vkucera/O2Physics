@@ -688,14 +688,14 @@ class MultModule
         }
 
         if (lCalibObjects) {
-          hVtxZFV0A = static_cast<TProfile*>(lCalibObjects->FindObject("hVtxZFV0A"));
-          hVtxZFT0A = static_cast<TProfile*>(lCalibObjects->FindObject("hVtxZFT0A"));
-          hVtxZFT0C = static_cast<TProfile*>(lCalibObjects->FindObject("hVtxZFT0C"));
-          hVtxZFDDA = static_cast<TProfile*>(lCalibObjects->FindObject("hVtxZFDDA"));
-          hVtxZFDDC = static_cast<TProfile*>(lCalibObjects->FindObject("hVtxZFDDC"));
-          hVtxZNTracks = static_cast<TProfile*>(lCalibObjects->FindObject("hVtxZNTracksPV"));
-          hVtxZNMFTTracks = static_cast<TProfile*>(lCalibObjects->FindObject("hVtxZMFT"));
-          hVtxZNGlobalTracks = static_cast<TProfile*>(lCalibObjects->FindObject("hVtxZNGlobals"));
+          hVtxZFV0A = dynamic_cast<TProfile*>(lCalibObjects->FindObject("hVtxZFV0A"));
+          hVtxZFT0A = dynamic_cast<TProfile*>(lCalibObjects->FindObject("hVtxZFT0A"));
+          hVtxZFT0C = dynamic_cast<TProfile*>(lCalibObjects->FindObject("hVtxZFT0C"));
+          hVtxZFDDA = dynamic_cast<TProfile*>(lCalibObjects->FindObject("hVtxZFDDA"));
+          hVtxZFDDC = dynamic_cast<TProfile*>(lCalibObjects->FindObject("hVtxZFDDC"));
+          hVtxZNTracks = dynamic_cast<TProfile*>(lCalibObjects->FindObject("hVtxZNTracksPV"));
+          hVtxZNMFTTracks = dynamic_cast<TProfile*>(lCalibObjects->FindObject("hVtxZMFT"));
+          hVtxZNGlobalTracks = dynamic_cast<TProfile*>(lCalibObjects->FindObject("hVtxZNGlobals"));
           lCalibLoaded = true;
           // Capture error
           if (!hVtxZFV0A || !hVtxZFT0A || !hVtxZFT0C || !hVtxZFDDA || !hVtxZFDDC || !hVtxZNTracks) {

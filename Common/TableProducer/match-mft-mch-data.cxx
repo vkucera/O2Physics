@@ -643,7 +643,7 @@ struct match_mft_mch_data_mc {
       ccdbManager->get<TGeoManager>(geoPath);
     }
     o2::mch::TrackExtrap::setField();
-    fieldB = static_cast<o2::field::MagneticField*>(TGeoGlobalMagField::Instance()->GetField());
+    fieldB = dynamic_cast<o2::field::MagneticField*>(TGeoGlobalMagField::Instance()->GetField());
   }
 
   void init(o2::framework::InitContext&)
