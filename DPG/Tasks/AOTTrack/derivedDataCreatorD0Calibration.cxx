@@ -152,7 +152,7 @@ struct DerivedDataCreatorD0Calibration {
     ccdb->setLocalObjectValidityChecking();
 
     if (cfgDownsampling.apply) {
-      histDownSampl.setObject(reinterpret_cast<TH1D*>(ccdb->getSpecific<TH1D>(cfgDownsampling.pathCcdbWeights)));
+      histDownSampl.setObject(static_cast<TH1D*>(ccdb->getSpecific<TH1D>(cfgDownsampling.pathCcdbWeights)));
     }
 
     if (cfgMl.apply) {

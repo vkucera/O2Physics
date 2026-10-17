@@ -1098,11 +1098,11 @@ class MultModule
       Run2CL1Info.mCalibrationStored = false;
       if (callst != nullptr) {
         auto getccdb = [callst](const char* ccdbhname) {
-          TH1* h = reinterpret_cast<TH1*>(callst->FindObject(ccdbhname));
+          TH1* h = static_cast<TH1*>(callst->FindObject(ccdbhname));
           return h;
         };
         auto getformulaccdb = [callst](const char* ccdbhname) {
-          TFormula* f = reinterpret_cast<TFormula*>(callst->FindObject(ccdbhname));
+          TFormula* f = static_cast<TFormula*>(callst->FindObject(ccdbhname));
           return f;
         };
 
@@ -1253,8 +1253,8 @@ class MultModule
       if (callst != nullptr) {
         LOGF(info, "Getting new histograms with %d run number for %d run number", mRunNumber, bc.runNumber());
         auto getccdb = [callst, bc](struct CalibrationInfo& estimator, const o2::framework::Configurable<std::string>& generatorName) { // TODO: to consider the name inside the estimator structure
-          estimator.mhMultSelCalib = reinterpret_cast<TH1*>(callst->FindObject(TString::Format("hCalibZeq%s", estimator.name.c_str()).Data()));
-          estimator.mMCScale = reinterpret_cast<TFormula*>(callst->FindObject(TString::Format("%s-%s", generatorName->c_str(), estimator.name.c_str()).Data()));
+          estimator.mhMultSelCalib = static_cast<TH1*>(callst->FindObject(TString::Format("hCalibZeq%s", estimator.name.c_str()).Data()));
+          estimator.mMCScale = static_cast<TFormula*>(callst->FindObject(TString::Format("%s-%s", generatorName->c_str(), estimator.name.c_str()).Data()));
           if (estimator.mhMultSelCalib != nullptr) {
             if (generatorName->length() != 0) {
               LOGF(info, "Retrieving MC calibration for %d, generator name: %s", bc.runNumber(), generatorName->c_str());

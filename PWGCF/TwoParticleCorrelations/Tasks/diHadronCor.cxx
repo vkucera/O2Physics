@@ -432,7 +432,7 @@ struct DiHadronCor {
     if (cfgEfficiency.value.empty() == false) {
       if (cfgLocalEfficiency > 0) {
         TFile* fEfficiencyTrigger = TFile::Open(cfgEfficiency.value.c_str(), "READ");
-        mEfficiency = reinterpret_cast<TH3D*>(fEfficiencyTrigger->Get("ccdb_object"));
+        mEfficiency = static_cast<TH3D*>(fEfficiencyTrigger->Get("ccdb_object"));
       } else {
         mEfficiency = ccdb->getForTimeStamp<TH3D>(cfgEfficiency, timestamp);
       }

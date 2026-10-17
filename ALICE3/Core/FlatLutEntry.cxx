@@ -140,13 +140,13 @@ size_t FlatLutData::getEntryOffset(int nch_bin, int rad_bin, int eta_bin, int pt
 const lutEntry_t* FlatLutData::getEntryRef(int nch_bin, int rad_bin, int eta_bin, int pt_bin) const
 {
   size_t offset = getEntryOffset(nch_bin, rad_bin, eta_bin, pt_bin);
-  return reinterpret_cast<const lutEntry_t*>(mDataRef.data() + offset);
+  return reinterpret_cast<const lutEntry_t*>(mDataRef.data() + offset); // FIXME
 }
 
 lutEntry_t* FlatLutData::getEntry(int nch_bin, int rad_bin, int eta_bin, int pt_bin)
 {
   size_t offset = getEntryOffset(nch_bin, rad_bin, eta_bin, pt_bin);
-  return reinterpret_cast<lutEntry_t*>(mData.data() + offset);
+  return reinterpret_cast<lutEntry_t*>(mData.data() + offset); // FIXME
 }
 
 const lutHeader_t& FlatLutData::getHeaderRef() const
@@ -246,7 +246,7 @@ FlatLutData FlatLutData::ViewFromBuffer(const uint8_t* buffer, size_t size)
 
 FlatLutData FlatLutData::ViewFromBuffer(std::span<std::byte> const& span)
 {
-  return ViewFromBuffer(reinterpret_cast<const uint8_t*>(span.data()), span.size_bytes());
+  return ViewFromBuffer(reinterpret_cast<const uint8_t*>(span.data()), span.size_bytes()); // FIXME
 }
 
 bool FlatLutData::isLoaded() const
@@ -257,7 +257,7 @@ bool FlatLutData::isLoaded() const
 lutHeader_t FlatLutData::previewHeader(std::ifstream& file, const char* filename)
 {
   lutHeader_t tempHeader;
-  file.read(reinterpret_cast<char*>(&tempHeader), sizeof(lutHeader_t));
+  file.read(reinterpret_cast<char*>(&tempHeader), sizeof(lutHeader_t)); // FIXME
   if (file.gcount() != static_cast<std::streamsize>(sizeof(lutHeader_t))) {
     throw framework::runtime_error_f("Failed to read LUT header from %s", filename);
   }
@@ -282,7 +282,7 @@ FlatLutData FlatLutData::loadFromFile(std::ifstream& file, const char* filename)
   size_t numEntries = static_cast<size_t>(data.mNchBins) * data.mRadBins * data.mEtaBins * data.mPtBins;
   size_t entriesSize = numEntries * sizeof(lutEntry_t);
 
-  file.read(reinterpret_cast<char*>(data.data() + headerSize), entriesSize);
+  file.read(reinterpret_cast<char*>(data.data() + headerSize), entriesSize); // FIXME
   if (file.gcount() != static_cast<std::streamsize>(entriesSize)) {
     throw framework::runtime_error_f("Failed to read LUT entries from %s: expected %zu bytes, got %zu", filename, entriesSize, static_cast<size_t>(file.gcount()));
   }

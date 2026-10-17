@@ -182,9 +182,9 @@ struct SpectatorPlaneTutorial {
     // Get QQ-correlations from CCDB
     if (cfgCCDBdir_QQ.value.empty() == false) {
       TList* list = ccdb->getForTimeStamp<TList>(cfgCCDBdir_QQ.value, bc.timestamp());
-      TProfile* qAqCX = reinterpret_cast<TProfile*>(list->FindObject("qAqCX"));
-      TProfile* qAqCY = reinterpret_cast<TProfile*>(list->FindObject("qAqCY"));
-      TProfile* qAqCXY = reinterpret_cast<TProfile*>(list->FindObject("qAqCXY"));
+      TProfile* qAqCX = static_cast<TProfile*>(list->FindObject("qAqCX"));
+      TProfile* qAqCY = static_cast<TProfile*>(list->FindObject("qAqCY"));
+      TProfile* qAqCXY = static_cast<TProfile*>(list->FindObject("qAqCXY"));
       // The sum is qAqCXY
       corrQQx = qAqCX->GetBinContent(centrality);
       corrQQy = qAqCY->GetBinContent(centrality);

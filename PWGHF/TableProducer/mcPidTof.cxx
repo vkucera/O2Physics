@@ -973,16 +973,16 @@ struct McPidTof {
     auto* calibList = ccdb->getSpecific<TList>(mcRecalib.ccdbPath, timestamp, metadata);
     std::vector<int> updatedSpecies{};
     for (auto const& pidId : mEnabledParticles) { // Loop on enabled particle hypotheses (tiny)
-      gMcPostCalibMean[pidId] = reinterpret_cast<TGraph*>(calibList->FindObject(Form("Mean%s", particleNames[pidId].data())));
-      gMcPostCalibSigma[pidId] = reinterpret_cast<TGraph*>(calibList->FindObject(Form("Sigma%s", particleNames[pidId].data())));
+      gMcPostCalibMean[pidId] = static_cast<TGraph*>(calibList->FindObject(Form("Mean%s", particleNames[pidId].data())));
+      gMcPostCalibSigma[pidId] = static_cast<TGraph*>(calibList->FindObject(Form("Sigma%s", particleNames[pidId].data())));
       updatedSpecies.push_back(pidId);
     }
     for (auto const& pidId : mEnabledParticlesFull) { // Loop on enabled particle hypotheses (full)
       if (std::find(updatedSpecies.begin(), updatedSpecies.end(), pidId) != updatedSpecies.end()) {
         continue;
       }
-      gMcPostCalibMean[pidId] = reinterpret_cast<TGraph*>(calibList->FindObject(Form("Mean%s", particleNames[pidId].data())));
-      gMcPostCalibSigma[pidId] = reinterpret_cast<TGraph*>(calibList->FindObject(Form("Sigma%s", particleNames[pidId].data())));
+      gMcPostCalibMean[pidId] = static_cast<TGraph*>(calibList->FindObject(Form("Mean%s", particleNames[pidId].data())));
+      gMcPostCalibSigma[pidId] = static_cast<TGraph*>(calibList->FindObject(Form("Sigma%s", particleNames[pidId].data())));
     }
   }
 

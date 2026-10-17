@@ -238,7 +238,7 @@ struct AnalysisEnergyCorrelator {
     if (trackCutsJSON != "") {
       std::vector<AnalysisCut*> addTrackCuts = dqcuts::GetCutsFromJSON(trackCutsJSON.Data());
       for (auto& t : addTrackCuts) {
-        fTrackCuts.push_back(reinterpret_cast<AnalysisCompositeCut*>(t));
+        fTrackCuts.push_back(static_cast<AnalysisCompositeCut*>(t));
         fTrackCutNames.push_back(t->GetName());
         trackCutStr += Form(",%s", t->GetName());
       }
@@ -311,7 +311,7 @@ struct AnalysisEnergyCorrelator {
     if (hadronCutsJSON != "") {
       std::vector<AnalysisCut*> addHadronCuts = dqcuts::GetCutsFromJSON(hadronCutsJSON.Data());
       for (auto& t : addHadronCuts) {
-        fHadronCuts.push_back(reinterpret_cast<AnalysisCompositeCut*>(t));
+        fHadronCuts.push_back(static_cast<AnalysisCompositeCut*>(t));
         fHadronCutNames.push_back(t->GetName());
         hadronCutStr += Form(",%s", t->GetName());
       }

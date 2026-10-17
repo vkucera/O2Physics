@@ -6105,7 +6105,7 @@ void bookCorrelationsHistograms()
         }
 
         if (tc.fUseClone) {
-          mupa.fCorrelationsPro[k][n][v] = reinterpret_cast<TProfile*>(res.fResultsPro[v]->Clone(Form("fCorrelationsPro[%d][%d][%s]", k, n, res.fResultsProRawName[v].Data()))); // yes
+          mupa.fCorrelationsPro[k][n][v] = static_cast<TProfile*>(res.fResultsPro[v]->Clone(Form("fCorrelationsPro[%d][%d][%s]", k, n, res.fResultsProRawName[v].Data()))); // yes
         } else {
           mupa.fCorrelationsPro[k][n][v] = new TProfile(Form("fCorrelationsPro[%d][%d][%s]", k, n, res.fResultsProRawName[v].Data()), "", res.fResultsPro[v]->GetXaxis()->GetXbins()->GetSize() - 1, res.fResultsPro[v]->GetXaxis()->GetXbins()->GetArray());
         }
@@ -6602,7 +6602,7 @@ void bookNestedLoopsHistograms()
         }
 
         if (tc.fUseClone) {
-          nl.fNestedLoopsPro[k][n][v] = reinterpret_cast<TProfile*>(res.fResultsPro[v]->Clone(Form("fNestedLoopsPro[%d][%d][%d]", k, n, v))); // yes
+          nl.fNestedLoopsPro[k][n][v] = static_cast<TProfile*>(res.fResultsPro[v]->Clone(Form("fNestedLoopsPro[%d][%d][%d]", k, n, v))); // yes
         } else {
           nl.fNestedLoopsPro[k][n][v] = new TProfile(Form("fNestedLoopsPro[%d][%d][%s]", k, n, res.fResultsProRawName[v].Data()), "", res.fResultsPro[v]->GetXaxis()->GetXbins()->GetSize() - 1, res.fResultsPro[v]->GetXaxis()->GetXbins()->GetArray());
         }
@@ -7714,7 +7714,7 @@ void bookTest0Histograms()
           }
 
           if (tc.fUseClone) {
-            t0.fTest0Pro[mo][mi][v] = reinterpret_cast<TProfile*>(res.fResultsPro[v]->Clone(Form("fTest0Pro[%d][%d][%s]", mo, mi, res.fResultsProRawName[v].Data()))); // yes
+            t0.fTest0Pro[mo][mi][v] = static_cast<TProfile*>(res.fResultsPro[v]->Clone(Form("fTest0Pro[%d][%d][%s]", mo, mi, res.fResultsProRawName[v].Data()))); // yes
           } else {
             t0.fTest0Pro[mo][mi][v] = new TProfile(Form("fTest0Pro[%d][%d][%s]", mo, mi, res.fResultsProRawName[v].Data()), "", res.fResultsPro[v]->GetXaxis()->GetXbins()->GetSize() - 1, res.fResultsPro[v]->GetXaxis()->GetXbins()->GetArray());
           }
@@ -7760,7 +7760,7 @@ void bookTest0Histograms()
           }
 
           if (tc.fUseClone) {
-            t0.fTest0Pro2D[mo][mi][v] = reinterpret_cast<TProfile2D*>(res.fResultsPro2D[v]->Clone(Form("fTest0Pro2D[%d][%d][%s]", mo, mi, rawName.Data())));
+            t0.fTest0Pro2D[mo][mi][v] = static_cast<TProfile2D*>(res.fResultsPro2D[v]->Clone(Form("fTest0Pro2D[%d][%d][%s]", mo, mi, rawName.Data())));
           } else {
             // TBI 20250412 this branch is temporary workaround until hist->Clone(...) large memory consumption is resolved
             t0.fTest0Pro2D[mo][mi][v] = new TProfile2D(Form("fTest0Pro2D[%d][%d][%s]", mo, mi, rawName.Data()), "",
@@ -7810,7 +7810,7 @@ void bookTest0Histograms()
           }
 
           if (tc.fUseClone) {
-            t0.fTest0Pro3D[mo][mi][v] = reinterpret_cast<TProfile3D*>(res.fResultsPro3D[v]->Clone(Form("fTest0Pro3D[%d][%d][%s]", mo, mi, rawName.Data())));
+            t0.fTest0Pro3D[mo][mi][v] = static_cast<TProfile3D*>(res.fResultsPro3D[v]->Clone(Form("fTest0Pro3D[%d][%d][%s]", mo, mi, rawName.Data())));
           } else {
             // TBI 20250412 this branch is temporary workaround until hist->Clone(...) large memory consumption is resolved
             t0.fTest0Pro3D[mo][mi][v] = new TProfile3D(Form("fTest0Pro3D[%d][%d][%s]", mo, mi, rawName.Data()), "",
@@ -7932,7 +7932,7 @@ void bookEtaSeparationsHistograms()
         }
 
         if (tc.fUseClone) {
-          es.fEtaSeparationsPro[h][e][v] = reinterpret_cast<TProfile*>(res.fResultsPro[v]->Clone(Form("fEtaSeparationsPro[%d][%d][%s]", h, e, res.fResultsProRawName[v].Data()))); // yes
+          es.fEtaSeparationsPro[h][e][v] = static_cast<TProfile*>(res.fResultsPro[v]->Clone(Form("fEtaSeparationsPro[%d][%d][%s]", h, e, res.fResultsProRawName[v].Data()))); // yes
         } else {
           es.fEtaSeparationsPro[h][e][v] = new TProfile(Form("fEtaSeparationsPro[%d][%d][%s]", h, e, res.fResultsProRawName[v].Data()), "", res.fResultsPro[v]->GetXaxis()->GetXbins()->GetSize() - 1, res.fResultsPro[v]->GetXaxis()->GetXbins()->GetArray());
         }
@@ -14311,7 +14311,7 @@ void setWeightsHist(TH1D* const hist, EnWeights whichWeight)
     exit(__LINE__); // TBI 20260714 temporarily here to silent MegaLinter
   }
   hist->SetDirectory(0);
-  pw.fWeightsHist[whichWeight] = reinterpret_cast<TH1D*>(hist);
+  pw.fWeightsHist[whichWeight] = static_cast<TH1D*>(hist);
 
   if (!pw.fWeightsHist[whichWeight]) {
     LOGF(fatal, "\033[1;31m%s at line %d\033[0m", __FUNCTION__, __LINE__);
@@ -14360,7 +14360,7 @@ void setDiffWeightsHist(TH1D* const hist, EnDiffWeights whichDiffWeight, int bin
     exit(__LINE__); // TBI 20260714 temporarily here to silent MegaLinter
   }
   hist->SetDirectory(0);
-  pw.fDiffWeightsHist[whichDiffWeight][bin] = reinterpret_cast<TH1D*>(hist);
+  pw.fDiffWeightsHist[whichDiffWeight][bin] = static_cast<TH1D*>(hist);
 
   if (!pw.fDiffWeightsHist[whichDiffWeight][bin]) {
     LOGF(fatal, "\033[1;31m%s at line %d\033[0m", __FUNCTION__, __LINE__);
@@ -14405,7 +14405,7 @@ void setDiffWeightsSparse(THnSparseF* const sparse, EnDiffWeightCategory dwc)
 
   // Finally:
   // sparse->SetDirectory(0); I cannot use this for sparse
-  pw.fDiffWeightsSparse[dwc] = reinterpret_cast<THnSparseF*>(sparse); // TBI 20250702 why I am casting here in fact, 'sparse' is already THnSparseF...
+  pw.fDiffWeightsSparse[dwc] = static_cast<THnSparseF*>(sparse); // TBI 20250702 why I am casting here in fact, 'sparse' is already THnSparseF...
 
   if (!pw.fDiffWeightsSparse[dwc]) {
     LOGF(fatal, "\033[1;31m%s at line %d\033[0m", __FUNCTION__, __LINE__);
@@ -14557,7 +14557,7 @@ void setCentralityWeightsHist(TH1D* const hist)
     exit(__LINE__); // TBI 20260714 temporarily here to silent MegaLinter
   }
   hist->SetDirectory(0);
-  cw.fCentralityWeightsHist = reinterpret_cast<TH1D*>(hist);
+  cw.fCentralityWeightsHist = static_cast<TH1D*>(hist);
 
   if (!cw.fCentralityWeightsHist) {
     LOGF(fatal, "\033[1;31m%s at line %d\033[0m", __FUNCTION__, __LINE__);
@@ -14686,11 +14686,11 @@ TH1D* getHistogramWithWeights(const char* filePath, const char* runNumber, const
       LOGF(fatal, "\033[1;31m%s at line %d\033[0m", __FUNCTION__, __LINE__);
     }
 
-    listWithRuns = reinterpret_cast<TList*>(getObjectFromList(baseList, runNumber));
+    listWithRuns = static_cast<TList*>(getObjectFromList(baseList, runNumber));
     if (!listWithRuns) {
       TString runNumberWithLeadingZeroes = "000";
       runNumberWithLeadingZeroes += runNumber; // another try, with "000" prepended to run number
-      listWithRuns = reinterpret_cast<TList*>(getObjectFromList(baseList, runNumberWithLeadingZeroes.Data()));
+      listWithRuns = static_cast<TList*>(getObjectFromList(baseList, runNumberWithLeadingZeroes.Data()));
       if (!listWithRuns) {
         LOGF(fatal, "\033[1;31m%s at line %d\033[0m", __FUNCTION__, __LINE__);
       }
@@ -14715,17 +14715,17 @@ TH1D* getHistogramWithWeights(const char* filePath, const char* runNumber, const
       LOGF(info, "\033[1;32mAccessing in CCDB %s\033[0m", TString(filePath).ReplaceAll("/alice-ccdb.cern.ch/", "").Data());
     }
 
-    baseList = reinterpret_cast<TList*>(ccdb->get<TList>(TString(filePath).ReplaceAll("/alice-ccdb.cern.ch/", "").Data()));
+    baseList = static_cast<TList*>(ccdb->get<TList>(TString(filePath).ReplaceAll("/alice-ccdb.cern.ch/", "").Data()));
 
     if (!baseList) {
       LOGF(fatal, "\033[1;31m%s at line %d\033[0m", __FUNCTION__, __LINE__);
     }
 
-    listWithRuns = reinterpret_cast<TList*>(getObjectFromList(baseList, runNumber));
+    listWithRuns = static_cast<TList*>(getObjectFromList(baseList, runNumber));
     if (!listWithRuns) {
       TString runNumberWithLeadingZeroes = "000";
       runNumberWithLeadingZeroes += runNumber; // another try, with "000" prepended to run number
-      listWithRuns = reinterpret_cast<TList*>(getObjectFromList(baseList, runNumberWithLeadingZeroes.Data()));
+      listWithRuns = static_cast<TList*>(getObjectFromList(baseList, runNumberWithLeadingZeroes.Data()));
       if (!listWithRuns) {
         LOGF(fatal, "\033[1;31m%s at line %d\033[0m", __FUNCTION__, __LINE__);
       }
@@ -14758,11 +14758,11 @@ TH1D* getHistogramWithWeights(const char* filePath, const char* runNumber, const
       LOGF(fatal, "\033[1;31m%s at line %d\033[0m", __FUNCTION__, __LINE__);
     }
 
-    listWithRuns = reinterpret_cast<TList*>(getObjectFromList(baseList, runNumber));
+    listWithRuns = static_cast<TList*>(getObjectFromList(baseList, runNumber));
     if (!listWithRuns) {
       TString runNumberWithLeadingZeroes = "000";
       runNumberWithLeadingZeroes += runNumber; // another try, with "000" prepended to run number
-      listWithRuns = reinterpret_cast<TList*>(getObjectFromList(baseList, runNumberWithLeadingZeroes.Data()));
+      listWithRuns = static_cast<TList*>(getObjectFromList(baseList, runNumberWithLeadingZeroes.Data()));
       if (!listWithRuns) {
         // baseList->ls();
         LOGF(fatal, "\033[1;31m%s at line %d : this crash can happen if in the output file there is no list with weights for the current run number = %s\033[0m", __FUNCTION__, __LINE__, tc.fRunNumber.Data());
@@ -14782,16 +14782,16 @@ TH1D* getHistogramWithWeights(const char* filePath, const char* runNumber, const
     // fetch histogram directly from this list:
     histName = TString::Format("%s_%s", variable, tc.fTaskName.Data());
     LOGF(info, "\033[1;33m%s at line %d : fetching directly hist with name = %s\033[0m", __FUNCTION__, __LINE__, histName.Data());
-    hist = reinterpret_cast<TH1D*>(listWithRuns->FindObject(histName.Data()));
+    hist = static_cast<TH1D*>(listWithRuns->FindObject(histName.Data()));
     // if the previous search failed, descend recursively also into the nested lists:
     if (!hist) {
       LOGF(info, "\033[1;33m%s at line %d : previous attempt failed, fetching instead recursively hist with name = %s\033[0m", __FUNCTION__, __LINE__, histName.Data());
-      hist = reinterpret_cast<TH1D*>(getObjectFromList(listWithRuns, histName.Data()));
+      hist = static_cast<TH1D*>(getObjectFromList(listWithRuns, histName.Data()));
     }
     if (!hist) {
       histName = TString::Format("%s", variable); // yes, for some simple tests I can have only histogram named e.g. 'phi'
       LOGF(info, "\033[1;33m%s at line %d : last attempt, fetching instead hist with trivial name = %s\033[0m", __FUNCTION__, __LINE__, histName.Data());
-      hist = reinterpret_cast<TH1D*>(getObjectFromList(listWithRuns, histName.Data()));
+      hist = static_cast<TH1D*>(getObjectFromList(listWithRuns, histName.Data()));
     }
     if (!hist) {
       listWithRuns->ls();
@@ -14809,16 +14809,16 @@ TH1D* getHistogramWithWeights(const char* filePath, const char* runNumber, const
     // fetch histogram directly from this list:
     histName = TString::Format("%s[%d]_%s", variable, bin, tc.fTaskName.Data());
     LOGF(info, "\033[1;33m%s at line %d : fetching directly hist with name = %s\033[0m", __FUNCTION__, __LINE__, histName.Data());
-    hist = reinterpret_cast<TH1D*>(listWithRuns->FindObject(histName.Data()));
+    hist = static_cast<TH1D*>(listWithRuns->FindObject(histName.Data()));
     // if the previous search failed, descend recursively also into the nested lists:
     if (!hist) {
       LOGF(info, "\033[1;33m%s at line %d : previous attempt failed, fetching instead recursively hist with name = %s\033[0m", __FUNCTION__, __LINE__, histName.Data());
-      hist = reinterpret_cast<TH1D*>(getObjectFromList(listWithRuns, Form("%s[%d]_%s", variable, bin, tc.fTaskName.Data())));
+      hist = static_cast<TH1D*>(getObjectFromList(listWithRuns, Form("%s[%d]_%s", variable, bin, tc.fTaskName.Data())));
     }
     if (!hist) {
       histName = TString::Format("%s[%d]", variable, bin); // yes, for some simple tests I can have only histogram named e.g. 'phipt[0]'
       LOGF(info, "\033[1;33m%s at line %d : last attempt, fetching instead hist with trivial name = %s\033[0m", __FUNCTION__, __LINE__, histName.Data());
-      hist = reinterpret_cast<TH1D*>(getObjectFromList(listWithRuns, histName.Data()));
+      hist = static_cast<TH1D*>(getObjectFromList(listWithRuns, histName.Data()));
     }
     if (!hist) {
       listWithRuns->ls();
@@ -14879,7 +14879,7 @@ TH1D* getHistogramWithWeights(const char* filePath, const char* runNumber, const
 
   // h) Clone histogram and delete baseList (realising back the memory):
   //    Remark: Yes, I have to clone here.
-  TH1D* histClone = reinterpret_cast<TH1D*>(hist->Clone());
+  TH1D* histClone = static_cast<TH1D*>(hist->Clone());
   delete baseList; // release back the memory
 
   if (tc.fVerbose) {
@@ -14978,11 +14978,11 @@ THnSparseF* getSparseHistogramWithWeights(const char* filePath, const char* runN
       LOGF(fatal, "\033[1;31m%s at line %d\033[0m", __FUNCTION__, __LINE__);
     }
 
-    listWithRuns = reinterpret_cast<TList*>(getObjectFromList(baseList, runNumber));
+    listWithRuns = static_cast<TList*>(getObjectFromList(baseList, runNumber));
     if (!listWithRuns) {
       TString runNumberWithLeadingZeroes = "000";
       runNumberWithLeadingZeroes += runNumber; // another try, with "000" prepended to run number
-      listWithRuns = reinterpret_cast<TList*>(getObjectFromList(baseList, runNumberWithLeadingZeroes.Data()));
+      listWithRuns = static_cast<TList*>(getObjectFromList(baseList, runNumberWithLeadingZeroes.Data()));
       if (!listWithRuns) {
         LOGF(fatal, "\033[1;31m%s at line %d\033[0m", __FUNCTION__, __LINE__);
       }
@@ -15007,17 +15007,17 @@ THnSparseF* getSparseHistogramWithWeights(const char* filePath, const char* runN
       LOGF(info, "\033[1;32mAccessing in CCDB %s\033[0m", TString(filePath).ReplaceAll("/alice-ccdb.cern.ch/", "").Data());
     }
 
-    baseList = reinterpret_cast<TList*>(ccdb->get<TList>(TString(filePath).ReplaceAll("/alice-ccdb.cern.ch/", "").Data()));
+    baseList = static_cast<TList*>(ccdb->get<TList>(TString(filePath).ReplaceAll("/alice-ccdb.cern.ch/", "").Data()));
 
     if (!baseList) {
       LOGF(fatal, "\033[1;31m%s at line %d\033[0m", __FUNCTION__, __LINE__);
     }
 
-    listWithRuns = reinterpret_cast<TList*>(getObjectFromList(baseList, runNumber));
+    listWithRuns = static_cast<TList*>(getObjectFromList(baseList, runNumber));
     if (!listWithRuns) {
       TString runNumberWithLeadingZeroes = "000";
       runNumberWithLeadingZeroes += runNumber; // another try, with "000" prepended to run number
-      listWithRuns = reinterpret_cast<TList*>(getObjectFromList(baseList, runNumberWithLeadingZeroes.Data()));
+      listWithRuns = static_cast<TList*>(getObjectFromList(baseList, runNumberWithLeadingZeroes.Data()));
       if (!listWithRuns) {
         LOGF(fatal, "\033[1;31m%s at line %d\033[0m", __FUNCTION__, __LINE__);
       }
@@ -15050,11 +15050,11 @@ THnSparseF* getSparseHistogramWithWeights(const char* filePath, const char* runN
       LOGF(fatal, "\033[1;31m%s at line %d\033[0m", __FUNCTION__, __LINE__);
     }
 
-    listWithRuns = reinterpret_cast<TList*>(getObjectFromList(baseList, runNumber));
+    listWithRuns = static_cast<TList*>(getObjectFromList(baseList, runNumber));
     if (!listWithRuns) {
       TString runNumberWithLeadingZeroes = "000";
       runNumberWithLeadingZeroes += runNumber; // another try, with "000" prepended to run number
-      listWithRuns = reinterpret_cast<TList*>(getObjectFromList(baseList, runNumberWithLeadingZeroes.Data()));
+      listWithRuns = static_cast<TList*>(getObjectFromList(baseList, runNumberWithLeadingZeroes.Data()));
       if (!listWithRuns) {
         // baseList->ls();
         LOGF(fatal, "\033[1;31m%s at line %d : this crash can happen if in the output file there is no list with weights for the current run number = %s\033[0m", __FUNCTION__, __LINE__, tc.fRunNumber.Data());
@@ -15079,21 +15079,21 @@ THnSparseF* getSparseHistogramWithWeights(const char* filePath, const char* runN
 
   // 1. fetch histogram directly from this list: const char* whichCategory, const char* whichDimensions
   LOGF(info, "\033[1;33m%s at line %d : fetching directly from the list sparse histogram with the name \"%s\"\033[0m", __FUNCTION__, __LINE__, sparseHistName.Data());
-  sparseHist = reinterpret_cast<THnSparseF*>(listWithRuns->FindObject(sparseHistName.Data()));
+  sparseHist = static_cast<THnSparseF*>(listWithRuns->FindObject(sparseHistName.Data()));
   if (!sparseHist) {
     // try once again by chopping off "multiparticle-correlations-a-b_" from the name:
     TString tmp = sparseHistName; // yes, because "ReplaceAll" below replaces in-place, and I will need sparseHistName unmodified still later
-    sparseHist = reinterpret_cast<THnSparseF*>(listWithRuns->FindObject(tmp.ReplaceAll("multiparticle-correlations-a-b_", "")));
+    sparseHist = static_cast<THnSparseF*>(listWithRuns->FindObject(tmp.ReplaceAll("multiparticle-correlations-a-b_", "")));
   }
 
   // 2. if the previous search failed, descend recursively into the nested lists:
   if (!sparseHist) {
     LOGF(info, "\033[1;33m%s at line %d : previous attempt failed, fetching instead recursively sparse histogram with the name \"%s\"\033[0m", __FUNCTION__, __LINE__, sparseHistName.Data());
-    sparseHist = reinterpret_cast<THnSparseF*>(getObjectFromList(listWithRuns, sparseHistName.Data()));
+    sparseHist = static_cast<THnSparseF*>(getObjectFromList(listWithRuns, sparseHistName.Data()));
     if (!sparseHist) {
       // try once again by chopping off "multiparticle-correlations-a-b_" from name:
       TString tmp = sparseHistName; // yes, because "ReplaceAll" below replaces in-place, and I will need sparseHistName unmodified still later
-      sparseHist = reinterpret_cast<THnSparseF*>(getObjectFromList(listWithRuns, tmp.ReplaceAll("multiparticle-correlations-a-b_", "")));
+      sparseHist = static_cast<THnSparseF*>(getObjectFromList(listWithRuns, tmp.ReplaceAll("multiparticle-correlations-a-b_", "")));
     }
   }
 
@@ -15159,7 +15159,7 @@ THnSparseF* getSparseHistogramWithWeights(const char* filePath, const char* runN
 
   // h) Clone histogram and delete baseList (releasing back the memory):
   //    Remark: Yes, I have to clone here.
-  THnSparseF* sparseHistClone = reinterpret_cast<THnSparseF*>(sparseHist->Clone());
+  THnSparseF* sparseHistClone = static_cast<THnSparseF*>(sparseHist->Clone());
   delete baseList; // release back the memory
 
   if (tc.fVerbose) {
@@ -15239,11 +15239,11 @@ TH1D* getHistogramWithCentralityWeights(const char* filePath, const char* runNum
       LOGF(fatal, "\033[1;31m%s at line %d\033[0m", __FUNCTION__, __LINE__);
     }
 
-    listWithRuns = reinterpret_cast<TList*>(getObjectFromList(baseList, runNumber));
+    listWithRuns = static_cast<TList*>(getObjectFromList(baseList, runNumber));
     if (!listWithRuns) {
       TString runNumberWithLeadingZeroes = "000";
       runNumberWithLeadingZeroes += runNumber; // another try, with "000" prepended to run number
-      listWithRuns = reinterpret_cast<TList*>(getObjectFromList(baseList, runNumberWithLeadingZeroes.Data()));
+      listWithRuns = static_cast<TList*>(getObjectFromList(baseList, runNumberWithLeadingZeroes.Data()));
       if (!listWithRuns) {
         LOGF(fatal, "\033[1;31m%s at line %d\033[0m", __FUNCTION__, __LINE__);
       }
@@ -15268,17 +15268,17 @@ TH1D* getHistogramWithCentralityWeights(const char* filePath, const char* runNum
       LOGF(info, "\033[1;32mAccessing in CCDB %s\033[0m", TString(filePath).ReplaceAll("/alice-ccdb.cern.ch/", "").Data());
     }
 
-    baseList = reinterpret_cast<TList*>(ccdb->get<TList>(TString(filePath).ReplaceAll("/alice-ccdb.cern.ch/", "").Data()));
+    baseList = static_cast<TList*>(ccdb->get<TList>(TString(filePath).ReplaceAll("/alice-ccdb.cern.ch/", "").Data()));
 
     if (!baseList) {
       LOGF(fatal, "\033[1;31m%s at line %d\033[0m", __FUNCTION__, __LINE__);
     }
 
-    listWithRuns = reinterpret_cast<TList*>(getObjectFromList(baseList, runNumber));
+    listWithRuns = static_cast<TList*>(getObjectFromList(baseList, runNumber));
     if (!listWithRuns) {
       TString runNumberWithLeadingZeroes = "000";
       runNumberWithLeadingZeroes += runNumber; // another try, with "000" prepended to run number
-      listWithRuns = reinterpret_cast<TList*>(getObjectFromList(baseList, runNumberWithLeadingZeroes.Data()));
+      listWithRuns = static_cast<TList*>(getObjectFromList(baseList, runNumberWithLeadingZeroes.Data()));
       if (!listWithRuns) {
         LOGF(fatal, "\033[1;31m%s at line %d\033[0m", __FUNCTION__, __LINE__);
       }
@@ -15311,11 +15311,11 @@ TH1D* getHistogramWithCentralityWeights(const char* filePath, const char* runNum
       LOGF(fatal, "\033[1;31m%s at line %d\033[0m", __FUNCTION__, __LINE__);
     }
 
-    listWithRuns = reinterpret_cast<TList*>(getObjectFromList(baseList, runNumber));
+    listWithRuns = static_cast<TList*>(getObjectFromList(baseList, runNumber));
     if (!listWithRuns) {
       TString runNumberWithLeadingZeroes = "000";
       runNumberWithLeadingZeroes += runNumber; // another try, with "000" prepended to run number
-      listWithRuns = reinterpret_cast<TList*>(getObjectFromList(baseList, runNumberWithLeadingZeroes.Data()));
+      listWithRuns = static_cast<TList*>(getObjectFromList(baseList, runNumberWithLeadingZeroes.Data()));
       if (!listWithRuns) {
         LOGF(fatal, "\033[1;31m%s at line %d\033[0m", __FUNCTION__, __LINE__);
       }
@@ -15347,16 +15347,16 @@ TH1D* getHistogramWithCentralityWeights(const char* filePath, const char* runNum
   }
 
   LOGF(info, "\033[1;33m%s at line %d : fetching directly hist with name = %s\033[0m", __FUNCTION__, __LINE__, histName.Data());
-  hist = reinterpret_cast<TH1D*>(listWithRuns->FindObject(histName.Data()));
+  hist = static_cast<TH1D*>(listWithRuns->FindObject(histName.Data()));
   // if the previous search failed, descend recursively also into the nested lists:
   if (!hist) {
     LOGF(info, "\033[1;33m%s at line %d : previous attempt failed, fetching instead recursively hist with name = %s\033[0m", __FUNCTION__, __LINE__, histName.Data());
-    hist = reinterpret_cast<TH1D*>(getObjectFromList(listWithRuns, histName.Data()));
+    hist = static_cast<TH1D*>(getObjectFromList(listWithRuns, histName.Data()));
   }
   if (!hist) {
     histName = tmp; // yes, for some simple tests I can have only histogram named e.g. 'FT0C'
     LOGF(info, "\033[1;33m%s at line %d : last attempt, fetching instead hist with trivial name = %s\033[0m", __FUNCTION__, __LINE__, histName.Data());
-    hist = reinterpret_cast<TH1D*>(getObjectFromList(listWithRuns, histName.Data()));
+    hist = static_cast<TH1D*>(getObjectFromList(listWithRuns, histName.Data()));
   }
   if (!hist) {
     listWithRuns->ls();
@@ -15372,7 +15372,7 @@ TH1D* getHistogramWithCentralityWeights(const char* filePath, const char* runNum
 
   // h) Clone histogram and delete baseList (realising back the memory):
   //    Remark: Yes, I have to clone here.
-  TH1D* histClone = reinterpret_cast<TH1D*>(hist->Clone());
+  TH1D* histClone = static_cast<TH1D*>(hist->Clone());
   delete baseList; // release back the memory
 
   return histClone;
@@ -15757,7 +15757,7 @@ TObjArray* getObjArrayWithLabels(const char* filePath)
     //    https://indico.cern.ch/event/1267433/timetable/#20230417.detailed
 
     ccdb->setURL("http://alice-ccdb.cern.ch");
-    oa = reinterpret_cast<TObjArray*>(ccdb->get<TObjArray>(TString(filePath).ReplaceAll("/alice-ccdb.cern.ch/", "").Data())); // TBI 20250414 memory blow-up
+    oa = static_cast<TObjArray*>(ccdb->get<TObjArray>(TString(filePath).ReplaceAll("/alice-ccdb.cern.ch/", "").Data())); // TBI 20250414 memory blow-up
     if (!oa) {
       LOGF(fatal, "\033[1;31m%s at line %d\033[0m", __FUNCTION__, __LINE__);
     }
@@ -15904,7 +15904,7 @@ void getHistogramWithCustomNUA(const char* filePath, EnNUAPDF variable)
       LOGF(info, "\033[1;32mAccessing in CCDB %s\033[0m", TString(filePath).ReplaceAll("/alice-ccdb.cern.ch/", "").Data());
     }
 
-    baseList = reinterpret_cast<TList*>(ccdb->get<TList>(TString(filePath).ReplaceAll("/alice-ccdb.cern.ch/", "").Data()));
+    baseList = static_cast<TList*>(ccdb->get<TList>(TString(filePath).ReplaceAll("/alice-ccdb.cern.ch/", "").Data()));
 
     if (!baseList) {
       LOGF(fatal, "\033[1;31m%s at line %d\033[0m", __FUNCTION__, __LINE__);
@@ -15930,12 +15930,12 @@ void getHistogramWithCustomNUA(const char* filePath, EnNUAPDF variable)
       LOGF(fatal, "\033[1;31m%s at line %d\033[0m", __FUNCTION__, __LINE__);
     }
 
-    // hist = reinterpret_cast<TH1D*>(getObjectFromList(baseList, nua.fCustomNUAPDFHistNames[variable]->Data()));
+    // hist = static_cast<TH1D*>(getObjectFromList(baseList, nua.fCustomNUAPDFHistNames[variable]->Data()));
 
   } // else {
 
   // g) The final touch:
-  hist = reinterpret_cast<TH1D*>(getObjectFromList(baseList, nua.fCustomNUAPDFHistNames[variable]->Data()));
+  hist = static_cast<TH1D*>(getObjectFromList(baseList, nua.fCustomNUAPDFHistNames[variable]->Data()));
   if (!hist) {
     LOGF(info, "\033[1;31m hist is NULL \033[0m");
     LOGF(info, "\033[1;31m variable = %d\033[0m", static_cast<int>(variable));
@@ -15947,7 +15947,7 @@ void getHistogramWithCustomNUA(const char* filePath, EnNUAPDF variable)
   //    TBI 20250315 here I did it a bit differently than e.g. in getHistogramWithWeights or in getSparseHistogramWithWeights .
   //                 If it's failing here, redo it in exactly the same way as I did it there.
   hist->SetDirectory(0);
-  nua.fCustomNUAPDF[variable] = reinterpret_cast<TH1D*>(hist->Clone());
+  nua.fCustomNUAPDF[variable] = static_cast<TH1D*>(hist->Clone());
   nua.fCustomNUAPDF[variable]->SetTitle(Form("%s", filePath));
   delete baseList;
 
@@ -16098,7 +16098,7 @@ TObject* getObjectFromList(TList* list, const char* objectName) // Last update: 
     (objectIter = next())) // double round braces are to silent the warnings
   {
     if (TString(objectIter->ClassName()).EqualTo("TList")) {
-      objectFinal = getObjectFromList(reinterpret_cast<TList*>(objectIter), objectName);
+      objectFinal = getObjectFromList(static_cast<TList*>(objectIter), objectName);
       if (objectFinal)
         return objectFinal;
     }
