@@ -67,7 +67,7 @@ struct ResonanceCombine {
 
   EventPlaneHelper helperEP;
   int evtPlRefAId = static_cast<int>(cfgEvtPl / 10000);
-  int evtPlRefBId = static_cast<int>((cfgEvtPl - evtPlRefAId * 10000) / 100);
+  int evtPlRefBId = ((cfgEvtPl - evtPlRefAId * 10000) / 100);
   int evtPlDetId = cfgEvtPl - evtPlRefAId * 10000 - evtPlRefBId * 100;
 
   void init(o2::framework::InitContext&)

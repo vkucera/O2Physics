@@ -558,7 +558,7 @@ struct JetTaggerHFTask {
 
       int nSVs = analysisJet.template secondaryVertices_as<SecondaryVertices>().size();
 
-      jettaggingutilities::BJetParams jetparam = {analysisJet.pt(), analysisJet.eta(), analysisJet.phi(), static_cast<int>(tracksParams.size()), static_cast<int>(nSVs), analysisJet.mass()};
+      jettaggingutilities::BJetParams jetparam = {analysisJet.pt(), analysisJet.eta(), analysisJet.phi(), static_cast<int>(tracksParams.size()), nSVs, analysisJet.mass()};
       tracksParams.resize(nJetConst); // resize to the number of inputs of the ML
       svsParams.resize(nJetConst);    // resize to the number of inputs of the ML
 

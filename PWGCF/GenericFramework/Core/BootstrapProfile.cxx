@@ -162,7 +162,7 @@ TH1* BootstrapProfile::getHistRebinned(TProfile* inpf)
   if (!inpf)
     return 0;
   if (fMultiRebin <= 0)
-    return reinterpret_cast<TProfile*>(inpf)->ProjectionX(Form("%s_hist", inpf->GetName()));
+    return inpf->ProjectionX(Form("%s_hist", inpf->GetName()));
   TProfile* temppf = reinterpret_cast<TProfile*>(inpf->Rebin(fMultiRebin, "tempProfile", fMultiRebinEdges));
   TH1* reth = reinterpret_cast<TH1*>(temppf->ProjectionX(Form("%s_hist", inpf->GetName())));
   delete temppf;

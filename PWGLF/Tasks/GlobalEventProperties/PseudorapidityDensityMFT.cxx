@@ -2625,7 +2625,7 @@ struct PseudorapidityDensityMFT {
       // The reconstructed event has now passed the z window, reconstructed
       // INEL>0, reco-gen z matching and the complete event selection.
       if (!atLeastOneSel8VzGt0) {
-        selectedRecoNtrkForEventLoss = static_cast<int64_t>(perCollisionSample.size());
+        selectedRecoNtrkForEventLoss = perCollisionSample.size();
         selectedRecoZvtxForEventLoss = collision.posZ();
       }
       atLeastOneSel8VzGt0 = true;

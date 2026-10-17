@@ -703,7 +703,7 @@ struct match_mft_mch_data_mc {
 
           tableMatchingParams(matching.getGMPtAtDCA(),
                               matching.getGMEtaAtDCA(),
-                              static_cast<int16_t>(matching.getGMQ()),
+                              matching.getGMQ(),
                               matching.getDpt(),
                               matching.getDx(),
                               matching.getDy(),
@@ -732,7 +732,7 @@ struct match_mft_mch_data_mc {
 
             tableMixMatchingParams(matching.getGMPtAtDCA(),
                                    matching.getGMEtaAtDCA(),
-                                   static_cast<int16_t>(matching.getGMQ()),
+                                   matching.getGMQ(),
                                    matching.getDpt(),
                                    matching.getDx(),
                                    matching.getDy(),

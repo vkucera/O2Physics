@@ -2947,8 +2947,8 @@ struct lambdaspincorrderived {
                                       nStat, nPt, nEta, nPhi, nM, nR);
 
         buffer[key].push_back(BufferCandR{
-          .collisionIdx = static_cast<int64_t>(col.index()),
-          .rowIndex = static_cast<int64_t>(t.globalIndex()),
+          .collisionIdx = col.index(),
+          .rowIndex = t.globalIndex(),
           .v0Status = static_cast<uint8_t>(status),
           .ptBin = static_cast<uint16_t>(ptB),
           .etaBin = static_cast<uint16_t>(etaB),
@@ -3179,7 +3179,7 @@ struct lambdaspincorrderived {
         continue;
       }
 
-      const int64_t curColIdx = static_cast<int64_t>(col1.index());
+      const int64_t curColIdx = col1.index();
       auto poolA = V0s.sliceBy(tracksPerCollisionV0, col1.index());
 
       for (auto const& [t1, t2] : soa::combinations(o2::soa::CombinationsFullIndexPolicy(poolA, poolA))) {
@@ -3496,8 +3496,8 @@ struct lambdaspincorrderived {
                                       nStat, nPt, nEta, nPhi, nM, nR);
 
         buffer[key].push_back(BufferCandR{
-          .collisionIdx = static_cast<int64_t>(col.index()),
-          .rowIndex = static_cast<int64_t>(t.globalIndex()),
+          .collisionIdx = col.index(),
+          .rowIndex = t.globalIndex(),
           .v0Status = static_cast<uint8_t>(status),
           .ptBin = static_cast<uint16_t>(ptB),
           .etaBin = static_cast<uint16_t>(etaB),
@@ -3744,7 +3744,7 @@ struct lambdaspincorrderived {
         continue;
       }
 
-      const int64_t curColIdx = static_cast<int64_t>(col1.index());
+      const int64_t curColIdx = col1.index();
       auto poolA = V0s.sliceBy(tracksPerCollisionV0, col1.index());
 
       for (auto const& [t1, t2] : soa::combinations(o2::soa::CombinationsFullIndexPolicy(poolA, poolA))) {
@@ -4070,8 +4070,8 @@ struct lambdaspincorrderived {
                                       nStat, nPt, nEta, nPhi, nM, nR);
 
         buffer[key].push_back(BufferCandR{
-          .collisionIdx = static_cast<int64_t>(col.index()),
-          .rowIndex = static_cast<int64_t>(t.globalIndex()),
+          .collisionIdx = col.index(),
+          .rowIndex = t.globalIndex(),
           .v0Status = static_cast<uint8_t>(status),
           .ptBin = static_cast<uint16_t>(ptB),
           .etaBin = static_cast<uint16_t>(etaB),
@@ -4308,7 +4308,7 @@ struct lambdaspincorrderived {
         continue;
       }
 
-      const int64_t curColIdx = static_cast<int64_t>(col1.index());
+      const int64_t curColIdx = col1.index();
       auto poolA = V0sMC.sliceBy(tracksPerCollisionV0mc, col1.index());
 
       for (auto const& [t1, t2] : soa::combinations(o2::soa::CombinationsFullIndexPolicy(poolA, poolA))) {

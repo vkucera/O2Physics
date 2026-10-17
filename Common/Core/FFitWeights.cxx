@@ -150,7 +150,7 @@ void FFitWeights::addArray(TObjArray* targ, TObjArray* sour)
 
     auto* tObj = targ->FindObject(obj->GetName());
     if (!tObj) {
-      auto* clone = static_cast<TObject*>(obj->Clone(obj->GetName()));
+      auto* clone = obj->Clone(obj->GetName());
       if (auto* h = dynamic_cast<TH1*>(clone))
         h->SetDirectory(0);
       targ->Add(clone);
