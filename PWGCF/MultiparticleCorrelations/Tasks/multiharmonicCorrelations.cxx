@@ -230,7 +230,7 @@ struct MultiharmonicCorrelations { // this name is used in lower-case format to 
     while ((objectIter = next())) // double round braces are to silence the warnings
     {
       if (TString(objectIter->ClassName()).EqualTo("TList")) {
-        objectFinal = GetObjectFromList(static_cast<TList*>(objectIter), objectName);
+        objectFinal = GetObjectFromList(dynamic_cast<TList*>(objectIter), objectName);
         if (objectFinal)
           return objectFinal;
       }
@@ -281,11 +281,11 @@ struct MultiharmonicCorrelations { // this name is used in lower-case format to 
 
       // Finally, from the top-level TList, get the desired nested TList => the technical problem here is that it can be nested at any level,
       // for thare there is a helper utility function GetObjectFromList(...) , see its implementation further below
-      listWithRuns = static_cast<TList*>(GetObjectFromList(baseList, runNumber));
+      listWithRuns = dynamic_cast<TList*>(GetObjectFromList(baseList, runNumber));
       if (!listWithRuns) {
         TString runNumberWithLeadingZeroes = "000";
         runNumberWithLeadingZeroes += runNumber; // another try, with "000" prepended to run number
-        listWithRuns = static_cast<TList*>(GetObjectFromList(baseList, runNumberWithLeadingZeroes.Data()));
+        listWithRuns = dynamic_cast<TList*>(GetObjectFromList(baseList, runNumberWithLeadingZeroes.Data()));
         if (!listWithRuns) {
           LOGF(fatal, "\033[1;31m%s at line %d\033[0m", __FUNCTION__, __LINE__);
         }
@@ -300,11 +300,11 @@ struct MultiharmonicCorrelations { // this name is used in lower-case format to 
         LOGF(fatal, "\033[1;31m%s at line %d\033[0m", __FUNCTION__, __LINE__);
       }
 
-      listWithRuns = static_cast<TList*>(GetObjectFromList(baseList, runNumber));
+      listWithRuns = dynamic_cast<TList*>(GetObjectFromList(baseList, runNumber));
       if (!listWithRuns) {
         TString runNumberWithLeadingZeroes = "000";
         runNumberWithLeadingZeroes += runNumber; // another try, with "000" prepended to run number
-        listWithRuns = static_cast<TList*>(GetObjectFromList(baseList, runNumberWithLeadingZeroes.Data()));
+        listWithRuns = dynamic_cast<TList*>(GetObjectFromList(baseList, runNumberWithLeadingZeroes.Data()));
         if (!listWithRuns) {
           LOGF(fatal, "\033[1;31m%s at line %d\033[0m", __FUNCTION__, __LINE__);
         }
@@ -332,11 +332,11 @@ struct MultiharmonicCorrelations { // this name is used in lower-case format to 
         LOGF(fatal, "\033[1;31m%s at line %d\033[0m", __FUNCTION__, __LINE__);
       }
 
-      listWithRuns = static_cast<TList*>(GetObjectFromList(baseList, runNumber));
+      listWithRuns = dynamic_cast<TList*>(GetObjectFromList(baseList, runNumber));
       if (!listWithRuns) {
         TString runNumberWithLeadingZeroes = "000";
         runNumberWithLeadingZeroes += runNumber; // another try, with "000" prepended to run number
-        listWithRuns = static_cast<TList*>(GetObjectFromList(baseList, runNumberWithLeadingZeroes.Data()));
+        listWithRuns = dynamic_cast<TList*>(GetObjectFromList(baseList, runNumberWithLeadingZeroes.Data()));
         if (!listWithRuns) {
           // baseList->ls();
           LOGF(fatal, "\033[1;31m%s at line %d : this crash can happen if in the output file there is no list with weights for the current run number = %s\033[0m", __FUNCTION__, __LINE__ /*, tc.fRunNumber.Data()*/);
@@ -348,14 +348,14 @@ struct MultiharmonicCorrelations { // this name is used in lower-case format to 
     // Here comes the common code for all three cases, where from "listWithRuns" you fetch the desired histogram with efficiency corrections:
     listWithRuns->ls();
 
-    hist = static_cast<TH1F*>(listWithRuns->FindObject("histWithEfficiencyCorrections"));
+    hist = dynamic_cast<TH1F*>(listWithRuns->FindObject("histWithEfficiencyCorrections"));
     if (!hist) {
       LOGF(fatal, "no histweight");
     }
 
     // Once you have a valid pointer to "hist", add these technical lines:
-    hist->SetDirectory(0);                               // remove ownerhip from an external file
-    TH1F* histClone = static_cast<TH1F*>(hist->Clone()); // yes, I have to clone here
+    hist->SetDirectory(0);                                // remove ownerhip from an external file
+    TH1F* histClone = dynamic_cast<TH1F*>(hist->Clone()); // yes, I have to clone here
 
     return histClone;
 

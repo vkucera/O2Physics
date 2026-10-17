@@ -138,8 +138,8 @@ struct AntiprotonCumulantsMc {
       ccdb->setCreatedNotAfter(ccdbNoLaterThan.value);
       LOGF(info, "Getting object %s", ccdbPath.value.data());
       TList* lst = ccdb->getForTimeStamp<TList>(ccdbPath.value, ccdbNoLaterThan.value);
-      hRatio2DEtaVsPtProton = static_cast<TH2F*>(lst->FindObject("hRatio2DEtaVsPtProton"));
-      hRatio2DEtaVsPtAntiproton = static_cast<TH2F*>(lst->FindObject("hRatio2DEtaVsPtAntiproton"));
+      hRatio2DEtaVsPtProton = dynamic_cast<TH2F*>(lst->FindObject("hRatio2DEtaVsPtProton"));
+      hRatio2DEtaVsPtAntiproton = dynamic_cast<TH2F*>(lst->FindObject("hRatio2DEtaVsPtAntiproton"));
       if (!hRatio2DEtaVsPtProton || !hRatio2DEtaVsPtAntiproton)
         LOGF(info, "FATAL!! could not get efficiency---------> check");
     }

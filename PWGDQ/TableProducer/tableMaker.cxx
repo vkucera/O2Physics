@@ -445,17 +445,17 @@ struct TableMaker {
     // fill stats information, before selections
     for (int i = 0; i < kNaliases; i++) {
       if (triggerAliases & (static_cast<uint32_t>(1) << i)) {
-        (static_cast<TH2F*>(fStatsList->At(0)))->Fill(2.0, static_cast<float>(i));
+        (dynamic_cast<TH2F*>(fStatsList->At(0)))->Fill(2.0, static_cast<float>(i));
       }
     }
-    (static_cast<TH2F*>(fStatsList->At(0)))->Fill(2.0, static_cast<float>(kNaliases));
+    (dynamic_cast<TH2F*>(fStatsList->At(0)))->Fill(2.0, static_cast<float>(kNaliases));
 
     if (useZorro.fConfigRunZorro) {
       zorro.setBaseCCDBPath(useCCDBConfigurations.fConfigCcdbPathZorro.value);
       zorro.setBCtolerance(useZorro.fBcTolerance);
       zorro.initCCDB(fCCDB.service, fCurrentRun, bc.timestamp(), useZorro.fConfigZorroTrigMask.value);
-      zorro.populateExternalHists(fCurrentRun, static_cast<TH2D*>(fStatsList->At(3)), static_cast<TH2D*>(fStatsList->At(4)));
-      bool zorroSel = zorro.isSelected(bc.globalBC(), useZorro.fBcTolerance, static_cast<TH2D*>(fStatsList->At(4)));
+      zorro.populateExternalHists(fCurrentRun, dynamic_cast<TH2D*>(fStatsList->At(3)), dynamic_cast<TH2D*>(fStatsList->At(4)));
+      bool zorroSel = zorro.isSelected(bc.globalBC(), useZorro.fBcTolerance, dynamic_cast<TH2D*>(fStatsList->At(4)));
       if (zorroSel) {
         tag |= (static_cast<uint64_t>(true) << 56); // the same bit is used for this zorro selections from ccdb
       }
@@ -471,10 +471,10 @@ struct TableMaker {
     // fill stats information, after selections
     for (int i = 0; i < kNaliases; i++) {
       if (triggerAliases & (static_cast<uint32_t>(1) << i)) {
-        (static_cast<TH2F*>(fStatsList->At(0)))->Fill(3.0, static_cast<float>(i));
+        (dynamic_cast<TH2F*>(fStatsList->At(0)))->Fill(3.0, static_cast<float>(i));
       }
     }
-    (static_cast<TH2F*>(fStatsList->At(0)))->Fill(3.0, static_cast<float>(kNaliases));
+    (dynamic_cast<TH2F*>(fStatsList->At(0)))->Fill(3.0, static_cast<float>(kNaliases));
 
     fHistMan->FillHistClass("Event_AfterCuts", VarManager::fgValues);
 
@@ -554,7 +554,7 @@ struct TableMaker {
                 fHistMan->FillHistClass(Form("Ambiguous_TrackBarrel_%s", (*cut).GetName()), VarManager::fgValues);
               }
             }
-            (static_cast<TH1D*>(fStatsList->At(1)))->Fill(static_cast<float>(i));
+            (dynamic_cast<TH1D*>(fStatsList->At(1)))->Fill(static_cast<float>(i));
           }
         }
         if (!trackTempFilterMap) {
@@ -572,7 +572,7 @@ struct TableMaker {
           trackFilteringTag = static_cast<uint64_t>(track.pidbit());
           for (int iv0 = 0; iv0 < 5; iv0++) {
             if (track.pidbit() & (static_cast<uint8_t>(1) << iv0)) {
-              (static_cast<TH1D*>(fStatsList->At(1)))->Fill(fTrackCuts.size() + static_cast<float>(iv0));
+              (dynamic_cast<TH1D*>(fStatsList->At(1)))->Fill(fTrackCuts.size() + static_cast<float>(iv0));
             }
           }
           if (fConfigIsOnlyforMaps) {
@@ -766,7 +766,7 @@ struct TableMaker {
                 fHistMan->FillHistClass(Form("Ambiguous_Muons_%s", (*cut).GetName()), VarManager::fgValues);
               }
             }
-            (static_cast<TH1D*>(fStatsList->At(2)))->Fill(static_cast<float>(i));
+            (dynamic_cast<TH1D*>(fStatsList->At(2)))->Fill(static_cast<float>(i));
           }
         }
         if (!trackTempFilterMap) {
@@ -917,17 +917,17 @@ struct TableMaker {
     // fill stats information, before selections
     for (int i = 0; i < kNaliases; i++) {
       if (triggerAliases & (static_cast<uint32_t>(1) << i)) {
-        (static_cast<TH2F*>(fStatsList->At(0)))->Fill(2.0, static_cast<float>(i));
+        (dynamic_cast<TH2F*>(fStatsList->At(0)))->Fill(2.0, static_cast<float>(i));
       }
     }
-    (static_cast<TH2F*>(fStatsList->At(0)))->Fill(2.0, static_cast<float>(kNaliases));
+    (dynamic_cast<TH2F*>(fStatsList->At(0)))->Fill(2.0, static_cast<float>(kNaliases));
 
     if (useZorro.fConfigRunZorro) {
       zorro.setBaseCCDBPath(useCCDBConfigurations.fConfigCcdbPathZorro.value);
       zorro.setBCtolerance(useZorro.fBcTolerance);
       zorro.initCCDB(fCCDB.service, fCurrentRun, bc.timestamp(), useZorro.fConfigZorroTrigMask.value);
-      zorro.populateExternalHists(fCurrentRun, static_cast<TH2D*>(fStatsList->At(3)), static_cast<TH2D*>(fStatsList->At(4)));
-      bool zorroSel = zorro.isSelected(bc.globalBC(), useZorro.fBcTolerance, static_cast<TH2D*>(fStatsList->At(4)));
+      zorro.populateExternalHists(fCurrentRun, dynamic_cast<TH2D*>(fStatsList->At(3)), dynamic_cast<TH2D*>(fStatsList->At(4)));
+      bool zorroSel = zorro.isSelected(bc.globalBC(), useZorro.fBcTolerance, dynamic_cast<TH2D*>(fStatsList->At(4)));
       if (zorroSel) {
         tag |= (static_cast<uint64_t>(true) << 56); // the same bit is used for this zorro selections from ccdb
       }
@@ -943,10 +943,10 @@ struct TableMaker {
     // fill stats information, after selections
     for (int i = 0; i < kNaliases; i++) {
       if (triggerAliases & (static_cast<uint32_t>(1) << i)) {
-        (static_cast<TH2F*>(fStatsList->At(0)))->Fill(3.0, static_cast<float>(i));
+        (dynamic_cast<TH2F*>(fStatsList->At(0)))->Fill(3.0, static_cast<float>(i));
       }
     }
-    (static_cast<TH2F*>(fStatsList->At(0)))->Fill(3.0, static_cast<float>(kNaliases));
+    (dynamic_cast<TH2F*>(fStatsList->At(0)))->Fill(3.0, static_cast<float>(kNaliases));
 
     fHistMan->FillHistClass("Event_AfterCuts", VarManager::fgValues);
 
@@ -1019,7 +1019,7 @@ struct TableMaker {
                 fHistMan->FillHistClass(Form("Ambiguous_TrackBarrel_%s", (*cut).GetName()), VarManager::fgValues);
               }
             }
-            (static_cast<TH1D*>(fStatsList->At(1)))->Fill(static_cast<float>(i));
+            (dynamic_cast<TH1D*>(fStatsList->At(1)))->Fill(static_cast<float>(i));
           }
         }
         if (!trackTempFilterMap) {
@@ -1037,7 +1037,7 @@ struct TableMaker {
           trackFilteringTag |= (static_cast<uint64_t>(track.pidbit()) << 2);
           for (int iv0 = 0; iv0 < 5; iv0++) {
             if (track.pidbit() & (static_cast<uint8_t>(1) << iv0)) {
-              (static_cast<TH1D*>(fStatsList->At(1)))->Fill(fTrackCuts.size() + static_cast<float>(iv0));
+              (dynamic_cast<TH1D*>(fStatsList->At(1)))->Fill(fTrackCuts.size() + static_cast<float>(iv0));
             }
           }
           if (fConfigIsOnlyforMaps) {
@@ -1186,7 +1186,7 @@ struct TableMaker {
                 fHistMan->FillHistClass(Form("Ambiguous_Muons_%s", (*cut).GetName()), VarManager::fgValues);
               }
             }
-            (static_cast<TH1D*>(fStatsList->At(2)))->Fill(static_cast<float>(i));
+            (dynamic_cast<TH1D*>(fStatsList->At(2)))->Fill(static_cast<float>(i));
           }
         }
         if (!trackTempFilterMap) {
@@ -1383,10 +1383,10 @@ struct TableMaker {
   {
     for (int i = 0; i < kNaliases; i++) {
       if (collision.alias_bit(i) > 0) {
-        (static_cast<TH2F*>(fStatsList->At(0)))->Fill(1.0, static_cast<float>(i));
+        (dynamic_cast<TH2F*>(fStatsList->At(0)))->Fill(1.0, static_cast<float>(i));
       }
     }
-    (static_cast<TH2F*>(fStatsList->At(0)))->Fill(1.0, static_cast<float>(kNaliases));
+    (dynamic_cast<TH2F*>(fStatsList->At(0)))->Fill(1.0, static_cast<float>(kNaliases));
     if (collision.eventFilter()) {
       fullSkimming<gkEventFillMap, gkTrackFillMapWithCov, gkMuonFillMapWithCov>(collision, bcs, tracksBarrel, tracksMuon, nullptr, nullptr);
     }
@@ -1398,10 +1398,10 @@ struct TableMaker {
   {
     for (int i = 0; i < kNaliases; i++) {
       if (collision.alias_bit(i) > 0) {
-        (static_cast<TH2F*>(fStatsList->At(0)))->Fill(1.0, static_cast<float>(i));
+        (dynamic_cast<TH2F*>(fStatsList->At(0)))->Fill(1.0, static_cast<float>(i));
       }
     }
-    (static_cast<TH2F*>(fStatsList->At(0)))->Fill(1.0, static_cast<float>(kNaliases));
+    (dynamic_cast<TH2F*>(fStatsList->At(0)))->Fill(1.0, static_cast<float>(kNaliases));
     if (collision.eventFilter()) {
       fullSkimming<gkEventFillMapWithMult, gkTrackFillMapWithCov, gkMuonFillMapWithCov>(collision, bcs, tracksBarrel, tracksMuon, nullptr, nullptr);
     }
@@ -1478,10 +1478,10 @@ struct TableMaker {
   {
     for (int i = 0; i < kNaliases; i++) {
       if (collision.alias_bit(i) > 0) {
-        (static_cast<TH2F*>(fStatsList->At(0)))->Fill(1.0, static_cast<float>(i));
+        (dynamic_cast<TH2F*>(fStatsList->At(0)))->Fill(1.0, static_cast<float>(i));
       }
     }
-    (static_cast<TH2F*>(fStatsList->At(0)))->Fill(1.0, static_cast<float>(kNaliases));
+    (dynamic_cast<TH2F*>(fStatsList->At(0)))->Fill(1.0, static_cast<float>(kNaliases));
     if (collision.eventFilter()) {
       fullSkimming<gkEventFillMap, gkTrackFillMap, 0u>(collision, bcs, tracksBarrel, nullptr, nullptr, nullptr);
     }
@@ -1500,10 +1500,10 @@ struct TableMaker {
   {
     for (int i = 0; i < kNaliases; i++) {
       if (collision.alias_bit(i) > 0) {
-        (static_cast<TH2F*>(fStatsList->At(0)))->Fill(1.0, static_cast<float>(i));
+        (dynamic_cast<TH2F*>(fStatsList->At(0)))->Fill(1.0, static_cast<float>(i));
       }
     }
-    (static_cast<TH2F*>(fStatsList->At(0)))->Fill(1.0, static_cast<float>(kNaliases));
+    (dynamic_cast<TH2F*>(fStatsList->At(0)))->Fill(1.0, static_cast<float>(kNaliases));
     if (collision.eventFilter()) {
       fullSkimming<gkEventFillMapWithMultsAndEventFilter, gkTrackFillMap, 0u>(collision, bcs, tracksBarrel, nullptr, nullptr, nullptr);
     }
@@ -1515,10 +1515,10 @@ struct TableMaker {
   {
     for (int i = 0; i < kNaliases; i++) {
       if (collision.alias_bit(i) > 0) {
-        (static_cast<TH2F*>(fStatsList->At(0)))->Fill(1.0, static_cast<float>(i));
+        (dynamic_cast<TH2F*>(fStatsList->At(0)))->Fill(1.0, static_cast<float>(i));
       }
     }
-    (static_cast<TH2F*>(fStatsList->At(0)))->Fill(1.0, static_cast<float>(kNaliases));
+    (dynamic_cast<TH2F*>(fStatsList->At(0)))->Fill(1.0, static_cast<float>(kNaliases));
     if (collision.eventFilter()) {
       fullSkimming<gkEventFillMap, gkTrackFillMapWithCov, 0u>(collision, bcs, tracksBarrel, nullptr, nullptr, nullptr);
     }
@@ -1593,10 +1593,10 @@ struct TableMaker {
   {
     for (int i = 0; i < kNaliases; i++) {
       if (collision.alias_bit(i) > 0) {
-        (static_cast<TH2F*>(fStatsList->At(0)))->Fill(1.0, static_cast<float>(i));
+        (dynamic_cast<TH2F*>(fStatsList->At(0)))->Fill(1.0, static_cast<float>(i));
       }
     }
-    (static_cast<TH2F*>(fStatsList->At(0)))->Fill(1.0, static_cast<float>(kNaliases));
+    (dynamic_cast<TH2F*>(fStatsList->At(0)))->Fill(1.0, static_cast<float>(kNaliases));
     if (collision.eventFilter()) {
       fullSkimming<gkEventFillMap, 0u, gkMuonFillMapWithCov>(collision, bcs, nullptr, tracksMuon, nullptr, nullptr);
     }
@@ -1710,10 +1710,10 @@ struct TableMaker {
   {
     for (int i = 0; i < kNaliases; i++) {
       if (bc.alias_bit(i) > 0) {
-        (static_cast<TH2F*>(fStatsList->At(0)))->Fill(0.0, static_cast<float>(i));
+        (dynamic_cast<TH2F*>(fStatsList->At(0)))->Fill(0.0, static_cast<float>(i));
       }
     }
-    (static_cast<TH2F*>(fStatsList->At(0)))->Fill(0.0, static_cast<float>(kNaliases));
+    (dynamic_cast<TH2F*>(fStatsList->At(0)))->Fill(0.0, static_cast<float>(kNaliases));
   }
 
   // List of process functions removed because they are not using cov matrix

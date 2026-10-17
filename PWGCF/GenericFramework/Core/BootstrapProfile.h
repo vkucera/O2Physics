@@ -49,7 +49,7 @@ class BootstrapProfile : public TProfile
   {
     ResetBin(static_cast<TProfile*>(this), nbin);
     for (Int_t i = 0; i < fListOfEntries->GetEntries(); i++)
-      ResetBin(static_cast<TProfile*>(fListOfEntries->At(i)), nbin);
+      ResetBin(dynamic_cast<TProfile*>(fListOfEntries->At(i)), nbin);
   };
   ClassDef(BootstrapProfile, 2);
 

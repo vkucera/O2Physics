@@ -272,11 +272,11 @@ struct straCents {
 
       if constexpr (requires { collision.sel7(); }) { // check if we are in Run 2
         auto getccdb = [lCalibObjects_Centrality](const char* ccdbhname) {
-          TH1* h = static_cast<TH1*>(lCalibObjects_Centrality->FindObject(ccdbhname));
+          TH1* h = dynamic_cast<TH1*>(lCalibObjects_Centrality->FindObject(ccdbhname));
           return h;
         };
         auto getformulaccdb = [lCalibObjects_Centrality](const char* ccdbhname) {
-          TFormula* f = static_cast<TFormula*>(lCalibObjects_Centrality->FindObject(ccdbhname));
+          TFormula* f = dynamic_cast<TFormula*>(lCalibObjects_Centrality->FindObject(ccdbhname));
           return f;
         };
 
@@ -350,8 +350,8 @@ struct straCents {
       } else {
         // we are in Run 3
         auto getccdb = [lCalibObjects_Centrality, collision](struct CalibrationInfo& estimator, const Configurable<std::string>& generatorName, const Configurable<bool>& notCrashOnNull) { // TODO: to consider the name inside the estimator structure
-          estimator.mhMultSelCalib = static_cast<TH1*>(lCalibObjects_Centrality->FindObject(TString::Format("hCalibZeq%s", estimator.name.c_str()).Data()));
-          estimator.mMCScale = static_cast<TFormula*>(lCalibObjects_Centrality->FindObject(TString::Format("%s-%s", generatorName->c_str(), estimator.name.c_str()).Data()));
+          estimator.mhMultSelCalib = dynamic_cast<TH1*>(lCalibObjects_Centrality->FindObject(TString::Format("hCalibZeq%s", estimator.name.c_str()).Data()));
+          estimator.mMCScale = dynamic_cast<TFormula*>(lCalibObjects_Centrality->FindObject(TString::Format("%s-%s", generatorName->c_str(), estimator.name.c_str()).Data()));
           if (estimator.mhMultSelCalib != nullptr) {
             if (generatorName->length() != 0) {
               LOGF(info, "Retrieving MC calibration for %d, generator name: %s", collision.runNumber(), generatorName->c_str());

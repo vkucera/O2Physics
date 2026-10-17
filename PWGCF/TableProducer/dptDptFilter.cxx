@@ -360,9 +360,9 @@ struct Multiplicity {
   void setMultiplicityPercentiles(TList* list)
   {
     LOGF(info, "setMultiplicityPercentiles(). From list %s", list->GetName());
-    fhV0MMultPercentile = static_cast<TH1*>(list->FindObject("V0MCentMult"));
-    fhCL1MultPercentile = static_cast<TH1*>(list->FindObject("CL1MCentMult"));
-    fhCL1EtaGapMultPercentile = static_cast<TH1*>(list->FindObject("CL1EtaGapMCentMult"));
+    fhV0MMultPercentile = dynamic_cast<TH1*>(list->FindObject("V0MCentMult"));
+    fhCL1MultPercentile = dynamic_cast<TH1*>(list->FindObject("CL1MCentMult"));
+    fhCL1EtaGapMultPercentile = dynamic_cast<TH1*>(list->FindObject("CL1EtaGapMCentMult"));
 
     if (fhV0MMultPercentile == nullptr || fhCL1MultPercentile == nullptr || fhCL1EtaGapMultPercentile == nullptr) {
       LOGF(fatal, "setMultiplicityPercentiles()", "Percentiles histograms not correctly loaded. ABORTING!!!");

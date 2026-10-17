@@ -110,22 +110,22 @@ class MomentumSmearer
   void getResolutionHistos(TList* list)
   {
 
-    fResoPt = static_cast<TH2F*>(list->FindObject(fResPtHistName));
+    fResoPt = dynamic_cast<TH2F*>(list->FindObject(fResPtHistName));
     if (!fResoPt) {
       LOGP(fatal, "Could not open {} from file {}", fResPtHistName.Data(), fResFileName.Data());
     }
 
-    fResoEta = static_cast<TH2F*>(list->FindObject(fResEtaHistName));
+    fResoEta = dynamic_cast<TH2F*>(list->FindObject(fResEtaHistName));
     if (!fResoEta) {
       LOGP(fatal, "Could not open {} from file {}", fResEtaHistName.Data(), fResFileName.Data());
     }
 
-    fResoPhi_Pos = static_cast<TH2F*>(list->FindObject(fResPhiPosHistName));
+    fResoPhi_Pos = dynamic_cast<TH2F*>(list->FindObject(fResPhiPosHistName));
     if (!fResoPhi_Pos) {
       LOGP(fatal, "Could not open {} from file {}", fResPhiPosHistName.Data(), fResFileName.Data());
     }
 
-    fResoPhi_Neg = static_cast<TH2F*>(list->FindObject(fResPhiNegHistName));
+    fResoPhi_Neg = dynamic_cast<TH2F*>(list->FindObject(fResPhiNegHistName));
     if (!fResoPhi_Neg) {
       LOGP(fatal, "Could not open {} from file {}", fResPhiNegHistName.Data(), fResFileName.Data());
     }
@@ -214,7 +214,7 @@ class MomentumSmearer
           return;
         }
         if (fFile->GetListOfKeys()->Contains("ccdb_object")) {
-          listRes = static_cast<TList*>(fFile->Get("ccdb_object"));
+          listRes = dynamic_cast<TList*>(fFile->Get("ccdb_object"));
         } else {
           for (TObject* keyAsObj : *(fFile->GetListOfKeys())) {
             auto key = dynamic_cast<TKey*>(keyAsObj);
@@ -231,7 +231,7 @@ class MomentumSmearer
 
     if (fDoNDSmearing) {
       if (fResType != 0) {
-        fResoND = static_cast<THnSparseF*>(listRes->FindObject(fResNDHistName));
+        fResoND = dynamic_cast<THnSparseF*>(listRes->FindObject(fResNDHistName));
         if (!fResoND) {
           LOGP(fatal, "Could not open {} from file {}", fResNDHistName.Data(), fResFileName.Data());
         }
@@ -239,22 +239,22 @@ class MomentumSmearer
       }
     } else {
       if (fResType != 0) {
-        fResoPt = static_cast<TH2F*>(listRes->FindObject(fResPtHistName));
+        fResoPt = dynamic_cast<TH2F*>(listRes->FindObject(fResPtHistName));
         if (!fResoPt) {
           LOGP(fatal, "Could not open {} from file {}", fResPtHistName.Data(), fResFileName.Data());
         }
 
-        fResoEta = static_cast<TH2F*>(listRes->FindObject(fResEtaHistName));
+        fResoEta = dynamic_cast<TH2F*>(listRes->FindObject(fResEtaHistName));
         if (!fResoEta) {
           LOGP(fatal, "Could not open {} from file {}", fResEtaHistName.Data(), fResFileName.Data());
         }
 
-        fResoPhi_Pos = static_cast<TH2F*>(listRes->FindObject(fResPhiPosHistName));
+        fResoPhi_Pos = dynamic_cast<TH2F*>(listRes->FindObject(fResPhiPosHistName));
         if (!fResoPhi_Pos) {
           LOGP(fatal, "Could not open {} from file {}", fResPhiPosHistName.Data(), fResFileName.Data());
         }
 
-        fResoPhi_Neg = static_cast<TH2F*>(listRes->FindObject(fResPhiNegHistName));
+        fResoPhi_Neg = dynamic_cast<TH2F*>(listRes->FindObject(fResPhiNegHistName));
         if (!fResoPhi_Neg) {
           LOGP(fatal, "Could not open {} from file {}", fResPhiNegHistName.Data(), fResFileName.Data());
         }
@@ -289,7 +289,7 @@ class MomentumSmearer
           return;
         }
         if (fFile->GetListOfKeys()->Contains("ccdb_object")) {
-          listEff = static_cast<TList*>(fFile->Get("ccdb_object"));
+          listEff = dynamic_cast<TList*>(fFile->Get("ccdb_object"));
         } else {
           for (TObject* keyAsObj : *(fFile->GetListOfKeys())) {
             auto key = dynamic_cast<TKey*>(keyAsObj);
@@ -345,7 +345,7 @@ class MomentumSmearer
           return;
         }
         if (fFile->GetListOfKeys()->Contains("ccdb_object")) {
-          listDCA = static_cast<TList*>(fFile->Get("ccdb_object"));
+          listDCA = dynamic_cast<TList*>(fFile->Get("ccdb_object"));
         } else {
           for (TObject* keyAsObj : *(fFile->GetListOfKeys())) {
             auto key = dynamic_cast<TKey*>(keyAsObj);
@@ -358,7 +358,7 @@ class MomentumSmearer
       }
     }
     if (fDCAType != 0) {
-      fDCA = static_cast<TH2F*>(listDCA->FindObject(fDCAHistName));
+      fDCA = dynamic_cast<TH2F*>(listDCA->FindObject(fDCAHistName));
       if (!fDCA) {
         LOGP(fatal, "Could not open {} from file {}", fDCAHistName.Data(), fDCAFileName.Data());
       }
@@ -481,7 +481,7 @@ class MomentumSmearer
     }
 
     if (fEffType == 1) {
-      TH1F* hist = static_cast<TH1F*>(fEff);
+      TH1F* hist = dynamic_cast<TH1F*>(fEff);
       int ptbin = hist->GetXaxis()->FindBin(pt);
       int ptbin_max = hist->GetXaxis()->GetNbins();
       // make sure that no underflow or overflow bins are used
@@ -493,7 +493,7 @@ class MomentumSmearer
     }
 
     if (fEffType == 2) {
-      TH2F* hist = static_cast<TH2F*>(fEff);
+      TH2F* hist = dynamic_cast<TH2F*>(fEff);
       int ptbin = hist->GetXaxis()->FindBin(pt);
       int ptbin_max = hist->GetXaxis()->GetNbins();
       int etabin = hist->GetYaxis()->FindBin(eta);
@@ -511,7 +511,7 @@ class MomentumSmearer
     }
 
     if (fEffType == 3) {
-      TH3F* hist = static_cast<TH3F*>(fEff);
+      TH3F* hist = dynamic_cast<TH3F*>(fEff);
       int ptbin = hist->GetXaxis()->FindBin(pt);
       int ptbin_max = hist->GetXaxis()->GetNbins();
       int etabin = hist->GetYaxis()->FindBin(eta);

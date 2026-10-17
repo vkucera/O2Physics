@@ -64,11 +64,11 @@ struct phosQC {
 
     // create sub lists first.
     o2::aod::pwgem::photon::histogram::AddHistClass(fMainList, "Event");
-    THashList* list_ev = static_cast<THashList*>(fMainList->FindObject("Event"));
+    THashList* list_ev = dynamic_cast<THashList*>(fMainList->FindObject("Event"));
     o2::aod::pwgem::photon::histogram::DefineHistograms(list_ev, "Event");
 
     o2::aod::pwgem::photon::histogram::AddHistClass(fMainList, "Cluster");
-    THashList* list_cluster = static_cast<THashList*>(fMainList->FindObject("Cluster"));
+    THashList* list_cluster = dynamic_cast<THashList*>(fMainList->FindObject("Cluster"));
 
     for (const auto& cut : fPHOSCuts) {
       std::string cutname = cut.getName();
@@ -78,7 +78,7 @@ struct phosQC {
     // for Clusters
     for (auto& cut : fPHOSCuts) {
       const std::string& cutname = cut.getName();
-      THashList* list = static_cast<THashList*>(fMainList->FindObject("Cluster")->FindObject(cutname.c_str()));
+      THashList* list = dynamic_cast<THashList*>(fMainList->FindObject("Cluster")->FindObject(cutname.c_str()));
       o2::aod::pwgem::photon::histogram::DefineHistograms(list, "Cluster", "PHOS");
     }
   }
@@ -105,8 +105,8 @@ struct phosQC {
     DefineCuts();
     addhistograms(); // please call this after DefinCuts();
 
-    fOutputEvent.setObject(static_cast<THashList*>(fMainList->FindObject("Event")));
-    fOutputCluster.setObject(static_cast<THashList*>(fMainList->FindObject("Cluster")));
+    fOutputEvent.setObject(dynamic_cast<THashList*>(fMainList->FindObject("Event")));
+    fOutputCluster.setObject(dynamic_cast<THashList*>(fMainList->FindObject("Cluster")));
   }
 
   Preslice<aod::PHOSClusters> perCollision = aod::skimmedcluster::collisionId;
@@ -122,22 +122,22 @@ struct phosQC {
         continue;
       }
 
-      static_cast<TH1F*>(fMainList->FindObject("Event")->FindObject("hCollisionCounter"))->Fill(1.0);
+      dynamic_cast<TH1F*>(fMainList->FindObject("Event")->FindObject("hCollisionCounter"))->Fill(1.0);
       if (!collision.sel8()) {
         continue;
       }
-      static_cast<TH1F*>(fMainList->FindObject("Event")->FindObject("hCollisionCounter"))->Fill(2.0);
+      dynamic_cast<TH1F*>(fMainList->FindObject("Event")->FindObject("hCollisionCounter"))->Fill(2.0);
 
       if (collision.numContrib() < 0.5) {
         continue;
       }
-      static_cast<TH1F*>(fMainList->FindObject("Event")->FindObject("hCollisionCounter"))->Fill(3.0);
+      dynamic_cast<TH1F*>(fMainList->FindObject("Event")->FindObject("hCollisionCounter"))->Fill(3.0);
 
       if (abs(collision.posZ()) > 10.0) {
         continue;
       }
-      static_cast<TH1F*>(fMainList->FindObject("Event")->FindObject("hCollisionCounter"))->Fill(4.0);
-      static_cast<TH1F*>(fMainList->FindObject("Event")->FindObject("hZvtx"))->Fill(collision.posZ());
+      dynamic_cast<TH1F*>(fMainList->FindObject("Event")->FindObject("hCollisionCounter"))->Fill(4.0);
+      dynamic_cast<TH1F*>(fMainList->FindObject("Event")->FindObject("hZvtx"))->Fill(collision.posZ());
       o2::aod::pwgem::photon::histogram::FillHistClass<EMHistType::kEvent>(list_ev, "", collision);
 
       auto clusters_per_coll = clusters.sliceBy(perCollision, collision.collisionId());
@@ -151,7 +151,7 @@ struct phosQC {
             ng++;
           }
         } // end of v0 loop
-        static_cast<TH1F*>(fMainList->FindObject("Cluster")->FindObject(cut.getName().c_str())->FindObject("hNgamma"))->Fill(ng);
+        dynamic_cast<TH1F*>(fMainList->FindObject("Cluster")->FindObject(cut.getName().c_str())->FindObject("hNgamma"))->Fill(ng);
       } // end of cut loop
     } // end of collision loop
   } // end of process

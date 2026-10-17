@@ -672,19 +672,19 @@ struct strangenesstofpid {
           nSigmaCalibLoaded = true; // made it thus far, mark loaded
 
           if (calculateV0s.value) {
-            hMeanPosLaPi = static_cast<TH1*>(nSigmaCalibObjects->FindObject("hMeanPosLaPi"));
-            hMeanPosLaPr = static_cast<TH1*>(nSigmaCalibObjects->FindObject("hMeanPosLaPr"));
-            hMeanNegLaPi = static_cast<TH1*>(nSigmaCalibObjects->FindObject("hMeanNegLaPi"));
-            hMeanNegLaPr = static_cast<TH1*>(nSigmaCalibObjects->FindObject("hMeanNegLaPr"));
-            hMeanPosK0Pi = static_cast<TH1*>(nSigmaCalibObjects->FindObject("hMeanPosK0Pi"));
-            hMeanNegK0Pi = static_cast<TH1*>(nSigmaCalibObjects->FindObject("hMeanNegK0Pi"));
+            hMeanPosLaPi = dynamic_cast<TH1*>(nSigmaCalibObjects->FindObject("hMeanPosLaPi"));
+            hMeanPosLaPr = dynamic_cast<TH1*>(nSigmaCalibObjects->FindObject("hMeanPosLaPr"));
+            hMeanNegLaPi = dynamic_cast<TH1*>(nSigmaCalibObjects->FindObject("hMeanNegLaPi"));
+            hMeanNegLaPr = dynamic_cast<TH1*>(nSigmaCalibObjects->FindObject("hMeanNegLaPr"));
+            hMeanPosK0Pi = dynamic_cast<TH1*>(nSigmaCalibObjects->FindObject("hMeanPosK0Pi"));
+            hMeanNegK0Pi = dynamic_cast<TH1*>(nSigmaCalibObjects->FindObject("hMeanNegK0Pi"));
 
-            hSigmaPosLaPi = static_cast<TH1*>(nSigmaCalibObjects->FindObject("hSigmaPosLaPi"));
-            hSigmaPosLaPr = static_cast<TH1*>(nSigmaCalibObjects->FindObject("hSigmaPosLaPr"));
-            hSigmaNegLaPi = static_cast<TH1*>(nSigmaCalibObjects->FindObject("hSigmaNegLaPi"));
-            hSigmaNegLaPr = static_cast<TH1*>(nSigmaCalibObjects->FindObject("hSigmaNegLaPr"));
-            hSigmaPosK0Pi = static_cast<TH1*>(nSigmaCalibObjects->FindObject("hSigmaPosK0Pi"));
-            hSigmaNegK0Pi = static_cast<TH1*>(nSigmaCalibObjects->FindObject("hSigmaNegK0Pi"));
+            hSigmaPosLaPi = dynamic_cast<TH1*>(nSigmaCalibObjects->FindObject("hSigmaPosLaPi"));
+            hSigmaPosLaPr = dynamic_cast<TH1*>(nSigmaCalibObjects->FindObject("hSigmaPosLaPr"));
+            hSigmaNegLaPi = dynamic_cast<TH1*>(nSigmaCalibObjects->FindObject("hSigmaNegLaPi"));
+            hSigmaNegLaPr = dynamic_cast<TH1*>(nSigmaCalibObjects->FindObject("hSigmaNegLaPr"));
+            hSigmaPosK0Pi = dynamic_cast<TH1*>(nSigmaCalibObjects->FindObject("hSigmaPosK0Pi"));
+            hSigmaNegK0Pi = dynamic_cast<TH1*>(nSigmaCalibObjects->FindObject("hSigmaNegK0Pi"));
 
             if (!hMeanPosLaPi)
               LOG(info) << "Problems finding mean histogram hMeanPosLaPi!";
@@ -704,27 +704,27 @@ struct strangenesstofpid {
           }
 
           if (calculateCascades.value) {
-            hMeanPosXiPi = static_cast<TH1*>(nSigmaCalibObjects->FindObject("hMeanPosXiPi"));
-            hMeanPosXiPr = static_cast<TH1*>(nSigmaCalibObjects->FindObject("hMeanPosXiPr"));
-            hMeanNegXiPi = static_cast<TH1*>(nSigmaCalibObjects->FindObject("hMeanNegXiPi"));
-            hMeanNegXiPr = static_cast<TH1*>(nSigmaCalibObjects->FindObject("hMeanNegXiPr"));
-            hMeanBachXiPi = static_cast<TH1*>(nSigmaCalibObjects->FindObject("hMeanBachXiPi"));
-            hMeanPosOmPi = static_cast<TH1*>(nSigmaCalibObjects->FindObject("hMeanPosOmPi"));
-            hMeanPosOmPr = static_cast<TH1*>(nSigmaCalibObjects->FindObject("hMeanPosOmPr"));
-            hMeanNegOmPi = static_cast<TH1*>(nSigmaCalibObjects->FindObject("hMeanNegOmPi"));
-            hMeanNegOmPr = static_cast<TH1*>(nSigmaCalibObjects->FindObject("hMeanNegOmPr"));
-            hMeanBachOmKa = static_cast<TH1*>(nSigmaCalibObjects->FindObject("hMeanBachOmKa"));
+            hMeanPosXiPi = dynamic_cast<TH1*>(nSigmaCalibObjects->FindObject("hMeanPosXiPi"));
+            hMeanPosXiPr = dynamic_cast<TH1*>(nSigmaCalibObjects->FindObject("hMeanPosXiPr"));
+            hMeanNegXiPi = dynamic_cast<TH1*>(nSigmaCalibObjects->FindObject("hMeanNegXiPi"));
+            hMeanNegXiPr = dynamic_cast<TH1*>(nSigmaCalibObjects->FindObject("hMeanNegXiPr"));
+            hMeanBachXiPi = dynamic_cast<TH1*>(nSigmaCalibObjects->FindObject("hMeanBachXiPi"));
+            hMeanPosOmPi = dynamic_cast<TH1*>(nSigmaCalibObjects->FindObject("hMeanPosOmPi"));
+            hMeanPosOmPr = dynamic_cast<TH1*>(nSigmaCalibObjects->FindObject("hMeanPosOmPr"));
+            hMeanNegOmPi = dynamic_cast<TH1*>(nSigmaCalibObjects->FindObject("hMeanNegOmPi"));
+            hMeanNegOmPr = dynamic_cast<TH1*>(nSigmaCalibObjects->FindObject("hMeanNegOmPr"));
+            hMeanBachOmKa = dynamic_cast<TH1*>(nSigmaCalibObjects->FindObject("hMeanBachOmKa"));
 
-            hSigmaPosXiPi = static_cast<TH1*>(nSigmaCalibObjects->FindObject("hSigmaPosXiPi"));
-            hSigmaPosXiPr = static_cast<TH1*>(nSigmaCalibObjects->FindObject("hSigmaPosXiPr"));
-            hSigmaNegXiPi = static_cast<TH1*>(nSigmaCalibObjects->FindObject("hSigmaNegXiPi"));
-            hSigmaNegXiPr = static_cast<TH1*>(nSigmaCalibObjects->FindObject("hSigmaNegXiPr"));
-            hSigmaBachXiPi = static_cast<TH1*>(nSigmaCalibObjects->FindObject("hSigmaBachXiPi"));
-            hSigmaPosOmPi = static_cast<TH1*>(nSigmaCalibObjects->FindObject("hSigmaPosOmPi"));
-            hSigmaPosOmPr = static_cast<TH1*>(nSigmaCalibObjects->FindObject("hSigmaPosOmPr"));
-            hSigmaNegOmPi = static_cast<TH1*>(nSigmaCalibObjects->FindObject("hSigmaNegOmPi"));
-            hSigmaNegOmPr = static_cast<TH1*>(nSigmaCalibObjects->FindObject("hSigmaNegOmPr"));
-            hSigmaBachOmKa = static_cast<TH1*>(nSigmaCalibObjects->FindObject("hSigmaBachOmKa"));
+            hSigmaPosXiPi = dynamic_cast<TH1*>(nSigmaCalibObjects->FindObject("hSigmaPosXiPi"));
+            hSigmaPosXiPr = dynamic_cast<TH1*>(nSigmaCalibObjects->FindObject("hSigmaPosXiPr"));
+            hSigmaNegXiPi = dynamic_cast<TH1*>(nSigmaCalibObjects->FindObject("hSigmaNegXiPi"));
+            hSigmaNegXiPr = dynamic_cast<TH1*>(nSigmaCalibObjects->FindObject("hSigmaNegXiPr"));
+            hSigmaBachXiPi = dynamic_cast<TH1*>(nSigmaCalibObjects->FindObject("hSigmaBachXiPi"));
+            hSigmaPosOmPi = dynamic_cast<TH1*>(nSigmaCalibObjects->FindObject("hSigmaPosOmPi"));
+            hSigmaPosOmPr = dynamic_cast<TH1*>(nSigmaCalibObjects->FindObject("hSigmaPosOmPr"));
+            hSigmaNegOmPi = dynamic_cast<TH1*>(nSigmaCalibObjects->FindObject("hSigmaNegOmPi"));
+            hSigmaNegOmPr = dynamic_cast<TH1*>(nSigmaCalibObjects->FindObject("hSigmaNegOmPr"));
+            hSigmaBachOmKa = dynamic_cast<TH1*>(nSigmaCalibObjects->FindObject("hSigmaBachOmKa"));
 
             if (!hMeanPosXiPi || !hMeanPosXiPr || !hMeanNegXiPi || !hMeanNegXiPr || !hMeanBachXiPi)
               LOG(info) << "Problems finding xi mean histograms!";

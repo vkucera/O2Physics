@@ -58,8 +58,8 @@ void BootstrapProfile::InitializeSubsamples(Int_t nSub)
   fListOfEntries->SetOwner(kTRUE);
   TProfile* dummyPF = static_cast<TProfile*>(this);
   for (Int_t i = 0; i < nSub; i++) {
-    fListOfEntries->Add(static_cast<TProfile*>(dummyPF->Clone(Form("%s_Subpf%i", dummyPF->GetName(), i))));
-    static_cast<TProfile*>(fListOfEntries->At(i))->Reset();
+    fListOfEntries->Add(dynamic_cast<TProfile*>(dummyPF->Clone(Form("%s_Subpf%i", dummyPF->GetName(), i))));
+    dynamic_cast<TProfile*>(fListOfEntries->At(i))->Reset();
   }
   fNSubs = nSub;
 }
@@ -71,7 +71,7 @@ void BootstrapProfile::FillProfile(const Double_t& xv, const Double_t& yv, const
   Int_t targetInd = rn * fNSubs;
   if (targetInd >= fNSubs)
     targetInd = 0;
-  static_cast<TProfile*>(fListOfEntries->At(targetInd))->Fill(xv, yv, w);
+  dynamic_cast<TProfile*>(fListOfEntries->At(targetInd))->Fill(xv, yv, w);
 }
 void BootstrapProfile::FillProfile(const Double_t& xv, const Double_t& yv, const Double_t& w)
 {
@@ -83,7 +83,7 @@ void BootstrapProfile::RebinMulti(Int_t nbins)
   if (!fListOfEntries)
     return;
   for (Int_t i = 0; i < fListOfEntries->GetEntries(); i++)
-    static_cast<TProfile*>(fListOfEntries->At(i))->RebinX(nbins);
+    dynamic_cast<TProfile*>(fListOfEntries->At(i))->RebinX(nbins);
 }
 TH1* BootstrapProfile::getHist(Int_t ind)
 {
@@ -97,7 +97,7 @@ TH1* BootstrapProfile::getHist(Int_t ind)
       return 0;
     }
     if (ind < fNSubs) {
-      return getHistRebinned(static_cast<TProfile*>(fListOfEntries->At(ind))); ////((TProfile*)fListOfEntries->At(ind))->ProjectionX(Form("%s_sub%i",((TProfile*)fListOfEntries->At(ind))->GetName(),ind));
+      return getHistRebinned(dynamic_cast<TProfile*>(fListOfEntries->At(ind))); ////((TProfile*)fListOfEntries->At(ind))->ProjectionX(Form("%s_sub%i",((TProfile*)fListOfEntries->At(ind))->GetName(),ind));
     } else {
       printf("Trying to fetch subprofile no %i out of %i, not possible\n", ind, fNSubs);
       return 0;
@@ -115,7 +115,7 @@ TProfile* BootstrapProfile::getProfile(Int_t ind)
       return 0;
     }
     if (ind < fNSubs) {
-      return static_cast<TProfile*>(fListOfEntries->At(ind));
+      return dynamic_cast<TProfile*>(fListOfEntries->At(ind));
     } else {
       printf("Trying to fetch subprofile no %i out of %i, not possible\n", ind, fNSubs);
       return 0;
@@ -127,18 +127,18 @@ Long64_t BootstrapProfile::Merge(TCollection* collist)
   Long64_t nmergedpf = TProfile::Merge(collist);
   BootstrapProfile* l_PBS = 0;
   TIter all_PBS(collist);
-  while ((l_PBS = static_cast<BootstrapProfile*>(all_PBS()))) {
+  while ((l_PBS = dynamic_cast<BootstrapProfile*>(all_PBS()))) {
     static_cast<TProfile*>(this)->Add(static_cast<TProfile*>(l_PBS));
     TList* tarL = l_PBS->fListOfEntries;
     if (!tarL)
       continue;
     if (!fListOfEntries) {
-      fListOfEntries = static_cast<TList*>(tarL->Clone());
+      fListOfEntries = dynamic_cast<TList*>(tarL->Clone());
       for (Int_t i = 0; i < fListOfEntries->GetEntries(); i++)
-        static_cast<TProfile*>(fListOfEntries->At(i))->Reset();
+        dynamic_cast<TProfile*>(fListOfEntries->At(i))->Reset();
     }
     for (Int_t i = 0; i < fListOfEntries->GetEntries(); i++)
-      static_cast<TProfile*>(fListOfEntries->At(i))->Add(static_cast<TProfile*>(tarL->At(i)));
+      dynamic_cast<TProfile*>(fListOfEntries->At(i))->Add(dynamic_cast<TProfile*>(tarL->At(i)));
   }
   return nmergedpf;
 };
@@ -163,7 +163,7 @@ TH1* BootstrapProfile::getHistRebinned(TProfile* inpf)
     return 0;
   if (fMultiRebin <= 0)
     return inpf->ProjectionX(Form("%s_hist", inpf->GetName()));
-  TProfile* temppf = static_cast<TProfile*>(inpf->Rebin(fMultiRebin, "tempProfile", fMultiRebinEdges));
+  TProfile* temppf = dynamic_cast<TProfile*>(inpf->Rebin(fMultiRebin, "tempProfile", fMultiRebinEdges));
   TH1* reth = static_cast<TH1*>(temppf->ProjectionX(Form("%s_hist", inpf->GetName())));
   delete temppf;
   return reth;
@@ -210,12 +210,12 @@ void BootstrapProfile::MergeBS(BootstrapProfile* target)
   if (!fListOfEntries) {
     if (!target->fListOfEntries)
       return;
-    fListOfEntries = static_cast<TList*>(tarL->Clone());
+    fListOfEntries = dynamic_cast<TList*>(tarL->Clone());
     for (Int_t i = 0; i < fListOfEntries->GetEntries(); i++)
-      static_cast<TProfile*>(fListOfEntries->At(i))->Reset();
+      dynamic_cast<TProfile*>(fListOfEntries->At(i))->Reset();
   }
   for (Int_t i = 0; i < fListOfEntries->GetEntries(); i++)
-    static_cast<TProfile*>(fListOfEntries->At(i))->Add(static_cast<TProfile*>(tarL->At(i)));
+    dynamic_cast<TProfile*>(fListOfEntries->At(i))->Add(dynamic_cast<TProfile*>(tarL->At(i)));
 }
 TProfile* BootstrapProfile::getSummedProfiles()
 {
@@ -223,9 +223,9 @@ TProfile* BootstrapProfile::getSummedProfiles()
     printf("No subprofiles initialized for the BootstrapProfile.\n");
     return 0;
   }
-  TProfile* retpf = static_cast<TProfile*>(fListOfEntries->At(0)->Clone("SummedProfile"));
+  TProfile* retpf = dynamic_cast<TProfile*>(fListOfEntries->At(0)->Clone("SummedProfile"));
   for (Int_t i = 1; i < fListOfEntries->GetEntries(); i++)
-    retpf->Add(static_cast<TProfile*>(fListOfEntries->At(i)));
+    retpf->Add(dynamic_cast<TProfile*>(fListOfEntries->At(i)));
   return retpf;
 }
 void BootstrapProfile::OverrideMainWithSub()
