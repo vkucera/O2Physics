@@ -1181,7 +1181,7 @@ struct nucleiSpectra {
           track.itsChi2NCl() > cfgTrackCut.ITSchi2ClusMax) {
         continue;
       }
-      double expBethe{common::BetheBlochAleph(static_cast<double>(track.tpcInnerParam() * 2. / o2::constants::physics::MassHelium3), cfgBetheBlochParams->get(4, 0u), cfgBetheBlochParams->get(4, 1u), cfgBetheBlochParams->get(4, 2u), cfgBetheBlochParams->get(4, 3u), cfgBetheBlochParams->get(4, 4u))};
+      double expBethe{common::BetheBlochAleph((track.tpcInnerParam() * 2. / o2::constants::physics::MassHelium3), cfgBetheBlochParams->get(4, 0u), cfgBetheBlochParams->get(4, 1u), cfgBetheBlochParams->get(4, 2u), cfgBetheBlochParams->get(4, 3u), cfgBetheBlochParams->get(4, 4u))};
       double expSigma{expBethe * cfgBetheBlochParams->get(4, 5u)};
       double nSigmaTPC{(track.tpcSignal() - expBethe) / expSigma};
       int iC = track.signed1Pt() > 0;

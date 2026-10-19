@@ -98,7 +98,7 @@ void bookBaseList()
     fBasePro->Fill(eUseFisherYates, static_cast<double>(tc.fUseFisherYates));
 
     fBasePro->GetXaxis()->SetBinLabel(eFixedNumberOfRandomlySelectedTracks, "fFixedNumberOfRandomlySelectedTracks");
-    fBasePro->Fill(eFixedNumberOfRandomlySelectedTracks, static_cast<int>(tc.fFixedNumberOfRandomlySelectedTracks));
+    fBasePro->Fill(eFixedNumberOfRandomlySelectedTracks, tc.fFixedNumberOfRandomlySelectedTracks);
 
     fBasePro->GetXaxis()->SetBinLabel(eUseStopwatch, "fUseStopwatch");
     fBasePro->Fill(eUseStopwatch, static_cast<double>(tc.fUseStopwatch));
@@ -3760,7 +3760,7 @@ void bookQAHistograms()
     qa.fQAHistogramsPro->GetXaxis()->SetBinLabel(6, "fFillQACorrelationsVsInteractionRateVsProfiles2D");
     qa.fQAHistogramsPro->Fill(5.5, static_cast<int>(qa.fFillQACorrelationsVsInteractionRateVsProfiles2D));
     qa.fQAHistogramsPro->GetXaxis()->SetBinLabel(7, "fRebin");
-    qa.fQAHistogramsPro->Fill(6.5, static_cast<int>(qa.fRebin));
+    qa.fQAHistogramsPro->Fill(6.5, qa.fRebin);
 
     // ...
 
@@ -5605,7 +5605,7 @@ void bookParticleSparseHistograms(EnDiffWeightCategory dwc)
   // *) Determine binning for all dimensions:
   TArrayI* nBins = new TArrayI(nDimensions);
   for (int d = 0; d < nDimensions; d++) {
-    nBins->AddAt(static_cast<int>(ph.fParticleSparseHistogramsNBins[dwc][d]), d);
+    nBins->AddAt(ph.fParticleSparseHistogramsNBins[dwc][d], d);
   }
 
   // *) Book THnSparse with correct number of bins for each dimension, but void bin edges:
@@ -6661,14 +6661,14 @@ void bookNUAHistograms()
 
   // TBI 20260312 the binning below is a bit fragile, but ok...
   if (tc.fUseSetBinLabel) {
-    nua.fNUAFlagsPro->GetXaxis()->SetBinLabel(static_cast<int>(1 + ePhiNUAPDF), "fApplyNUAPDF[phi]");
-    nua.fNUAFlagsPro->GetXaxis()->SetBinLabel(static_cast<int>(1 + ePtNUAPDF), "fApplyNUAPDF[pt]");
-    nua.fNUAFlagsPro->GetXaxis()->SetBinLabel(static_cast<int>(1 + eEtaNUAPDF), "fApplyNUAPDF[eta]");
-    nua.fNUAFlagsPro->GetXaxis()->SetBinLabel(static_cast<int>(1 + eChargeNUAPDF), "fApplyNUAPDF[charge]");
-    nua.fNUAFlagsPro->GetXaxis()->SetBinLabel(static_cast<int>(5 + ePhiNUAPDF), "fUseDefaultNUAPDF[phi]");
-    nua.fNUAFlagsPro->GetXaxis()->SetBinLabel(static_cast<int>(5 + ePtNUAPDF), "fUseDefaultNUAPDF[pt]");
-    nua.fNUAFlagsPro->GetXaxis()->SetBinLabel(static_cast<int>(5 + eEtaNUAPDF), "fUseDefaultNUAPDF[eta]");
-    nua.fNUAFlagsPro->GetXaxis()->SetBinLabel(static_cast<int>(5 + eChargeNUAPDF), "fUseDefaultNUAPDF[charge]");
+    nua.fNUAFlagsPro->GetXaxis()->SetBinLabel((1 + ePhiNUAPDF), "fApplyNUAPDF[phi]");
+    nua.fNUAFlagsPro->GetXaxis()->SetBinLabel((1 + ePtNUAPDF), "fApplyNUAPDF[pt]");
+    nua.fNUAFlagsPro->GetXaxis()->SetBinLabel((1 + eEtaNUAPDF), "fApplyNUAPDF[eta]");
+    nua.fNUAFlagsPro->GetXaxis()->SetBinLabel((1 + eChargeNUAPDF), "fApplyNUAPDF[charge]");
+    nua.fNUAFlagsPro->GetXaxis()->SetBinLabel((5 + ePhiNUAPDF), "fUseDefaultNUAPDF[phi]");
+    nua.fNUAFlagsPro->GetXaxis()->SetBinLabel((5 + ePtNUAPDF), "fUseDefaultNUAPDF[pt]");
+    nua.fNUAFlagsPro->GetXaxis()->SetBinLabel((5 + eEtaNUAPDF), "fUseDefaultNUAPDF[eta]");
+    nua.fNUAFlagsPro->GetXaxis()->SetBinLabel((5 + eChargeNUAPDF), "fUseDefaultNUAPDF[charge]");
 
     // ...
 
@@ -6677,14 +6677,14 @@ void bookNUAHistograms()
     // Workaround for SetBinLabel() large memory consumption:
     TString yAxisTitle = "";
 
-    yAxisTitle += TString::Format("%d:fApplyNUAPDF[phi]; ", static_cast<int>(1 + ePhiNUAPDF));
-    yAxisTitle += TString::Format("%d:fApplyNUAPDF[pt]; ", static_cast<int>(1 + ePtNUAPDF));
-    yAxisTitle += TString::Format("%d:fApplyNUAPDF[eta]; ", static_cast<int>(1 + eEtaNUAPDF));
-    yAxisTitle += TString::Format("%d:fApplyNUAPDF[charge]; ", static_cast<int>(1 + eChargeNUAPDF));
-    yAxisTitle += TString::Format("%d:fUseDefaultNUAPDF[phi]; ", static_cast<int>(5 + ePhiNUAPDF));
-    yAxisTitle += TString::Format("%d:fUseDefaultNUAPDF[pt]; ", static_cast<int>(5 + ePtNUAPDF));
-    yAxisTitle += TString::Format("%d:fUseDefaultNUAPDF[eta]; ", static_cast<int>(5 + eEtaNUAPDF));
-    yAxisTitle += TString::Format("%d:fUseDefaultNUAPDF[charge]; ", static_cast<int>(5 + eChargeNUAPDF));
+    yAxisTitle += TString::Format("%d:fApplyNUAPDF[phi]; ", (1 + ePhiNUAPDF));
+    yAxisTitle += TString::Format("%d:fApplyNUAPDF[pt]; ", (1 + ePtNUAPDF));
+    yAxisTitle += TString::Format("%d:fApplyNUAPDF[eta]; ", (1 + eEtaNUAPDF));
+    yAxisTitle += TString::Format("%d:fApplyNUAPDF[charge]; ", (1 + eChargeNUAPDF));
+    yAxisTitle += TString::Format("%d:fUseDefaultNUAPDF[phi]; ", (5 + ePhiNUAPDF));
+    yAxisTitle += TString::Format("%d:fUseDefaultNUAPDF[pt]; ", (5 + ePtNUAPDF));
+    yAxisTitle += TString::Format("%d:fUseDefaultNUAPDF[eta]; ", (5 + eEtaNUAPDF));
+    yAxisTitle += TString::Format("%d:fUseDefaultNUAPDF[charge]; ", (5 + eChargeNUAPDF));
 
     // ...
 
@@ -6703,28 +6703,28 @@ void bookNUAHistograms()
   } // else
 
   if (nua.fApplyNUAPDF[ePhiNUAPDF]) {
-    nua.fNUAFlagsPro->Fill(static_cast<int>(1 + ePhiNUAPDF), 1.);
+    nua.fNUAFlagsPro->Fill((1 + ePhiNUAPDF), 1.);
   }
   if (nua.fApplyNUAPDF[ePtNUAPDF]) {
-    nua.fNUAFlagsPro->Fill(static_cast<int>(1 + ePtNUAPDF), 1.);
+    nua.fNUAFlagsPro->Fill((1 + ePtNUAPDF), 1.);
   }
   if (nua.fApplyNUAPDF[eEtaNUAPDF]) {
-    nua.fNUAFlagsPro->Fill(static_cast<int>(1 + eEtaNUAPDF), 1.);
+    nua.fNUAFlagsPro->Fill((1 + eEtaNUAPDF), 1.);
   }
   if (nua.fApplyNUAPDF[eChargeNUAPDF]) {
-    nua.fNUAFlagsPro->Fill(static_cast<int>(1 + eChargeNUAPDF), 1.);
+    nua.fNUAFlagsPro->Fill((1 + eChargeNUAPDF), 1.);
   }
   if (nua.fUseDefaultNUAPDF[ePhiNUAPDF]) {
-    nua.fNUAFlagsPro->Fill(static_cast<int>(5 + ePhiNUAPDF), 1.);
+    nua.fNUAFlagsPro->Fill((5 + ePhiNUAPDF), 1.);
   }
   if (nua.fUseDefaultNUAPDF[ePtNUAPDF]) {
-    nua.fNUAFlagsPro->Fill(static_cast<int>(5 + ePtNUAPDF), 1.);
+    nua.fNUAFlagsPro->Fill((5 + ePtNUAPDF), 1.);
   }
   if (nua.fUseDefaultNUAPDF[eEtaNUAPDF]) {
-    nua.fNUAFlagsPro->Fill(static_cast<int>(5 + eEtaNUAPDF), 1.);
+    nua.fNUAFlagsPro->Fill((5 + eEtaNUAPDF), 1.);
   }
   if (nua.fUseDefaultNUAPDF[eChargeNUAPDF]) {
-    nua.fNUAFlagsPro->Fill(static_cast<int>(5 + eChargeNUAPDF), 1.);
+    nua.fNUAFlagsPro->Fill((5 + eChargeNUAPDF), 1.);
   }
   nua.fNUAList->Add(nua.fNUAFlagsPro);
 
