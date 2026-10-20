@@ -199,7 +199,7 @@ struct HfTaskCorrelationDplusHadrons {
     AxisSpec axisPoolBin = {binsPoolBin, "poolBin"};
     AxisSpec axisDplusPrompt = {2, -0.5, 1.5, "Prompt D+"};
     AxisSpec const axisBdtScore = {binsBdtScore, "Bdt score"};
-    AxisSpec axisPtBMother = {(std::vector<double>)binsPtBMother, "#it{p}_{T}^{B} (GeV/#it{c})"};
+    AxisSpec axisPtBMother = {std::vector<double>(binsPtBMother), "#it{p}_{T}^{B} (GeV/#it{c})"};
     AxisSpec axisDeltaPhiBMother = {binsDeltaPhiBMother, "#it{#varphi}^{D}-#it{#varphi}^{B} (rad)"};
 
     // Histograms for data analysis

@@ -339,7 +339,7 @@ struct AnalysisTrackSelection {
           continue;
         }
         for (unsigned int j = 0; j < fTrackCuts.size(); j++) {
-          if (filterMap & (uint8_t(1) << j)) {
+          if (filterMap & (static_cast<uint8_t>(1) << j)) {
             fHistMan->FillHistClass(fHistNamesMCMatched[j][i].Data(), VarManager::fgValues);
           }
         } // end loop over cuts
@@ -559,7 +559,7 @@ struct AnalysisSameEventPairing {
 
       // Loop over all fulfilled cuts and fill pair histograms
       for (unsigned int icut = 0; icut < ncuts; icut++) {
-        if (twoTrackFilter & (uint8_t(1) << icut)) {
+        if (twoTrackFilter & (static_cast<uint8_t>(1) << icut)) {
           if (t1.sign() * t2.sign() < 0) {
             fHistMan->FillHistClass(histNames[icut][0].Data(), VarManager::fgValues);
             for (unsigned int isig = 0; isig < fRecMCSignals.size(); isig++) {

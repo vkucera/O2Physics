@@ -961,7 +961,7 @@ struct AnalysisTrackSelection {
           continue;
         }
         for (unsigned int j = 0; j < fTrackCuts.size(); j++) {
-          if (filterMap & (uint8_t(1) << j)) {
+          if (filterMap & (static_cast<uint8_t>(1) << j)) {
             if (track.sign() < 0) {
               fHistRecNegPart[j * fMCSignals.size() + i]->Fill(track.pt(), track.eta(), track.phi());
             } else {
@@ -1183,7 +1183,7 @@ struct AnalysisTrackSelection {
       }
       // track cuts
       for (unsigned int j = 0; j < fTrackCuts.size(); j++) {
-        if (filterMap & (uint8_t(1) << j)) {
+        if (filterMap & (static_cast<uint8_t>(1) << j)) {
 
           if (!(fRecTrackLabels[j].find(mctrackindex) != fRecTrackLabels[j].end())) {
             fRecTrackLabels[j][mctrackindex] = fRecCounters[j];
@@ -1244,7 +1244,7 @@ struct AnalysisTrackSelection {
         }
         // track cuts
         for (unsigned int j = 0; j < fTrackCuts.size(); j++) {
-          if (filterMap & (uint8_t(1) << j)) {
+          if (filterMap & (static_cast<uint8_t>(1) << j)) {
             if (track.sign() < 0) {
               fHistRecNegPart[j * fMCSignals.size() + i]->Fill(track.pt(), track.eta(), track.phi());
             } else {
@@ -1759,7 +1759,7 @@ struct AnalysisSameEventPairing {
       // Fill the QA for all passing tracks
       if (fConfigQA) {
         for (unsigned int j = 0; j < fTrackCuts.size(); j++) {
-          if (twoTrackFilter & (uint8_t(1) << j)) {
+          if (twoTrackFilter & (static_cast<uint8_t>(1) << j)) {
             if (!fConfigFillLS) {
               fHistManQA->FillHistClass(Form("PairsBarrelSEPM_%s", fTrackCuts.at(j).GetName()), VarManager::fgValues);
             } else {
