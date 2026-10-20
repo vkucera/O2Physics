@@ -192,7 +192,7 @@ void fitCorrelDs(const TString& cfgFileName = "config_CorrAnalysis.json")
         hCorrPhi[iBinPtCand][iBinPtHad] = dynamic_cast<TH1D*>(inFile->Get(Form("hCorrectedCorr_PtCand%.0fto%.0f_PtAssoc%.0fto%.0f", binsPtCandIntervals[iBinPtCand], binsPtCandIntervals[iBinPtCand + 1], binsPtHadIntervals[iBinPtHad], binsPtHadIntervals[iBinPtHad + 1])));
       }
 
-      corrFitter[iBinPtHad][iBinPtCand] = new DhCorrelationFitter(reinterpret_cast<TH1F*>(hCorrPhi[iBinPtCand][iBinPtHad]), fMin, fMax); // FIXME
+      corrFitter[iBinPtHad][iBinPtCand] = new DhCorrelationFitter(dynamic_cast<TH1F*>(hCorrPhi[iBinPtCand][iBinPtHad]), fMin, fMax);
       corrFitter[iBinPtHad][iBinPtCand]->setHistoIsReflected(refl);
       corrFitter[iBinPtHad][iBinPtCand]->setFixBaseline(fixBase);
       corrFitter[iBinPtHad][iBinPtCand]->setBaselineUpOrDown(shiftBaseUp, shiftBaseDown);

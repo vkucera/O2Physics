@@ -137,8 +137,8 @@ class MomentumSmearer
     int nBinsPt = axisPt->GetNbins();
     fVecReso.resize(nBinsPt);
     for (int i = 0; i < nBinsPt; i++) {
-      auto h1 = reinterpret_cast<TH1F*>(fReso->ProjectionY(Form("h1reso%s_pt%d", suffix, i), i + 1, i + 1)); // FIXME
-      h1->Scale(1.f, "width");                                                                               // convert ntrack to probability density
+      auto h1 = dynamic_cast<TH1F*>(fReso->ProjectionY(Form("h1reso%s_pt%d", suffix, i), i + 1, i + 1));
+      h1->Scale(1.f, "width"); // convert ntrack to probability density
       fVecReso[i] = h1;
     }
   }

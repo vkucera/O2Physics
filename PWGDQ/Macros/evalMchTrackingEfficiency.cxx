@@ -274,7 +274,7 @@ double computeEfficiencyPerChamber(THnF* hnf, int iAxis, int iCh, double binLimi
   hnf->GetAxis(iAxis)->SetRangeUser(binLimits[0], binLimits[1]);
 
   // Project onto the Nhits axis
-  TH1F* htmp = reinterpret_cast<TH1F*>(hnf->Projection(0));
+  TH1F* htmp = dynamic_cast<TH1F*>(hnf->Projection(0));
   double NhitPairing[16];
   for (int i = 0; i < 16; i++) {
     NhitPairing[i] = 0;
@@ -322,7 +322,7 @@ double computeEfficiencyPerChamber(THnF* hnf, const int iAxis[3], int iCh, doubl
   }
 
   // Project onto the Nhits axis
-  TH1F* htmp = reinterpret_cast<TH1F*>(hnf->Projection(0));
+  TH1F* htmp = dynamic_cast<TH1F*>(hnf->Projection(0));
   double NhitPairing[16];
   for (int i = 0; i < 16; i++) {
     NhitPairing[i] = 0;

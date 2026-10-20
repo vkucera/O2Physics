@@ -96,7 +96,7 @@ struct ResonanceMergeDF {
                                      uint8_t>>>
     vecOfVecOfTuples;
   std::vector<std::vector<std::tuple<float, float, float, float,
-                                     int*,
+                                     const int*,
                                      int8_t, int8_t, int8_t, // TPC Pos Trk
                                      int8_t, int8_t, int8_t, // TPC Neg Trk
                                      int8_t, int8_t, int8_t, // TPC Bach Trk
@@ -219,7 +219,7 @@ struct ResonanceMergeDF {
                            uint8_t>>
       innerVector;
     std::vector<std::tuple<float, float, float, float,
-                           int*,
+                           const int*,
                            int8_t, int8_t, int8_t, // TPC Pos Trk
                            int8_t, int8_t, int8_t, // TPC Neg Trk
                            int8_t, int8_t, int8_t, // TPC Bach Trk
@@ -281,7 +281,7 @@ struct ResonanceMergeDF {
         trackCasc.px(),
         trackCasc.py(),
         trackCasc.pz(),
-        const_cast<int*>(trackCasc.cascadeIndices()),
+        trackCasc.cascadeIndices(),
         static_cast<int8_t>(trackCasc.daughterTPCNSigmaPosPi() * 10),
         static_cast<int8_t>(trackCasc.daughterTPCNSigmaPosKa() * 10),
         static_cast<int8_t>(trackCasc.daughterTPCNSigmaPosPr() * 10),
@@ -533,7 +533,7 @@ struct ResonanceMergeDF {
                       track.px(),
                       track.py(),
                       track.pz(),
-                      const_cast<int*>(track.cascadeIndices()),
+                      track.cascadeIndices(),
                       static_cast<int8_t>(track.daughterTPCNSigmaPosPi() * 10),
                       static_cast<int8_t>(track.daughterTPCNSigmaPosKa() * 10),
                       static_cast<int8_t>(track.daughterTPCNSigmaPosPr() * 10),
