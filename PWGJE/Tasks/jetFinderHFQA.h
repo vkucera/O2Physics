@@ -90,10 +90,10 @@ struct JetFinderHFQATask {
 
   void init(o2::framework::InitContext&)
   {
-    eventSelectionBits = jetderiveddatautilities::initialiseEventSelectionBits(eventSelections.value);
-    trackSelection = jetderiveddatautilities::initialiseTrackSelection(trackSelections.value);
+    eventSelectionBits = jetderiveddatautilities::initialiseEventSelectionBits(eventSelections);
+    trackSelection = jetderiveddatautilities::initialiseTrackSelection(trackSelections);
 
-    jetRadiiValues = jetRadii.value;
+    jetRadiiValues = jetRadii;
 
     for (std::size_t iJetRadius = 0; iJetRadius < jetRadiiValues.size(); iJetRadius++) {
       filledJetR_Both.push_back(0.0);

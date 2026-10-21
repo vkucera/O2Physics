@@ -134,11 +134,11 @@ struct JetFinderHFTask {
 
   void init(o2::framework::InitContext const&)
   {
-    trackSelection = jetderiveddatautilities::initialiseTrackSelection(trackSelections.value);
+    trackSelection = jetderiveddatautilities::initialiseTrackSelection(trackSelections);
     triggerMaskBits = jetderiveddatautilities::initialiseTriggerMaskBits(triggerMasks);
-    eventSelectionBits = jetderiveddatautilities::initialiseEventSelectionBits(eventSelections.value);
-    particleSelection = static_cast<std::string>(particleSelections);
-    clusterDefinition = o2::aod::emcalcluster::getClusterDefinitionFromString(clusterDefinitionS.value);
+    eventSelectionBits = jetderiveddatautilities::initialiseEventSelectionBits(eventSelections);
+    particleSelection = particleSelections;
+    clusterDefinition = o2::aod::emcalcluster::getClusterDefinitionFromString(clusterDefinitionS);
 
     jetFinder.etaMin = trackEtaMin;
     jetFinder.etaMax = trackEtaMax;
@@ -168,8 +168,8 @@ struct JetFinderHFTask {
     if (jetEtaMin < -98.0) {
       jetFinder.jetEtaDefault = true;
     }
-    jetFinder.algorithm = static_cast<fastjet::JetAlgorithm>(static_cast<int>(jetAlgorithm));
-    jetFinder.recombScheme = static_cast<fastjet::RecombinationScheme>(static_cast<int>(jetRecombScheme));
+    jetFinder.algorithm = static_cast<fastjet::JetAlgorithm>(jetAlgorithm.value);
+    jetFinder.recombScheme = static_cast<fastjet::RecombinationScheme>(jetRecombScheme.value);
     jetFinder.ghostArea = jetGhostArea;
     jetFinder.ghostRepeatN = ghostRepeat;
     if (DoTriggering) {

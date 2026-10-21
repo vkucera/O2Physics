@@ -84,8 +84,8 @@ struct SubstructureDebugTask {
 
   void init(o2::framework::InitContext&)
   {
-    eventSelection = jetderiveddatautilities::initialiseEventSelectionBits(eventSelections.value);
-    trackSelection = jetderiveddatautilities::initialiseTrackSelection(trackSelections.value);
+    eventSelection = jetderiveddatautilities::initialiseEventSelectionBits(eventSelections);
+    trackSelection = jetderiveddatautilities::initialiseTrackSelection(trackSelections);
   }
 
   void processDataCharged(aod::CJetCOs::iterator const& collision, soa::Join<aod::CJetOs, aod::CJetSSOs> const& jets)

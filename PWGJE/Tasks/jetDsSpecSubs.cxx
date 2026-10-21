@@ -488,8 +488,8 @@ struct JetDsSpecSubs {
   void init(InitContext const&)
   {
     // Initialise event and track selection criteria
-    eventSelectionBits = jetderiveddatautilities::initialiseEventSelectionBits(eventSelections.value);
-    trackSelection = jetderiveddatautilities::initialiseTrackSelection(trackSelections.value);
+    eventSelectionBits = jetderiveddatautilities::initialiseEventSelectionBits(eventSelections);
+    trackSelection = jetderiveddatautilities::initialiseTrackSelection(trackSelections);
 
     // Prevent simultaneous execution of processes using alternative jet collections
     if (doprocessCollisions && doprocessCollisionsEWS) {

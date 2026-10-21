@@ -207,8 +207,8 @@ struct PhotonChargedTriggerProducer {
 
   void init(InitContext const&)
   {
-    eventSelectionBits = jetderiveddatautilities::initialiseEventSelectionBits(eventSelections.value);
-    trackSelection = jetderiveddatautilities::initialiseTrackSelection(trackSelections.value);
+    eventSelectionBits = jetderiveddatautilities::initialiseEventSelectionBits(eventSelections);
+    trackSelection = jetderiveddatautilities::initialiseTrackSelection(trackSelections);
     triggerMaskBits = jetderiveddatautilities::initialiseTriggerMaskBits(triggerMasks);
 
     // histograms

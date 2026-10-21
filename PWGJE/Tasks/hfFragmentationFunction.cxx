@@ -235,7 +235,7 @@ struct HfFragmentationFunction {
   void init(InitContext const&)
   {
     // initialise event selection:
-    eventSelectionBits = jetderiveddatautilities::initialiseEventSelectionBits(eventSelections.value);
+    eventSelectionBits = jetderiveddatautilities::initialiseEventSelectionBits(eventSelections);
 
     // create histograms
     // collision counter histograms

@@ -239,7 +239,7 @@ struct QuarkGluonJetsProducer {
 
   void init(InitContext const&)
   {
-    eventSelectionBits = jetderiveddatautilities::initialiseEventSelectionBits(eventSelections.value);
+    eventSelectionBits = jetderiveddatautilities::initialiseEventSelectionBits(eventSelections);
   }
 
   template <typename TrackT>

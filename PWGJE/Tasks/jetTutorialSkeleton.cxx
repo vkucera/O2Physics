@@ -84,8 +84,8 @@ struct JetTutorialSkeletonTask {
 
   void init(o2::framework::InitContext&)
   {
-    eventSelectionBits = jetderiveddatautilities::initialiseEventSelectionBits(eventSelections.value);
-    trackSelection = jetderiveddatautilities::initialiseTrackSelection(trackSelections.value);
+    eventSelectionBits = jetderiveddatautilities::initialiseEventSelectionBits(eventSelections);
+    trackSelection = jetderiveddatautilities::initialiseTrackSelection(trackSelections);
     triggerMaskBits = jetderiveddatautilities::initialiseTriggerMaskBits(triggerMasks);
   }
 

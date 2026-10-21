@@ -138,8 +138,8 @@ struct JetShapeTask {
 
   void init(o2::framework::InitContext&)
   {
-    eventSelectionBits = jetderiveddatautilities::initialiseEventSelectionBits(eventSelections.value);
-    trackSelection = jetderiveddatautilities::initialiseTrackSelection(trackSelections.value);
+    eventSelectionBits = jetderiveddatautilities::initialiseEventSelectionBits(eventSelections);
+    trackSelection = jetderiveddatautilities::initialiseTrackSelection(trackSelections);
     trackSelectionForDca = jetderiveddatautilities::initialiseTrackSelection(static_cast<std::string>(trackSelectionsForDca));
     triggerMaskBits = jetderiveddatautilities::initialiseTriggerMaskBits(triggerMasks);
     randomNumber.SetSeed(randomConeSeed);

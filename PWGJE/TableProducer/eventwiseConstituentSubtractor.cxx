@@ -103,9 +103,9 @@ struct eventWiseConstituentSubtractorTask {
 
   void init(o2::framework::InitContext&)
   {
-    eventSelectionBits = jetderiveddatautilities::initialiseEventSelectionBits(eventSelections.value);
-    trackSelection = jetderiveddatautilities::initialiseTrackSelection(trackSelections.value);
-    particleSelection = static_cast<std::string>(particleSelections);
+    eventSelectionBits = jetderiveddatautilities::initialiseEventSelectionBits(eventSelections);
+    trackSelection = jetderiveddatautilities::initialiseTrackSelection(trackSelections);
+    particleSelection = particleSelections;
 
     eventWiseConstituentSubtractor.setDoRhoMassSub(doRhoMassSub);
     eventWiseConstituentSubtractor.setConstSubAlphaRMax(alpha, rMax);

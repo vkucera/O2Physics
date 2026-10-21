@@ -110,8 +110,8 @@ struct BjetCentMultTask {
   {
     numberOfJetFlavourSpecies = static_cast<int>(numFlavourSpecies);
 
-    eventSelectionBits = jetderiveddatautilities::initialiseEventSelectionBits(eventSelections.value);
-    trackSelection = jetderiveddatautilities::initialiseTrackSelection(trackSelections.value);
+    eventSelectionBits = jetderiveddatautilities::initialiseEventSelectionBits(eventSelections);
+    trackSelection = jetderiveddatautilities::initialiseTrackSelection(trackSelections);
     // Axis
     AxisSpec axisJetFlavour = {binJetFlavour, "Jet flavour"};
     AxisSpec axisJetPt = {binJetPt, "#it{p}_{T, jet}"};

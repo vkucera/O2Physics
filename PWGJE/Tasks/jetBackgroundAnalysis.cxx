@@ -81,8 +81,8 @@ struct JetBackgroundAnalysisTask {
   void init(o2::framework::InitContext&)
   {
     // selection settings initialisation
-    eventSelectionBits = jetderiveddatautilities::initialiseEventSelectionBits(eventSelections.value);
-    trackSelection = jetderiveddatautilities::initialiseTrackSelection(trackSelections.value);
+    eventSelectionBits = jetderiveddatautilities::initialiseEventSelectionBits(eventSelections);
+    trackSelection = jetderiveddatautilities::initialiseTrackSelection(trackSelections);
     randomNumber.SetSeed(0);
 
     // Axes definitions

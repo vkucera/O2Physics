@@ -248,8 +248,8 @@ struct JetChargedV2 {
     AxisSpec axixCent = {20, 0, 100};
     AxisSpec axisChID = {220, 0, 220};
 
-    eventSelectionBits = jetderiveddatautilities::initialiseEventSelectionBits(eventSelections.value);
-    trackSelection = jetderiveddatautilities::initialiseTrackSelection(trackSelections.value);
+    eventSelectionBits = jetderiveddatautilities::initialiseEventSelectionBits(eventSelections);
+    trackSelection = jetderiveddatautilities::initialiseTrackSelection(trackSelections);
     randomNumber.SetSeed(0);
 
     if (doprocessCollisions || doprocessCollisionsWeighted) {

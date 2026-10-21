@@ -159,9 +159,9 @@ struct GammaJetTreeProducer {
     using O2HistType = HistType;
     using O2Axis = AxisSpec;
 
-    eventSelectionBits = jetderiveddatautilities::initialiseEventSelectionBits(eventSelections.value);
+    eventSelectionBits = jetderiveddatautilities::initialiseEventSelectionBits(eventSelections);
     triggerMaskBits = jetderiveddatautilities::initialiseTriggerMaskBits(triggerMasks);
-    trackSelection = jetderiveddatautilities::initialiseTrackSelection(trackSelections.value);
+    trackSelection = jetderiveddatautilities::initialiseTrackSelection(trackSelections);
 
     // for substructure calculation
     jetReclusterer.isReclustering = true;

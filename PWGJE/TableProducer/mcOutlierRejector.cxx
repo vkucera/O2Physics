@@ -47,7 +47,7 @@ struct McOutlierRejectorTask {
   std::vector<bool> collisionFlag;
   std::vector<bool> mcCollisionFlag;
 
-  int trackSelection = jetderiveddatautilities::initialiseTrackSelection(trackSelections.value);
+  int trackSelection = jetderiveddatautilities::initialiseTrackSelection(trackSelections);
 
   void processSetupCollisionSelection(aod::JCollisions const& collisions)
   {

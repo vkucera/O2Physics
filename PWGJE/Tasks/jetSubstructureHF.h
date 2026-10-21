@@ -137,7 +137,7 @@ struct JetSubstructureHFTask {
 
     candMass = jetcandidateutilities::getTablePDGMass<CandidateTable>();
 
-    trackSelection = jetderiveddatautilities::initialiseTrackSelection(trackSelections.value);
+    trackSelection = jetderiveddatautilities::initialiseTrackSelection(trackSelections);
   }
 
   o2::framework::Preslice<o2::aod::JetTracks> TracksPerCollision = o2::aod::jtrack::collisionId;
