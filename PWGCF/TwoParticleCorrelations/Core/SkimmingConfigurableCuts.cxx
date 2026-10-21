@@ -951,7 +951,7 @@ std::vector<bool> CutWithVariations<TValueToFilter>::IsArmed()
     int nArmedDefaults = 0;
     int nArmedVariants = 0;
     for (int i = 0; i < mDefaultBricks.GetEntries(); ++i) {
-      std::vector<bool> tmp = ((CutBrick<TValueToFilter>*)mDefaultBricks.At(i))->IsArmed();
+      std::vector<bool> tmp = (dynamic_cast<CutBrick<TValueToFilter>*>(mDefaultBricks.At(i)))->IsArmed();
       res.insert(res.end(), tmp.begin(), tmp.end());
       for (bool iarmed : tmp) {
         if (iarmed) {
@@ -960,7 +960,7 @@ std::vector<bool> CutWithVariations<TValueToFilter>::IsArmed()
       }
     }
     for (int i = 0; i < mVariationBricks.GetEntries(); ++i) {
-      std::vector<bool> tmp = ((CutBrick<TValueToFilter>*)mVariationBricks.At(i))->IsArmed();
+      std::vector<bool> tmp = (dynamic_cast<CutBrick<TValueToFilter>*>(mVariationBricks.At(i)))->IsArmed();
       res.insert(res.end(), tmp.begin(), tmp.end());
       for (bool iarmed : tmp) {
         if (iarmed) {
@@ -991,11 +991,11 @@ std::vector<bool> CutWithVariations<TValueToFilter>::Filter(const TValueToFilter
   std::vector<bool> res;
   res.reserve(Length());
   for (int i = 0; i < mDefaultBricks.GetEntries(); ++i) {
-    std::vector<bool> tmp = ((CutBrick<TValueToFilter>*)mDefaultBricks.At(i))->Filter(value);
+    std::vector<bool> tmp = (dynamic_cast<CutBrick<TValueToFilter>*>(mDefaultBricks.At(i)))->Filter(value);
     res.insert(res.end(), tmp.begin(), tmp.end());
   }
   for (int i = 0; i < mVariationBricks.GetEntries(); ++i) {
-    std::vector<bool> tmp = ((CutBrick<TValueToFilter>*)mVariationBricks.At(i))->Filter(value);
+    std::vector<bool> tmp = (dynamic_cast<CutBrick<TValueToFilter>*>(mVariationBricks.At(i)))->Filter(value);
     res.insert(res.end(), tmp.begin(), tmp.end());
   }
   return res;
@@ -1010,10 +1010,10 @@ int CutWithVariations<TValueToFilter>::Length()
   /* TODO: should a single default cut without variations return zero length? */
   int length = 0;
   for (int i = 0; i < mDefaultBricks.GetEntries(); ++i) {
-    length += ((CutBrick<TValueToFilter>*)mDefaultBricks.At(i))->Length();
+    length += (dynamic_cast<CutBrick<TValueToFilter>*>(mDefaultBricks.At(i)))->Length();
   }
   for (int i = 0; i < mVariationBricks.GetEntries(); ++i) {
-    length += ((CutBrick<TValueToFilter>*)mVariationBricks.At(i))->Length();
+    length += (dynamic_cast<CutBrick<TValueToFilter>*>(mVariationBricks.At(i)))->Length();
   }
   return length;
 }
@@ -1029,7 +1029,7 @@ int CutWithVariations<TValueToFilter>::getArmedIndex()
       bool found = false;
       for (int i = 0; not found and i < brklst.GetEntries(); ++i) {
         index++;
-        std::vector<bool> tmp = ((CutBrick<TValueToFilter>*)brklst.At(i))->IsArmed();
+        std::vector<bool> tmp = (dynamic_cast<CutBrick<TValueToFilter>*>(brklst.At(i)))->IsArmed();
         for (bool iarmed : tmp) {
           if (iarmed) {
             found = true;

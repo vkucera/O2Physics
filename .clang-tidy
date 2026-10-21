@@ -1,15 +1,15 @@
 ---
 Checks:
   - -*
-  - bugprone-bitwise-pointer-cast
-  - bugprone-casting-through-void
-  - bugprone-misplaced-widening-cast
-  - cppcoreguidelines-pro-type-const-cast
-  - cppcoreguidelines-pro-type-reinterpret-cast
-  # - readability-redundant-casting # has fix
-  # - google-readability-casting # has fix
-  # - cppcoreguidelines-pro-type-cstyle-cast # has fix
-  # - cppcoreguidelines-pro-type-static-cast-downcast # has fix
+  # - bugprone-bitwise-pointer-cast
+  # - bugprone-casting-through-void
+  # - bugprone-misplaced-widening-cast
+  # - cppcoreguidelines-pro-type-const-cast
+  # - cppcoreguidelines-pro-type-reinterpret-cast
+  - readability-redundant-casting # has fix
+  - google-readability-casting # has fix
+  - cppcoreguidelines-pro-type-cstyle-cast # has fix
+  - cppcoreguidelines-pro-type-static-cast-downcast # has fix
 CheckOptions:
   modernize-avoid-c-arrays.AllowStringArrays: true
   # Common tolerated conversions

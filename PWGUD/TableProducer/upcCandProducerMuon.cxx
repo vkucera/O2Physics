@@ -520,7 +520,7 @@ struct UpcCandProducerMuon {
                   o2::aod::Zdcs const& zdcs)
   {
     fDoMC = false;
-    createCandidates(fwdTracks, ambFwdTracks, bcs, collisions, fv0s, zdcs, (o2::aod::McFwdTrackLabels*)nullptr);
+    createCandidates(fwdTracks, ambFwdTracks, bcs, collisions, fv0s, zdcs, nullptr);
   }
 
   void processFwdMC(ForwardTracks const& fwdTracks,

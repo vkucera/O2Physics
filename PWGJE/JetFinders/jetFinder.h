@@ -127,10 +127,10 @@ struct JetFinderTask {
 
   void init(o2::framework::InitContext const&)
   {
-    hadronicCorrectionTypesVec = (std::vector<int>)hadronicCorrectionTypes;
-    eventSelectionBits = jetderiveddatautilities::initialiseEventSelectionBits(static_cast<std::string>(eventSelections));
+    hadronicCorrectionTypesVec = hadronicCorrectionTypes.value;
+    eventSelectionBits = jetderiveddatautilities::initialiseEventSelectionBits(eventSelections.value);
     triggerMaskBits = jetderiveddatautilities::initialiseTriggerMaskBits(triggerMasks);
-    trackSelection = jetderiveddatautilities::initialiseTrackSelection(static_cast<std::string>(trackSelections));
+    trackSelection = jetderiveddatautilities::initialiseTrackSelection(trackSelections.value);
     particleSelection = static_cast<std::string>(particleSelections);
 
     clusterDefinitionsVec = jetderiveddatautilities::initialiseClusterDefinitions(clusterDefinitions.value);
@@ -173,7 +173,7 @@ struct JetFinderTask {
     }
     jetFinder.fastjetExtraParam = jetExtraParam;
 
-    auto jetRadiiBins = (std::vector<double>)jetRadius;
+    auto jetRadiiBins = jetRadius.value;
     if (jetRadiiBins.size() > 1) {
       jetRadiiBins.push_back(jetRadiiBins[jetRadiiBins.size() - 1] + (TMath::Abs(jetRadiiBins[jetRadiiBins.size() - 1] - jetRadiiBins[jetRadiiBins.size() - 2])));
     } else {

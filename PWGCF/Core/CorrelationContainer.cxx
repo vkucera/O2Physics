@@ -1573,7 +1573,7 @@ void CorrelationContainer::extendTrackingEfficiency(Bool_t verbose)
           new TCanvas;
           proj->DrawCopy();
         }
-        if ((Int_t)proj->Fit("pol0", (verbose) ? "+" : "Q0+", "SAME", fitRangeBegin, fitRangeEnd) == 0) {
+        if (static_cast<Int_t>(proj->Fit("pol0", (verbose) ? "+" : "Q0+", "SAME", fitRangeBegin, fitRangeEnd)) == 0) {
           target[i] = proj->GetFunction("pol0")->GetParameter(0);
         } else {
           target[i] = 0;

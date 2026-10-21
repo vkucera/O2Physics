@@ -65,8 +65,8 @@ struct EmbeddingQATask {
 
   void init(o2::framework::InitContext&)
   {
-    eventSelection = jetderiveddatautilities::initialiseEventSelectionBits(static_cast<std::string>(eventSelections));
-    trackSelection = jetderiveddatautilities::initialiseTrackSelection(static_cast<std::string>(trackSelections));
+    eventSelection = jetderiveddatautilities::initialiseEventSelectionBits(eventSelections.value);
+    trackSelection = jetderiveddatautilities::initialiseTrackSelection(trackSelections.value);
   }
 
   Preslice<aod::Collisions> perBCCollisions = aod::collision::bcId;

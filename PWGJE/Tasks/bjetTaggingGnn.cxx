@@ -248,14 +248,14 @@ struct BjetTaggingGnn {
   {
     jetRadiiValues = std::vector<double>(jetRadii);
 
-    eventSelectionBits = jetderiveddatautilities::initialiseEventSelectionBits(static_cast<std::string>(eventSelections));
+    eventSelectionBits = jetderiveddatautilities::initialiseEventSelectionBits(eventSelections.value);
     eventSelectionBitsTVX = jetderiveddatautilities::initialiseEventSelectionBits("TVX");
     eventSelectionBitsSel8 = jetderiveddatautilities::initialiseEventSelectionBits("sel8");
     eventSelectionBitsSelMC = jetderiveddatautilities::initialiseEventSelectionBits("selMC");
     eventSelectionBitsSel8Full = jetderiveddatautilities::initialiseEventSelectionBits("sel8Full");
     eventSelectionBitsSel8FullGood = jetderiveddatautilities::initialiseEventSelectionBits("sel8Full+IsGoodZvtxFT0vsPV");
 
-    trackSelectionBits = jetderiveddatautilities::initialiseTrackSelection(static_cast<std::string>(trackSelections));
+    trackSelectionBits = jetderiveddatautilities::initialiseTrackSelection(trackSelections.value);
 
     if (doprocessDataJetsTrig) {
       zorroSummary.setObject(zorro.getZorroSummary());

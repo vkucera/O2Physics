@@ -653,7 +653,7 @@ struct UpcCandProducerSemiFwd {
   {
     fDoMC = false;
     createCandidates(fwdTracks, ambFwdTracks, barrelTracks, ambBarrelTracks, bcs, collisions, fv0s, zdcs,
-                     (o2::aod::McFwdTrackLabels*)nullptr, (o2::aod::McTrackLabels*)nullptr);
+                     nullptr, nullptr);
   }
 
   void processSemiFwdMC(ForwardTracks const& fwdTracks,

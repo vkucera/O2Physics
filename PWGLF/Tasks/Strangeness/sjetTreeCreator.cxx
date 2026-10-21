@@ -206,7 +206,7 @@ struct SjetTreeCreator {
     jetPtBinsReduction = std::vector<double>(jetPtBins);
     jetReductionFactorsPt = std::vector<double>(jetReductionFactors);
 
-    eventSelectionBits = jetderiveddatautilities::initialiseEventSelectionBits(static_cast<std::string>(eventSelections));
+    eventSelectionBits = jetderiveddatautilities::initialiseEventSelectionBits(eventSelections.value);
 
     registry.add("h_vertexZ", "Vertex Z;#it{Z} (cm)", {HistType::kTH1F, {{40, -20.0, 20.0}}});
 

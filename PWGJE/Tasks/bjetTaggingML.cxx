@@ -91,7 +91,7 @@ struct BJetTaggingML {
 
     jetRadiiValues = std::vector<double>(jetRadii);
 
-    eventSelectionBits = jetderiveddatautilities::initialiseEventSelectionBits(static_cast<std::string>(eventSelections));
+    eventSelectionBits = jetderiveddatautilities::initialiseEventSelectionBits(eventSelections.value);
 
     const AxisSpec axisDb{300, -10., 20., "#it{D}_{b}"};
     const AxisSpec axisScore{120, -0.1, 1.1, "Score"};

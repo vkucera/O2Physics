@@ -96,13 +96,13 @@ struct JetFinderFullQATask {
   void init(o2::framework::InitContext&)
   {
 
-    trackSelection = jetderiveddatautilities::initialiseTrackSelection(static_cast<std::string>(trackSelections));
-    jetRadiiValues = (std::vector<double>)jetRadii;
+    trackSelection = jetderiveddatautilities::initialiseTrackSelection(trackSelections.value);
+    jetRadiiValues = jetRadii.value;
 
     for (std::size_t iJetRadius = 0; iJetRadius < jetRadiiValues.size(); iJetRadius++) {
       filledJetR.push_back(0.0);
     }
-    auto jetRadiiBins = (std::vector<double>)jetRadii;
+    auto jetRadiiBins = jetRadii.value;
     if (jetRadiiBins.size() > 1) {
       jetRadiiBins.push_back(jetRadiiBins[jetRadiiBins.size() - 1] + (TMath::Abs(jetRadiiBins[jetRadiiBins.size() - 1] - jetRadiiBins[jetRadiiBins.size() - 2])));
     } else {

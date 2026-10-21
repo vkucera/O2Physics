@@ -1327,7 +1327,7 @@ struct CorrelationTask {
       }
 
       for (const auto& track : groupedTracks) {
-        if (cfgTrackBitMask > 0 && (track.trackType() & (uint8_t)cfgTrackBitMask) != (uint8_t)cfgTrackBitMask) {
+        if (cfgTrackBitMask > 0 && (track.trackType() & static_cast<uint8_t>(cfgTrackBitMask)) != static_cast<uint8_t>(cfgTrackBitMask)) {
           continue;
         }
         if (track.has_cfMCParticle()) {

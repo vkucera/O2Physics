@@ -99,8 +99,8 @@ struct femtoWorldPionPairTaskTrackTrack {
                                                        && (aod::femtoworldparticle::pt < cfgPtHighPart1) && (aod::femtoworldparticle::pt > cfgPtLowPart1)                    // simple pT cuts
                                                        && (aod::femtoworldparticle::eta < cfgEtaHighPart1) && (aod::femtoworldparticle::eta > cfgEtaLowPart1)                // Eta cuts
                                                        && (o2::aod::track::dcaXY < cfgDcaXYPart1) && (o2::aod::track::dcaZ < cfgDcaZPart1)                                   // DCA cuts for XY and Z
-                                                       && (aod::femtoworldparticle::tpcNClsFound > (uint8_t)cfgTpcClPart1)                                                   // Number of found TPC clusters
-                                                       && (aod::femtoworldparticle::tpcNClsCrossedRows > (uint8_t)cfgTpcCrosRoPart1)                                         // Crossed rows TPC
+                                                       && (aod::femtoworldparticle::tpcNClsFound > static_cast<uint8_t>(cfgTpcClPart1))                                      // Number of found TPC clusters
+                                                       && (aod::femtoworldparticle::tpcNClsCrossedRows > static_cast<uint8_t>(cfgTpcCrosRoPart1))                            // Crossed rows TPC
                                                        && (aod::femtoworldparticle::itsChi2NCl < cfgChi2ItsPart1) && (aod::femtoworldparticle::tpcChi2NCl < cfgChi2TpcPart1) //&& // chi2 cuts
                                                        && (aod::femtoworldparticle::sign > static_cast<int8_t>(0))                                                           // Sign (K+)
     // todo: globaltrack cut
@@ -110,8 +110,8 @@ struct femtoWorldPionPairTaskTrackTrack {
     ((aod::femtoworldparticle::pt > cfgPtHighPart1) || (aod::femtoworldparticle::pt < cfgPtLowPart1)) ||                  // pT cuts
     ((aod::femtoworldparticle::eta > cfgEtaHighPart1) || (aod::femtoworldparticle::eta < cfgEtaLowPart1)) ||              // Eta cuts
     (o2::aod::track::dcaXY > cfgDcaXYPart1) || (o2::aod::track::dcaZ > cfgDcaZPart1) ||                                   // DCA cuts for XY and Z
-    (aod::femtoworldparticle::tpcNClsFound < (uint8_t)cfgTpcClPart1) ||                                                   // Number of found TPC clusters
-    (aod::femtoworldparticle::tpcNClsCrossedRows < (uint8_t)cfgTpcCrosRoPart1) ||                                         // Crossed rows TPC
+    (aod::femtoworldparticle::tpcNClsFound < static_cast<uint8_t>(cfgTpcClPart1)) ||                                      // Number of found TPC clusters
+    (aod::femtoworldparticle::tpcNClsCrossedRows < static_cast<uint8_t>(cfgTpcCrosRoPart1)) ||                            // Crossed rows TPC
     (aod::femtoworldparticle::itsChi2NCl > cfgChi2ItsPart1) || (aod::femtoworldparticle::tpcChi2NCl > cfgChi2TpcPart1) || //&& // chi2 cuts
     (aod::femtoworldparticle::sign < static_cast<int8_t>(0));
   /// Histogramming for particle 1
@@ -128,8 +128,8 @@ struct femtoWorldPionPairTaskTrackTrack {
                                                        && (aod::femtoworldparticle::pt < cfgPtHighPart2) && (aod::femtoworldparticle::pt > cfgPtLowPart2)                    // pT cuts
                                                        && (aod::femtoworldparticle::eta < cfgEtaHighPart2) && (aod::femtoworldparticle::eta > cfgEtaLowPart2)                // Eta cuts
                                                        && (o2::aod::track::dcaXY < cfgDcaXYPart2) && (o2::aod::track::dcaZ < cfgDcaZPart2)                                   // DCA cuts for XY and Z
-                                                       && (aod::femtoworldparticle::tpcNClsFound > (uint8_t)cfgTpcClPart2)                                                   // Number of found TPC clusters
-                                                       && (aod::femtoworldparticle::tpcNClsCrossedRows > (uint8_t)cfgTpcCrosRoPart2)                                         // Crossed rows TPC
+                                                       && (aod::femtoworldparticle::tpcNClsFound > static_cast<uint8_t>(cfgTpcClPart2))                                      // Number of found TPC clusters
+                                                       && (aod::femtoworldparticle::tpcNClsCrossedRows > static_cast<uint8_t>(cfgTpcCrosRoPart2))                            // Crossed rows TPC
                                                        && (aod::femtoworldparticle::itsChi2NCl < cfgChi2ItsPart2) && (aod::femtoworldparticle::tpcChi2NCl < cfgChi2TpcPart2) //  // chi2 cuts
                                                        && (aod::femtoworldparticle::sign < static_cast<int8_t>(0))                                                           // Sign (K-)
                                                                                                                                                                              //  todo: globaltrack cut
@@ -138,8 +138,8 @@ struct femtoWorldPionPairTaskTrackTrack {
     ((aod::femtoworldparticle::pt > cfgPtHighPart2) || (aod::femtoworldparticle::pt < cfgPtLowPart2)) ||               // pT cuts
     ((aod::femtoworldparticle::eta > cfgEtaHighPart2) || (aod::femtoworldparticle::eta < cfgEtaLowPart2)) ||           // Eta cuts
     (o2::aod::track::dcaXY > cfgDcaXYPart2) || (o2::aod::track::dcaZ > cfgDcaZPart2) ||                                // DCA cuts for XY and Z
-    (aod::femtoworldparticle::tpcNClsFound < (uint8_t)cfgTpcClPart2) ||                                                // Number of found TPC clusters
-    (aod::femtoworldparticle::tpcNClsCrossedRows < (uint8_t)cfgTpcCrosRoPart2) ||                                      // Crossed rows TPC
+    (aod::femtoworldparticle::tpcNClsFound < static_cast<uint8_t>(cfgTpcClPart2)) ||                                   // Number of found TPC clusters
+    (aod::femtoworldparticle::tpcNClsCrossedRows < static_cast<uint8_t>(cfgTpcCrosRoPart2)) ||                         // Crossed rows TPC
     (aod::femtoworldparticle::itsChi2NCl > cfgChi2ItsPart2) || (aod::femtoworldparticle::tpcChi2NCl > cfgChi2TpcPart2) //&& // chi2 cuts
     ;
   /// Histogramming for particle 2

@@ -205,8 +205,8 @@ struct TrackEfficiency {
       LOGP(fatal, "Configurable acceptSplitCollisions has wrong input value; stopping workflow");
     }
 
-    eventSelectionBits = jetderiveddatautilities::initialiseEventSelectionBits(static_cast<std::string>(eventSelections));
-    trackSelection = jetderiveddatautilities::initialiseTrackSelection(static_cast<std::string>(trackSelections));
+    eventSelectionBits = jetderiveddatautilities::initialiseEventSelectionBits(eventSelections.value);
+    trackSelection = jetderiveddatautilities::initialiseTrackSelection(trackSelections.value);
 
     if (useCustomTrackSelection) {
       // Custom track cuts
