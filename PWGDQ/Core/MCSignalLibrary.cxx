@@ -2109,7 +2109,7 @@ std::vector<MCSignal*> o2::aod::dqmcsignals::GetMCSignalsFromJSON(const char* js
         str += json[i];
       }
     }
-    LOG(fatal) << "JSON parse error: " << rapidjson::GetParseErrorFunc(ok.Code()) << " (" << ok.Offset() << ")" << " **** Parsing error is somewhere here: " << str.Data(); // FIXME: invalid cast
+    LOG(fatal) << "JSON parse error: " << rapidjson::GetParseErrorFunc(ok.Code()) << " (" << ok.Offset() << ")" << " **** Parsing error is somewhere here: " << str.Data(); // NOLINT(google-readability-casting)
     return signals;
   }
 

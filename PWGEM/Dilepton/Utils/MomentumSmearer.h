@@ -137,8 +137,8 @@ class MomentumSmearer
     int nBinsPt = axisPt->GetNbins();
     fVecReso.resize(nBinsPt);
     for (int i = 0; i < nBinsPt; i++) {
-      auto h1 = dynamic_cast<TH1F*>(fReso->ProjectionY(Form("h1reso%s_pt%d", suffix, i), i + 1, i + 1));
-      h1->Scale(1.f, "width"); // convert ntrack to probability density
+      auto h1 = dynamic_cast<TH1F*>(fReso->ProjectionY(Form("h1reso%s_pt%d", suffix, i), i + 1, i + 1)); // FIXME: invalid cast
+      h1->Scale(1.f, "width");                                                                           // convert ntrack to probability density
       fVecReso[i] = h1;
     }
   }
@@ -156,7 +156,7 @@ class MomentumSmearer
 
     fVecResoND.resize(fNCenBins, std::vector<std::vector<std::vector<std::vector<TH3D*>>>>(fNPtBins, std::vector<std::vector<std::vector<TH3D*>>>(fNEtaBins, std::vector<std::vector<TH3D*>>(fNPhiBins, std::vector<TH3D*>(fNChBins)))));
     // fVecResoND.resize(fNPtBins, std::vector<std::vector<std::vector<TH3D*>>>(fNEtaBins, std::vector<std::vector<TH3D*>>(fNPhiBins, std::vector<TH3D*>(fNChBins))));
-    //  auto h3 = reinterpret_cast<TH3D*>(hs_reso->Projection(4, 5, 6));
+    //  auto h3 = reinterpret_cast<TH3D*>(hs_reso->Projection(4, 5, 6)); // FIXME: invalid cast
     //  h3->SetName(Form("h3reso_pt%d_eta%d_phi%d_ch%d", 0, 0, 0, 0));
     //  fVecResoND[0][0][0][0] = h3;
 
