@@ -1752,10 +1752,10 @@ struct TableMaker {
   {
     for (int i = 0; i < kNaliases; i++) {
       if (collision.alias_bit(i) > 0) {
-        (static_cast<TH2F*>(fStatsList->At(0)))->Fill(1.0, static_cast<float>(i));
+        (dynamic_cast<TH2F*>(fStatsList->At(0)))->Fill(1.0, static_cast<float>(i));
       }
     }
-    (static_cast<TH2F*>(fStatsList->At(0)))->Fill(1.0, static_cast<float>(kNaliases));
+    (dynamic_cast<TH2F*>(fStatsList->At(0)))->Fill(1.0, static_cast<float>(kNaliases));
     if (collision.eventFilter()) {
       fullSkimming<gkEventFillMap, 0u, gkMuonFillMap>(collision, bcs, nullptr, tracksMuon, nullptr, nullptr);
     }
@@ -1767,10 +1767,10 @@ struct TableMaker {
   {
     for (int i = 0; i < kNaliases; i++) {
       if (collision.alias_bit(i) > 0) {
-        (static_cast<TH2F*>(fStatsList->At(0)))->Fill(1.0, static_cast<float>(i));
+        (dynamic_cast<TH2F*>(fStatsList->At(0)))->Fill(1.0, static_cast<float>(i));
       }
     }
-    (static_cast<TH2F*>(fStatsList->At(0)))->Fill(1.0, static_cast<float>(kNaliases));
+    (dynamic_cast<TH2F*>(fStatsList->At(0)))->Fill(1.0, static_cast<float>(kNaliases));
     if (collision.eventFilter()) {
       fullSkimming<gkEventFillMapWithMultsAndEventFilter, 0u, gkMuonFillMap>(collision, bcs, nullptr, tracksMuon, nullptr, nullptr);
     }
