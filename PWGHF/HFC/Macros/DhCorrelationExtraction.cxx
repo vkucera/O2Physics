@@ -1060,17 +1060,17 @@ TH2D* DhCorrelationExtraction::getCorrelHisto(Int_t sEorMe, Int_t sorSb, Int_t p
     }
   }
   /*else if (fSidebandDivided) { // Mixed Event
-    if (SorSB == kSign) { hSparse = static_cast<THnSparseD*> fDirME -> Get(fMECorrelSignalRegionName.Data());
-    } else if (!fSidebandDivided) { hSparse = static_cast<THnSparseD*> fDirME -> Get(fMECorrelSidebandsName.Data());
+    if (SorSB == kSign) { hSparse = dynamic_cast<THnSparseD*> fDirME -> Get(fMECorrelSignalRegionName.Data());
+    } else if (!fSidebandDivided) { hSparse = dynamic_cast<THnSparseD*> fDirME -> Get(fMECorrelSidebandsName.Data());
     } else {
       if (fUseSidebLeft && !fUseSidebRight) {
-        hSparse = static_cast<THnSparseD*> fDirME -> Get(fMECorrelSidebandLeftName.Data());
+        hSparse = dynamic_cast<THnSparseD*> fDirME -> Get(fMECorrelSidebandLeftName.Data());
       } else if (!fUseSidebLeft && fUseSidebRight) {
-        hSparse = static_cast<THnSparseD*> fDirME -> Get(fMECorrelSidebandRightName.Data());
+        hSparse = dynamic_cast<THnSparseD*> fDirME -> Get(fMECorrelSidebandRightName.Data());
       } else if (fUseSidebLeft && fUseSidebRight) {
-        hSparse = static_cast<THnSparseD*> fDirME -> Get(fMECorrelSidebandLeftName.Data());
+        hSparse = dynamic_cast<THnSparseD*> fDirME -> Get(fMECorrelSidebandLeftName.Data());
         hSparse -> SetName("hSparse");
-        THnSparseD *hSparseRightSideb = static_cast<THnSparseD*> fDirME -> Get(fMECorrelSidebandRightName.Data());
+        THnSparseD *hSparseRightSideb = dynamic_cast<THnSparseD*> fDirME -> Get(fMECorrelSidebandRightName.Data());
         hSparse -> Add(hSparseRightSideb, 1.);
       }
     }
@@ -1274,7 +1274,7 @@ TH1D* DhCorrelationExtraction::reflectCorrHistogram(TH1D*& histo)
 
   TH1D* h1D = new TH1D("h1D_Reflected", "", nBinsPhiRefl, 0., TMath::Pi()); // pointer to be returned
   h1D->Sumw2();
-  // TH1D* h1D = static_cast<TH1D*> histo -> Clone("h1D_Reflected");
+  // TH1D* h1D = dynamic_cast<TH1D*> histo -> Clone("h1D_Reflected");
   // h1D -> GetXaxis() -> SetRange(bin0Phi, binPiPhi);
 
   // reflection
