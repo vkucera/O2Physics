@@ -712,7 +712,7 @@ struct HadronPhotonCorrelation {
       if (!initParticle(track_assoc, false)) {
         continue;
       }
-      if (static_cast<PDG_t>(std::abs(track_assoc.pdgCode())) != kGamma) {
+      if (std::abs(track_assoc.pdgCode()) != kGamma) {
         continue;
       }
       if (!track_assoc.isPhysicalPrimary() && track_assoc.getGenStatusCode() < 0) {
@@ -722,7 +722,7 @@ struct HadronPhotonCorrelation {
       // Iterate through mother particles until original mother is reached
       auto origPhoton = track_assoc;
       auto mother = track_assoc.mothers_as<JetParticles>().at(0);
-      while (static_cast<PDG_t>(mother.pdgCode()) == kGamma) {
+      while (mother.pdgCode() == kGamma) {
         origPhoton = mother;
         mother = mother.mothers_as<JetParticles>().at(0);
       }
@@ -968,7 +968,7 @@ struct HadronPhotonCorrelation {
       if (!initParticle(track_assoc)) {
         continue;
       }
-      if (static_cast<PDG_t>(std::abs(track_assoc.pdgCode())) != kPiPlus) {
+      if (std::abs(track_assoc.pdgCode()) != kPiPlus) {
         continue;
       }
 
@@ -1050,7 +1050,7 @@ struct HadronPhotonCorrelation {
       if (!initTrack(track_assoc)) {
         continue;
       }
-      if (static_cast<PDG_t>(std::abs(track_assoc.mcParticle().pdgCode())) != kPiPlus) {
+      if (std::abs(track_assoc.mcParticle().pdgCode()) != kPiPlus) {
         continue;
       }
 
@@ -1101,7 +1101,7 @@ struct HadronPhotonCorrelation {
       if (pdgParticle->Charge() != 0.) {
         continue;
       } // remove charged particles
-      if (std::abs(track_assoc.pdgCode()) < pidCodeHadronCut || static_cast<PDG_t>(track_assoc.pdgCode()) == kNeutron) {
+      if (std::abs(track_assoc.pdgCode()) < pidCodeHadronCut || track_assoc.pdgCode() == kNeutron) {
         continue;
       } // remove non-hadrons and neutrons
 
@@ -1121,7 +1121,7 @@ struct HadronPhotonCorrelation {
       }
 
       for (const auto& daughter : daughters) {
-        if (static_cast<PDG_t>(std::abs(daughter.pdgCode())) != kGamma) {
+        if (std::abs(daughter.pdgCode()) != kGamma) {
           continue;
         }
         if (!daughter.isPhysicalPrimary() && daughter.getGenStatusCode() == -1) {
