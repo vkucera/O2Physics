@@ -952,7 +952,7 @@ struct LambdaTableProducer {
 
       // Fill table
       lambdaMCGenTrackTable(lambdaMCGenCollisionTable.lastIndex(), mcpart.pt(), mcpart.eta(), mcpart.phi(), mcpart.y(), mcpart.px(), mcpart.py(), mcpart.pz(), RecoDecay::m(mcpart.p(), mcpart.e()),
-                            -1, -1, (int8_t)partType, 1.);
+                            -1, -1, static_cast<int8_t>(partType), 1.);
     }
   }
 
