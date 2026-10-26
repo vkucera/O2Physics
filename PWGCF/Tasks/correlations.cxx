@@ -975,7 +975,7 @@ struct CorrelationTask {
     }
     if (cfgMultWeight.value.empty() == false) {
       TFile* pf = TFile::Open(cfgMultWeight.value.c_str(), "READ");
-      cfg.mMultWeight = reinterpret_cast<TH1*>(pf->Get("hWeight"));
+      cfg.mMultWeight = dynamic_cast<TH1*>(pf->Get("hWeight"));
       LOGF(info, "Loaded multiplicity weight histogram for associated particles from %s", cfgMultWeight.value.c_str());
     }
     cfg.efficiencyLoaded = true;
