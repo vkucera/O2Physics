@@ -572,17 +572,17 @@ struct Dilepton {
 
     if (cfgApplySPresolution) {
       auto list = ccdb->getForTimeStamp<TList>(spresoPath, collision.timestamp());
-      h2sp_resolution = reinterpret_cast<TH2D*>(list->FindObject(spresoHistName.value.data()));
+      h2sp_resolution = dynamic_cast<TH2D*>(list->FindObject(spresoHistName.value.data()));
       LOGF(info, "h2sp_resolution.GetBinContent(40, 1) = %f", h2sp_resolution->GetBinContent(40, 1));
     }
 
     if (flowcorrectionGroup.cfgApplyWeightNUA) {
       auto list_nua = ccdb->getForTimeStamp<TList>(flowcorrectionGroup.nuaPath, collision.timestamp());
-      h3nua_weights.push_back(reinterpret_cast<TH3D*>(list_nua->FindObject("weights_uls_NUA")));
+      h3nua_weights.push_back(dynamic_cast<TH3D*>(list_nua->FindObject("weights_uls_NUA")));
       LOGF(info, "h3nua_weights.at(0)->GetBinContent(5, 5, 5) = %f", h3nua_weights.at(0)->GetBinContent(5, 5, 5));
-      h3nua_weights.push_back(reinterpret_cast<TH3D*>(list_nua->FindObject("weights_lspp_NUA")));
+      h3nua_weights.push_back(dynamic_cast<TH3D*>(list_nua->FindObject("weights_lspp_NUA")));
       LOGF(info, "h3nua_weights.at(1)->GetBinContent(5, 5, 5) = %f", h3nua_weights.at(1)->GetBinContent(5, 5, 5));
-      h3nua_weights.push_back(reinterpret_cast<TH3D*>(list_nua->FindObject("weights_lsmm_NUA")));
+      h3nua_weights.push_back(dynamic_cast<TH3D*>(list_nua->FindObject("weights_lsmm_NUA")));
       LOGF(info, "h3nua_weights.at(2)->GetBinContent(5, 5, 5) = %f", h3nua_weights.at(2)->GetBinContent(5, 5, 5));
     }
   }
