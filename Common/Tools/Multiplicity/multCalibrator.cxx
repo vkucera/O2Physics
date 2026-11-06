@@ -354,10 +354,8 @@ TH1F* multCalibrator::GetCalibrationHistogram(TH1* histoRaw, const TString& lHis
     // place squarely at the middle to ensure it's all fine
     lMiddleOfBins[lB - 1] = 0.5 * (lDesiredBoundaries[lB] + lDesiredBoundaries[lB - 1]);
   }
-  // Double_t lBounds[lNDesiredBoundaries + 1];
-  // Double_t lPrecision[lNDesiredBoundaries + 1];
-  std::vector<Double_t> lBounds(lNDesiredBoundaries + 1, 0.);
-  std::vector<Double_t> lPrecision(lNDesiredBoundaries + 1, 0.);
+  std::vector<Double_t> lBounds(lNDesiredBoundaries + 1);
+  std::vector<Double_t> lPrecision(lNDesiredBoundaries + 1);
 
   if (fAnchorPointValue > 0) {
     lBounds[0] = 0;

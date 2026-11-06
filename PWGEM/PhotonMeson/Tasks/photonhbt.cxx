@@ -19,7 +19,6 @@
 #include "PWGEM/PhotonMeson/Core/V0PhotonCut.h"
 #include "PWGEM/PhotonMeson/DataModel/EventTables.h"
 #include "PWGEM/PhotonMeson/DataModel/gammaTables.h"
-#include "PWGEM/PhotonMeson/Utils/EventHistograms.h"
 #include "PWGEM/PhotonMeson/Utils/PCMUtilities.h"
 #include "PWGEM/PhotonMeson/Utils/PairUtilities.h"
 
@@ -809,6 +808,8 @@ struct Photonhbt {
     fEMEventCut.SetRequireGoodITSLayer3(eventcuts.cfgRequireGoodITSLayer3);
     fEMEventCut.SetRequireGoodITSLayer0123(eventcuts.cfgRequireGoodITSLayer0123);
     fEMEventCut.SetRequireGoodITSLayersAll(eventcuts.cfgRequireGoodITSLayersAll);
+    fEMEventCut.SetTrackOccupancyRange(eventcuts.cfgTrackOccupancyMin, eventcuts.cfgTrackOccupancyMax);
+    fEMEventCut.SetFT0COccupancyRange(eventcuts.cfgFT0COccupancyMin, eventcuts.cfgFT0COccupancyMax);
   }
 
   void DefinePCMCut()
@@ -973,7 +974,7 @@ struct Photonhbt {
   {
     static constexpr std::array<std::string_view, 6> det = {"FT0M", "FT0A", "FT0C", "BTot", "BPos", "BNeg"};
 
-    o2::aod::pwgem::photonmeson::utils::eventhistogram::addEventHistograms(&fRegistry);
+    fEMEventCut.addEventHistograms(&fRegistry);
     fRegistry.add("Event/before/hEP2_CentFT0C_forMix",
                   Form("2nd harmonics EP for mix;centrality FT0C (%%);#Psi_{2}^{%s} (rad.)", det[mixing.cfgEP2EstimatorForMix].data()),
                   kTH2D, {{110, 0, 110}, {180, -o2::constants::math::PIHalf, +o2::constants::math::PIHalf}}, false);
@@ -2657,13 +2658,12 @@ struct Photonhbt {
                                           collision.ep2fv0a(), collision.ep2btot(), collision.ep2bpos(), collision.ep2bneg()};
       const float ep2 = epArr[mixing.cfgEP2EstimatorForMix];
       fRegistry.fill(HIST("Event/before/hEP2_CentFT0C_forMix"), collision.centFT0C(), ep2);
-      o2::aod::pwgem::photonmeson::utils::eventhistogram::fillEventInfo<0>(&fRegistry, collision, 1.f);
+      fEMEventCut.fillEventInfo<0>(&fRegistry, collision, 1.f);
       if (!fEMEventCut.IsSelected(collision)) {
         continue;
       }
-      o2::aod::pwgem::photonmeson::utils::eventhistogram::fillEventInfo<1>(&fRegistry, collision, 1.f);
-      fRegistry.fill(HIST("Event/before/hCollisionCounter"), 12.0);
-      fRegistry.fill(HIST("Event/after/hCollisionCounter"), 12.0);
+      fEMEventCut.fillEventInfo<1>(&fRegistry, collision, 1.f);
+      fEMEventCut.fillAccepted(&fRegistry);
       fRegistry.fill(HIST("Event/after/hEP2_CentFT0C_forMix"), collision.centFT0C(), ep2);
       const float occupancy = (mixing.cfgOccupancyEstimator == 1)
                                 ? static_cast<float>(collision.trackOccupancyInTimeRange())
@@ -2782,8 +2782,8 @@ struct Photonhbt {
       if (!mixing.cfgDoMix || ndiphoton == 0) {
         continue;
       }
-      auto selectedPhotons = emh1->GetTracksPerCollision(keyDFCollision);
-      auto poolIDs = emh1->GetCollisionIdsFromEventPool(keyBin);
+      const auto& selectedPhotons = emh1->GetTracksPerCollision(keyDFCollision);
+      const auto& poolIDs = emh1->GetCollisionIdsFromEventPool(keyBin);
       for (const auto& mixID : poolIDs) {
         if (mixID.second == collision.globalIndex() && mixID.first == ndf) {
           continue;
@@ -2794,7 +2794,7 @@ struct Photonhbt {
         if (diffBC < mixing.ndiffBCMix) {
           continue;
         }
-        auto poolPhotons = emh1->GetTracksPerCollision(mixID);
+        const auto& poolPhotons = emh1->GetTracksPerCollision(mixID);
         for (const auto& g1 : selectedPhotons) {
           for (const auto& g2 : poolPhotons) {
             if (!passAsymmetryCut(g1.pt(), g2.pt())) {
@@ -2888,13 +2888,12 @@ struct Photonhbt {
                                           collision.ep2fv0a(), collision.ep2btot(), collision.ep2bpos(), collision.ep2bneg()};
       const float ep2 = epArr[mixing.cfgEP2EstimatorForMix];
       fRegistry.fill(HIST("Event/before/hEP2_CentFT0C_forMix"), collision.centFT0C(), ep2);
-      o2::aod::pwgem::photonmeson::utils::eventhistogram::fillEventInfo<0>(&fRegistry, collision, 1.f);
+      fEMEventCut.fillEventInfo<0>(&fRegistry, collision, 1.f);
       if (!fEMEventCut.IsSelected(collision)) {
         continue;
       }
-      o2::aod::pwgem::photonmeson::utils::eventhistogram::fillEventInfo<1>(&fRegistry, collision, 1.f);
-      fRegistry.fill(HIST("Event/before/hCollisionCounter"), 12.0);
-      fRegistry.fill(HIST("Event/after/hCollisionCounter"), 12.0);
+      fEMEventCut.fillEventInfo<1>(&fRegistry, collision, 1.f);
+      fEMEventCut.fillAccepted(&fRegistry);
       fRegistry.fill(HIST("Event/after/hEP2_CentFT0C_forMix"), collision.centFT0C(), ep2);
       const float occupancy = (mixing.cfgOccupancyEstimator == 1)
                                 ? static_cast<float>(collision.trackOccupancyInTimeRange())
@@ -3102,8 +3101,8 @@ struct Photonhbt {
       if (!mixing.cfgDoMix || ndiphoton == 0) {
         continue;
       }
-      auto selectedPhotons = emh1->GetTracksPerCollision(keyDFCollision);
-      auto poolIDs = emh1->GetCollisionIdsFromEventPool(keyBin);
+      const auto& selectedPhotons = emh1->GetTracksPerCollision(keyDFCollision);
+      const auto& poolIDs = emh1->GetCollisionIdsFromEventPool(keyBin);
       for (const auto& mixID : poolIDs) {
         if (mixID.second == collision.globalIndex() && mixID.first == ndf) {
           continue;
@@ -3114,7 +3113,7 @@ struct Photonhbt {
         if (diffBC < mixing.ndiffBCMix) {
           continue;
         }
-        auto poolPhotons = emh1->GetTracksPerCollision(mixID);
+        const auto& poolPhotons = emh1->GetTracksPerCollision(mixID);
         for (const auto& g1 : selectedPhotons) {
           for (const auto& g2 : poolPhotons) {
             if (!passAsymmetryCut(g1.pt(), g2.pt())) {

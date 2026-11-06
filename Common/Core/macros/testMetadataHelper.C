@@ -46,7 +46,7 @@
 auto readMetadata(std::unique_ptr<TFile>& currentFile) -> std::vector<o2::framework::ConfigParamSpec>
 {
   // Get the metadata, if any
-  auto m = (TMap*)currentFile->Get("metaData");
+  auto m = dynamic_cast<TMap*>(currentFile->Get("metaData"));
   if (!m) {
     return {};
   }
@@ -60,7 +60,7 @@ auto readMetadata(std::unique_ptr<TFile>& currentFile) -> std::vector<o2::framew
       LOGP(info, "Metadata for file \"{}\":", currentFile->GetName());
       first = false;
     }
-    auto objString = (TObjString*)m->GetValue(obj);
+    auto objString = dynamic_cast<TObjString*>(m->GetValue(obj));
     std::string key = "aod-metadata-" + std::string(obj->GetName());
     LOGP(info, "- {}: {} goes into key {}", obj->GetName(), objString->String().Data(), key);
     char const* value = strdup(objString->String());

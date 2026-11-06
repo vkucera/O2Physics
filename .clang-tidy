@@ -151,6 +151,10 @@ Checks:
 # Positives for the following checks are currently being fixed and should be reported as errors.
 # clang-analyzer-*
 # clang-diagnostic-*
+# cppcoreguidelines-pro-type-const-cast
+# cppcoreguidelines-pro-type-cstyle-cast
+# cppcoreguidelines-pro-type-reinterpret-cast
+# cppcoreguidelines-pro-type-static-cast-downcast
 # google-default-arguments
 # misc-include-cleaner
 # misc-redundant-expression
